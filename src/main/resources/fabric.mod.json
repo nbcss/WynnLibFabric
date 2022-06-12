@@ -8,7 +8,7 @@
     "nbcss"
   ],
   "contact": {
-    "sources": "https://example.com/"
+    "sources": "https://github.com/nbcss/WynnLibFabric"
   },
   "license": "The Unlicense",
   "icon": "assets/wynnlib/icon.png",
