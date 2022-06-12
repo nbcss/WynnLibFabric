@@ -5,24 +5,24 @@
   "name": "WynnLibFabric",
   "description": "Item library for wynncraft",
   "authors": [
-    "Author"
+    "nbcss"
   ],
   "contact": {
     "sources": "https://example.com/"
   },
   "license": "The Unlicense",
-  "icon": "assets/mod_name/icon.png",
+  "icon": "assets/wynnlib/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
       {
         "adapter": "kotlin",
-        "value": "com.mod_author.mod_id.ModName"
+        "value": "io.github.nbcss.wynnlib.WynnLib"
       }
     ]
   },
   "mixins": [
-    "mod_id.mixins.json"
+    "wynnlib.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.13.3",
