@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "wynnlib",
+  "version": "${version}",
+  "name": "WynnLibFabric",
+  "description": "Item library for wynncraft",
+  "authors": [
+    "Author"
+  ],
+  "contact": {
+    "sources": "https://example.com/"
+  },
+  "license": "The Unlicense",
+  "icon": "assets/mod_name/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.mod_author.mod_id.ModName"
+      }
+    ]
+  },
+  "mixins": [
+    "mod_id.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.7.4+kotlin.1.6.21",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  }
+}
