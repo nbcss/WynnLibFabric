@@ -1,3 +1,2 @@
-WynnLib
-
-A fabric mod that adding wynncraft item library.
+# WynnLibFabric
+A fabric mod that adding Wynncraft item library. 
