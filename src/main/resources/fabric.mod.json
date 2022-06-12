@@ -3,7 +3,7 @@
   "id": "wynnlib",
   "version": "${version}",
   "name": "WynnLibFabric",
-  "description": "Item library for wynncraft",
+  "description": "Item library for Wynncraft",
   "authors": [
     "nbcss"
   ],
@@ -17,7 +17,7 @@
     "main": [
       {
         "adapter": "kotlin",
-        "value": "io.github.nbcss.wynnlib.WynnLib"
+        "value": "io.github.nbcss.wynnlib.WynnLibEntry"
       }
     ]
   },
