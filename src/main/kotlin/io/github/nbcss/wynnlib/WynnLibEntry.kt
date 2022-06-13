@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib
 
+import io.github.nbcss.wynnlib.gui.EquipmentDictScreen
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -25,7 +26,7 @@ object WynnLibEntry: ModInitializer {
         )
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (openHandbook.wasPressed()) {
-                it.player?.sendMessage(LiteralText("Key 1 was pressed!"), false)
+                it.setScreen(EquipmentDictScreen())
             }
         })
     }
