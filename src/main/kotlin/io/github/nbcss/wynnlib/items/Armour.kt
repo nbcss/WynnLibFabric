@@ -1,4 +1,6 @@
-package io.github.nbcss.wynnlib.data
+package io.github.nbcss.wynnlib.items
+
+import io.github.nbcss.wynnlib.data.Element
 
 interface Armour {
     /**

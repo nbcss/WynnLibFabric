@@ -1,4 +1,7 @@
-package io.github.nbcss.wynnlib.data
+package io.github.nbcss.wynnlib.items
+
+import io.github.nbcss.wynnlib.data.AttackSpeed
+import io.github.nbcss.wynnlib.data.Element
 
 interface Weapon {
     /**
@@ -15,4 +18,6 @@ interface Weapon {
      * @return the element damage range of the given element.
      */
     fun getElementDamage(elem: Element): IntRange
+    
+    fun getAttackSpeed(): AttackSpeed
 }

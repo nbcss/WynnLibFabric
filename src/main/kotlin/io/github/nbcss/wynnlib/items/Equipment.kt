@@ -1,5 +1,7 @@
-package io.github.nbcss.wynnlib.data
+package io.github.nbcss.wynnlib.items
 
+import io.github.nbcss.wynnlib.data.Identification
+import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.utils.BaseItem
 import io.github.nbcss.wynnlib.utils.Keyed
 
@@ -18,6 +20,8 @@ interface Equipment : Keyed, BaseItem {
      * @return the range of the given identification
      */
     fun getIdentification(id: Identification): IntRange
+
+    fun getLevel(): IntRange
 
     /**
      * Convert the Equipment to a Weapon instance.
