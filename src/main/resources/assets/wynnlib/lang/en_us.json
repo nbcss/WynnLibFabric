@@ -1,4 +1,25 @@
 {
-  "category.wynnlib.keys": "WynnLib Keybindings",
-  "key.wynnlib.handbook": "Open Handbook"
+  "wynnlib.category.keys": "WynnLib Keybindings",
+  "wynnlib.key.handbook": "Open Handbook",
+  "wynnlib.ui.equipments": "§aEquipments",
+  "wynnlib.tier.mythic": "Mythic",
+  "wynnlib.tier.fabled": "Fabled",
+  "wynnlib.tier.legendary": "Legendary",
+  "wynnlib.tier.rare": "Rare",
+  "wynnlib.tier.unique": "Unique",
+  "wynnlib.tier.set": "Set",
+  "wynnlib.tier.normal": "Normal",
+  "wynnlib.tier.crafted": "Crafted",
+  "wynnlib.id.damage_bonus_raw": "§6✣ Neutral §7Main Damage",
+  "wynnlib.id.spell_damage_raw": "§6✣ Neutral §7Spell Damage",
+  "wynnlib.id.bonus_fire_damage": "§c✹ Fire §7Damage",
+  "wynnlib.id.bonus_water_damage": "§b❉ Water §7Damage",
+  "wynnlib.id.bonus_air_damage": "§f❋ Air §7Damage",
+  "wynnlib.id.bonus_thunder_damage": "§e✦ Thunder §7Damage",
+  "wynnlib.id.bonus_earth_damage": "§2✤ Earth §7Damage",
+  "wynnlib.id.bonus_fire_defense": "§c✹ Fire §7Defence",
+  "wynnlib.id.bonus_water_defense": "§b❉ Water §7Defence",
+  "wynnlib.id.bonus_air_defense": "§f❋ Air §7Defence",
+  "wynnlib.id.bonus_thunder_defense": "§e✦ Thunder §7Defence",
+  "wynnlib.id.bonus_earth_defense": "§2✤ Earth §7Defence"
 }

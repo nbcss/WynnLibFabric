@@ -4,10 +4,10 @@ import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.utils.BaseItem
 import net.minecraft.client.render.GameRenderer
 import net.minecraft.client.util.math.MatrixStack
-import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class DictionaryScreen<T: BaseItem>(s: String) : HandbookTabScreen(LiteralText(s)) {
+abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(title) {
     private val slots = Identifier("wynnlib", "textures/gui/dictionary_slots.png")
     protected val items: MutableList<T> = ArrayList()
     protected abstract fun fetchItems(): Collection<T>
