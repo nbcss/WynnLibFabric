@@ -1,0 +1,527 @@
+{
+  "version": "1.0.0",
+  "tiers": [
+    {
+      "name": "Mythic",
+      "prefix": "§5",
+      "displayName": "§5Mythic Item",
+      "translateKey": "wynnlib.tier.mythic",
+      "priceBase": 90,
+      "priceCoefficient": 18
+    },
+    {
+      "name": "Fabled",
+      "prefix": "§c",
+      "displayName": "§cFabled Item",
+      "translateKey": "wynnlib.tier.fabled",
+      "priceBase": 16,
+      "priceCoefficient": 8
+    },
+    {
+      "name": "Legendary",
+      "prefix": "§b",
+      "displayName": "§bLegendary Item",
+      "translateKey": "wynnlib.tier.legendary",
+      "priceBase": 12,
+      "priceCoefficient": 4.5
+    },
+    {
+      "name": "Rare",
+      "prefix": "§d",
+      "displayName": "§dRare Item",
+      "translateKey": "wynnlib.tier.rare",
+      "priceBase": 8,
+      "priceCoefficient": 1.2
+    },
+    {
+      "name": "Unique",
+      "prefix": "§e",
+      "displayName": "§eUnique Item",
+      "translateKey": "wynnlib.tier.unique",
+      "priceBase": 3,
+      "priceCoefficient": 0.5
+    },
+    {
+      "name": "Set",
+      "prefix": "§a",
+      "displayName": "§aSet Item",
+      "translateKey": "wynnlib.tier.set",
+      "priceBase": 8,
+      "priceCoefficient": 1.5
+    },
+    {
+      "name": "Normal",
+      "prefix": "§f",
+      "displayName": "§fNormal Item",
+      "translateKey": "wynnlib.tier.normal"
+    },
+    {
+      "name": "Crafted",
+      "prefix": "§3",
+      "displayName": "§3Crafted Item",
+      "translateKey": "wynnlib.tier.crafted"
+    }
+  ],
+  "identifications": [
+    {
+      "name": "strengthPoints",
+      "innerName": "STRENGTHPOINTS",
+      "displayName": "Strength",
+      "translateKey": "wynnlib.id.strength",
+      "suffix": "",
+      "constant": true
+    },
+    {
+      "name": "dexterityPoints",
+      "innerName": "DEXTERITYPOINTS",
+      "displayName": "Dexterity",
+      "translateKey": "wynnlib.id.dexterity",
+      "suffix": "",
+      "constant": true
+    },
+    {
+      "name": "intelligencePoints",
+      "innerName": "INTELLIGENCEPOINTS",
+      "displayName": "Intelligence",
+      "translateKey": "wynnlib.id.intelligence",
+      "suffix": "",
+      "constant": true
+    },
+    {
+      "name": "defensePoints",
+      "innerName": "DEFENSEPOINTS",
+      "displayName": "Defence",
+      "translateKey": "wynnlib.id.defense",
+      "suffix": "",
+      "constant": true
+    },
+    {
+      "name": "agilityPoints",
+      "innerName": "AGILITYPOINTS",
+      "displayName": "Agility",
+      "translateKey": "wynnlib.id.agility",
+      "suffix": "",
+      "constant": true
+    },
+    {
+      "name": "attackSpeedBonus",
+      "innerName": "ATTACKSPEED",
+      "displayName": "Attack Speed",
+      "translateKey": "wynnlib.id.attack_speed",
+      "suffix": " tier"
+    },
+    {
+      "name": "manaRegen",
+      "innerName": "MANAREGEN",
+      "displayName": "Mana Regen",
+      "translateKey": "wynnlib.id.mana_regen",
+      "suffix": "/5s"
+    },
+    {
+      "name": "manaSteal",
+      "innerName": "MANASTEAL",
+      "displayName": "Mana Steal",
+      "translateKey": "wynnlib.id.mana_steal",
+      "suffix": "/3s"
+    },
+    {
+      "name": "poison",
+      "innerName": "POISON",
+      "displayName": "Poison",
+      "translateKey": "wynnlib.id.poison",
+      "suffix": "/3s"
+    },
+    {
+      "name": "exploding",
+      "innerName": "EXPLODING",
+      "displayName": "Exploding",
+      "translateKey": "wynnlib.id.exploding",
+      "suffix": "%"
+    },
+    {
+      "name": "damageBonus",
+      "innerName": "DAMAGEBONUS",
+      "displayName": "Main Attack Damage",
+      "translateKey": "wynnlib.id.damage_bonus",
+      "suffix": "%"
+    },
+    {
+      "name": "damageBonusRaw",
+      "innerName": "DAMAGEBONUSRAW",
+      "displayName": "Main Attack Neutral Damage",
+      "translateKey": "wynnlib.id.damage_bonus_raw",
+      "suffix": ""
+    },
+    {
+      "name": "spellDamage",
+      "innerName": "SPELLDAMAGE",
+      "displayName": "Spell Damage",
+      "translateKey": "wynnlib.id.spell_damage",
+      "suffix": "%"
+    },
+    {
+      "name": "spellDamageRaw",
+      "innerName": "SPELLDAMAGERAW",
+      "displayName": "Neutral Spell Damage",
+      "translateKey": "wynnlib.id.spell_damage_raw",
+      "suffix": ""
+    },
+    {
+      "name": "rainbowSpellDamageRaw",
+      "innerName": "RAINBOWSPELLDAMAGERAW",
+      "displayName": "Rainbow Spell Damage",
+      "translateKey": "wynnlib.id.rainbow_spell_damage_raw",
+      "suffix": ""
+    },
+    {
+      "name": "healthBonus",
+      "innerName": "HEALTHBONUS",
+      "displayName": "Health",
+      "translateKey": "wynnlib.id.health_bonus",
+      "suffix": ""
+    },
+    {
+      "name": "healthRegenRaw",
+      "innerName": "HEALTHREGENRAW",
+      "displayName": "Health Regen",
+      "translateKey": "wynnlib.id.health_regen_raw",
+      "suffix": ""
+    },
+    {
+      "name": "healthRegen",
+      "innerName": "HEALTHREGEN",
+      "displayName": "Health Regen",
+      "translateKey": "wynnlib.id.health_regen",
+      "suffix": "%"
+    },
+    {
+      "name": "lifeSteal",
+      "innerName": "LIFESTEAL",
+      "displayName": "Life Steal",
+      "translateKey": "wynnlib.id.life_steal",
+      "suffix": "/3s"
+    },
+    {
+      "name": "thorns",
+      "innerName": "THORNS",
+      "displayName": "Thorns",
+      "translateKey": "wynnlib.id.thorns",
+      "suffix": "%"
+    },
+    {
+      "name": "reflection",
+      "innerName": "REFLECTION",
+      "displayName": "Reflection",
+      "translateKey": "wynnlib.id.reflection",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusFireDamage",
+      "innerName": "FIREDAMAGEBONUS",
+      "displayName": "Fire Damage",
+      "translateKey": "wynnlib.id.bonus_fire_damage",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusWaterDamage",
+      "innerName": "WATERDAMAGEBONUS",
+      "displayName": "Water Damage",
+      "translateKey": "wynnlib.id.bonus_water_damage",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusAirDamage",
+      "innerName": "AIRDAMAGEBONUS",
+      "displayName": "Air Damage",
+      "translateKey": "wynnlib.id.bonus_air_damage",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusThunderDamage",
+      "innerName": "THUNDERDAMAGEBONUS",
+      "displayName": "Thunder Damage",
+      "translateKey": "wynnlib.id.bonus_thunder_damage",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusEarthDamage",
+      "innerName": "EARTHDAMAGEBONUS",
+      "displayName": "Earth Damage",
+      "translateKey": "wynnlib.id.bonus_earth_damage",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusFireDefense",
+      "innerName": "FIREDEFENSE",
+      "displayName": "Fire Defence",
+      "translateKey": "wynnlib.id.bonus_fire_defense",
+      "group": "element_defence",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusWaterDefense",
+      "innerName": "WATERDEFENSE",
+      "displayName": "Water Defence",
+      "translateKey": "wynnlib.id.bonus_water_defense",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusAirDefense",
+      "innerName": "AIRDEFENSE",
+      "displayName": "Air Defence",
+      "translateKey": "wynnlib.id.bonus_air_defense",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusThunderDefense",
+      "innerName": "THUNDERDEFENSE",
+      "displayName": "Thunder Defence",
+      "translateKey": "wynnlib.id.bonus_thunder_defense",
+      "suffix": "%"
+    },
+    {
+      "name": "bonusEarthDefense",
+      "innerName": "EARTHDEFENSE",
+      "displayName": "Earth Defence",
+      "translateKey": "wynnlib.id.bonus_earth_defense",
+      "suffix": "%"
+    },
+    {
+      "name": "speed",
+      "innerName": "SPEED",
+      "displayName": "Walk Speed",
+      "translateKey": "wynnlib.id.speed",
+      "suffix": "%"
+    },
+    {
+      "name": "jumpHeight",
+      "innerName": "JUMP_HEIGHT",
+      "displayName": "Jump Height",
+      "translateKey": "wynnlib.id.jump_height",
+      "suffix": ""
+    },
+    {
+      "name": "sprint",
+      "innerName": "STAMINA",
+      "displayName": "Sprint",
+      "translateKey": "wynnlib.id.sprint",
+      "suffix": "%"
+    },
+    {
+      "name": "sprintRegen",
+      "innerName": "STAMINA_REGEN",
+      "displayName": "Sprint Regen",
+      "translateKey": "wynnlib.id.sprint_regen",
+      "suffix": "%"
+    },
+    {
+      "name": "xpBonus",
+      "innerName": "XPBONUS",
+      "displayName": "XP Bonus",
+      "translateKey": "wynnlib.id.xp_bonus",
+      "suffix": "%"
+    },
+    {
+      "name": "lootBonus",
+      "innerName": "LOOTBONUS",
+      "displayName": "Loot Bonus",
+      "translateKey": "wynnlib.id.loot_bonus",
+      "suffix": "%"
+    },
+    {
+      "name": "lootQuality",
+      "innerName": "LOOT_QUALITY",
+      "displayName": "Loot Quality",
+      "translateKey": "wynnlib.id.loot_quality",
+      "suffix": "%"
+    },
+    {
+      "name": "gatherXpBonus",
+      "innerName": "GATHER_XP_BONUS",
+      "displayName": "Gather XP Bonus",
+      "translateKey": "wynnlib.id.gather_xp_bonus",
+      "suffix": "%"
+    },
+    {
+      "name": "gatherSpeed",
+      "innerName": "GATHER_SPEED",
+      "displayName": "Gather Speed",
+      "translateKey": "wynnlib.id.gather_speed",
+      "suffix": "%"
+    },
+    {
+      "name": "emeraldStealing",
+      "innerName": "EMERALDSTEALING",
+      "displayName": "Stealing",
+      "translateKey": "wynnlib.id.stealing",
+      "suffix": "%"
+    },
+    {
+      "name": "soulPoints",
+      "innerName": "SOULPOINTS",
+      "displayName": "Soul Point Regen",
+      "translateKey": "wynnlib.id.soul_points_regen",
+      "suffix": "%"
+    },
+    {
+      "name": "spellCostRaw1",
+      "innerName": "SPELL_COST_RAW_1",
+      "displayName": "1st Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_raw_1",
+      "alias": [
+        "Heal Cost",
+        "Arrow Storm Cost",
+        "Bash Cost",
+        "Spin Attack Cost",
+        "Totem Cost",
+        "Remedy Cost",
+        "Bolt Blizzard Cost",
+        "Holy Blast Cost",
+        "Whirlwind Cost",
+        "Sky Emblem Cost"
+      ],
+      "suffix": "",
+      "inverted": true
+    },
+    {
+      "name": "spellCostRaw2",
+      "innerName": "SPELL_COST_RAW_2",
+      "displayName": "2nd Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_raw_2",
+      "alias": [
+        "Teleport Cost",
+        "Escape Cost",
+        "Charge Cost",
+        "Vanish Cost",
+        "Haul Cost",
+        "Blink Cost",
+        "Spider Jump Cost",
+        "Leap Cost",
+        "Shadow Clone Cost",
+        "Soar Cost"
+      ],
+      "suffix": "",
+      "inverted": true
+    },
+    {
+      "name": "spellCostRaw3",
+      "innerName": "SPELL_COST_RAW_3",
+      "displayName": "3rd Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_raw_3",
+      "alias": [
+        "Meteor Cost",
+        "Bomb Cost",
+        "Uppercut Cost",
+        "Multi Hit Cost",
+        "Aura Cost",
+        "Dead Star Cost",
+        "Creeper Dart Cost",
+        "Heaven Jolt Cost",
+        "Leopard Punches Cost",
+        "Wind Surge Cost"
+      ],
+      "suffix": "",
+      "inverted": true
+    },
+    {
+      "name": "spellCostRaw4",
+      "innerName": "SPELL_COST_RAW_4",
+      "displayName": "4th Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_raw_4",
+      "alias": [
+        "Ice Snake Cost",
+        "Arrow Shield Cost",
+        "War Scream Cost",
+        "Smoke Bomb Cost",
+        "Uproot Cost",
+        "Crystal Reptile Cost",
+        "Dagger Aura Cost",
+        "Cry of the Gods Cost",
+        "Blinding Cloud Cost",
+        "Gale Funnel Cost"
+      ],
+      "suffix": "",
+      "inverted": true
+    },
+    {
+      "name": "spellCostPct1",
+      "innerName": "SPELL_COST_PCT_1",
+      "displayName": "1st Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_pct_1",
+      "alias": [
+        "Heal Cost",
+        "Arrow Storm Cost",
+        "Bash Cost",
+        "Spin Attack Cost",
+        "Totem Cost",
+        "Remedy Cost",
+        "Bolt Blizzard Cost",
+        "Holy Blast Cost",
+        "Whirlwind Cost",
+        "Sky Emblem Cost"
+      ],
+      "suffix": "%",
+      "inverted": true
+    },
+    {
+      "name": "spellCostPct2",
+      "innerName": "SPELL_COST_PCT_2",
+      "displayName": "2nd Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_pct_2",
+      "alias": [
+        "Teleport Cost",
+        "Escape Cost",
+        "Charge Cost",
+        "Vanish Cost",
+        "Haul Cost",
+        "Blink Cost",
+        "Spider Jump Cost",
+        "Leap Cost",
+        "Shadow Clone Cost",
+        "Soar Cost"
+      ],
+      "suffix": "%",
+      "inverted": true
+    },
+    {
+      "name": "spellCostPct3",
+      "innerName": "SPELL_COST_PCT_3",
+      "displayName": "3rd Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_pct_3",
+      "alias": [
+        "Meteor Cost",
+        "Bomb Cost",
+        "Uppercut Cost",
+        "Multi Hit Cost",
+        "Aura Cost",
+        "Dead Star Cost",
+        "Creeper Dart Cost",
+        "Heaven Jolt Cost",
+        "Leopard Punches Cost",
+        "Wind Surge Cost"
+      ],
+      "suffix": "%",
+      "inverted": true
+    },
+    {
+      "name": "spellCostPct4",
+      "innerName": "SPELL_COST_PCT_4",
+      "displayName": "4th Spell Cost",
+      "translateKey": "wynnlib.id.spell_cost_pct_4",
+      "alias": [
+        "Ice Snake Cost",
+        "Arrow Shield Cost",
+        "War Scream Cost",
+        "Smoke Bomb Cost",
+        "Uproot Cost",
+        "Crystal Reptile Cost",
+        "Dagger Aura Cost",
+        "Cry of the Gods Cost",
+        "Blinding Cloud Cost",
+        "Gale Funnel Cost"
+      ],
+      "suffix": "%",
+      "inverted": true
+    }
+  ]
+}

@@ -1,13 +1,16 @@
 package io.github.nbcss.wynnlib
 
+import com.google.gson.JsonParser
+import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.gui.EquipmentDictScreen
+import io.github.nbcss.wynnlib.utils.getResource
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.minecraft.client.option.KeyBinding
 import net.minecraft.client.util.InputUtil
-import net.minecraft.text.LiteralText
 import org.lwjgl.glfw.GLFW
+import java.io.InputStreamReader
 
 
 @Suppress("UNUSED")
@@ -15,7 +18,13 @@ object WynnLibEntry: ModInitializer {
     private const val MOD_ID = "wynnlib"
 
     override fun onInitialize() {
-        //println("Example mod has been initialized.")
+        //Reload metadata
+        val metadata = JsonParser.parseReader(InputStreamReader(
+            getResource("assets/wynnlib/data/Metadata.json")!!))
+        Metadata.reload(metadata.asJsonObject)
+        //Load database
+
+        //Register keybindings
         val openHandbook = KeyBindingHelper.registerKeyBinding(
             KeyBinding(
                 "key.wynnlib.handbook",

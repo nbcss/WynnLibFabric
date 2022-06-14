@@ -5,40 +5,38 @@ import io.github.nbcss.wynnlib.utils.Version
 import java.util.function.Consumer
 
 object Metadata {
-    private val tiers: MutableMap<String, Tier> = LinkedHashMap()
-    private val ids: MutableMap<String, Identification> = LinkedHashMap()
+    private val tierMap: MutableMap<String, Tier> = LinkedHashMap()
+    private val idMap: MutableMap<String, Identification> = LinkedHashMap()
     private var version: Version? = null
 
     fun reload(json: JsonObject) {
         val ver = Version(json.get("version").asString)
         //skip reload if currently have newer version
-        if(version != null && version!! > ver){
-            return
-        }
+        if(version != null && version!! > ver) return
         //reload tiers
-        tiers.clear()
+        tierMap.clear()
         json.get("tiers").asJsonArray.forEach(Consumer {
             val tier = Tier(it.asJsonObject)
-            tiers[tier.getKey()] = tier
+            tierMap[tier.getKey()] = tier
         })
         //reload identifications
-        ids.clear()
+        idMap.clear()
         json.get("identifications").asJsonArray.forEach(Consumer {
             val id = Identification(it.asJsonObject)
-            ids[id.getKey()] = id
+            idMap[id.getKey()] = id
         })
         version = ver
     }
 
     fun asIdentification(name: String): Identification? {
-        return ids[name]
+        return idMap[name]
     }
 
-    fun asTier(name: String): Tier {
-        return tiers.getOrDefault(name, Tier(name))
+    fun asTier(name: String): Tier? {
+        return tierMap[name]
     }
 
     fun getIdentifications(): List<Identification> {
-        return ids.values.toList()
+        return idMap.values.toList()
     }
 }
