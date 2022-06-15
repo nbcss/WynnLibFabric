@@ -7,14 +7,14 @@ import kotlin.math.ceil
 data class Tier(val name: String,
                 val prefix: String,
                 val displayName: String,
-                val translateKey: String,
+                val translationKey: String,
                 val priceBase: Double?,
                 val priceCoefficient: Double?): Keyed {
     constructor(json: JsonObject) : this(
         json.get("name").asString,
         json.get("prefix").asString,
         json.get("displayName").asString,
-        json.get("translateKey").asString,
+        json.get("translationKey").asString,
         if(json.has("priceBase")) json.get("priceBase").asDouble else null,
         if(json.has("priceCoefficient")) json.get("priceCoefficient").asDouble else null)
 
