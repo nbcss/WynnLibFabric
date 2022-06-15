@@ -567,5 +567,438 @@
       "speed": 4.3,
       "color": "0,255,0"
     }
+  ],
+  "elements": [
+    {
+      "name": "fire",
+      "displayName": "§c✹ Fire",
+      "damageName": "fireDamage",
+      "defenceName": "fireDefense",
+      "damageBonusName": "bonusFireDamage",
+      "defenceBonusName": "bonusFireDefense"
+    },
+    {
+      "name": "water",
+      "displayName": "§b❉ Water",
+      "damageName": "waterDamage",
+      "defenceName": "waterDefense",
+      "damageBonusName": "bonusWaterDamage",
+      "defenceBonusName": "bonusWaterDefense"
+    },
+    {
+      "name": "air",
+      "displayName": "§f❋ Air",
+      "damageName": "airDamage",
+      "defenceName": "airDefense",
+      "damageBonusName": "bonusAirDamage",
+      "defenceBonusName": "bonusAirDefense"
+    },
+    {
+      "name": "thunder",
+      "displayName": "§e✦ Thunder",
+      "damageName": "thunderDamage",
+      "defenceName": "thunderDefense",
+      "damageBonusName": "bonusThunderDamage",
+      "defenceBonusName": "bonusThunderDefense"
+    },
+    {
+      "name": "earth",
+      "displayName": "§2✤ Earth",
+      "damageName": "earthDamage",
+      "defenceName": "earthDefense",
+      "damageBonusName": "bonusEarthDamage",
+      "defenceBonusName": "bonusEarthDefense"
+    }
+  ],
+  "equipmentTypes": [
+    {
+      "name": "Helmet",
+      "displayName": "Helmet",
+      "recipeName": "Helmet",
+      "icon": "minecraft:diamond_helmet",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_helmet",
+        "chain": "minecraft:chainmail_helmet",
+        "iron": "minecraft:iron_helmet",
+        "golden": "minecraft:golden_helmet",
+        "diamond": "minecraft:diamond_helmet"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "name": "Chestplate",
+      "displayName": "Chestplate",
+      "recipeName": "Chestplate",
+      "icon": "minecraft:diamond_chestplate",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_chestplate",
+        "chain": "minecraft:chainmail_chestplate",
+        "iron": "minecraft:iron_chestplate",
+        "golden": "minecraft:golden_chestplate",
+        "diamond": "minecraft:diamond_chestplate"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "name": "Leggings",
+      "displayName": "Leggings",
+      "recipeName": "Pants",
+      "icon": "minecraft:diamond_leggings",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_leggings",
+        "chain": "minecraft:chainmail_leggings",
+        "iron": "minecraft:iron_leggings",
+        "golden": "minecraft:golden_leggings",
+        "diamond": "minecraft:diamond_leggings"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "name": "Boots",
+      "displayName": "Boots",
+      "recipeName": "Boots",
+      "icon": "minecraft:diamond_boots",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_boots",
+        "chain": "minecraft:chainmail_boots",
+        "iron": "minecraft:iron_boots",
+        "golden": "minecraft:golden_boots",
+        "diamond": "minecraft:diamond_boots"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "name": "Bow",
+      "displayName": "Bow",
+      "recipeName": "Bow",
+      "icon": "minecraft:bow",
+      "category": "Weapon",
+      "textures": {
+        "bow_basic_wood": "minecraft:bow",
+        "bow_basic_gold": "minecraft:bow#1",
+        "bow_earth_a": "minecraft:bow#2",
+        "bow_earth_b": "minecraft:bow#3",
+        "bow_earth_c": "minecraft:bow#4",
+        "bow_thunder_a": "minecraft:bow#5",
+        "bow_thunder_b": "minecraft:bow#6",
+        "bow_thunder_c": "minecraft:bow#7",
+        "bow_fire_a": "minecraft:bow#8",
+        "bow_fire_b": "minecraft:bow#9",
+        "bow_fire_c": "minecraft:bow#10",
+        "bow_air_a": "minecraft:bow#11",
+        "bow_air_b": "minecraft:bow#12",
+        "bow_air_c": "minecraft:bow#13",
+        "bow_water_a": "minecraft:bow#14",
+        "bow_water_b": "minecraft:bow#15",
+        "bow_water_c": "minecraft:bow#16",
+        "bow_multi_a": "minecraft:bow#17",
+        "bow_multi_b": "minecraft:bow#18",
+        "bow_multi_c": "minecraft:bow#19"
+      }
+    },
+    {
+      "name": "Spear",
+      "displayName": "Spear",
+      "recipeName": "Spear",
+      "icon": "minecraft:iron_shovel",
+      "category": "Weapon",
+      "textures": {
+        "spear_basic_wood": "minecraft:iron_shovel",
+        "spear_basic_gold": "minecraft:iron_shovel#1",
+        "spear_earth_a": "minecraft:iron_shovel#2",
+        "spear_earth_b": "minecraft:iron_shovel#3",
+        "spear_earth_c": "minecraft:iron_shovel#4",
+        "spear_thunder_a": "minecraft:iron_shovel#5",
+        "spear_thunder_b": "minecraft:iron_shovel#6",
+        "spear_thunder_c": "minecraft:iron_shovel#7",
+        "spear_fire_a": "minecraft:iron_shovel#8",
+        "spear_fire_b": "minecraft:iron_shovel#9",
+        "spear_fire_c": "minecraft:iron_shovel#10",
+        "spear_air_a": "minecraft:iron_shovel#11",
+        "spear_air_b": "minecraft:iron_shovel#12",
+        "spear_air_c": "minecraft:iron_shovel#13",
+        "spear_water_a": "minecraft:iron_shovel#14",
+        "spear_water_b": "minecraft:iron_shovel#15",
+        "spear_water_c": "minecraft:iron_shovel#16",
+        "spear_multi_a": "minecraft:iron_shovel#17",
+        "spear_multi_b": "minecraft:iron_shovel#18",
+        "spear_multi_c": "minecraft:iron_shovel#19"
+      }
+    },
+    {
+      "name": "Wand",
+      "displayName": "Wand",
+      "recipeName": "Wand",
+      "icon": "minecraft:stick",
+      "category": "Weapon",
+      "textures": {
+        "wand_basic_wood": "minecraft:stick",
+        "wand_basic_gold": "minecraft:wooden_shovel#1",
+        "wand_earth_a": "minecraft:wooden_shovel#2",
+        "wand_earth_b": "minecraft:wooden_shovel#3",
+        "wand_earth_c": "minecraft:wooden_shovel#4",
+        "wand_thunder_a": "minecraft:wooden_shovel#5",
+        "wand_thunder_b": "minecraft:wooden_shovel#6",
+        "wand_thunder_c": "minecraft:wooden_shovel#7",
+        "wand_fire_a": "minecraft:wooden_shovel#8",
+        "wand_fire_b": "minecraft:wooden_shovel#9",
+        "wand_fire_c": "minecraft:wooden_shovel#10",
+        "wand_air_a": "minecraft:wooden_shovel#11",
+        "wand_air_b": "minecraft:wooden_shovel#12",
+        "wand_air_c": "minecraft:wooden_shovel#13",
+        "wand_water_a": "minecraft:wooden_shovel#14",
+        "wand_water_b": "minecraft:wooden_shovel#15",
+        "wand_water_c": "minecraft:wooden_shovel#16",
+        "wand_multi_a": "minecraft:wooden_shovel#17",
+        "wand_multi_b": "minecraft:wooden_shovel#18",
+        "wand_multi_c": "minecraft:wooden_shovel#19"
+      }
+    },
+    {
+      "name": "Dagger",
+      "displayName": "Dagger",
+      "recipeName": "Dagger",
+      "icon": "minecraft:shears",
+      "category": "Weapon",
+      "textures": {
+        "dagger_basic_wood": "minecraft:shears",
+        "dagger_basic_gold": "minecraft:shears#1",
+        "dagger_earth_a": "minecraft:shears#2",
+        "dagger_earth_b": "minecraft:shears#3",
+        "dagger_earth_c": "minecraft:shears#4",
+        "dagger_thunder_a": "minecraft:shears#5",
+        "dagger_thunder_b": "minecraft:shears#6",
+        "dagger_thunder_c": "minecraft:shears#7",
+        "dagger_fire_a": "minecraft:shears#8",
+        "dagger_fire_b": "minecraft:shears#9",
+        "dagger_fire_c": "minecraft:shears#10",
+        "dagger_air_a": "minecraft:shears#11",
+        "dagger_air_b": "minecraft:shears#12",
+        "dagger_air_c": "minecraft:shears#13",
+        "dagger_water_a": "minecraft:shears#14",
+        "dagger_water_b": "minecraft:shears#15",
+        "dagger_water_c": "minecraft:shears#16",
+        "dagger_multi_a": "minecraft:shears#17",
+        "dagger_multi_b": "minecraft:shears#18",
+        "dagger_multi_c": "minecraft:shears#19"
+      }
+    },
+    {
+      "name": "Relik",
+      "displayName": "Relik",
+      "recipeName": "Relik",
+      "icon": "minecraft:stone_shovel#7",
+      "category": "Weapon",
+      "textures": {
+        "relic_basic_wooden": "minecraft:stone_shovel#7",
+        "relic_basic_gold": "minecraft:stone_shovel#8",
+        "relic_earth_a": "minecraft:stone_shovel#9",
+        "relic_earth_b": "minecraft:stone_shovel#10",
+        "relic_earth_c": "minecraft:stone_shovel#11",
+        "relic_thunder_a": "minecraft:stone_shovel#12",
+        "relic_thunder_b": "minecraft:stone_shovel#13",
+        "relic_thunder_c": "minecraft:stone_shovel#14",
+        "relic_fire_a": "minecraft:stone_shovel#15",
+        "relic_fire_b": "minecraft:stone_shovel#16",
+        "relic_fire_c": "minecraft:stone_shovel#17",
+        "relic_air_a": "minecraft:stone_shovel#18",
+        "relic_air_b": "minecraft:stone_shovel#19",
+        "relic_air_c": "minecraft:stone_shovel#20",
+        "relic_water_a": "minecraft:stone_shovel#21",
+        "relic_water_b": "minecraft:stone_shovel#22",
+        "relic_water_c": "minecraft:stone_shovel#23",
+        "relic_multi_a": "minecraft:stone_shovel#24",
+        "relic_multi_b": "minecraft:stone_shovel#25",
+        "relic_multi_c": "minecraft:stone_shovel#26"
+      }
+    },
+    {
+      "name": "Ring",
+      "displayName": "Ring",
+      "recipeName": "Ring",
+      "icon": "minecraft:flint_and_steel#2",
+      "category": "Accessory",
+      "defaultTexture": "ring_base_b",
+      "textures": {
+        "ring_base_a": "minecraft:flint_and_steel#1",
+        "ring_base_b": "minecraft:flint_and_steel#2",
+        "ring_earth_a": "minecraft:flint_and_steel#3",
+        "ring_earth_b": "minecraft:flint_and_steel#4",
+        "ring_thunder_a": "minecraft:flint_and_steel#5",
+        "ring_thunder_b": "minecraft:flint_and_steel#6",
+        "ring_fire_a": "minecraft:flint_and_steel#7",
+        "ring_fire_b": "minecraft:flint_and_steel#8",
+        "ring_air_a": "minecraft:flint_and_steel#9",
+        "ring_air_b": "minecraft:flint_and_steel#10",
+        "ring_water_a": "minecraft:flint_and_steel#11",
+        "ring_water_b": "minecraft:flint_and_steel#12",
+        "ring_multi_a": "minecraft:flint_and_steel#13",
+        "ring_multi_b": "minecraft:flint_and_steel#14",
+        "ring_special_a": "minecraft:flint_and_steel#15",
+        "ring_special_b": "minecraft:flint_and_steel#16",
+        "ring_special_c": "minecraft:flint_and_steel#17"
+      }
+    },
+    {
+      "name": "Necklace",
+      "displayName": "Necklace",
+      "recipeName": "Necklace",
+      "icon": "minecraft:flint_and_steel#19",
+      "category": "Accessory",
+      "defaultTexture": "necklace_base_b",
+      "textures": {
+        "necklace_base_a": "minecraft:flint_and_steel#18",
+        "necklace_base_b": "minecraft:flint_and_steel#19",
+        "necklace_earth_a": "minecraft:flint_and_steel#20",
+        "necklace_earth_b": "minecraft:flint_and_steel#21",
+        "necklace_thunder_a": "minecraft:flint_and_steel#22",
+        "necklace_thunder_b": "minecraft:flint_and_steel#23",
+        "necklace_fire_a": "minecraft:flint_and_steel#24",
+        "necklace_fire_b": "minecraft:flint_and_steel#25",
+        "necklace_air_a": "minecraft:flint_and_steel#26",
+        "necklace_air_b": "minecraft:flint_and_steel#27",
+        "necklace_water_a": "minecraft:flint_and_steel#28",
+        "necklace_water_b": "minecraft:flint_and_steel#29",
+        "necklace_multi_a": "minecraft:flint_and_steel#30",
+        "necklace_multi_b": "minecraft:flint_and_steel#31",
+        "necklace_special_a": "minecraft:flint_and_steel#32",
+        "necklace_special_b": "minecraft:flint_and_steel#33",
+        "necklace_special_c": "minecraft:flint_and_steel#34"
+      }
+    },
+    {
+      "name": "Bracelet",
+      "displayName": "Bracelet",
+      "recipeName": "Bracelet",
+      "icon": "minecraft:flint_and_steel#36",
+      "category": "Accessory",
+      "defaultTexture": "bracelet_base_b",
+      "textures": {
+        "bracelet_base_a": "minecraft:flint_and_steel#35",
+        "bracelet_base_b": "minecraft:flint_and_steel#36",
+        "bracelet_earth_a": "minecraft:flint_and_steel#37",
+        "bracelet_earth_b": "minecraft:flint_and_steel#38",
+        "bracelet_thunder_a": "minecraft:flint_and_steel#39",
+        "bracelet_thunder_b": "minecraft:flint_and_steel#40",
+        "bracelet_fire_a": "minecraft:flint_and_steel#41",
+        "bracelet_fire_b": "minecraft:flint_and_steel#42",
+        "bracelet_air_a": "minecraft:flint_and_steel#43",
+        "bracelet_air_b": "minecraft:flint_and_steel#44",
+        "bracelet_water_a": "minecraft:flint_and_steel#45",
+        "bracelet_water_b": "minecraft:flint_and_steel#46",
+        "bracelet_multi_a": "minecraft:flint_and_steel#47",
+        "bracelet_multi_b": "minecraft:flint_and_steel#48"
+      }
+    },
+    {
+      "name": "Mastery Tome",
+      "displayName": "Mastery Tome",
+      "icon": "minecraft:enchanted_book",
+      "category": "Mastery Tome",
+      "textures": {
+        "basic": "minecraft:enchanted_book"
+      }
+    },
+    {
+      "name": "Charm",
+      "displayName": "Charm",
+      "icon": "minecraft:totem_of_undying",
+      "category": "Charm",
+      "textures": {
+        "basic": "minecraft:totem_of_undying"
+      }
+    }
   ]
 }

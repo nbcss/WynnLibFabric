@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.utils.BaseItem
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import kotlin.math.min
 
 abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(title) {
     private val slotsBackground = Identifier("wynnlib", "textures/gui/dictionary_slots.png")
@@ -22,7 +23,12 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
         (0 until 54).forEach {
             val x = windowX + 6 + 24 * (it % 9)
             val y = windowY + 16 + 24 * (it / 9)
-            slots.add(ItemSlotWidget(x, y, items.first()))
+            val index = lineIndex * 9 + it
+            val item = if(index < items.size) items[index] else null
+            if(item != null){
+                println(item.getDisplayName())
+            }
+            slots.add(ItemSlotWidget(x, y, item))
         }
     }
 

@@ -1,15 +1,25 @@
 package io.github.nbcss.wynnlib.utils
 
+import com.mojang.datafixers.DataFixUtils
+import com.mojang.datafixers.DataFixer
+import com.mojang.datafixers.DataFixerBuilder
 import io.github.nbcss.wynnlib.WynnLibEntry
+import net.minecraft.datafixer.DataFixTypes
+import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
+import net.minecraft.datafixer.fix.ItemSpawnEggFix
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
+import net.minecraft.nbt.NbtHelper
+import net.minecraft.nbt.NbtList
+import net.minecraft.nbt.StringNbtReader
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import java.io.IOException
 
 import java.io.InputStream
+import java.util.*
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
@@ -20,20 +30,80 @@ fun asRange(text: String): IntRange = try {
     IntRange(0, 0)
 }
 
+fun asIdentificationRange(base: Int): IntRange {
+    //todo
+    return IntRange(base, base)
+}
+
+fun asColor(text: String): Int {
+    val color: Int = try {
+        val array = text.split(",").toTypedArray()
+        val r = array[0].toInt()
+        val g = array[1].toInt()
+        val b = array[2].toInt()
+        (r shl 16) + (g shl 8) + b
+    } catch (e: java.lang.Exception) {
+        return -1
+    }
+    return color
+}
+
+fun getSkullItem(skin: String?): ItemStack {
+    val stack = ItemStack(Items.PLAYER_HEAD, 1)
+    val tag = NbtCompound()
+    val owner = NbtCompound()
+    owner.putString("Id", UUID.randomUUID().toString())
+    val prop = NbtCompound()
+    val list = NbtList()
+    val texture = NbtCompound()
+    texture.putString("Value", skin)
+    list.add(texture)
+    prop.put("textures", list)
+    owner.put("Properties", prop)
+    tag.put("SkullOwner", owner)
+    stack.writeNbt(tag)
+    return stack
+}
+
 fun getItemById(id: Int, meta: Int): ItemStack {
     val item: Item = Item.byRawId(id)
     if (item != Items.AIR) {
-        //meta should write here
+        //todo meta should write here
+        //DataFix may help?
+        //ItemInstanceTheFlatteningFix
         val stack = ItemStack(item, 1)
-        var nbt = stack.orCreateNbt
+        val nbt = stack.orCreateNbt
         val tag = if (nbt.contains("tag")) nbt.getCompound("tag") else NbtCompound()
         tag.putBoolean("Unbreakable", true)
         nbt.put("tag", tag)
-        /*if (id == 383) {
-            nbt = SpawnEggNames().fixTagCompound(nbt)
-        }*/
+
+        if (id == 383) {
+            //nbt = ItemSpawnEggFix().fixTagCompound(nbt)
+        }
         stack.writeNbt(nbt)
         return stack
+    }
+    return ERROR_ITEM
+}
+
+fun getItem(name: String): ItemStack {
+    val array = name.split("#").toTypedArray()
+    val item: Item = Registry.ITEM.get(Identifier(array[0]))
+    try {
+        if (item != Items.AIR) {
+            val meta = if (array.size > 1) array[1].toInt() else 0 //fixme
+            val stack = ItemStack(item, 1)
+            val nbt = stack.orCreateNbt
+            var tag = if (nbt.contains("tag")) nbt.getCompound("tag") else NbtCompound()
+            if (array.size > 2) {
+                tag = StringNbtReader.parse(array[2])
+            }
+            tag.putBoolean("Unbreakable", true)
+            nbt.put("tag", tag)
+            stack.writeNbt(nbt)
+            return stack
+        }
+    } catch (ignore: java.lang.Exception) {
     }
     return ERROR_ITEM
 }
