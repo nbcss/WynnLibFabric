@@ -523,5 +523,49 @@
       "suffix": "%",
       "inverted": true
     }
+  ],
+  "attackSpeeds": [
+    {
+      "name": "SUPER_SLOW",
+      "displayName": "Super Slow",
+      "speed": 0.51,
+      "color": "204,0,255"
+    },
+    {
+      "name": "VERY_SLOW",
+      "displayName": "Very Slow",
+      "speed": 0.83,
+      "color": "255,0,204"
+    },
+    {
+      "name": "SLOW",
+      "displayName": "Slow",
+      "speed": 1.5,
+      "color": "255,0,0"
+    },
+    {
+      "name": "NORMAL",
+      "displayName": "Normal",
+      "speed": 2.05,
+      "color": "255,153,51"
+    },
+    {
+      "name": "FAST",
+      "displayName": "Fast",
+      "speed": 2.5,
+      "color": "255,255,0"
+    },
+    {
+      "name": "VERY_FAST",
+      "displayName": "Very Fast",
+      "speed": 3.1,
+      "color": "204,255,0"
+    },
+    {
+      "name": "SUPER_FAST",
+      "displayName": "Super Fast",
+      "speed": 4.3,
+      "color": "0,255,0"
+    }
   ]
 }

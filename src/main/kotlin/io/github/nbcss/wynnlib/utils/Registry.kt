@@ -5,33 +5,39 @@ import com.google.gson.JsonObject
 import java.util.function.Consumer
 
 abstract class Registry<T: Keyed> {
-    private val values: MutableMap<String, T> = LinkedHashMap()
+    private val itemMap: MutableMap<String, T> = LinkedHashMap()
     private var version: Version? = null
 
     protected abstract fun read(data: JsonObject): T?
 
-    fun reload(array: JsonArray, ver: Version){
+    fun reload(json: JsonObject){
+        val ver = Version(json.get("version").asString)
         //skip reload if currently have newer version
         if(version != null && version!! > ver) return
+        val array = json.get("data").asJsonArray
         reload(array)
         version = ver
     }
 
-    fun reload(array: JsonArray){
-        values.clear()
+    private fun reload(array: JsonArray){
+        itemMap.clear()
         array.forEach(Consumer {
             val item = read(it.asJsonObject)
             if (item!= null){
-                values[item.getKey()] = item
+                put(item)
             }
         })
     }
 
     fun put(item: T) {
-        values[item.getKey()] = item
+        itemMap[item.getKey()] = item
     }
 
     fun get(key: String): T? {
-        return values[key]
+        return itemMap[key]
+    }
+
+    fun getAll(): Collection<T> {
+        return itemMap.values
     }
 }

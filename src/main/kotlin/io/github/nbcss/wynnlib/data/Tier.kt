@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.data
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.utils.Keyed
+import kotlin.math.ceil
 
 data class Tier(val name: String,
                 val prefix: String,
@@ -18,4 +19,12 @@ data class Tier(val name: String,
         if(json.has("priceCoefficient")) json.get("priceCoefficient").asDouble else null)
 
     override fun getKey(): String = name
+
+    fun canIdentify(): Boolean {
+        return priceBase != null && priceCoefficient != null
+    }
+
+    fun getIdentifyPrice(level: Int): Int {
+        return if (canIdentify()) ceil(priceBase!! + level * priceCoefficient!!).toInt() else 0
+    }
 }

@@ -7,6 +7,7 @@ import java.util.function.Consumer
 object Metadata {
     private val tierMap: MutableMap<String, Tier> = LinkedHashMap()
     private val idMap: MutableMap<String, Identification> = LinkedHashMap()
+    private val atkSpeedMap: MutableMap<String, AttackSpeed> = LinkedHashMap()
     private var version: Version? = null
 
     fun reload(json: JsonObject) {
@@ -25,6 +26,12 @@ object Metadata {
             val id = Identification(it.asJsonObject)
             idMap[id.getKey()] = id
         })
+        //reload attack speed
+        atkSpeedMap.clear()
+        json.get("attackSpeeds").asJsonArray.forEach(Consumer {
+            val atkSpeed = AttackSpeed(it.asJsonObject)
+            atkSpeedMap[atkSpeed.getKey()] = atkSpeed
+        })
         version = ver
     }
 
@@ -34,6 +41,10 @@ object Metadata {
 
     fun asTier(name: String): Tier? {
         return tierMap[name]
+    }
+
+    fun asAttackSpeed(name: String): AttackSpeed? {
+        return atkSpeedMap[name]
     }
 
     fun getIdentifications(): List<Identification> {
