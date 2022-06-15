@@ -4,9 +4,7 @@ import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.utils.BaseItem
-import io.github.nbcss.wynnlib.utils.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.Keyed
-import net.minecraft.item.ItemStack
 
 interface Equipment : Keyed, BaseItem {
     /**
@@ -36,9 +34,9 @@ interface Equipment : Keyed, BaseItem {
     fun asWeapon(): Weapon?
 
     /**
-     * Convert the Equipment to a Armour instance.
+     * Convert the Equipment to a Wearable instance.
      *
-     * @return converted Armour instance, or null if the Equipment is not an armour.
+     * @return converted Wearable instance, or null if the Equipment is not wearable.
      */
-    fun asArmour(): Armour?
+    fun asWearable(): Wearable?
 }

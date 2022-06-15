@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items.standard
+package io.github.nbcss.wynnlib.items.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.EquipmentType

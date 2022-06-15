@@ -1,17 +1,10 @@
 package io.github.nbcss.wynnlib.utils
 
-import com.mojang.datafixers.DataFixUtils
-import com.mojang.datafixers.DataFixer
-import com.mojang.datafixers.DataFixerBuilder
 import io.github.nbcss.wynnlib.WynnLibEntry
-import net.minecraft.datafixer.DataFixTypes
-import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
-import net.minecraft.datafixer.fix.ItemSpawnEggFix
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
-import net.minecraft.nbt.NbtHelper
 import net.minecraft.nbt.NbtList
 import net.minecraft.nbt.StringNbtReader
 import net.minecraft.util.Identifier

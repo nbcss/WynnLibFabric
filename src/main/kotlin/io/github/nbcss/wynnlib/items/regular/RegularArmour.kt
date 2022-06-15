@@ -1,10 +1,10 @@
-package io.github.nbcss.wynnlib.items.standard
+package io.github.nbcss.wynnlib.items.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Metadata
-import io.github.nbcss.wynnlib.items.Armour
+import io.github.nbcss.wynnlib.items.Wearable
 import io.github.nbcss.wynnlib.utils.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.asColor
 import io.github.nbcss.wynnlib.utils.getItemById
@@ -16,7 +16,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
 class RegularArmour(private val parent: RegularEquipment, json: JsonObject)
-    : Armour, EquipmentContainer {
+    : Wearable, EquipmentContainer {
     private val type: EquipmentType
     private val health: Int
     private val elemDefence: MutableMap<Element, Int> = LinkedHashMap()

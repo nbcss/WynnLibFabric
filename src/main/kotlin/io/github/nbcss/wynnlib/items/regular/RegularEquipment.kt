@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items.standard
+package io.github.nbcss.wynnlib.items.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.data.Metadata.asTier
 import io.github.nbcss.wynnlib.data.Tier
-import io.github.nbcss.wynnlib.items.Armour
+import io.github.nbcss.wynnlib.items.Wearable
 import io.github.nbcss.wynnlib.items.Equipment
 import io.github.nbcss.wynnlib.items.Weapon
 import io.github.nbcss.wynnlib.utils.asIdentificationRange
@@ -72,7 +72,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
         return if(container is Weapon) container else null
     }
 
-    override fun asArmour(): Armour? {
-        return if(container is Armour) container else null
+    override fun asWearable(): Wearable? {
+        return if(container is Wearable) container else null
     }
 }

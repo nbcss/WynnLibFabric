@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.Element
 
-interface Armour {
+interface Wearable {
     /**
      * Get the health range of the armour.
      * Note: only crafted armours have health range in game.

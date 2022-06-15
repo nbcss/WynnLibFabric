@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items.standard
+package io.github.nbcss.wynnlib.items.regular
 
 import io.github.nbcss.wynnlib.data.EquipmentType
 import net.minecraft.item.ItemStack
