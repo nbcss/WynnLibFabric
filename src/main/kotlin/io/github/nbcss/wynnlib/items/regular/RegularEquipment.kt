@@ -63,7 +63,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getIcon(): ItemStack = container!!.getIcon()
 
     override fun getColor(): Int {
-        return Settings.getColor(tier.name)
+        return Settings.getColor("tier_" + tier.name)
     }
 
     override fun getTooltip(): List<Text> = container!!.getTooltip()
