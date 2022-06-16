@@ -3,9 +3,9 @@ package io.github.nbcss.wynnlib.items.regular
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.items.Wearable
 import io.github.nbcss.wynnlib.items.Equipment
 import io.github.nbcss.wynnlib.items.Weapon
+import io.github.nbcss.wynnlib.items.Wearable
 import io.github.nbcss.wynnlib.utils.IRange
 import io.github.nbcss.wynnlib.utils.asIdentificationRange
 import net.minecraft.item.ItemStack
@@ -21,6 +21,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val questReq: String?
     private val tier: Tier
     private val level: Int
+    private val powderSlots: Int
     private val container: EquipmentContainer?
     init {
         name = json.get("name").asString
@@ -30,6 +31,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
         classReq = null
         questReq = if (json.has("quest") && !json.get("quest").isJsonNull)
             json.get("quest").asString else null
+        powderSlots = if (json.has("sockets")) json.get("sockets").asInt else 0
         Skill.values().forEach{
             val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
             if(value != 0){
@@ -90,6 +92,8 @@ class RegularEquipment(json: JsonObject) : Equipment {
     }
 
     override fun getTooltip(): List<Text> = container!!.getTooltip()
+
+    override fun getPowderSlot(): Int = powderSlots
 
     override fun asWeapon(): Weapon? {
         return if(container is Weapon) container else null
