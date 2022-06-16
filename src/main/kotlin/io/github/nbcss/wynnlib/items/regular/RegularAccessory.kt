@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
-class RegularAccessory(private val parent: RegularEquipment, json: JsonObject)
-    : EquipmentContainer {
+class RegularAccessory(parent: RegularEquipment, json: JsonObject)
+    : RegularWearable(parent, json) {
     private val type: EquipmentType
     private val texture: ItemStack
 

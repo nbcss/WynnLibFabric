@@ -11,16 +11,13 @@ import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
-class RegularArmour(private val parent: RegularEquipment, json: JsonObject)
-    : Wearable, EquipmentContainer {
+class RegularArmour(parent: RegularEquipment, json: JsonObject)
+    : RegularWearable(parent, json) {
     private val type: EquipmentType
-    private val health: Int
-    private val elemDefence: MutableMap<Element, Int> = LinkedHashMap()
     private val texture: ItemStack
+
     init {
         type = EquipmentType.getEquipmentType(json.get("type").asString)
-        health = if(json.has("health")) json.get("health").asInt else 0
-        Element.values().forEach{elemDefence[it] = json.get(it.defenceName).asInt }
         if (json.has("skin")) {
             val skin: String = json.get("skin").asString
             texture = getSkullItem(skin)
@@ -54,12 +51,6 @@ class RegularArmour(private val parent: RegularEquipment, json: JsonObject)
         } else {
             texture = ERROR_ITEM
         }
-    }
-
-    override fun getHealth(): IRange = IRange(health, health)
-
-    override fun getElementDefense(elem: Element): Int {
-        return elemDefence.getOrDefault(elem, 0)
     }
 
     override fun getType(): EquipmentType = type
