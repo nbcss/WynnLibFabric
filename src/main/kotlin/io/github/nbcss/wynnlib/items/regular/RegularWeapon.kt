@@ -4,7 +4,6 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
-import io.github.nbcss.wynnlib.data.Metadata.asEquipmentType
 import io.github.nbcss.wynnlib.items.Weapon
 import io.github.nbcss.wynnlib.lang.Translator
 import io.github.nbcss.wynnlib.utils.IRange
@@ -26,7 +25,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
     private val texture: ItemStack
 
     init {
-        type = asEquipmentType(json.get("type").asString)!!
+        type = EquipmentType.getEquipmentType(json.get("type").asString)
         damage = asRange(json.get("damage").asString)
         atkSpeed = AttackSpeed.getAttackSpeed(json.get("attackSpeed").asString)
         Element.values().forEach{elemDamage[it] = asRange(json.get(it.damageName).asString)}

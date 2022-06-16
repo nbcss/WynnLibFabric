@@ -2,7 +2,6 @@ package io.github.nbcss.wynnlib.items.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.EquipmentType
-import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.utils.getItemById
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
@@ -14,7 +13,7 @@ class RegularAccessory(private val parent: RegularEquipment, json: JsonObject)
     private val texture: ItemStack
 
     init {
-        type = Metadata.asEquipmentType(json.get("accessoryType").asString)!!
+        type = EquipmentType.getEquipmentType(json.get("accessoryType").asString)
         texture = if (json.has("material") && !json.get("material").isJsonNull) {
             val material: String = json.get("material").asString
             val materials = material.split(":").toTypedArray()

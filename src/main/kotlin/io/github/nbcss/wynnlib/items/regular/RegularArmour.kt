@@ -3,7 +3,6 @@ package io.github.nbcss.wynnlib.items.regular
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
-import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.items.Wearable
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.Item
@@ -19,7 +18,7 @@ class RegularArmour(private val parent: RegularEquipment, json: JsonObject)
     private val elemDefence: MutableMap<Element, Int> = LinkedHashMap()
     private val texture: ItemStack
     init {
-        type = Metadata.asEquipmentType(json.get("type").asString)!!
+        type = EquipmentType.getEquipmentType(json.get("type").asString)
         health = if(json.has("health")) json.get("health").asInt else 0
         Element.values().forEach{elemDefence[it] = json.get(it.defenceName).asInt }
         if (json.has("skin")) {
