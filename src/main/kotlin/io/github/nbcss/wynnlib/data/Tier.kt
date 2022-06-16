@@ -7,7 +7,7 @@ import kotlin.collections.LinkedHashMap
 import kotlin.math.ceil
 
 enum class Tier(val id: String,
-                val prefix: Formatting,
+                val formatting: Formatting,
                 val displayName: String,
                 private val priceBase: Double?,
                 private val priceCoefficient: Double?): Keyed {

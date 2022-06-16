@@ -19,10 +19,12 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val displayName: String
     private val classReq: CharacterClass?
     private val questReq: String?
+    private val restriction: Restriction?
     private val tier: Tier
     private val level: Int
     private val powderSlots: Int
     private val container: EquipmentContainer?
+    private val identified: Boolean
     init {
         name = json.get("name").asString
         displayName = if (json.has("displayName")) json.get("displayName").asString else name
@@ -31,7 +33,10 @@ class RegularEquipment(json: JsonObject) : Equipment {
         classReq = null
         questReq = if (json.has("quest") && !json.get("quest").isJsonNull)
             json.get("quest").asString else null
+        restriction = if (json.has("restrictions") && !json.get("restrictions").isJsonNull)
+            Restriction.fromId(json.get("restrictions").asString) else null
         powderSlots = if (json.has("sockets")) json.get("sockets").asInt else 0
+        identified = json.has("identified") && json.get("identified").asBoolean;
         Skill.values().forEach{
             val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
             if(value != 0){
@@ -82,7 +87,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     fun getDisplayName(): String = displayName
 
     override fun getDisplayText(): Text {
-        return LiteralText(displayName).formatted(tier.prefix)
+        return LiteralText(displayName).formatted(tier.formatting)
     }
 
     override fun getIcon(): ItemStack = container!!.getIcon()
@@ -94,6 +99,10 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getTooltip(): List<Text> = container!!.getTooltip()
 
     override fun getPowderSlot(): Int = powderSlots
+
+    override fun getRestriction(): Restriction? = restriction
+
+    override fun isIdentifiable(): Boolean = getTier().canIdentify() && !identified
 
     override fun asWeapon(): Weapon? {
         return if(container is Weapon) container else null

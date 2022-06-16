@@ -67,6 +67,18 @@ interface Equipment : Keyed, BaseItem {
     fun getPowderSlot(): Int
 
     /**
+     * Get restriction of the equipment.
+     *
+     * @return restriction
+     */
+    fun getRestriction(): Restriction?
+
+    /**
+     * Check whether the item can be rerolled.
+     */
+    fun isIdentifiable(): Boolean
+
+    /**
      * Convert the Equipment to a Weapon instance.
      *
      * @return converted Weapon instance, or null if the Equipment is not a weapon.

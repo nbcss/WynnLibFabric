@@ -13,7 +13,6 @@ import io.github.nbcss.wynnlib.utils.translate
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
-import net.minecraft.text.TranslatableText
 import net.minecraft.util.Formatting
 
 class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
@@ -72,9 +71,16 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
                 tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
             }
         }
-        //append additional one empty line if no damage been added
+        //append additional one empty line if damage added
         if (tooltip.size > lastSize) tooltip.add(LiteralText(""))
         addRequirements(parent, tooltip)
+        tooltip.add(LiteralText(""))
+        //append empty line if success add any id into the tooltip
+        if (addIdentifications(parent , tooltip))
+            tooltip.add(LiteralText(""))
+        addPowderSlots(parent, tooltip)
+        addItemSuffix(parent, tooltip)
+        addRestriction(parent, tooltip)
         return tooltip
     }
 }

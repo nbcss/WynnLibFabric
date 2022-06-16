@@ -35,3 +35,32 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
         }
     }
 }
+
+fun addIdentifications(item: Equipment, tooltip: MutableList<Text>): Boolean {
+    //TODO
+    return false
+}
+
+fun addPowderSlots(item: Equipment, tooltip: MutableList<Text>) {
+    val slots = LiteralText(item.getPowderSlot().toString()).formatted(
+        if (item.getPowderSlot() >= 2) Formatting.GREEN else if
+                (item.getPowderSlot() > 0) Formatting.YELLOW else Formatting.RED)
+    tooltip.add(LiteralText("[").formatted(Formatting.GRAY)
+        .append(slots).append(LiteralText("] ").formatted(Formatting.GRAY))
+        .append(translate("wynnlib.tooltip.powder_slots").formatted(Formatting.GRAY)))
+}
+
+fun addItemSuffix(item: Equipment, tooltip: MutableList<Text>) {
+    val tier = Translator.asText("tier", item.getTier().getKey()).formatted(item.getTier().formatting)
+    val type = Translator.asText("item_type", item.getType().getKey()).formatted(item.getTier().formatting)
+    if(item.isIdentifiable()){
+        //todo add id price
+    }
+    tooltip.add(tier.append(LiteralText(" ").append(type)))
+}
+
+fun addRestriction(item: Equipment, tooltip: MutableList<Text>) {
+    if (item.getRestriction() != null){
+        tooltip.add(Translator.asText("restriction", item.getRestriction()!!.getKey()).formatted(Formatting.RED))
+    }
+}

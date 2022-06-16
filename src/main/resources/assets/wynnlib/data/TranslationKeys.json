@@ -12,6 +12,11 @@
     },
     {
       "prefix": "tier",
+      "key": "legendary",
+      "translation": "wynnlib.tier.legendary"
+    },
+    {
+      "prefix": "tier",
       "key": "rare",
       "translation": "wynnlib.tier.rare"
     },
@@ -34,6 +39,66 @@
       "prefix": "tier",
       "key": "crafted",
       "translation": "wynnlib.tier.crafted"
+    },
+    {
+      "prefix": "item_type",
+      "key": "bow",
+      "translation": "wynnlib.item_type.bow"
+    },
+    {
+      "prefix": "item_type",
+      "key": "spear",
+      "translation": "wynnlib.item_type.spear"
+    },
+    {
+      "prefix": "item_type",
+      "key": "wand",
+      "translation": "wynnlib.item_type.wand"
+    },
+    {
+      "prefix": "item_type",
+      "key": "dagger",
+      "translation": "wynnlib.item_type.dagger"
+    },
+    {
+      "prefix": "item_type",
+      "key": "relik",
+      "translation": "wynnlib.item_type.relik"
+    },
+    {
+      "prefix": "item_type",
+      "key": "helmet",
+      "translation": "wynnlib.item_type.helmet"
+    },
+    {
+      "prefix": "item_type",
+      "key": "chestplate",
+      "translation": "wynnlib.item_type.chestplate"
+    },
+    {
+      "prefix": "item_type",
+      "key": "leggings",
+      "translation": "wynnlib.item_type.leggings"
+    },
+    {
+      "prefix": "item_type",
+      "key": "boots",
+      "translation": "wynnlib.item_type.boots"
+    },
+    {
+      "prefix": "item_type",
+      "key": "ring",
+      "translation": "wynnlib.item_type.ring"
+    },
+    {
+      "prefix": "item_type",
+      "key": "necklace",
+      "translation": "wynnlib.item_type.necklace"
+    },
+    {
+      "prefix": "item_type",
+      "key": "bracelet",
+      "translation": "wynnlib.item_type.bracelet"
     },
     {
       "prefix": "attack_speed",
@@ -154,6 +219,21 @@
       "prefix": "class",
       "key": "shaman",
       "translation": "wynnlib.class.shaman"
+    },
+    {
+      "prefix": "restriction",
+      "key": "quest_item",
+      "translation": "wynnlib.restriction.quest_item"
+    },
+    {
+      "prefix": "restriction",
+      "key": "untradable",
+      "translation": "wynnlib.restriction.untradable"
+    },
+    {
+      "prefix": "restriction",
+      "key": "soulbound",
+      "translation": "wynnlib.restriction.soulbound"
     }
   ],
   "version": "1.0.0"

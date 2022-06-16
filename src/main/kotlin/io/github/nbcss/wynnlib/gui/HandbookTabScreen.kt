@@ -27,6 +27,7 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
     }
 
     open fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        renderBackground(matrices)
         this.renderTexture(
             matrices, background, windowX, windowY, 0, 0,
             backgroundWidth, backgroundHeight
