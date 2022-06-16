@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.translate
 import net.minecraft.text.TranslatableText
+import java.util.*
 
 class TranslationKey(json: JsonObject): Keyed {
     private val entryKey: String
@@ -13,7 +14,7 @@ class TranslationKey(json: JsonObject): Keyed {
         val key = json.get("key").asString
         val label = if(json.has("label")) json.get("label").asString else null
         entryKey = asKey(prefix, key, label)
-        translationKey = json.get("translationKey").asString
+        translationKey = json.get("translation").asString
     }
     override fun getKey(): String = entryKey
 
@@ -23,5 +24,5 @@ class TranslationKey(json: JsonObject): Keyed {
 }
 
 fun asKey(prefix: String, key: String, label: String?): String{
-    return "$prefix.$key" + (if(label == null) "" else (".$label"))
+    return ("$prefix.$key" + if(label == null) "" else (".$label")).lowercase(Locale.getDefault())
 }

@@ -36,6 +36,41 @@
       "translation": "wynnlib.tier.crafted"
     },
     {
+      "prefix": "attack_speed",
+      "key": "super_slow",
+      "translation": "wynnlib.attack_speed.super_slow"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "very_slow",
+      "translation": "wynnlib.attack_speed.very_slow"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "slow",
+      "translation": "wynnlib.attack_speed.slow"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "normal",
+      "translation": "wynnlib.attack_speed.normal"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "fast",
+      "translation": "wynnlib.attack_speed.fast"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "very_fast",
+      "translation": "wynnlib.attack_speed.very_fast"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "super_fast",
+      "translation": "wynnlib.attack_speed.super_fast"
+    },
+    {
       "prefix": "element",
       "key": "fire",
       "label": "tooltip.damage",
@@ -64,6 +99,36 @@
       "key": "earth",
       "label": "tooltip.damage",
       "translation": "wynnlib.tooltip.earth_damage"
+    },
+    {
+      "prefix": "skill",
+      "key": "strength",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.str"
+    },
+    {
+      "prefix": "skill",
+      "key": "dexterity",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.dex"
+    },
+    {
+      "prefix": "skill",
+      "key": "intelligence",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.int"
+    },
+    {
+      "prefix": "skill",
+      "key": "defense",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.def"
+    },
+    {
+      "prefix": "skill",
+      "key": "agility",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.agi"
     }
   ],
   "version": "1.0.0"

@@ -2,11 +2,7 @@ package io.github.nbcss.wynnlib.items.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.data.EquipmentType
-import io.github.nbcss.wynnlib.data.Identification
-import io.github.nbcss.wynnlib.data.Metadata
-import io.github.nbcss.wynnlib.data.Metadata.asTier
-import io.github.nbcss.wynnlib.data.Tier
+import io.github.nbcss.wynnlib.data.*
 import io.github.nbcss.wynnlib.items.Wearable
 import io.github.nbcss.wynnlib.items.Equipment
 import io.github.nbcss.wynnlib.items.Weapon
@@ -15,10 +11,10 @@ import io.github.nbcss.wynnlib.utils.asIdentificationRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
-import java.util.function.Consumer
 
 class RegularEquipment(json: JsonObject) : Equipment {
     private val idMap: MutableMap<Identification, Int> = LinkedHashMap()
+    private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String
     private val displayName: String
     private val tier: Tier
@@ -27,13 +23,19 @@ class RegularEquipment(json: JsonObject) : Equipment {
     init {
         name = json.get("name").asString
         displayName = if (json.has("displayName")) json.get("displayName").asString else name
-        tier = asTier(json.get("tier").asString)!!
+        tier = Tier.getTier(json.get("tier").asString)
         level = json.get("level").asInt
-        Metadata.getIdentifications().filter{json.has(it.name)}.forEach(Consumer {
-                val value = json.get(it.name).asInt
-                if(value != 0)
-                    idMap[it] = value
-        })
+        Skill.values().forEach{
+            val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
+            if(value != 0){
+                spMap[it] = value
+            }
+        }
+        Metadata.getIdentifications().filter{json.has(it.name)}.forEach{
+            val value = json.get(it.name).asInt
+            if(value != 0)
+                idMap[it] = value
+        }
         val category = json.get("category").asString
         container = if(category.equals("weapon")){
             RegularWeapon(this, json)
@@ -58,17 +60,21 @@ class RegularEquipment(json: JsonObject) : Equipment {
         return container!!.getType()
     }
 
+    override fun getRequirement(skill: Skill): Int {
+        return spMap.getOrDefault(skill, 0)
+    }
+
     override fun getKey(): String = name
 
     fun getDisplayName(): String = displayName
 
     override fun getDisplayText(): Text {
-        return LiteralText(tier.prefix + displayName)
+        return LiteralText(displayName).formatted(tier.prefix)
     }
 
     override fun getIcon(): ItemStack = container!!.getIcon()
 
-    override fun getColor(): Int {
+    override fun getRarityColor(): Int {
         return Settings.getColor("tier_" + tier.name)
     }
 

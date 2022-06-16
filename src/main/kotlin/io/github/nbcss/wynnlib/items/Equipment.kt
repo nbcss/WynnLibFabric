@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Identification
+import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.utils.BaseItem
 import io.github.nbcss.wynnlib.utils.IRange
@@ -26,6 +27,8 @@ interface Equipment : Keyed, BaseItem {
     fun getLevel(): IRange
 
     fun getType(): EquipmentType
+
+    fun getRequirement(skill: Skill): Int
 
     /**
      * Convert the Equipment to a Weapon instance.

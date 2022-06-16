@@ -1,16 +1,29 @@
 package io.github.nbcss.wynnlib.data
 
-import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.utils.Keyed
+import java.util.*
+import kotlin.collections.LinkedHashMap
 
-data class AttackSpeed(val name: String,
-                       val displayName: String,
-                       val translationKey: String,
+enum class AttackSpeed(val displayName: String,
                        val speedModifier: Double): Keyed {
-    constructor(json: JsonObject) : this(
-        json.get("name").asString,
-        json.get("displayName").asString,
-        json.get("translationKey").asString,
-        json.get("speed").asDouble)
+    SUPER_SLOW("Super Slow", 0.51),
+    VERY_SLOW("Very Slow", 0.83),
+    SLOW("Slow", 1.5),
+    NORMAL("Normal", 2.05),
+    FAST("Fast", 2.5),
+    VERY_FAST("Very Fast", 3.1),
+    SUPER_FAST("Super Fast", 4.3);
+
+    companion object {
+        private val VALUE_MAP: MutableMap<String, AttackSpeed> = LinkedHashMap()
+        init {
+            values().forEach { VALUE_MAP[it.name.lowercase(Locale.getDefault())] = it }
+        }
+
+        fun getAttackSpeed(id: String): AttackSpeed {
+            return VALUE_MAP.getOrDefault(id.lowercase(Locale.getDefault()), NORMAL)
+        }
+    }
+
     override fun getKey(): String = name
 }

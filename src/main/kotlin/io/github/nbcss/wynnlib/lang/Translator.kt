@@ -5,7 +5,7 @@ import io.github.nbcss.wynnlib.utils.Registry
 import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
 
-object TranslationRegistry: Registry<TranslationKey>() {
+object Translator: Registry<TranslationKey>() {
 
     override fun read(data: JsonObject): TranslationKey = TranslationKey(data)
 

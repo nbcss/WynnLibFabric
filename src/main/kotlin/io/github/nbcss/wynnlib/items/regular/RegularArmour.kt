@@ -21,7 +21,7 @@ class RegularArmour(private val parent: RegularEquipment, json: JsonObject)
     init {
         type = Metadata.asEquipmentType(json.get("type").asString)!!
         health = if(json.has("health")) json.get("health").asInt else 0
-        Metadata.getElements().forEach{elemDefence[it] = json.get(it.defenceName).asInt }
+        Element.values().forEach{elemDefence[it] = json.get(it.defenceName).asInt }
         if (json.has("skin")) {
             val skin: String = json.get("skin").asString
             texture = getSkullItem(skin)
