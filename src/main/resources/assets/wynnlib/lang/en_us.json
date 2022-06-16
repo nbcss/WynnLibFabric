@@ -35,10 +35,17 @@
   "wynnlib.tooltip.air_damage": "§f❋ Air§7 Damage",
   "wynnlib.tooltip.thunder_damage": "§e✦ Thunder§7 Damage",
   "wynnlib.tooltip.earth_damage": "§2✤ Earth§7 Damage",
+  "wynnlib.tooltip.class_req": "Class Req",
+  "wynnlib.tooltip.quest_req": "Quest Req",
   "wynnlib.tooltip.combat_level_req": "Combat Lv. Min",
   "wynnlib.tooltip.skill_point_req.str": "Strength Min",
   "wynnlib.tooltip.skill_point_req.agi": "Agility Min",
   "wynnlib.tooltip.skill_point_req.def": "Defence Min",
   "wynnlib.tooltip.skill_point_req.int": "Intelligence Min",
-  "wynnlib.tooltip.skill_point_req.dex": "Dexterity Min"
+  "wynnlib.tooltip.skill_point_req.dex": "Dexterity Min",
+  "wynnlib.class.warrior": "Warrior/Knight",
+  "wynnlib.class.archer": "Archer/Hunter",
+  "wynnlib.class.mage": "Mage/Dark Wizard",
+  "wynnlib.class.assassin": "Assassin/Ninja",
+  "wynnlib.class.shaman": "Shaman/Skyseer"
 }

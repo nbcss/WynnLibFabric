@@ -1,9 +1,6 @@
 package io.github.nbcss.wynnlib.items
 
-import io.github.nbcss.wynnlib.data.EquipmentType
-import io.github.nbcss.wynnlib.data.Identification
-import io.github.nbcss.wynnlib.data.Skill
-import io.github.nbcss.wynnlib.data.Tier
+import io.github.nbcss.wynnlib.data.*
 import io.github.nbcss.wynnlib.utils.BaseItem
 import io.github.nbcss.wynnlib.utils.IRange
 import io.github.nbcss.wynnlib.utils.Keyed
@@ -24,9 +21,13 @@ interface Equipment : Keyed, BaseItem {
      */
     fun getIdentification(id: Identification): IRange
 
+    fun getType(): EquipmentType
+
     fun getLevel(): IRange
 
-    fun getType(): EquipmentType
+    fun getClassReq(): CharacterClass?
+
+    fun getQuestReq(): String?
 
     fun getRequirement(skill: Skill): Int
 

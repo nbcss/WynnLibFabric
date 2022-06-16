@@ -17,6 +17,8 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String
     private val displayName: String
+    private val classReq: CharacterClass?
+    private val questReq: String?
     private val tier: Tier
     private val level: Int
     private val container: EquipmentContainer?
@@ -25,6 +27,9 @@ class RegularEquipment(json: JsonObject) : Equipment {
         displayName = if (json.has("displayName")) json.get("displayName").asString else name
         tier = Tier.getTier(json.get("tier").asString)
         level = json.get("level").asInt
+        classReq = null
+        questReq = if (json.has("quest") && !json.get("quest").isJsonNull)
+            json.get("quest").asString else null
         Skill.values().forEach{
             val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
             if(value != 0){
@@ -54,11 +59,17 @@ class RegularEquipment(json: JsonObject) : Equipment {
         return asIdentificationRange(idMap.getOrDefault(id, 0))
     }
 
-    override fun getLevel(): IRange = IRange(level, level)
-
     override fun getType(): EquipmentType {
         return container!!.getType()
     }
+
+    override fun getLevel(): IRange = IRange(level, level)
+
+    override fun getClassReq(): CharacterClass? {
+        return if(container is Weapon) CharacterClass.fromWeaponType(getType()) else classReq
+    }
+
+    override fun getQuestReq(): String? = questReq
 
     override fun getRequirement(skill: Skill): Int {
         return spMap.getOrDefault(skill, 0)

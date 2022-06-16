@@ -129,6 +129,31 @@
       "key": "agility",
       "label": "tooltip.req",
       "translation": "wynnlib.tooltip.skill_point_req.agi"
+    },
+    {
+      "prefix": "class",
+      "key": "warrior",
+      "translation": "wynnlib.class.warrior"
+    },
+    {
+      "prefix": "class",
+      "key": "archer",
+      "translation": "wynnlib.class.archer"
+    },
+    {
+      "prefix": "class",
+      "key": "mage",
+      "translation": "wynnlib.class.mage"
+    },
+    {
+      "prefix": "class",
+      "key": "assassin",
+      "translation": "wynnlib.class.assassin"
+    },
+    {
+      "prefix": "class",
+      "key": "shaman",
+      "translation": "wynnlib.class.shaman"
     }
   ],
   "version": "1.0.0"

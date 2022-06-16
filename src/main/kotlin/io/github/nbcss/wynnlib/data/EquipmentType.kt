@@ -1,9 +1,7 @@
 package io.github.nbcss.wynnlib.data
 
-import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.getItem
-import io.github.nbcss.wynnlib.utils.getSkullItem
 import net.minecraft.item.ItemStack
 import java.util.*
 import kotlin.collections.LinkedHashMap

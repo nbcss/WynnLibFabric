@@ -9,6 +9,17 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
+    //append class & quest req
+    if (item.getClassReq() != null){
+        val classReq = Translator.asText("class", item.getClassReq()!!.getKey()).formatted(Formatting.GRAY)
+        val prefix = translate("wynnlib.tooltip.class_req").formatted(Formatting.GRAY)
+        tooltip.add(prefix.append(LiteralText(": ").formatted(Formatting.GRAY)).append(classReq))
+    }
+    if (item.getQuestReq() != null){
+        val quest = LiteralText(": " + item.getQuestReq()).formatted(Formatting.GRAY)
+        val prefix = translate("wynnlib.tooltip.quest_req").formatted(Formatting.GRAY)
+        tooltip.add(prefix.append(quest))
+    }
     //append level req
     val level = item.getLevel()
     val levelText = LiteralText(": " + if (level.isConstant()) level.start.toString()
