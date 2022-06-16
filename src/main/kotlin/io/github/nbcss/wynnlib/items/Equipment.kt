@@ -4,6 +4,7 @@ import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.utils.BaseItem
+import io.github.nbcss.wynnlib.utils.IRange
 import io.github.nbcss.wynnlib.utils.Keyed
 
 interface Equipment : Keyed, BaseItem {
@@ -20,9 +21,9 @@ interface Equipment : Keyed, BaseItem {
      * @param id: the identification to query
      * @return the range of the given identification
      */
-    fun getIdentification(id: Identification): IntRange
+    fun getIdentification(id: Identification): IRange
 
-    fun getLevel(): IntRange
+    fun getLevel(): IRange
 
     fun getType(): EquipmentType
 

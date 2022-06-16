@@ -11,6 +11,7 @@ object Metadata {
     private val idMap: MutableMap<String, Identification> = LinkedHashMap()
     private val atkSpeedMap: MutableMap<String, AttackSpeed> = LinkedHashMap()
     private val elementMap: MutableMap<String, Element> = LinkedHashMap()
+    private val spMap: MutableMap<String, SkillPoint> = LinkedHashMap()
     private val equipmentTypeMap: MutableMap<String, EquipmentType> = LinkedHashMap()
     private var version: Version? = null
 
@@ -73,5 +74,9 @@ object Metadata {
 
     fun getElements(): List<Element> {
         return elementMap.values.toList()
+    }
+
+    fun getSkillPoints(): List<SkillPoint> {
+        return spMap.values.toList()
     }
 }

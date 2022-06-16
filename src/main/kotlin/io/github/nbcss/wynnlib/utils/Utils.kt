@@ -7,6 +7,7 @@ import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtList
 import net.minecraft.nbt.StringNbtReader
+import net.minecraft.text.TranslatableText
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import java.io.IOException
@@ -16,16 +17,16 @@ import java.util.*
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
-fun asRange(text: String): IntRange = try {
+fun asRange(text: String): IRange = try {
     val array = text.split("-")
-    IntRange(array[0].toInt(), array[1].toInt())
+    IRange(array[0].toInt(), array[1].toInt())
 }catch (e: Exception){
-    IntRange(0, 0)
+    IRange(0, 0)
 }
 
-fun asIdentificationRange(base: Int): IntRange {
+fun asIdentificationRange(base: Int): IRange {
     //todo
-    return IntRange(base, base)
+    return IRange(base, base)
 }
 
 fun asColor(text: String): Int {

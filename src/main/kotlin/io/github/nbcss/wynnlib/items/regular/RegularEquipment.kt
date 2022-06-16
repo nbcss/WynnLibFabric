@@ -10,8 +10,10 @@ import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.items.Wearable
 import io.github.nbcss.wynnlib.items.Equipment
 import io.github.nbcss.wynnlib.items.Weapon
+import io.github.nbcss.wynnlib.utils.IRange
 import io.github.nbcss.wynnlib.utils.asIdentificationRange
 import net.minecraft.item.ItemStack
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import java.util.function.Consumer
 
@@ -46,11 +48,11 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun getTier(): Tier = tier
 
-    override fun getIdentification(id: Identification): IntRange {
+    override fun getIdentification(id: Identification): IRange {
         return asIdentificationRange(idMap.getOrDefault(id, 0))
     }
 
-    override fun getLevel(): IntRange = IntRange(level, level)
+    override fun getLevel(): IRange = IRange(level, level)
 
     override fun getType(): EquipmentType {
         return container!!.getType()
@@ -58,7 +60,11 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun getKey(): String = name
 
-    override fun getDisplayName(): String = displayName
+    fun getDisplayName(): String = displayName
+
+    override fun getDisplayText(): Text {
+        return LiteralText(tier.prefix + displayName)
+    }
 
     override fun getIcon(): ItemStack = container!!.getIcon()
 

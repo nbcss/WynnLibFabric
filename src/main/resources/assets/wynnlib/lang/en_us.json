@@ -21,5 +21,18 @@
   "wynnlib.id.bonus_water_defense": "§b❉ Water §7Defence",
   "wynnlib.id.bonus_air_defense": "§f❋ Air §7Defence",
   "wynnlib.id.bonus_thunder_defense": "§e✦ Thunder §7Defence",
-  "wynnlib.id.bonus_earth_defense": "§2✤ Earth §7Defence"
+  "wynnlib.id.bonus_earth_defense": "§2✤ Earth §7Defence",
+  "wynnlib.attack_speed.super_slow": "Super Slow Attack Speed",
+  "wynnlib.attack_speed.very_slow": "Very Slow Attack Speed",
+  "wynnlib.attack_speed.slow": "Slow Attack Speed",
+  "wynnlib.attack_speed.normal": "Normal Attack Speed",
+  "wynnlib.attack_speed.fast": "Fast Attack Speed",
+  "wynnlib.attack_speed.very_fast": "Very Fast Attack Speed",
+  "wynnlib.attack_speed.super_fast": "Super Fast Attack Speed",
+  "wynnlib.tooltip.neutral_damage": "§6✣ Neutral Damage",
+  "wynnlib.tooltip.fire_damage": "§c✹ Fire§7 Damage",
+  "wynnlib.tooltip.water_damage": "§b❉ Water§7 Damage",
+  "wynnlib.tooltip.air_damage": "§f❋ Air§7 Damage",
+  "wynnlib.tooltip.thunder_damage": "§e✦ Thunder§7 Damage",
+  "wynnlib.tooltip.earth_damage": "§2✤ Earth§7 Damage"
 }

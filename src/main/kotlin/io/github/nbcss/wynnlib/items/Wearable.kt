@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.Element
+import io.github.nbcss.wynnlib.utils.IRange
 
 interface Wearable {
     /**
@@ -9,7 +10,7 @@ interface Wearable {
      *
      * @return the health range of the armour.
      */
-    fun getHealth(): IntRange
+    fun getHealth(): IRange
 
     /**
      * Get the element defense value of the armour.

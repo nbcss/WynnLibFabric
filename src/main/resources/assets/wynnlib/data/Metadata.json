@@ -5,7 +5,6 @@
       "name": "Mythic",
       "prefix": "§5",
       "displayName": "§5Mythic Item",
-      "translationKey": "wynnlib.tier.mythic",
       "priceBase": 90,
       "priceCoefficient": 18
     },
@@ -13,7 +12,6 @@
       "name": "Fabled",
       "prefix": "§c",
       "displayName": "§cFabled Item",
-      "translationKey": "wynnlib.tier.fabled",
       "priceBase": 16,
       "priceCoefficient": 8
     },
@@ -21,7 +19,6 @@
       "name": "Legendary",
       "prefix": "§b",
       "displayName": "§bLegendary Item",
-      "translationKey": "wynnlib.tier.legendary",
       "priceBase": 12,
       "priceCoefficient": 4.5
     },
@@ -29,7 +26,6 @@
       "name": "Rare",
       "prefix": "§d",
       "displayName": "§dRare Item",
-      "translationKey": "wynnlib.tier.rare",
       "priceBase": 8,
       "priceCoefficient": 1.2
     },
@@ -37,7 +33,6 @@
       "name": "Unique",
       "prefix": "§e",
       "displayName": "§eUnique Item",
-      "translationKey": "wynnlib.tier.unique",
       "priceBase": 3,
       "priceCoefficient": 0.5
     },
@@ -45,21 +40,18 @@
       "name": "Set",
       "prefix": "§a",
       "displayName": "§aSet Item",
-      "translationKey": "wynnlib.tier.set",
       "priceBase": 8,
       "priceCoefficient": 1.5
     },
     {
       "name": "Normal",
       "prefix": "§f",
-      "displayName": "§fNormal Item",
-      "translationKey": "wynnlib.tier.normal"
+      "displayName": "§fNormal Item"
     },
     {
       "name": "Crafted",
       "prefix": "§3",
-      "displayName": "§3Crafted Item",
-      "translationKey": "wynnlib.tier.crafted"
+      "displayName": "§3Crafted Item"
     }
   ],
   "identifications": [
@@ -528,50 +520,51 @@
     {
       "name": "SUPER_SLOW",
       "displayName": "Super Slow",
-      "speed": 0.51,
-      "color": "204,0,255"
+      "translationKey": "wynnlib.attack_speed.super_slow",
+      "speed": 0.51
     },
     {
       "name": "VERY_SLOW",
       "displayName": "Very Slow",
-      "speed": 0.83,
-      "color": "255,0,204"
+      "translationKey": "wynnlib.attack_speed.very_slow",
+      "speed": 0.83
     },
     {
       "name": "SLOW",
       "displayName": "Slow",
-      "speed": 1.5,
-      "color": "255,0,0"
+      "translationKey": "wynnlib.attack_speed.slow",
+      "speed": 1.5
     },
     {
       "name": "NORMAL",
       "displayName": "Normal",
-      "speed": 2.05,
-      "color": "255,153,51"
+      "translationKey": "wynnlib.attack_speed.normal",
+      "speed": 2.05
     },
     {
       "name": "FAST",
       "displayName": "Fast",
-      "speed": 2.5,
-      "color": "255,255,0"
+      "translationKey": "wynnlib.attack_speed.fast",
+      "speed": 2.5
     },
     {
       "name": "VERY_FAST",
       "displayName": "Very Fast",
-      "speed": 3.1,
-      "color": "204,255,0"
+      "translationKey": "wynnlib.attack_speed.very_fast",
+      "speed": 3.1
     },
     {
       "name": "SUPER_FAST",
       "displayName": "Super Fast",
-      "speed": 4.3,
-      "color": "0,255,0"
+      "translationKey": "wynnlib.attack_speed.super_fast",
+      "speed": 4.3
     }
   ],
   "elements": [
     {
       "name": "fire",
       "displayName": "§c✹ Fire",
+      "damageTranslationKey": "wynnlib.tooltip.fire_damage",
       "damageName": "fireDamage",
       "defenceName": "fireDefense",
       "damageBonusName": "bonusFireDamage",
@@ -580,6 +573,7 @@
     {
       "name": "water",
       "displayName": "§b❉ Water",
+      "damageTranslationKey": "wynnlib.tooltip.water_damage",
       "damageName": "waterDamage",
       "defenceName": "waterDefense",
       "damageBonusName": "bonusWaterDamage",
@@ -588,6 +582,7 @@
     {
       "name": "air",
       "displayName": "§f❋ Air",
+      "damageTranslationKey": "wynnlib.tooltip.air_damage",
       "damageName": "airDamage",
       "defenceName": "airDefense",
       "damageBonusName": "bonusAirDamage",
@@ -596,6 +591,7 @@
     {
       "name": "thunder",
       "displayName": "§e✦ Thunder",
+      "damageTranslationKey": "wynnlib.tooltip.thunder_damage",
       "damageName": "thunderDamage",
       "defenceName": "thunderDefense",
       "damageBonusName": "bonusThunderDamage",
@@ -604,6 +600,7 @@
     {
       "name": "earth",
       "displayName": "§2✤ Earth",
+      "damageTranslationKey": "wynnlib.tooltip.earth_damage",
       "damageName": "earthDamage",
       "defenceName": "earthDefense",
       "damageBonusName": "bonusEarthDamage",

@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
+import io.github.nbcss.wynnlib.utils.IRange
 
 interface Weapon {
     /**
@@ -9,7 +10,7 @@ interface Weapon {
      *
      * @return the neutral damage range of the weapon.
      */
-    fun getDamage(): IntRange
+    fun getDamage(): IRange
 
     /**
      * Get the element damage range of the weapon.
@@ -17,7 +18,7 @@ interface Weapon {
      * @param elem: a non-null element key.
      * @return the element damage range of the given element.
      */
-    fun getElementDamage(elem: Element): IntRange
+    fun getElementDamage(elem: Element): IRange
     
     fun getAttackSpeed(): AttackSpeed
 }

@@ -7,10 +7,10 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class HandbookTabScreen(title: Text?) : Screen(title) {
+abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
     private val background = Identifier("wynnlib", "textures/gui/handbook_tab.png")
     protected val backgroundWidth = 246
-    protected val backgroundHeight = 182
+    protected val backgroundHeight = 214
     protected var windowWidth = backgroundWidth
     protected var windowHeight = backgroundHeight
     protected var windowX = backgroundWidth
@@ -32,7 +32,7 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title) {
         textRenderer.draw(
             matrices, getTitle().asOrderedText(),
             (windowX + 6).toFloat(),
-            (windowY + 6).toFloat(), 0
+            (windowY + 38).toFloat(), 0
         )
     }
 
@@ -45,6 +45,14 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title) {
     }
 
     override fun shouldPause(): Boolean = false
+
+    override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
+        matrices.push()
+        //matrices.translate(0.0, 0.0, 100.0)
+        renderOrderedTooltip(matrices, tooltip.map{it.asOrderedText()}, x, y)
+        RenderSystem.disableDepthTest()
+        matrices.pop()
+    }
 
     fun renderTexture(
         matrices: MatrixStack?, texture: Identifier,

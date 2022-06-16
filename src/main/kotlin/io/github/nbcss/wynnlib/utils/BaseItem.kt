@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 
 interface BaseItem {
-    fun getDisplayName(): String
+    fun getDisplayText(): Text
     fun getIcon(): ItemStack
     fun getColor(): Int
     fun getTooltip(): List<Text>

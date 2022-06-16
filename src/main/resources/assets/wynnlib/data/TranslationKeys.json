@@ -1,0 +1,70 @@
+{
+  "data": [
+    {
+      "prefix": "tier",
+      "key": "mythic",
+      "translation": "wynnlib.tier.mythic"
+    },
+    {
+      "prefix": "tier",
+      "key": "fabled",
+      "translation": "wynnlib.tier.fabled"
+    },
+    {
+      "prefix": "tier",
+      "key": "rare",
+      "translation": "wynnlib.tier.rare"
+    },
+    {
+      "prefix": "tier",
+      "key": "unique",
+      "translation": "wynnlib.tier.unique"
+    },
+    {
+      "prefix": "tier",
+      "key": "set",
+      "translation": "wynnlib.tier.set"
+    },
+    {
+      "prefix": "tier",
+      "key": "normal",
+      "translation": "wynnlib.tier.normal"
+    },
+    {
+      "prefix": "tier",
+      "key": "crafted",
+      "translation": "wynnlib.tier.crafted"
+    },
+    {
+      "prefix": "element",
+      "key": "fire",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.fire_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "water",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.water_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "air",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.air_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "thunder",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.thunder_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "earth",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.earth_damage"
+    }
+  ],
+  "version": "1.0.0"
+}

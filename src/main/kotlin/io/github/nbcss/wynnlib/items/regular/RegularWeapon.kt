@@ -7,17 +7,22 @@ import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.data.Metadata.asEquipmentType
 import io.github.nbcss.wynnlib.items.Weapon
+import io.github.nbcss.wynnlib.lang.TranslationRegistry
+import io.github.nbcss.wynnlib.utils.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import io.github.nbcss.wynnlib.utils.getItemById
+import io.github.nbcss.wynnlib.utils.translate
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.text.TranslatableText
+import net.minecraft.util.Formatting
 
 class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
     : Weapon, EquipmentContainer {
-    private val elemDamage: MutableMap<Element, IntRange> = LinkedHashMap()
+    private val elemDamage: MutableMap<Element, IRange> = LinkedHashMap()
     private val type: EquipmentType
-    private val damage: IntRange
+    private val damage: IRange
     private val atkSpeed: AttackSpeed
     private val texture: ItemStack
 
@@ -36,10 +41,10 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
         }
     }
 
-    override fun getDamage(): IntRange = damage
+    override fun getDamage(): IRange = damage
 
-    override fun getElementDamage(elem: Element): IntRange {
-        return elemDamage.getOrDefault(elem, IntRange(0, 0))
+    override fun getElementDamage(elem: Element): IRange {
+        return elemDamage.getOrDefault(elem, IRange(0, 0))
     }
 
     override fun getAttackSpeed(): AttackSpeed = atkSpeed
@@ -52,7 +57,26 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
-        tooltip.add(LiteralText(parent.getDisplayName()))
+        tooltip.add(parent.getDisplayText())
+        tooltip.add(TranslatableText(atkSpeed.translationKey).formatted(Formatting.GRAY))
+        tooltip.add(LiteralText(""))
+        val lastSize = tooltip.size
+        if(!damage.isZero()){
+            val text = LiteralText(": " + damage.start.toString() + "-" + damage.end.toString())
+            val prefix = translate("wynnlib.tooltip.neutral_damage")
+            tooltip.add(prefix.append(text.formatted(Formatting.GOLD)))
+        }
+        Metadata.getElements().forEach {
+            val range: IRange = getElementDamage(it)
+            if (!range.isZero()) {
+                val text = LiteralText(": " + range.start.toString() + "-" + range.end.toString())
+                val prefix = TranslationRegistry.asText("element", it.getKey(), "tooltip.damage")
+                tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
+            }
+        }
+        //append additional one empty line if no damage been added
+        if (tooltip.size > lastSize) tooltip.add(LiteralText(""))
+        addRequirements(parent, tooltip)
         return tooltip
     }
 }

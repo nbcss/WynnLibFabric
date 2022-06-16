@@ -5,10 +5,7 @@ import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.items.Wearable
-import io.github.nbcss.wynnlib.utils.ERROR_ITEM
-import io.github.nbcss.wynnlib.utils.asColor
-import io.github.nbcss.wynnlib.utils.getItemById
-import io.github.nbcss.wynnlib.utils.getSkullItem
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
@@ -60,7 +57,7 @@ class RegularArmour(private val parent: RegularEquipment, json: JsonObject)
         }
     }
 
-    override fun getHealth(): IntRange = IntRange(health, health)
+    override fun getHealth(): IRange = IRange(health, health)
 
     override fun getElementDefense(elem: Element): Int {
         return elemDefence.getOrDefault(elem, 0)
@@ -72,7 +69,8 @@ class RegularArmour(private val parent: RegularEquipment, json: JsonObject)
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
-        tooltip.add(LiteralText(parent.getDisplayName()))
+        tooltip.add(parent.getDisplayText())
+        tooltip.add(LiteralText(""))
         return tooltip
     }
 }

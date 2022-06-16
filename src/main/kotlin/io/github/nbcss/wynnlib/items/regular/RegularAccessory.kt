@@ -31,7 +31,9 @@ class RegularAccessory(private val parent: RegularEquipment, json: JsonObject)
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
-        tooltip.add(LiteralText(parent.getDisplayName()))
+        tooltip.add(parent.getDisplayText())
+        tooltip.add(LiteralText(""))
+
         return tooltip
     }
 
