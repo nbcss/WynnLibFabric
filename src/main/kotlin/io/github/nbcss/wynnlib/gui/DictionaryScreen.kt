@@ -38,7 +38,7 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
         slots.clear()
         (0 until (ROWS * COLUMNS)).forEach {
             val x = windowX + 6 + 24 * (it % COLUMNS)
-            val y = 32 + windowY + 16 + 24 * (it / COLUMNS)
+            val y = windowY + 44 + 24 * (it / COLUMNS)
             slots.add(ItemSlotWidget(x + 1, y + 1, null, this))
         }
         //update items in slots
@@ -73,6 +73,7 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
         if(isInPage(mouseX, mouseY)){
             lineIndex = MathHelper.clamp(lineIndex - amount.toInt(), 0, lineSize)
             updateSlots()
+            return true
         }
         return super.mouseScrolled(mouseX, mouseY, amount)
     }
@@ -87,6 +88,6 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
     }
 
     private fun isInPage(mouseX: Double, mouseY: Double): Boolean {
-        return mouseX >= windowX + 6 && mouseY >= windowY + 48 && mouseX <= windowX + 222 && mouseY <= windowY + 192
+        return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 222 && mouseY <= windowY + 188
     }
 }

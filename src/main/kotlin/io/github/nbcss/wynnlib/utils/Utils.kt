@@ -25,11 +25,19 @@ fun formatNumbers(num: Int): String {
 }
 
 fun colorOf(num: Int): Formatting {
-    return if (num > 0) Formatting.GREEN else if (num < 0) Formatting.RED else Formatting.GRAY
+    return when {
+        num > 0 -> Formatting.GREEN
+        num < 0 -> Formatting.RED
+        else -> Formatting.GRAY
+    }
 }
 
 fun colorOfDark(num: Int): Formatting {
-    return if (num > 0) Formatting.DARK_GREEN else if (num < 0) Formatting.DARK_RED else Formatting.DARK_GRAY
+    return when {
+        num > 0 -> Formatting.DARK_GREEN
+        num < 0 -> Formatting.DARK_RED
+        else -> Formatting.DARK_GRAY
+    }
 }
 
 fun asRange(text: String): IRange = try {
@@ -100,19 +108,18 @@ fun getItem(name: String): ItemStack {
     val item: Item = Registry.ITEM.get(Identifier(array[0]))
     try {
         if (item != Items.AIR) {
-            val meta = if (array.size > 1) array[1].toInt() else 0 //fixme
+            val meta = if (array.size > 1) array[1].toInt() else 0
             val stack = ItemStack(item, 1)
-            val nbt = stack.orCreateNbt
-            var tag = if (nbt.contains("tag")) nbt.getCompound("tag") else NbtCompound()
-            if (array.size > 2) {
-                tag = StringNbtReader.parse(array[2])
-            }
+            val tag = if (array.size > 2) StringNbtReader.parse(array[2]) else stack.orCreateNbt
             tag.putBoolean("Unbreakable", true)
-            nbt.put("tag", tag)
-            stack.writeNbt(nbt)
+            if (meta > 0){
+                tag.putInt("Damage", meta)
+            }
+            stack.writeNbt(tag)
             return stack
         }
     } catch (ignore: java.lang.Exception) {
+        ignore.printStackTrace()
     }
     return ERROR_ITEM
 }
