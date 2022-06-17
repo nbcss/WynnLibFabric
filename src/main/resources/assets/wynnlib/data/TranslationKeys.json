@@ -1,0 +1,270 @@
+{
+  "data": [
+    {
+      "prefix": "tier",
+      "key": "mythic",
+      "translation": "wynnlib.tier.mythic"
+    },
+    {
+      "prefix": "tier",
+      "key": "fabled",
+      "translation": "wynnlib.tier.fabled"
+    },
+    {
+      "prefix": "tier",
+      "key": "legendary",
+      "translation": "wynnlib.tier.legendary"
+    },
+    {
+      "prefix": "tier",
+      "key": "rare",
+      "translation": "wynnlib.tier.rare"
+    },
+    {
+      "prefix": "tier",
+      "key": "unique",
+      "translation": "wynnlib.tier.unique"
+    },
+    {
+      "prefix": "tier",
+      "key": "set",
+      "translation": "wynnlib.tier.set"
+    },
+    {
+      "prefix": "tier",
+      "key": "normal",
+      "translation": "wynnlib.tier.normal"
+    },
+    {
+      "prefix": "tier",
+      "key": "crafted",
+      "translation": "wynnlib.tier.crafted"
+    },
+    {
+      "prefix": "item_type",
+      "key": "bow",
+      "translation": "wynnlib.item_type.bow"
+    },
+    {
+      "prefix": "item_type",
+      "key": "spear",
+      "translation": "wynnlib.item_type.spear"
+    },
+    {
+      "prefix": "item_type",
+      "key": "wand",
+      "translation": "wynnlib.item_type.wand"
+    },
+    {
+      "prefix": "item_type",
+      "key": "dagger",
+      "translation": "wynnlib.item_type.dagger"
+    },
+    {
+      "prefix": "item_type",
+      "key": "relik",
+      "translation": "wynnlib.item_type.relik"
+    },
+    {
+      "prefix": "item_type",
+      "key": "helmet",
+      "translation": "wynnlib.item_type.helmet"
+    },
+    {
+      "prefix": "item_type",
+      "key": "chestplate",
+      "translation": "wynnlib.item_type.chestplate"
+    },
+    {
+      "prefix": "item_type",
+      "key": "leggings",
+      "translation": "wynnlib.item_type.leggings"
+    },
+    {
+      "prefix": "item_type",
+      "key": "boots",
+      "translation": "wynnlib.item_type.boots"
+    },
+    {
+      "prefix": "item_type",
+      "key": "ring",
+      "translation": "wynnlib.item_type.ring"
+    },
+    {
+      "prefix": "item_type",
+      "key": "necklace",
+      "translation": "wynnlib.item_type.necklace"
+    },
+    {
+      "prefix": "item_type",
+      "key": "bracelet",
+      "translation": "wynnlib.item_type.bracelet"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "super_slow",
+      "translation": "wynnlib.attack_speed.super_slow"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "very_slow",
+      "translation": "wynnlib.attack_speed.very_slow"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "slow",
+      "translation": "wynnlib.attack_speed.slow"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "normal",
+      "translation": "wynnlib.attack_speed.normal"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "fast",
+      "translation": "wynnlib.attack_speed.fast"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "very_fast",
+      "translation": "wynnlib.attack_speed.very_fast"
+    },
+    {
+      "prefix": "attack_speed",
+      "key": "super_fast",
+      "translation": "wynnlib.attack_speed.super_fast"
+    },
+    {
+      "prefix": "element",
+      "key": "fire",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.fire_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "water",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.water_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "air",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.air_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "thunder",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.thunder_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "earth",
+      "label": "tooltip.damage",
+      "translation": "wynnlib.tooltip.earth_damage"
+    },
+    {
+      "prefix": "element",
+      "key": "fire",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.fire_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "water",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.water_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "air",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.air_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "thunder",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.thunder_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "earth",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.earth_defence"
+    },
+    {
+      "prefix": "skill",
+      "key": "strength",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.str"
+    },
+    {
+      "prefix": "skill",
+      "key": "dexterity",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.dex"
+    },
+    {
+      "prefix": "skill",
+      "key": "intelligence",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.int"
+    },
+    {
+      "prefix": "skill",
+      "key": "defense",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.def"
+    },
+    {
+      "prefix": "skill",
+      "key": "agility",
+      "label": "tooltip.req",
+      "translation": "wynnlib.tooltip.skill_point_req.agi"
+    },
+    {
+      "prefix": "class",
+      "key": "warrior",
+      "translation": "wynnlib.class.warrior"
+    },
+    {
+      "prefix": "class",
+      "key": "archer",
+      "translation": "wynnlib.class.archer"
+    },
+    {
+      "prefix": "class",
+      "key": "mage",
+      "translation": "wynnlib.class.mage"
+    },
+    {
+      "prefix": "class",
+      "key": "assassin",
+      "translation": "wynnlib.class.assassin"
+    },
+    {
+      "prefix": "class",
+      "key": "shaman",
+      "translation": "wynnlib.class.shaman"
+    },
+    {
+      "prefix": "restriction",
+      "key": "quest_item",
+      "translation": "wynnlib.restriction.quest_item"
+    },
+    {
+      "prefix": "restriction",
+      "key": "untradable",
+      "translation": "wynnlib.restriction.untradable"
+    },
+    {
+      "prefix": "restriction",
+      "key": "soulbound",
+      "translation": "wynnlib.restriction.soulbound"
+    }
+  ],
+  "version": "1.0.0"
+}

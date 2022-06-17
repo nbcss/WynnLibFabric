@@ -1,373 +1,310 @@
 {
   "version": "1.0.0",
-  "tiers": [
-    {
-      "name": "Mythic",
-      "prefix": "§5",
-      "displayName": "§5Mythic Item",
-      "translateKey": "wynnlib.tier.mythic",
-      "priceBase": 90,
-      "priceCoefficient": 18
-    },
-    {
-      "name": "Fabled",
-      "prefix": "§c",
-      "displayName": "§cFabled Item",
-      "translateKey": "wynnlib.tier.fabled",
-      "priceBase": 16,
-      "priceCoefficient": 8
-    },
-    {
-      "name": "Legendary",
-      "prefix": "§b",
-      "displayName": "§bLegendary Item",
-      "translateKey": "wynnlib.tier.legendary",
-      "priceBase": 12,
-      "priceCoefficient": 4.5
-    },
-    {
-      "name": "Rare",
-      "prefix": "§d",
-      "displayName": "§dRare Item",
-      "translateKey": "wynnlib.tier.rare",
-      "priceBase": 8,
-      "priceCoefficient": 1.2
-    },
-    {
-      "name": "Unique",
-      "prefix": "§e",
-      "displayName": "§eUnique Item",
-      "translateKey": "wynnlib.tier.unique",
-      "priceBase": 3,
-      "priceCoefficient": 0.5
-    },
-    {
-      "name": "Set",
-      "prefix": "§a",
-      "displayName": "§aSet Item",
-      "translateKey": "wynnlib.tier.set",
-      "priceBase": 8,
-      "priceCoefficient": 1.5
-    },
-    {
-      "name": "Normal",
-      "prefix": "§f",
-      "displayName": "§fNormal Item",
-      "translateKey": "wynnlib.tier.normal"
-    },
-    {
-      "name": "Crafted",
-      "prefix": "§3",
-      "displayName": "§3Crafted Item",
-      "translateKey": "wynnlib.tier.crafted"
-    }
-  ],
   "identifications": [
     {
-      "name": "strengthPoints",
-      "innerName": "STRENGTHPOINTS",
+      "id": "strength_point",
+      "apiId": "strengthPoints",
+      "name": "STRENGTHPOINTS",
       "displayName": "Strength",
-      "translateKey": "wynnlib.id.strength",
       "suffix": "",
       "constant": true
     },
     {
-      "name": "dexterityPoints",
-      "innerName": "DEXTERITYPOINTS",
+      "id": "dexterity_point",
+      "apiId": "dexterityPoints",
+      "name": "DEXTERITYPOINTS",
       "displayName": "Dexterity",
-      "translateKey": "wynnlib.id.dexterity",
       "suffix": "",
       "constant": true
     },
     {
-      "name": "intelligencePoints",
-      "innerName": "INTELLIGENCEPOINTS",
+      "id": "intelligence_point",
+      "apiId": "intelligencePoints",
+      "name": "INTELLIGENCEPOINTS",
       "displayName": "Intelligence",
-      "translateKey": "wynnlib.id.intelligence",
       "suffix": "",
       "constant": true
     },
     {
-      "name": "defensePoints",
-      "innerName": "DEFENSEPOINTS",
+      "id": "defense_point",
+      "apiId": "defensePoints",
+      "name": "DEFENSEPOINTS",
       "displayName": "Defence",
-      "translateKey": "wynnlib.id.defense",
       "suffix": "",
       "constant": true
     },
     {
-      "name": "agilityPoints",
-      "innerName": "AGILITYPOINTS",
+      "id": "agility_point",
+      "apiId": "agilityPoints",
+      "name": "AGILITYPOINTS",
       "displayName": "Agility",
-      "translateKey": "wynnlib.id.agility",
       "suffix": "",
       "constant": true
     },
     {
-      "name": "attackSpeedBonus",
-      "innerName": "ATTACKSPEED",
+      "id": "attack_speed",
+      "apiId": "attackSpeedBonus",
+      "name": "ATTACKSPEED",
       "displayName": "Attack Speed",
-      "translateKey": "wynnlib.id.attack_speed",
       "suffix": " tier"
     },
     {
-      "name": "manaRegen",
-      "innerName": "MANAREGEN",
+      "id": "mana_regen",
+      "apiId": "manaRegen",
+      "name": "MANAREGEN",
       "displayName": "Mana Regen",
-      "translateKey": "wynnlib.id.mana_regen",
       "suffix": "/5s"
     },
     {
-      "name": "manaSteal",
-      "innerName": "MANASTEAL",
+      "id": "mana_steal",
+      "apiId": "manaSteal",
+      "name": "MANASTEAL",
       "displayName": "Mana Steal",
-      "translateKey": "wynnlib.id.mana_steal",
       "suffix": "/3s"
     },
     {
-      "name": "poison",
-      "innerName": "POISON",
+      "id": "poison",
+      "apiId": "poison",
+      "name": "POISON",
       "displayName": "Poison",
-      "translateKey": "wynnlib.id.poison",
       "suffix": "/3s"
     },
     {
-      "name": "exploding",
-      "innerName": "EXPLODING",
+      "id": "exploding",
+      "apiId": "exploding",
+      "name": "EXPLODING",
       "displayName": "Exploding",
-      "translateKey": "wynnlib.id.exploding",
       "suffix": "%"
     },
     {
-      "name": "damageBonus",
-      "innerName": "DAMAGEBONUS",
+      "id": "damage_bonus",
+      "apiId": "damageBonus",
+      "name": "DAMAGEBONUS",
       "displayName": "Main Attack Damage",
-      "translateKey": "wynnlib.id.damage_bonus",
       "suffix": "%"
     },
     {
-      "name": "damageBonusRaw",
-      "innerName": "DAMAGEBONUSRAW",
+      "id": "damage_bonus_raw",
+      "apiId": "damageBonusRaw",
+      "name": "DAMAGEBONUSRAW",
       "displayName": "Main Attack Neutral Damage",
-      "translateKey": "wynnlib.id.damage_bonus_raw",
       "suffix": ""
     },
     {
-      "name": "spellDamage",
-      "innerName": "SPELLDAMAGE",
+      "id": "spell_damage",
+      "apiId": "spellDamage",
+      "name": "SPELLDAMAGE",
       "displayName": "Spell Damage",
-      "translateKey": "wynnlib.id.spell_damage",
       "suffix": "%"
     },
     {
-      "name": "spellDamageRaw",
-      "innerName": "SPELLDAMAGERAW",
+      "id": "spell_damage_raw",
+      "apiId": "spellDamageRaw",
+      "name": "SPELLDAMAGERAW",
       "displayName": "Neutral Spell Damage",
-      "translateKey": "wynnlib.id.spell_damage_raw",
       "suffix": ""
     },
     {
-      "name": "rainbowSpellDamageRaw",
-      "innerName": "RAINBOWSPELLDAMAGERAW",
+      "id": "rainbow_spell_damage_raw",
+      "apiId": "rainbowSpellDamageRaw",
+      "name": "RAINBOWSPELLDAMAGERAW",
       "displayName": "Rainbow Spell Damage",
-      "translateKey": "wynnlib.id.rainbow_spell_damage_raw",
       "suffix": ""
     },
     {
-      "name": "healthBonus",
-      "innerName": "HEALTHBONUS",
+      "id": "health_bonus",
+      "apiId": "healthBonus",
+      "name": "HEALTHBONUS",
       "displayName": "Health",
-      "translateKey": "wynnlib.id.health_bonus",
       "suffix": ""
     },
     {
-      "name": "healthRegenRaw",
-      "innerName": "HEALTHREGENRAW",
+      "id": "health_regen_raw",
+      "apiId": "healthRegenRaw",
+      "name": "HEALTHREGENRAW",
       "displayName": "Health Regen",
-      "translateKey": "wynnlib.id.health_regen_raw",
       "suffix": ""
     },
     {
-      "name": "healthRegen",
-      "innerName": "HEALTHREGEN",
+      "id": "health_regen",
+      "apiId": "healthRegen",
+      "name": "HEALTHREGEN",
       "displayName": "Health Regen",
-      "translateKey": "wynnlib.id.health_regen",
       "suffix": "%"
     },
     {
-      "name": "lifeSteal",
-      "innerName": "LIFESTEAL",
+      "id": "life_steal",
+      "apiId": "lifeSteal",
+      "name": "LIFESTEAL",
       "displayName": "Life Steal",
-      "translateKey": "wynnlib.id.life_steal",
       "suffix": "/3s"
     },
     {
-      "name": "thorns",
-      "innerName": "THORNS",
+      "id": "thorns",
+      "apiId": "thorns",
+      "name": "THORNS",
       "displayName": "Thorns",
-      "translateKey": "wynnlib.id.thorns",
       "suffix": "%"
     },
     {
-      "name": "reflection",
-      "innerName": "REFLECTION",
+      "id": "reflection",
+      "apiId": "reflection",
+      "name": "REFLECTION",
       "displayName": "Reflection",
-      "translateKey": "wynnlib.id.reflection",
       "suffix": "%"
     },
     {
-      "name": "bonusFireDamage",
-      "innerName": "FIREDAMAGEBONUS",
+      "id": "bonus_fire_damage",
+      "apiId": "bonusFireDamage",
+      "name": "FIREDAMAGEBONUS",
       "displayName": "Fire Damage",
-      "translateKey": "wynnlib.id.bonus_fire_damage",
       "suffix": "%"
     },
     {
-      "name": "bonusWaterDamage",
-      "innerName": "WATERDAMAGEBONUS",
+      "id": "bonus_water_damage",
+      "apiId": "bonusWaterDamage",
+      "name": "WATERDAMAGEBONUS",
       "displayName": "Water Damage",
-      "translateKey": "wynnlib.id.bonus_water_damage",
       "suffix": "%"
     },
     {
-      "name": "bonusAirDamage",
-      "innerName": "AIRDAMAGEBONUS",
+      "id": "bonus_air_damage",
+      "apiId": "bonusAirDamage",
+      "name": "AIRDAMAGEBONUS",
       "displayName": "Air Damage",
-      "translateKey": "wynnlib.id.bonus_air_damage",
       "suffix": "%"
     },
     {
-      "name": "bonusThunderDamage",
-      "innerName": "THUNDERDAMAGEBONUS",
+      "id": "bonus_thunder_damage",
+      "apiId": "bonusThunderDamage",
+      "name": "THUNDERDAMAGEBONUS",
       "displayName": "Thunder Damage",
-      "translateKey": "wynnlib.id.bonus_thunder_damage",
       "suffix": "%"
     },
     {
-      "name": "bonusEarthDamage",
-      "innerName": "EARTHDAMAGEBONUS",
+      "id": "bonus_earth_damage",
+      "apiId": "bonusEarthDamage",
+      "name": "EARTHDAMAGEBONUS",
       "displayName": "Earth Damage",
-      "translateKey": "wynnlib.id.bonus_earth_damage",
       "suffix": "%"
     },
     {
-      "name": "bonusFireDefense",
-      "innerName": "FIREDEFENSE",
+      "id": "bonus_fire_defense",
+      "apiId": "bonusFireDefense",
+      "name": "FIREDEFENSE",
       "displayName": "Fire Defence",
-      "translateKey": "wynnlib.id.bonus_fire_defense",
-      "group": "element_defence",
       "suffix": "%"
     },
     {
-      "name": "bonusWaterDefense",
-      "innerName": "WATERDEFENSE",
+      "id": "bonus_water_defense",
+      "apiId": "bonusWaterDefense",
+      "name": "WATERDEFENSE",
       "displayName": "Water Defence",
-      "translateKey": "wynnlib.id.bonus_water_defense",
       "suffix": "%"
     },
     {
-      "name": "bonusAirDefense",
-      "innerName": "AIRDEFENSE",
+      "id": "bonus_air_defense",
+      "apiId": "bonusAirDefense",
+      "name": "AIRDEFENSE",
       "displayName": "Air Defence",
-      "translateKey": "wynnlib.id.bonus_air_defense",
       "suffix": "%"
     },
     {
-      "name": "bonusThunderDefense",
-      "innerName": "THUNDERDEFENSE",
+      "id": "bonus_thunder_defense",
+      "apiId": "bonusThunderDefense",
+      "name": "THUNDERDEFENSE",
       "displayName": "Thunder Defence",
-      "translateKey": "wynnlib.id.bonus_thunder_defense",
       "suffix": "%"
     },
     {
-      "name": "bonusEarthDefense",
-      "innerName": "EARTHDEFENSE",
+      "id": "bonus_earth_defense",
+      "apiId": "bonusEarthDefense",
+      "name": "EARTHDEFENSE",
       "displayName": "Earth Defence",
-      "translateKey": "wynnlib.id.bonus_earth_defense",
       "suffix": "%"
     },
     {
-      "name": "speed",
-      "innerName": "SPEED",
+      "id": "speed",
+      "apiId": "speed",
+      "name": "SPEED",
       "displayName": "Walk Speed",
-      "translateKey": "wynnlib.id.speed",
       "suffix": "%"
     },
     {
-      "name": "jumpHeight",
-      "innerName": "JUMP_HEIGHT",
+      "id": "jump_height",
+      "apiId": "jumpHeight",
+      "name": "JUMP_HEIGHT",
       "displayName": "Jump Height",
-      "translateKey": "wynnlib.id.jump_height",
       "suffix": ""
     },
     {
-      "name": "sprint",
-      "innerName": "STAMINA",
+      "id": "sprint",
+      "apiId": "sprint",
+      "name": "STAMINA",
       "displayName": "Sprint",
-      "translateKey": "wynnlib.id.sprint",
       "suffix": "%"
     },
     {
-      "name": "sprintRegen",
-      "innerName": "STAMINA_REGEN",
+      "id": "sprint_regen",
+      "apiId": "sprintRegen",
+      "name": "STAMINA_REGEN",
       "displayName": "Sprint Regen",
-      "translateKey": "wynnlib.id.sprint_regen",
       "suffix": "%"
     },
     {
-      "name": "xpBonus",
-      "innerName": "XPBONUS",
+      "id": "xp_bonus",
+      "apiId": "xpBonus",
+      "name": "XPBONUS",
       "displayName": "XP Bonus",
-      "translateKey": "wynnlib.id.xp_bonus",
       "suffix": "%"
     },
     {
-      "name": "lootBonus",
-      "innerName": "LOOTBONUS",
+      "id": "loot_bonus",
+      "apiId": "lootBonus",
+      "name": "LOOTBONUS",
       "displayName": "Loot Bonus",
-      "translateKey": "wynnlib.id.loot_bonus",
       "suffix": "%"
     },
     {
-      "name": "lootQuality",
-      "innerName": "LOOT_QUALITY",
+      "id": "loot_quality",
+      "apiId": "lootQuality",
+      "name": "LOOT_QUALITY",
       "displayName": "Loot Quality",
-      "translateKey": "wynnlib.id.loot_quality",
       "suffix": "%"
     },
     {
-      "name": "gatherXpBonus",
-      "innerName": "GATHER_XP_BONUS",
+      "id": "gather_xp_bonus",
+      "apiId": "gatherXpBonus",
+      "name": "GATHER_XP_BONUS",
       "displayName": "Gather XP Bonus",
-      "translateKey": "wynnlib.id.gather_xp_bonus",
       "suffix": "%"
     },
     {
-      "name": "gatherSpeed",
-      "innerName": "GATHER_SPEED",
+      "id": "gather_speed",
+      "apiId": "gatherSpeed",
+      "name": "GATHER_SPEED",
       "displayName": "Gather Speed",
-      "translateKey": "wynnlib.id.gather_speed",
       "suffix": "%"
     },
     {
-      "name": "emeraldStealing",
-      "innerName": "EMERALDSTEALING",
+      "id": "stealing",
+      "apiId": "emeraldStealing",
+      "name": "EMERALDSTEALING",
       "displayName": "Stealing",
-      "translateKey": "wynnlib.id.stealing",
       "suffix": "%"
     },
     {
-      "name": "soulPoints",
-      "innerName": "SOULPOINTS",
+      "id": "soul_points_regen",
+      "apiId": "soulPoints",
+      "name": "SOULPOINTS",
       "displayName": "Soul Point Regen",
-      "translateKey": "wynnlib.id.soul_points_regen",
       "suffix": "%"
     },
     {
-      "name": "spellCostRaw1",
-      "innerName": "SPELL_COST_RAW_1",
+      "id": "spell_cost_raw_1",
+      "apiId": "spellCostRaw1",
+      "name": "SPELL_COST_RAW_1",
       "displayName": "1st Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_raw_1",
       "alias": [
         "Heal Cost",
         "Arrow Storm Cost",
@@ -384,10 +321,10 @@
       "inverted": true
     },
     {
-      "name": "spellCostRaw2",
-      "innerName": "SPELL_COST_RAW_2",
+      "id": "spell_cost_raw_2",
+      "apiId": "spellCostRaw2",
+      "name": "SPELL_COST_RAW_2",
       "displayName": "2nd Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_raw_2",
       "alias": [
         "Teleport Cost",
         "Escape Cost",
@@ -404,10 +341,10 @@
       "inverted": true
     },
     {
-      "name": "spellCostRaw3",
-      "innerName": "SPELL_COST_RAW_3",
+      "id": "spell_cost_raw_3",
+      "apiId": "spellCostRaw3",
+      "name": "SPELL_COST_RAW_3",
       "displayName": "3rd Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_raw_3",
       "alias": [
         "Meteor Cost",
         "Bomb Cost",
@@ -424,10 +361,10 @@
       "inverted": true
     },
     {
-      "name": "spellCostRaw4",
-      "innerName": "SPELL_COST_RAW_4",
+      "id": "spell_cost_raw_4",
+      "apiId": "spellCostRaw4",
+      "name": "SPELL_COST_RAW_4",
       "displayName": "4th Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_raw_4",
       "alias": [
         "Ice Snake Cost",
         "Arrow Shield Cost",
@@ -444,10 +381,10 @@
       "inverted": true
     },
     {
-      "name": "spellCostPct1",
-      "innerName": "SPELL_COST_PCT_1",
+      "id": "spell_cost_pct_1",
+      "apiId": "spellCostPct1",
+      "name": "SPELL_COST_PCT_1",
       "displayName": "1st Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_pct_1",
       "alias": [
         "Heal Cost",
         "Arrow Storm Cost",
@@ -464,10 +401,10 @@
       "inverted": true
     },
     {
-      "name": "spellCostPct2",
-      "innerName": "SPELL_COST_PCT_2",
+      "id": "spell_cost_pct_2",
+      "apiId": "spellCostPct2",
+      "name": "SPELL_COST_PCT_2",
       "displayName": "2nd Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_pct_2",
       "alias": [
         "Teleport Cost",
         "Escape Cost",
@@ -484,10 +421,10 @@
       "inverted": true
     },
     {
-      "name": "spellCostPct3",
-      "innerName": "SPELL_COST_PCT_3",
+      "id": "spell_cost_pct_3",
+      "apiId": "spellCostPct3",
+      "name": "SPELL_COST_PCT_3",
       "displayName": "3rd Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_pct_3",
       "alias": [
         "Meteor Cost",
         "Bomb Cost",
@@ -504,10 +441,10 @@
       "inverted": true
     },
     {
-      "name": "spellCostPct4",
-      "innerName": "SPELL_COST_PCT_4",
+      "id": "spell_cost_pct_4",
+      "apiId": "spellCostPct4",
+      "name": "SPELL_COST_PCT_4",
       "displayName": "4th Spell Cost",
-      "translateKey": "wynnlib.id.spell_cost_pct_4",
       "alias": [
         "Ice Snake Cost",
         "Arrow Shield Cost",
@@ -522,6 +459,397 @@
       ],
       "suffix": "%",
       "inverted": true
+    }
+  ],
+  "equipmentTypes": [
+    {
+      "apiId": "Helmet",
+      "displayName": "Helmet",
+      "recipeName": "Helmet",
+      "icon": "minecraft:diamond_helmet",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_helmet",
+        "chain": "minecraft:chainmail_helmet",
+        "iron": "minecraft:iron_helmet",
+        "golden": "minecraft:golden_helmet",
+        "diamond": "minecraft:diamond_helmet"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "apiId": "Chestplate",
+      "displayName": "Chestplate",
+      "recipeName": "Chestplate",
+      "icon": "minecraft:diamond_chestplate",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_chestplate",
+        "chain": "minecraft:chainmail_chestplate",
+        "iron": "minecraft:iron_chestplate",
+        "golden": "minecraft:golden_chestplate",
+        "diamond": "minecraft:diamond_chestplate"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "apiId": "Leggings",
+      "displayName": "Leggings",
+      "recipeName": "Pants",
+      "icon": "minecraft:diamond_leggings",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_leggings",
+        "chain": "minecraft:chainmail_leggings",
+        "iron": "minecraft:iron_leggings",
+        "golden": "minecraft:golden_leggings",
+        "diamond": "minecraft:diamond_leggings"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "apiId": "Boots",
+      "displayName": "Boots",
+      "recipeName": "Boots",
+      "icon": "minecraft:diamond_boots",
+      "category": "Armor",
+      "defaultTexture": "diamond",
+      "textures": {
+        "leather": "minecraft:leather_boots",
+        "chain": "minecraft:chainmail_boots",
+        "iron": "minecraft:iron_boots",
+        "golden": "minecraft:golden_boots",
+        "diamond": "minecraft:diamond_boots"
+      },
+      "levels": [
+        {
+          "level": 20,
+          "texture": "leather"
+        },
+        {
+          "level": 40,
+          "texture": "golden"
+        },
+        {
+          "level": 60,
+          "texture": "chain"
+        },
+        {
+          "level": 80,
+          "texture": "iron"
+        },
+        {
+          "level": 100,
+          "texture": "diamond"
+        }
+      ]
+    },
+    {
+      "apiId": "Bow",
+      "displayName": "Bow",
+      "recipeName": "Bow",
+      "icon": "minecraft:bow",
+      "category": "Weapon",
+      "textures": {
+        "bow_basic_wood": "minecraft:bow",
+        "bow_basic_gold": "minecraft:bow#1",
+        "bow_earth_a": "minecraft:bow#2",
+        "bow_earth_b": "minecraft:bow#3",
+        "bow_earth_c": "minecraft:bow#4",
+        "bow_thunder_a": "minecraft:bow#5",
+        "bow_thunder_b": "minecraft:bow#6",
+        "bow_thunder_c": "minecraft:bow#7",
+        "bow_fire_a": "minecraft:bow#8",
+        "bow_fire_b": "minecraft:bow#9",
+        "bow_fire_c": "minecraft:bow#10",
+        "bow_air_a": "minecraft:bow#11",
+        "bow_air_b": "minecraft:bow#12",
+        "bow_air_c": "minecraft:bow#13",
+        "bow_water_a": "minecraft:bow#14",
+        "bow_water_b": "minecraft:bow#15",
+        "bow_water_c": "minecraft:bow#16",
+        "bow_multi_a": "minecraft:bow#17",
+        "bow_multi_b": "minecraft:bow#18",
+        "bow_multi_c": "minecraft:bow#19"
+      }
+    },
+    {
+      "apiId": "Spear",
+      "displayName": "Spear",
+      "recipeName": "Spear",
+      "icon": "minecraft:iron_shovel",
+      "category": "Weapon",
+      "textures": {
+        "spear_basic_wood": "minecraft:iron_shovel",
+        "spear_basic_gold": "minecraft:iron_shovel#1",
+        "spear_earth_a": "minecraft:iron_shovel#2",
+        "spear_earth_b": "minecraft:iron_shovel#3",
+        "spear_earth_c": "minecraft:iron_shovel#4",
+        "spear_thunder_a": "minecraft:iron_shovel#5",
+        "spear_thunder_b": "minecraft:iron_shovel#6",
+        "spear_thunder_c": "minecraft:iron_shovel#7",
+        "spear_fire_a": "minecraft:iron_shovel#8",
+        "spear_fire_b": "minecraft:iron_shovel#9",
+        "spear_fire_c": "minecraft:iron_shovel#10",
+        "spear_air_a": "minecraft:iron_shovel#11",
+        "spear_air_b": "minecraft:iron_shovel#12",
+        "spear_air_c": "minecraft:iron_shovel#13",
+        "spear_water_a": "minecraft:iron_shovel#14",
+        "spear_water_b": "minecraft:iron_shovel#15",
+        "spear_water_c": "minecraft:iron_shovel#16",
+        "spear_multi_a": "minecraft:iron_shovel#17",
+        "spear_multi_b": "minecraft:iron_shovel#18",
+        "spear_multi_c": "minecraft:iron_shovel#19"
+      }
+    },
+    {
+      "apiId": "Wand",
+      "displayName": "Wand",
+      "recipeName": "Wand",
+      "icon": "minecraft:stick",
+      "category": "Weapon",
+      "textures": {
+        "wand_basic_wood": "minecraft:stick",
+        "wand_basic_gold": "minecraft:wooden_shovel#1",
+        "wand_earth_a": "minecraft:wooden_shovel#2",
+        "wand_earth_b": "minecraft:wooden_shovel#3",
+        "wand_earth_c": "minecraft:wooden_shovel#4",
+        "wand_thunder_a": "minecraft:wooden_shovel#5",
+        "wand_thunder_b": "minecraft:wooden_shovel#6",
+        "wand_thunder_c": "minecraft:wooden_shovel#7",
+        "wand_fire_a": "minecraft:wooden_shovel#8",
+        "wand_fire_b": "minecraft:wooden_shovel#9",
+        "wand_fire_c": "minecraft:wooden_shovel#10",
+        "wand_air_a": "minecraft:wooden_shovel#11",
+        "wand_air_b": "minecraft:wooden_shovel#12",
+        "wand_air_c": "minecraft:wooden_shovel#13",
+        "wand_water_a": "minecraft:wooden_shovel#14",
+        "wand_water_b": "minecraft:wooden_shovel#15",
+        "wand_water_c": "minecraft:wooden_shovel#16",
+        "wand_multi_a": "minecraft:wooden_shovel#17",
+        "wand_multi_b": "minecraft:wooden_shovel#18",
+        "wand_multi_c": "minecraft:wooden_shovel#19"
+      }
+    },
+    {
+      "apiId": "Dagger",
+      "displayName": "Dagger",
+      "recipeName": "Dagger",
+      "icon": "minecraft:shears",
+      "category": "Weapon",
+      "textures": {
+        "dagger_basic_wood": "minecraft:shears",
+        "dagger_basic_gold": "minecraft:shears#1",
+        "dagger_earth_a": "minecraft:shears#2",
+        "dagger_earth_b": "minecraft:shears#3",
+        "dagger_earth_c": "minecraft:shears#4",
+        "dagger_thunder_a": "minecraft:shears#5",
+        "dagger_thunder_b": "minecraft:shears#6",
+        "dagger_thunder_c": "minecraft:shears#7",
+        "dagger_fire_a": "minecraft:shears#8",
+        "dagger_fire_b": "minecraft:shears#9",
+        "dagger_fire_c": "minecraft:shears#10",
+        "dagger_air_a": "minecraft:shears#11",
+        "dagger_air_b": "minecraft:shears#12",
+        "dagger_air_c": "minecraft:shears#13",
+        "dagger_water_a": "minecraft:shears#14",
+        "dagger_water_b": "minecraft:shears#15",
+        "dagger_water_c": "minecraft:shears#16",
+        "dagger_multi_a": "minecraft:shears#17",
+        "dagger_multi_b": "minecraft:shears#18",
+        "dagger_multi_c": "minecraft:shears#19"
+      }
+    },
+    {
+      "apiId": "Relik",
+      "displayName": "Relik",
+      "recipeName": "Relik",
+      "icon": "minecraft:stone_shovel#7",
+      "category": "Weapon",
+      "textures": {
+        "relic_basic_wooden": "minecraft:stone_shovel#7",
+        "relic_basic_gold": "minecraft:stone_shovel#8",
+        "relic_earth_a": "minecraft:stone_shovel#9",
+        "relic_earth_b": "minecraft:stone_shovel#10",
+        "relic_earth_c": "minecraft:stone_shovel#11",
+        "relic_thunder_a": "minecraft:stone_shovel#12",
+        "relic_thunder_b": "minecraft:stone_shovel#13",
+        "relic_thunder_c": "minecraft:stone_shovel#14",
+        "relic_fire_a": "minecraft:stone_shovel#15",
+        "relic_fire_b": "minecraft:stone_shovel#16",
+        "relic_fire_c": "minecraft:stone_shovel#17",
+        "relic_air_a": "minecraft:stone_shovel#18",
+        "relic_air_b": "minecraft:stone_shovel#19",
+        "relic_air_c": "minecraft:stone_shovel#20",
+        "relic_water_a": "minecraft:stone_shovel#21",
+        "relic_water_b": "minecraft:stone_shovel#22",
+        "relic_water_c": "minecraft:stone_shovel#23",
+        "relic_multi_a": "minecraft:stone_shovel#24",
+        "relic_multi_b": "minecraft:stone_shovel#25",
+        "relic_multi_c": "minecraft:stone_shovel#26"
+      }
+    },
+    {
+      "apiId": "Ring",
+      "displayName": "Ring",
+      "recipeName": "Ring",
+      "icon": "minecraft:flint_and_steel#2",
+      "category": "Accessory",
+      "defaultTexture": "ring_base_b",
+      "textures": {
+        "ring_base_a": "minecraft:flint_and_steel#1",
+        "ring_base_b": "minecraft:flint_and_steel#2",
+        "ring_earth_a": "minecraft:flint_and_steel#3",
+        "ring_earth_b": "minecraft:flint_and_steel#4",
+        "ring_thunder_a": "minecraft:flint_and_steel#5",
+        "ring_thunder_b": "minecraft:flint_and_steel#6",
+        "ring_fire_a": "minecraft:flint_and_steel#7",
+        "ring_fire_b": "minecraft:flint_and_steel#8",
+        "ring_air_a": "minecraft:flint_and_steel#9",
+        "ring_air_b": "minecraft:flint_and_steel#10",
+        "ring_water_a": "minecraft:flint_and_steel#11",
+        "ring_water_b": "minecraft:flint_and_steel#12",
+        "ring_multi_a": "minecraft:flint_and_steel#13",
+        "ring_multi_b": "minecraft:flint_and_steel#14",
+        "ring_special_a": "minecraft:flint_and_steel#15",
+        "ring_special_b": "minecraft:flint_and_steel#16",
+        "ring_special_c": "minecraft:flint_and_steel#17"
+      }
+    },
+    {
+      "apiId": "Necklace",
+      "displayName": "Necklace",
+      "recipeName": "Necklace",
+      "icon": "minecraft:flint_and_steel#19",
+      "category": "Accessory",
+      "defaultTexture": "necklace_base_b",
+      "textures": {
+        "necklace_base_a": "minecraft:flint_and_steel#18",
+        "necklace_base_b": "minecraft:flint_and_steel#19",
+        "necklace_earth_a": "minecraft:flint_and_steel#20",
+        "necklace_earth_b": "minecraft:flint_and_steel#21",
+        "necklace_thunder_a": "minecraft:flint_and_steel#22",
+        "necklace_thunder_b": "minecraft:flint_and_steel#23",
+        "necklace_fire_a": "minecraft:flint_and_steel#24",
+        "necklace_fire_b": "minecraft:flint_and_steel#25",
+        "necklace_air_a": "minecraft:flint_and_steel#26",
+        "necklace_air_b": "minecraft:flint_and_steel#27",
+        "necklace_water_a": "minecraft:flint_and_steel#28",
+        "necklace_water_b": "minecraft:flint_and_steel#29",
+        "necklace_multi_a": "minecraft:flint_and_steel#30",
+        "necklace_multi_b": "minecraft:flint_and_steel#31",
+        "necklace_special_a": "minecraft:flint_and_steel#32",
+        "necklace_special_b": "minecraft:flint_and_steel#33",
+        "necklace_special_c": "minecraft:flint_and_steel#34"
+      }
+    },
+    {
+      "apiId": "Bracelet",
+      "displayName": "Bracelet",
+      "recipeName": "Bracelet",
+      "icon": "minecraft:flint_and_steel#36",
+      "category": "Accessory",
+      "defaultTexture": "bracelet_base_b",
+      "textures": {
+        "bracelet_base_a": "minecraft:flint_and_steel#35",
+        "bracelet_base_b": "minecraft:flint_and_steel#36",
+        "bracelet_earth_a": "minecraft:flint_and_steel#37",
+        "bracelet_earth_b": "minecraft:flint_and_steel#38",
+        "bracelet_thunder_a": "minecraft:flint_and_steel#39",
+        "bracelet_thunder_b": "minecraft:flint_and_steel#40",
+        "bracelet_fire_a": "minecraft:flint_and_steel#41",
+        "bracelet_fire_b": "minecraft:flint_and_steel#42",
+        "bracelet_air_a": "minecraft:flint_and_steel#43",
+        "bracelet_air_b": "minecraft:flint_and_steel#44",
+        "bracelet_water_a": "minecraft:flint_and_steel#45",
+        "bracelet_water_b": "minecraft:flint_and_steel#46",
+        "bracelet_multi_a": "minecraft:flint_and_steel#47",
+        "bracelet_multi_b": "minecraft:flint_and_steel#48"
+      }
+    },
+    {
+      "apiId": "Mastery Tome",
+      "displayName": "Mastery Tome",
+      "icon": "minecraft:enchanted_book",
+      "category": "Mastery Tome",
+      "textures": {
+        "basic": "minecraft:enchanted_book"
+      }
+    },
+    {
+      "apiId": "Charm",
+      "displayName": "Charm",
+      "icon": "minecraft:totem_of_undying",
+      "category": "Charm",
+      "textures": {
+        "basic": "minecraft:totem_of_undying"
+      }
     }
   ]
 }

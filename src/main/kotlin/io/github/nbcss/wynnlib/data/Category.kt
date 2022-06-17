@@ -1,10 +1,7 @@
 package io.github.nbcss.wynnlib.data
 
-import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.utils.Keyed
-
-data class Category(val name: String): Keyed {
-    constructor(json: JsonObject) : this(json.get("name").asString)
-
-    override fun getKey(): String = name
+enum class Category {
+    WEAPON,
+    ARMOUR,
+    ACCESSORY
 }
