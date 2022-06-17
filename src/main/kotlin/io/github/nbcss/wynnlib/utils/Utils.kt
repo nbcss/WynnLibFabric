@@ -14,6 +14,7 @@ import java.io.IOException
 
 import java.io.InputStream
 import java.util.*
+import kotlin.math.roundToInt
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
@@ -29,8 +30,15 @@ fun asRange(text: String): IRange = try {
 }
 
 fun asIdentificationRange(base: Int): IRange {
-    //todo
-    return IRange(base, base)
+    return if (base < 0) {
+        IRange(base*1.3.roundToInt(), base*0.7.roundToInt())
+    }
+    else if (base > 0) {
+        IRange(base*0.3.roundToInt(), base*1.3.roundToInt())
+    }
+    else{
+        IRange(0, 0)
+    }
 }
 
 fun asColor(text: String): Int {
