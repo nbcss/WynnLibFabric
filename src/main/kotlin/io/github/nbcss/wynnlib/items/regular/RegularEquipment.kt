@@ -43,8 +43,8 @@ class RegularEquipment(json: JsonObject) : Equipment {
                 spMap[it] = value
             }
         }
-        Metadata.getIdentifications().filter{json.has(it.id)}.forEach{
-            val value = json.get(it.id).asInt
+        Metadata.getIdentifications().filter{json.has(it.apiId)}.forEach{
+            val value = json.get(it.apiId).asInt
             if(value != 0)
                 idMap[it] = value
         }

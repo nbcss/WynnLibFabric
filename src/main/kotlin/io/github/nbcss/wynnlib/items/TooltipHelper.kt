@@ -3,7 +3,10 @@ package io.github.nbcss.wynnlib.items
 import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
+import io.github.nbcss.wynnlib.utils.colorOf
+import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers
+import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -37,14 +40,24 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
 }
 
 fun addIdentifications(item: Equipment, tooltip: MutableList<Text>): Boolean {
-    //TODO
+    val lastSize = tooltip.size
     Metadata.getIdentifications().forEach {
         val range = item.getIdentification(it)
         if (!range.isZero()){
-
+            val color = colorOf(if (it.inverted) -range.start else range.start)
+            val text = LiteralText("${signed(range.start)}${it.suffix}").formatted(color)
+            if (!range.isConstant()){
+                val nextColor = colorOf(if (it.inverted) -range.end else range.end)
+                val rangeColor = colorOfDark(if (color != nextColor) 0 else range.start)
+                text.append(from("wynnlib.tooltip.id_range").translate().formatted(rangeColor))
+                text.append(LiteralText("${signed(range.end)}${it.suffix}").formatted(nextColor))
+            }
+            //val values = LiteralText("${range.start} to ${range.end} ")
+            val id = it.translate().formatted(Formatting.GRAY)
+            tooltip.add(text.append(LiteralText(" ")).append(id))
         }
     }
-    return false
+    return tooltip.size > lastSize
 }
 
 fun addPowderSlots(item: Equipment, tooltip: MutableList<Text>) {
