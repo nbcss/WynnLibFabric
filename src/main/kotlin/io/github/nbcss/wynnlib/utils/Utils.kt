@@ -7,11 +7,10 @@ import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtList
 import net.minecraft.nbt.StringNbtReader
-import net.minecraft.text.TranslatableText
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import java.io.IOException
-
 import java.io.InputStream
 import java.util.*
 import kotlin.math.*
@@ -20,6 +19,18 @@ val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
+}
+
+fun formatNumbers(num: Int): String {
+    return num.toString().replace("(?=(?!\\b)(\\d{3})+$)".toRegex(), ",")
+}
+
+fun colorOf(num: Int): Formatting {
+    return if (num > 0) Formatting.GREEN else if (num < 0) Formatting.RED else Formatting.GRAY
+}
+
+fun colorOfDark(num: Int): Formatting {
+    return if (num > 0) Formatting.DARK_GREEN else if (num < 0) Formatting.DARK_RED else Formatting.DARK_GRAY
 }
 
 fun asRange(text: String): IRange = try {

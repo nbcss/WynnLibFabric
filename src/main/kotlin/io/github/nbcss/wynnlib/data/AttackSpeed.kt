@@ -1,11 +1,12 @@
 package io.github.nbcss.wynnlib.data
 
+import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import java.util.*
 import kotlin.collections.LinkedHashMap
 
 enum class AttackSpeed(val displayName: String,
-                       val speedModifier: Double): Keyed {
+                       val speedModifier: Double): Keyed, Translatable {
     SUPER_SLOW("Super Slow", 0.51),
     VERY_SLOW("Very Slow", 0.83),
     SLOW("Slow", 1.5),
@@ -26,4 +27,8 @@ enum class AttackSpeed(val displayName: String,
     }
 
     override fun getKey(): String = name
+
+    override fun getTranslationKey(label: String?): String {
+        return "wynnlib.attack_speed." + getKey().lowercase(Locale.getDefault())
+    }
 }

@@ -4,12 +4,11 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
-import io.github.nbcss.wynnlib.items.Weapon
-import io.github.nbcss.wynnlib.lang.Translator
+import io.github.nbcss.wynnlib.items.*
+import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
 import io.github.nbcss.wynnlib.utils.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import io.github.nbcss.wynnlib.utils.getItemById
-import io.github.nbcss.wynnlib.utils.translate
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -55,20 +54,20 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(parent.getDisplayText())
-        tooltip.add(Translator.asText("attack_speed", atkSpeed.getKey()).formatted(Formatting.GRAY))
+        tooltip.add(atkSpeed.translate().formatted(Formatting.GRAY))
         tooltip.add(LiteralText(""))
         val lastSize = tooltip.size
         if(!damage.isZero()){
             val text = LiteralText(": " + damage.start.toString() + "-" + damage.end.toString())
-            val prefix = translate("wynnlib.tooltip.neutral_damage")
+            val prefix = from("wynnlib.tooltip.neutral_damage").translate()
             tooltip.add(prefix.append(text.formatted(Formatting.GOLD)))
         }
         Element.values().forEach {
             val range: IRange = getElementDamage(it)
             if (!range.isZero()) {
                 val text = LiteralText(": " + range.start.toString() + "-" + range.end.toString())
-                val prefix = Translator.asText("element", it.getKey(), "tooltip.damage")
-                tooltip.add(prefix.formatted(Formatting.GRAY).append(text.formatted(Formatting.GRAY)))
+                val prefix = it.translate("tooltip.damage").formatted(Formatting.GRAY)
+                tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
             }
         }
         //append additional one empty line if damage added
