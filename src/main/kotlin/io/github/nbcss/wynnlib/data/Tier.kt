@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.data
 
+import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.util.Formatting
 import java.util.*
@@ -10,7 +11,8 @@ enum class Tier(val id: String,
                 val formatting: Formatting,
                 val displayName: String,
                 private val priceBase: Double?,
-                private val priceCoefficient: Double?): Keyed {
+                private val priceCoefficient: Double?
+                ): Keyed, Translatable {
     MYTHIC("Mythic", Formatting.DARK_PURPLE, "Mythic Item", 90.0, 18.0),
     FABLED("Fabled", Formatting.RED, "Fabled Item", 16.0, 8.0),
     LEGENDARY("Legendary", Formatting.AQUA, "Legendary Item", 12.0, 4.5),
@@ -32,6 +34,10 @@ enum class Tier(val id: String,
     }
 
     override fun getKey(): String = name
+
+    override fun getTranslationKey(label: String?): String {
+        return "wynnlib.tier." + getKey().lowercase(Locale.getDefault())
+    }
 
     fun canIdentify(): Boolean {
         return priceBase != null && priceCoefficient != null

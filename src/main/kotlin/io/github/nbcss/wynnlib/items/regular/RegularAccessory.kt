@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.EquipmentType
+import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.utils.getItemById
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText

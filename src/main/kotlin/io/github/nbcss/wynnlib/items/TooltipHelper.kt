@@ -1,10 +1,9 @@
-package io.github.nbcss.wynnlib.items.regular
+package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.data.Skill
-import io.github.nbcss.wynnlib.items.Equipment
-import io.github.nbcss.wynnlib.lang.Translator
-import io.github.nbcss.wynnlib.utils.translate
+import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
+import io.github.nbcss.wynnlib.utils.formatNumbers
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -12,27 +11,27 @@ import net.minecraft.util.Formatting
 fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
     //append class & quest req
     if (item.getClassReq() != null){
-        val classReq = Translator.asText("class", item.getClassReq()!!.getKey()).formatted(Formatting.GRAY)
-        val prefix = translate("wynnlib.tooltip.class_req").formatted(Formatting.GRAY)
+        val classReq = item.getClassReq()!!.translate().formatted(Formatting.GRAY)
+        val prefix = from("wynnlib.tooltip.class_req").translate().formatted(Formatting.GRAY)
         tooltip.add(prefix.append(LiteralText(": ").formatted(Formatting.GRAY)).append(classReq))
     }
     if (item.getQuestReq() != null){
         val quest = LiteralText(": " + item.getQuestReq()).formatted(Formatting.GRAY)
-        val prefix = translate("wynnlib.tooltip.quest_req").formatted(Formatting.GRAY)
+        val prefix = from("wynnlib.tooltip.quest_req").translate().formatted(Formatting.GRAY)
         tooltip.add(prefix.append(quest))
     }
     //append level req
     val level = item.getLevel()
     val levelText = LiteralText(": " + if (level.isConstant()) level.start.toString()
         else level.start.toString() + "-" + level.end.toString()).formatted(Formatting.GRAY)
-    tooltip.add(translate("wynnlib.tooltip.combat_level_req").formatted(Formatting.GRAY).append(levelText))
+    tooltip.add(from("wynnlib.tooltip.combat_level_req").translate().formatted(Formatting.GRAY).append(levelText))
     //append skill point req
     Skill.values().forEach{
         val point = item.getRequirement(it)
         if(point != 0){
             val text = LiteralText(": $point").formatted(Formatting.GRAY)
-            val prefix = Translator.asText("skill", it.getKey(), "tooltip.req")
-            tooltip.add(prefix.formatted(Formatting.GRAY).append(text))
+            val prefix = it.translate("tooltip.req").formatted(Formatting.GRAY)
+            tooltip.add(prefix.append(text))
         }
     }
 }
@@ -54,20 +53,22 @@ fun addPowderSlots(item: Equipment, tooltip: MutableList<Text>) {
                 (item.getPowderSlot() > 0) Formatting.YELLOW else Formatting.RED)
     tooltip.add(LiteralText("[").formatted(Formatting.GRAY)
         .append(slots).append(LiteralText("] ").formatted(Formatting.GRAY))
-        .append(translate("wynnlib.tooltip.powder_slots").formatted(Formatting.GRAY)))
+        .append(from("wynnlib.tooltip.powder_slots").translate().formatted(Formatting.GRAY)))
 }
 
 fun addItemSuffix(item: Equipment, tooltip: MutableList<Text>) {
-    val tier = Translator.asText("tier", item.getTier().getKey()).formatted(item.getTier().formatting)
-    val type = Translator.asText("item_type", item.getType().getKey()).formatted(item.getTier().formatting)
+    val tier = item.getTier().translate().formatted(item.getTier().formatting)
+    val type = item.getType().translate().formatted(item.getTier().formatting)
+    val text = tier.append(LiteralText(" ").append(type))
     if(item.isIdentifiable()){
-        //todo add id price
+        val cost = item.getTier().getIdentifyPrice(item.getLevel().start)
+        text.append(LiteralText(" [" + formatNumbers(cost) + "\u00B2]").formatted(Formatting.GREEN))
     }
-    tooltip.add(tier.append(LiteralText(" ").append(type)))
+    tooltip.add(text)
 }
 
 fun addRestriction(item: Equipment, tooltip: MutableList<Text>) {
     if (item.getRestriction() != null){
-        tooltip.add(Translator.asText("restriction", item.getRestriction()!!.getKey()).formatted(Formatting.RED))
+        tooltip.add(item.getRestriction()!!.translate().formatted(Formatting.RED))
     }
 }

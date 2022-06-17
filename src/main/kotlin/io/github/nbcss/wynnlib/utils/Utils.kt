@@ -7,11 +7,9 @@ import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtList
 import net.minecraft.nbt.StringNbtReader
-import net.minecraft.text.TranslatableText
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 import java.io.IOException
-
 import java.io.InputStream
 import java.util.*
 
@@ -19,6 +17,10 @@ val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
+}
+
+fun formatNumbers(num: Int): String {
+    return num.toString().replace("(?=(?!\\b)(\\d{3})+$)".toRegex(), ",")
 }
 
 fun asRange(text: String): IRange = try {

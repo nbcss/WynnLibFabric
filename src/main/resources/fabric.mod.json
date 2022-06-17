@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "wynnlib",
   "version": "${version}",
-  "id": "WynnLibFabric",
+  "name": "WynnLibFabric",
   "description": "Item library for Wynncraft",
   "authors": [
     "nbcss"

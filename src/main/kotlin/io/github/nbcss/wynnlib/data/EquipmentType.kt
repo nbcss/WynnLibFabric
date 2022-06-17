@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.data
 
+import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.getItem
 import net.minecraft.item.ItemStack
@@ -7,7 +8,7 @@ import java.util.*
 import kotlin.collections.LinkedHashMap
 
 enum class EquipmentType(val id: String,
-                         iconName: String): Keyed {
+                         iconName: String): Keyed, Translatable {
     BOW("Bow", "minecraft:bow"),
     SPEAR("Spear", "minecraft:iron_shovel"),
     WAND("Wand", "minecraft:stick"),
@@ -39,6 +40,10 @@ enum class EquipmentType(val id: String,
     }
 
     override fun getKey(): String = name
+
+    override fun getTranslationKey(label: String?): String {
+        return "wynnlib.item_type." + getKey().lowercase(Locale.getDefault())
+    }
 
     fun getTexture(key: String): ItemStack {
         //val texture: ItemStack = textureMap.get(key.lowercase(Locale.getDefault()))

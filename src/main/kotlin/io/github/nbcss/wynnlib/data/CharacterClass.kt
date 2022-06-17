@@ -1,9 +1,10 @@
 package io.github.nbcss.wynnlib.data
 
+import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import java.util.*
 
-enum class CharacterClass(private val weaponName: String): Keyed {
+enum class CharacterClass(private val weaponName: String): Keyed, Translatable {
     WARRIOR("Spear"),
     ARCHER("Bow"),
     MAGE("Wand"),
@@ -19,4 +20,8 @@ enum class CharacterClass(private val weaponName: String): Keyed {
     }
 
     override fun getKey(): String = name
+
+    override fun getTranslationKey(label: String?): String {
+        return "wynnlib.class." + getKey().lowercase(Locale.getDefault())
+    }
 }
