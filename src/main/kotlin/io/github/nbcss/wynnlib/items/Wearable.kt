@@ -18,5 +18,5 @@ interface Wearable {
      * @param elem: a non-null element key.
      * @return the defense value of the given element.
      */
-    fun getElementDefense(elem: Element): Int
+    fun getElementDefence(elem: Element): Int
 }

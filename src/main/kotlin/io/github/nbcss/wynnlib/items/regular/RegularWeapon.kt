@@ -68,7 +68,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
             if (!range.isZero()) {
                 val text = LiteralText(": " + range.start.toString() + "-" + range.end.toString())
                 val prefix = Translator.asText("element", it.getKey(), "tooltip.damage")
-                tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
+                tooltip.add(prefix.formatted(Formatting.GRAY).append(text.formatted(Formatting.GRAY)))
             }
         }
         //append additional one empty line if damage added

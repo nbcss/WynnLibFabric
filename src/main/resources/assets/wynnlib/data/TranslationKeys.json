@@ -166,6 +166,36 @@
       "translation": "wynnlib.tooltip.earth_damage"
     },
     {
+      "prefix": "element",
+      "key": "fire",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.fire_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "water",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.water_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "air",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.air_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "thunder",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.thunder_defence"
+    },
+    {
+      "prefix": "element",
+      "key": "earth",
+      "label": "tooltip.defence",
+      "translation": "wynnlib.tooltip.earth_defence"
+    },
+    {
       "prefix": "skill",
       "key": "strength",
       "label": "tooltip.req",

@@ -61,6 +61,16 @@ class RegularArmour(parent: RegularEquipment, json: JsonObject)
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(parent.getDisplayText())
         tooltip.add(LiteralText(""))
+        if (addDefenseTooltip(tooltip))
+            tooltip.add(LiteralText(""))
+        addRequirements(parent, tooltip)
+        tooltip.add(LiteralText(""))
+        //append empty line if success add any id into the tooltip
+        if (addIdentifications(parent , tooltip))
+            tooltip.add(LiteralText(""))
+        addPowderSlots(parent, tooltip)
+        addItemSuffix(parent, tooltip)
+        addRestriction(parent, tooltip)
         return tooltip
     }
 }

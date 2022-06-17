@@ -17,6 +17,10 @@ import java.util.*
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
+fun signed(value: Int): String {
+    return if(value <= 0) value.toString() else "+$value"
+}
+
 fun asRange(text: String): IRange = try {
     val array = text.split("-")
     IRange(array[0].toInt(), array[1].toInt())

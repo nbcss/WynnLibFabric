@@ -32,7 +32,18 @@ class RegularAccessory(parent: RegularEquipment, json: JsonObject)
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(parent.getDisplayText())
         tooltip.add(LiteralText(""))
-
+        if (addDefenseTooltip(tooltip))
+            tooltip.add(LiteralText(""))
+        addRequirements(parent, tooltip)
+        tooltip.add(LiteralText(""))
+        //append empty line if success add any id into the tooltip
+        if (addIdentifications(parent , tooltip))
+            tooltip.add(LiteralText(""))
+        //accessory should not have powder slot but let's add it just in case
+        if(parent.getPowderSlot() > 0)
+            addPowderSlots(parent, tooltip)
+        addItemSuffix(parent, tooltip)
+        addRestriction(parent, tooltip)
         return tooltip
     }
 

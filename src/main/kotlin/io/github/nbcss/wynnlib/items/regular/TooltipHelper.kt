@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.items.regular
 
+import io.github.nbcss.wynnlib.data.Metadata
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.items.Equipment
 import io.github.nbcss.wynnlib.lang.Translator
@@ -38,6 +39,12 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
 
 fun addIdentifications(item: Equipment, tooltip: MutableList<Text>): Boolean {
     //TODO
+    Metadata.getIdentifications().forEach {
+        val range = item.getIdentification(it)
+        if (!range.isZero()){
+
+        }
+    }
     return false
 }
 
