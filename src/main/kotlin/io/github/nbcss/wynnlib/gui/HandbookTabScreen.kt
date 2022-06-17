@@ -53,7 +53,6 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
         matrices.push()
         //matrices.translate(0.0, 0.0, 100.0)
         renderOrderedTooltip(matrices, tooltip.map{it.asOrderedText()}, x, y)
-        RenderSystem.disableDepthTest()
         matrices.pop()
     }
 
