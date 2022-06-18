@@ -19,6 +19,9 @@ object Settings {
         colorMap["ingredient_tier.star_1"] = 0xFFFF55
         colorMap["ingredient_tier.star_2"] = 0xFF55FF
         colorMap["ingredient_tier.star_3"] = 0x55FFFF
+        colorMap["material_tier.star_1"] = 0xFFFF55
+        colorMap["material_tier.star_2"] = 0xFF55FF
+        colorMap["material_tier.star_3"] = 0x55FFFF
         colorMap["powder_tier.i"] = 0xFFFFFF
         colorMap["powder_tier.ii"] = 0xFFFF55
         colorMap["powder_tier.iii"] = 0xFF55FF

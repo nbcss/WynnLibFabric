@@ -8,5 +8,5 @@ interface BaseItem {
     fun getIcon(): ItemStack
     fun getIconText(): String? = null
     fun getRarityColor(): Int
-    fun getTooltip(): List<Text>
+    fun getTooltip(): List<Text> = listOf(getDisplayText())
 }
