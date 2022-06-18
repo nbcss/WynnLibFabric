@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.WynnLibEntry
+import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
@@ -89,22 +90,33 @@ fun getSkullItem(skin: String?): ItemStack {
 }
 
 fun getItemById(id: Int, meta: Int): ItemStack {
-    val item: Item = Item.byRawId(id)
-    if (item != Items.AIR) {
-        //todo meta should write here
-        //DataFix may help?
-        //ItemInstanceTheFlatteningFix
-        val stack = ItemStack(item, 1)
-        val nbt = stack.orCreateNbt
-        val tag = if (nbt.contains("tag")) nbt.getCompound("tag") else NbtCompound()
-        tag.putBoolean("Unbreakable", true)
-        nbt.put("tag", tag)
-
-        if (id == 383) {
-            //nbt = ItemSpawnEggFix().fixTagCompound(nbt)
+    var itemString: String = net.minecraft.datafixer.fix.ItemIdFix.fromId(id)
+    var damage: Int = -1
+    var spawnEggType: String? = null
+    if (meta != 0) {
+        if (itemString == "minecraft:spawn_egg") {
+            // todo fix SpawnEgg
+            // maybe using mixin or reflection to get the map
         }
-        stack.writeNbt(nbt)
-        return stack
+        val flattenedItemString: String? = ItemInstanceTheFlatteningFix.getItem(itemString, meta)
+        if (flattenedItemString != null) {
+            itemString = flattenedItemString
+        }
+        else { // The item 'should' be in the ItemInstanceTheFlatteningFix.DAMAGEABLE_ITEMS
+            damage = meta
+        }
+    }
+    if (itemString != "minecraft:air") {
+        val nbt = NbtCompound()
+        val tag = NbtCompound()
+        nbt.putString("id", itemString)
+        nbt.putByte("Count", 1.toByte())
+        tag.putBoolean("Unbreakable", true)
+        if (damage != -1) {
+            tag.putByte("Damage", damage.toByte())
+        }
+        nbt.put("tag", tag)
+        return ItemStack.fromNbt(nbt)
     }
     return ERROR_ITEM
 }
