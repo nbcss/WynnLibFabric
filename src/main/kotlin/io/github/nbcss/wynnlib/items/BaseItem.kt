@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.utils
+package io.github.nbcss.wynnlib.items
 
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text

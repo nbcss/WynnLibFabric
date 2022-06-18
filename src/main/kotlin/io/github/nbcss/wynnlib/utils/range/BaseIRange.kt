@@ -6,12 +6,12 @@ class BaseIRange(private val id: Identification, private val base: Int): IRange 
 
     fun base(): Int = base
 
-    override fun upper(): Int {
+    override fun lower(): Int {
         //TODO
         return base()
     }
 
-    override fun lower(): Int {
+    override fun upper(): Int {
         //TODO
         return base()
     }

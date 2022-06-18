@@ -45,7 +45,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
                 spMap[it] = value
             }
         }
-        Metadata.getIdentifications().filter{json.has(it.apiId)}.forEach{
+        Identification.getAll().filter{json.has(it.apiId)}.forEach{
             val value = json.get(it.apiId).asInt
             if(value != 0)
                 idMap[it] = BaseIRange(it, value)
@@ -95,7 +95,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getIcon(): ItemStack = container!!.getIcon()
 
     override fun getRarityColor(): Int {
-        return Settings.getColor("tier_" + tier.name)
+        return Settings.getColor("tier", tier.name)
     }
 
     override fun getTooltip(): List<Text> = container!!.getTooltip()

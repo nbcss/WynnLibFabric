@@ -31,7 +31,7 @@ fun colorOf(num: Int): Formatting {
     return when {
         num > 0 -> Formatting.GREEN
         num < 0 -> Formatting.RED
-        else -> Formatting.GRAY
+        else -> Formatting.DARK_GRAY
     }
 }
 
@@ -39,7 +39,7 @@ fun colorOfDark(num: Int): Formatting {
     return when {
         num > 0 -> Formatting.DARK_GREEN
         num < 0 -> Formatting.DARK_RED
-        else -> Formatting.DARK_GRAY
+        else -> Formatting.GRAY
     }
 }
 

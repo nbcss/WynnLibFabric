@@ -102,6 +102,7 @@
   "wynnlib.tooltip.skill_point_req.agility": "Agility Min",
   "wynnlib.tooltip.id_range": " to ",
   "wynnlib.tooltip.powder_slots": "Powder Slots",
+  "wynnlib.tooltip.crafting_ingredient": "Crafting Ingredient",
   "wynnlib.class.warrior": "Warrior/Knight",
   "wynnlib.class.archer": "Archer/Hunter",
   "wynnlib.class.mage": "Mage/Dark Wizard",

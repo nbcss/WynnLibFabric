@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.utils.range
 
-class SimpleIRange(private val start: Int, private val end: Int): IRange {
-    override fun upper(): Int = start
-    override fun lower(): Int = end
+class SimpleIRange(private val lower: Int, private val upper: Int): IRange {
+    override fun lower(): Int = lower
+    override fun upper(): Int = upper
 }

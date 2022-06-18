@@ -60,14 +60,14 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
         tooltip.add(LiteralText(""))
         val lastSize = tooltip.size
         if(!damage.isZero()){
-            val text = LiteralText(": " + damage.upper().toString() + "-" + damage.lower().toString())
+            val text = LiteralText(": " + damage.lower().toString() + "-" + damage.upper().toString())
             val prefix = from("wynnlib.tooltip.neutral_damage").translate()
             tooltip.add(prefix.append(text.formatted(Formatting.GOLD)))
         }
         Element.values().forEach {
             val range: IRange = getElementDamage(it)
             if (!range.isZero()) {
-                val text = LiteralText(": " + range.upper().toString() + "-" + range.lower().toString())
+                val text = LiteralText(": " + range.lower().toString() + "-" + range.upper().toString())
                 val prefix = it.translate("tooltip.damage").formatted(Formatting.GRAY)
                 tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
             }

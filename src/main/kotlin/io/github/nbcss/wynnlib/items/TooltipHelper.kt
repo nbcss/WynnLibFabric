@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.items
 
-import io.github.nbcss.wynnlib.data.Metadata
+import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
 import io.github.nbcss.wynnlib.utils.colorOf
@@ -25,8 +25,8 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
     }
     //append level req
     val level = item.getLevel()
-    val levelText = LiteralText(": " + if (level.isConstant()) level.start.toString()
-        else level.start.toString() + "-" + level.end.toString()).formatted(Formatting.GRAY)
+    val levelText = LiteralText(": " + if (level.isConstant()) level.lower().toString()
+        else level.lower().toString() + "-" + level.upper().toString()).formatted(Formatting.GRAY)
     tooltip.add(from("wynnlib.tooltip.combat_level_req").translate().formatted(Formatting.GRAY).append(levelText))
     //append skill point req
     Skill.values().forEach{
@@ -39,18 +39,18 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
     }
 }
 
-fun addIdentifications(item: Equipment, tooltip: MutableList<Text>): Boolean {
+fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): Boolean {
     val lastSize = tooltip.size
-    Metadata.getIdentifications().forEach {
+    Identification.getAll().forEach {
         val range = item.getIdentification(it)
         if (!range.isZero()){
-            val color = colorOf(if (it.inverted) -range.start else range.start)
-            val text = LiteralText("${signed(range.start)}${it.suffix}").formatted(color)
+            val color = colorOf(if (it.inverted) -range.lower() else range.lower())
+            val text = LiteralText("${signed(range.lower())}${it.suffix}").formatted(color)
             if (!range.isConstant()){
-                val nextColor = colorOf(if (it.inverted) -range.end else range.end)
-                val rangeColor = colorOfDark(if (color != nextColor) 0 else range.start)
+                val nextColor = colorOf(if (it.inverted) -range.upper() else range.upper())
+                val rangeColor = colorOfDark(if (color != nextColor) 0 else range.lower())
                 text.append(from("wynnlib.tooltip.id_range").translate().formatted(rangeColor))
-                text.append(LiteralText("${signed(range.end)}${it.suffix}").formatted(nextColor))
+                text.append(LiteralText("${signed(range.upper())}${it.suffix}").formatted(nextColor))
             }
             //val values = LiteralText("${range.start} to ${range.end} ")
             val id = it.translate().formatted(Formatting.GRAY)
@@ -74,7 +74,7 @@ fun addItemSuffix(item: Equipment, tooltip: MutableList<Text>) {
     val type = item.getType().translate().formatted(item.getTier().formatting)
     val text = tier.append(LiteralText(" ").append(type))
     if(item.isIdentifiable()){
-        val cost = item.getTier().getIdentifyPrice(item.getLevel().start)
+        val cost = item.getTier().getIdentifyPrice(item.getLevel().lower())
         text.append(LiteralText(" [" + formatNumbers(cost) + "\u00B2]").formatted(Formatting.GREEN))
     }
     tooltip.add(text)

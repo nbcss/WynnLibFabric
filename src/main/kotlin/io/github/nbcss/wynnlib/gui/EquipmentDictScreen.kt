@@ -8,6 +8,9 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import net.minecraft.text.TranslatableText
 
+/**
+ * The Dictionary UI for display all equipments.
+ */
 class EquipmentDictScreen : DictionaryScreen<Equipment>(TITLE) {
     companion object {
         val ICON: ItemStack = getItem("minecraft:diamond_helmet")

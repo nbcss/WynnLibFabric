@@ -1,8 +1,7 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
-import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.gui.TooltipScreen
-import io.github.nbcss.wynnlib.utils.BaseItem
+import io.github.nbcss.wynnlib.items.BaseItem
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder
