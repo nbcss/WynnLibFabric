@@ -13,6 +13,7 @@ import net.minecraft.util.registry.Registry
 import java.io.IOException
 import java.io.InputStream
 import java.util.*
+import kotlin.math.*
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
@@ -48,8 +49,13 @@ fun asRange(text: String): IRange = try {
 }
 
 fun asIdentificationRange(base: Int): IRange {
-    //todo
-    return IRange(base, base)
+    if( base == 0 )return IRange(0,0)
+    return if (base>0){
+        IRange(max(1, base*0.3.roundToInt()), base*1.3.roundToInt())
+    }
+    else{
+        IRange(base*1.3.roundToInt(), base*0.7.roundToInt())
+    }
 }
 
 fun asColor(text: String): Int {
