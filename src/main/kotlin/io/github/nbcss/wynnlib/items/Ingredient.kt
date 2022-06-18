@@ -3,6 +3,8 @@ package io.github.nbcss.wynnlib.items
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.Identification
+import io.github.nbcss.wynnlib.data.Profession
+import io.github.nbcss.wynnlib.data.Restriction
 import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
 import io.github.nbcss.wynnlib.utils.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.Keyed
@@ -16,8 +18,10 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 
+
 class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
     private val idMap: MutableMap<Identification, IngredientIRange> = LinkedHashMap()
+    private val professions: MutableList<Profession> = ArrayList()
     private val name: String
     private val displayName: String
     private val level: Int
@@ -30,6 +34,11 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         level = json.get("level").asInt
         tier = Tier.values()[MathHelper.clamp(json.get("tier").asInt, 0, Tier.values().size - 1)]
         untradable = json.has("untradeable") && json.get("untradeable").asBoolean
+        if (json.has("skills")) {
+            json.get("skills").asJsonArray.forEach {
+                Profession.getProfession(it.asString)?.let { i -> professions.add(i) }
+            }
+        }
         if(json.has("identifications")){
             val identifications = json.get("identifications").asJsonObject;
             identifications.entrySet().forEach {
@@ -57,6 +66,10 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         }
     }
 
+    fun getProfessions(): List<Profession> = professions
+
+    fun isUntradable(): Boolean = untradable
+
     override fun getDisplayText(): Text {
         return LiteralText(displayName).formatted(Formatting.GRAY).append(LiteralText(tier.suffix))
     }
@@ -80,6 +93,13 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         if (addIdentifications(this, tooltip))
             tooltip.add(LiteralText(""))
         //todo
+        tooltip.add(from("wynnlib.tooltip.crafting_level_req").translate().formatted(Formatting.GRAY)
+            .append(LiteralText(": $level").formatted(Formatting.GRAY)))
+        professions.forEach {
+            tooltip.add(LiteralText(" - ").formatted(Formatting.DARK_GRAY).append(it.getDisplayText()))
+        }
+        if(isUntradable())
+            tooltip.add(Restriction.UNTRADABLE.translate().formatted(Formatting.RED))
         return tooltip
     }
 
