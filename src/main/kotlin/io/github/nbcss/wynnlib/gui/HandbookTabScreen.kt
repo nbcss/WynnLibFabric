@@ -24,6 +24,7 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
         //setup default tabs
         tabs.add(EquipmentDictScreen.FACTORY)
         tabs.add(IngredientDictScreen.FACTORY)
+        tabs.add(PowderDictScreen.FACTORY)
     }
 
     override fun init() {

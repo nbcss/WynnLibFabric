@@ -6,6 +6,7 @@ import net.minecraft.text.Text
 interface BaseItem {
     fun getDisplayText(): Text
     fun getIcon(): ItemStack
+    fun getIconText(): Text? = null
     fun getRarityColor(): Int
     fun getTooltip(): List<Text>
 }

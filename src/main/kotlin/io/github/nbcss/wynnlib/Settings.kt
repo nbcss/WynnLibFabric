@@ -19,6 +19,12 @@ object Settings {
         colorMap["ingredient_tier.star_1"] = 0xFFFF55
         colorMap["ingredient_tier.star_2"] = 0xFF55FF
         colorMap["ingredient_tier.star_3"] = 0x55FFFF
+        colorMap["powder_tier.i"] = 0xFFFFFF
+        colorMap["powder_tier.ii"] = 0xFFFF55
+        colorMap["powder_tier.iii"] = 0xFF55FF
+        colorMap["powder_tier.iv"] = 0x55FFFF
+        colorMap["powder_tier.v"] = 0xFF5555
+        colorMap["powder_tier.vi"] = 0xAA00AA
     }
     fun getColor(prefix: String, label: String): Int {
         val key = "${prefix}.$label".lowercase(Locale.getDefault())

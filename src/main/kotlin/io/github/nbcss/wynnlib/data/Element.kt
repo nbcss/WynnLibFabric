@@ -36,6 +36,17 @@ enum class Element(val displayName: String,
         "bonusEarthDamage",
         "bonusEarthDefense");
 
+    companion object {
+        private val VALUE_MAP: MutableMap<String, Element> = LinkedHashMap()
+        init {
+            values().forEach { VALUE_MAP[it.name.uppercase(Locale.getDefault())] = it }
+        }
+
+        fun fromId(id: String): Element? {
+            return VALUE_MAP[id.uppercase(Locale.getDefault())]
+        }
+    }
+
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {

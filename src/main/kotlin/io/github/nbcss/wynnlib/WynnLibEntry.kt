@@ -4,6 +4,7 @@ import com.google.gson.JsonParser
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.gui.EquipmentDictScreen
 import io.github.nbcss.wynnlib.registry.IngredientRegistry
+import io.github.nbcss.wynnlib.registry.PowderRegistry
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
 import io.github.nbcss.wynnlib.utils.getResource
 import net.fabricmc.api.ModInitializer
@@ -24,6 +25,8 @@ object WynnLibEntry: ModInitializer {
         Identification.reload(JsonParser.parseReader(InputStreamReader(
             getResource("assets/wynnlib/data/Identifications.json")!!, "utf-8")).asJsonObject)
         //Load database
+        PowderRegistry.reload(JsonParser.parseReader(InputStreamReader(
+            getResource("assets/wynnlib/data/Powders.json")!!, "utf-8")).asJsonObject)
         RegularEquipmentRegistry.reload(JsonParser.parseReader(InputStreamReader(
             getResource("assets/wynnlib/data/Equipments.json")!!, "utf-8")).asJsonObject)
         IngredientRegistry.reload(JsonParser.parseReader(InputStreamReader(
