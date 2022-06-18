@@ -1,13 +1,13 @@
-package io.github.nbcss.wynnlib.items.regular
+package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
 import io.github.nbcss.wynnlib.items.Equipment
-import io.github.nbcss.wynnlib.items.Weapon
-import io.github.nbcss.wynnlib.items.Wearable
+import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
+import io.github.nbcss.wynnlib.items.equipments.Weapon
+import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.utils.range.IRange
-import io.github.nbcss.wynnlib.utils.asIdentificationRange
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.ItemStack

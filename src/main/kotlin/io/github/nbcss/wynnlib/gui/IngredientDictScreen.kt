@@ -1,13 +1,13 @@
 package io.github.nbcss.wynnlib.gui
 
-import io.github.nbcss.wynnlib.items.Equipment
+import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.getItem
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 
 //fixme replace equipment with ingredient
-class IngredientDictScreen : DictionaryScreen<Equipment>(TITLE) {
+class IngredientDictScreen : DictionaryScreen<Ingredient>(TITLE) {
     companion object {
         val ICON: ItemStack = getItem("minecraft:diamond_axe#94")
         val TITLE: Text = Translatable.from("wynnlib.ui.ingredients").translate()
@@ -19,7 +19,7 @@ class IngredientDictScreen : DictionaryScreen<Equipment>(TITLE) {
         }
     }
 
-    override fun fetchItems(): Collection<Equipment> {
+    override fun fetchItems(): Collection<Ingredient> {
         return emptyList()
     }
 }

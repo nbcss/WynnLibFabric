@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.registry
 
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.items.regular.RegularEquipment
+import io.github.nbcss.wynnlib.items.equipments.RegularEquipment
 import io.github.nbcss.wynnlib.utils.Registry
 
 object RegularEquipmentRegistry: Registry<RegularEquipment>() {

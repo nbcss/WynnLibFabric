@@ -1,6 +1,8 @@
 package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.*
+import io.github.nbcss.wynnlib.items.equipments.Weapon
+import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.utils.BaseItem
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.Keyed

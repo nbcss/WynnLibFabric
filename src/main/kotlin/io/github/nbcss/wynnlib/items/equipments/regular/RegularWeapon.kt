@@ -1,15 +1,16 @@
-package io.github.nbcss.wynnlib.items.regular
+package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
+import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
+import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import io.github.nbcss.wynnlib.utils.getItemById
-import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
