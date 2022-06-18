@@ -1,25 +1,18 @@
 package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.utils.BaseItem
-import io.github.nbcss.wynnlib.utils.IRange
+import io.github.nbcss.wynnlib.items.equipments.Weapon
+import io.github.nbcss.wynnlib.items.equipments.Wearable
+import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.Keyed
 
-interface Equipment : Keyed, BaseItem {
+interface Equipment : Keyed, BaseItem, IdentificationHolder {
     /**
      * Get the tier of the equipment.
      *
      * @return item tier
      */
     fun getTier(): Tier
-
-    /**
-     * Get the roll range of the given identification.
-     *
-     * @param id: the identification to query
-     * @return the range of the given identification
-     */
-    fun getIdentification(id: Identification): IRange
 
     /**
      * Get the type of the Equipment (e.g. Helmet, Bow...)

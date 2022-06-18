@@ -2,6 +2,8 @@ package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.WynnLibEntry
 import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
+import io.github.nbcss.wynnlib.utils.range.IRange
+import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
@@ -30,7 +32,7 @@ fun colorOf(num: Int): Formatting {
     return when {
         num > 0 -> Formatting.GREEN
         num < 0 -> Formatting.RED
-        else -> Formatting.GRAY
+        else -> Formatting.DARK_GRAY
     }
 }
 
@@ -38,24 +40,24 @@ fun colorOfDark(num: Int): Formatting {
     return when {
         num > 0 -> Formatting.DARK_GREEN
         num < 0 -> Formatting.DARK_RED
-        else -> Formatting.DARK_GRAY
+        else -> Formatting.GRAY
     }
 }
 
 fun asRange(text: String): IRange = try {
     val array = text.split("-")
-    IRange(array[0].toInt(), array[1].toInt())
+    SimpleIRange(array[0].toInt(), array[1].toInt())
 }catch (e: Exception){
-    IRange(0, 0)
+    SimpleIRange(0, 0)
 }
 
 fun asIdentificationRange(base: Int): IRange {
-    if( base == 0 )return IRange(0,0)
+    if( base == 0 )return SimpleIRange(0,0)
     return if (base>0){
-        IRange(max(1, base*0.3.roundToInt()), base*1.3.roundToInt())
+        SimpleIRange(max(1, (base*0.3).roundToInt()), (base*1.3).roundToInt())
     }
     else{
-        IRange(base*1.3.roundToInt(), base*0.7.roundToInt())
+        SimpleIRange((base*1.3).roundToInt(), (base*0.7).roundToInt())
     }
 }
 

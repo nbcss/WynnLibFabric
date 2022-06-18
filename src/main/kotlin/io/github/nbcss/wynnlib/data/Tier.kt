@@ -36,7 +36,7 @@ enum class Tier(val id: String,
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.tier." + getKey().lowercase(Locale.getDefault())
+        return "wynnlib.tier.${getKey().lowercase(Locale.getDefault())}"
     }
 
     fun canIdentify(): Boolean {

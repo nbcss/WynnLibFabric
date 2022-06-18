@@ -1,10 +1,12 @@
-package io.github.nbcss.wynnlib.items.regular
+package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.items.Wearable
-import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
-import io.github.nbcss.wynnlib.utils.IRange
+import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
+import io.github.nbcss.wynnlib.items.equipments.Wearable
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_HEALTH
+import io.github.nbcss.wynnlib.utils.range.IRange
+import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -19,7 +21,7 @@ abstract class RegularWearable(protected val parent: RegularEquipment, json: Jso
         Element.values().forEach{elemDefence[it] = json.get(it.defenceName).asInt }
     }
 
-    override fun getHealth(): IRange = IRange(health, health)
+    override fun getHealth(): IRange = SimpleIRange(health, health)
 
     override fun getElementDefence(elem: Element): Int {
         return elemDefence.getOrDefault(elem, 0)
@@ -29,7 +31,7 @@ abstract class RegularWearable(protected val parent: RegularEquipment, json: Jso
         val lastSize: Int = tooltip.size
         if (health != 0) {
             val text = LiteralText(": " + signed(health)).formatted(Formatting.DARK_RED)
-            val prefix = from("wynnlib.tooltip.health").translate().formatted(Formatting.DARK_RED)
+            val prefix = TOOLTIP_HEALTH.translate().formatted(Formatting.DARK_RED)
             tooltip.add(prefix.append(text))
         }
         Element.values().forEach {

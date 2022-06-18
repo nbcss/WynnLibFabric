@@ -1,8 +1,9 @@
 package io.github.nbcss.wynnlib
 
 import com.google.gson.JsonParser
-import io.github.nbcss.wynnlib.data.Metadata
+import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.gui.EquipmentDictScreen
+import io.github.nbcss.wynnlib.registry.IngredientRegistry
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
 import io.github.nbcss.wynnlib.utils.getResource
 import net.fabricmc.api.ModInitializer
@@ -19,12 +20,14 @@ object WynnLibEntry: ModInitializer {
     private const val MOD_ID = "wynnlib"
 
     override fun onInitialize() {
-        //Reload metadata
-        Metadata.reload(JsonParser.parseReader(InputStreamReader(
-            getResource("assets/wynnlib/data/Metadata.json")!!, "utf-8")).asJsonObject)
+        //Reload id metadata
+        Identification.reload(JsonParser.parseReader(InputStreamReader(
+            getResource("assets/wynnlib/data/Identifications.json")!!, "utf-8")).asJsonObject)
         //Load database
         RegularEquipmentRegistry.reload(JsonParser.parseReader(InputStreamReader(
             getResource("assets/wynnlib/data/Equipments.json")!!, "utf-8")).asJsonObject)
+        IngredientRegistry.reload(JsonParser.parseReader(InputStreamReader(
+            getResource("assets/wynnlib/data/Ingredients.json")!!, "utf-8")).asJsonObject)
         //Register keybindings
         val openHandbook = KeyBindingHelper.registerKeyBinding(
             KeyBinding(

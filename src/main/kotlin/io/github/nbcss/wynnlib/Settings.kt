@@ -7,16 +7,21 @@ import kotlin.math.abs
 object Settings {
     private val colorMap: MutableMap<String, Int> = LinkedHashMap()
     init {
-        colorMap["tier_mythic"] = 0xAA00AA
-        colorMap["tier_fabled"] = 0xFF5555
-        colorMap["tier_legendary"] = 0x55FFFF
-        colorMap["tier_rare"] = 0xFF55FF
-        colorMap["tier_unique"] = 0xFFFF55
-        colorMap["tier_set"] = 0x55FF55
-        colorMap["tier_normal"] = 0xFFFFFF
-        colorMap["tier_crafted"] = 0x00AAAA
+        colorMap["tier.mythic"] = 0xAA00AA
+        colorMap["tier.fabled"] = 0xFF5555
+        colorMap["tier.legendary"] = 0x55FFFF
+        colorMap["tier.rare"] = 0xFF55FF
+        colorMap["tier.unique"] = 0xFFFF55
+        colorMap["tier.set"] = 0x55FF55
+        colorMap["tier.normal"] = 0xFFFFFF
+        colorMap["tier.crafted"] = 0x00AAAA
+        colorMap["ingredient_tier.star_0"] = 0x555555
+        colorMap["ingredient_tier.star_1"] = 0xFFFF55
+        colorMap["ingredient_tier.star_2"] = 0xFF55FF
+        colorMap["ingredient_tier.star_3"] = 0x55FFFF
     }
-    fun getColor(label: String): Int {
-        return colorMap.getOrDefault(label.lowercase(Locale.getDefault()), 0)
+    fun getColor(prefix: String, label: String): Int {
+        val key = "${prefix}.$label".lowercase(Locale.getDefault())
+        return colorMap.getOrDefault(key, 0)
     }
 }

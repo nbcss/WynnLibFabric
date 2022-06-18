@@ -24,6 +24,6 @@ enum class Restriction(private val id: String): Keyed, Translatable {
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.restriction." + getKey().lowercase(Locale.getDefault())
+        return "wynnlib.restriction.${getKey().lowercase(Locale.getDefault())}"
     }
 }

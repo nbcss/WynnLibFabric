@@ -22,6 +22,6 @@ enum class CharacterClass(private val weaponName: String): Keyed, Translatable {
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.class." + getKey().lowercase(Locale.getDefault())
+        return "wynnlib.class.${getKey().lowercase(Locale.getDefault())}"
     }
 }

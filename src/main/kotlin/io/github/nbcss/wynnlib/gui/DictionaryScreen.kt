@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
-import io.github.nbcss.wynnlib.utils.BaseItem
+import io.github.nbcss.wynnlib.items.BaseItem
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
