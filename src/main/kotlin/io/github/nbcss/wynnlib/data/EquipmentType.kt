@@ -42,10 +42,11 @@ enum class EquipmentType(val id: String,
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.item_type." + getKey().lowercase(Locale.getDefault())
+        return "wynnlib.item_type.${getKey().lowercase(Locale.getDefault())}"
     }
 
     fun getTexture(key: String): ItemStack {
+        //TODO
         //val texture: ItemStack = textureMap.get(key.lowercase(Locale.getDefault()))
         //return texture ?: getIcon()
         return getIcon()

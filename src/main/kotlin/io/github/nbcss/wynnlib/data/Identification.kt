@@ -60,7 +60,7 @@ data class Identification(val id: String,               //id used in translation
     override fun getKey(): String = id
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.id." + getKey().lowercase(Locale.getDefault())
+        return "wynnlib.id.${getKey().lowercase(Locale.getDefault())}"
     }
 
     enum class Group {

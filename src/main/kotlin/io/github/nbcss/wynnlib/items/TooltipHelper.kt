@@ -2,7 +2,11 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Skill
-import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_CLASS_REQ
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_COMBAT_LV_REQ
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_SLOTS
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_QUEST_REQ
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers
@@ -15,19 +19,19 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
     //append class & quest req
     if (item.getClassReq() != null){
         val classReq = item.getClassReq()!!.translate().formatted(Formatting.GRAY)
-        val prefix = from("wynnlib.tooltip.class_req").translate().formatted(Formatting.GRAY)
+        val prefix = TOOLTIP_CLASS_REQ.translate().formatted(Formatting.GRAY)
         tooltip.add(prefix.append(LiteralText(": ").formatted(Formatting.GRAY)).append(classReq))
     }
     if (item.getQuestReq() != null){
         val quest = LiteralText(": " + item.getQuestReq()).formatted(Formatting.GRAY)
-        val prefix = from("wynnlib.tooltip.quest_req").translate().formatted(Formatting.GRAY)
+        val prefix = TOOLTIP_QUEST_REQ.translate().formatted(Formatting.GRAY)
         tooltip.add(prefix.append(quest))
     }
     //append level req
     val level = item.getLevel()
     val levelText = LiteralText(": " + if (level.isConstant()) level.lower().toString()
         else level.lower().toString() + "-" + level.upper().toString()).formatted(Formatting.GRAY)
-    tooltip.add(from("wynnlib.tooltip.combat_level_req").translate().formatted(Formatting.GRAY).append(levelText))
+    tooltip.add(TOOLTIP_COMBAT_LV_REQ.translate().formatted(Formatting.GRAY).append(levelText))
     //append skill point req
     Skill.values().forEach{
         val point = item.getRequirement(it)
@@ -49,7 +53,7 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
             if (!range.isConstant()){
                 val nextColor = colorOf(if (it.inverted) -range.upper() else range.upper())
                 val rangeColor = colorOfDark(if (color != nextColor) 0 else range.lower())
-                text.append(from("wynnlib.tooltip.to").translate().formatted(rangeColor))
+                text.append(TOOLTIP_TO.translate().formatted(rangeColor))
                 text.append(LiteralText("${signed(range.upper())}${it.suffix}").formatted(nextColor))
             }
             //val values = LiteralText("${range.start} to ${range.end} ")
@@ -66,7 +70,7 @@ fun addPowderSlots(item: Equipment, tooltip: MutableList<Text>) {
                 (item.getPowderSlot() > 0) Formatting.YELLOW else Formatting.RED)
     tooltip.add(LiteralText("[").formatted(Formatting.GRAY)
         .append(slots).append(LiteralText("] ").formatted(Formatting.GRAY))
-        .append(from("wynnlib.tooltip.powder_slots").translate().formatted(Formatting.GRAY)))
+        .append(TOOLTIP_POWDER_SLOTS.translate().formatted(Formatting.GRAY)))
 }
 
 fun addItemSuffix(item: Equipment, tooltip: MutableList<Text>) {

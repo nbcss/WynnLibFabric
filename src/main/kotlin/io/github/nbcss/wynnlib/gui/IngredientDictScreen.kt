@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.items.Ingredient
-import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.lang.Translations.UI_INGREDIENTS
 import io.github.nbcss.wynnlib.registry.IngredientRegistry
 import io.github.nbcss.wynnlib.utils.getItem
 import net.minecraft.item.ItemStack
@@ -13,7 +13,7 @@ import net.minecraft.text.Text
 class IngredientDictScreen : DictionaryScreen<Ingredient>(TITLE) {
     companion object {
         val ICON: ItemStack = getItem("minecraft:diamond_axe#94")
-        val TITLE: Text = Translatable.from("wynnlib.ui.ingredients").translate()
+        val TITLE: Text = UI_INGREDIENTS.translate()
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON
             override fun getTabTitle(): Text = TITLE

@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
 import io.github.nbcss.wynnlib.items.equipments.Weapon
-import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_NEUTRAL_DAMAGE
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import io.github.nbcss.wynnlib.utils.getItemById
@@ -61,8 +61,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
         val lastSize = tooltip.size
         if(!damage.isZero()){
             val text = LiteralText(": " + damage.lower().toString() + "-" + damage.upper().toString())
-            val prefix = from("wynnlib.tooltip.neutral_damage").translate()
-            tooltip.add(prefix.append(text.formatted(Formatting.GOLD)))
+            tooltip.add(TOOLTIP_NEUTRAL_DAMAGE.translate().append(text.formatted(Formatting.GOLD)))
         }
         Element.values().forEach {
             val range: IRange = getElementDamage(it)
