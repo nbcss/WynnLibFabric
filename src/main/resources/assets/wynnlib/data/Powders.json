@@ -14,8 +14,7 @@
 			"textureLegacy": 10,
 			"texture": "minecraft:lime_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -35,
-				"durability": -35.0,
+				"durabilityModifier": -35.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -37,8 +36,7 @@
 			"textureLegacy": 10,
 			"texture": "minecraft:lime_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -52,
-				"durability": -52.5,
+				"durabilityModifier": -52.5,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -60,8 +58,7 @@
 			"textureLegacy": 10,
 			"texture": "minecraft:lime_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -70,
-				"durability": -70.0,
+				"durabilityModifier": -70.0,
 				"strengthRequirement": 10,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -83,8 +80,7 @@
 			"textureLegacy": 2,
 			"texture": "minecraft:green_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -91,
-				"durability": -91.0,
+				"durabilityModifier": -91.0,
 				"strengthRequirement": 20,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -106,8 +102,7 @@
 			"textureLegacy": 2,
 			"texture": "minecraft:green_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -112,
-				"durability": -112.0,
+				"durabilityModifier": -112.0,
 				"strengthRequirement": 28,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -129,8 +124,7 @@
 			"textureLegacy": 2,
 			"texture": "minecraft:green_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -133,
-				"durability": -133.0,
+				"durabilityModifier": -133.0,
 				"strengthRequirement": 36,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -152,8 +146,7 @@
 			"textureLegacy": 11,
 			"texture": "minecraft:yellow_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -35,
-				"durability": -35.0,
+				"durabilityModifier": -35.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -175,8 +168,7 @@
 			"textureLegacy": 11,
 			"texture": "minecraft:yellow_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -52,
-				"durability": -52.5,
+				"durabilityModifier": -52.5,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -198,8 +190,7 @@
 			"textureLegacy": 11,
 			"texture": "minecraft:yellow_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -70,
-				"durability": -70.0,
+				"durabilityModifier": -70.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 10,
 				"intelligenceRequirement": 0,
@@ -221,8 +212,7 @@
 			"textureLegacy": 14,
 			"texture": "minecraft:orange_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -91,
-				"durability": -91.0,
+				"durabilityModifier": -91.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 20,
 				"intelligenceRequirement": 0,
@@ -244,8 +234,7 @@
 			"textureLegacy": 14,
 			"texture": "minecraft:orange_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -112,
-				"durability": -112.0,
+				"durabilityModifier": -112.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 28,
 				"intelligenceRequirement": 0,
@@ -267,8 +256,7 @@
 			"textureLegacy": 14,
 			"texture": "minecraft:orange_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -133,
-				"durability": -133.0,
+				"durabilityModifier": -133.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 36,
 				"intelligenceRequirement": 0,
@@ -290,8 +278,7 @@
 			"textureLegacy": 12,
 			"texture": "minecraft:light_blue_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -35,
-				"durability": -35.0,
+				"durabilityModifier": -35.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -313,8 +300,7 @@
 			"textureLegacy": 12,
 			"texture": "minecraft:light_blue_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -52,
-				"durability": -52.5,
+				"durabilityModifier": -52.5,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -336,8 +322,7 @@
 			"textureLegacy": 12,
 			"texture": "minecraft:light_blue_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -70,
-				"durability": -70.0,
+				"durabilityModifier": -70.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 10,
@@ -359,8 +344,7 @@
 			"textureLegacy": 6,
 			"texture": "minecraft:cyan_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -91,
-				"durability": -91.0,
+				"durabilityModifier": -91.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 20,
@@ -382,8 +366,7 @@
 			"textureLegacy": 6,
 			"texture": "minecraft:cyan_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -112,
-				"durability": -112.0,
+				"durabilityModifier": -112.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 28,
@@ -405,8 +388,7 @@
 			"textureLegacy": 6,
 			"texture": "minecraft:cyan_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -133,
-				"durability": -133.0,
+				"durabilityModifier": -133.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 36,
@@ -428,8 +410,7 @@
 			"textureLegacy": 9,
 			"texture": "minecraft:pink_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -35,
-				"durability": -35.0,
+				"durabilityModifier": -35.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -451,8 +432,7 @@
 			"textureLegacy": 9,
 			"texture": "minecraft:pink_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -52,
-				"durability": -52.5,
+				"durabilityModifier": -52.5,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -474,8 +454,7 @@
 			"textureLegacy": 9,
 			"texture": "minecraft:pink_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -70,
-				"durability": -70.0,
+				"durabilityModifier": -70.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -497,8 +476,7 @@
 			"textureLegacy": 1,
 			"texture": "minecraft:red_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -91,
-				"durability": -91.0,
+				"durabilityModifier": -91.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -520,8 +498,7 @@
 			"textureLegacy": 1,
 			"texture": "minecraft:red_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -112,
-				"durability": -112.0,
+				"durabilityModifier": -112.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -543,8 +520,7 @@
 			"textureLegacy": 1,
 			"texture": "minecraft:red_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -133,
-				"durability": -133.0,
+				"durabilityModifier": -133.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -566,8 +542,7 @@
 			"textureLegacy": 8,
 			"texture": "minecraft:gray_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -35,
-				"durability": -35.0,
+				"durabilityModifier": -35.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -589,8 +564,7 @@
 			"textureLegacy": 8,
 			"texture": "minecraft:gray_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -52,
-				"durability": -52.5,
+				"durabilityModifier": -52.5,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -612,8 +586,7 @@
 			"textureLegacy": 8,
 			"texture": "minecraft:gray_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -70,
-				"durability": -70.0,
+				"durabilityModifier": -70.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -635,8 +608,7 @@
 			"textureLegacy": 7,
 			"texture": "minecraft:light_gray_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -91,
-				"durability": -91.0,
+				"durabilityModifier": -91.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -658,8 +630,7 @@
 			"textureLegacy": 7,
 			"texture": "minecraft:light_gray_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -112,
-				"durability": -112.0,
+				"durabilityModifier": -112.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -681,8 +652,7 @@
 			"textureLegacy": 7,
 			"texture": "minecraft:light_gray_dye",
 			"itemOnlyIDs": {
-				"durabilityModifier": -133,
-				"durability": -133.0,
+				"durabilityModifier": -133.0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,

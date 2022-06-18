@@ -23,6 +23,10 @@ fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
 }
 
+fun signed(value: Double): String {
+    return if(value <= 0.0) value.toString() else "+$value"
+}
+
 fun formatNumbers(num: Int): String {
     return num.toString().replace("(?=(?!\\b)(\\d{3})+$)".toRegex(), ",")
 }

@@ -123,6 +123,7 @@
   "wynnlib.tooltip.position_modifier.not_touching": "(To ingredients not touching this one)",
   "wynnlib.tooltip.powder_on_weapon": "Effect on Weapons",
   "wynnlib.tooltip.powder_on_armour": "Effect on Armour",
+  "wynnlib.tooltip.powder_in_crafting": "Effect in Crafting",
   "wynnlib.class.warrior": "Warrior/Knight",
   "wynnlib.class.archer": "Archer/Hunter",
   "wynnlib.class.mage": "Mage/Dark Wizard",

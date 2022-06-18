@@ -97,7 +97,6 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
 
     override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
         matrices.push()
-        //matrices.translate(0.0, 0.0, 100.0)
         renderOrderedTooltip(matrices, tooltip.map{it.asOrderedText()}, x, y)
         RenderSystem.enableDepthTest()
         matrices.pop()

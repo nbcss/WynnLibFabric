@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
+import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.items.BaseItem
 import net.minecraft.client.MinecraftClient
@@ -9,9 +10,11 @@ import net.minecraft.client.gui.widget.PressableWidget
 import net.minecraft.client.util.math.MatrixStack
 
 class ItemSlotWidget<T: BaseItem>(x: Int, y: Int,
+                                  private val size: Int,
                                   private var item: T?,
-                                  private val screen: TooltipScreen):
-    PressableWidget(x, y, 22, 22, null) {
+                                  private val screen: TooltipScreen
+                                  ): PressableWidget(x, y, size, size, null) {
+    private val client: MinecraftClient = MinecraftClient.getInstance()
     override fun appendNarrations(builder: NarrationMessageBuilder?) {
         appendDefaultNarrations(builder)
     }
@@ -28,11 +31,15 @@ class ItemSlotWidget<T: BaseItem>(x: Int, y: Int,
         if(item == null)
             return
         matrices!!.push()
+        RenderSystem.enableDepthTest()
         val color = item!!.getRarityColor() + ((if (isHovered) 0xDD else 0x75) shl 24)
-        DrawableHelper.fill(matrices, x, y, x + 22, y + 22, color)
+        DrawableHelper.fill(matrices, x, y, x + size, y + size, color)
         val itemX: Int = x + width / 2 - 8
         val itemY: Int = y + height / 2 - 8
-        MinecraftClient.getInstance().itemRenderer.renderGuiItemIcon(item!!.getIcon(), itemX, itemY)
+        val icon = item!!.getIcon()
+        val text = item!!.getIconText()
+        client.itemRenderer.renderInGuiWithOverrides(icon, itemX, itemY)
+        client.itemRenderer.renderGuiItemOverlay(client.textRenderer, icon, itemX, itemY, text)
         if(isHovered){
             screen.drawTooltip(matrices, item!!.getTooltip(), mouseX, mouseY)
         }
