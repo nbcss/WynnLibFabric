@@ -52,7 +52,13 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
             val text = LiteralText("${signed(range.lower())}${it.suffix}").formatted(color)
             if (!range.isConstant()){
                 val nextColor = colorOf(if (it.inverted) -range.upper() else range.upper())
-                val rangeColor = colorOfDark(if (color != nextColor) 0 else range.lower())
+                val rangeColor = colorOfDark(
+                    when {
+                        color != nextColor -> 0
+                        it.inverted -> -range.lower()
+                        else -> range.lower()
+                    }
+                )
                 text.append(TOOLTIP_TO.translate().formatted(rangeColor))
                 text.append(LiteralText("${signed(range.upper())}${it.suffix}").formatted(nextColor))
             }
