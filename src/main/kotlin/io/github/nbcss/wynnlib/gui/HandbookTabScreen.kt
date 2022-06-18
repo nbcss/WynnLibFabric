@@ -24,6 +24,8 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
         //setup default tabs
         tabs.add(EquipmentDictScreen.FACTORY)
         tabs.add(IngredientDictScreen.FACTORY)
+        tabs.add(PowderDictScreen.FACTORY)
+        tabs.add(MaterialDictScreen.FACTORY)
     }
 
     override fun init() {
@@ -96,7 +98,6 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
 
     override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
         matrices.push()
-        //matrices.translate(0.0, 0.0, 100.0)
         renderOrderedTooltip(matrices, tooltip.map{it.asOrderedText()}, x, y)
         RenderSystem.enableDepthTest()
         matrices.pop()

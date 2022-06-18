@@ -1,6 +1,9 @@
 package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.WynnLibEntry
+import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
+import io.github.nbcss.wynnlib.utils.range.IRange
+import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
@@ -21,6 +24,10 @@ fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
 }
 
+fun signed(value: Double): String {
+    return if(value <= 0.0) value.toString() else "+$value"
+}
+
 fun formatNumbers(num: Int): String {
     return num.toString().replace("(?=(?!\\b)(\\d{3})+$)".toRegex(), ",")
 }
@@ -29,7 +36,7 @@ fun colorOf(num: Int): Formatting {
     return when {
         num > 0 -> Formatting.GREEN
         num < 0 -> Formatting.RED
-        else -> Formatting.GRAY
+        else -> Formatting.DARK_GRAY
     }
 }
 
@@ -37,25 +44,15 @@ fun colorOfDark(num: Int): Formatting {
     return when {
         num > 0 -> Formatting.DARK_GREEN
         num < 0 -> Formatting.DARK_RED
-        else -> Formatting.DARK_GRAY
+        else -> Formatting.GRAY
     }
 }
 
 fun asRange(text: String): IRange = try {
     val array = text.split("-")
-    IRange(array[0].toInt(), array[1].toInt())
+    SimpleIRange(array[0].toInt(), array[1].toInt())
 }catch (e: Exception){
-    IRange(0, 0)
-}
-
-fun asIdentificationRange(base: Int): IRange {
-    if( base == 0 )return IRange(0,0)
-    return if (base>0){
-        IRange(max(1, base*0.3.roundToInt()), base*1.3.roundToInt())
-    }
-    else{
-        IRange(base*1.3.roundToInt(), base*0.7.roundToInt())
-    }
+    SimpleIRange(0, 0)
 }
 
 fun asColor(text: String): Int {
@@ -89,22 +86,33 @@ fun getSkullItem(skin: String?): ItemStack {
 }
 
 fun getItemById(id: Int, meta: Int): ItemStack {
-    val item: Item = Item.byRawId(id)
-    if (item != Items.AIR) {
-        //todo meta should write here
-        //DataFix may help?
-        //ItemInstanceTheFlatteningFix
-        val stack = ItemStack(item, 1)
-        val nbt = stack.orCreateNbt
-        val tag = if (nbt.contains("tag")) nbt.getCompound("tag") else NbtCompound()
-        tag.putBoolean("Unbreakable", true)
-        nbt.put("tag", tag)
-
-        if (id == 383) {
-            //nbt = ItemSpawnEggFix().fixTagCompound(nbt)
+    var itemString: String = net.minecraft.datafixer.fix.ItemIdFix.fromId(id)
+    var damage: Int = -1
+    var spawnEggType: String? = null
+    if (meta != 0) {
+        if (itemString == "minecraft:spawn_egg") {
+            // todo fix SpawnEgg
+            // maybe using mixin or reflection to get the map
         }
-        stack.writeNbt(nbt)
-        return stack
+        val flattenedItemString: String? = ItemInstanceTheFlatteningFix.getItem(itemString, meta)
+        if (flattenedItemString != null) {
+            itemString = flattenedItemString
+        }
+        else { // The item 'should' be in the ItemInstanceTheFlatteningFix.DAMAGEABLE_ITEMS
+            damage = meta
+        }
+    }
+    if (itemString != "minecraft:air") {
+        val nbt = NbtCompound()
+        val tag = NbtCompound()
+        nbt.putString("id", itemString)
+        nbt.putByte("Count", 1.toByte())
+        tag.putBoolean("Unbreakable", true)
+        if (damage != -1) {
+            tag.putByte("Damage", damage.toByte())
+        }
+        nbt.put("tag", tag)
+        return ItemStack.fromNbt(nbt)
     }
     return ERROR_ITEM
 }

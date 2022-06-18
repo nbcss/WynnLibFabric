@@ -1,16 +1,19 @@
 package io.github.nbcss.wynnlib.gui
 
-import io.github.nbcss.wynnlib.items.Equipment
-import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.items.Ingredient
+import io.github.nbcss.wynnlib.lang.Translations.UI_INGREDIENTS
+import io.github.nbcss.wynnlib.registry.IngredientRegistry
 import io.github.nbcss.wynnlib.utils.getItem
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 
-//fixme replace equipment with ingredient
-class IngredientDictScreen : DictionaryScreen<Equipment>(TITLE) {
+/**
+ * The Dictionary UI for display all ingredients.
+ */
+class IngredientDictScreen : DictionaryScreen<Ingredient>(TITLE) {
     companion object {
         val ICON: ItemStack = getItem("minecraft:diamond_axe#94")
-        val TITLE: Text = Translatable.from("wynnlib.ui.ingredients").translate()
+        val TITLE: Text = UI_INGREDIENTS.translate()
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON
             override fun getTabTitle(): Text = TITLE
@@ -19,7 +22,7 @@ class IngredientDictScreen : DictionaryScreen<Equipment>(TITLE) {
         }
     }
 
-    override fun fetchItems(): Collection<Equipment> {
-        return emptyList()
+    override fun fetchItems(): Collection<Ingredient> {
+        return IngredientRegistry.getAll()
     }
 }

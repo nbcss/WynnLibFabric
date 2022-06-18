@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items.regular
+package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.EquipmentType
@@ -27,25 +27,20 @@ class RegularArmour(parent: RegularEquipment, json: JsonObject)
             texture = getItemById(materials[0].toInt(), meta)
         } else if (json.has("armorType")) {
             val material: String = json.get("armorType").asString
-            val copy = type.getTexture(material).copy()
-            val nbt: NbtCompound = copy.orCreateNbt
-            val tag: NbtCompound = if (nbt.contains("tag")) nbt.getCompound("tag") else NbtCompound()
+            val copy = type.getTexture(material)
+            val tag: NbtCompound = copy.orCreateNbt
             if (json.has("armorColor")) {
                 val color: Int = asColor(json.get("armorColor").asString)
                 if (color != -1){
-                    val id: Int = Item.getRawId(copy.item)
-                    if (id in 298..301) {
+                    if (material.equals("leather", ignoreCase = true)) {
                         val display = if (tag.contains("display")) tag.getCompound("display") else NbtCompound()
                         display.putInt("color", color)
                         tag.put("display", display)
-                        nbt.put("tag", tag)
-                        copy.writeNbt(nbt)
                     }
                 }
             }
             tag.putBoolean("Unbreakable", true)
-            nbt.put("tag", tag)
-            copy.writeNbt(nbt)
+            copy.nbt = tag
             texture = copy
         } else {
             texture = ERROR_ITEM

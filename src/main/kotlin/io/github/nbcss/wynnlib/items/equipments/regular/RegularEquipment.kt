@@ -1,19 +1,21 @@
-package io.github.nbcss.wynnlib.items.regular
+package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
 import io.github.nbcss.wynnlib.items.Equipment
-import io.github.nbcss.wynnlib.items.Weapon
-import io.github.nbcss.wynnlib.items.Wearable
-import io.github.nbcss.wynnlib.utils.IRange
-import io.github.nbcss.wynnlib.utils.asIdentificationRange
+import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
+import io.github.nbcss.wynnlib.items.equipments.Weapon
+import io.github.nbcss.wynnlib.items.equipments.Wearable
+import io.github.nbcss.wynnlib.utils.range.IRange
+import io.github.nbcss.wynnlib.utils.range.BaseIRange
+import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
 class RegularEquipment(json: JsonObject) : Equipment {
-    private val idMap: MutableMap<Identification, Int> = LinkedHashMap()
+    private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String
     private val displayName: String
@@ -43,10 +45,10 @@ class RegularEquipment(json: JsonObject) : Equipment {
                 spMap[it] = value
             }
         }
-        Metadata.getIdentifications().filter{json.has(it.apiId)}.forEach{
+        Identification.getAll().filter{json.has(it.apiId)}.forEach{
             val value = json.get(it.apiId).asInt
             if(value != 0)
-                idMap[it] = value
+                idMap[it] = BaseIRange(it, value)
         }
         val category = json.get("category").asString
         container = if(category.equals("weapon")){
@@ -63,14 +65,14 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getTier(): Tier = tier
 
     override fun getIdentification(id: Identification): IRange {
-        return asIdentificationRange(idMap.getOrDefault(id, 0))
+        return idMap.getOrDefault(id, IRange.ZERO)
     }
 
     override fun getType(): EquipmentType {
         return container!!.getType()
     }
 
-    override fun getLevel(): IRange = IRange(level, level)
+    override fun getLevel(): IRange = SimpleIRange(level, level)
 
     override fun getClassReq(): CharacterClass? {
         return if(container is Weapon) CharacterClass.fromWeaponType(getType()) else classReq
@@ -93,7 +95,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getIcon(): ItemStack = container!!.getIcon()
 
     override fun getRarityColor(): Int {
-        return Settings.getColor("tier_" + tier.name)
+        return Settings.getColor("tier", tier.name)
     }
 
     override fun getTooltip(): List<Text> = container!!.getTooltip()

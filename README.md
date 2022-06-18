@@ -14,6 +14,12 @@ Planned New Features:
 - Translatable language support
 - New Wynncraft 2.0 content support (e.g. ability tree)
 
+# TODO LIST
+- [x] Equipment Dictionary (Base)
+- [x] Handbook Tab-switching
+- [ ] Dictionary item name filter
+- [ ] Advance Search Panel
+- [ ] Ingredient Dictionary
 # Development Guide
 The current main development branch is 1.18,
 please work on this branch to add new features.

@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.utils
+package io.github.nbcss.wynnlib.items
 
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
@@ -6,6 +6,7 @@ import net.minecraft.text.Text
 interface BaseItem {
     fun getDisplayText(): Text
     fun getIcon(): ItemStack
+    fun getIconText(): String? = null
     fun getRarityColor(): Int
-    fun getTooltip(): List<Text>
+    fun getTooltip(): List<Text> = listOf(getDisplayText())
 }

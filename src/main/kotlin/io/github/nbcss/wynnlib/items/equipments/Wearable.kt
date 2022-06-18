@@ -1,7 +1,7 @@
-package io.github.nbcss.wynnlib.items
+package io.github.nbcss.wynnlib.items.equipments
 
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.utils.IRange
+import io.github.nbcss.wynnlib.utils.range.IRange
 
 interface Wearable {
     /**

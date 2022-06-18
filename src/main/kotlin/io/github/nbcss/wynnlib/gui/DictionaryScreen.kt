@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
-import io.github.nbcss.wynnlib.utils.BaseItem
+import io.github.nbcss.wynnlib.items.BaseItem
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -39,7 +39,7 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
         (0 until (ROWS * COLUMNS)).forEach {
             val x = windowX + 6 + 24 * (it % COLUMNS)
             val y = windowY + 44 + 24 * (it / COLUMNS)
-            slots.add(ItemSlotWidget(x + 1, y + 1, null, this))
+            slots.add(ItemSlotWidget(x + 1, y + 1, 22, null, this))
         }
         //update items in slots
         updateSlots()

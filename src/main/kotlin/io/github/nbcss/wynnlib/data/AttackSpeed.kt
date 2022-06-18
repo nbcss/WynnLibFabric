@@ -29,6 +29,6 @@ enum class AttackSpeed(val displayName: String,
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.attack_speed." + getKey().lowercase(Locale.getDefault())
+        return "wynnlib.attack_speed.${getKey().lowercase(Locale.getDefault())}"
     }
 }
