@@ -6,9 +6,10 @@ import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
-import io.github.nbcss.wynnlib.utils.IRange
+import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import io.github.nbcss.wynnlib.utils.getItemById
+import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -40,7 +41,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
     override fun getDamage(): IRange = damage
 
     override fun getElementDamage(elem: Element): IRange {
-        return elemDamage.getOrDefault(elem, IRange(0, 0))
+        return elemDamage.getOrDefault(elem, IRange.ZERO)
     }
 
     override fun getAttackSpeed(): AttackSpeed = atkSpeed
@@ -58,14 +59,14 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
         tooltip.add(LiteralText(""))
         val lastSize = tooltip.size
         if(!damage.isZero()){
-            val text = LiteralText(": " + damage.start.toString() + "-" + damage.end.toString())
+            val text = LiteralText(": " + damage.upper().toString() + "-" + damage.lower().toString())
             val prefix = from("wynnlib.tooltip.neutral_damage").translate()
             tooltip.add(prefix.append(text.formatted(Formatting.GOLD)))
         }
         Element.values().forEach {
             val range: IRange = getElementDamage(it)
             if (!range.isZero()) {
-                val text = LiteralText(": " + range.start.toString() + "-" + range.end.toString())
+                val text = LiteralText(": " + range.upper().toString() + "-" + range.lower().toString())
                 val prefix = it.translate("tooltip.damage").formatted(Formatting.GRAY)
                 tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
             }
