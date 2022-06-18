@@ -20,6 +20,8 @@ enum class Skill(val id: String,               //The id of the skill; used in eq
         val key = getKey().lowercase(Locale.getDefault())
         if ("tooltip.req" == label){
             return "wynnlib.tooltip.skill_point_req.$key"
+        }else if ("tooltip.modifier" == label){
+            return "wynnlib.tooltip.skill_point_modifier.$key"
         }
         return "wynnlib.tooltip.skill_point.$key"
     }

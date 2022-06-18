@@ -49,7 +49,7 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
             if (!range.isConstant()){
                 val nextColor = colorOf(if (it.inverted) -range.upper() else range.upper())
                 val rangeColor = colorOfDark(if (color != nextColor) 0 else range.lower())
-                text.append(from("wynnlib.tooltip.id_range").translate().formatted(rangeColor))
+                text.append(from("wynnlib.tooltip.to").translate().formatted(rangeColor))
                 text.append(LiteralText("${signed(range.upper())}${it.suffix}").formatted(nextColor))
             }
             //val values = LiteralText("${range.start} to ${range.end} ")
