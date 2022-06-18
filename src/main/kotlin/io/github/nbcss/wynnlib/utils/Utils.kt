@@ -55,16 +55,6 @@ fun asRange(text: String): IRange = try {
     SimpleIRange(0, 0)
 }
 
-fun asIdentificationRange(base: Int): IRange {
-    if( base == 0 )return SimpleIRange(0,0)
-    return if (base>0){
-        SimpleIRange(max(1, (base*0.3).roundToInt()), (base*1.3).roundToInt())
-    }
-    else{
-        SimpleIRange((base*1.3).roundToInt(), (base*0.7).roundToInt())
-    }
-}
-
 fun asColor(text: String): Int {
     val color: Int = try {
         val array = text.split(",").toTypedArray()
