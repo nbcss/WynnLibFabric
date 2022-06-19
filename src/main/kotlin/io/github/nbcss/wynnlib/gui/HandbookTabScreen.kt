@@ -1,13 +1,17 @@
 package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
+import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
+import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen
+import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.GameRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
+abstract class HandbookTabScreen(val parent: Screen, title: Text?) : Screen(title), TooltipScreen {
     private val background = Identifier("wynnlib", "textures/gui/handbook_tab.png")
     companion object {
         const val TAB_SIZE: Int = 7
@@ -82,7 +86,7 @@ abstract class HandbookTabScreen(title: Text?) : Screen(title), TooltipScreen {
         (0 until TAB_SIZE).filter{tabIndex + it < tabs.size}
             .firstOrNull {isOverTab(it, mouseX.toInt(), mouseY.toInt())}?.let {
                 val tab = tabs[tabIndex + it]
-                client!!.setScreen(tab.createScreen())
+                client!!.setScreen(tab.createScreen(parent))
                 return true
             }
         return super.mouseClicked(mouseX, mouseY, button)

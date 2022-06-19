@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.items.BaseItem
+import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -9,7 +10,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import java.lang.Integer.max
 
-abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(title) {
+abstract class DictionaryScreen<T: BaseItem>(parent: Screen, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
         const val COLUMNS = 9
         const val ROWS = 6

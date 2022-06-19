@@ -11,10 +11,14 @@ import net.minecraft.text.Text
 class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
     private val name: String
     private val displayName: String
+    private val type: Type
+    private val level: Int
     private val texture: ItemStack
     init {
         name = json["name"].asString
         displayName = json["displayName"].asString
+        type = Type.valueOf(json["type"].asString.uppercase())
+        level = json["level"].asInt
         texture = getItem(json["texture"].asString)
     }
 
@@ -34,5 +38,16 @@ class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
         STAR_1("§6 [§e✫§8✫✫§6]", 1.0),
         STAR_2("§6 [§e✫✫§8✫§6]", 1.25),
         STAR_3("§6 [§e✫✫✫§6]", 1.4);
+    }
+
+    enum class Type {
+        INGOT,
+        GEM,
+        WOOD,
+        PAPER,
+        STRING,
+        GRAINS,
+        OIL,
+        MEAT
     }
 }
