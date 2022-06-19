@@ -30,6 +30,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         tabs.add(IngredientDictScreen.FACTORY)
         tabs.add(PowderDictScreen.FACTORY)
         tabs.add(MaterialDictScreen.FACTORY)
+        tabs.add(CrafterScreen.FACTORY)
     }
 
     override fun init() {
