@@ -93,12 +93,12 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         //Read texture
         texture = if (json.has("skin")) {
             val skin: String = json["skin"].asString
-            getSkullItem(skin)
+            ItemFactory.fromSkin(skin)
         } else if (json.has("sprite")) {
             val sprite: JsonObject = json["sprite"].asJsonObject
             val id = sprite["id"].asInt
             val meta = if (sprite.has("damage")) sprite["damage"].asInt else 0
-            getItemById(id, meta)
+            ItemFactory.fromLegacyId(id, meta)
         } else {
             ERROR_ITEM
         }

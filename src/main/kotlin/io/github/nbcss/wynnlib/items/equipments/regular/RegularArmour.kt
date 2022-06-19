@@ -4,7 +4,6 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.utils.*
-import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.LiteralText
@@ -19,12 +18,12 @@ class RegularArmour(parent: RegularEquipment, json: JsonObject)
         type = EquipmentType.getEquipmentType(json.get("type").asString)
         if (json.has("skin")) {
             val skin: String = json.get("skin").asString
-            texture = getSkullItem(skin)
+            texture = ItemFactory.fromSkin(skin)
         } else if (json.has("material") && !json.get("material").isJsonNull) {
             val material: String = json.get("material").asString
             val materials = material.split(":").toTypedArray()
             val meta = if (materials.size > 1) materials[1].toInt() else 0
-            texture = getItemById(materials[0].toInt(), meta)
+            texture = ItemFactory.fromLegacyId(materials[0].toInt(), meta)
         } else if (json.has("armorType")) {
             val material: String = json.get("armorType").asString
             val copy = type.getTexture(material)

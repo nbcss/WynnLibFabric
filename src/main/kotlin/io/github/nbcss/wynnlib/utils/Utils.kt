@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.WynnLibEntry
+import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
 import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
@@ -86,7 +87,6 @@ fun getSkullItem(skin: String?): ItemStack {
 }
 
 fun getItemById(id: Int, meta: Int): ItemStack {
-
     var itemString: String = net.minecraft.datafixer.fix.ItemIdFix.fromId(id)
     var damage: Int = -1
     var spawnEggType: String? = null
@@ -103,6 +103,7 @@ fun getItemById(id: Int, meta: Int): ItemStack {
             damage = meta
         }
     }
+    fromLegacyId(id, meta)
     if (itemString != "minecraft:air") {
         val nbt = NbtCompound()
         val tag = NbtCompound()

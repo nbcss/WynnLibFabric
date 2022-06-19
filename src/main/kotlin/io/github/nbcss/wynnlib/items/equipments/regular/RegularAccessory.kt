@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.items.equipments.regular
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
+import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.getItemById
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
@@ -19,7 +20,7 @@ class RegularAccessory(parent: RegularEquipment, json: JsonObject)
             val material: String = json.get("material").asString
             val materials = material.split(":").toTypedArray()
             val meta = if (materials.size > 1) materials[1].toInt() else 0
-            getItemById(materials[0].toInt(), meta)
+            ItemFactory.fromLegacyId(materials[0].toInt(), meta)
         } else {
             type.getIcon()
         }

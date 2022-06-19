@@ -8,10 +8,7 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURABILITY
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_ARMOUR
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_CRAFTING
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_WEAPON
-import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.colorOf
-import io.github.nbcss.wynnlib.utils.getItem
-import io.github.nbcss.wynnlib.utils.signed
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -19,7 +16,6 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 class Powder(json: JsonObject) : Keyed, BaseItem {
     private val skillMap: MutableMap<Skill, Int> = EnumMap(Skill::class.java)
@@ -46,7 +42,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
         defencePenalty = json["oppositeDefenceBonus"].asInt
         element = Element.fromId(json["element"].asString)!!
         oppoElem = Element.fromId(json["oppositeElement"].asString)!!
-        texture = getItem(json["texture"].asString)
+        texture = ItemFactory.fromEncoding(json["texture"].asString)
         val itemOnly = json.get("itemOnlyIDs").asJsonObject
         durability = itemOnly["durabilityModifier"].asDouble
         Skill.values().forEach {

@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.items.Equipment
 import io.github.nbcss.wynnlib.lang.Translations.UI_EQUIPMENTS
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
-import io.github.nbcss.wynnlib.utils.getItem
+import io.github.nbcss.wynnlib.utils.ItemFactory
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
@@ -16,7 +16,7 @@ import net.minecraft.text.Text
  */
 class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent, TITLE) {
     companion object {
-        val ICON: ItemStack = getItem("minecraft:diamond_helmet")
+        val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:diamond_helmet")
         val TITLE: Text = UI_EQUIPMENTS.translate()
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON

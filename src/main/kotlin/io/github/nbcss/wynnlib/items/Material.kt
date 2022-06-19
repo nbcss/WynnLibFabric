@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
+import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.getItem
 import net.minecraft.item.ItemStack
@@ -19,7 +20,7 @@ class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
         displayName = json["displayName"].asString
         type = Type.valueOf(json["type"].asString.uppercase())
         level = json["level"].asInt
-        texture = getItem(json["texture"].asString)
+        texture = ItemFactory.fromEncoding(json["texture"].asString)
     }
 
     override fun getDisplayText(): Text {

@@ -8,6 +8,7 @@ import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_NEUTRAL_DAMAGE
+import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import io.github.nbcss.wynnlib.utils.getItemById
@@ -33,7 +34,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
             val material: String = json.get("material").asString
             val materials = material.split(":").toTypedArray()
             val meta = if (materials.size > 1) materials[1].toInt() else 0
-            getItemById(materials[0].toInt(), meta)
+            fromLegacyId(materials[0].toInt(), meta)
         } else {
             getType().getIcon()
         }
