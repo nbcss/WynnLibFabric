@@ -14,14 +14,14 @@ import net.minecraft.text.Text
 /**
  * The Dictionary UI for display all equipments.
  */
-class EquipmentDictScreen(parent: Screen) : DictionaryScreen<Equipment>(parent, TITLE) {
+class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent, TITLE) {
     companion object {
         val ICON: ItemStack = getItem("minecraft:diamond_helmet")
         val TITLE: Text = UI_EQUIPMENTS.translate()
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON
             override fun getTabTitle(): Text = TITLE
-            override fun createScreen(parent: Screen): HandbookTabScreen = EquipmentDictScreen(parent)
+            override fun createScreen(parent: Screen?): HandbookTabScreen = EquipmentDictScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is EquipmentDictScreen
         }
     }

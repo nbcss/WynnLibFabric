@@ -11,7 +11,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class HandbookTabScreen(val parent: Screen, title: Text?) : Screen(title), TooltipScreen {
+abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(title), TooltipScreen {
     private val background = Identifier("wynnlib", "textures/gui/handbook_tab.png")
     companion object {
         const val TAB_SIZE: Int = 7

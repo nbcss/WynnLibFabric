@@ -14,14 +14,14 @@ import net.minecraft.text.Text
 /**
  * The Dictionary UI for display all ingredients.
  */
-class IngredientDictScreen(parent: Screen) : DictionaryScreen<Ingredient>(parent, EquipmentDictScreen.TITLE) {
+class IngredientDictScreen(parent: Screen?) : DictionaryScreen<Ingredient>(parent, EquipmentDictScreen.TITLE) {
     companion object {
         val ICON: ItemStack = getItem("minecraft:diamond_axe#94")
         val TITLE: Text = UI_INGREDIENTS.translate()
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON
             override fun getTabTitle(): Text = TITLE
-            override fun createScreen(parent: Screen): HandbookTabScreen = IngredientDictScreen(parent)
+            override fun createScreen(parent: Screen?): HandbookTabScreen = IngredientDictScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is IngredientDictScreen
         }
     }

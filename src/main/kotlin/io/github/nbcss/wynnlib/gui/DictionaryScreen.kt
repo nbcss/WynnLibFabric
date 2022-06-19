@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import java.lang.Integer.max
 
-abstract class DictionaryScreen<T: BaseItem>(parent: Screen, title: Text) : HandbookTabScreen(parent, title) {
+abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
         const val COLUMNS = 9
         const val ROWS = 6

@@ -86,6 +86,7 @@ fun getSkullItem(skin: String?): ItemStack {
 }
 
 fun getItemById(id: Int, meta: Int): ItemStack {
+
     var itemString: String = net.minecraft.datafixer.fix.ItemIdFix.fromId(id)
     var damage: Int = -1
     var spawnEggType: String? = null
