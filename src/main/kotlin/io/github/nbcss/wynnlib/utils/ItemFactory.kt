@@ -61,7 +61,7 @@ object ItemFactory {
                 if (meta > 0){
                     tag.putInt("Damage", meta)
                 }
-                stack.writeNbt(tag)
+                stack.nbt = tag
                 return stack
             }
         } catch (ignore: java.lang.Exception) {
