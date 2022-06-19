@@ -26,6 +26,9 @@ object ItemFactory {
     )
     val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
+    /**
+     * Get skull item from given skin string.
+     */
     fun fromSkin(skin: String): ItemStack {
         val stack = ItemStack(Items.PLAYER_HEAD, 1)
         val tag = NbtCompound()
@@ -43,6 +46,9 @@ object ItemFactory {
         return stack
     }
 
+    /**
+     * Get ItemStack from given encoding
+     */
     fun fromEncoding(encoding: String): ItemStack {
         val array = encoding.split("#").toTypedArray()
         val item: Item = Registry.ITEM.get(Identifier(array[0]))
@@ -64,6 +70,9 @@ object ItemFactory {
         return ERROR_ITEM
     }
 
+    /**
+     * Get item from legacy id and meta (data value).
+     */
     fun fromLegacyId(id: Int, meta: Int): ItemStack {
         var itemId: String? = legacyMap[id]
         if (itemId == null){
@@ -76,7 +85,7 @@ object ItemFactory {
             damage = 0
         }
         // todo fix SpawnEgg
-        println("$id:$meta -> $itemId#$damage")
+        //println("$id:$meta -> $itemId#$damage")
         return if (itemId == "minecraft.air") ERROR_ITEM else fromEncoding("$itemId#$damage")
     }
 }
