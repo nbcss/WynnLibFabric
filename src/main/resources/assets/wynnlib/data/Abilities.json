@@ -1,7 +1,26 @@
 {
   "data": [
     {
-      "name": ""
+      "id": "BASH",
+      "height": 0,
+      "position": 0,
+      "dependency": []
+    },
+    {
+      "id": "SPEAR_PROFICIENCY_I",
+      "height": 1,
+      "position": 0,
+      "dependency": [
+        "BASH"
+      ]
+    },
+    {
+      "id": "SPEAR_PROFICIENCY_I",
+      "height": 1,
+      "position": 0,
+      "dependency": [
+        "BASH"
+      ]
     }
   ],
   "version": "1.0.0"
