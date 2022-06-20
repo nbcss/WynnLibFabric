@@ -13,10 +13,10 @@ abstract class Registry<T: Keyed> {
     protected abstract fun read(data: JsonObject): T?
 
     fun reload(json: JsonObject){
-        val ver = Version(json.get("version").asString)
+        val ver = Version(json["version"].asString)
         //skip reload if currently have newer version
         if(version != null && version!! > ver) return
-        val array = json.get("data").asJsonArray
+        val array = json["data"].asJsonArray
         reload(array)
         version = ver
     }

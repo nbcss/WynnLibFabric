@@ -55,7 +55,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
 
     override fun getKey(): String = name
 
-    override fun getDisplayText(): Text = LiteralText(displayName)
+    override fun getDisplayText(): Text = LiteralText(displayName).formatted(element.color)
 
     override fun getDisplayName(): String = displayName
 
