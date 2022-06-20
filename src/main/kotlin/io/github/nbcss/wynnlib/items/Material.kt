@@ -27,6 +27,8 @@ class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
         return LiteralText(displayName).append(tier.suffix)
     }
 
+    override fun getDisplayName(): String = displayName
+
     override fun getRarityColor(): Int {
         return Settings.getColor("material_tier", tier.name)
     }

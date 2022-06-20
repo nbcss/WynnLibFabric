@@ -57,6 +57,8 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
 
     override fun getDisplayText(): Text = LiteralText(displayName)
 
+    override fun getDisplayName(): String = displayName
+
     override fun getIcon(): ItemStack = texture
 
     override fun getRarityColor(): Int {

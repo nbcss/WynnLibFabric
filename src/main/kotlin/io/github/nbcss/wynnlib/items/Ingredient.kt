@@ -171,6 +171,8 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         return LiteralText(displayName).formatted(Formatting.GRAY).append(LiteralText(tier.suffix))
     }
 
+    override fun getDisplayName(): String = displayName
+
     override fun getIcon(): ItemStack = texture
 
     override fun getRarityColor(): Int {

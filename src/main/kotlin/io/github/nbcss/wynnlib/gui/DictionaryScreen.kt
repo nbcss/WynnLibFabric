@@ -31,6 +31,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         super.init()
         items.clear()
         items.addAll(fetchItems())
+        items.sortBy { t -> t.getDisplayName() }
         //Reset lines
         lineIndex = 0
         //Excluding 6 lines (only since 7th line need additional page)

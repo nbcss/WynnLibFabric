@@ -86,7 +86,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun getKey(): String = name
 
-    fun getDisplayName(): String = displayName
+    override fun getDisplayName(): String = displayName
 
     override fun getDisplayText(): Text {
         return LiteralText(displayName).formatted(tier.formatting)
