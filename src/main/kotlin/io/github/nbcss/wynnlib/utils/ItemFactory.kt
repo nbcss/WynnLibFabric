@@ -47,7 +47,11 @@ object ItemFactory {
     }
 
     /**
-     * Get ItemStack from given encoding
+     * Get ItemStack from given encoding.
+     * Encoding is in the form of ID#DAMAGE#NBT, where ID is the minecraft identifier
+     * (such as "minecraft:stone"), damage is the damage value for damageable items,
+     * and NBT is more specific item with nbt compound (such as potion). DAMAGE and NBT
+     * are optional, if not specified the method will assume 0 damage with default nbt.
      */
     fun fromEncoding(encoding: String): ItemStack {
         val array = encoding.split("#").toTypedArray()
