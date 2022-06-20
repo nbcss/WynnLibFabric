@@ -90,6 +90,6 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     }
 
     private fun isInPage(mouseX: Double, mouseY: Double): Boolean {
-        return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 222 && mouseY <= windowY + 188
+        return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 240 && mouseY <= windowY + 188
     }
 }
