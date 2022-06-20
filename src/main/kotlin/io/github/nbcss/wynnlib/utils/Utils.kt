@@ -2,9 +2,11 @@ package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.WynnLibEntry
 import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
-import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
+import io.github.nbcss.wynnlib.mixins.datafixer.EntityBlockStateFixAccessor
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
+import net.minecraft.datafixer.fix.ItemIdFix
+import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
@@ -14,10 +16,10 @@ import net.minecraft.nbt.StringNbtReader
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
+import org.slf4j.Logger
 import java.io.IOException
 import java.io.InputStream
 import java.util.*
-import kotlin.math.*
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
@@ -87,7 +89,9 @@ fun getSkullItem(skin: String?): ItemStack {
 }
 
 fun getItemById(id: Int, meta: Int): ItemStack {
-    var itemString: String = net.minecraft.datafixer.fix.ItemIdFix.fromId(id)
+    // todo the material Id of "Gert Bangswing Manypointystick" is 16387
+    val blockNameToId = EntityBlockStateFixAccessor.getBLOCK_NAME_TO_ID()
+    var itemString: String = getKey(blockNameToId, id) ?:ItemIdFix.fromId(id)
     var damage: Int = -1
     var spawnEggType: String? = null
     if (meta != 0) {
@@ -116,6 +120,7 @@ fun getItemById(id: Int, meta: Int): ItemStack {
         nbt.put("tag", tag)
         return ItemStack.fromNbt(nbt)
     }
+    getLogger().warn("Could not find item with id $id and meta $meta")
     return ERROR_ITEM
 }
 
@@ -153,4 +158,18 @@ fun getResource(filename: String): InputStream? {
     } catch (var4: IOException) {
         null
     }
+}
+
+fun getLogger():Logger{
+    return com.mojang.logging.LogUtils.getLogger()
+}
+
+fun <K, V> getKey(map: Map<K, V>, target: V): K? {
+    for ((key, value) in map)
+    {
+        if (target == value) {
+            return key
+        }
+    }
+    return null
 }

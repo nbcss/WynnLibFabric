@@ -1,5 +1,13 @@
 package io.github.nbcss.wynnlib.utils
 
+import io.github.nbcss.wynnlib.data.LegacyEntityMap
+import io.github.nbcss.wynnlib.mixins.datafixer.EntityBlockStateFixAccessor
+import net.minecraft.datafixer.fix.ItemIdFix
+import io.github.nbcss.wynnlib.data.LegacyItemMap
+import io.github.nbcss.wynnlib.mixins.datafixer.ItemInstanceSpawnEggFixAccessor
+import io.github.nbcss.wynnlib.mixins.datafixer.ItemPotionFixAccessor
+import io.github.nbcss.wynnlib.mixins.datafixer.RecipeFixAccessor
+import net.minecraft.datafixer.fix.EntityTheRenameningBlock
 import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -12,19 +20,7 @@ import net.minecraft.util.registry.Registry
 import java.util.*
 
 object ItemFactory {
-    //todo add 176 to 255 (blocks), 423 to 453 (items)
-    //https://minecraft.fandom.com/wiki/Java_Edition_data_values/Pre-flattening#Block_IDs
-    private val legacyMap: Map<Int, String> = mapOf(
-        409 to "minecraft:prismarine_shard",
-        410 to "minecraft:prismarine_crystals",
-        411 to "minecraft:rabbit",
-        412 to "minecraft:cooked_rabbit",
-        413 to "minecraft:rabbit_stew",
-        414 to "minecraft:rabbit_foot",
-        415 to "minecraft:rabbit_hide",
-        416 to "minecraft:armor_stand",
-    )
-    val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
+    private val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
     /**
      * Get skull item from given skin string.
@@ -74,18 +70,60 @@ object ItemFactory {
      * Get item from legacy id and meta (data value).
      */
     fun fromLegacyId(id: Int, meta: Int): ItemStack {
-        var itemId: String? = legacyMap[id]
-        if (itemId == null){
-            itemId = net.minecraft.datafixer.fix.ItemIdFix.fromId(id)
+        // todo the material Id of "Gert Bangswing Manypointystick" is 16387
+        var itemName: String = LegacyItemMap.get(id) ?: ItemIdFix.fromId(id)
+        var damage:Int = -1
+        var potionType: String? = null
+
+        itemName = EntityTheRenameningBlock.ITEMS[itemName] ?: itemName // I don't know why mojang likes to rename items so much
+        val flattenedItemString = ItemInstanceTheFlatteningFix.getItem(itemName, meta)
+        if (flattenedItemString != null) {
+            itemName = flattenedItemString
         }
-        var damage = meta
-        val flatten = ItemInstanceTheFlatteningFix.getItem(itemId, meta)
-        if (flatten != null) {
-            itemId = flatten
-            damage = 0
+        else if (meta != 0){ // The item 'should' be in the ItemInstanceTheFlatteningFix.DAMAGEABLE_ITEMS
+            damage = meta
         }
-        // todo fix SpawnEgg
-        //println("$id:$meta -> $itemId#$damage")
-        return if (itemId == "minecraft.air") ERROR_ITEM else fromEncoding("$itemId#$damage")
+        itemName = RecipeFixAccessor.getRECIPES()[itemName] ?: itemName
+
+        when(itemName){
+            "minecraft:spawn_egg" -> run {
+                if (meta == 0) {
+                    return ItemStack(Items.WOLF_SPAWN_EGG)
+                }
+                val entity: String? = LegacyEntityMap.get(meta)
+                if (entity != null) {
+                    itemName = ItemInstanceSpawnEggFixAccessor.getEntitySpawnEggs()[entity].toString()
+                }
+            }
+            "minecraft:potion", "minecraft:splash_potion", "minecraft:lingering_potion"-> run {
+                potionType = ItemPotionFixAccessor.getID_TO_POTIONS()[meta]
+            }
+        }
+
+
+
+
+        if (itemName != "minecraft:air") {
+            val nbt = NbtCompound()
+            val tag = NbtCompound()
+            nbt.putString("id", itemName)
+            nbt.putByte("Count", 1.toByte())
+            if (potionType != null) {
+                tag.putString("Potion", potionType)
+            }
+            if (damage != -1) {
+                tag.putByte("Damage", damage.toByte())
+                tag.putBoolean("Unbreakable", true)
+            }
+            nbt.put("tag", tag)
+            val item = ItemStack.fromNbt(nbt)
+            if (item.isEmpty){
+                getLogger().warn("Could not find item with id $id and meta $meta")
+                return ERROR_ITEM
+            }
+            return ItemStack.fromNbt(nbt)
+        }
+        getLogger().warn("Could not find item with id $id and meta $meta")
+        return ERROR_ITEM
     }
 }
