@@ -4,24 +4,1145 @@
       "id": "BASH",
       "height": 0,
       "position": 0,
-      "dependency": []
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
     },
     {
       "id": "SPEAR_PROFICIENCY_I",
-      "height": 1,
+      "height": 2,
       "position": 0,
-      "dependency": [
+      "tier": 1,
+      "character": "WARRIOR",
+      "predecessors": [
         "BASH"
       ]
     },
     {
-      "id": "SPEAR_PROFICIENCY_I",
-      "height": 1,
-      "position": 0,
-      "dependency": [
-        "BASH"
+      "id": "CHEAPER_BASH_I",
+      "height": 2,
+      "position": -2,
+      "tier": 1,
+      "character": "WARRIOR",
+      "predecessors": [
+        "SPEAR_PROFICIENCY_I"
       ]
+    },
+    {
+      "id": "DOUBLE_BASH",
+      "height": 4,
+      "position": 0,
+      "tier": 2,
+      "character": "WARRIOR",
+      "predecessors": [
+        "SPEAR_PROFICIENCY_I"
+      ]
+    },
+    {
+      "id": "CHARGE",
+      "height": 6,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": [
+        "DOUBLE_BASH"
+      ]
+    },
+    {
+      "id": "HEAVY_IMPACT",
+      "height": 6,
+      "position": -2,
+      "tier": 2,
+      "character": "WARRIOR",
+      "predecessors": [
+        "CHARGE"
+      ]
+    },
+    {
+      "id": "TOUGHER_SKIN",
+      "height": 6,
+      "position": 2,
+      "tier": 1,
+      "character": "WARRIOR",
+      "predecessors": [
+        "CHARGE"
+      ]
+    },
+    {
+      "id": "VEHEMENT",
+      "height": 7,
+      "position": -4,
+      "tier": 1,
+      "character": "WARRIOR",
+      "predecessors": [
+        "HEAVY_IMPACT"
+      ]
+    },
+    {
+      "id": "UPPERCUT",
+      "height": 8,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": [
+        "VEHEMENT",
+        "CHEAPER_CHARGE"
+      ]
+    },
+    {
+      "id": "CHEAPER_CHARGE",
+      "height": 8,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": [
+        "UPPERCUT",
+        "WAR_SCREAM"
+      ]
+    },
+    {
+      "id": "WAR_SCREAM",
+      "height": 8,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": [
+        "TOUGHER_SKIN",
+        "CHEAPER_CHARGE"
+      ]
+    },
+    {
+      "id": "WARRIOR_EARTH_MASTERY",
+      "height": 10,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "WARRIOR_THUNDER_MASTERY",
+      "height": 10,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "WARRIOR_AIR_MASTERY",
+      "height": 10,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "WARRIOR_FIRE_MASTERY",
+      "height": 10,
+      "position": 4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "WARRIOR_WATER_MASTERY",
+      "height": 11,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "QUADRUPLE_BASH",
+      "height": 12,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "FIREWORKS",
+      "height": 12,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "FLYBY_JAB",
+      "height": 12,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "FLAMING_UPPERCUT",
+      "height": 12,
+      "position": 4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "HALF_MOON_SWIPE",
+      "height": 13,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "IRON_LUNGS",
+      "height": 13,
+      "position": 3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "GENERALIST",
+      "height": 15,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "COUNTER",
+      "height": 15,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "MANTLE_OF_THE_BOVEMISTS",
+      "height": 15,
+      "position": 3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "BAKALS_GRASP",
+      "height": 16,
+      "position": -3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "SPEAR_PROFICIENCY_II",
+      "height": 17,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_UPPERCUT_I",
+      "height": 17,
+      "position": -1,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "AERODYNAMICS",
+      "height": 17,
+      "position": 1,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "PROVOKE",
+      "height": 17,
+      "position": 3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "PRECISE_STRIKES",
+      "height": 18,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "AIR_SHOUT",
+      "height": 18,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "ENRAGED_BLOW",
+      "height": 19,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "FLYING_KICK",
+      "height": 19,
+      "position": -1,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "STRONGER_MANTLE",
+      "height": 19,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "MANACHISM",
+      "height": 19,
+      "position": 4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "BOILING_BLOOD",
+      "height": 21,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "RAGNAROKKR",
+      "height": 21,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "AMBIDEXTROUS",
+      "height": 21,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "BURNING_HEART",
+      "height": 21,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "STRONGER_BASH",
+      "height": 21,
+      "position": 4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "INTOXICATING_BLOOD",
+      "height": 22,
+      "position": -3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "COLLIDE",
+      "height": 22,
+      "position": 1,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "REJUVENATING_SKIN",
+      "height": 22,
+      "position": 3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "COMET",
+      "height": 23,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "UNCONTAINABLE_CORRUPTION",
+      "height": 24,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "RADIANT_DEVOTEE",
+      "height": 24,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "WHIRLWIND_STRIKE",
+      "height": 24,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "MYTHRIL_SKIN",
+      "height": 24,
+      "position": 3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "ARMOUR_BREAKER",
+      "height": 25,
+      "position": -3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "SHIELD_STRIKE",
+      "height": 25,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "SPARKLING_HOPE",
+      "height": 25,
+      "position": 4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "MASSIVE_BASH",
+      "height": 26,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "TEMPEST",
+      "height": 26,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "SPIRIT_OF_THE_RABBIT",
+      "height": 26,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "MASSACRE",
+      "height": 27,
+      "position": -3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "AXE_KICK",
+      "height": 27,
+      "position": -1,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "RADIANCE",
+      "height": 27,
+      "position": 1,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_BASH_II",
+      "height": 27,
+      "position": 3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_WAR_SCREAM",
+      "height": 29,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "DISCOMBOBULATE",
+      "height": 29,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "THUNDERCLAP",
+      "height": 29,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "CYCLONE",
+      "height": 30,
+      "position": 1,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "SECOND_CHANCE",
+      "height": 30,
+      "position": 3,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "BLOOD_PACT",
+      "height": 31,
+      "position": -4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "HAEMORRHAGE",
+      "height": 32,
+      "position": -2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "BRINK_OF_MADNESS",
+      "height": 32,
+      "position": 0,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_UPPERCUT_II",
+      "height": 32,
+      "position": 2,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "MARTYR",
+      "height": 32,
+      "position": 4,
+      "tier": 0,
+      "character": "WARRIOR",
+      "predecessors": []
+    },
+    {
+      "id": "ARROR_BOMB",
+      "height": 0,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "BOW_PROFICIENCY_I",
+      "height": 2,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_ARROW_BOMB_I",
+      "height": 2,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "HEART_SHATTER",
+      "height": 4,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ESCAPE",
+      "height": 6,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "DOUBLE_SHOTS",
+      "height": 6,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "POWER_SHOTS",
+      "height": 6,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARROW_STORM",
+      "height": 8,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_ESCAPE_I",
+      "height": 8,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARROW_SHIELD",
+      "height": 8,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "WINDY_FEET",
+      "height": 9,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARCHER_AIR_MASTERY",
+      "height": 10,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARCHER_THUNDER_MASTERY",
+      "height": 10,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARCHER_FIRE_MASTERY",
+      "height": 10,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARCHER_EARTH_MASTERY",
+      "height": 10,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARCHER_WATER_MASTERY",
+      "height": 11,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARROW_RAIN",
+      "height": 12,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "NIMBLE_STRING",
+      "height": 12,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "PHANTOM_RAY",
+      "height": 13,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "FIRE_CREEP",
+      "height": 13,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "BRYOPHYTE_ROOTS",
+      "height": 13,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "TRIPLE_SHOTS",
+      "height": 14,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "FRENZY",
+      "height": 14,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "GUARDIAN_ANGELS",
+      "height": 15,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "FOCUS",
+      "height": 15,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "BASALTIC_TRAP",
+      "height": 15,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "WINDSTORM",
+      "height": 17,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_ARROW_STORM_I",
+      "height": 17,
+      "position": -1,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "GRAPPLING_HOOK",
+      "height": 17,
+      "position": 1,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "MORE_SHIELDS",
+      "height": 17,
+      "position": 3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "MORE_FOCUS_I",
+      "height": 18,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "IMPLOSION",
+      "height": 18,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "PATIENT_HUNTER",
+      "height": 18,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "STORMY_FEET",
+      "height": 19,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "REFINED_GUNPOWDER",
+      "height": 20,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "TRAVELER",
+      "height": 20,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "TWAINS_ARC",
+      "height": 20,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "BOUNCING_BOMB",
+      "height": 20,
+      "position": 3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "FIERCE_STOMP",
+      "height": 21,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "SCORCHED_EARTH",
+      "height": 21,
+      "position": 1,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "MORE_TRAPS",
+      "height": 21,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "LEAP",
+      "height": 23,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "HOMING_SHOTS",
+      "height": 23,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "SHOCKING_BOMB",
+      "height": 23,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "BETTER_ARROW_SHIELD",
+      "height": 23,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "MANA_TRAP",
+      "height": 23,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "BETTER_LEAP",
+      "height": 24,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ESCAPE_ARTIST",
+      "height": 25,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "BETTER_GUARDIAN_ANGELS",
+      "height": 25,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "INITIATOR",
+      "height": 25,
+      "position": 1,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_ARROW_STORM_II",
+      "height": 25,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CALL_OF_THE_HOUND",
+      "height": 26,
+      "position": 3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ARROW_HURRICANE",
+      "height": 27,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "PRECISE_SHOT",
+      "height": 27,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_ARROW_SHIELD",
+      "height": 27,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ROCKET_JUMP",
+      "height": 27,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "SHRAPNEL_BOMB",
+      "height": 28,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "DECIMATOR",
+      "height": 28,
+      "position": 1,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_ESCAPE_II",
+      "height": 28,
+      "position": 3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "STRONGER_HOOK",
+      "height": 29,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "GEYSER_STOMP",
+      "height": 30,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CREPUSCULAR_RAY",
+      "height": 30,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "GRAPE_BOMB",
+      "height": 30,
+      "position": 3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ELUSIVE",
+      "height": 31,
+      "position": -4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "TANGLED_TRAPS",
+      "height": 31,
+      "position": 2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "STRONGER_PATIENT_HUNTER",
+      "height": 31,
+      "position": 4,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "SNOW_STORM",
+      "height": 32,
+      "position": -2,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "MORE_FOCUS_II",
+      "height": 32,
+      "position": 0,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "ALL_SEEING_PANOPTES",
+      "height": 33,
+      "position": -3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "CHEAPER_ARROW_BOMB_II",
+      "height": 33,
+      "position": 1,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
+    },
+    {
+      "id": "MINEFIELD",
+      "height": 33,
+      "position": 3,
+      "tier": 0,
+      "character": "ARCHER",
+      "predecessors": []
     }
   ],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

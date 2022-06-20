@@ -1,7 +1,6 @@
 package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.data.LegacyEntityMap
-import io.github.nbcss.wynnlib.mixins.datafixer.EntityBlockStateFixAccessor
 import net.minecraft.datafixer.fix.ItemIdFix
 import io.github.nbcss.wynnlib.data.LegacyItemMap
 import io.github.nbcss.wynnlib.mixins.datafixer.ItemInstanceSpawnEggFixAccessor
@@ -20,7 +19,7 @@ import net.minecraft.util.registry.Registry
 import java.util.*
 
 object ItemFactory {
-    private val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
+    val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
     /**
      * Get skull item from given skin string.
