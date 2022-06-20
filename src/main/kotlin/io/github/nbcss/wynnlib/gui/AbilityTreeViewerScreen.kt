@@ -32,6 +32,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         const val GRID_SIZE: Int = 24
         const val VIEW_WIDTH = 232
         const val VIEW_HEIGHT = 138
+        const val SCROLL_FRAMES = 4
         const val ACTIVE_OUTER_COLOR: Int = 0x37ACB5 + (0xFF shl 24)
         const val ACTIVE_INNER_COLOR: Int = 0x5FD6DF + (0xFF shl 24)
         const val LOCKED_OUTER_COLOR: Int = 0x2D2E30 + (0xFF shl 24)
@@ -43,6 +44,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     private var viewerX: Int = 0
     private var viewerY: Int = 0
     private var scroll: Int = 0
+    private var movingScroll: Int = 0
+    private var scrollTicks: Int = 0
 
     private fun drawOuterEdge(matrices: MatrixStack, from: Pos, to: Pos, color: Int){
         RenderSystem.enableDepthTest()
@@ -66,7 +69,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
 
     private fun toScreenPosition(height: Int, position: Int): Pos {
         val posX = windowX + 9 + GRID_SIZE / 2 + (position + 4) * GRID_SIZE
-        val posY = windowY + 47 + GRID_SIZE / 2 + height * GRID_SIZE - scroll
+        val posY = windowY + 47 + GRID_SIZE / 2 + height * GRID_SIZE - movingScroll
         return Pos(posX, posY)
     }
 
@@ -103,6 +106,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         if (isOverViewer(mouseX.toInt(), mouseY.toInt())){
             val max = max(0, 4 + (1 + tree.getMaxHeight()) * GRID_SIZE - VIEW_HEIGHT)
             scroll = MathHelper.clamp(scroll - amount.toInt() * GRID_SIZE, 0, max)
+            scrollTicks = SCROLL_FRAMES
         }
         return super.mouseScrolled(mouseX, mouseY, amount)
     }
@@ -125,13 +129,15 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
                 this.tree = AbilityRegistry.fromCharacter(it)
                 this.scroll = 0
+                this.movingScroll = 0
+                this.scrollTicks = 0
                 return true
             }
         return super.mouseClicked(mouseX, mouseY, button)
     }
 
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        val posX = viewerX + 2
+        /*val posX = viewerX + 2
         val posY = viewerY + 143
         //render archetype values
         val icon1 = ItemFactory.fromEncoding("minecraft:stone_axe#74")
@@ -142,16 +148,22 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         textRenderer.draw(matrices, "14", posX.toFloat() + 80, posY.toFloat() + 4, 0)
         val icon3 = ItemFactory.fromEncoding("minecraft:stone_axe#76")
         itemRenderer.renderInGuiWithOverrides(icon3, posX + 120, posY)
-        textRenderer.draw(matrices, "12", posX.toFloat() + 140, posY.toFloat() + 4, 0)
+        textRenderer.draw(matrices, "12", posX.toFloat() + 140, posY.toFloat() + 4, 0)*/
         //val icon4 = ItemFactory.fromEncoding("minecraft:stone_axe#83")
         //itemRenderer.renderInGuiWithOverrides(icon4, posX + 180, posY)
         //textRenderer.draw(matrices, "30/45", posX.toFloat() + 200, posY.toFloat() + 4, 0)
+        //update moving scroll
+        if (scrollTicks > 0){
+            movingScroll += ((scroll - movingScroll).toFloat() / scrollTicks.toFloat()).toInt()
+            scrollTicks -= 1
+        }else {
+            movingScroll = scroll
+        }
         val bottom = (viewerY + VIEW_HEIGHT)
         val scale = client!!.window.scaleFactor
         RenderSystem.enableScissor((viewerX * scale).toInt(),
             client!!.window.height - (bottom * scale).toInt(),
             (VIEW_WIDTH * scale).toInt(), (VIEW_HEIGHT * scale).toInt())
-        //DrawableHelper.fill(matrices, 0, 0, 1000, 1000, BASIC_INNER_COLOR)
         //Render outer lines
         tree.getAbilities().forEach {
             val to = toScreenPosition(it.getHeight(), it.getPosition())
