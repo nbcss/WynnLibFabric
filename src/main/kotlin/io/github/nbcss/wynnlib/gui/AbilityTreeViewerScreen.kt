@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.gui
 
+import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.lang.Translations
@@ -10,8 +11,12 @@ import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.MathHelper
+import kotlin.math.abs
+import kotlin.math.max
 
 class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
     private val texture = Identifier("wynnlib", "textures/gui/ability_tree_viewer.png")
@@ -25,6 +30,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeViewerScreen
         }
         const val GRID_SIZE: Int = 24
+        const val VIEW_WIDTH = 232
+        const val VIEW_HEIGHT = 138
         const val ACTIVE_OUTER_COLOR: Int = 0x37ACB5 + (0xFF shl 24)
         const val ACTIVE_INNER_COLOR: Int = 0x5FD6DF + (0xFF shl 24)
         const val LOCKED_OUTER_COLOR: Int = 0x2D2E30 + (0xFF shl 24)
@@ -33,9 +40,12 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         const val BASIC_INNER_COLOR: Int = 0xAAAAAA + (0xFF shl 24)
     }
     private var tree: AbilityTree = AbilityRegistry.fromCharacter(CharacterClass.WARRIOR)
+    private var viewerX: Int = 0
+    private var viewerY: Int = 0
     private var scroll: Int = 0
 
     private fun drawOuterEdge(matrices: MatrixStack, from: Pos, to: Pos, color: Int){
+        RenderSystem.enableDepthTest()
         if (from.x != to.x){
             DrawableHelper.fill(matrices, from.x, from.y - 2, to.x, from.y + 2, color)
         }
@@ -79,8 +89,21 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }
 
+    private fun isOverViewer(mouseX: Int, mouseY: Int): Boolean {
+        return mouseX >= viewerX && mouseX < viewerX + VIEW_WIDTH && mouseY >= viewerY && mouseY < viewerY + VIEW_HEIGHT
+    }
+
+    override fun init() {
+        super.init()
+        viewerX = windowX + 7
+        viewerY = windowY + 45
+    }
+
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
-        scroll -= amount.toInt() * 20
+        if (isOverViewer(mouseX.toInt(), mouseY.toInt())){
+            val max = max(0, 4 + (1 + tree.getMaxHeight()) * GRID_SIZE - VIEW_HEIGHT)
+            scroll = MathHelper.clamp(scroll - amount.toInt() * GRID_SIZE, 0, max)
+        }
         return super.mouseScrolled(mouseX, mouseY, amount)
     }
 
@@ -108,9 +131,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     }
 
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        //todo
-        val posX = windowX + 9
-        val posY = windowY + 188
+        val posX = viewerX + 2
+        val posY = viewerY + 143
         //render archetype values
         val icon1 = ItemFactory.fromEncoding("minecraft:stone_axe#74")
         itemRenderer.renderInGuiWithOverrides(icon1, posX, posY)
@@ -124,6 +146,12 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         //val icon4 = ItemFactory.fromEncoding("minecraft:stone_axe#83")
         //itemRenderer.renderInGuiWithOverrides(icon4, posX + 180, posY)
         //textRenderer.draw(matrices, "30/45", posX.toFloat() + 200, posY.toFloat() + 4, 0)
+        val bottom = (viewerY + VIEW_HEIGHT)
+        val scale = client!!.window.scaleFactor
+        RenderSystem.enableScissor((viewerX * scale).toInt(),
+            client!!.window.height - (bottom * scale).toInt(),
+            (VIEW_WIDTH * scale).toInt(), (VIEW_HEIGHT * scale).toInt())
+        //DrawableHelper.fill(matrices, 0, 0, 1000, 1000, BASIC_INNER_COLOR)
         //Render outer lines
         tree.getAbilities().forEach {
             val to = toScreenPosition(it.getHeight(), it.getPosition())
@@ -146,6 +174,17 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         tree.getAbilities().forEach {
             val node = toScreenPosition(it.getHeight(), it.getPosition())
             itemRenderer.renderInGuiWithOverrides(it.getTexture(), node.x - 8, node.y - 8)
+        }
+        RenderSystem.disableScissor()
+        //render ability tooltip
+        if (isOverViewer(mouseX, mouseY)){
+            for (ability in tree.getAbilities()) {
+                val node = toScreenPosition(ability.getHeight(), ability.getPosition())
+                if (abs(node.x - mouseX) <= 11 && abs(node.y - mouseY) <= 11){
+                    drawTooltip(matrices!!, ability.getTooltip(), mouseX, mouseY)
+                    break
+                }
+            }
         }
     }
 }

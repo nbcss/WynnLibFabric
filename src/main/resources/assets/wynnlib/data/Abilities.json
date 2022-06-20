@@ -93,7 +93,7 @@
       "id": "CHEAPER_CHARGE",
       "height": 8,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
       "predecessors": [
         "UPPERCUT",
@@ -115,465 +115,627 @@
       "id": "WARRIOR_EARTH_MASTERY",
       "height": 10,
       "position": -4,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "UPPERCUT"
+      ]
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
       "height": 10,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "UPPERCUT",
+        "WARRIOR_AIR_MASTERY",
+        "CHEAPER_CHARGE"
+      ]
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
       "height": 10,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "WAR_SCREAM",
+        "WARRIOR_AIR_MASTERY",
+        "CHEAPER_CHARGE"
+      ]
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
       "height": 10,
       "position": 4,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "WAR_SCREAM"
+      ]
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
       "height": 11,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "WARRIOR_THUNDER_MASTERY",
+        "WARRIOR_AIR_MASTERY",
+        "CHEAPER_CHARGE"
+      ]
     },
     {
       "id": "QUADRUPLE_BASH",
       "height": 12,
       "position": -4,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "WARRIOR_EARTH_MASTERY",
+        "FIREWORKS"
+      ]
     },
     {
       "id": "FIREWORKS",
       "height": 12,
       "position": -2,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "QUADRUPLE_BASH",
+        "WARRIOR_THUNDER_MASTERY"
+      ]
     },
     {
       "id": "FLYBY_JAB",
       "height": 12,
       "position": 2,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "WARRIOR_AIR_MASTERY",
+        "FLAMING_UPPERCUT"
+      ]
     },
     {
       "id": "FLAMING_UPPERCUT",
       "height": 12,
       "position": 4,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "WARRIOR_FIRE_MASTERY",
+        "FLYBY_JAB"
+      ]
     },
     {
       "id": "HALF_MOON_SWIPE",
       "height": 13,
       "position": 0,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "WARRIOR_WATER_MASTERY"
+      ]
     },
     {
       "id": "IRON_LUNGS",
       "height": 13,
       "position": 3,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "FLYBY_JAB",
+        "FLAMING_UPPERCUT"
+      ]
     },
     {
       "id": "GENERALIST",
       "height": 15,
       "position": -2,
-      "tier": 0,
+      "tier": 4,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "COUNTER"
+      ]
     },
     {
       "id": "COUNTER",
       "height": 15,
       "position": 0,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "HALF_MOON_SWIPE"
+      ]
     },
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
       "height": 15,
       "position": 3,
-      "tier": 0,
+      "tier": 4,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "IRON_LUNGS"
+      ]
     },
     {
       "id": "BAKALS_GRASP",
       "height": 16,
       "position": -3,
-      "tier": 0,
+      "tier": 4,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "QUADRUPLE_BASH",
+        "FIREWORKS"
+      ]
     },
     {
       "id": "SPEAR_PROFICIENCY_II",
       "height": 17,
       "position": -4,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BAKALS_GRASP",
+        "CHEAPER_UPPERCUT_I"
+      ]
     },
     {
       "id": "CHEAPER_UPPERCUT_I",
       "height": 17,
       "position": -1,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "GENERALIST",
+        "COUNTER",
+        "SPEAR_PROFICIENCY_II",
+        "AERODYNAMICS"
+      ]
     },
     {
       "id": "AERODYNAMICS",
       "height": 17,
       "position": 1,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "CHEAPER_UPPERCUT_I",
+        "PROVOKE"
+      ]
     },
     {
       "id": "PROVOKE",
       "height": 17,
       "position": 3,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "MANTLE_OF_THE_BOVEMISTS",
+        "AERODYNAMICS"
+      ]
     },
     {
       "id": "PRECISE_STRIKES",
       "height": 18,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "SPEAR_PROFICIENCY_II",
+        "CHEAPER_UPPERCUT_I"
+      ]
     },
     {
       "id": "AIR_SHOUT",
       "height": 18,
       "position": 2,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "AERODYNAMICS",
+        "PROVOKE"
+      ]
     },
     {
       "id": "ENRAGED_BLOW",
       "height": 19,
       "position": -4,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "SPEAR_PROFICIENCY_II"
+      ]
     },
     {
       "id": "FLYING_KICK",
       "height": 19,
       "position": -1,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "CHEAPER_UPPERCUT_I",
+        "STRONGER_MANTLE"
+      ]
     },
     {
       "id": "STRONGER_MANTLE",
       "height": 19,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "FLYING_KICK",
+        "MANACHISM"
+      ]
     },
     {
       "id": "MANACHISM",
       "height": 19,
       "position": 4,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "STRONGER_MANTLE",
+        "PROVOKE"
+      ]
     },
     {
       "id": "BOILING_BLOOD",
       "height": 21,
       "position": -4,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "ENRAGED_BLOW",
+        "RAGNAROKKR"
+      ]
     },
     {
       "id": "RAGNAROKKR",
       "height": 21,
       "position": -2,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BOILING_BLOOD",
+        "FLYING_KICK"
+      ]
     },
     {
       "id": "AMBIDEXTROUS",
       "height": 21,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "FLYING_KICK",
+        "STRONGER_MANTLE",
+        "BURNING_HEART"
+      ]
     },
     {
       "id": "BURNING_HEART",
       "height": 21,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "AMBIDEXTROUS",
+        "STRONGER_BASH"
+      ]
     },
     {
       "id": "STRONGER_BASH",
       "height": 21,
       "position": 4,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BURNING_HEART",
+        "MANACHISM"
+      ]
     },
     {
       "id": "INTOXICATING_BLOOD",
       "height": 22,
       "position": -3,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BOILING_BLOOD",
+        "RAGNAROKKR"
+      ]
     },
     {
       "id": "COLLIDE",
       "height": 22,
       "position": 1,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "AMBIDEXTROUS",
+        "BURNING_HEART"
+      ]
     },
     {
       "id": "REJUVENATING_SKIN",
       "height": 22,
       "position": 3,
-      "tier": 0,
+      "tier": 4,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BURNING_HEART",
+        "STRONGER_BASH"
+      ]
     },
     {
       "id": "COMET",
       "height": 23,
       "position": -2,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "RAGNAROKKR"
+      ]
     },
     {
       "id": "UNCONTAINABLE_CORRUPTION",
       "height": 24,
       "position": -4,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BOILING_BLOOD",
+        "RADIANT_DEVOTEE"
+      ]
     },
     {
       "id": "RADIANT_DEVOTEE",
       "height": 24,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "UNCONTAINABLE_CORRUPTION",
+        "WHIRLWIND_STRIKE"
+      ]
     },
     {
       "id": "WHIRLWIND_STRIKE",
       "height": 24,
       "position": 0,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "RADIANT_DEVOTEE",
+        "AMBIDEXTROUS"
+      ]
     },
     {
       "id": "MYTHRIL_SKIN",
       "height": 24,
       "position": 3,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "REJUVENATING_SKIN"
+      ]
     },
     {
       "id": "ARMOUR_BREAKER",
       "height": 25,
       "position": -3,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "UNCONTAINABLE_CORRUPTION",
+        "RADIANT_DEVOTEE"
+      ]
     },
     {
       "id": "SHIELD_STRIKE",
       "height": 25,
       "position": 2,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "MYTHRIL_SKIN"
+      ]
     },
     {
       "id": "SPARKLING_HOPE",
       "height": 25,
       "position": 4,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "MYTHRIL_SKIN"
+      ]
     },
     {
       "id": "MASSIVE_BASH",
       "height": 26,
       "position": -4,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "UNCONTAINABLE_CORRUPTION",
+        "TEMPEST"
+      ]
     },
     {
       "id": "TEMPEST",
       "height": 26,
       "position": -2,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "MASSIVE_BASH",
+        "SPIRIT_OF_THE_RABBIT"
+      ]
     },
     {
       "id": "SPIRIT_OF_THE_RABBIT",
       "height": 26,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "TEMPEST",
+        "WHIRLWIND_STRIKE"
+      ]
     },
     {
       "id": "MASSACRE",
       "height": 27,
       "position": -3,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "MASSIVE_BASH",
+        "TEMPEST"
+      ]
     },
     {
       "id": "AXE_KICK",
       "height": 27,
       "position": -1,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "TEMPEST",
+        "SPIRIT_OF_THE_RABBIT"
+      ]
     },
     {
       "id": "RADIANCE",
       "height": 27,
       "position": 1,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "SPIRIT_OF_THE_RABBIT",
+        "CHEAPER_BASH_II"
+      ]
     },
     {
       "id": "CHEAPER_BASH_II",
       "height": 27,
       "position": 3,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "RADIANCE",
+        "SHIELD_STRIKE",
+        "SPARKLING_HOPE"
+      ]
     },
     {
       "id": "CHEAPER_WAR_SCREAM",
-      "height": 29,
+      "height": 28,
       "position": -4,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "MASSIVE_BASH"
+      ]
     },
     {
       "id": "DISCOMBOBULATE",
-      "height": 29,
+      "height": 28,
       "position": -2,
-      "tier": 0,
+      "tier": 4,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "THUNDERCLAP"
+      ]
     },
     {
       "id": "THUNDERCLAP",
-      "height": 29,
+      "height": 28,
       "position": 0,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "SPIRIT_OF_THE_RABBIT"
+      ]
     },
     {
       "id": "CYCLONE",
-      "height": 30,
+      "height": 29,
       "position": 1,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "THUNDERCLAP"
+      ]
     },
     {
       "id": "SECOND_CHANCE",
-      "height": 30,
+      "height": 29,
       "position": 3,
-      "tier": 0,
+      "tier": 4,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "CHEAPER_BASH_II"
+      ]
     },
     {
       "id": "BLOOD_PACT",
-      "height": 31,
+      "height": 30,
       "position": -4,
-      "tier": 0,
+      "tier": 4,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "CHEAPER_WAR_SCREAM"
+      ]
     },
     {
       "id": "HAEMORRHAGE",
-      "height": 32,
+      "height": 31,
       "position": -2,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BLOOD_PACT"
+      ]
     },
     {
       "id": "BRINK_OF_MADNESS",
-      "height": 32,
+      "height": 31,
       "position": 0,
-      "tier": 0,
+      "tier": 3,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BLOOD_PACT",
+        "CHEAPER_UPPERCUT_II"
+      ]
     },
     {
       "id": "CHEAPER_UPPERCUT_II",
-      "height": 32,
+      "height": 31,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "BRINK_OF_MADNESS",
+        "SECOND_CHANCE"
+      ]
     },
     {
       "id": "MARTYR",
-      "height": 32,
+      "height": 31,
       "position": 4,
-      "tier": 0,
+      "tier": 2,
       "character": "WARRIOR",
-      "predecessors": []
+      "predecessors": [
+        "SECOND_CHANCE"
+      ]
     },
     {
       "id": "ARROR_BOMB",

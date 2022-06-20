@@ -2,12 +2,15 @@ package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.CharacterClass
+import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
 import net.minecraft.util.math.MathHelper
 
-class Ability(json: JsonObject): Keyed {
+class Ability(json: JsonObject): Keyed, Translatable {
     private val id: String
     //private val name: String
     private val tier: Int
@@ -50,5 +53,19 @@ class Ability(json: JsonObject): Keyed {
 
     fun getPredecessors(): List<String> = predecessors.toList()
 
+    fun getTooltip(): List<Text> {
+        val tooltip: MutableList<Text> = ArrayList()
+        tooltip.add(LiteralText(getKey()))
+        return tooltip
+    }
+
     override fun getKey(): String = id
+
+    override fun getTranslationKey(label: String?): String {
+        val key = id.lowercase()
+        if (label == "description"){
+            return "wynnlib.ability.description.$key"
+        }
+        return "wynnlib.ability.$key"
+    }
 }

@@ -106,6 +106,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         drawBackground(matrices, mouseX, mouseY, delta)
         val closeX = windowX + 230
         val closeY = windowY + 32
+        RenderSystem.enableDepthTest()
         this.renderTexture(matrices, texture, closeX, closeY, 56, 210, 10, 10)
         super.render(matrices, mouseX, mouseY, delta)
         drawContents(matrices, mouseX, mouseY, delta)
