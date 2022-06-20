@@ -12,6 +12,6 @@
     "datafixer.RecipeFixAccessor"
   ],
   "client": [
-    "ItemLightingFixMixin"
+    "render.ItemGuiLightingFixMixin"
   ]
 }
