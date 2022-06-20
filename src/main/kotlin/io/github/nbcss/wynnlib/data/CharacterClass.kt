@@ -13,11 +13,13 @@ enum class CharacterClass(private val weaponName: String): Keyed, Translatable {
     companion object {
         private val VALUE_MAP: MutableMap<EquipmentType, CharacterClass> = EnumMap(EquipmentType::class.java)
         init {
-            values().forEach { VALUE_MAP[EquipmentType.getEquipmentType(it.weaponName)] = it }
+            values().forEach { VALUE_MAP[it.getWeapon()] = it }
         }
 
         fun fromWeaponType(type: EquipmentType): CharacterClass? = VALUE_MAP[type]
     }
+
+    fun getWeapon(): EquipmentType = EquipmentType.getEquipmentType(weaponName)
 
     override fun getKey(): String = name
 

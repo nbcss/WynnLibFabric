@@ -63,6 +63,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         super.drawBackground(matrices, mouseX, mouseY, delta)
         this.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
             0, 0, this.backgroundWidth, this.backgroundHeight)
+        textRenderer.draw(matrices, "XXXXXXXXXXXXXXXXXX",
+            (windowX + 24).toFloat(), (windowY + 194).toFloat(), 0)
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
