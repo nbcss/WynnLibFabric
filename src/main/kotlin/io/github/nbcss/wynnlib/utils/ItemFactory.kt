@@ -52,6 +52,11 @@ object ItemFactory {
      * (such as "minecraft:stone"), damage is the damage value for damageable items,
      * and NBT is more specific item with nbt compound (such as potion). DAMAGE and NBT
      * are optional, if not specified the method will assume 0 damage with default nbt.
+     *
+     * Note that this method assuming use flatten id, and will not do flatten in decoding.
+     *
+     * @param encoding the encoding of the item
+     * @return item for associated encoding, or ERROR_ITEM if there is an error.
      */
     fun fromEncoding(encoding: String): ItemStack {
         val array = encoding.split("#").toTypedArray()
@@ -76,6 +81,12 @@ object ItemFactory {
 
     /**
      * Get item from legacy id and meta (data value).
+     * This method will also perform flatten for the numeric id.
+     * Currently, incomplete but should support spawn egg flatten in the future.
+     *
+     * @param id numeric id (legacy) of the item.
+     * @param meta data value of the item (0 for most items without variant)
+     * @return item associated to given id & meta value.
      */
     fun fromLegacyId(id: Int, meta: Int): ItemStack {
         var itemId: String? = legacyMap[id]
