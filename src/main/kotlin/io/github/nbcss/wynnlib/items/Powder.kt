@@ -68,7 +68,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(getDisplayText())
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_POWDER_WEAPON.translate().formatted(element.altColor)
             .append(LiteralText(":").formatted(element.altColor)))
         val prefix = LiteralText("- ")
@@ -84,7 +84,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
         if (tier.index() >= 4){
             //todo add spec
         }
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_POWDER_ARMOUR.translate().formatted(element.altColor)
             .append(LiteralText(":").formatted(element.altColor)))
         tooltip.add(prefix.copy().formatted(element.altColor)
@@ -97,7 +97,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
             //todo add spec
         }
         if(durability != 0.0 || skillMap.isNotEmpty()){
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
             tooltip.add(TOOLTIP_POWDER_CRAFTING.translate().formatted(element.altColor)
                 .append(LiteralText(":").formatted(element.altColor)))
             if (durability != 0.0){

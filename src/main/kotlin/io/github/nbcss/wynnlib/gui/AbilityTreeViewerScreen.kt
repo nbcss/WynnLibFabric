@@ -101,6 +101,10 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         viewerY = windowY + 45
     }
 
+    override fun getTitle(): Text {
+        return title.copy().append(" [").append(tree.character.translate()).append("]")
+    }
+
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
         if (isOverViewer(mouseX.toInt(), mouseY.toInt())){
             val max = max(0, 4 + (1 + tree.getMaxHeight()) * GRID_SIZE - VIEW_HEIGHT)

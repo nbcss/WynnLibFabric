@@ -57,7 +57,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(parent.getDisplayText())
         tooltip.add(atkSpeed.translate().formatted(Formatting.GRAY))
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         val lastSize = tooltip.size
         if(!damage.isZero()){
             val text = LiteralText(": " + damage.lower().toString() + "-" + damage.upper().toString())
@@ -74,10 +74,10 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
         //append additional one empty line if damage added
         if (tooltip.size > lastSize) tooltip.add(LiteralText(""))
         addRequirements(parent, tooltip)
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip
         if (addIdentifications(parent , tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         addPowderSlots(parent, tooltip)
         addItemSuffix(parent, tooltip)
         addRestriction(parent, tooltip)

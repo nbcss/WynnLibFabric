@@ -5,7 +5,9 @@
       "height": 0,
       "position": 0,
       "tier": 0,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -13,7 +15,9 @@
       "height": 2,
       "position": 0,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "BASH"
       ]
@@ -23,7 +27,9 @@
       "height": 2,
       "position": -2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ]
@@ -33,7 +39,9 @@
       "height": 4,
       "position": 0,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ]
@@ -43,7 +51,9 @@
       "height": 6,
       "position": 0,
       "tier": 0,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "DOUBLE_BASH"
       ]
@@ -53,7 +63,9 @@
       "height": 6,
       "position": -2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "CHARGE"
       ]
@@ -63,7 +75,9 @@
       "height": 6,
       "position": 2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "CHARGE"
       ]
@@ -73,7 +87,9 @@
       "height": 7,
       "position": -4,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "HEAVY_IMPACT"
       ]
@@ -83,7 +99,9 @@
       "height": 8,
       "position": -2,
       "tier": 0,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "VEHEMENT",
         "CHEAPER_CHARGE"
@@ -94,7 +112,9 @@
       "height": 8,
       "position": 0,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "UPPERCUT",
         "WAR_SCREAM"
@@ -105,7 +125,9 @@
       "height": 8,
       "position": 2,
       "tier": 0,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "TOUGHER_SKIN",
         "CHEAPER_CHARGE"
@@ -116,7 +138,9 @@
       "height": 10,
       "position": -4,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "UPPERCUT"
       ]
@@ -126,7 +150,9 @@
       "height": 10,
       "position": -2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "UPPERCUT",
         "WARRIOR_AIR_MASTERY",
@@ -138,7 +164,9 @@
       "height": 10,
       "position": 2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {},
       "predecessors": [
         "WAR_SCREAM",
         "WARRIOR_AIR_MASTERY",
@@ -150,7 +178,9 @@
       "height": 10,
       "position": 4,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "WAR_SCREAM"
       ]
@@ -160,7 +190,9 @@
       "height": 11,
       "position": 0,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {},
       "predecessors": [
         "WARRIOR_THUNDER_MASTERY",
         "WARRIOR_AIR_MASTERY",
@@ -172,7 +204,9 @@
       "height": 12,
       "position": -4,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "WARRIOR_EARTH_MASTERY",
         "FIREWORKS"
@@ -183,7 +217,9 @@
       "height": 12,
       "position": -2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "QUADRUPLE_BASH",
         "WARRIOR_THUNDER_MASTERY"
@@ -194,7 +230,9 @@
       "height": 12,
       "position": 2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "WARRIOR_AIR_MASTERY",
         "FLAMING_UPPERCUT"
@@ -205,7 +243,9 @@
       "height": 12,
       "position": 4,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "WARRIOR_FIRE_MASTERY",
         "FLYBY_JAB"
@@ -216,7 +256,11 @@
       "height": 13,
       "position": 0,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 1
+      },
       "predecessors": [
         "WARRIOR_WATER_MASTERY"
       ]
@@ -226,7 +270,9 @@
       "height": 13,
       "position": 3,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "FLYBY_JAB",
         "FLAMING_UPPERCUT"
@@ -237,7 +283,11 @@
       "height": 15,
       "position": -2,
       "tier": 4,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 3
+      },
       "predecessors": [
         "COUNTER"
       ]
@@ -247,7 +297,9 @@
       "height": 15,
       "position": 0,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {},
       "predecessors": [
         "HALF_MOON_SWIPE"
       ]
@@ -257,7 +309,11 @@
       "height": 15,
       "position": 3,
       "tier": 4,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {
+        "PALADIN": 3
+      },
       "predecessors": [
         "IRON_LUNGS"
       ]
@@ -267,7 +323,11 @@
       "height": 16,
       "position": -3,
       "tier": 4,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {
+        "FALLEN": 2
+      },
       "predecessors": [
         "QUADRUPLE_BASH",
         "FIREWORKS"
@@ -278,7 +338,9 @@
       "height": 17,
       "position": -4,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "BAKALS_GRASP",
         "CHEAPER_UPPERCUT_I"
@@ -289,7 +351,9 @@
       "height": 17,
       "position": -1,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "GENERALIST",
         "COUNTER",
@@ -302,7 +366,9 @@
       "height": 17,
       "position": 1,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {},
       "predecessors": [
         "CHEAPER_UPPERCUT_I",
         "PROVOKE"
@@ -313,7 +379,9 @@
       "height": 17,
       "position": 3,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "MANTLE_OF_THE_BOVEMISTS",
         "AERODYNAMICS"
@@ -324,7 +392,9 @@
       "height": 18,
       "position": -2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "SPEAR_PROFICIENCY_II",
         "CHEAPER_UPPERCUT_I"
@@ -335,7 +405,9 @@
       "height": 18,
       "position": 2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "AERODYNAMICS",
         "PROVOKE"
@@ -346,7 +418,9 @@
       "height": 19,
       "position": -4,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "SPEAR_PROFICIENCY_II"
       ]
@@ -356,7 +430,11 @@
       "height": 19,
       "position": -1,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 1
+      },
       "predecessors": [
         "CHEAPER_UPPERCUT_I",
         "STRONGER_MANTLE"
@@ -367,7 +445,9 @@
       "height": 19,
       "position": 2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "FLYING_KICK",
         "MANACHISM"
@@ -378,7 +458,11 @@
       "height": 19,
       "position": 4,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {
+        "PALADIN": 3
+      },
       "predecessors": [
         "STRONGER_MANTLE",
         "PROVOKE"
@@ -389,7 +473,9 @@
       "height": 21,
       "position": -4,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "ENRAGED_BLOW",
         "RAGNAROKKR"
@@ -400,7 +486,9 @@
       "height": 21,
       "position": -2,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "BOILING_BLOOD",
         "FLYING_KICK"
@@ -411,7 +499,9 @@
       "height": 21,
       "position": 0,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "FLYING_KICK",
         "STRONGER_MANTLE",
@@ -423,7 +513,9 @@
       "height": 21,
       "position": 2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "AMBIDEXTROUS",
         "STRONGER_BASH"
@@ -434,7 +526,9 @@
       "height": 21,
       "position": 4,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "BURNING_HEART",
         "MANACHISM"
@@ -445,7 +539,11 @@
       "height": 22,
       "position": -3,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {
+        "FALLEN": 5
+      },
       "predecessors": [
         "BOILING_BLOOD",
         "RAGNAROKKR"
@@ -456,7 +554,11 @@
       "height": 22,
       "position": 1,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 4
+      },
       "predecessors": [
         "AMBIDEXTROUS",
         "BURNING_HEART"
@@ -467,7 +569,11 @@
       "height": 22,
       "position": 3,
       "tier": 4,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {
+        "PALADIN": 5
+      },
       "predecessors": [
         "BURNING_HEART",
         "STRONGER_BASH"
@@ -478,7 +584,9 @@
       "height": 23,
       "position": -2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "RAGNAROKKR"
       ]
@@ -488,7 +596,9 @@
       "height": 24,
       "position": -4,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "BOILING_BLOOD",
         "RADIANT_DEVOTEE"
@@ -499,7 +609,11 @@
       "height": 24,
       "position": -2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 1
+      },
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
         "WHIRLWIND_STRIKE"
@@ -510,7 +624,11 @@
       "height": 24,
       "position": 0,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 5
+      },
       "predecessors": [
         "RADIANT_DEVOTEE",
         "AMBIDEXTROUS"
@@ -521,7 +639,11 @@
       "height": 24,
       "position": 3,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {
+        "PALADIN": 6
+      },
       "predecessors": [
         "REJUVENATING_SKIN"
       ]
@@ -531,7 +653,9 @@
       "height": 25,
       "position": -3,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
         "RADIANT_DEVOTEE"
@@ -542,7 +666,9 @@
       "height": 25,
       "position": 2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "MYTHRIL_SKIN"
       ]
@@ -552,7 +678,9 @@
       "height": 25,
       "position": 4,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "MYTHRIL_SKIN"
       ]
@@ -562,7 +690,11 @@
       "height": 26,
       "position": -4,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {
+        "FALLEN": 8
+      },
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
         "TEMPEST"
@@ -573,7 +705,9 @@
       "height": 26,
       "position": -2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {},
       "predecessors": [
         "MASSIVE_BASH",
         "SPIRIT_OF_THE_RABBIT"
@@ -584,7 +718,11 @@
       "height": 26,
       "position": 0,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 5
+      },
       "predecessors": [
         "TEMPEST",
         "WHIRLWIND_STRIKE"
@@ -595,7 +733,11 @@
       "height": 27,
       "position": -3,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {
+        "FALLEN": 5
+      },
       "predecessors": [
         "MASSIVE_BASH",
         "TEMPEST"
@@ -606,7 +748,9 @@
       "height": 27,
       "position": -1,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "TEMPEST",
         "SPIRIT_OF_THE_RABBIT"
@@ -617,7 +761,11 @@
       "height": 27,
       "position": 1,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {
+        "PALADIN": 2
+      },
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT",
         "CHEAPER_BASH_II"
@@ -628,7 +776,9 @@
       "height": 27,
       "position": 3,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "RADIANCE",
         "SHIELD_STRIKE",
@@ -640,7 +790,9 @@
       "height": 28,
       "position": -4,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "MASSIVE_BASH"
       ]
@@ -650,7 +802,11 @@
       "height": 28,
       "position": -2,
       "tier": 4,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 12
+      },
       "predecessors": [
         "THUNDERCLAP"
       ]
@@ -660,7 +816,11 @@
       "height": 28,
       "position": 0,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {
+        "BATTLE_MONK": 8
+      },
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT"
       ]
@@ -670,7 +830,9 @@
       "height": 29,
       "position": 1,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "BATTLE_MONK",
+      "archetype_requirements": {},
       "predecessors": [
         "THUNDERCLAP"
       ]
@@ -680,7 +842,11 @@
       "height": 29,
       "position": 3,
       "tier": 4,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {
+        "PALADIN": 12
+      },
       "predecessors": [
         "CHEAPER_BASH_II"
       ]
@@ -690,7 +856,11 @@
       "height": 30,
       "position": -4,
       "tier": 4,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {
+        "FALLEN": 10
+      },
       "predecessors": [
         "CHEAPER_WAR_SCREAM"
       ]
@@ -700,7 +870,9 @@
       "height": 31,
       "position": -2,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "FALLEN",
+      "archetype_requirements": {},
       "predecessors": [
         "BLOOD_PACT"
       ]
@@ -710,7 +882,9 @@
       "height": 31,
       "position": 0,
       "tier": 3,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "BLOOD_PACT",
         "CHEAPER_UPPERCUT_II"
@@ -721,7 +895,9 @@
       "height": 31,
       "position": 2,
       "tier": 1,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": [
         "BRINK_OF_MADNESS",
         "SECOND_CHANCE"
@@ -732,17 +908,21 @@
       "height": 31,
       "position": 4,
       "tier": 2,
-      "character": "WARRIOR",
+      "class": "WARRIOR",
+      "archetype": "PALADIN",
+      "archetype_requirements": {},
       "predecessors": [
         "SECOND_CHANCE"
       ]
     },
     {
-      "id": "ARROR_BOMB",
+      "id": "ARROW_BOMB",
       "height": 0,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -750,7 +930,9 @@
       "height": 2,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -758,7 +940,9 @@
       "height": 2,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -766,7 +950,9 @@
       "height": 4,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -774,7 +960,9 @@
       "height": 6,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -782,7 +970,9 @@
       "height": 6,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -790,7 +980,9 @@
       "height": 6,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -798,7 +990,9 @@
       "height": 8,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -806,7 +1000,9 @@
       "height": 8,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -814,7 +1010,9 @@
       "height": 8,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -822,7 +1020,9 @@
       "height": 9,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -830,7 +1030,9 @@
       "height": 10,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -838,7 +1040,9 @@
       "height": 10,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -846,7 +1050,9 @@
       "height": 10,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -854,7 +1060,9 @@
       "height": 10,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -862,7 +1070,9 @@
       "height": 11,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -870,7 +1080,9 @@
       "height": 12,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -878,7 +1090,9 @@
       "height": 12,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -886,7 +1100,9 @@
       "height": 13,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -894,7 +1110,9 @@
       "height": 13,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -902,7 +1120,9 @@
       "height": 13,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -910,7 +1130,9 @@
       "height": 14,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -918,7 +1140,9 @@
       "height": 14,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -926,7 +1150,9 @@
       "height": 15,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -934,7 +1160,9 @@
       "height": 15,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -942,7 +1170,9 @@
       "height": 15,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -950,7 +1180,9 @@
       "height": 17,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -958,7 +1190,9 @@
       "height": 17,
       "position": -1,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -966,7 +1200,9 @@
       "height": 17,
       "position": 1,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -974,7 +1210,9 @@
       "height": 17,
       "position": 3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -982,7 +1220,9 @@
       "height": 18,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -990,7 +1230,9 @@
       "height": 18,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -998,7 +1240,9 @@
       "height": 18,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1006,7 +1250,9 @@
       "height": 19,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1014,7 +1260,9 @@
       "height": 20,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1022,7 +1270,9 @@
       "height": 20,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1030,7 +1280,9 @@
       "height": 20,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1038,7 +1290,9 @@
       "height": 20,
       "position": 3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1046,7 +1300,9 @@
       "height": 21,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1054,7 +1310,9 @@
       "height": 21,
       "position": 1,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1062,7 +1320,9 @@
       "height": 21,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1070,7 +1330,9 @@
       "height": 23,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1078,7 +1340,9 @@
       "height": 23,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1086,7 +1350,9 @@
       "height": 23,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1094,7 +1360,9 @@
       "height": 23,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1102,7 +1370,9 @@
       "height": 23,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1110,7 +1380,9 @@
       "height": 24,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1118,7 +1390,9 @@
       "height": 25,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1126,7 +1400,9 @@
       "height": 25,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1134,7 +1410,9 @@
       "height": 25,
       "position": 1,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1142,7 +1420,9 @@
       "height": 25,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1150,7 +1430,9 @@
       "height": 26,
       "position": 3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1158,7 +1440,9 @@
       "height": 27,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1166,7 +1450,9 @@
       "height": 27,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1174,7 +1460,9 @@
       "height": 27,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1182,7 +1470,9 @@
       "height": 27,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1190,7 +1480,9 @@
       "height": 28,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1198,7 +1490,9 @@
       "height": 28,
       "position": 1,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1206,7 +1500,9 @@
       "height": 28,
       "position": 3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1214,7 +1510,9 @@
       "height": 29,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1222,7 +1520,9 @@
       "height": 30,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1230,7 +1530,9 @@
       "height": 30,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1238,7 +1540,9 @@
       "height": 30,
       "position": 3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1246,7 +1550,9 @@
       "height": 31,
       "position": -4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1254,7 +1560,9 @@
       "height": 31,
       "position": 2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1262,7 +1570,9 @@
       "height": 31,
       "position": 4,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1270,7 +1580,9 @@
       "height": 32,
       "position": -2,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1278,7 +1590,9 @@
       "height": 32,
       "position": 0,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1286,7 +1600,9 @@
       "height": 33,
       "position": -3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1294,7 +1610,9 @@
       "height": 33,
       "position": 1,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": null,
+      "archetype_requirements": {},
       "predecessors": []
     },
     {
@@ -1302,7 +1620,9 @@
       "height": 33,
       "position": 3,
       "tier": 0,
-      "character": "ARCHER",
+      "class": "ARCHER",
+      "archetype": "TRAPPER",
+      "archetype_requirements": {},
       "predecessors": []
     }
   ],

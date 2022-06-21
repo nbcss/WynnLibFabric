@@ -33,14 +33,14 @@ class RegularAccessory(parent: RegularEquipment, json: JsonObject)
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(parent.getDisplayText())
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         if (addDefenseTooltip(tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         addRequirements(parent, tooltip)
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip
         if (addIdentifications(parent , tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         //accessory should not have powder slot but let's add it just in case
         if(parent.getPowderSlot() > 0)
             addPowderSlots(parent, tooltip)

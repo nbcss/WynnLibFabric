@@ -20,9 +20,9 @@ enum class Archetype(private val displayName: String,
     SHARPSHOOTER("Sharpshooter", Formatting.LIGHT_PURPLE, CharacterClass.ARCHER, 78),
     TRAPPER("Trapper", Formatting.GREEN, CharacterClass.ARCHER, 77),
     //Mage Archetypes (incomplete)
-    RIFTWALKER("Riftwalker", Formatting.WHITE, CharacterClass.MAGE, 72),
-    LIGHT_BENDER("Light Bender", Formatting.WHITE, CharacterClass.MAGE, 72),
-    ARCANIST("Arcanist", Formatting.WHITE, CharacterClass.MAGE, 72),
+    RIFTWALKER("Riftwalker", Formatting.AQUA, CharacterClass.MAGE, 72),
+    LIGHT_BENDER("Light Bender", Formatting.WHITE, CharacterClass.MAGE, 73),
+    ARCANIST("Arcanist", Formatting.LIGHT_PURPLE, CharacterClass.MAGE, 78),
     //Assassin Archetypes (incomplete)
     SHADESTEPPER("Shadestepper", Formatting.WHITE, CharacterClass.ASSASSIN, 72),
     TRICKSTER("Trickster", Formatting.WHITE, CharacterClass.ASSASSIN, 72),

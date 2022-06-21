@@ -187,14 +187,14 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(getDisplayText())
         tooltip.add(TOOLTIP_CRAFTING_ING.translate().formatted(Formatting.DARK_GRAY))
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip
         if (addIdentifications(this, tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         if(addPosModifierTooltip(tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         if(addItemModifierTooltip(tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_CRAFTING_LV_REQ.translate().formatted(Formatting.GRAY)
             .append(LiteralText(": $level").formatted(Formatting.GRAY)))
         professions.forEach {

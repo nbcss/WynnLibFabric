@@ -19,15 +19,22 @@ class Ability(json: JsonObject): Keyed, Translatable {
     private val height: Int
     private val position: Int
     private val predecessors: MutableSet<String> = HashSet()
+    private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
     init {
         id = json["id"].asString
         //name = json["name"].asString
-        character = CharacterClass.valueOf(json["character"].asString.uppercase())
+        character = CharacterClass.valueOf(json["class"].asString.uppercase())
         archetype = if (json.has("archetype") && !json["archetype"].isJsonNull)
             Archetype.fromName(json["archetype"].asString) else null
         height = json["height"].asInt
         position = json["position"].asInt
         predecessors.addAll(json["predecessors"].asJsonArray.map { e -> e.asString })
+        if (json.has("archetype_requirements")){
+            val requirements = json["archetype_requirements"].asJsonObject
+            requirements.entrySet().forEach {
+                Archetype.fromName(it.key)?.let { arch -> archetypeReq[arch] = it.value.asInt }
+            }
+        }
         val level = MathHelper.clamp(json["tier"].asInt, 0, 4)
         tier = when (level) {
             1 -> Tier.TIER_1
@@ -56,9 +63,14 @@ class Ability(json: JsonObject): Keyed, Translatable {
 
     fun getPredecessors(): List<String> = predecessors.toList()
 
+    fun getArchetypeRequirement(archetype: Archetype): Int {
+        return archetypeReq.getOrDefault(archetype, 0)
+    }
+
     fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(LiteralText(getKey()))
+        tooltip.add(LiteralText.EMPTY)
         return tooltip
     }
 
