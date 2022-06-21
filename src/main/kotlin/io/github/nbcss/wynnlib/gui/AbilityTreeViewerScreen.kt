@@ -136,21 +136,18 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     }
 
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        /*val posX = viewerX + 2
-        val posY = viewerY + 143
+        var archetypeX = viewerX + 2
+        val archetypeY = viewerY + 143
         //render archetype values
-        val icon1 = ItemFactory.fromEncoding("minecraft:stone_axe#74")
-        itemRenderer.renderInGuiWithOverrides(icon1, posX, posY)
-        textRenderer.draw(matrices, "13", posX.toFloat() + 20, posY.toFloat() + 4, 0)
-        val icon2 = ItemFactory.fromEncoding("minecraft:stone_axe#75")
-        itemRenderer.renderInGuiWithOverrides(icon2, posX + 60, posY)
-        textRenderer.draw(matrices, "14", posX.toFloat() + 80, posY.toFloat() + 4, 0)
-        val icon3 = ItemFactory.fromEncoding("minecraft:stone_axe#76")
-        itemRenderer.renderInGuiWithOverrides(icon3, posX + 120, posY)
-        textRenderer.draw(matrices, "12", posX.toFloat() + 140, posY.toFloat() + 4, 0)*/
-        //val icon4 = ItemFactory.fromEncoding("minecraft:stone_axe#83")
-        //itemRenderer.renderInGuiWithOverrides(icon4, posX + 180, posY)
-        //textRenderer.draw(matrices, "30/45", posX.toFloat() + 200, posY.toFloat() + 4, 0)
+        tree.getArchetypes().forEach {
+            val icon = it.getTexture()
+            val iconText = it.getIconText()
+            val points = tree.getArchetypePoint(it).toString()
+            itemRenderer.renderInGuiWithOverrides(icon, archetypeX, archetypeY)
+            itemRenderer.renderGuiItemOverlay(textRenderer, icon, archetypeX, archetypeY, iconText)
+            textRenderer.draw(matrices, points, archetypeX.toFloat() + 20, archetypeY.toFloat() + 4, 0)
+            archetypeX += 60
+        }
         //update moving scroll
         if (scrollTicks > 0){
             movingScroll += ((scroll - movingScroll).toFloat() / scrollTicks.toFloat()).toInt()
@@ -169,7 +166,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             it.getPredecessors().mapNotNull { x -> AbilityRegistry.get(x) }
                 .forEach { node ->
                     val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawOuterEdge(matrices!!, from, to, ACTIVE_OUTER_COLOR)
+                    drawOuterEdge(matrices!!, from, to, BASIC_OUTER_COLOR)
                 }
         }
         //render inner lines
@@ -178,7 +175,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             it.getPredecessors().mapNotNull { x -> AbilityRegistry.get(x) }
                 .forEach { node ->
                     val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawInnerEdge(matrices!!, from, to, ACTIVE_INNER_COLOR)
+                    drawInnerEdge(matrices!!, from, to, BASIC_INNER_COLOR)
                 }
         }
         //render icons
