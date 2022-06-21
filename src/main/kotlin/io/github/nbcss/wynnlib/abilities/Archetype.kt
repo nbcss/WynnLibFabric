@@ -2,9 +2,13 @@ package io.github.nbcss.wynnlib.abilities
 
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_ABILITIES
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import kotlin.collections.LinkedHashMap
 
@@ -51,6 +55,25 @@ enum class Archetype(private val displayName: String,
     fun getCharacter(): CharacterClass = character
 
     fun getTexture(): ItemStack = texture
+
+    fun getTooltip(): List<Text> {
+        val tree = AbilityRegistry.fromCharacter(character)
+        val tooltip: MutableList<Text> = ArrayList()
+        tooltip.add(translate().formatted(getFormatting()).formatted(Formatting.BOLD))
+        tooltip.add(LiteralText.EMPTY)
+        tooltip.add(TOOLTIP_ARCHETYPE_ABILITIES.translate(null, tree.getArchetypePoint(this))
+            .formatted(Formatting.GRAY))
+        tree.getAbilities()
+            .filter { it.getArchetype() == this }
+            .sortedWith { x, y ->
+                val tier = x.getTier().compareTo(y.getTier())
+                return@sortedWith if (tier != 0) tier else
+                    x.translate().string.compareTo(y.translate().string)
+            }
+            .forEach { tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
+                .append(it.translate().formatted(it.getTier().getFormatting()))) }
+        return tooltip
+    }
 
     override fun getKey(): String = name
 

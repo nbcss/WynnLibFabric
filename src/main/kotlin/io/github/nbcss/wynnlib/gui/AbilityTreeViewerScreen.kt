@@ -150,6 +150,9 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             itemRenderer.renderInGuiWithOverrides(icon, archetypeX, archetypeY)
             itemRenderer.renderGuiItemOverlay(textRenderer, icon, archetypeX, archetypeY, iconText)
             textRenderer.draw(matrices, points, archetypeX.toFloat() + 20, archetypeY.toFloat() + 4, 0)
+            if (mouseX >= archetypeX && mouseY >= archetypeY && mouseX <= archetypeX + 16 && mouseY <= archetypeY + 16){
+                drawTooltip(matrices!!, it.getTooltip(), mouseX, mouseY)
+            }
             archetypeX += 60
         }
         //update moving scroll

@@ -8,6 +8,7 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURABILITY
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_ARMOUR
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_CRAFTING
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_WEAPON
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_MODIFIER
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
@@ -111,8 +112,9 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
                 skillMap[skill]?.let {
                     if (it != 0){
                         val color = colorOf(-it)
+                        val modifier = TOOLTIP_SKILL_MODIFIER.translate(null, skill.translate().string)
                         tooltip.add(LiteralText("${signed(it)} ").formatted(color)
-                            .append(skill.translate("tooltip.modifier").formatted(color)))
+                            .append(modifier.formatted(color)))
                     }
                 }
             }

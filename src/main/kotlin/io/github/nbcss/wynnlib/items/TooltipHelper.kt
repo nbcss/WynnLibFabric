@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_CLASS_REQ
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_COMBAT_LV_REQ
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_SLOTS
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_QUEST_REQ
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_REQ
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
@@ -37,8 +38,8 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
         val point = item.getRequirement(it)
         if(point != 0){
             val text = LiteralText(": $point").formatted(Formatting.GRAY)
-            val prefix = it.translate("tooltip.req").formatted(Formatting.GRAY)
-            tooltip.add(prefix.append(text))
+            val prefix = TOOLTIP_SKILL_REQ.translate(null, it.translate().string)
+            tooltip.add(prefix.formatted(Formatting.GRAY).append(text))
         }
     }
 }

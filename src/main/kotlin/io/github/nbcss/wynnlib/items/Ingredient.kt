@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURABILITY
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURATION
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_EFFECTIVENESS
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_OR
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_MODIFIER
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.IngredientIRange
@@ -161,7 +162,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
             if(req != 0){
                 val color = colorOf(-req)
                 tooltip.add(LiteralText("${signed(req)} ").formatted(color)
-                    .append(it.translate("tooltip.modifier").formatted(color)))
+                    .append(TOOLTIP_SKILL_MODIFIER.translate(null, it.translate().string).formatted(color)))
             }
         }
         return tooltip.size > lastSize

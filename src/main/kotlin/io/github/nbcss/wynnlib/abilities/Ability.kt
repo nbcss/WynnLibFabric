@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_POINTS
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_TITLE
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
@@ -82,7 +83,8 @@ class Ability(json: JsonObject): Keyed, Translatable {
             .append(LiteralText(getAbilityPointCost().toString()).formatted(Formatting.WHITE)))
         getArchetype()?.let {
             tooltip.add(LiteralText.EMPTY)
-            tooltip.add(it.translate().formatted(it.getFormatting()).formatted(Formatting.BOLD))
+            val title = TOOLTIP_ARCHETYPE_TITLE.translate(null, it.translate().string)
+            tooltip.add(title.formatted(it.getFormatting()).formatted(Formatting.BOLD))
         }
         return tooltip
     }
