@@ -11,7 +11,6 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_NEUTRAL_DAMAGE
 import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
-import io.github.nbcss.wynnlib.utils.getItemById
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -28,7 +27,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
     init {
         type = EquipmentType.getEquipmentType(json.get("type").asString)
         damage = asRange(json.get("damage").asString)
-        atkSpeed = AttackSpeed.getAttackSpeed(json.get("attackSpeed").asString)
+        atkSpeed = AttackSpeed.fromName(json.get("attackSpeed").asString)
         Element.values().forEach{elemDamage[it] = asRange(json.get(it.damageName).asString)}
         texture = if (json.has("material") && !json.get("material").isJsonNull) {
             val material: String = json.get("material").asString

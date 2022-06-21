@@ -18,11 +18,18 @@ enum class AttackSpeed(val displayName: String,
     companion object {
         private val VALUE_MAP: MutableMap<String, AttackSpeed> = LinkedHashMap()
         init {
-            values().forEach { VALUE_MAP[it.name.lowercase(Locale.getDefault())] = it }
+            values().forEach { VALUE_MAP[it.name.lowercase()] = it }
         }
 
-        fun getAttackSpeed(id: String): AttackSpeed {
-            return VALUE_MAP.getOrDefault(id.lowercase(Locale.getDefault()), NORMAL)
+        /**
+         * Get AttackSpeed instance from case-insensitive name.
+         *
+         * @param name the id of the attack speed.
+         * @return AttackSpeed instance for associated name;
+         * if there is not a such instance with given name, the method will return Normal attack speed.
+         */
+        fun fromName(name: String): AttackSpeed {
+            return VALUE_MAP.getOrDefault(name.lowercase(), NORMAL)
         }
     }
 

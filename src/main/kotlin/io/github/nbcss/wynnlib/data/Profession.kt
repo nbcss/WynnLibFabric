@@ -26,12 +26,17 @@ enum class Profession(private val type: Type,
     companion object {
         private val VALUE_MAP: MutableMap<String, Profession> = LinkedHashMap()
         init {
-            values().forEach { VALUE_MAP[it.name.uppercase(Locale.getDefault())] = it }
+            values().forEach { VALUE_MAP[it.name.uppercase()] = it }
         }
 
-        fun getProfession(name: String): Profession? {
-            return VALUE_MAP[name.uppercase(Locale.getDefault())]
-        }
+        /**
+         * Get Profession instance from case-insensitive name.
+         *
+         * @param name the name of the profession.
+         * @return Profession instance for associated name;
+         * if there is not a such instance with given name, the method will return null.
+         */
+        fun fromName(name: String): Profession? = VALUE_MAP[name.uppercase()]
     }
 
     fun getIconText(): Text = LiteralText(icon).formatted(Formatting.WHITE)

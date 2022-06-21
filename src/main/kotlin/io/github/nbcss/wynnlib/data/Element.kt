@@ -13,31 +13,31 @@ enum class Element(val displayName: String,
                    val color: Formatting,
                    val altColor: Formatting
                    ): Keyed, Translatable {
-    FIRE("§c✹ Fire",
+    FIRE("✹ Fire",
         "fireDamage",
         "fireDefense",
         "bonusFireDamage",
         "bonusFireDefense",
         Formatting.RED, Formatting.DARK_RED),
-    WATER("§b❉ Water",
+    WATER("❉ Water",
         "waterDamage",
         "waterDefense",
         "bonusWaterDamage",
         "bonusWaterDefense",
         Formatting.AQUA, Formatting.DARK_AQUA),
-    AIR("§f❋ Air",
+    AIR("❋ Air",
         "airDamage",
         "airDefense",
         "bonusAirDamage",
         "bonusAirDefense",
         Formatting.WHITE, Formatting.GRAY),
-    THUNDER("§e✦ Thunder",
+    THUNDER("✦ Thunder",
         "thunderDamage",
         "thunderDefense",
         "bonusThunderDamage",
         "bonusThunderDefense",
         Formatting.YELLOW, Formatting.GOLD),
-    EARTH("§2✤ Earth",
+    EARTH("✤ Earth",
         "earthDamage",
         "earthDefense",
         "bonusEarthDamage",
@@ -47,11 +47,11 @@ enum class Element(val displayName: String,
     companion object {
         private val VALUE_MAP: MutableMap<String, Element> = LinkedHashMap()
         init {
-            values().forEach { VALUE_MAP[it.name.uppercase(Locale.getDefault())] = it }
+            values().forEach { VALUE_MAP[it.name.uppercase()] = it }
         }
 
         fun fromId(id: String): Element? {
-            return VALUE_MAP[id.uppercase(Locale.getDefault())]
+            return VALUE_MAP[id.uppercase()]
         }
     }
 

@@ -62,7 +62,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         }
         if (json.has("skills")) {
             json["skills"].asJsonArray.forEach {
-                Profession.getProfession(it.asString)?.let { i -> professions.add(i) }
+                Profession.fromName(it.asString)?.let { i -> professions.add(i) }
             }
         }
         //Read identifications
