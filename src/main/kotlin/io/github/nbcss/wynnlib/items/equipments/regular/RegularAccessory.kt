@@ -4,7 +4,6 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.utils.ItemFactory
-import io.github.nbcss.wynnlib.utils.getItemById
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text

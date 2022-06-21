@@ -4,10 +4,8 @@ import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.getItem
 import net.minecraft.item.ItemStack
 import java.util.*
-import kotlin.collections.HashMap
 import kotlin.collections.LinkedHashMap
 
 enum class EquipmentType(private val id: String,

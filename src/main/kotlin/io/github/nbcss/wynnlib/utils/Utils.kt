@@ -1,18 +1,14 @@
 package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.WynnLibEntry
-import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
-import io.github.nbcss.wynnlib.mixins.datafixer.EntityBlockStateFixAccessor
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
-import net.minecraft.datafixer.fix.ItemIdFix
-import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
-import net.minecraft.item.Item
+import net.minecraft.client.MinecraftClient
 import net.minecraft.item.ItemStack
-import net.minecraft.item.Items
-import net.minecraft.nbt.NbtCompound
-import net.minecraft.nbt.NbtList
-import net.minecraft.nbt.StringNbtReader
+import net.minecraft.text.LiteralText
+import net.minecraft.text.StringVisitable
+import net.minecraft.text.Style
+import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
@@ -69,6 +65,16 @@ fun asColor(text: String): Int {
         return -1
     }
     return color
+}
+
+fun warpLines(text: String, length: Int): List<Text> {
+    val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
+        Optional.of(LiteralText(asString).setStyle(style))
+    }
+    return MinecraftClient.getInstance().textRenderer.textHandler
+        .wrapLines(text, length, Style.EMPTY)
+        .map { it.visit(visitor, Style.EMPTY).get() }
+        .toList()
 }
 
 fun getResource(filename: String): InputStream? {
