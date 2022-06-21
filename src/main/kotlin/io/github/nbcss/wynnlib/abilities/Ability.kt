@@ -7,7 +7,9 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_POINTS
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_TITLE
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
+import net.minecraft.client.MinecraftClient
 import net.minecraft.item.ItemStack
+import net.minecraft.text.CharacterVisitor
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -78,6 +80,13 @@ class Ability(json: JsonObject): Keyed, Translatable {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
         tooltip.add(LiteralText.EMPTY)
+        translate("desc").string
+        val lines = MinecraftClient.getInstance().textRenderer.wrapLines(translate("desc"), 200)
+        /*lines[0].accept()
+        lines.forEach {
+            tooltip.add(it.formatted(Formatting.GRAY))
+        }*/
+        tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_ABILITY_POINTS.translate().formatted(Formatting.GRAY)
             .append(LiteralText(": ").formatted(Formatting.GRAY))
             .append(LiteralText(getAbilityPointCost().toString()).formatted(Formatting.WHITE)))
@@ -93,10 +102,10 @@ class Ability(json: JsonObject): Keyed, Translatable {
 
     override fun getTranslationKey(label: String?): String {
         val key = id.lowercase()
-        if (label == "description"){
-            return "wynnlib.ability.description.$key"
+        if (label == "desc"){
+            return "wynnlib.ability.desc.$key"
         }
-        return "wynnlib.ability.$key"
+        return "wynnlib.ability.name.$key"
     }
 
     enum class Tier(private val level: Int,
