@@ -77,6 +77,32 @@ fun warpLines(text: String, length: Int): List<Text> {
         .toList()
 }
 
+private val formattingChars: Set<Char> = setOf('0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'k', 'l', 'm', 'n', 'o', 'r')
+
+fun parseStyle(text: String, style: String): String {
+    val buffer = StringBuilder(style)
+    val stack = LinkedList<String>()
+    var currentStyle = style
+    var i = 0
+    while (i < text.length) {
+        val c = text[i]
+        if (c == '}' && !stack.isEmpty()) {
+            currentStyle = stack.pop()
+            buffer.append(currentStyle)
+        } else if (i < text.length - 1 && text[i + 1] == '{' && c in formattingChars) {
+            stack.push(currentStyle)
+            currentStyle = "§$c"
+            buffer.append(currentStyle)
+            i += 1
+        } else {
+            buffer.append(c)
+        }
+        i++
+    }
+    return buffer.toString()
+}
+
 fun getResource(filename: String): InputStream? {
     return try {
         val url = WynnLibEntry.javaClass.classLoader.getResource(filename)

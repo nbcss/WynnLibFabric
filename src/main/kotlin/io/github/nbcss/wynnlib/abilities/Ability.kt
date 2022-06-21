@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_POINTS
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_TITLE
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.parseStyle
 import io.github.nbcss.wynnlib.utils.warpLines
 import net.minecraft.client.MinecraftClient
 import net.minecraft.item.ItemStack
@@ -85,7 +86,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
             if(it == "") {
                 tooltip.add(LiteralText.EMPTY)
             }else{
-                warpLines("${Formatting.GRAY}$it", 190).forEach { line ->
+                warpLines(parseStyle(it, Formatting.GRAY.toString()), 190).forEach { line ->
                     tooltip.add(line)
                 }
             }
