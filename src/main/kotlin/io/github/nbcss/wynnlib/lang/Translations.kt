@@ -26,4 +26,5 @@ object Translations {
     val TOOLTIP_POWDER_WEAPON: Translatable = from("wynnlib.tooltip.powder_on_weapon")
     val TOOLTIP_POWDER_ARMOUR: Translatable = from("wynnlib.tooltip.powder_on_armour")
     val TOOLTIP_POWDER_CRAFTING: Translatable = from("wynnlib.tooltip.powder_in_crafting")
+    val TOOLTIP_ABILITY_POINTS: Translatable = from("wynnlib.tooltip.ability_points_req")
 }

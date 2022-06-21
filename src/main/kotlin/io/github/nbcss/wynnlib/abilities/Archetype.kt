@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.abilities
 
 import io.github.nbcss.wynnlib.data.CharacterClass
+import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
@@ -10,7 +11,7 @@ import kotlin.collections.LinkedHashMap
 enum class Archetype(private val displayName: String,
                      private val color: Formatting,
                      private val character: CharacterClass,
-                     meta: Int): Keyed {
+                     meta: Int): Keyed, Translatable {
     //Warrior Archetypes
     FALLEN("Fallen", Formatting.RED, CharacterClass.WARRIOR, 75),
     BATTLE_MONK("Battle Monk", Formatting.YELLOW, CharacterClass.WARRIOR, 74),
@@ -53,4 +54,7 @@ enum class Archetype(private val displayName: String,
 
     override fun getKey(): String = name
 
+    override fun getTranslationKey(label: String?): String {
+        return "wynnlib.archetype.${name.lowercase()}"
+    }
 }
