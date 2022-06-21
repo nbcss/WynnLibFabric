@@ -11,7 +11,6 @@ import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
-import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
@@ -185,7 +184,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         //render icons
         tree.getAbilities().forEach {
             val node = toScreenPosition(it.getHeight(), it.getPosition())
-            itemRenderer.renderInGuiWithOverrides(it.getTexture(), node.x - 8, node.y - 8)
+            val texture = it.getTier().getUnlockedTexture()
+            itemRenderer.renderInGuiWithOverrides(texture, node.x - 8, node.y - 8)
         }
         RenderSystem.disableScissor()
         //render ability tooltip

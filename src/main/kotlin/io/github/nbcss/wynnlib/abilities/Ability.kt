@@ -13,9 +13,9 @@ import net.minecraft.util.math.MathHelper
 class Ability(json: JsonObject): Keyed, Translatable {
     private val id: String
     //private val name: String
-    private val tier: Int
+    private val tier: Tier
     private val character: CharacterClass
-    private val texture: ItemStack
+    private val archetype: Archetype?
     private val height: Int
     private val position: Int
     private val predecessors: MutableSet<String> = HashSet()
@@ -23,29 +23,32 @@ class Ability(json: JsonObject): Keyed, Translatable {
         id = json["id"].asString
         //name = json["name"].asString
         character = CharacterClass.valueOf(json["character"].asString.uppercase())
+        archetype = if (json.has("archetype") && !json["archetype"].isJsonNull)
+            Archetype.fromName(json["archetype"].asString) else null
         height = json["height"].asInt
         position = json["position"].asInt
         predecessors.addAll(json["predecessors"].asJsonArray.map { e -> e.asString })
-        tier = MathHelper.clamp(json["tier"].asInt, 0, 4)
-        texture = when (tier) {
-            0 -> when (character) {
-                CharacterClass.WARRIOR -> ItemFactory.fromEncoding("minecraft:stone_axe#58")
-                CharacterClass.ARCHER -> ItemFactory.fromEncoding("minecraft:stone_axe#61")
-                CharacterClass.MAGE -> ItemFactory.fromEncoding("minecraft:stone_axe#67")
-                CharacterClass.ASSASSIN -> ItemFactory.fromEncoding("minecraft:stone_axe#64")
-                CharacterClass.SHAMAN -> ItemFactory.fromEncoding("minecraft:stone_axe#70")
+        val level = MathHelper.clamp(json["tier"].asInt, 0, 4)
+        tier = when (level) {
+            1 -> Tier.TIER_1
+            2 -> Tier.TIER_2
+            3 -> Tier.TIER_3
+            4 -> Tier.TIER_4
+            else -> when (character) {
+                CharacterClass.WARRIOR -> Tier.WARRIOR_SPELL
+                CharacterClass.ARCHER -> Tier.ARCHER_SPELL
+                CharacterClass.MAGE -> Tier.MAGE_SPELL
+                CharacterClass.ASSASSIN -> Tier.ASSASSIN_SPELL
+                CharacterClass.SHAMAN -> Tier.SHAMAN_SPELL
             }
-            1 -> ItemFactory.fromEncoding("minecraft:stone_axe#46")
-            2 -> ItemFactory.fromEncoding("minecraft:stone_axe#49")
-            3 -> ItemFactory.fromEncoding("minecraft:stone_axe#52")
-            4 -> ItemFactory.fromEncoding("minecraft:stone_axe#55")
-            else -> ItemFactory.ERROR_ITEM
         }
     }
 
     fun getCharacter(): CharacterClass = character
 
-    fun getTexture(): ItemStack = texture
+    fun getTier(): Tier = tier
+
+    fun getArchetype(): Archetype? = archetype
 
     fun getHeight(): Int = height
 
@@ -67,5 +70,55 @@ class Ability(json: JsonObject): Keyed, Translatable {
             return "wynnlib.ability.description.$key"
         }
         return "wynnlib.ability.$key"
+    }
+
+    enum class Tier(private val level: Int,
+                    private val locked: ItemStack,
+                    private val unlocked: ItemStack,
+                    private val active: ItemStack) {
+        WARRIOR_SPELL(0,
+            ItemFactory.fromEncoding("minecraft:stone_axe#57"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#58"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#59")),
+        ARCHER_SPELL(0,
+            ItemFactory.fromEncoding("minecraft:stone_axe#60"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#61"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#62")),
+        MAGE_SPELL(0,
+            ItemFactory.fromEncoding("minecraft:stone_axe#66"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#67"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#68")),
+        ASSASSIN_SPELL(0,
+            ItemFactory.fromEncoding("minecraft:stone_axe#63"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#64"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#65")),
+        SHAMAN_SPELL(0,
+            ItemFactory.fromEncoding("minecraft:stone_axe#69"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#70"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#71")),
+        TIER_1(1,
+            ItemFactory.fromEncoding("minecraft:stone_axe#45"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#46"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#47")),
+        TIER_2(2,
+            ItemFactory.fromEncoding("minecraft:stone_axe#48"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#49"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#50")),
+        TIER_3(3,
+            ItemFactory.fromEncoding("minecraft:stone_axe#51"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#52"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#53")),
+        TIER_4(4,
+            ItemFactory.fromEncoding("minecraft:stone_axe#54"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#55"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#56"));
+
+        fun getLevel(): Int = level
+
+        fun getLockedTexture(): ItemStack = locked
+
+        fun getUnlockedTexture(): ItemStack = unlocked
+
+        fun getActiveTexture(): ItemStack = active
     }
 }
