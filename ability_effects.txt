@@ -75,3 +75,21 @@ COUNTER (Counter)
 MANTLE (Mantle of the Bovemists)
 CORRUPTED (Bak'al's Grasp)
 MANACHISM?
+
+Tooltip Item
+- MANA_COST
+- TOTAL_DAMAGE
+- AOE (range, shape)
+- RANGE
+- DAMAGE_BONUS_RAW
+- DAMAGE_BONUS_PER_FOCUS
+- MAIN_DAMAGE
+- MAIN_RANGE
+- EFFECT
+- DURATION
+- FREQUENCY? (new)
+- COOLDOWN? (new)
+- CHARGE? (new)
+- MAX? (new)
+- ELEMENTAL_DAMAGE_RAW
+- ELEMENTAL_DAMAGE_PEC

@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.UnlockContainerEffect
+import io.github.nbcss.wynnlib.abilities.tips.EffectTip
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.SpellSlot
 import io.github.nbcss.wynnlib.lang.Translatable
@@ -39,6 +40,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
     private val predecessors: MutableSet<String> = HashSet()
     private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
     private val effects: MutableList<AbilityEffect> = ArrayList()
+    private val tips: MutableList<EffectTip> = ArrayList()
     init {
         id = json["id"].asString
         //name = json["name"].asString
@@ -62,6 +64,11 @@ class Ability(json: JsonObject): Keyed, Translatable {
             json["effects"].asJsonArray
                 .mapNotNull { AbilityEffect.fromData(it.asJsonObject) }
                 .forEach { effects.add(it) }
+        }
+        if (json.has("tips")){
+            json["tips"].asJsonArray
+                .mapNotNull { EffectTip.fromData(it.asJsonObject) }
+                .forEach { tips.add(it) }
         }
         val level = MathHelper.clamp(json["tier"].asInt, 0, 4)
         tier = when (level) {
@@ -103,6 +110,8 @@ class Ability(json: JsonObject): Keyed, Translatable {
         return if (dependency == null) null else AbilityRegistry.get(dependency)
     }
 
+    fun getEffects(): List<AbilityEffect> = effects
+
     fun getTooltip(): List<Text> {
         val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
@@ -129,7 +138,12 @@ class Ability(json: JsonObject): Keyed, Translatable {
             }
         }
         tooltip.add(LiteralText.EMPTY)
-        //todo effects
+        //Add effect tips
+        if (tips.isNotEmpty()){
+            tips.forEach { it.addTip(this, tooltip) }
+            tooltip.add(LiteralText.EMPTY)
+        }
+        //Add blocking abilities
         val incompatibles = getBlockAbilities()
         if (incompatibles.isNotEmpty()){
             tooltip.add(TOOLTIP_ABILITY_BLOCKS.translate().formatted(Formatting.RED))
