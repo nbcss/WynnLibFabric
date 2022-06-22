@@ -193,20 +193,21 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             (VIEW_WIDTH * scale).toInt(), (VIEW_HEIGHT * scale).toInt())
         //Render inactive edges (basic)
         val inactive = tree.getAbilities().filter {
-            !isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
+            !isOverViewer(mouseX, mouseY) || !isOverNode(
+                toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
         }
         renderEdges(inactive, matrices!!, BASIC_OUTER_COLOR, false)
         renderEdges(inactive, matrices, BASIC_INNER_COLOR, true)
         //Render active edges
         val active = tree.getAbilities().filter {
-            isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
+            isOverViewer(mouseX, mouseY) && isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
         }
         renderEdges(active, matrices, ACTIVE_OUTER_COLOR, false)
         renderEdges(active, matrices, ACTIVE_INNER_COLOR, true)
         //render icons
         tree.getAbilities().forEach {
             val node = toScreenPosition(it.getHeight(), it.getPosition())
-            val texture = if (isOverNode(node, mouseX, mouseY))
+            val texture = if (isOverViewer(mouseX, mouseY) && isOverNode(node, mouseX, mouseY))
                 it.getTier().getActiveTexture() else it.getTier().getUnlockedTexture()
             itemRenderer.renderInGuiWithOverrides(texture, node.x - 8, node.y - 8)
         }
