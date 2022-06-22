@@ -28,10 +28,11 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         //setup default tabs
         tabs.add(EquipmentDictScreen.FACTORY)
         tabs.add(IngredientDictScreen.FACTORY)
-        tabs.add(PowderDictScreen.FACTORY)
-        tabs.add(MaterialDictScreen.FACTORY)
         tabs.add(CrafterScreen.FACTORY)
         tabs.add(AbilityTreeViewerScreen.FACTORY)
+        tabs.add(PowderDictScreen.FACTORY)
+        tabs.add(MaterialDictScreen.FACTORY)
+        tabs.add(ConfigurationScreen.FACTORY)
     }
 
     override fun init() {

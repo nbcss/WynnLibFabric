@@ -9,6 +9,7 @@ object Translations {
     val UI_MATERIALS: Translatable = from("wynnlib.ui.materials")
     val UI_CRAFTER: Translatable = from("wynnlib.ui.crafter")
     val UI_ABILITY_TREE: Translatable = from("wynnlib.ui.ability_tree")
+    val UI_CONFIGURATION: Translatable = from("wynnlib.ui.configuration")
     val TOOLTIP_CLASS_REQ: Translatable = from("wynnlib.tooltip.class_req")
     val TOOLTIP_QUEST_REQ: Translatable = from("wynnlib.tooltip.quest_req")
     val TOOLTIP_COMBAT_LV_REQ: Translatable = from("wynnlib.tooltip.combat_level_req")
