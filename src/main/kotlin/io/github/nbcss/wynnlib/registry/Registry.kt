@@ -1,25 +1,27 @@
-package io.github.nbcss.wynnlib.utils
+package io.github.nbcss.wynnlib.registry
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.Version
 import java.util.function.Consumer
 
 abstract class Registry<T: Keyed> {
-    private val itemMap: MutableMap<String, T> = LinkedHashMap()
+    protected val itemMap: MutableMap<String, T> = LinkedHashMap()
     private var version: Version? = null
 
     protected abstract fun read(data: JsonObject): T?
 
     fun reload(json: JsonObject){
-        val ver = Version(json.get("version").asString)
+        val ver = Version(json["version"].asString)
         //skip reload if currently have newer version
         if(version != null && version!! > ver) return
-        val array = json.get("data").asJsonArray
+        val array = json["data"].asJsonArray
         reload(array)
         version = ver
     }
 
-    private fun reload(array: JsonArray){
+    open fun reload(array: JsonArray){
         itemMap.clear()
         array.forEach(Consumer {
             val item = read(it.asJsonObject)

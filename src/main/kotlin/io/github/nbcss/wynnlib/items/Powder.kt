@@ -8,10 +8,8 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURABILITY
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_ARMOUR
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_CRAFTING
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_WEAPON
-import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.colorOf
-import io.github.nbcss.wynnlib.utils.getItem
-import io.github.nbcss.wynnlib.utils.signed
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_MODIFIER
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -19,7 +17,6 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 class Powder(json: JsonObject) : Keyed, BaseItem {
     private val skillMap: MutableMap<Skill, Int> = EnumMap(Skill::class.java)
@@ -46,7 +43,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
         defencePenalty = json["oppositeDefenceBonus"].asInt
         element = Element.fromId(json["element"].asString)!!
         oppoElem = Element.fromId(json["oppositeElement"].asString)!!
-        texture = getItem(json["texture"].asString)
+        texture = ItemFactory.fromEncoding(json["texture"].asString)
         val itemOnly = json.get("itemOnlyIDs").asJsonObject
         durability = itemOnly["durabilityModifier"].asDouble
         Skill.values().forEach {
@@ -59,7 +56,9 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
 
     override fun getKey(): String = name
 
-    override fun getDisplayText(): Text = LiteralText(displayName)
+    override fun getDisplayText(): Text = LiteralText(displayName).formatted(element.color)
+
+    override fun getDisplayName(): String = displayName
 
     override fun getIcon(): ItemStack = texture
 
@@ -70,7 +69,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(getDisplayText())
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_POWDER_WEAPON.translate().formatted(element.altColor)
             .append(LiteralText(":").formatted(element.altColor)))
         val prefix = LiteralText("- ")
@@ -86,7 +85,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
         if (tier.index() >= 4){
             //todo add spec
         }
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_POWDER_ARMOUR.translate().formatted(element.altColor)
             .append(LiteralText(":").formatted(element.altColor)))
         tooltip.add(prefix.copy().formatted(element.altColor)
@@ -99,7 +98,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
             //todo add spec
         }
         if(durability != 0.0 || skillMap.isNotEmpty()){
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
             tooltip.add(TOOLTIP_POWDER_CRAFTING.translate().formatted(element.altColor)
                 .append(LiteralText(":").formatted(element.altColor)))
             if (durability != 0.0){
@@ -113,8 +112,9 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
                 skillMap[skill]?.let {
                     if (it != 0){
                         val color = colorOf(-it)
+                        val modifier = TOOLTIP_SKILL_MODIFIER.translate(null, skill.translate().string)
                         tooltip.add(LiteralText("${signed(it)} ").formatted(color)
-                            .append(skill.translate("tooltip.modifier").formatted(color)))
+                            .append(modifier.formatted(color)))
                     }
                 }
             }

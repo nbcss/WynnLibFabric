@@ -5,6 +5,7 @@ import net.minecraft.text.Text
 
 interface BaseItem {
     fun getDisplayText(): Text
+    fun getDisplayName(): String
     fun getIcon(): ItemStack
     fun getIconText(): String? = null
     fun getRarityColor(): Int

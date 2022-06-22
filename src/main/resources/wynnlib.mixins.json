@@ -6,6 +6,12 @@
     "defaultRequire": 1
   },
   "mixins": [
-
+    "datafixer.EntityBlockStateFixAccessor",
+    "datafixer.ItemInstanceSpawnEggFixAccessor",
+    "datafixer.ItemPotionFixAccessor",
+    "datafixer.RecipeFixAccessor"
+  ],
+  "client": [
+    "render.ItemGuiLightingFixMixin"
   ]
 }

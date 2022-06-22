@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.items.BaseItem
+import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -9,7 +10,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import java.lang.Integer.max
 
-abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(title) {
+abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
         const val COLUMNS = 9
         const val ROWS = 6
@@ -30,6 +31,7 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
         super.init()
         items.clear()
         items.addAll(fetchItems())
+        items.sortBy { t -> t.getDisplayName() }
         //Reset lines
         lineIndex = 0
         //Excluding 6 lines (only since 7th line need additional page)
@@ -61,6 +63,8 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
         super.drawBackground(matrices, mouseX, mouseY, delta)
         this.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
             0, 0, this.backgroundWidth, this.backgroundHeight)
+        textRenderer.draw(matrices, "XXXXXXXXXXXXXXXXXX",
+            (windowX + 24).toFloat(), (windowY + 194).toFloat(), 0)
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
@@ -88,6 +92,6 @@ abstract class DictionaryScreen<T: BaseItem>(title: Text) : HandbookTabScreen(ti
     }
 
     private fun isInPage(mouseX: Double, mouseY: Double): Boolean {
-        return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 222 && mouseY <= windowY + 188
+        return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 240 && mouseY <= windowY + 188
     }
 }

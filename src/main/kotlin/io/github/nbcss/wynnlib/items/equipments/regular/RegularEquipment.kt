@@ -30,7 +30,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     init {
         name = json.get("name").asString
         displayName = if (json.has("displayName")) json.get("displayName").asString else name
-        tier = Tier.getTier(json.get("tier").asString)
+        tier = Tier.fromName(json.get("tier").asString)
         level = json.get("level").asInt
         classReq = null
         questReq = if (json.has("quest") && !json.get("quest").isJsonNull)
@@ -86,7 +86,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun getKey(): String = name
 
-    fun getDisplayName(): String = displayName
+    override fun getDisplayName(): String = displayName
 
     override fun getDisplayText(): Text {
         return LiteralText(displayName).formatted(tier.formatting)

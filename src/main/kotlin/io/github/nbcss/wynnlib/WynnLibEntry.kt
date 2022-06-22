@@ -2,7 +2,8 @@ package io.github.nbcss.wynnlib
 
 import com.google.gson.JsonParser
 import io.github.nbcss.wynnlib.data.Identification
-import io.github.nbcss.wynnlib.gui.EquipmentDictScreen
+import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.registry.IngredientRegistry
 import io.github.nbcss.wynnlib.registry.PowderRegistry
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
@@ -31,6 +32,8 @@ object WynnLibEntry: ModInitializer {
             getResource("assets/wynnlib/data/Equipments.json")!!, "utf-8")).asJsonObject)
         IngredientRegistry.reload(JsonParser.parseReader(InputStreamReader(
             getResource("assets/wynnlib/data/Ingredients.json")!!, "utf-8")).asJsonObject)
+        AbilityRegistry.reload(JsonParser.parseReader(InputStreamReader(
+            getResource("assets/wynnlib/data/Abilities.json")!!, "utf-8")).asJsonObject)
         //Register keybindings
         val openHandbook = KeyBindingHelper.registerKeyBinding(
             KeyBinding(
@@ -42,7 +45,7 @@ object WynnLibEntry: ModInitializer {
         )
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (openHandbook.wasPressed()) {
-                it.setScreen(EquipmentDictScreen())
+                it.setScreen(EquipmentDictScreen(it.currentScreen))
             }
         })
     }

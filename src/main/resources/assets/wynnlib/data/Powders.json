@@ -2,7 +2,7 @@
 	"data": [
 		{
 			"name": "EARTH 1",
-			"displayName": "§2✤ Earth Powder I",
+			"displayName": "✤ Earth Powder I",
 			"element": "earth",
 			"oppositeElement": "air",
 			"tier": 1,
@@ -24,7 +24,7 @@
 		},
 		{
 			"name": "EARTH 2",
-			"displayName": "§2✤ Earth Powder II",
+			"displayName": "✤ Earth Powder II",
 			"element": "earth",
 			"oppositeElement": "air",
 			"tier": 2,
@@ -46,7 +46,7 @@
 		},
 		{
 			"name": "EARTH 3",
-			"displayName": "§2✤ Earth Powder III",
+			"displayName": "✤ Earth Powder III",
 			"element": "earth",
 			"oppositeElement": "air",
 			"tier": 3,
@@ -68,7 +68,7 @@
 		},
 		{
 			"name": "EARTH 4",
-			"displayName": "§2✤ Earth Powder IV",
+			"displayName": "✤ Earth Powder IV",
 			"element": "earth",
 			"oppositeElement": "air",
 			"tier": 4,
@@ -90,7 +90,7 @@
 		},
 		{
 			"name": "EARTH 5",
-			"displayName": "§2✤ Earth Powder V",
+			"displayName": "✤ Earth Powder V",
 			"element": "earth",
 			"oppositeElement": "air",
 			"tier": 5,
@@ -112,7 +112,7 @@
 		},
 		{
 			"name": "EARTH 6",
-			"displayName": "§2✤ Earth Powder VI",
+			"displayName": "✤ Earth Powder VI",
 			"element": "earth",
 			"oppositeElement": "air",
 			"tier": 6,
@@ -134,7 +134,7 @@
 		},
 		{
 			"name": "THUNDER 1",
-			"displayName": "§e✦ Thunder Powder I",
+			"displayName": "✦ Thunder Powder I",
 			"element": "thunder",
 			"oppositeElement": "earth",
 			"tier": 1,
@@ -156,7 +156,7 @@
 		},
 		{
 			"name": "THUNDER 2",
-			"displayName": "§e✦ Thunder Powder II",
+			"displayName": "✦ Thunder Powder II",
 			"element": "thunder",
 			"oppositeElement": "earth",
 			"tier": 2,
@@ -178,7 +178,7 @@
 		},
 		{
 			"name": "THUNDER 3",
-			"displayName": "§e✦ Thunder Powder III",
+			"displayName": "✦ Thunder Powder III",
 			"element": "thunder",
 			"oppositeElement": "earth",
 			"tier": 3,
@@ -200,7 +200,7 @@
 		},
 		{
 			"name": "THUNDER 4",
-			"displayName": "§e✦ Thunder Powder IV",
+			"displayName": "✦ Thunder Powder IV",
 			"element": "thunder",
 			"oppositeElement": "earth",
 			"tier": 4,
@@ -222,7 +222,7 @@
 		},
 		{
 			"name": "THUNDER 5",
-			"displayName": "§e✦ Thunder Powder V",
+			"displayName": "✦ Thunder Powder V",
 			"element": "thunder",
 			"oppositeElement": "earth",
 			"tier": 5,
@@ -244,7 +244,7 @@
 		},
 		{
 			"name": "THUNDER 6",
-			"displayName": "§e✦ Thunder Powder VI",
+			"displayName": "✦ Thunder Powder VI",
 			"element": "thunder",
 			"oppositeElement": "earth",
 			"tier": 6,
@@ -266,7 +266,7 @@
 		},
 		{
 			"name": "WATER 1",
-			"displayName": "§b❉ Water Powder I",
+			"displayName": "❉ Water Powder I",
 			"element": "water",
 			"oppositeElement": "thunder",
 			"tier": 1,
@@ -288,7 +288,7 @@
 		},
 		{
 			"name": "WATER 2",
-			"displayName": "§b❉ Water Powder II",
+			"displayName": "❉ Water Powder II",
 			"element": "water",
 			"oppositeElement": "thunder",
 			"tier": 2,
@@ -310,7 +310,7 @@
 		},
 		{
 			"name": "WATER 3",
-			"displayName": "§b❉ Water Powder III",
+			"displayName": "❉ Water Powder III",
 			"element": "water",
 			"oppositeElement": "thunder",
 			"tier": 3,
@@ -332,7 +332,7 @@
 		},
 		{
 			"name": "WATER 4",
-			"displayName": "§b❉ Water Powder IV",
+			"displayName": "❉ Water Powder IV",
 			"element": "water",
 			"oppositeElement": "thunder",
 			"tier": 4,
@@ -354,7 +354,7 @@
 		},
 		{
 			"name": "WATER 5",
-			"displayName": "§b❉ Water Powder V",
+			"displayName": "❉ Water Powder V",
 			"element": "water",
 			"oppositeElement": "thunder",
 			"tier": 5,
@@ -376,7 +376,7 @@
 		},
 		{
 			"name": "WATER 6",
-			"displayName": "§b❉ Water Powder VI",
+			"displayName": "❉ Water Powder VI",
 			"element": "water",
 			"oppositeElement": "thunder",
 			"tier": 6,
@@ -398,7 +398,7 @@
 		},
 		{
 			"name": "FIRE 1",
-			"displayName": "§c✹ Fire Powder I",
+			"displayName": "✹ Fire Powder I",
 			"element": "fire",
 			"oppositeElement": "water",
 			"tier": 1,
@@ -420,7 +420,7 @@
 		},
 		{
 			"name": "FIRE 2",
-			"displayName": "§c✹ Fire Powder II",
+			"displayName": "✹ Fire Powder II",
 			"element": "fire",
 			"oppositeElement": "water",
 			"tier": 2,
@@ -442,7 +442,7 @@
 		},
 		{
 			"name": "FIRE 3",
-			"displayName": "§c✹ Fire Powder III",
+			"displayName": "✹ Fire Powder III",
 			"element": "fire",
 			"oppositeElement": "water",
 			"tier": 3,
@@ -464,7 +464,7 @@
 		},
 		{
 			"name": "FIRE 4",
-			"displayName": "§c✹ Fire Powder IV",
+			"displayName": "✹ Fire Powder IV",
 			"element": "fire",
 			"oppositeElement": "water",
 			"tier": 4,
@@ -486,7 +486,7 @@
 		},
 		{
 			"name": "FIRE 5",
-			"displayName": "§c✹ Fire Powder V",
+			"displayName": "✹ Fire Powder V",
 			"element": "fire",
 			"oppositeElement": "water",
 			"tier": 5,
@@ -508,7 +508,7 @@
 		},
 		{
 			"name": "FIRE 6",
-			"displayName": "§c✹ Fire Powder VI",
+			"displayName": "✹ Fire Powder VI",
 			"element": "fire",
 			"oppositeElement": "water",
 			"tier": 6,
@@ -530,7 +530,7 @@
 		},
 		{
 			"name": "AIR 1",
-			"displayName": "§f❋ Air Powder I",
+			"displayName": "❋ Air Powder I",
 			"element": "air",
 			"oppositeElement": "fire",
 			"tier": 1,
@@ -552,7 +552,7 @@
 		},
 		{
 			"name": "AIR 2",
-			"displayName": "§f❋ Air Powder II",
+			"displayName": "❋ Air Powder II",
 			"element": "air",
 			"oppositeElement": "fire",
 			"tier": 2,
@@ -574,7 +574,7 @@
 		},
 		{
 			"name": "AIR 3",
-			"displayName": "§f❋ Air Powder III",
+			"displayName": "❋ Air Powder III",
 			"element": "air",
 			"oppositeElement": "fire",
 			"tier": 3,
@@ -596,7 +596,7 @@
 		},
 		{
 			"name": "AIR 4",
-			"displayName": "§f❋ Air Powder IV",
+			"displayName": "❋ Air Powder IV",
 			"element": "air",
 			"oppositeElement": "fire",
 			"tier": 4,
@@ -618,7 +618,7 @@
 		},
 		{
 			"name": "AIR 5",
-			"displayName": "§f❋ Air Powder V",
+			"displayName": "❋ Air Powder V",
 			"element": "air",
 			"oppositeElement": "fire",
 			"tier": 5,
@@ -640,7 +640,7 @@
 		},
 		{
 			"name": "AIR 6",
-			"displayName": "§f❋ Air Powder VI",
+			"displayName": "❋ Air Powder VI",
 			"element": "air",
 			"oppositeElement": "fire",
 			"tier": 6,
@@ -661,5 +661,5 @@
 			}
 		}
 	],
-	"version": "1.0.3"
+	"version": "1.0.4"
 }

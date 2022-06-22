@@ -1,8 +1,2214 @@
 {
   "data": [
     {
-      "name": ""
+      "id": "BASH",
+      "class": "WARRIOR",
+      "height": 0,
+      "position": 0,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_1"
+        }
+      ]
+    },
+    {
+      "id": "SPEAR_PROFICIENCY_I",
+      "class": "WARRIOR",
+      "height": 2,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BASH"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_BASH_I",
+      "class": "WARRIOR",
+      "height": 2,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SPEAR_PROFICIENCY_I"
+      ],
+      "effects": []
+    },
+    {
+      "id": "DOUBLE_BASH",
+      "class": "WARRIOR",
+      "height": 4,
+      "position": 0,
+      "tier": 2,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SPEAR_PROFICIENCY_I"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CHARGE",
+      "class": "WARRIOR",
+      "height": 6,
+      "position": 0,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DOUBLE_BASH"
+      ],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_2"
+        }
+      ]
+    },
+    {
+      "id": "HEAVY_IMPACT",
+      "class": "WARRIOR",
+      "height": 6,
+      "position": -2,
+      "tier": 2,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHARGE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "TOUGHER_SKIN",
+      "class": "WARRIOR",
+      "height": 6,
+      "position": 2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [
+        "VEHEMENT"
+      ],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHARGE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "VEHEMENT",
+      "class": "WARRIOR",
+      "height": 7,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "FALLEN",
+      "dependency": null,
+      "blocks": [
+        "TOUGHER_SKIN"
+      ],
+      "archetype_requirements": {},
+      "predecessors": [
+        "HEAVY_IMPACT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "UPPERCUT",
+      "class": "WARRIOR",
+      "height": 8,
+      "position": -2,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "VEHEMENT",
+        "CHEAPER_CHARGE"
+      ],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_3"
+        }
+      ]
+    },
+    {
+      "id": "CHEAPER_CHARGE",
+      "class": "WARRIOR",
+      "height": 8,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "UPPERCUT",
+        "WAR_SCREAM"
+      ],
+      "effects": []
+    },
+    {
+      "id": "WAR_SCREAM",
+      "class": "WARRIOR",
+      "height": 8,
+      "position": 2,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "TOUGHER_SKIN",
+        "CHEAPER_CHARGE"
+      ],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_4"
+        }
+      ]
+    },
+    {
+      "id": "WARRIOR_EARTH_MASTERY",
+      "class": "WARRIOR",
+      "height": 10,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "FALLEN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "UPPERCUT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "WARRIOR_THUNDER_MASTERY",
+      "class": "WARRIOR",
+      "height": 10,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "FALLEN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "UPPERCUT",
+        "WARRIOR_AIR_MASTERY",
+        "CHEAPER_CHARGE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "WARRIOR_AIR_MASTERY",
+      "class": "WARRIOR",
+      "height": 10,
+      "position": 2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WAR_SCREAM",
+        "WARRIOR_AIR_MASTERY",
+        "CHEAPER_CHARGE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "WARRIOR_FIRE_MASTERY",
+      "class": "WARRIOR",
+      "height": 10,
+      "position": 4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WAR_SCREAM"
+      ],
+      "effects": []
+    },
+    {
+      "id": "WARRIOR_WATER_MASTERY",
+      "class": "WARRIOR",
+      "height": 11,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WARRIOR_THUNDER_MASTERY",
+        "WARRIOR_AIR_MASTERY",
+        "CHEAPER_CHARGE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "QUADRUPLE_BASH",
+      "class": "WARRIOR",
+      "height": 12,
+      "position": -4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WARRIOR_EARTH_MASTERY",
+        "FIREWORKS"
+      ],
+      "effects": []
+    },
+    {
+      "id": "FIREWORKS",
+      "class": "WARRIOR",
+      "height": 12,
+      "position": -2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "QUADRUPLE_BASH",
+        "WARRIOR_THUNDER_MASTERY"
+      ],
+      "effects": []
+    },
+    {
+      "id": "FLYBY_JAB",
+      "class": "WARRIOR",
+      "height": 12,
+      "position": 2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WARRIOR_AIR_MASTERY",
+        "FLAMING_UPPERCUT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "FLAMING_UPPERCUT",
+      "class": "WARRIOR",
+      "height": 12,
+      "position": 4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": "UPPERCUT",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WARRIOR_FIRE_MASTERY",
+        "FLYBY_JAB"
+      ],
+      "effects": []
+    },
+    {
+      "id": "HALF_MOON_SWIPE",
+      "class": "WARRIOR",
+      "height": 13,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": "UPPERCUT",
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 1
+      },
+      "predecessors": [
+        "WARRIOR_WATER_MASTERY"
+      ],
+      "effects": []
+    },
+    {
+      "id": "IRON_LUNGS",
+      "class": "WARRIOR",
+      "height": 13,
+      "position": 3,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FLYBY_JAB",
+        "FLAMING_UPPERCUT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "GENERALIST",
+      "class": "WARRIOR",
+      "height": 15,
+      "position": -2,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 3
+      },
+      "predecessors": [
+        "COUNTER"
+      ],
+      "effects": []
+    },
+    {
+      "id": "COUNTER",
+      "class": "WARRIOR",
+      "height": 15,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "HALF_MOON_SWIPE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "MANTLE_OF_THE_BOVEMISTS",
+      "class": "WARRIOR",
+      "height": 15,
+      "position": 3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": "WAR_SCREAM",
+      "blocks": [],
+      "archetype_requirements": {
+        "PALADIN": 3
+      },
+      "predecessors": [
+        "IRON_LUNGS"
+      ],
+      "effects": []
+    },
+    {
+      "id": "BAKALS_GRASP",
+      "class": "WARRIOR",
+      "height": 16,
+      "position": -3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": "WAR_SCREAM",
+      "blocks": [],
+      "archetype_requirements": {
+        "FALLEN": 2
+      },
+      "predecessors": [
+        "QUADRUPLE_BASH",
+        "FIREWORKS"
+      ],
+      "effects": []
+    },
+    {
+      "id": "SPEAR_PROFICIENCY_II",
+      "class": "WARRIOR",
+      "height": 17,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BAKALS_GRASP",
+        "CHEAPER_UPPERCUT_I"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_UPPERCUT_I",
+      "class": "WARRIOR",
+      "height": 17,
+      "position": -1,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "GENERALIST",
+        "COUNTER",
+        "SPEAR_PROFICIENCY_II",
+        "AERODYNAMICS"
+      ],
+      "effects": []
+    },
+    {
+      "id": "AERODYNAMICS",
+      "class": "WARRIOR",
+      "height": 17,
+      "position": 1,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_UPPERCUT_I",
+        "PROVOKE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "PROVOKE",
+      "class": "WARRIOR",
+      "height": 17,
+      "position": 3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MANTLE_OF_THE_BOVEMISTS",
+        "AERODYNAMICS"
+      ],
+      "effects": []
+    },
+    {
+      "id": "PRECISE_STRIKES",
+      "class": "WARRIOR",
+      "height": 18,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SPEAR_PROFICIENCY_II",
+        "CHEAPER_UPPERCUT_I"
+      ],
+      "effects": []
+    },
+    {
+      "id": "AIR_SHOUT",
+      "class": "WARRIOR",
+      "height": 18,
+      "position": 2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": "WAR_SCREAM",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "AERODYNAMICS",
+        "PROVOKE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "ENRAGED_BLOW",
+      "class": "WARRIOR",
+      "height": 19,
+      "position": -4,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": "BAKALS_GRASP",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SPEAR_PROFICIENCY_II"
+      ],
+      "effects": []
+    },
+    {
+      "id": "FLYING_KICK",
+      "class": "WARRIOR",
+      "height": 19,
+      "position": -1,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 1
+      },
+      "predecessors": [
+        "CHEAPER_UPPERCUT_I",
+        "STRONGER_MANTLE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "STRONGER_MANTLE",
+      "class": "WARRIOR",
+      "height": 19,
+      "position": 2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "PALADIN",
+      "dependency": "MANTLE_OF_THE_BOVEMISTS",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FLYING_KICK",
+        "MANACHISM"
+      ],
+      "effects": []
+    },
+    {
+      "id": "MANACHISM",
+      "class": "WARRIOR",
+      "height": 19,
+      "position": 4,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "PALADIN": 3
+      },
+      "predecessors": [
+        "STRONGER_MANTLE",
+        "PROVOKE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "BOILING_BLOOD",
+      "class": "WARRIOR",
+      "height": 21,
+      "position": -4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "ENRAGED_BLOW",
+        "RAGNAROKKR"
+      ],
+      "effects": []
+    },
+    {
+      "id": "RAGNAROKKR",
+      "class": "WARRIOR",
+      "height": 21,
+      "position": -2,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": "WAR_SCREAM",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BOILING_BLOOD",
+        "FLYING_KICK"
+      ],
+      "effects": []
+    },
+    {
+      "id": "AMBIDEXTROUS",
+      "class": "WARRIOR",
+      "height": 21,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": "COUNTER",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FLYING_KICK",
+        "STRONGER_MANTLE",
+        "BURNING_HEART"
+      ],
+      "effects": []
+    },
+    {
+      "id": "BURNING_HEART",
+      "class": "WARRIOR",
+      "height": 21,
+      "position": 2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "AMBIDEXTROUS",
+        "STRONGER_BASH"
+      ],
+      "effects": []
+    },
+    {
+      "id": "STRONGER_BASH",
+      "class": "WARRIOR",
+      "height": 21,
+      "position": 4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BURNING_HEART",
+        "MANACHISM"
+      ],
+      "effects": []
+    },
+    {
+      "id": "INTOXICATING_BLOOD",
+      "class": "WARRIOR",
+      "height": 22,
+      "position": -3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": "BAKALS_GRASP",
+      "blocks": [],
+      "archetype_requirements": {
+        "FALLEN": 5
+      },
+      "predecessors": [
+        "BOILING_BLOOD",
+        "RAGNAROKKR"
+      ],
+      "effects": []
+    },
+    {
+      "id": "COLLIDE",
+      "class": "WARRIOR",
+      "height": 22,
+      "position": 1,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": "FLYING_KICK",
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 4
+      },
+      "predecessors": [
+        "AMBIDEXTROUS",
+        "BURNING_HEART"
+      ],
+      "effects": []
+    },
+    {
+      "id": "REJUVENATING_SKIN",
+      "class": "WARRIOR",
+      "height": 22,
+      "position": 3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "PALADIN": 5
+      },
+      "predecessors": [
+        "BURNING_HEART",
+        "STRONGER_BASH"
+      ],
+      "effects": []
+    },
+    {
+      "id": "COMET",
+      "class": "WARRIOR",
+      "height": 23,
+      "position": -2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": "FIREWORKS",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "RAGNAROKKR"
+      ],
+      "effects": []
+    },
+    {
+      "id": "UNCONTAINABLE_CORRUPTION",
+      "class": "WARRIOR",
+      "height": 24,
+      "position": -4,
+      "tier": 2,
+      "cost": 1,
+      "archetype": null,
+      "dependency": "BAKALS_GRASP",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BOILING_BLOOD",
+        "RADIANT_DEVOTEE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "RADIANT_DEVOTEE",
+      "class": "WARRIOR",
+      "height": 24,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 1
+      },
+      "predecessors": [
+        "UNCONTAINABLE_CORRUPTION",
+        "WHIRLWIND_STRIKE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "WHIRLWIND_STRIKE",
+      "class": "WARRIOR",
+      "height": 24,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": "UPPERCUT",
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 5
+      },
+      "predecessors": [
+        "RADIANT_DEVOTEE",
+        "AMBIDEXTROUS"
+      ],
+      "effects": []
+    },
+    {
+      "id": "MYTHRIL_SKIN",
+      "class": "WARRIOR",
+      "height": 24,
+      "position": 3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "PALADIN": 6
+      },
+      "predecessors": [
+        "REJUVENATING_SKIN"
+      ],
+      "effects": []
+    },
+    {
+      "id": "ARMOUR_BREAKER",
+      "class": "WARRIOR",
+      "height": 25,
+      "position": -3,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": "BAKALS_GRASP",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "UNCONTAINABLE_CORRUPTION",
+        "RADIANT_DEVOTEE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "SHIELD_STRIKE",
+      "class": "WARRIOR",
+      "height": 25,
+      "position": 2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MYTHRIL_SKIN"
+      ],
+      "effects": []
+    },
+    {
+      "id": "SPARKLING_HOPE",
+      "class": "WARRIOR",
+      "height": 25,
+      "position": 4,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MYTHRIL_SKIN"
+      ],
+      "effects": []
+    },
+    {
+      "id": "MASSIVE_BASH",
+      "class": "WARRIOR",
+      "height": 26,
+      "position": -4,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "FALLEN": 8
+      },
+      "predecessors": [
+        "UNCONTAINABLE_CORRUPTION",
+        "TEMPEST"
+      ],
+      "effects": []
+    },
+    {
+      "id": "TEMPEST",
+      "class": "WARRIOR",
+      "height": 26,
+      "position": -2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MASSIVE_BASH",
+        "SPIRIT_OF_THE_RABBIT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "SPIRIT_OF_THE_RABBIT",
+      "class": "WARRIOR",
+      "height": 26,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 5
+      },
+      "predecessors": [
+        "TEMPEST",
+        "WHIRLWIND_STRIKE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "MASSACRE",
+      "class": "WARRIOR",
+      "height": 27,
+      "position": -3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "FALLEN": 5
+      },
+      "predecessors": [
+        "MASSIVE_BASH",
+        "TEMPEST"
+      ],
+      "effects": []
+    },
+    {
+      "id": "AXE_KICK",
+      "class": "WARRIOR",
+      "height": 27,
+      "position": -1,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "TEMPEST",
+        "SPIRIT_OF_THE_RABBIT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "RADIANCE",
+      "class": "WARRIOR",
+      "height": 27,
+      "position": 1,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "PALADIN": 2
+      },
+      "predecessors": [
+        "SPIRIT_OF_THE_RABBIT",
+        "CHEAPER_BASH_II"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_BASH_II",
+      "class": "WARRIOR",
+      "height": 27,
+      "position": 3,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "RADIANCE",
+        "SHIELD_STRIKE",
+        "SPARKLING_HOPE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_WAR_SCREAM",
+      "class": "WARRIOR",
+      "height": 28,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MASSIVE_BASH"
+      ],
+      "effects": []
+    },
+    {
+      "id": "DISCOMBOBULATE",
+      "class": "WARRIOR",
+      "height": 28,
+      "position": -2,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 12
+      },
+      "predecessors": [
+        "THUNDERCLAP"
+      ],
+      "effects": []
+    },
+    {
+      "id": "THUNDERCLAP",
+      "class": "WARRIOR",
+      "height": 28,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "BATTLE_MONK": 8
+      },
+      "predecessors": [
+        "SPIRIT_OF_THE_RABBIT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CYCLONE",
+      "class": "WARRIOR",
+      "height": 29,
+      "position": 1,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "THUNDERCLAP"
+      ],
+      "effects": []
+    },
+    {
+      "id": "SECOND_CHANCE",
+      "class": "WARRIOR",
+      "height": 29,
+      "position": 3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "PALADIN": 12
+      },
+      "predecessors": [
+        "CHEAPER_BASH_II"
+      ],
+      "effects": []
+    },
+    {
+      "id": "BLOOD_PACT",
+      "class": "WARRIOR",
+      "height": 30,
+      "position": -4,
+      "tier": 4,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {
+        "FALLEN": 10
+      },
+      "predecessors": [
+        "CHEAPER_WAR_SCREAM"
+      ],
+      "effects": []
+    },
+    {
+      "id": "HAEMORRHAGE",
+      "class": "WARRIOR",
+      "height": 31,
+      "position": -2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "FALLEN",
+      "dependency": "BLOOD_PACT",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BLOOD_PACT"
+      ],
+      "effects": []
+    },
+    {
+      "id": "BRINK_OF_MADNESS",
+      "class": "WARRIOR",
+      "height": 31,
+      "position": 0,
+      "tier": 3,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BLOOD_PACT",
+        "CHEAPER_UPPERCUT_II"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_UPPERCUT_II",
+      "class": "WARRIOR",
+      "height": 31,
+      "position": 2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BRINK_OF_MADNESS",
+        "SECOND_CHANCE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "MARTYR",
+      "class": "WARRIOR",
+      "height": 31,
+      "position": 4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "PALADIN",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SECOND_CHANCE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "ARROW_BOMB",
+      "class": "ARCHER",
+      "height": 0,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "BOW_PROFICIENCY_I",
+      "class": "ARCHER",
+      "height": 2,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_ARROW_BOMB_I",
+      "class": "ARCHER",
+      "height": 2,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "HEART_SHATTER",
+      "class": "ARCHER",
+      "height": 4,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ESCAPE",
+      "class": "ARCHER",
+      "height": 6,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "DOUBLE_SHOTS",
+      "class": "ARCHER",
+      "height": 6,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "POWER_SHOTS",
+      "class": "ARCHER",
+      "height": 6,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARROW_STORM",
+      "class": "ARCHER",
+      "height": 8,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_ESCAPE_I",
+      "class": "ARCHER",
+      "height": 8,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARROW_SHIELD",
+      "class": "ARCHER",
+      "height": 8,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "WINDY_FEET",
+      "class": "ARCHER",
+      "height": 9,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARCHER_AIR_MASTERY",
+      "class": "ARCHER",
+      "height": 10,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARCHER_THUNDER_MASTERY",
+      "class": "ARCHER",
+      "height": 10,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARCHER_FIRE_MASTERY",
+      "class": "ARCHER",
+      "height": 10,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARCHER_EARTH_MASTERY",
+      "class": "ARCHER",
+      "height": 10,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARCHER_WATER_MASTERY",
+      "class": "ARCHER",
+      "height": 11,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARROW_RAIN",
+      "class": "ARCHER",
+      "height": 12,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "NIMBLE_STRING",
+      "class": "ARCHER",
+      "height": 12,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "PHANTOM_RAY",
+      "class": "ARCHER",
+      "height": 13,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "FIRE_CREEP",
+      "class": "ARCHER",
+      "height": 13,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "BRYOPHYTE_ROOTS",
+      "class": "ARCHER",
+      "height": 13,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "TRIPLE_SHOTS",
+      "class": "ARCHER",
+      "height": 14,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "FRENZY",
+      "class": "ARCHER",
+      "height": 14,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "GUARDIAN_ANGELS",
+      "class": "ARCHER",
+      "height": 15,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "FOCUS",
+      "class": "ARCHER",
+      "height": 15,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "BASALTIC_TRAP",
+      "class": "ARCHER",
+      "height": 15,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "WINDSTORM",
+      "class": "ARCHER",
+      "height": 17,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_ARROW_STORM_I",
+      "class": "ARCHER",
+      "height": 17,
+      "position": -1,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "GRAPPLING_HOOK",
+      "class": "ARCHER",
+      "height": 17,
+      "position": 1,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "MORE_SHIELDS",
+      "class": "ARCHER",
+      "height": 17,
+      "position": 3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "MORE_FOCUS_I",
+      "class": "ARCHER",
+      "height": 18,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "IMPLOSION",
+      "class": "ARCHER",
+      "height": 18,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "PATIENT_HUNTER",
+      "class": "ARCHER",
+      "height": 18,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "STORMY_FEET",
+      "class": "ARCHER",
+      "height": 19,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "REFINED_GUNPOWDER",
+      "class": "ARCHER",
+      "height": 20,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "TRAVELER",
+      "class": "ARCHER",
+      "height": 20,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "TWAINS_ARC",
+      "class": "ARCHER",
+      "height": 20,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "BOUNCING_BOMB",
+      "class": "ARCHER",
+      "height": 20,
+      "position": 3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "FIERCE_STOMP",
+      "class": "ARCHER",
+      "height": 21,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "SCORCHED_EARTH",
+      "class": "ARCHER",
+      "height": 21,
+      "position": 1,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "MORE_TRAPS",
+      "class": "ARCHER",
+      "height": 21,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "LEAP",
+      "class": "ARCHER",
+      "height": 23,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "HOMING_SHOTS",
+      "class": "ARCHER",
+      "height": 23,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "SHOCKING_BOMB",
+      "class": "ARCHER",
+      "height": 23,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "BETTER_ARROW_SHIELD",
+      "class": "ARCHER",
+      "height": 23,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "MANA_TRAP",
+      "class": "ARCHER",
+      "height": 23,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "BETTER_LEAP",
+      "class": "ARCHER",
+      "height": 24,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ESCAPE_ARTIST",
+      "class": "ARCHER",
+      "height": 25,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "BETTER_GUARDIAN_ANGELS",
+      "class": "ARCHER",
+      "height": 25,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "INITIATOR",
+      "class": "ARCHER",
+      "height": 25,
+      "position": 1,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_ARROW_STORM_II",
+      "class": "ARCHER",
+      "height": 25,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CALL_OF_THE_HOUND",
+      "class": "ARCHER",
+      "height": 26,
+      "position": 3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ARROW_HURRICANE",
+      "class": "ARCHER",
+      "height": 27,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "PRECISE_SHOT",
+      "class": "ARCHER",
+      "height": 27,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_ARROW_SHIELD",
+      "class": "ARCHER",
+      "height": 27,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ROCKET_JUMP",
+      "class": "ARCHER",
+      "height": 27,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "SHRAPNEL_BOMB",
+      "class": "ARCHER",
+      "height": 28,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "DECIMATOR",
+      "class": "ARCHER",
+      "height": 28,
+      "position": 1,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_ESCAPE_II",
+      "class": "ARCHER",
+      "height": 28,
+      "position": 3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "STRONGER_HOOK",
+      "class": "ARCHER",
+      "height": 29,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "GEYSER_STOMP",
+      "class": "ARCHER",
+      "height": 30,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CREPUSCULAR_RAY",
+      "class": "ARCHER",
+      "height": 30,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "GRAPE_BOMB",
+      "class": "ARCHER",
+      "height": 30,
+      "position": 3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ELUSIVE",
+      "class": "ARCHER",
+      "height": 31,
+      "position": -4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "TANGLED_TRAPS",
+      "class": "ARCHER",
+      "height": 31,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "STRONGER_PATIENT_HUNTER",
+      "class": "ARCHER",
+      "height": 31,
+      "position": 4,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "SNOW_STORM",
+      "class": "ARCHER",
+      "height": 32,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "MORE_FOCUS_II",
+      "class": "ARCHER",
+      "height": 32,
+      "position": 0,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "ALL_SEEING_PANOPTES",
+      "class": "ARCHER",
+      "height": 33,
+      "position": -3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "CHEAPER_ARROW_BOMB_II",
+      "class": "ARCHER",
+      "height": 33,
+      "position": 1,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
+    },
+    {
+      "id": "MINEFIELD",
+      "class": "ARCHER",
+      "height": 33,
+      "position": 3,
+      "tier": 0,
+      "cost": 0,
+      "archetype": "TRAPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "effects": []
     }
   ],
-  "version": "1.0.0"
+  "version": "1.0.4"
 }

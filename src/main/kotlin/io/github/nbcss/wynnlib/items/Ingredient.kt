@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURABILITY
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURATION
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_EFFECTIVENESS
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_OR
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_MODIFIER
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.IngredientIRange
@@ -62,7 +63,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         }
         if (json.has("skills")) {
             json["skills"].asJsonArray.forEach {
-                Profession.getProfession(it.asString)?.let { i -> professions.add(i) }
+                Profession.fromName(it.asString)?.let { i -> professions.add(i) }
             }
         }
         //Read identifications
@@ -93,12 +94,12 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         //Read texture
         texture = if (json.has("skin")) {
             val skin: String = json["skin"].asString
-            getSkullItem(skin)
+            ItemFactory.fromSkin(skin)
         } else if (json.has("sprite")) {
             val sprite: JsonObject = json["sprite"].asJsonObject
             val id = sprite["id"].asInt
             val meta = if (sprite.has("damage")) sprite["damage"].asInt else 0
-            getItemById(id, meta)
+            ItemFactory.fromLegacyId(id, meta)
         } else {
             ERROR_ITEM
         }
@@ -161,7 +162,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
             if(req != 0){
                 val color = colorOf(-req)
                 tooltip.add(LiteralText("${signed(req)} ").formatted(color)
-                    .append(it.translate("tooltip.modifier").formatted(color)))
+                    .append(TOOLTIP_SKILL_MODIFIER.translate(null, it.translate().string).formatted(color)))
             }
         }
         return tooltip.size > lastSize
@@ -170,6 +171,8 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
     override fun getDisplayText(): Text {
         return LiteralText(displayName).formatted(Formatting.GRAY).append(LiteralText(tier.suffix))
     }
+
+    override fun getDisplayName(): String = displayName
 
     override fun getIcon(): ItemStack = texture
 
@@ -185,14 +188,14 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(getDisplayText())
         tooltip.add(TOOLTIP_CRAFTING_ING.translate().formatted(Formatting.DARK_GRAY))
-        tooltip.add(LiteralText(""))
+        tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip
         if (addIdentifications(this, tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         if(addPosModifierTooltip(tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         if(addItemModifierTooltip(tooltip))
-            tooltip.add(LiteralText(""))
+            tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_CRAFTING_LV_REQ.translate().formatted(Formatting.GRAY)
             .append(LiteralText(": $level").formatted(Formatting.GRAY)))
         professions.forEach {

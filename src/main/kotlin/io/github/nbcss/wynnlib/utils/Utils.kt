@@ -1,22 +1,21 @@
 package io.github.nbcss.wynnlib.utils
 
 import io.github.nbcss.wynnlib.WynnLibEntry
-import net.minecraft.datafixer.fix.ItemInstanceTheFlatteningFix
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
-import net.minecraft.item.Item
+import net.minecraft.client.MinecraftClient
 import net.minecraft.item.ItemStack
-import net.minecraft.item.Items
-import net.minecraft.nbt.NbtCompound
-import net.minecraft.nbt.NbtList
-import net.minecraft.nbt.StringNbtReader
+import net.minecraft.text.LiteralText
+import net.minecraft.text.StringVisitable
+import net.minecraft.text.Style
+import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
+import org.slf4j.Logger
 import java.io.IOException
 import java.io.InputStream
 import java.util.*
-import kotlin.math.*
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
@@ -68,74 +67,40 @@ fun asColor(text: String): Int {
     return color
 }
 
-fun getSkullItem(skin: String?): ItemStack {
-    val stack = ItemStack(Items.PLAYER_HEAD, 1)
-    val tag = NbtCompound()
-    val owner = NbtCompound()
-    owner.putString("Id", UUID.randomUUID().toString())
-    val prop = NbtCompound()
-    val list = NbtList()
-    val texture = NbtCompound()
-    texture.putString("Value", skin)
-    list.add(texture)
-    prop.put("textures", list)
-    owner.put("Properties", prop)
-    tag.put("SkullOwner", owner)
-    stack.writeNbt(tag)
-    return stack
+fun warpLines(text: String, length: Int): List<Text> {
+    val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
+        Optional.of(LiteralText(asString).setStyle(style))
+    }
+    return MinecraftClient.getInstance().textRenderer.textHandler
+        .wrapLines(text, length, Style.EMPTY)
+        .map { it.visit(visitor, Style.EMPTY).get() }
+        .toList()
 }
 
-fun getItemById(id: Int, meta: Int): ItemStack {
-    var itemString: String = net.minecraft.datafixer.fix.ItemIdFix.fromId(id)
-    var damage: Int = -1
-    var spawnEggType: String? = null
-    if (meta != 0) {
-        if (itemString == "minecraft:spawn_egg") {
-            // todo fix SpawnEgg
-            // maybe using mixin or reflection to get the map
-        }
-        val flattenedItemString: String? = ItemInstanceTheFlatteningFix.getItem(itemString, meta)
-        if (flattenedItemString != null) {
-            itemString = flattenedItemString
-        }
-        else { // The item 'should' be in the ItemInstanceTheFlatteningFix.DAMAGEABLE_ITEMS
-            damage = meta
-        }
-    }
-    if (itemString != "minecraft:air") {
-        val nbt = NbtCompound()
-        val tag = NbtCompound()
-        nbt.putString("id", itemString)
-        nbt.putByte("Count", 1.toByte())
-        tag.putBoolean("Unbreakable", true)
-        if (damage != -1) {
-            tag.putByte("Damage", damage.toByte())
-        }
-        nbt.put("tag", tag)
-        return ItemStack.fromNbt(nbt)
-    }
-    return ERROR_ITEM
-}
+private val formattingChars: Set<Char> = setOf('0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'k', 'l', 'm', 'n', 'o', 'r')
 
-fun getItem(name: String): ItemStack {
-    val array = name.split("#").toTypedArray()
-    val item: Item = Registry.ITEM.get(Identifier(array[0]))
-    try {
-        if (item != Items.AIR) {
-            val meta = if (array.size > 1) array[1].toInt() else 0
-            val stack = ItemStack(item, 1)
-            val tag = if (array.size > 2) StringNbtReader.parse(array[2]) else stack.orCreateNbt
-            tag.putBoolean("Unbreakable", true)
-            if (meta > 0){
-                tag.putInt("Damage", meta)
-            }
-            stack.writeNbt(tag)
-            return stack
+fun parseStyle(text: String, style: String): String {
+    val buffer = StringBuilder(style)
+    val stack = LinkedList<String>()
+    var currentStyle = style
+    var i = 0
+    while (i < text.length) {
+        val c = text[i]
+        if (c == '}' && !stack.isEmpty()) {
+            currentStyle = stack.pop()
+            buffer.append(currentStyle)
+        } else if (i < text.length - 1 && text[i + 1] == '{' && c in formattingChars) {
+            stack.push(currentStyle)
+            currentStyle = "§$c"
+            buffer.append(currentStyle)
+            i += 1
+        } else {
+            buffer.append(c)
         }
-    } catch (ignore: java.lang.Exception) {
-        ignore.printStackTrace()
+        i++
     }
-    return ERROR_ITEM
+    return buffer.toString()
 }
 
 fun getResource(filename: String): InputStream? {
@@ -151,4 +116,18 @@ fun getResource(filename: String): InputStream? {
     } catch (var4: IOException) {
         null
     }
+}
+
+fun getLogger():Logger{
+    return com.mojang.logging.LogUtils.getLogger()
+}
+
+fun <K, V> getKey(map: Map<K, V>, target: V): K? {
+    for ((key, value) in map)
+    {
+        if (target == value) {
+            return key
+        }
+    }
+    return null
 }
