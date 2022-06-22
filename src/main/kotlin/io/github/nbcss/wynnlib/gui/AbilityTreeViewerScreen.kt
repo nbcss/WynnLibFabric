@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.lang.Translations
@@ -16,6 +17,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
 import kotlin.math.max
+import kotlin.math.min
 
 class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
     private val texture = Identifier("wynnlib", "textures/gui/ability_tree_viewer.png")
@@ -46,23 +48,29 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     private var movingScroll: Int = 0
     private var scrollTicks: Int = 0
 
-    private fun drawOuterEdge(matrices: MatrixStack, from: Pos, to: Pos, color: Int){
+    private fun drawOuterEdge(matrices: MatrixStack, from: Pos, to: Pos, color: Int, reroute: Boolean){
         RenderSystem.enableDepthTest()
         if (from.x != to.x){
-            DrawableHelper.fill(matrices, from.x, from.y - 2, to.x, from.y + 2, color)
+            val posY = if (reroute) to.y else from.y
+            DrawableHelper.fill(matrices, from.x, posY - 2, to.x, posY + 2, color)
         }
         if (from.y != to.y){
-            val offsetY = if (from.x == to.x) 0 else -2
-            DrawableHelper.fill(matrices, to.x - 2, from.y + offsetY, to.x + 2, to.y, color)
+            val fromY = from.y + if (from.x == to.x || reroute) 0 else -2
+            val toY = to.y + if (from.x != to.x && reroute) 2 else 0
+            val posX = if (reroute) from.x else to.x
+            DrawableHelper.fill(matrices, posX - 2, fromY, posX + 2, toY, color)
         }
     }
-    private fun drawInnerEdge(matrices: MatrixStack, from: Pos, to: Pos, color: Int){
+    private fun drawInnerEdge(matrices: MatrixStack, from: Pos, to: Pos, color: Int, reroute: Boolean){
         if (from.x != to.x){
-            DrawableHelper.fill(matrices, from.x, from.y - 1, to.x, from.y + 1, color)
+            val posY = if (reroute) to.y else from.y
+            DrawableHelper.fill(matrices, from.x, posY - 1, to.x, posY + 1, color)
         }
         if (from.y != to.y){
-            val offsetY = if (from.x == to.x) 0 else -1
-            DrawableHelper.fill(matrices, to.x - 1, from.y + offsetY, to.x + 1, to.y, color)
+            val fromY = from.y + if (from.x == to.x || reroute) 0 else -1
+            val toY = to.y + if (from.x != to.x && reroute) 1 else 0
+            val posX = if (reroute) from.x else to.x
+            DrawableHelper.fill(matrices, posX - 1, fromY, posX + 1, toY, color)
         }
     }
 
@@ -93,6 +101,22 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
 
     private fun isOverViewer(mouseX: Int, mouseY: Int): Boolean {
         return mouseX >= viewerX && mouseX < viewerX + VIEW_WIDTH && mouseY >= viewerY && mouseY < viewerY + VIEW_HEIGHT
+    }
+
+    private fun renderEdges(abilities: List<Ability>, matrices: MatrixStack, color: Int, inner: Boolean){
+        abilities.forEach {
+            val to = toScreenPosition(it.getHeight(), it.getPosition())
+            it.getPredecessors().forEach { node ->
+                val from = toScreenPosition(node.getHeight(), node.getPosition())
+                val height = min(it.getHeight(), node.getHeight())
+                val reroute = tree.getAbilityFromPosition(height, it.getPosition()) != null
+                if (inner) {
+                    drawInnerEdge(matrices, from, to, color, reroute)
+                }else{
+                    drawOuterEdge(matrices, from, to, color, reroute)
+                }
+            }
+        }
     }
 
     override fun init() {
@@ -167,46 +191,18 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         RenderSystem.enableScissor((viewerX * scale).toInt(),
             client!!.window.height - (bottom * scale).toInt(),
             (VIEW_WIDTH * scale).toInt(), (VIEW_HEIGHT * scale).toInt())
-        //Render outer lines (basic)
-        tree.getAbilities().forEach {
-            val to = toScreenPosition(it.getHeight(), it.getPosition())
-            if (!isOverNode(to, mouseX, mouseY)){
-                it.getPredecessors().forEach { node ->
-                    val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawOuterEdge(matrices!!, from, to, BASIC_OUTER_COLOR)
-                }
-            }
+        //Render inactive edges (basic)
+        val inactive = tree.getAbilities().filter {
+            !isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
         }
-        //Render inner lines (basic)
-        tree.getAbilities().forEach {
-            val to = toScreenPosition(it.getHeight(), it.getPosition())
-            if (!isOverNode(to, mouseX, mouseY)){
-                it.getPredecessors().forEach { node ->
-                    val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawInnerEdge(matrices!!, from, to, BASIC_INNER_COLOR)
-                }
-            }
+        renderEdges(inactive, matrices!!, BASIC_OUTER_COLOR, false)
+        renderEdges(inactive, matrices, BASIC_INNER_COLOR, true)
+        //Render active edges
+        val active = tree.getAbilities().filter {
+            isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
         }
-        //Render outer lines (active)
-        tree.getAbilities().forEach {
-            val to = toScreenPosition(it.getHeight(), it.getPosition())
-            if (isOverNode(to, mouseX, mouseY)){
-                it.getPredecessors().forEach { node ->
-                    val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawOuterEdge(matrices!!, from, to, ACTIVE_OUTER_COLOR)
-                }
-            }
-        }
-        //Render inner lines (active)
-        tree.getAbilities().forEach {
-            val to = toScreenPosition(it.getHeight(), it.getPosition())
-            if (isOverNode(to, mouseX, mouseY)){
-                it.getPredecessors().forEach { node ->
-                    val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawInnerEdge(matrices!!, from, to, ACTIVE_INNER_COLOR)
-                }
-            }
-        }
+        renderEdges(active, matrices, ACTIVE_OUTER_COLOR, false)
+        renderEdges(active, matrices, ACTIVE_INNER_COLOR, true)
         //render icons
         tree.getAbilities().forEach {
             val node = toScreenPosition(it.getHeight(), it.getPosition())
@@ -220,7 +216,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 if (isOverNode(node, mouseX, mouseY)){
-                    drawTooltip(matrices!!, ability.getTooltip(), mouseX, mouseY)
+                    drawTooltip(matrices, ability.getTooltip(), mouseX, mouseY)
                     break
                 }
             }
