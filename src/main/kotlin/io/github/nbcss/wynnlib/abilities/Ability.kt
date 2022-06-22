@@ -3,8 +3,12 @@ package io.github.nbcss.wynnlib.abilities
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_BLOCKS
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_DEPENDENCY
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_POINTS
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_TITLE
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.parseStyle
@@ -26,6 +30,8 @@ class Ability(json: JsonObject): Keyed, Translatable {
     private val height: Int
     private val position: Int
     private val cost: Int
+    private val dependency: String?
+    private val blocks: MutableSet<String> = HashSet()
     private val predecessors: MutableSet<String> = HashSet()
     private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
     init {
@@ -37,6 +43,9 @@ class Ability(json: JsonObject): Keyed, Translatable {
         height = json["height"].asInt
         position = json["position"].asInt
         cost = json["cost"].asInt
+        dependency = if (json.has("dependency") && !json["dependency"].isJsonNull)
+            json["dependency"].asString else null
+        blocks.addAll(json["blocks"].asJsonArray.map { e -> e.asString })
         predecessors.addAll(json["predecessors"].asJsonArray.map { e -> e.asString })
         if (json.has("archetype_requirements")){
             val requirements = json["archetype_requirements"].asJsonObject
@@ -72,13 +81,20 @@ class Ability(json: JsonObject): Keyed, Translatable {
 
     fun getAbilityPointCost(): Int = cost
 
-    fun getPredecessors(): List<String> = predecessors.toList()
+    fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
+
+    fun getBlockAbilities(): List<Ability> = blocks.mapNotNull { x -> AbilityRegistry.get(x) }
 
     fun getArchetypeRequirement(archetype: Archetype): Int {
         return archetypeReq.getOrDefault(archetype, 0)
     }
 
+    fun getAbilityDependency(): Ability? {
+        return if (dependency == null) null else AbilityRegistry.get(dependency)
+    }
+
     fun getTooltip(): List<Text> {
+        val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
         tooltip.add(LiteralText.EMPTY)
@@ -92,9 +108,34 @@ class Ability(json: JsonObject): Keyed, Translatable {
             }
         }
         tooltip.add(LiteralText.EMPTY)
+        //todo effects
+        val incompatibles = getBlockAbilities()
+        if (incompatibles.isNotEmpty()){
+            tooltip.add(TOOLTIP_ABILITY_BLOCKS.translate().formatted(Formatting.RED))
+            incompatibles.forEach {
+                tooltip.add(LiteralText("- ").formatted(Formatting.RED)
+                    .append(it.translate().formatted(Formatting.GRAY)))
+            }
+            tooltip.add(LiteralText.EMPTY)
+        }
+        //Requirements
         tooltip.add(TOOLTIP_ABILITY_POINTS.translate().formatted(Formatting.GRAY)
             .append(LiteralText(": ").formatted(Formatting.GRAY))
             .append(LiteralText(getAbilityPointCost().toString()).formatted(Formatting.WHITE)))
+        if (dependency != null){
+            getAbilityDependency()?.let {
+                tooltip.add(TOOLTIP_ABILITY_DEPENDENCY.translate().formatted(Formatting.GRAY)
+                    .append(LiteralText(": ").formatted(Formatting.GRAY))
+                    .append(it.translate().formatted(Formatting.WHITE)))
+            }
+        }
+        tree.getArchetypes().filter { getArchetypeRequirement(it) != 0 }.forEach {
+            val points = getArchetypeRequirement(it).toString()
+            val title = TOOLTIP_ABILITY_MIN_ARCHETYPE.translate(null, it.translate().string)
+            tooltip.add(title.formatted(Formatting.GRAY)
+                .append(LiteralText(": ").formatted(Formatting.GRAY))
+                .append(LiteralText(points).formatted(Formatting.WHITE)))
+        }
         getArchetype()?.let {
             tooltip.add(LiteralText.EMPTY)
             val title = TOOLTIP_ARCHETYPE_TITLE.translate(null, it.translate().string)

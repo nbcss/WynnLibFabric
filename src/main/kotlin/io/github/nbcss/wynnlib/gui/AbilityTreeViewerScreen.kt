@@ -170,20 +170,18 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         //Render outer lines
         tree.getAbilities().forEach {
             val to = toScreenPosition(it.getHeight(), it.getPosition())
-            it.getPredecessors().mapNotNull { x -> AbilityRegistry.get(x) }
-                .forEach { node ->
-                    val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawOuterEdge(matrices!!, from, to, BASIC_OUTER_COLOR)
-                }
+            it.getPredecessors().forEach { node ->
+                val from = toScreenPosition(node.getHeight(), node.getPosition())
+                drawOuterEdge(matrices!!, from, to, BASIC_OUTER_COLOR)
+            }
         }
         //render inner lines
         tree.getAbilities().forEach {
             val to = toScreenPosition(it.getHeight(), it.getPosition())
-            it.getPredecessors().mapNotNull { x -> AbilityRegistry.get(x) }
-                .forEach { node ->
-                    val from = toScreenPosition(node.getHeight(), node.getPosition())
-                    drawInnerEdge(matrices!!, from, to, BASIC_INNER_COLOR)
-                }
+            it.getPredecessors().forEach { node ->
+                val from = toScreenPosition(node.getHeight(), node.getPosition())
+                drawInnerEdge(matrices!!, from, to, BASIC_INNER_COLOR)
+            }
         }
         //render icons
         tree.getAbilities().forEach {
