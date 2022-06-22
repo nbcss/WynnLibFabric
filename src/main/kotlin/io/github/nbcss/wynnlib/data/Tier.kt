@@ -25,11 +25,11 @@ enum class Tier(val id: String,
     companion object {
         private val VALUE_MAP: MutableMap<String, Tier> = LinkedHashMap()
         init {
-            values().forEach { VALUE_MAP[it.name.lowercase(Locale.getDefault())] = it }
+            values().forEach { VALUE_MAP[it.name.lowercase()] = it }
         }
 
-        fun getTier(tierName: String): Tier {
-            return VALUE_MAP.getOrDefault(tierName.lowercase(Locale.getDefault()), NORMAL)
+        fun fromName(name: String): Tier {
+            return VALUE_MAP.getOrDefault(name.lowercase(), NORMAL)
         }
     }
 

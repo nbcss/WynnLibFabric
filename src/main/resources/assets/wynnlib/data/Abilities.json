@@ -11,7 +11,13 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_1"
+        }
+      ]
     },
     {
       "id": "SPEAR_PROFICIENCY_I",
@@ -26,7 +32,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "BASH"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "CHEAPER_BASH_I",
@@ -41,7 +48,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "DOUBLE_BASH",
@@ -56,7 +64,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "CHARGE",
@@ -71,6 +80,12 @@
       "archetype_requirements": {},
       "predecessors": [
         "DOUBLE_BASH"
+      ],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_2"
+        }
       ]
     },
     {
@@ -86,7 +101,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "CHARGE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "TOUGHER_SKIN",
@@ -103,7 +119,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "CHARGE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "VEHEMENT",
@@ -120,7 +137,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "HEAVY_IMPACT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "UPPERCUT",
@@ -136,6 +154,12 @@
       "predecessors": [
         "VEHEMENT",
         "CHEAPER_CHARGE"
+      ],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_3"
+        }
       ]
     },
     {
@@ -152,7 +176,8 @@
       "predecessors": [
         "UPPERCUT",
         "WAR_SCREAM"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "WAR_SCREAM",
@@ -168,6 +193,12 @@
       "predecessors": [
         "TOUGHER_SKIN",
         "CHEAPER_CHARGE"
+      ],
+      "effects": [
+        {
+          "type": "UNLOCK",
+          "container": "SPELL_4"
+        }
       ]
     },
     {
@@ -183,7 +214,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "UPPERCUT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
@@ -200,7 +232,8 @@
         "UPPERCUT",
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
@@ -217,7 +250,8 @@
         "WAR_SCREAM",
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
@@ -232,7 +266,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "WAR_SCREAM"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
@@ -249,7 +284,8 @@
         "WARRIOR_THUNDER_MASTERY",
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "QUADRUPLE_BASH",
@@ -265,7 +301,8 @@
       "predecessors": [
         "WARRIOR_EARTH_MASTERY",
         "FIREWORKS"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "FIREWORKS",
@@ -281,7 +318,8 @@
       "predecessors": [
         "QUADRUPLE_BASH",
         "WARRIOR_THUNDER_MASTERY"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "FLYBY_JAB",
@@ -297,7 +335,8 @@
       "predecessors": [
         "WARRIOR_AIR_MASTERY",
         "FLAMING_UPPERCUT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "FLAMING_UPPERCUT",
@@ -313,7 +352,8 @@
       "predecessors": [
         "WARRIOR_FIRE_MASTERY",
         "FLYBY_JAB"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "HALF_MOON_SWIPE",
@@ -330,7 +370,8 @@
       },
       "predecessors": [
         "WARRIOR_WATER_MASTERY"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "IRON_LUNGS",
@@ -346,7 +387,8 @@
       "predecessors": [
         "FLYBY_JAB",
         "FLAMING_UPPERCUT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "GENERALIST",
@@ -363,7 +405,8 @@
       },
       "predecessors": [
         "COUNTER"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "COUNTER",
@@ -378,7 +421,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "HALF_MOON_SWIPE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
@@ -395,7 +439,8 @@
       },
       "predecessors": [
         "IRON_LUNGS"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "BAKALS_GRASP",
@@ -413,7 +458,8 @@
       "predecessors": [
         "QUADRUPLE_BASH",
         "FIREWORKS"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "SPEAR_PROFICIENCY_II",
@@ -429,7 +475,8 @@
       "predecessors": [
         "BAKALS_GRASP",
         "CHEAPER_UPPERCUT_I"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "CHEAPER_UPPERCUT_I",
@@ -447,7 +494,8 @@
         "COUNTER",
         "SPEAR_PROFICIENCY_II",
         "AERODYNAMICS"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "AERODYNAMICS",
@@ -463,7 +511,8 @@
       "predecessors": [
         "CHEAPER_UPPERCUT_I",
         "PROVOKE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "PROVOKE",
@@ -479,7 +528,8 @@
       "predecessors": [
         "MANTLE_OF_THE_BOVEMISTS",
         "AERODYNAMICS"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "PRECISE_STRIKES",
@@ -495,7 +545,8 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_II",
         "CHEAPER_UPPERCUT_I"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "AIR_SHOUT",
@@ -511,7 +562,8 @@
       "predecessors": [
         "AERODYNAMICS",
         "PROVOKE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "ENRAGED_BLOW",
@@ -526,7 +578,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "SPEAR_PROFICIENCY_II"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "FLYING_KICK",
@@ -544,7 +597,8 @@
       "predecessors": [
         "CHEAPER_UPPERCUT_I",
         "STRONGER_MANTLE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "STRONGER_MANTLE",
@@ -560,7 +614,8 @@
       "predecessors": [
         "FLYING_KICK",
         "MANACHISM"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "MANACHISM",
@@ -578,7 +633,8 @@
       "predecessors": [
         "STRONGER_MANTLE",
         "PROVOKE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "BOILING_BLOOD",
@@ -594,7 +650,8 @@
       "predecessors": [
         "ENRAGED_BLOW",
         "RAGNAROKKR"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "RAGNAROKKR",
@@ -610,7 +667,8 @@
       "predecessors": [
         "BOILING_BLOOD",
         "FLYING_KICK"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "AMBIDEXTROUS",
@@ -627,7 +685,8 @@
         "FLYING_KICK",
         "STRONGER_MANTLE",
         "BURNING_HEART"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "BURNING_HEART",
@@ -643,7 +702,8 @@
       "predecessors": [
         "AMBIDEXTROUS",
         "STRONGER_BASH"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "STRONGER_BASH",
@@ -659,7 +719,8 @@
       "predecessors": [
         "BURNING_HEART",
         "MANACHISM"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "INTOXICATING_BLOOD",
@@ -677,7 +738,8 @@
       "predecessors": [
         "BOILING_BLOOD",
         "RAGNAROKKR"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "COLLIDE",
@@ -695,7 +757,8 @@
       "predecessors": [
         "AMBIDEXTROUS",
         "BURNING_HEART"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "REJUVENATING_SKIN",
@@ -713,7 +776,8 @@
       "predecessors": [
         "BURNING_HEART",
         "STRONGER_BASH"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "COMET",
@@ -728,7 +792,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "RAGNAROKKR"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "UNCONTAINABLE_CORRUPTION",
@@ -744,7 +809,8 @@
       "predecessors": [
         "BOILING_BLOOD",
         "RADIANT_DEVOTEE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "RADIANT_DEVOTEE",
@@ -762,7 +828,8 @@
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
         "WHIRLWIND_STRIKE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "WHIRLWIND_STRIKE",
@@ -780,7 +847,8 @@
       "predecessors": [
         "RADIANT_DEVOTEE",
         "AMBIDEXTROUS"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "MYTHRIL_SKIN",
@@ -797,7 +865,8 @@
       },
       "predecessors": [
         "REJUVENATING_SKIN"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "ARMOUR_BREAKER",
@@ -813,7 +882,8 @@
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
         "RADIANT_DEVOTEE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "SHIELD_STRIKE",
@@ -828,7 +898,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "MYTHRIL_SKIN"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "SPARKLING_HOPE",
@@ -843,7 +914,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "MYTHRIL_SKIN"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "MASSIVE_BASH",
@@ -861,7 +933,8 @@
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
         "TEMPEST"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "TEMPEST",
@@ -877,7 +950,8 @@
       "predecessors": [
         "MASSIVE_BASH",
         "SPIRIT_OF_THE_RABBIT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "SPIRIT_OF_THE_RABBIT",
@@ -895,7 +969,8 @@
       "predecessors": [
         "TEMPEST",
         "WHIRLWIND_STRIKE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "MASSACRE",
@@ -913,7 +988,8 @@
       "predecessors": [
         "MASSIVE_BASH",
         "TEMPEST"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "AXE_KICK",
@@ -929,7 +1005,8 @@
       "predecessors": [
         "TEMPEST",
         "SPIRIT_OF_THE_RABBIT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "RADIANCE",
@@ -947,7 +1024,8 @@
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT",
         "CHEAPER_BASH_II"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "CHEAPER_BASH_II",
@@ -964,7 +1042,8 @@
         "RADIANCE",
         "SHIELD_STRIKE",
         "SPARKLING_HOPE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "CHEAPER_WAR_SCREAM",
@@ -979,7 +1058,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "MASSIVE_BASH"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "DISCOMBOBULATE",
@@ -996,7 +1076,8 @@
       },
       "predecessors": [
         "THUNDERCLAP"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "THUNDERCLAP",
@@ -1013,7 +1094,8 @@
       },
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "CYCLONE",
@@ -1028,7 +1110,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "THUNDERCLAP"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "SECOND_CHANCE",
@@ -1045,7 +1128,8 @@
       },
       "predecessors": [
         "CHEAPER_BASH_II"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "BLOOD_PACT",
@@ -1062,7 +1146,8 @@
       },
       "predecessors": [
         "CHEAPER_WAR_SCREAM"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "HAEMORRHAGE",
@@ -1077,7 +1162,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "BLOOD_PACT"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "BRINK_OF_MADNESS",
@@ -1093,7 +1179,8 @@
       "predecessors": [
         "BLOOD_PACT",
         "CHEAPER_UPPERCUT_II"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "CHEAPER_UPPERCUT_II",
@@ -1109,7 +1196,8 @@
       "predecessors": [
         "BRINK_OF_MADNESS",
         "SECOND_CHANCE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "MARTYR",
@@ -1124,7 +1212,8 @@
       "archetype_requirements": {},
       "predecessors": [
         "SECOND_CHANCE"
-      ]
+      ],
+      "effects": []
     },
     {
       "id": "ARROW_BOMB",
@@ -1137,7 +1226,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "BOW_PROFICIENCY_I",
@@ -1150,7 +1240,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CHEAPER_ARROW_BOMB_I",
@@ -1163,7 +1254,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "HEART_SHATTER",
@@ -1176,7 +1268,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ESCAPE",
@@ -1189,7 +1282,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "DOUBLE_SHOTS",
@@ -1202,7 +1296,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "POWER_SHOTS",
@@ -1215,7 +1310,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARROW_STORM",
@@ -1228,7 +1324,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CHEAPER_ESCAPE_I",
@@ -1241,7 +1338,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARROW_SHIELD",
@@ -1254,7 +1352,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "WINDY_FEET",
@@ -1267,7 +1366,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARCHER_AIR_MASTERY",
@@ -1280,7 +1380,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARCHER_THUNDER_MASTERY",
@@ -1293,7 +1394,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARCHER_FIRE_MASTERY",
@@ -1306,7 +1408,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARCHER_EARTH_MASTERY",
@@ -1319,7 +1422,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARCHER_WATER_MASTERY",
@@ -1332,7 +1436,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARROW_RAIN",
@@ -1345,7 +1450,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "NIMBLE_STRING",
@@ -1358,7 +1464,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "PHANTOM_RAY",
@@ -1371,7 +1478,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "FIRE_CREEP",
@@ -1384,7 +1492,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "BRYOPHYTE_ROOTS",
@@ -1397,7 +1506,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "TRIPLE_SHOTS",
@@ -1410,7 +1520,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "FRENZY",
@@ -1423,7 +1534,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "GUARDIAN_ANGELS",
@@ -1436,7 +1548,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "FOCUS",
@@ -1449,7 +1562,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "BASALTIC_TRAP",
@@ -1462,7 +1576,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "WINDSTORM",
@@ -1475,7 +1590,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CHEAPER_ARROW_STORM_I",
@@ -1488,7 +1604,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "GRAPPLING_HOOK",
@@ -1501,7 +1618,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "MORE_SHIELDS",
@@ -1514,7 +1632,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "MORE_FOCUS_I",
@@ -1527,7 +1646,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "IMPLOSION",
@@ -1540,7 +1660,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "PATIENT_HUNTER",
@@ -1553,7 +1674,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "STORMY_FEET",
@@ -1566,7 +1688,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "REFINED_GUNPOWDER",
@@ -1579,7 +1702,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "TRAVELER",
@@ -1592,7 +1716,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "TWAINS_ARC",
@@ -1605,7 +1730,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "BOUNCING_BOMB",
@@ -1618,7 +1744,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "FIERCE_STOMP",
@@ -1631,7 +1758,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "SCORCHED_EARTH",
@@ -1644,7 +1772,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "MORE_TRAPS",
@@ -1657,7 +1786,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "LEAP",
@@ -1670,7 +1800,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "HOMING_SHOTS",
@@ -1683,7 +1814,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "SHOCKING_BOMB",
@@ -1696,7 +1828,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "BETTER_ARROW_SHIELD",
@@ -1709,7 +1842,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "MANA_TRAP",
@@ -1722,7 +1856,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "BETTER_LEAP",
@@ -1735,7 +1870,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ESCAPE_ARTIST",
@@ -1748,7 +1884,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "BETTER_GUARDIAN_ANGELS",
@@ -1761,7 +1898,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "INITIATOR",
@@ -1774,7 +1912,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CHEAPER_ARROW_STORM_II",
@@ -1787,7 +1926,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CALL_OF_THE_HOUND",
@@ -1800,7 +1940,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ARROW_HURRICANE",
@@ -1813,7 +1954,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "PRECISE_SHOT",
@@ -1826,7 +1968,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CHEAPER_ARROW_SHIELD",
@@ -1839,7 +1982,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ROCKET_JUMP",
@@ -1852,7 +1996,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "SHRAPNEL_BOMB",
@@ -1865,7 +2010,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "DECIMATOR",
@@ -1878,7 +2024,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CHEAPER_ESCAPE_II",
@@ -1891,7 +2038,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "STRONGER_HOOK",
@@ -1904,7 +2052,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "GEYSER_STOMP",
@@ -1917,7 +2066,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CREPUSCULAR_RAY",
@@ -1930,7 +2080,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "GRAPE_BOMB",
@@ -1943,7 +2094,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ELUSIVE",
@@ -1956,7 +2108,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "TANGLED_TRAPS",
@@ -1969,7 +2122,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "STRONGER_PATIENT_HUNTER",
@@ -1982,7 +2136,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "SNOW_STORM",
@@ -1995,7 +2150,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "MORE_FOCUS_II",
@@ -2008,7 +2164,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "ALL_SEEING_PANOPTES",
@@ -2021,7 +2178,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "CHEAPER_ARROW_BOMB_II",
@@ -2034,7 +2192,8 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     },
     {
       "id": "MINEFIELD",
@@ -2047,8 +2206,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": []
+      "predecessors": [],
+      "effects": []
     }
   ],
-  "version": "1.0.3"
+  "version": "1.0.4"
 }

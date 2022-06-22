@@ -1,9 +1,13 @@
 package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
+import io.github.nbcss.wynnlib.abilities.effects.UnlockContainerEffect
 import io.github.nbcss.wynnlib.data.CharacterClass
+import io.github.nbcss.wynnlib.data.SpellSlot
 import io.github.nbcss.wynnlib.lang.Translatable
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_BLOCKS
+import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_CLICK_COMBO
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_DEPENDENCY
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
 import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_POINTS
@@ -34,6 +38,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
     private val blocks: MutableSet<String> = HashSet()
     private val predecessors: MutableSet<String> = HashSet()
     private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
+    private val effects: MutableList<AbilityEffect> = ArrayList()
     init {
         id = json["id"].asString
         //name = json["name"].asString
@@ -52,6 +57,11 @@ class Ability(json: JsonObject): Keyed, Translatable {
             requirements.entrySet().forEach {
                 Archetype.fromName(it.key)?.let { arch -> archetypeReq[arch] = it.value.asInt }
             }
+        }
+        if (json.has("effects")){
+            json["effects"].asJsonArray
+                .mapNotNull { AbilityEffect.fromData(it.asJsonObject) }
+                .forEach { effects.add(it) }
         }
         val level = MathHelper.clamp(json["tier"].asInt, 0, 4)
         tier = when (level) {
@@ -97,6 +107,17 @@ class Ability(json: JsonObject): Keyed, Translatable {
         val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
+        effects.mapNotNull { if (it is UnlockContainerEffect) SpellSlot.fromName(it.getContainer()) else null }
+            .firstOrNull()?.let {
+                val combo = it.getClickCombo(getCharacter().getSpellKey())
+                tooltip.add(TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
+                    .append(LiteralText(": ").formatted(Formatting.GOLD))
+                    .append(combo[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
+                    .append(LiteralText("-").formatted(Formatting.WHITE))
+                    .append(combo[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
+                    .append(LiteralText("-").formatted(Formatting.WHITE))
+                    .append(combo[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
+            }
         tooltip.add(LiteralText.EMPTY)
         translate("desc").string.split("//").forEach {
             if(it == "") {
