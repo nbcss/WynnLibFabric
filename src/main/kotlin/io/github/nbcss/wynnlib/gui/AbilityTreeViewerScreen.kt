@@ -167,26 +167,51 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         RenderSystem.enableScissor((viewerX * scale).toInt(),
             client!!.window.height - (bottom * scale).toInt(),
             (VIEW_WIDTH * scale).toInt(), (VIEW_HEIGHT * scale).toInt())
-        //Render outer lines
+        //Render outer lines (basic)
         tree.getAbilities().forEach {
             val to = toScreenPosition(it.getHeight(), it.getPosition())
-            it.getPredecessors().forEach { node ->
-                val from = toScreenPosition(node.getHeight(), node.getPosition())
-                drawOuterEdge(matrices!!, from, to, BASIC_OUTER_COLOR)
+            if (!isOverNode(to, mouseX, mouseY)){
+                it.getPredecessors().forEach { node ->
+                    val from = toScreenPosition(node.getHeight(), node.getPosition())
+                    drawOuterEdge(matrices!!, from, to, BASIC_OUTER_COLOR)
+                }
             }
         }
-        //render inner lines
+        //Render inner lines (basic)
         tree.getAbilities().forEach {
             val to = toScreenPosition(it.getHeight(), it.getPosition())
-            it.getPredecessors().forEach { node ->
-                val from = toScreenPosition(node.getHeight(), node.getPosition())
-                drawInnerEdge(matrices!!, from, to, BASIC_INNER_COLOR)
+            if (!isOverNode(to, mouseX, mouseY)){
+                it.getPredecessors().forEach { node ->
+                    val from = toScreenPosition(node.getHeight(), node.getPosition())
+                    drawInnerEdge(matrices!!, from, to, BASIC_INNER_COLOR)
+                }
+            }
+        }
+        //Render outer lines (active)
+        tree.getAbilities().forEach {
+            val to = toScreenPosition(it.getHeight(), it.getPosition())
+            if (isOverNode(to, mouseX, mouseY)){
+                it.getPredecessors().forEach { node ->
+                    val from = toScreenPosition(node.getHeight(), node.getPosition())
+                    drawOuterEdge(matrices!!, from, to, ACTIVE_OUTER_COLOR)
+                }
+            }
+        }
+        //Render inner lines (active)
+        tree.getAbilities().forEach {
+            val to = toScreenPosition(it.getHeight(), it.getPosition())
+            if (isOverNode(to, mouseX, mouseY)){
+                it.getPredecessors().forEach { node ->
+                    val from = toScreenPosition(node.getHeight(), node.getPosition())
+                    drawInnerEdge(matrices!!, from, to, ACTIVE_INNER_COLOR)
+                }
             }
         }
         //render icons
         tree.getAbilities().forEach {
             val node = toScreenPosition(it.getHeight(), it.getPosition())
-            val texture = it.getTier().getUnlockedTexture()
+            val texture = if (isOverNode(node, mouseX, mouseY))
+                it.getTier().getActiveTexture() else it.getTier().getUnlockedTexture()
             itemRenderer.renderInGuiWithOverrides(texture, node.x - 8, node.y - 8)
         }
         RenderSystem.disableScissor()
@@ -194,11 +219,15 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         if (isOverViewer(mouseX, mouseY)){
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
-                if (abs(node.x - mouseX) <= 11 && abs(node.y - mouseY) <= 11){
+                if (isOverNode(node, mouseX, mouseY)){
                     drawTooltip(matrices!!, ability.getTooltip(), mouseX, mouseY)
                     break
                 }
             }
         }
+    }
+
+    private fun isOverNode(node: Pos, mouseX: Int, mouseY: Int): Boolean {
+        return abs(node.x - mouseX) <= 11 && abs(node.y - mouseY) <= 11
     }
 }

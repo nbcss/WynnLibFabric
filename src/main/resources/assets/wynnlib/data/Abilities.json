@@ -16,6 +16,24 @@
         {
           "type": "UNLOCK",
           "container": "SPELL_1"
+        },
+        {
+          "type": "PROPERTY_MODIFIER",
+          "container": "SPELL_1",
+          "property": "MANA_COST",
+          "value": "45"
+        },
+        {
+          "type": "PROPERTY_MODIFIER",
+          "container": "SPELL_1",
+          "property": "AOE",
+          "value": "4"
+        },
+        {
+          "type": "PROPERTY_MODIFIER",
+          "container": "SPELL_1",
+          "property": "RANGE",
+          "value": "3"
         }
       ]
     },
@@ -248,7 +266,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "WAR_SCREAM",
-        "WARRIOR_AIR_MASTERY",
+        "WARRIOR_THUNDER_MASTERY",
         "CHEAPER_CHARGE"
       ],
       "effects": []
