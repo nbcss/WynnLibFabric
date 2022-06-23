@@ -6,12 +6,20 @@ import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
+import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Pos
+import net.fabricmc.fabric.api.renderer.v1.Renderer
+import net.fabricmc.fabric.api.renderer.v1.RendererAccess
+import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.render.RenderLayer
+import net.minecraft.client.render.entity.ArrowEntityRenderer
 import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.item.ArrowItem
 import net.minecraft.item.ItemStack
+import net.minecraft.item.TippedArrowItem
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
@@ -188,17 +196,31 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         }
         val bottom = (viewerY + VIEW_HEIGHT)
         val scale = client!!.window.scaleFactor
+        tree.getAbilities().forEach { ability ->
+            ability.getArchetype()?.let {
+                val node = toScreenPosition(ability.getHeight(), ability.getPosition())
+                val item = ability.getTier().getLockedTexture()
+                val color = Color.fromFormatting(ability.getTier().getFormatting())
+                val itemX = node.x - 8
+                val itemY = node.y - 8
+                matrices!!.push()
+                val render = RendererAccess.INSTANCE.renderer!!
+                //todo not sure how to make outline item color in 1.18
+                matrices.pop()
+            }
+        }
         RenderSystem.enableScissor((viewerX * scale).toInt(),
             client!!.window.height - (bottom * scale).toInt(),
             (VIEW_WIDTH * scale).toInt(), (VIEW_HEIGHT * scale).toInt())
-        //Render inactive edges (basic)
+        //render node background
+        //render inactive edges (basic)
         val inactive = tree.getAbilities().filter {
             !isOverViewer(mouseX, mouseY) || !isOverNode(
                 toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
         }
         renderEdges(inactive, matrices!!, BASIC_OUTER_COLOR, false)
         renderEdges(inactive, matrices, BASIC_INNER_COLOR, true)
-        //Render active edges
+        //render active edges
         val active = tree.getAbilities().filter {
             isOverViewer(mouseX, mouseY) && isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
         }

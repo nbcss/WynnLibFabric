@@ -18,9 +18,7 @@ import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.parseStyle
 import io.github.nbcss.wynnlib.utils.warpLines
-import net.minecraft.client.MinecraftClient
 import net.minecraft.item.ItemStack
-import net.minecraft.text.CharacterVisitor
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
