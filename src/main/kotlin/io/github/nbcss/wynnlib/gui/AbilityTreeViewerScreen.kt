@@ -218,8 +218,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             !isOverViewer(mouseX, mouseY) || !isOverNode(
                 toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
         }
-        renderEdges(inactive, matrices!!, BASIC_OUTER_COLOR, false)
-        renderEdges(inactive, matrices, BASIC_INNER_COLOR, true)
+        renderEdges(inactive, matrices!!, LOCKED_OUTER_COLOR, false)
+        renderEdges(inactive, matrices, LOCKED_INNER_COLOR, true)
         //render active edges
         val active = tree.getAbilities().filter {
             isOverViewer(mouseX, mouseY) && isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
