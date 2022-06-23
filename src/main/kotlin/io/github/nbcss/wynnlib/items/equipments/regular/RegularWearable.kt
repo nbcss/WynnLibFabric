@@ -4,7 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
 import io.github.nbcss.wynnlib.items.equipments.Wearable
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_HEALTH
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_HEALTH
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import io.github.nbcss.wynnlib.utils.signed

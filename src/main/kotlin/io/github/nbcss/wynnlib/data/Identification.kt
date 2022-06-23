@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.data
 
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.Version
 import java.util.*

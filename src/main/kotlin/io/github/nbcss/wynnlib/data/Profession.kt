@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.data
 
-import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.i18n.Translatable
 import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text

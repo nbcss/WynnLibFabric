@@ -1,6 +1,6 @@
-package io.github.nbcss.wynnlib.lang
+package io.github.nbcss.wynnlib.i18n
 
-import io.github.nbcss.wynnlib.lang.Translatable.Companion.from
+import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 
 object Translations {
     val UI_EQUIPMENTS: Translatable = from("wynnlib.ui.equipments")

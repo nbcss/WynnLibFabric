@@ -1,8 +1,8 @@
 package io.github.nbcss.wynnlib.abilities
 
 import io.github.nbcss.wynnlib.data.CharacterClass
-import io.github.nbcss.wynnlib.lang.Translatable
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_ABILITIES
+import io.github.nbcss.wynnlib.i18n.Translatable
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ARCHETYPE_ABILITIES
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed

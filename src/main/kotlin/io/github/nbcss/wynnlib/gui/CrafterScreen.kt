@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.gui
 
-import io.github.nbcss.wynnlib.lang.Translations
+import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack

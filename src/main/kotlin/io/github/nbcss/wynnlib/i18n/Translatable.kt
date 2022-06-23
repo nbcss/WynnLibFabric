@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.lang
+package io.github.nbcss.wynnlib.i18n
 
 import net.minecraft.text.TranslatableText
 

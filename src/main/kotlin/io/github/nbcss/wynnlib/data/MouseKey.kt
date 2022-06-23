@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.data
 
-import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.i18n.Translatable
 
 enum class MouseKey: Translatable {
     LEFT, RIGHT;

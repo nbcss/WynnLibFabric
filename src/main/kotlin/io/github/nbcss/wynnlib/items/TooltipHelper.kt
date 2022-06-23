@@ -2,12 +2,12 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Skill
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_CLASS_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_COMBAT_LV_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_SLOTS
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_QUEST_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_TO
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CLASS_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_COMBAT_LV_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SLOTS
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_QUEST_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers

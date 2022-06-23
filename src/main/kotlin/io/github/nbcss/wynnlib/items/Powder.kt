@@ -4,11 +4,11 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.Skill
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURABILITY
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_ARMOUR
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_CRAFTING
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_WEAPON
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_MODIFIER
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_DURABILITY
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_ARMOUR
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_CRAFTING
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_WEAPON
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_MODIFIER
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
