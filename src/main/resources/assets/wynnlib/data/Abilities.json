@@ -107,22 +107,6 @@
       ]
     },
     {
-      "id": "HEAVY_IMPACT",
-      "class": "WARRIOR",
-      "height": 6,
-      "position": -2,
-      "tier": 2,
-      "cost": 1,
-      "archetype": null,
-      "dependency": null,
-      "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [
-        "CHARGE"
-      ],
-      "effects": []
-    },
-    {
       "id": "TOUGHER_SKIN",
       "class": "WARRIOR",
       "height": 6,
@@ -143,8 +127,8 @@
     {
       "id": "VEHEMENT",
       "class": "WARRIOR",
-      "height": 7,
-      "position": -4,
+      "height": 6,
+      "position": -2,
       "tier": 1,
       "cost": 1,
       "archetype": "FALLEN",
@@ -154,7 +138,7 @@
       ],
       "archetype_requirements": {},
       "predecessors": [
-        "HEAVY_IMPACT"
+        "CHARGE"
       ],
       "effects": []
     },
@@ -218,6 +202,22 @@
           "container": "SPELL_4"
         }
       ]
+    },
+    {
+      "id": "HEAVY_IMPACT",
+      "class": "WARRIOR",
+      "height": 9,
+      "position": -3,
+      "tier": 2,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "UPPERCUT"
+      ],
+      "effects": []
     },
     {
       "id": "WARRIOR_EARTH_MASTERY",
@@ -508,7 +508,6 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "GENERALIST",
         "COUNTER",
         "SPEAR_PROFICIENCY_II",
         "AERODYNAMICS"
@@ -1093,15 +1092,31 @@
         "BATTLE_MONK": 12
       },
       "predecessors": [
-        "THUNDERCLAP"
+        "CYCLONE"
+      ],
+      "effects": []
+    },
+    {
+      "id": "CYCLONE",
+      "class": "WARRIOR",
+      "height": 28,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "BATTLE_MONK",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SPIRIT_OF_THE_RABBIT"
       ],
       "effects": []
     },
     {
       "id": "THUNDERCLAP",
       "class": "WARRIOR",
-      "height": 28,
-      "position": 0,
+      "height": 29,
+      "position": 1,
       "tier": 2,
       "cost": 2,
       "archetype": "BATTLE_MONK",
@@ -1111,23 +1126,7 @@
         "BATTLE_MONK": 8
       },
       "predecessors": [
-        "SPIRIT_OF_THE_RABBIT"
-      ],
-      "effects": []
-    },
-    {
-      "id": "CYCLONE",
-      "class": "WARRIOR",
-      "height": 29,
-      "position": 1,
-      "tier": 2,
-      "cost": 2,
-      "archetype": "BATTLE_MONK",
-      "dependency": null,
-      "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [
-        "THUNDERCLAP"
+        "CYCLONE"
       ],
       "effects": []
     },

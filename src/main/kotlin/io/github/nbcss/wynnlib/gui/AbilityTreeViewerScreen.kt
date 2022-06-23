@@ -217,7 +217,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 if (isOverNode(node, mouseX, mouseY)){
-                    drawTooltip(matrices, ability.getTooltip(), mouseX, mouseY)
+                    drawTooltip(matrices, ability.getTooltip(), mouseX, mouseY + 20)
                     break
                 }
             }
