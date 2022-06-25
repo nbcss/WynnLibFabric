@@ -1,8 +1,8 @@
 package io.github.nbcss.wynnlib.data
 
 import io.github.nbcss.wynnlib.i18n.Translatable
-import io.github.nbcss.wynnlib.utils.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.ItemFactory
+import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
 import java.util.*

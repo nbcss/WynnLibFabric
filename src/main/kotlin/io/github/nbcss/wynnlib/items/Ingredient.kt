@@ -101,7 +101,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
             val meta = if (sprite.has("damage")) sprite["damage"].asInt else 0
             ItemFactory.fromLegacyId(id, meta)
         } else {
-            ERROR_ITEM
+            ItemFactory.ERROR_ITEM
         }
     }
 

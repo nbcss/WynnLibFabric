@@ -7,8 +7,8 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CRAFTING_MAT
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_GATHERING_LV_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_MATERIAL_RECIPES
 import io.github.nbcss.wynnlib.utils.Color
-import io.github.nbcss.wynnlib.utils.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.ItemFactory
+import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText

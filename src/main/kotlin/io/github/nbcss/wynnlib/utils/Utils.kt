@@ -18,8 +18,6 @@ import java.io.InputStream
 import java.util.*
 import kotlin.collections.ArrayList
 
-val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
-
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
 }
