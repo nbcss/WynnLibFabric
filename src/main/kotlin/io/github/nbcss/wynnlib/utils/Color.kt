@@ -45,6 +45,8 @@ class Color(val red: Int,
                 else -> WHITE
             }
         }
+
+        fun normalize(value: Int): Float = value / 255.0f
     }
     /**
      * Get the color code of the color (without alpha).
@@ -63,4 +65,10 @@ class Color(val red: Int,
     fun getColorCode(alpha: Int): Int {
         return getColorCode() + (alpha shl 24)
     }
+
+    fun floatRed(): Float = normalize(red)
+
+    fun floatGreen(): Float = normalize(green)
+
+    fun floatBlue(): Float = normalize(blue)
 }

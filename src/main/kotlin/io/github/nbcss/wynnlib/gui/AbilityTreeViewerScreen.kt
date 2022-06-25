@@ -6,26 +6,21 @@ import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
+import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Pos
-import net.fabricmc.fabric.api.renderer.v1.Renderer
-import net.fabricmc.fabric.api.renderer.v1.RendererAccess
-import net.fabricmc.fabric.api.renderer.v1.material.RenderMaterial
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.render.RenderLayer
-import net.minecraft.client.render.entity.ArrowEntityRenderer
 import net.minecraft.client.util.math.MatrixStack
-import net.minecraft.item.ArrowItem
 import net.minecraft.item.ItemStack
-import net.minecraft.item.TippedArrowItem
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
+
 
 class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
     private val texture = Identifier("wynnlib", "textures/gui/ability_tree_viewer.png")
@@ -92,7 +87,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         val posX = windowX + 242
         val posY = windowY + 44 + index * 28
         val v = if (tree.character.ordinal == index) 172 else 144
-        renderTexture(matrices, texture, posX, posY, 0, v, 32, 28)
+        RenderKit.renderTexture(matrices, texture, posX, posY, 0, v, 32, 28)
         val character = CharacterClass.values()[index]
         val icon = character.getWeapon().getIcon()
         itemRenderer.renderInGuiWithOverrides(icon, posX + 7, posY + 6)
@@ -156,7 +151,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
         drawCharacterTab(matrices!!, tree.character.ordinal, mouseX, mouseY)
-        renderTexture(matrices, texture, windowX + 4, windowY + 42, 0, 0, 238, 144)
+        RenderKit.renderTexture(matrices, texture, windowX + 4, windowY + 42, 0, 0, 238, 144)
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
@@ -200,12 +195,62 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             ability.getArchetype()?.let {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 val item = ability.getTier().getLockedTexture()
-                val color = Color.fromFormatting(ability.getTier().getFormatting())
-                val itemX = node.x - 8
-                val itemY = node.y - 8
+                val color = Color.fromFormatting(it.getFormatting())
+                val itemX = node.x - 15
+                val itemY = node.y - 15
                 matrices!!.push()
-                val render = RendererAccess.INSTANCE.renderer!!
                 //todo not sure how to make outline item color in 1.18
+                //RenderSystem.enableBlend()
+                //WorldRenderEvents
+                //RenderSystem.texParameter()
+                //RenderSystem.texParameter()
+
+                //RenderSystem.setShader { GameRenderer.getPositionTexColorShader() }
+                //val buffer = Tessellator.getInstance().buffer
+                //buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR)
+                val r = color.red / 255.0f
+                val g = color.green / 255.0f
+                val b = color.blue / 255.0f
+                val tex = Identifier("wynnlib", "textures/gui/tabs.png")
+                //RenderKit.renderTexture(matrices, tex, itemX, itemY, 0, 0, 30, 30, 256, 256)
+                //RenderSystem.enableTexture()
+                //RenderSystem.enableBlend()
+
+                //RenderSystem.setShaderColor(r, g, b, 1.0f)
+                //itemRenderer.renderInGui(item, itemX, itemY - 30)
+                /*RenderSystem.setShader { GameRenderer.getPositionColorTexShader() }
+                val tex = Identifier("wynnlib", "dictionary_slots_base.png")
+                RenderSystem.setShaderTexture(0, tex)
+                RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
+                val buffer = Tessellator.getInstance().buffer
+                buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
+                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat(), itemY.toFloat(), 300.0f)
+                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
+                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat(), itemY.toFloat() + 30, 300.0f)
+                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
+                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat() + 30, itemY.toFloat() + 30, 300.0f)
+                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
+                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat() + 30, itemY.toFloat(), 300.0f)
+                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
+                Tessellator.getInstance().draw()*/
+                //OutlineItemVertexProvider.setColor(color.red, color.green, color.blue, 255)
+                //OutlineItemVertexProvider.renderItem(item, itemX, itemY - 30)
+                //itemRenderer.renderGuiItemIcon(item, itemX, itemY - 30)
+                /*RenderSystem.setShaderTexture(0, texture)
+                buffer.vertex(itemX.toDouble(), itemY.toDouble() + 20, 200.0)
+                    .texture(0.0f, 10.0f)
+                    .color(r, g, b, 1.0f).next()
+                buffer.vertex(itemX.toDouble() + 20, itemY.toDouble() + 20, 200.0)
+                    .texture(10.0f, 10.0f)
+                    .color(r, g, b, 1.0f).next()
+                buffer.vertex(itemX.toDouble() + 20, itemY.toDouble(), 200.0)
+                    .texture(10.0f, 0.0f)
+                    .color(r, g, b, 1.0f).next()
+                buffer.vertex(itemX.toDouble(), itemY.toDouble(), 200.0)
+                    .texture(0.0f, 0.0f)
+                    .color(r, g, b, 1.0f).next()*/
+                //itemRenderer.renderInGui()
+                //buffer.end()
                 matrices.pop()
             }
         }
@@ -229,9 +274,20 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         //render icons
         tree.getAbilities().forEach {
             val node = toScreenPosition(it.getHeight(), it.getPosition())
-            val texture = if (isOverViewer(mouseX, mouseY) && isOverNode(node, mouseX, mouseY))
+            if (it.getTier().getLevel() != 0){
+                it.getArchetype()?.let { arch ->
+                    val color = Color.fromFormatting(arch.getFormatting())
+                    val itemX = node.x - 15
+                    val itemY = node.y - 15
+                    val u = 32 + 30 * (it.getTier().getLevel() - 1)
+                    RenderSystem.enableBlend()
+                    RenderKit.renderTextureWithColor(matrices, texture, color, 165, itemX, itemY,
+                        u, 144, 30, 30, 256, 256)
+                }
+            }
+            val item = if (isOverViewer(mouseX, mouseY) && isOverNode(node, mouseX, mouseY))
                 it.getTier().getActiveTexture() else it.getTier().getUnlockedTexture()
-            itemRenderer.renderInGuiWithOverrides(texture, node.x - 8, node.y - 8)
+            itemRenderer.renderInGuiWithOverrides(item, node.x - 8, node.y - 8)
         }
         RenderSystem.disableScissor()
         //render ability tooltip

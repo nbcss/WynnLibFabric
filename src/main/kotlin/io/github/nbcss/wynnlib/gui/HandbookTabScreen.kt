@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
+import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.GameRenderer
 import net.minecraft.client.util.math.MatrixStack
@@ -61,7 +62,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         renderBackground(matrices)
         drawBackgroundPre(matrices, mouseX, mouseY, delta)
         //render background
-        this.renderTexture(
+        RenderKit.renderTexture(
             matrices, texture, windowX, windowY, 0, 0,
             backgroundWidth, backgroundHeight
         )
@@ -77,7 +78,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
     private fun drawTab(matrices: MatrixStack, tab: TabFactory, tabIndex: Int, mouseX: Int, mouseY: Int) {
         val posX = windowX + 25 + tabIndex * 28
         val u = if (tab.isInstance(this)) 0 else 28
-        this.renderTexture(matrices, texture, posX, windowY, u, 210, 28, 32)
+        RenderKit.renderTexture(matrices, texture, posX, windowY, u, 210, 28, 32)
         itemRenderer.renderInGuiWithOverrides(tab.getTabIcon(), posX + 6, windowY + 9)
         itemRenderer.renderGuiItemOverlay(textRenderer, tab.getTabIcon(), posX + 6, windowY + 9)
         if(isOverTab(tabIndex, mouseX, mouseY)){
@@ -108,7 +109,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         val closeX = windowX + 230
         val closeY = windowY + 32
         RenderSystem.enableDepthTest()
-        this.renderTexture(matrices, texture, closeX, closeY, 56, 210, 10, 10)
+        RenderKit.renderTexture(matrices, texture, closeX, closeY, 56, 210, 10, 10)
         super.render(matrices, mouseX, mouseY, delta)
         drawContents(matrices, mouseX, mouseY, delta)
     }
@@ -120,15 +121,5 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         renderOrderedTooltip(matrices, tooltip.map{it.asOrderedText()}, x, y)
         RenderSystem.enableDepthTest()
         matrices.pop()
-    }
-
-    fun renderTexture(
-        matrices: MatrixStack?, texture: Identifier,
-        x: Int, y: Int, u: Int, v: Int, width: Int, height: Int
-    ) {
-        RenderSystem.setShader { GameRenderer.getPositionTexShader() }
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
-        RenderSystem.setShaderTexture(0, texture)
-        this.drawTexture(matrices, x, y, u, v, width, height)
     }
 }

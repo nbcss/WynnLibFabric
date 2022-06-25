@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.gui
 import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.items.BaseItem
+import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
@@ -75,7 +76,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     override fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackground(matrices, mouseX, mouseY, delta)
-        this.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
+        RenderKit.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
             0, 0, this.backgroundWidth, this.backgroundHeight)
     }
 
