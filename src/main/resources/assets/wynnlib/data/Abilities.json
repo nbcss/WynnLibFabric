@@ -35,7 +35,8 @@
           "property": "RANGE",
           "value": "3"
         }
-      ]
+      ],
+      "tips": []
     },
     {
       "id": "SPEAR_PROFICIENCY_I",
@@ -51,7 +52,8 @@
       "predecessors": [
         "BASH"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_BASH_I",
@@ -67,7 +69,8 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "DOUBLE_BASH",
@@ -83,7 +86,8 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHARGE",
@@ -104,7 +108,8 @@
           "type": "UNLOCK",
           "container": "SPELL_2"
         }
-      ]
+      ],
+      "tips": []
     },
     {
       "id": "TOUGHER_SKIN",
@@ -122,7 +127,8 @@
       "predecessors": [
         "CHARGE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "VEHEMENT",
@@ -140,7 +146,8 @@
       "predecessors": [
         "CHARGE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "UPPERCUT",
@@ -162,7 +169,8 @@
           "type": "UNLOCK",
           "container": "SPELL_3"
         }
-      ]
+      ],
+      "tips": []
     },
     {
       "id": "CHEAPER_CHARGE",
@@ -179,7 +187,8 @@
         "UPPERCUT",
         "WAR_SCREAM"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WAR_SCREAM",
@@ -201,7 +210,8 @@
           "type": "UNLOCK",
           "container": "SPELL_4"
         }
-      ]
+      ],
+      "tips": []
     },
     {
       "id": "HEAVY_IMPACT",
@@ -217,7 +227,8 @@
       "predecessors": [
         "UPPERCUT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WARRIOR_EARTH_MASTERY",
@@ -233,7 +244,8 @@
       "predecessors": [
         "UPPERCUT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
@@ -251,7 +263,8 @@
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
@@ -269,7 +282,8 @@
         "WARRIOR_THUNDER_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
@@ -285,7 +299,8 @@
       "predecessors": [
         "WAR_SCREAM"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
@@ -303,7 +318,8 @@
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "QUADRUPLE_BASH",
@@ -320,7 +336,8 @@
         "WARRIOR_EARTH_MASTERY",
         "FIREWORKS"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FIREWORKS",
@@ -337,7 +354,8 @@
         "QUADRUPLE_BASH",
         "WARRIOR_THUNDER_MASTERY"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FLYBY_JAB",
@@ -354,7 +372,8 @@
         "WARRIOR_AIR_MASTERY",
         "FLAMING_UPPERCUT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FLAMING_UPPERCUT",
@@ -371,7 +390,8 @@
         "WARRIOR_FIRE_MASTERY",
         "FLYBY_JAB"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "HALF_MOON_SWIPE",
@@ -389,7 +409,8 @@
       "predecessors": [
         "WARRIOR_WATER_MASTERY"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "IRON_LUNGS",
@@ -406,7 +427,8 @@
         "FLYBY_JAB",
         "FLAMING_UPPERCUT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "GENERALIST",
@@ -424,7 +446,8 @@
       "predecessors": [
         "COUNTER"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "COUNTER",
@@ -440,7 +463,8 @@
       "predecessors": [
         "HALF_MOON_SWIPE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
@@ -458,7 +482,8 @@
       "predecessors": [
         "IRON_LUNGS"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BAKALS_GRASP",
@@ -477,7 +502,8 @@
         "QUADRUPLE_BASH",
         "FIREWORKS"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SPEAR_PROFICIENCY_II",
@@ -494,7 +520,8 @@
         "BAKALS_GRASP",
         "CHEAPER_UPPERCUT_I"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_UPPERCUT_I",
@@ -512,7 +539,8 @@
         "SPEAR_PROFICIENCY_II",
         "AERODYNAMICS"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "AERODYNAMICS",
@@ -529,7 +557,8 @@
         "CHEAPER_UPPERCUT_I",
         "PROVOKE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "PROVOKE",
@@ -546,7 +575,8 @@
         "MANTLE_OF_THE_BOVEMISTS",
         "AERODYNAMICS"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "PRECISE_STRIKES",
@@ -563,7 +593,8 @@
         "SPEAR_PROFICIENCY_II",
         "CHEAPER_UPPERCUT_I"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "AIR_SHOUT",
@@ -580,7 +611,8 @@
         "AERODYNAMICS",
         "PROVOKE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ENRAGED_BLOW",
@@ -596,7 +628,8 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_II"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FLYING_KICK",
@@ -615,7 +648,8 @@
         "CHEAPER_UPPERCUT_I",
         "STRONGER_MANTLE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "STRONGER_MANTLE",
@@ -632,7 +666,8 @@
         "FLYING_KICK",
         "MANACHISM"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MANACHISM",
@@ -651,7 +686,8 @@
         "STRONGER_MANTLE",
         "PROVOKE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BOILING_BLOOD",
@@ -668,7 +704,8 @@
         "ENRAGED_BLOW",
         "RAGNAROKKR"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "RAGNAROKKR",
@@ -685,7 +722,8 @@
         "BOILING_BLOOD",
         "FLYING_KICK"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "AMBIDEXTROUS",
@@ -703,7 +741,8 @@
         "STRONGER_MANTLE",
         "BURNING_HEART"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BURNING_HEART",
@@ -720,7 +759,8 @@
         "AMBIDEXTROUS",
         "STRONGER_BASH"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "STRONGER_BASH",
@@ -737,7 +777,8 @@
         "BURNING_HEART",
         "MANACHISM"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "INTOXICATING_BLOOD",
@@ -756,7 +797,8 @@
         "BOILING_BLOOD",
         "RAGNAROKKR"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "COLLIDE",
@@ -775,7 +817,8 @@
         "AMBIDEXTROUS",
         "BURNING_HEART"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "REJUVENATING_SKIN",
@@ -794,7 +837,8 @@
         "BURNING_HEART",
         "STRONGER_BASH"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "COMET",
@@ -810,7 +854,8 @@
       "predecessors": [
         "RAGNAROKKR"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "UNCONTAINABLE_CORRUPTION",
@@ -827,7 +872,8 @@
         "BOILING_BLOOD",
         "RADIANT_DEVOTEE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "RADIANT_DEVOTEE",
@@ -846,7 +892,8 @@
         "UNCONTAINABLE_CORRUPTION",
         "WHIRLWIND_STRIKE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WHIRLWIND_STRIKE",
@@ -865,7 +912,8 @@
         "RADIANT_DEVOTEE",
         "AMBIDEXTROUS"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MYTHRIL_SKIN",
@@ -883,7 +931,8 @@
       "predecessors": [
         "REJUVENATING_SKIN"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARMOUR_BREAKER",
@@ -900,7 +949,8 @@
         "UNCONTAINABLE_CORRUPTION",
         "RADIANT_DEVOTEE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SHIELD_STRIKE",
@@ -916,7 +966,8 @@
       "predecessors": [
         "MYTHRIL_SKIN"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SPARKLING_HOPE",
@@ -932,7 +983,8 @@
       "predecessors": [
         "MYTHRIL_SKIN"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MASSIVE_BASH",
@@ -951,7 +1003,8 @@
         "UNCONTAINABLE_CORRUPTION",
         "TEMPEST"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "TEMPEST",
@@ -968,7 +1021,8 @@
         "MASSIVE_BASH",
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SPIRIT_OF_THE_RABBIT",
@@ -987,7 +1041,8 @@
         "TEMPEST",
         "WHIRLWIND_STRIKE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MASSACRE",
@@ -1006,7 +1061,8 @@
         "MASSIVE_BASH",
         "TEMPEST"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "AXE_KICK",
@@ -1023,7 +1079,8 @@
         "TEMPEST",
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "RADIANCE",
@@ -1042,7 +1099,8 @@
         "SPIRIT_OF_THE_RABBIT",
         "CHEAPER_BASH_II"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_BASH_II",
@@ -1060,7 +1118,8 @@
         "SHIELD_STRIKE",
         "SPARKLING_HOPE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_WAR_SCREAM",
@@ -1076,7 +1135,8 @@
       "predecessors": [
         "MASSIVE_BASH"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "DISCOMBOBULATE",
@@ -1094,7 +1154,8 @@
       "predecessors": [
         "CYCLONE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CYCLONE",
@@ -1110,7 +1171,8 @@
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "THUNDERCLAP",
@@ -1128,7 +1190,8 @@
       "predecessors": [
         "CYCLONE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SECOND_CHANCE",
@@ -1146,7 +1209,8 @@
       "predecessors": [
         "CHEAPER_BASH_II"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BLOOD_PACT",
@@ -1164,7 +1228,8 @@
       "predecessors": [
         "CHEAPER_WAR_SCREAM"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "HAEMORRHAGE",
@@ -1180,7 +1245,8 @@
       "predecessors": [
         "BLOOD_PACT"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BRINK_OF_MADNESS",
@@ -1197,7 +1263,8 @@
         "BLOOD_PACT",
         "CHEAPER_UPPERCUT_II"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_UPPERCUT_II",
@@ -1214,7 +1281,8 @@
         "BRINK_OF_MADNESS",
         "SECOND_CHANCE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MARTYR",
@@ -1230,7 +1298,8 @@
       "predecessors": [
         "SECOND_CHANCE"
       ],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARROW_BOMB",
@@ -1244,49 +1313,53 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BOW_PROFICIENCY_I",
       "class": "ARCHER",
       "height": 2,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_ARROW_BOMB_I",
       "class": "ARCHER",
       "height": 2,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "HEART_SHATTER",
       "class": "ARCHER",
       "height": 4,
       "position": 0,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ESCAPE",
@@ -1300,35 +1373,38 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "DOUBLE_SHOTS",
       "class": "ARCHER",
       "height": 6,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "POWER_SHOTS",
       "class": "ARCHER",
       "height": 6,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
-      "archetype": null,
+      "archetype": "SHARPSHOOTER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARROW_STORM",
@@ -1342,21 +1418,23 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_ESCAPE_I",
       "class": "ARCHER",
       "height": 8,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARROW_SHIELD",
@@ -1370,861 +1448,923 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WINDY_FEET",
       "class": "ARCHER",
       "height": 9,
       "position": -3,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARCHER_AIR_MASTERY",
       "class": "ARCHER",
       "height": 10,
       "position": -4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARCHER_THUNDER_MASTERY",
       "class": "ARCHER",
       "height": 10,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARCHER_FIRE_MASTERY",
       "class": "ARCHER",
       "height": 10,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARCHER_EARTH_MASTERY",
       "class": "ARCHER",
       "height": 10,
       "position": 4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARCHER_WATER_MASTERY",
       "class": "ARCHER",
       "height": 11,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARROW_RAIN",
       "class": "ARCHER",
       "height": 12,
       "position": -4,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "NIMBLE_STRING",
       "class": "ARCHER",
       "height": 12,
       "position": -2,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "PHANTOM_RAY",
       "class": "ARCHER",
       "height": 13,
       "position": 0,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FIRE_CREEP",
       "class": "ARCHER",
       "height": 13,
       "position": 2,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BRYOPHYTE_ROOTS",
       "class": "ARCHER",
       "height": 13,
       "position": 4,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "TRIPLE_SHOTS",
       "class": "ARCHER",
       "height": 14,
       "position": -4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FRENZY",
       "class": "ARCHER",
       "height": 14,
       "position": -2,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "GUARDIAN_ANGELS",
       "class": "ARCHER",
       "height": 15,
       "position": -3,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FOCUS",
       "class": "ARCHER",
       "height": 15,
       "position": 0,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BASALTIC_TRAP",
       "class": "ARCHER",
       "height": 15,
       "position": 4,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "WINDSTORM",
       "class": "ARCHER",
       "height": 17,
       "position": -3,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_ARROW_STORM_I",
       "class": "ARCHER",
       "height": 17,
       "position": -1,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "GRAPPLING_HOOK",
       "class": "ARCHER",
       "height": 17,
       "position": 1,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MORE_SHIELDS",
       "class": "ARCHER",
       "height": 17,
       "position": 3,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MORE_FOCUS_I",
       "class": "ARCHER",
       "height": 18,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "IMPLOSION",
       "class": "ARCHER",
       "height": 18,
       "position": 2,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "PATIENT_HUNTER",
       "class": "ARCHER",
       "height": 18,
       "position": 4,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "STORMY_FEET",
       "class": "ARCHER",
       "height": 19,
       "position": -3,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "REFINED_GUNPOWDER",
       "class": "ARCHER",
       "height": 20,
       "position": -4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "TRAVELER",
       "class": "ARCHER",
       "height": 20,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "TWAINS_ARC",
       "class": "ARCHER",
       "height": 20,
       "position": 0,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BOUNCING_BOMB",
       "class": "ARCHER",
       "height": 20,
       "position": 3,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "FIERCE_STOMP",
       "class": "ARCHER",
       "height": 21,
       "position": -3,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SCORCHED_EARTH",
       "class": "ARCHER",
       "height": 21,
       "position": 1,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MORE_TRAPS",
       "class": "ARCHER",
       "height": 21,
       "position": 4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "LEAP",
       "class": "ARCHER",
       "height": 23,
       "position": -4,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "HOMING_SHOTS",
       "class": "ARCHER",
       "height": 23,
       "position": -2,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SHOCKING_BOMB",
       "class": "ARCHER",
       "height": 23,
       "position": 0,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BETTER_ARROW_SHIELD",
       "class": "ARCHER",
       "height": 23,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MANA_TRAP",
       "class": "ARCHER",
       "height": 23,
       "position": 4,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BETTER_LEAP",
       "class": "ARCHER",
       "height": 24,
       "position": -3,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ESCAPE_ARTIST",
       "class": "ARCHER",
       "height": 25,
       "position": -4,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "BETTER_GUARDIAN_ANGELS",
       "class": "ARCHER",
       "height": 25,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "INITIATOR",
       "class": "ARCHER",
       "height": 25,
       "position": 1,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_ARROW_STORM_II",
       "class": "ARCHER",
       "height": 25,
       "position": 4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CALL_OF_THE_HOUND",
       "class": "ARCHER",
       "height": 26,
       "position": 3,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ARROW_HURRICANE",
       "class": "ARCHER",
       "height": 27,
       "position": -4,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "PRECISE_SHOT",
       "class": "ARCHER",
       "height": 27,
       "position": -2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_ARROW_SHIELD",
       "class": "ARCHER",
       "height": 27,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ROCKET_JUMP",
       "class": "ARCHER",
       "height": 27,
       "position": 2,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SHRAPNEL_BOMB",
       "class": "ARCHER",
       "height": 28,
       "position": -3,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "DECIMATOR",
       "class": "ARCHER",
       "height": 28,
       "position": 1,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_ESCAPE_II",
       "class": "ARCHER",
       "height": 28,
       "position": 3,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "STRONGER_HOOK",
       "class": "ARCHER",
       "height": 29,
       "position": 4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "GEYSER_STOMP",
       "class": "ARCHER",
       "height": 30,
       "position": -3,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CREPUSCULAR_RAY",
       "class": "ARCHER",
       "height": 30,
       "position": 0,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "GRAPE_BOMB",
       "class": "ARCHER",
       "height": 30,
       "position": 3,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ELUSIVE",
       "class": "ARCHER",
       "height": 31,
       "position": -4,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "TANGLED_TRAPS",
       "class": "ARCHER",
       "height": 31,
       "position": 2,
-      "tier": 0,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "STRONGER_PATIENT_HUNTER",
       "class": "ARCHER",
       "height": 31,
       "position": 4,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "SNOW_STORM",
       "class": "ARCHER",
       "height": 32,
       "position": -2,
-      "tier": 0,
+      "tier": 3,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MORE_FOCUS_II",
       "class": "ARCHER",
       "height": 32,
       "position": 0,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "ALL_SEEING_PANOPTES",
       "class": "ARCHER",
       "height": 33,
       "position": -3,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "CHEAPER_ARROW_BOMB_II",
       "class": "ARCHER",
       "height": 33,
       "position": 1,
-      "tier": 0,
+      "tier": 1,
       "cost": 0,
       "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     },
     {
       "id": "MINEFIELD",
       "class": "ARCHER",
       "height": 33,
       "position": 3,
-      "tier": 0,
+      "tier": 4,
       "cost": 0,
       "archetype": "TRAPPER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": []
+      "effects": [],
+      "tips": []
     }
   ],
   "version": "1.0.4"

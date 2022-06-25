@@ -16,6 +16,7 @@ import org.slf4j.Logger
 import java.io.IOException
 import java.io.InputStream
 import java.util.*
+import kotlin.collections.ArrayList
 
 val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
 
@@ -65,6 +66,18 @@ fun asColor(text: String): Int {
         return -1
     }
     return color
+}
+
+fun formattingLines(text: String, length: Int, prefix: String): List<Text> {
+    val lines: MutableList<Text> = ArrayList()
+    text.split("//").forEach {
+        if(it == "") {
+            lines.add(LiteralText.EMPTY)
+        }else{
+            warpLines(parseStyle(it, prefix), length).forEach { line -> lines.add(line) }
+        }
+    }
+    return lines
 }
 
 fun warpLines(text: String, length: Int): List<Text> {

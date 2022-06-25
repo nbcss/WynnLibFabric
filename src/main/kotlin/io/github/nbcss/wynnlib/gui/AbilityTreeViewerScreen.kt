@@ -134,7 +134,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
         if (isOverViewer(mouseX.toInt(), mouseY.toInt())){
-            val max = max(0, 4 + (1 + tree.getMaxHeight()) * GRID_SIZE - VIEW_HEIGHT)
+            val max = max(0, 8 + (1 + tree.getMaxHeight()) * GRID_SIZE - VIEW_HEIGHT)
             scroll = MathHelper.clamp(scroll - amount.toInt() * GRID_SIZE, 0, max)
             scrollTicks = SCROLL_FRAMES
         }
@@ -191,69 +191,6 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         }
         val bottom = (viewerY + VIEW_HEIGHT)
         val scale = client!!.window.scaleFactor
-        tree.getAbilities().forEach { ability ->
-            ability.getArchetype()?.let {
-                val node = toScreenPosition(ability.getHeight(), ability.getPosition())
-                val item = ability.getTier().getLockedTexture()
-                val color = Color.fromFormatting(it.getFormatting())
-                val itemX = node.x - 15
-                val itemY = node.y - 15
-                matrices!!.push()
-                //todo not sure how to make outline item color in 1.18
-                //RenderSystem.enableBlend()
-                //WorldRenderEvents
-                //RenderSystem.texParameter()
-                //RenderSystem.texParameter()
-
-                //RenderSystem.setShader { GameRenderer.getPositionTexColorShader() }
-                //val buffer = Tessellator.getInstance().buffer
-                //buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR)
-                val r = color.red / 255.0f
-                val g = color.green / 255.0f
-                val b = color.blue / 255.0f
-                val tex = Identifier("wynnlib", "textures/gui/tabs.png")
-                //RenderKit.renderTexture(matrices, tex, itemX, itemY, 0, 0, 30, 30, 256, 256)
-                //RenderSystem.enableTexture()
-                //RenderSystem.enableBlend()
-
-                //RenderSystem.setShaderColor(r, g, b, 1.0f)
-                //itemRenderer.renderInGui(item, itemX, itemY - 30)
-                /*RenderSystem.setShader { GameRenderer.getPositionColorTexShader() }
-                val tex = Identifier("wynnlib", "dictionary_slots_base.png")
-                RenderSystem.setShaderTexture(0, tex)
-                RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
-                val buffer = Tessellator.getInstance().buffer
-                buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR_TEXTURE)
-                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat(), itemY.toFloat(), 300.0f)
-                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
-                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat(), itemY.toFloat() + 30, 300.0f)
-                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
-                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat() + 30, itemY.toFloat() + 30, 300.0f)
-                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
-                buffer.vertex(matrices.peek().positionMatrix, itemX.toFloat() + 30, itemY.toFloat(), 300.0f)
-                    .color(0x66, 0xCC, 0xFF, 255).texture(0.0f, 0.0f).next()
-                Tessellator.getInstance().draw()*/
-                //OutlineItemVertexProvider.setColor(color.red, color.green, color.blue, 255)
-                //OutlineItemVertexProvider.renderItem(item, itemX, itemY - 30)
-                //itemRenderer.renderGuiItemIcon(item, itemX, itemY - 30)
-                /*RenderSystem.setShaderTexture(0, texture)
-                buffer.vertex(itemX.toDouble(), itemY.toDouble() + 20, 200.0)
-                    .texture(0.0f, 10.0f)
-                    .color(r, g, b, 1.0f).next()
-                buffer.vertex(itemX.toDouble() + 20, itemY.toDouble() + 20, 200.0)
-                    .texture(10.0f, 10.0f)
-                    .color(r, g, b, 1.0f).next()
-                buffer.vertex(itemX.toDouble() + 20, itemY.toDouble(), 200.0)
-                    .texture(10.0f, 0.0f)
-                    .color(r, g, b, 1.0f).next()
-                buffer.vertex(itemX.toDouble(), itemY.toDouble(), 200.0)
-                    .texture(0.0f, 0.0f)
-                    .color(r, g, b, 1.0f).next()*/
-                //itemRenderer.renderInGui()
-                //buffer.end()
-                matrices.pop()
-            }
-        }
         RenderSystem.enableScissor((viewerX * scale).toInt(),
             client!!.window.height - (bottom * scale).toInt(),
             (VIEW_WIDTH * scale).toInt(), (VIEW_HEIGHT * scale).toInt())

@@ -14,10 +14,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_POINTS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ARCHETYPE_TITLE
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
-import io.github.nbcss.wynnlib.utils.ItemFactory
-import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.parseStyle
-import io.github.nbcss.wynnlib.utils.warpLines
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -126,14 +123,8 @@ class Ability(json: JsonObject): Keyed, Translatable {
                     .append(combo[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
             }
         tooltip.add(LiteralText.EMPTY)
-        translate("desc").string.split("//").forEach {
-            if(it == "") {
-                tooltip.add(LiteralText.EMPTY)
-            }else{
-                warpLines(parseStyle(it, Formatting.GRAY.toString()), 190).forEach { line ->
-                    tooltip.add(line)
-                }
-            }
+        formattingLines(translate("desc").string, 190, Formatting.GRAY.toString()).forEach { line ->
+            tooltip.add(line)
         }
         tooltip.add(LiteralText.EMPTY)
         //Add effect tips
