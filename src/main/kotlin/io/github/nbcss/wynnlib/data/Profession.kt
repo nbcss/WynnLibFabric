@@ -38,7 +38,9 @@ enum class Profession(private val type: Type,
         fun fromName(name: String): Profession? = VALUE_MAP[name.uppercase()]
     }
 
-    fun getIconText(): Text = LiteralText(icon).formatted(Formatting.WHITE)
+    fun getIconSymbol(): String = icon
+
+    fun getIconText(): Text = LiteralText(getIconSymbol()).formatted(Formatting.WHITE)
 
     fun getType(): Type = type
 

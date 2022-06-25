@@ -23,12 +23,12 @@ abstract class Registry<T: Keyed> {
 
     open fun reload(array: JsonArray){
         itemMap.clear()
-        array.forEach(Consumer {
+        array.forEach{
             val item = read(it.asJsonObject)
             if (item!= null){
                 put(item)
             }
-        })
+        }
     }
 
     fun put(item: T) {

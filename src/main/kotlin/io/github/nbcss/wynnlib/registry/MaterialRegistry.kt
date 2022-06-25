@@ -1,13 +1,28 @@
 package io.github.nbcss.wynnlib.registry
 
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.items.Material
 
 object MaterialRegistry: Registry<Material>() {
+    private var tier: Material.Tier = Material.Tier.STAR_1
     override fun read(data: JsonObject): Material? = try {
-        Material(Material.Tier.STAR_1, data)
+        Material(tier, data)
     }catch (e: Exception){
         e.printStackTrace()
         null
+    }
+
+    override fun reload(array: JsonArray){
+        itemMap.clear()
+        array.forEach{
+            Material.Tier.values().forEach { tier ->
+                this.tier = tier
+                val item = read(it.asJsonObject)
+                if (item!= null){
+                    put(item)
+                }
+            }
+        }
     }
 }
