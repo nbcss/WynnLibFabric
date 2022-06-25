@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.items.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
+import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
@@ -94,7 +95,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun getIcon(): ItemStack = container!!.getIcon()
 
-    override fun getRarityColor(): Int {
+    override fun getRarityColor(): Color {
         return Settings.getColor("tier", tier.name)
     }
 

@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
+import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
@@ -28,7 +29,7 @@ class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
 
     override fun getDisplayName(): String = displayName
 
-    override fun getRarityColor(): Int {
+    override fun getRarityColor(): Color {
         return Settings.getColor("material_tier", tier.name)
     }
 

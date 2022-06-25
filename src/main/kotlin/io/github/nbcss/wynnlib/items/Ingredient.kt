@@ -176,7 +176,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
 
     override fun getIcon(): ItemStack = texture
 
-    override fun getRarityColor(): Int {
+    override fun getRarityColor(): Color {
         return Settings.getColor("ingredient_tier", tier.name)
     }
 

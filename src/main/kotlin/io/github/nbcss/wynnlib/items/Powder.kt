@@ -62,7 +62,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
 
     override fun getIcon(): ItemStack = texture
 
-    override fun getRarityColor(): Int {
+    override fun getRarityColor(): Color {
         return Settings.getColor("powder_tier", tier.name)
     }
 
