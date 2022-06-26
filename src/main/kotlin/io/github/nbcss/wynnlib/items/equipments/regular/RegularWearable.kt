@@ -31,14 +31,14 @@ abstract class RegularWearable(protected val parent: RegularEquipment, json: Jso
         val lastSize: Int = tooltip.size
         if (health != 0) {
             val text = LiteralText(": " + signed(health)).formatted(Formatting.DARK_RED)
-            val prefix = TOOLTIP_HEALTH.translate().formatted(Formatting.DARK_RED)
+            val prefix = TOOLTIP_HEALTH.formatted(Formatting.DARK_RED)
             tooltip.add(prefix.append(text))
         }
         Element.values().forEach {
             val value: Int = getElementDefence(it)
             if (value != 0) {
                 val text = LiteralText(": " + signed(value)).formatted(Formatting.GRAY)
-                val prefix = it.translate("tooltip.defence").formatted(Formatting.GRAY)
+                val prefix = it.formatted(Formatting.GRAY, "tooltip.defence")
                 tooltip.add(prefix.append(text))
             }
         }

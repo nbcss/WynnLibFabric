@@ -75,13 +75,13 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
         val prefix = LiteralText("- ")
         tooltip.add(prefix.copy().formatted(element.altColor)
             .append(LiteralText("+${minDamageBonus}-${maxDamageBonus} ").formatted(Formatting.GRAY))
-            .append(element.translate("tooltip.damage").formatted(Formatting.GRAY)))
+            .append(element.formatted(Formatting.GRAY, "tooltip.damage")))
         //fixme the convert rate display with translate
         tooltip.add(prefix.copy().formatted(element.altColor)
             .append(LiteralText("+${convertRate}% ").formatted(Formatting.GRAY))
             .append(LiteralText("\u2723 Neutral").formatted(Formatting.GOLD))
             .append(LiteralText(" to ").formatted(Formatting.GRAY))
-            .append(element.translate("tooltip.damage").formatted(Formatting.GRAY)))
+            .append(element.formatted(Formatting.GRAY, "tooltip.damage")))
         if (tier.index() >= 4){
             //todo add spec
         }
@@ -90,10 +90,10 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
             .append(LiteralText(":").formatted(element.altColor)))
         tooltip.add(prefix.copy().formatted(element.altColor)
             .append(LiteralText("+${defenceBonus} ").formatted(Formatting.GRAY))
-            .append(element.translate("tooltip.defence").formatted(Formatting.GRAY)))
+            .append(element.formatted(Formatting.GRAY, "tooltip.defence")))
         tooltip.add(prefix.copy().formatted(element.altColor)
             .append(LiteralText("$defencePenalty ").formatted(Formatting.GRAY))
-            .append(oppoElem.translate("tooltip.defence").formatted(Formatting.GRAY)))
+            .append(oppoElem.formatted(Formatting.GRAY, "tooltip.defence")))
         if (tier.index() >= 4){
             //todo add spec
         }
