@@ -223,6 +223,10 @@ enum class EquipmentType(private val id: String,
         return "wynnlib.item_type.${getKey().lowercase(Locale.getDefault())}"
     }
 
+    open fun asCraftedType(): CraftedType? {
+        return null
+    }
+
     fun getTexture(key: String): ItemStack {
         val texture: ItemStack? = textureMap[key.lowercase(Locale.getDefault())]
         return (texture ?: getIcon()).copy()
