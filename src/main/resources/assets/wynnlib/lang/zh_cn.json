@@ -477,5 +477,17 @@
   "wynnlib.ability.name.cheaper_arrow_bomb_ii": "Cheaper Arrow Bomb",
   "wynnlib.ability.desc.cheaper_arrow_bomb_ii": "???",
   "wynnlib.ability.name.minefield": "Minefield",
-  "wynnlib.ability.desc.minefield": "???"
+  "wynnlib.ability.desc.minefield": "???",
+  "wynnlib.tooltip.powder.convert_neutral": "6{✣ Neutral} to ",
+  "wynnlib.tooltip.powder.special": "Spec",
+  "wynnlib.powder_spec.quake": "Quake",
+  "wynnlib.powder_spec.chain_lighting": "Chain Lighting",
+  "wynnlib.powder_spec.curse": "Curse",
+  "wynnlib.powder_spec.courage": "Courage",
+  "wynnlib.powder_spec.wind_prison": "Wind Prison",
+  "wynnlib.powder_spec.rage": "Rage",
+  "wynnlib.powder_spec.kill_streak": "Kill Streak",
+  "wynnlib.powder_spec.concentration": "Concentration",
+  "wynnlib.powder_spec.endurance": "Endurance",
+  "wynnlib.powder_spec.dodge": "Dodge"
 }

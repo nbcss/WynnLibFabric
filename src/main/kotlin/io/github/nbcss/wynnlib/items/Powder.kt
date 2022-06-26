@@ -3,10 +3,13 @@ package io.github.nbcss.wynnlib.items
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.Element
+import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_DURABILITY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_ARMOUR
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_CONVERT
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_CRAFTING
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SPECIAL
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_WEAPON
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_MODIFIER
 import io.github.nbcss.wynnlib.utils.*
@@ -54,6 +57,10 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
         }
     }
 
+    fun getTier(): Tier = tier
+
+    fun getElement(): Element = element
+
     override fun getKey(): String = name
 
     override fun getDisplayText(): Text = LiteralText(displayName).formatted(element.color)
@@ -76,14 +83,17 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
         tooltip.add(prefix.copy().formatted(element.altColor)
             .append(LiteralText("+${minDamageBonus}-${maxDamageBonus} ").formatted(Formatting.GRAY))
             .append(element.formatted(Formatting.GRAY, "tooltip.damage")))
-        //fixme the convert rate display with translate
         tooltip.add(prefix.copy().formatted(element.altColor)
             .append(LiteralText("+${convertRate}% ").formatted(Formatting.GRAY))
-            .append(LiteralText("\u2723 Neutral").formatted(Formatting.GOLD))
-            .append(LiteralText(" to ").formatted(Formatting.GRAY))
+            .append(TOOLTIP_POWDER_CONVERT.formatted(Formatting.GRAY))
             .append(element.formatted(Formatting.GRAY, "tooltip.damage")))
         if (tier.index() >= 4){
-            //todo add spec
+            val spec = PowderSpecial.fromWeaponElement(element)
+            tooltip.add(prefix.copy().formatted(element.altColor)
+                .append(LiteralText("+").formatted(Formatting.GRAY))
+                .append(TOOLTIP_POWDER_SPECIAL.formatted(Formatting.GRAY))
+                .append(LiteralText(": ").formatted(Formatting.GRAY))
+                .append(spec.formatted(element.color)))
         }
         tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_POWDER_ARMOUR.translate().formatted(element.altColor)
@@ -95,7 +105,12 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
             .append(LiteralText("$defencePenalty ").formatted(Formatting.GRAY))
             .append(oppoElem.formatted(Formatting.GRAY, "tooltip.defence")))
         if (tier.index() >= 4){
-            //todo add spec
+            val spec = PowderSpecial.fromArmourElement(element)
+            tooltip.add(prefix.copy().formatted(element.altColor)
+                .append(LiteralText("+").formatted(Formatting.GRAY))
+                .append(TOOLTIP_POWDER_SPECIAL.formatted(Formatting.GRAY))
+                .append(LiteralText(": ").formatted(Formatting.GRAY))
+                .append(spec.formatted(element.color)))
         }
         if(durability != 0.0 || skillMap.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
