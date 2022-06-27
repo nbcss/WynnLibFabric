@@ -1149,7 +1149,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "BATTLE_MONK": 12
+        "BATTLE_MONK": 11
       },
       "predecessors": [
         "CYCLONE"
@@ -1327,7 +1327,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_BOMB"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1342,7 +1344,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BOW_PROFICIENCY_I"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1357,7 +1361,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BOW_PROFICIENCY_I"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1372,7 +1378,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HEART_SHATTER"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1387,7 +1395,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ESCAPE"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1402,7 +1412,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ESCAPE"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1417,7 +1429,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DOUBLE_SHOTS",
+        "CHEAPER_ESCAPE_I"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1432,7 +1447,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_STORM",
+        "ARROW_SHIELD"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1447,7 +1465,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "POWER_SHOTS",
+        "CHEAPER_ESCAPE_I"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1462,7 +1483,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_STORM"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1473,11 +1496,13 @@
       "position": -4,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_STORM"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1488,11 +1513,15 @@
       "position": -2,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_STORM",
+        "CHEAPER_ESCAPE_I",
+        "ARCHER_FIRE_MASTERY"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1503,11 +1532,15 @@
       "position": 2,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
+      "archetype": "SHARPSHOOTER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_SHIELD",
+        "CHEAPER_ESCAPE_I",
+        "ARCHER_THUNDER_MASTERY"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1518,11 +1551,13 @@
       "position": 4,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
+      "archetype": "TRAPPER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_SHIELD"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1533,11 +1568,15 @@
       "position": 0,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
+      "archetype": "SHARPSHOOTER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARCHER_THUNDER_MASTERY",
+        "CHEAPER_ESCAPE_I",
+        "ARCHER_FIRE_MASTERY"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1552,7 +1591,10 @@
       "dependency": "ARROW_SHIELD",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARCHER_AIR_MASTERY",
+        "NIMBLE_STRING"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1564,10 +1606,13 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ARROW_STORM",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARCHER_THUNDER_MASTERY",
+        "ARROW_RAIN"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1579,10 +1624,13 @@
       "tier": 3,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ARROW_STORM",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARCHER_WATER_MASTERY",
+        "FIRE_CREEP"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1597,7 +1645,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "PHANTOM_RAY",
+        "ARCHER_FIRE_MASTERY",
+        "BRYOPHYTE_ROOTS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1608,13 +1660,16 @@
       "position": 4,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "TRAPPER",
+      "dependency": "ARROW_STORM",
       "blocks": [],
       "archetype_requirements": {
         "TRAPPER": 2
       },
-      "predecessors": [],
+      "predecessors": [
+        "ARCHER_EARTH_MASTERY",
+        "FIRE_CREEP"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1625,11 +1680,14 @@
       "position": -4,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "BOLTSLINGER",
+      "dependency": "DOUBLE_SHOTS",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_RAIN",
+        "FRENZY"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1640,11 +1698,14 @@
       "position": -2,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "NIMBLE_STRING",
+        "TRIPLE_SHOTS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1655,13 +1716,16 @@
       "position": -3,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "BOLTSLINGER",
+      "dependency": "ARROW_SHIELD",
       "blocks": [],
       "archetype_requirements": {
         "BOLTSLINGER": 3
       },
-      "predecessors": [],
+      "predecessors": [
+        "TRIPLE_SHOTS",
+        "FRENZY"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1672,13 +1736,15 @@
       "position": 0,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
+      "archetype": "SHARPSHOOTER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
         "SHARPSHOOTER": 2
       },
-      "predecessors": [],
+      "predecessors": [
+        "PHANTOM_RAY"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1689,13 +1755,15 @@
       "position": 4,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
+      "archetype": "TRAPPER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
         "TRAPPER": 10
       },
-      "predecessors": [],
+      "predecessors": [
+        "BRYOPHYTE_ROOTS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1710,7 +1778,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "GUARDIAN_ANGELS",
+        "CHEAPER_ARROW_STORM_I"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1725,7 +1796,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "WINDSTORM",
+        "FOCUS",
+        "GRAPPLING_HOOK"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1736,11 +1811,15 @@
       "position": 1,
       "tier": 3,
       "cost": 2,
-      "archetype": null,
+      "archetype": "TRAPPER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_ARROW_STORM_I",
+        "FOCUS",
+        "MORE_SHIELDS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1752,10 +1831,13 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ARROW_SHIELD",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "GRAPPLING_HOOK",
+        "BASALTIC_TRAP"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1766,11 +1848,14 @@
       "position": 0,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "FOCUS",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_ARROW_STORM_I",
+        "GRAPPLING_HOOK"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1781,11 +1866,14 @@
       "position": 2,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
+      "archetype": "TRAPPER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "GRAPPLING_HOOK",
+        "MORE_SHIELDS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1796,11 +1884,13 @@
       "position": 4,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "TRAPPER",
+      "dependency": "BASALTIC TRAP",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MORE_SHIELDS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1811,11 +1901,13 @@
       "position": -3,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "BOLTSLINGER",
+      "dependency": "WINDY_FEET",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "WINDSTORM"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1830,7 +1922,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "WINDSTORM",
+        "TRAVELER"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1845,7 +1940,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "REFINED_GUNPOWDER",
+        "TWAINS_ARC"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1856,11 +1954,16 @@
       "position": 0,
       "tier": 3,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "FOCUS",
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "SHARPSHOOTER": 4
+      },
+      "predecessors": [
+        "TRAVELER",
+        "MORE_FOCUS_I"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1875,7 +1978,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MORE_SHIELDS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1886,11 +1991,14 @@
       "position": -3,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "REFINED_GUNPOWDER",
+        "TRAVELER"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1901,11 +2009,13 @@
       "position": 1,
       "tier": 2,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "FIRE_CREEP",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "TWAINS_ARC"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1916,11 +2026,13 @@
       "position": 4,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "TRAPPER",
+      "dependency": "BASALTIC_TRAP",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BOUNCING_BOMB"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1931,11 +2043,16 @@
       "position": -4,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "BOLTSLINGER": 5
+      },
+      "predecessors": [
+        "REFINED_GUNPOWDER",
+        "HOMING_SHOTS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1946,11 +2063,14 @@
       "position": -2,
       "tier": 3,
       "cost": 2,
-      "archetype": null,
+      "archetype": "SHARPSHOOTER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "LEAP",
+        "SHOCKING_BOMB"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1961,11 +2081,17 @@
       "position": 0,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "ARROW_BOMB",
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "SHARPSHOOTER": 5
+      },
+      "predecessors": [
+        "HOMING_SHOTS",
+        "TWAINS_ARC",
+        "BETTER_ARROW_SHIELD"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1976,11 +2102,15 @@
       "position": 2,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "ARROW_SHIELD",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHOCKING_BOMB",
+        "TWAINS_ARC",
+        "MANA_TRAP"
+      ],
       "effects": [],
       "tips": []
     },
@@ -1991,11 +2121,16 @@
       "position": 4,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
+      "archetype": "TRAPPER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "TRAPPER": 5
+      },
+      "predecessors": [
+        "BETTER_ARROW_SHIELD",
+        "MORE_TRAPS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2006,11 +2141,14 @@
       "position": -3,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "BOLTSLINGER",
+      "dependency": "LEAP",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "LEAP",
+        "HOMING_SHOTS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2025,7 +2163,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "LEAP",
+        "BETTER_GUARDIAN_ANGELS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2036,11 +2177,14 @@
       "position": -2,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "BOLTSLINGER",
+      "dependency": "GUARDIAN_ANGELS",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ESCAPE_ARTIST",
+        "HOMING_SHOTS"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2051,11 +2195,17 @@
       "position": 1,
       "tier": 3,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "FOCUS",
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "SHARPSHOOTER": 5
+      },
+      "predecessors": [
+        "SHOCKING_BOMB",
+        "BETTER_ARROW_SHIELD",
+        "CHEAPER_ARROW_STORM_II"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2070,7 +2220,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "INITIATOR",
+        "MANA_TRAP"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2081,11 +2234,14 @@
       "position": 3,
       "tier": 3,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "TRAPPER",
+      "dependency": "ARROW_SHIELD",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "INITIATOR",
+        "CHEAPER_ARROW_STORM_II"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2096,11 +2252,16 @@
       "position": -4,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "BOLTSLINGER": 8
+      },
+      "predecessors": [
+        "ESCAPE_ARTIST",
+        "PRECISE_SHOT"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2115,7 +2276,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ARROW_HURRICANE",
+        "BETTER_GUARDIAN_ANGELS",
+        "CHEAPER_ARROW_SHIELD"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2130,7 +2295,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "PRECISE_SHOT",
+        "INITIATOR"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2142,10 +2310,13 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ARROW_BOMB",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "INITIATOR",
+        "CHEAPER_ARROW_STORM_II"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2156,11 +2327,16 @@
       "position": -3,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "BOLTSLINGER": 8
+      },
+      "predecessors": [
+        "ARROW_HURRICANE",
+        "PRECISE_SHOT"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2171,11 +2347,14 @@
       "position": 1,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "PHANTOM_RAY",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_ARROW_SHIELD",
+        "CHEAPER_ESCAPE_II"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2190,7 +2369,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DECIMATOR",
+        "CALL_OF_THE_HOUND"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2201,11 +2383,15 @@
       "position": 4,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "TRAPPER",
+      "dependency": "GRAPPLING_HOOK",
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "TRAPPER": 5
+      },
+      "predecessors": [
+        "CHEAPER_ESCAPE_II"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2217,10 +2403,12 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "FIERCE_STOMP",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHRAPNEL_BOMB"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2231,11 +2419,15 @@
       "position": 0,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "ARROW_STORM",
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "SHARPSHOOTER": 10
+      },
+      "predecessors": [
+        "CHEAPER_ARROW_SHIELD"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2250,7 +2442,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_ESCAPE_II"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2261,11 +2455,13 @@
       "position": -4,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
+      "archetype": "BOLTSLINGER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "GEYSER_STOMP"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2276,11 +2472,13 @@
       "position": 2,
       "tier": 2,
       "cost": 2,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "TRAPPER",
+      "dependency": "BASALTIC_TRAP",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "GRAPE_BOMB"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2291,11 +2489,13 @@
       "position": 4,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "TRAPPER",
+      "dependency": "PATIENT_HUNTER",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "GRAPE_BOMB"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2310,7 +2510,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "GEYSER_STOMP",
+        "MORE_FOCUS_II"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2321,11 +2524,14 @@
       "position": 0,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
-      "dependency": null,
+      "archetype": "SHARPSHOOTER",
+      "dependency": "FOCUS",
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SNOW_STORM",
+        "CREPUSCULAR_RAY"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2337,10 +2543,14 @@
       "tier": 4,
       "cost": 2,
       "archetype": "BOLTSLINGER",
-      "dependency": null,
+      "dependency": "GUARDIAN_ANGELS",
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "BOLTSLINGER": 11
+      },
+      "predecessors": [
+        "SNOW_STORM"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2355,7 +2565,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MORE_FOCUS_II",
+        "MINEFIELD"
+      ],
       "effects": [],
       "tips": []
     },
@@ -2367,10 +2580,15 @@
       "tier": 4,
       "cost": 2,
       "archetype": "TRAPPER",
-      "dependency": null,
+      "dependency": "BASALTIC_TRAPS",
       "blocks": [],
-      "archetype_requirements": {},
-      "predecessors": [],
+      "archetype_requirements": {
+        "TRAPPER": 10
+      },
+      "predecessors": [
+        "CHEAPER_ARROW_BOMB_II",
+        "GRAPE_BOMB"
+      ],
       "effects": [],
       "tips": []
     }
