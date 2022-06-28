@@ -1393,7 +1393,9 @@
       "cost": 1,
       "archetype": "BOLTSLINGER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "POWER_SHOTS"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "ESCAPE"
@@ -1410,7 +1412,9 @@
       "cost": 1,
       "archetype": "SHARPSHOOTER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "DOUBLE_SHOTS"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "ESCAPE"
@@ -1607,7 +1611,9 @@
       "cost": 2,
       "archetype": null,
       "dependency": "ARROW_STORM",
-      "blocks": [],
+      "blocks": [
+        "PHANTOM_RAY"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "ARCHER_THUNDER_MASTERY",
@@ -1625,7 +1631,11 @@
       "cost": 2,
       "archetype": null,
       "dependency": "ARROW_STORM",
-      "blocks": [],
+      "blocks": [
+        "WINDSTORM",
+        "NIMBLE_STRING",
+        "ARROW_HURRICANE"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "ARCHER_WATER_MASTERY",
@@ -1776,7 +1786,9 @@
       "cost": 2,
       "archetype": null,
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "PHANTOM_RAY"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "GUARDIAN_ANGELS",
@@ -1813,7 +1825,9 @@
       "cost": 2,
       "archetype": "TRAPPER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "ESCAPE_ARTIST"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "CHEAPER_ARROW_STORM_I",
@@ -2161,7 +2175,9 @@
       "cost": 2,
       "archetype": null,
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "GRAPPLING_HOOK"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "LEAP",
@@ -2254,7 +2270,9 @@
       "cost": 2,
       "archetype": "BOLTSLINGER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "PHANTOM_RAY"
+      ],
       "archetype_requirements": {
         "BOLTSLINGER": 8
       },
