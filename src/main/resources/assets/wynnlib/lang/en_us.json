@@ -251,7 +251,7 @@
   "wynnlib.ability.name.flaming_uppercut": "Flaming Uppercut",
   "wynnlib.ability.desc.flaming_uppercut": "n{Uppercut} will light mobs on fire, dealing damage every f{0.6} seconds.",
   "wynnlib.ability.name.half_moon_swipe": "Half-Moon Swipe",
-  "wynnlib.ability.desc.half_moon_swipe": "n{Uppercut} will deal a footsweep attack at a longer and wider angle. All elemental conversions become b{\u2749} Watier.",
+  "wynnlib.ability.desc.half_moon_swipe": "n{Uppercut} will deal a footsweep attack at a longer and wider angle. All elemental conversions become b{\u2749} Water.",
   "wynnlib.ability.name.iron_lungs": "Iron Lungs",
   "wynnlib.ability.desc.iron_lungs": "n{War Scream} deal more damage.",
   "wynnlib.ability.name.generalist": "Generalist",
