@@ -209,6 +209,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         renderEdges(active, matrices, ACTIVE_OUTER_COLOR, false)
         renderEdges(active, matrices, ACTIVE_INNER_COLOR, true)
         //render icons
+        val locked = HashSet(active.map { it.getBlockAbilities() }.flatten())
         tree.getAbilities().forEach {
             val node = toScreenPosition(it.getHeight(), it.getPosition())
             if (it.getTier().getLevel() != 0){
@@ -222,8 +223,13 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
                         u, 144, 30, 30, 256, 256)
                 }
             }
-            val item = if (isOverViewer(mouseX, mouseY) && isOverNode(node, mouseX, mouseY))
-                it.getTier().getActiveTexture() else it.getTier().getUnlockedTexture()
+            val item = if (it in locked){
+                it.getTier().getLockedTexture()
+            }else if (isOverViewer(mouseX, mouseY) && isOverNode(node, mouseX, mouseY)){
+                it.getTier().getActiveTexture()
+            }else{
+                it.getTier().getUnlockedTexture()
+            }
             itemRenderer.renderInGuiWithOverrides(item, node.x - 8, node.y - 8)
         }
         RenderSystem.disableScissor()
