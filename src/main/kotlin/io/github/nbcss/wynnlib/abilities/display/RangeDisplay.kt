@@ -9,7 +9,7 @@ import net.minecraft.util.Formatting
 
 object RangeDisplay: EffectDisplay {
     override fun getTooltip(provider: PropertyProvider): List<Text> {
-        RangeProperty.read(provider)?.let {
+        RangeProperty.getValue(provider)?.let {
             val value = (if(it <= 1) Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS)
                 .formatted(Formatting.WHITE, null, if (it % 1.0 != 0.0) it else it.toInt())
             return listOf(Symbol.RANGE.asText().append(" ")

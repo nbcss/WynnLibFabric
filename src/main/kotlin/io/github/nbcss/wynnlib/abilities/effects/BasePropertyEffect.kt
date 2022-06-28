@@ -1,13 +1,14 @@
 package io.github.nbcss.wynnlib.abilities.effects
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import net.minecraft.text.Text
 
-class PropertyHolderEffect(json: JsonObject): AbilityEffect {
+class BasePropertyEffect(json: JsonObject): AbilityEffect {
     companion object {
         val FACTORY = object: AbilityEffect.Factory {
             override fun create(properties: JsonObject): AbilityEffect {
-                return PropertyHolderEffect(properties)
+                return BasePropertyEffect(properties)
             }
         }
     }
@@ -15,7 +16,7 @@ class PropertyHolderEffect(json: JsonObject): AbilityEffect {
     private val properties: MutableMap<String, String> = HashMap()
     init {
         for (entry in json.entrySet()) {
-            properties[entry.key] = entry.value.asString
+            properties[entry.key] = AbilityProperty.encode(entry.key, entry.value)
         }
     }
 
@@ -24,6 +25,10 @@ class PropertyHolderEffect(json: JsonObject): AbilityEffect {
     }
 
     override fun getProperty(key: String): String {
-        return properties.getOrDefault(key, key)
+        return properties.getOrDefault(key, "")
+    }
+
+    override fun hasProperty(key: String): Boolean {
+        return properties.contains(key)
     }
 }

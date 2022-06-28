@@ -21,7 +21,7 @@ interface AbilityEffect: PropertyProvider {
         )
 
         fun fromData(id: String, properties: JsonObject): AbilityEffect {
-            return FACTORY_MAP.getOrDefault(id.uppercase(), PropertyHolderEffect.FACTORY).create(properties)
+            return FACTORY_MAP.getOrDefault(id.uppercase(), BasePropertyEffect.FACTORY).create(properties)
         }
     }
 
