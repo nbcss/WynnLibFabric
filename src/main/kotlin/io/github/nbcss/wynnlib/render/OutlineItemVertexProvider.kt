@@ -60,7 +60,7 @@ object OutlineItemVertexProvider: VertexConsumerProvider {
 
     fun renderItem(stack: ItemStack, x: Int, y: Int) {
         val client = MinecraftClient.getInstance()
-        val model = client.itemRenderer.getModel(stack, null, null, 0)
+        val model = client.itemRenderer.getHeldItemModel(stack, null, null, 0)
         client.textureManager.getTexture(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE).setFilter(false, false)
         RenderSystem.setShaderTexture(0, SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE)
         RenderSystem.enableBlend()

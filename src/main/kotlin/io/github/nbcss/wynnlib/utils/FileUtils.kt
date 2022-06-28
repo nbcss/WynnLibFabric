@@ -10,7 +10,7 @@ import java.io.InputStreamReader
 object FileUtils {
     fun <T: Keyed> loadRegistry(registry: Registry<T>, filename: String) {
         val reader = InputStreamReader(getResource(filename)!!, "utf-8")
-        registry.reload(JsonParser.parseReader(reader).asJsonObject)
+        registry.reload(JsonParser().parse(reader).asJsonObject)
     }
 
     fun getResource(filename: String): InputStream? {

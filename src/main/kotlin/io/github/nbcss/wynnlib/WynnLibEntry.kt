@@ -26,7 +26,7 @@ object WynnLibEntry: ModInitializer {
 
     override fun onInitialize() {
         //Reload id metadata
-        Identification.reload(JsonParser.parseReader(InputStreamReader(
+        Identification.reload(JsonParser().parse(InputStreamReader(
             FileUtils.getResource(ID_RESOURCE)!!, "utf-8")).asJsonObject)
         //Load database
         FileUtils.loadRegistry(PowderRegistry, POWDER_RESOURCE)

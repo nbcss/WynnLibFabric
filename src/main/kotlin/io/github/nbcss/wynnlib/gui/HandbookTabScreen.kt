@@ -114,7 +114,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         drawContents(matrices, mouseX, mouseY, delta)
     }
 
-    override fun shouldPause(): Boolean = false
+    override fun isPauseScreen(): Boolean = false
 
     override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
         matrices.push()
