@@ -5,7 +5,6 @@ import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.registry.*
 import io.github.nbcss.wynnlib.utils.FileUtils
-import io.github.nbcss.wynnlib.utils.getResource
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -28,7 +27,7 @@ object WynnLibEntry: ModInitializer {
     override fun onInitialize() {
         //Reload id metadata
         Identification.reload(JsonParser.parseReader(InputStreamReader(
-            getResource(ID_RESOURCE)!!, "utf-8")).asJsonObject)
+            FileUtils.getResource(ID_RESOURCE)!!, "utf-8")).asJsonObject)
         //Load database
         FileUtils.loadRegistry(PowderRegistry, POWDER_RESOURCE)
         FileUtils.loadRegistry(RegularEquipmentRegistry, EQUIPMENT_RESOURCE)

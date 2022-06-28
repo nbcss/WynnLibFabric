@@ -1,22 +1,16 @@
 package io.github.nbcss.wynnlib.utils
 
-import io.github.nbcss.wynnlib.WynnLibEntry
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
-import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.StringVisitable
 import net.minecraft.text.Style
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
 import org.slf4j.Logger
-import java.io.IOException
-import java.io.InputStream
 import java.util.*
-import kotlin.collections.ArrayList
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
@@ -78,6 +72,33 @@ fun formattingLines(text: String, length: Int, prefix: String): List<Text> {
     return lines
 }
 
+fun replaceProperty(text: String, prefix: Char, provider: PropertyProvider): String {
+    val output = StringBuilder()
+    var buffer: StringBuilder? = null
+    var i = 0
+    while (i < text.length) {
+        val c = text[i]
+        if (buffer == null) {
+            if (c == prefix && i + 1 < text.length && text[i + 1] == '{') {
+                buffer = StringBuilder()
+                i += 1
+            } else {
+                output.append(c)
+            }
+        } else if (c == '}') {
+            output.append(provider.getProperty(buffer.toString()))
+            buffer = null
+        } else {
+            buffer.append(c)
+        }
+        i++
+    }
+    if (buffer != null) {
+        output.append(buffer)
+    }
+    return output.toString()
+}
+
 fun warpLines(text: String, length: Int): List<Text> {
     val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
         Optional.of(LiteralText(asString).setStyle(style))
@@ -112,21 +133,6 @@ fun parseStyle(text: String, style: String): String {
         i++
     }
     return buffer.toString()
-}
-
-fun getResource(filename: String): InputStream? {
-    return try {
-        val url = WynnLibEntry.javaClass.classLoader.getResource(filename)
-        if (url == null) {
-            null
-        } else {
-            val connection = url.openConnection()
-            connection.useCaches = false
-            connection.getInputStream()
-        }
-    } catch (var4: IOException) {
-        null
-    }
 }
 
 fun getLogger():Logger{

@@ -12,31 +12,10 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": [
-        {
-          "type": "UNLOCK",
-          "container": "SPELL_1"
-        },
-        {
-          "type": "PROPERTY_MODIFIER",
-          "container": "SPELL_1",
-          "property": "MANA_COST",
-          "value": "45"
-        },
-        {
-          "type": "PROPERTY_MODIFIER",
-          "container": "SPELL_1",
-          "property": "AOE",
-          "value": "4"
-        },
-        {
-          "type": "PROPERTY_MODIFIER",
-          "container": "SPELL_1",
-          "property": "RANGE",
-          "value": "3"
-        }
-      ],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_cost": 45
+      }
     },
     {
       "id": "SPEAR_PROFICIENCY_I",
@@ -52,8 +31,7 @@
       "predecessors": [
         "BASH"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_BASH_I",
@@ -69,8 +47,7 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "DOUBLE_BASH",
@@ -86,8 +63,7 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHARGE",
@@ -103,13 +79,10 @@
       "predecessors": [
         "DOUBLE_BASH"
       ],
-      "effects": [
-        {
-          "type": "UNLOCK",
-          "container": "SPELL_2"
-        }
-      ],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_cost": 25
+      }
     },
     {
       "id": "TOUGHER_SKIN",
@@ -127,8 +100,9 @@
       "predecessors": [
         "CHARGE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {
+        "resistant_bonus": 5
+      }
     },
     {
       "id": "VEHEMENT",
@@ -146,8 +120,7 @@
       "predecessors": [
         "CHARGE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "UPPERCUT",
@@ -164,13 +137,10 @@
         "VEHEMENT",
         "CHEAPER_CHARGE"
       ],
-      "effects": [
-        {
-          "type": "UNLOCK",
-          "container": "SPELL_3"
-        }
-      ],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_cost": 45
+      }
     },
     {
       "id": "CHEAPER_CHARGE",
@@ -187,8 +157,7 @@
         "UPPERCUT",
         "WAR_SCREAM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WAR_SCREAM",
@@ -205,13 +174,10 @@
         "TOUGHER_SKIN",
         "CHEAPER_CHARGE"
       ],
-      "effects": [
-        {
-          "type": "UNLOCK",
-          "container": "SPELL_4"
-        }
-      ],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_cost": 35
+      }
     },
     {
       "id": "HEAVY_IMPACT",
@@ -227,8 +193,7 @@
       "predecessors": [
         "UPPERCUT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WARRIOR_EARTH_MASTERY",
@@ -244,8 +209,7 @@
       "predecessors": [
         "UPPERCUT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
@@ -263,8 +227,7 @@
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
@@ -282,8 +245,7 @@
         "WARRIOR_THUNDER_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
@@ -299,8 +261,7 @@
       "predecessors": [
         "WAR_SCREAM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
@@ -318,8 +279,7 @@
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "QUADRUPLE_BASH",
@@ -336,8 +296,7 @@
         "WARRIOR_EARTH_MASTERY",
         "FIREWORKS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FIREWORKS",
@@ -354,8 +313,7 @@
         "QUADRUPLE_BASH",
         "WARRIOR_THUNDER_MASTERY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FLYBY_JAB",
@@ -372,8 +330,7 @@
         "WARRIOR_AIR_MASTERY",
         "FLAMING_UPPERCUT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FLAMING_UPPERCUT",
@@ -390,8 +347,7 @@
         "WARRIOR_FIRE_MASTERY",
         "FLYBY_JAB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "HALF_MOON_SWIPE",
@@ -409,8 +365,7 @@
       "predecessors": [
         "WARRIOR_WATER_MASTERY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "IRON_LUNGS",
@@ -427,8 +382,7 @@
         "FLYBY_JAB",
         "FLAMING_UPPERCUT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "GENERALIST",
@@ -446,8 +400,7 @@
       "predecessors": [
         "COUNTER"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "COUNTER",
@@ -463,8 +416,7 @@
       "predecessors": [
         "HALF_MOON_SWIPE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
@@ -482,8 +434,7 @@
       "predecessors": [
         "IRON_LUNGS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BAKALS_GRASP",
@@ -502,8 +453,7 @@
         "QUADRUPLE_BASH",
         "FIREWORKS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SPEAR_PROFICIENCY_II",
@@ -520,8 +470,7 @@
         "BAKALS_GRASP",
         "CHEAPER_UPPERCUT_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_UPPERCUT_I",
@@ -539,8 +488,7 @@
         "SPEAR_PROFICIENCY_II",
         "AERODYNAMICS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "AERODYNAMICS",
@@ -557,8 +505,7 @@
         "CHEAPER_UPPERCUT_I",
         "PROVOKE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "PROVOKE",
@@ -575,8 +522,7 @@
         "MANTLE_OF_THE_BOVEMISTS",
         "AERODYNAMICS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "PRECISE_STRIKES",
@@ -593,8 +539,7 @@
         "SPEAR_PROFICIENCY_II",
         "CHEAPER_UPPERCUT_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "AIR_SHOUT",
@@ -611,8 +556,7 @@
         "AERODYNAMICS",
         "PROVOKE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ENRAGED_BLOW",
@@ -628,8 +572,7 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FLYING_KICK",
@@ -648,8 +591,7 @@
         "CHEAPER_UPPERCUT_I",
         "STRONGER_MANTLE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "STRONGER_MANTLE",
@@ -666,8 +608,7 @@
         "FLYING_KICK",
         "MANACHISM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MANACHISM",
@@ -686,8 +627,7 @@
         "STRONGER_MANTLE",
         "PROVOKE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BOILING_BLOOD",
@@ -704,8 +644,7 @@
         "ENRAGED_BLOW",
         "RAGNAROKKR"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "RAGNAROKKR",
@@ -722,8 +661,7 @@
         "BOILING_BLOOD",
         "FLYING_KICK"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "AMBIDEXTROUS",
@@ -741,8 +679,7 @@
         "STRONGER_MANTLE",
         "BURNING_HEART"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BURNING_HEART",
@@ -759,8 +696,7 @@
         "AMBIDEXTROUS",
         "STRONGER_BASH"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "STRONGER_BASH",
@@ -777,8 +713,7 @@
         "BURNING_HEART",
         "MANACHISM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "INTOXICATING_BLOOD",
@@ -797,8 +732,7 @@
         "BOILING_BLOOD",
         "RAGNAROKKR"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "COLLIDE",
@@ -817,8 +751,7 @@
         "AMBIDEXTROUS",
         "BURNING_HEART"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "REJUVENATING_SKIN",
@@ -837,8 +770,7 @@
         "BURNING_HEART",
         "STRONGER_BASH"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "COMET",
@@ -854,8 +786,7 @@
       "predecessors": [
         "RAGNAROKKR"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "UNCONTAINABLE_CORRUPTION",
@@ -872,8 +803,7 @@
         "BOILING_BLOOD",
         "RADIANT_DEVOTEE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "RADIANT_DEVOTEE",
@@ -892,8 +822,7 @@
         "UNCONTAINABLE_CORRUPTION",
         "WHIRLWIND_STRIKE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WHIRLWIND_STRIKE",
@@ -912,8 +841,7 @@
         "RADIANT_DEVOTEE",
         "AMBIDEXTROUS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MYTHRIL_SKIN",
@@ -931,8 +859,7 @@
       "predecessors": [
         "REJUVENATING_SKIN"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARMOUR_BREAKER",
@@ -949,8 +876,7 @@
         "UNCONTAINABLE_CORRUPTION",
         "RADIANT_DEVOTEE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SHIELD_STRIKE",
@@ -966,8 +892,7 @@
       "predecessors": [
         "MYTHRIL_SKIN"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SPARKLING_HOPE",
@@ -983,8 +908,7 @@
       "predecessors": [
         "MYTHRIL_SKIN"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MASSIVE_BASH",
@@ -1003,8 +927,7 @@
         "UNCONTAINABLE_CORRUPTION",
         "TEMPEST"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "TEMPEST",
@@ -1021,8 +944,7 @@
         "MASSIVE_BASH",
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SPIRIT_OF_THE_RABBIT",
@@ -1041,8 +963,7 @@
         "TEMPEST",
         "WHIRLWIND_STRIKE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MASSACRE",
@@ -1061,8 +982,7 @@
         "MASSIVE_BASH",
         "TEMPEST"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "AXE_KICK",
@@ -1079,8 +999,7 @@
         "TEMPEST",
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "RADIANCE",
@@ -1099,8 +1018,7 @@
         "SPIRIT_OF_THE_RABBIT",
         "CHEAPER_BASH_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_BASH_II",
@@ -1118,8 +1036,7 @@
         "SHIELD_STRIKE",
         "SPARKLING_HOPE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_WAR_SCREAM",
@@ -1135,8 +1052,7 @@
       "predecessors": [
         "MASSIVE_BASH"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "DISCOMBOBULATE",
@@ -1154,8 +1070,7 @@
       "predecessors": [
         "CYCLONE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CYCLONE",
@@ -1171,8 +1086,7 @@
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "THUNDERCLAP",
@@ -1190,8 +1104,7 @@
       "predecessors": [
         "CYCLONE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SECOND_CHANCE",
@@ -1209,8 +1122,7 @@
       "predecessors": [
         "CHEAPER_BASH_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BLOOD_PACT",
@@ -1228,8 +1140,7 @@
       "predecessors": [
         "CHEAPER_WAR_SCREAM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "HAEMORRHAGE",
@@ -1245,8 +1156,7 @@
       "predecessors": [
         "BLOOD_PACT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BRINK_OF_MADNESS",
@@ -1263,8 +1173,7 @@
         "BLOOD_PACT",
         "CHEAPER_UPPERCUT_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_UPPERCUT_II",
@@ -1281,8 +1190,7 @@
         "BRINK_OF_MADNESS",
         "SECOND_CHANCE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MARTYR",
@@ -1298,8 +1206,7 @@
       "predecessors": [
         "SECOND_CHANCE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARROW_BOMB",
@@ -1313,8 +1220,10 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "effects": [],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_cost": 50
+      }
     },
     {
       "id": "BOW_PROFICIENCY_I",
@@ -1330,8 +1239,7 @@
       "predecessors": [
         "ARROW_BOMB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_ARROW_BOMB_I",
@@ -1347,8 +1255,7 @@
       "predecessors": [
         "BOW_PROFICIENCY_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "HEART_SHATTER",
@@ -1364,8 +1271,7 @@
       "predecessors": [
         "BOW_PROFICIENCY_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ESCAPE",
@@ -1381,8 +1287,10 @@
       "predecessors": [
         "HEART_SHATTER"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_cost": 25
+      }
     },
     {
       "id": "DOUBLE_SHOTS",
@@ -1400,8 +1308,7 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "POWER_SHOTS",
@@ -1419,8 +1326,7 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARROW_STORM",
@@ -1437,8 +1343,10 @@
         "DOUBLE_SHOTS",
         "CHEAPER_ESCAPE_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_cost": 40
+      }
     },
     {
       "id": "CHEAPER_ESCAPE_I",
@@ -1455,8 +1363,7 @@
         "ARROW_STORM",
         "ARROW_SHIELD"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARROW_SHIELD",
@@ -1473,8 +1380,10 @@
         "POWER_SHOTS",
         "CHEAPER_ESCAPE_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_cost": 30
+      }
     },
     {
       "id": "WINDY_FEET",
@@ -1490,8 +1399,7 @@
       "predecessors": [
         "ARROW_STORM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARCHER_AIR_MASTERY",
@@ -1507,8 +1415,7 @@
       "predecessors": [
         "ARROW_STORM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARCHER_THUNDER_MASTERY",
@@ -1526,8 +1433,7 @@
         "CHEAPER_ESCAPE_I",
         "ARCHER_FIRE_MASTERY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARCHER_FIRE_MASTERY",
@@ -1545,8 +1451,7 @@
         "CHEAPER_ESCAPE_I",
         "ARCHER_THUNDER_MASTERY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARCHER_EARTH_MASTERY",
@@ -1562,8 +1467,7 @@
       "predecessors": [
         "ARROW_SHIELD"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARCHER_WATER_MASTERY",
@@ -1581,8 +1485,7 @@
         "CHEAPER_ESCAPE_I",
         "ARCHER_FIRE_MASTERY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARROW_RAIN",
@@ -1599,8 +1502,7 @@
         "ARCHER_AIR_MASTERY",
         "NIMBLE_STRING"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "NIMBLE_STRING",
@@ -1619,8 +1521,7 @@
         "ARCHER_THUNDER_MASTERY",
         "ARROW_RAIN"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "PHANTOM_RAY",
@@ -1641,8 +1542,7 @@
         "ARCHER_WATER_MASTERY",
         "FIRE_CREEP"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FIRE_CREEP",
@@ -1660,8 +1560,7 @@
         "ARCHER_FIRE_MASTERY",
         "BRYOPHYTE_ROOTS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BRYOPHYTE_ROOTS",
@@ -1680,8 +1579,7 @@
         "ARCHER_EARTH_MASTERY",
         "FIRE_CREEP"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "TRIPLE_SHOTS",
@@ -1698,8 +1596,7 @@
         "ARROW_RAIN",
         "FRENZY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FRENZY",
@@ -1716,8 +1613,7 @@
         "NIMBLE_STRING",
         "TRIPLE_SHOTS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "GUARDIAN_ANGELS",
@@ -1736,8 +1632,7 @@
         "TRIPLE_SHOTS",
         "FRENZY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FOCUS",
@@ -1755,8 +1650,7 @@
       "predecessors": [
         "PHANTOM_RAY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BASALTIC_TRAP",
@@ -1774,8 +1668,7 @@
       "predecessors": [
         "BRYOPHYTE_ROOTS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "WINDSTORM",
@@ -1794,8 +1687,7 @@
         "GUARDIAN_ANGELS",
         "CHEAPER_ARROW_STORM_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_ARROW_STORM_I",
@@ -1813,8 +1705,7 @@
         "FOCUS",
         "GRAPPLING_HOOK"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "GRAPPLING_HOOK",
@@ -1834,8 +1725,7 @@
         "FOCUS",
         "MORE_SHIELDS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MORE_SHIELDS",
@@ -1852,8 +1742,7 @@
         "GRAPPLING_HOOK",
         "BASALTIC_TRAP"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MORE_FOCUS_I",
@@ -1870,8 +1759,7 @@
         "CHEAPER_ARROW_STORM_I",
         "GRAPPLING_HOOK"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "IMPLOSION",
@@ -1888,8 +1776,7 @@
         "GRAPPLING_HOOK",
         "MORE_SHIELDS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "PATIENT_HUNTER",
@@ -1905,8 +1792,7 @@
       "predecessors": [
         "MORE_SHIELDS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "STORMY_FEET",
@@ -1922,8 +1808,7 @@
       "predecessors": [
         "WINDSTORM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "REFINED_GUNPOWDER",
@@ -1940,8 +1825,7 @@
         "WINDSTORM",
         "TRAVELER"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "TRAVELER",
@@ -1958,8 +1842,7 @@
         "REFINED_GUNPOWDER",
         "TWAINS_ARC"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "TWAINS_ARC",
@@ -1978,8 +1861,7 @@
         "TRAVELER",
         "MORE_FOCUS_I"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BOUNCING_BOMB",
@@ -1995,8 +1877,7 @@
       "predecessors": [
         "MORE_SHIELDS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "FIERCE_STOMP",
@@ -2013,8 +1894,7 @@
         "REFINED_GUNPOWDER",
         "TRAVELER"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SCORCHED_EARTH",
@@ -2030,8 +1910,7 @@
       "predecessors": [
         "TWAINS_ARC"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MORE_TRAPS",
@@ -2047,8 +1926,7 @@
       "predecessors": [
         "BOUNCING_BOMB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "LEAP",
@@ -2067,8 +1945,7 @@
         "REFINED_GUNPOWDER",
         "HOMING_SHOTS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "HOMING_SHOTS",
@@ -2085,8 +1962,7 @@
         "LEAP",
         "SHOCKING_BOMB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SHOCKING_BOMB",
@@ -2106,8 +1982,7 @@
         "TWAINS_ARC",
         "BETTER_ARROW_SHIELD"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BETTER_ARROW_SHIELD",
@@ -2125,8 +2000,7 @@
         "TWAINS_ARC",
         "MANA_TRAP"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MANA_TRAP",
@@ -2145,8 +2019,7 @@
         "BETTER_ARROW_SHIELD",
         "MORE_TRAPS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BETTER_LEAP",
@@ -2163,8 +2036,7 @@
         "LEAP",
         "HOMING_SHOTS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ESCAPE_ARTIST",
@@ -2183,8 +2055,7 @@
         "LEAP",
         "BETTER_GUARDIAN_ANGELS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "BETTER_GUARDIAN_ANGELS",
@@ -2201,8 +2072,7 @@
         "ESCAPE_ARTIST",
         "HOMING_SHOTS"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "INITIATOR",
@@ -2222,8 +2092,7 @@
         "BETTER_ARROW_SHIELD",
         "CHEAPER_ARROW_STORM_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_ARROW_STORM_II",
@@ -2240,8 +2109,7 @@
         "INITIATOR",
         "MANA_TRAP"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CALL_OF_THE_HOUND",
@@ -2258,8 +2126,7 @@
         "INITIATOR",
         "CHEAPER_ARROW_STORM_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ARROW_HURRICANE",
@@ -2280,8 +2147,7 @@
         "ESCAPE_ARTIST",
         "PRECISE_SHOT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "PRECISE_SHOT",
@@ -2299,8 +2165,7 @@
         "BETTER_GUARDIAN_ANGELS",
         "CHEAPER_ARROW_SHIELD"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_ARROW_SHIELD",
@@ -2317,8 +2182,7 @@
         "PRECISE_SHOT",
         "INITIATOR"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ROCKET_JUMP",
@@ -2335,8 +2199,7 @@
         "INITIATOR",
         "CHEAPER_ARROW_STORM_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SHRAPNEL_BOMB",
@@ -2355,8 +2218,7 @@
         "ARROW_HURRICANE",
         "PRECISE_SHOT"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "DECIMATOR",
@@ -2373,8 +2235,7 @@
         "CHEAPER_ARROW_SHIELD",
         "CHEAPER_ESCAPE_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_ESCAPE_II",
@@ -2391,8 +2252,7 @@
         "DECIMATOR",
         "CALL_OF_THE_HOUND"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "STRONGER_HOOK",
@@ -2410,8 +2270,7 @@
       "predecessors": [
         "CHEAPER_ESCAPE_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "GEYSER_STOMP",
@@ -2427,8 +2286,7 @@
       "predecessors": [
         "SHRAPNEL_BOMB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CREPUSCULAR_RAY",
@@ -2446,8 +2304,7 @@
       "predecessors": [
         "CHEAPER_ARROW_SHIELD"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "GRAPE_BOMB",
@@ -2463,8 +2320,7 @@
       "predecessors": [
         "CHEAPER_ESCAPE_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ELUSIVE",
@@ -2480,8 +2336,7 @@
       "predecessors": [
         "GEYSER_STOMP"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "TANGLED_TRAPS",
@@ -2497,8 +2352,7 @@
       "predecessors": [
         "GRAPE_BOMB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "STRONGER_PATIENT_HUNTER",
@@ -2514,8 +2368,7 @@
       "predecessors": [
         "GRAPE_BOMB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "SNOW_STORM",
@@ -2532,8 +2385,7 @@
         "GEYSER_STOMP",
         "MORE_FOCUS_II"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MORE_FOCUS_II",
@@ -2550,8 +2402,7 @@
         "SNOW_STORM",
         "CREPUSCULAR_RAY"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "ALL_SEEING_PANOPTES",
@@ -2569,8 +2420,7 @@
       "predecessors": [
         "SNOW_STORM"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "CHEAPER_ARROW_BOMB_II",
@@ -2587,8 +2437,7 @@
         "MORE_FOCUS_II",
         "MINEFIELD"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     },
     {
       "id": "MINEFIELD",
@@ -2607,9 +2456,8 @@
         "CHEAPER_ARROW_BOMB_II",
         "GRAPE_BOMB"
       ],
-      "effects": [],
-      "tips": []
+      "properties": {}
     }
   ],
-  "version": "1.0.4"
+  "version": "1.0.5"
 }
