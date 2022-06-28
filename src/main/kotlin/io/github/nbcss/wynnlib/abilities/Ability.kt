@@ -3,9 +3,7 @@ package io.github.nbcss.wynnlib.abilities
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellUnlockEffect
-import io.github.nbcss.wynnlib.abilities.tips.EffectTip
 import io.github.nbcss.wynnlib.data.CharacterClass
-import io.github.nbcss.wynnlib.data.SpellSlot
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BLOCKS

@@ -14,7 +14,9 @@
       "predecessors": [],
       "properties": {
         "spell": "SPELL_1",
-        "mana_cost": 45
+        "mana_cost": 45,
+        "range": 3,
+        "aoe": 4
       }
     },
     {
@@ -139,7 +141,8 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "mana_cost": 45
+        "mana_cost": 45,
+        "range": 5
       }
     },
     {
@@ -176,7 +179,9 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "mana_cost": 35
+        "mana_cost": 35,
+        "duration": 30,
+        "aoe": 12
       }
     },
     {

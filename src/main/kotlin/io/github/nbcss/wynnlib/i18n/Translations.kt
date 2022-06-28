@@ -41,4 +41,13 @@ object Translations {
     val TOOLTIP_ABILITY_POINTS: Translatable = from("wynnlib.tooltip.ability.cost")
     val TOOLTIP_ABILITY_DEPENDENCY: Translatable = from("wynnlib.tooltip.ability.ability_req")
     val TOOLTIP_ABILITY_MIN_ARCHETYPE: Translatable = from("wynnlib.tooltip.ability.archetype_req")
+    val TOOLTIP_ABILITY_MANA_COST: Translatable = from("wynnlib.tooltip.ability.mana_cost")
+    val TOOLTIP_ABILITY_RANGE: Translatable = from("wynnlib.tooltip.ability.range")
+    val TOOLTIP_ABILITY_TOTAL_DAMAGE: Translatable = from("wynnlib.tooltip.ability.total_damage")
+    val TOOLTIP_ABILITY_DAMAGE_BONUS: Translatable = from("wynnlib.tooltip.ability.damage_bonus")
+    val TOOLTIP_ABILITY_AREA_OF_EFFECT: Translatable = from("wynnlib.tooltip.ability.area_of_effect")
+    val TOOLTIP_ABILITY_EFFECT: Translatable = from("wynnlib.tooltip.ability.effect")
+    val TOOLTIP_ABILITY_DURATION: Translatable = from("wynnlib.tooltip.ability.duration")
+    val TOOLTIP_SUFFIX_BLOCK: Translatable = from("wynnlib.tooltip.suffix.block")
+    val TOOLTIP_SUFFIX_BLOCKS: Translatable = from("wynnlib.tooltip.suffix.blocks")
 }

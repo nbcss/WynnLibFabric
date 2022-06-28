@@ -1,6 +1,10 @@
 package io.github.nbcss.wynnlib.abilities.effects
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.display.ManaCostDisplay
+import io.github.nbcss.wynnlib.abilities.display.RangeDisplay
+import io.github.nbcss.wynnlib.abilities.properties.ManaCostProperty
+import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 import net.minecraft.text.Text
 
@@ -14,21 +18,28 @@ class SpellUnlockEffect(json: JsonObject): AbilityEffect {
     }
     private val spell: SpellSlot
     private val mana: Int
+    private val range: Double?
     init {
         spell = SpellSlot.fromName(json["spell"].asString)!!
-        mana = json["mana_cost"].asInt
+        mana = json[ManaCostProperty.KEY].asInt
+        range = if (json.has(RangeProperty.KEY)) json[RangeProperty.KEY].asDouble else null
     }
 
     fun getSpell(): SpellSlot = spell
 
     fun getManaCost(): Int = mana
 
-    override fun getEffectTooltip(): List<Text> {
+    fun getRange(): Double? = range
 
-        return emptyList()
+    override fun getEffectTooltip(): List<Text> {
+        return listOf(ManaCostDisplay, RangeDisplay).map { it.getTooltip(this) }.flatten()
     }
 
     override fun getProperty(key: String): String {
-        return key
+        when (key.lowercase()){
+            ManaCostProperty.KEY -> return "$mana"
+            RangeProperty.KEY -> return range?.toString() ?: ""
+        }
+        return ""
     }
 }

@@ -26,14 +26,14 @@ interface Translatable {
      * Translate given label & var args to TranslatableText, while applying formatting parse.
      */
     fun formatted(style: String = "", label: String? = null, vararg args: Any): MutableText {
-        return LiteralText(parseStyle(translate(label, args).string, style))
+        return LiteralText(parseStyle(translate(label, *args).string, style))
     }
 
     /**
      * Translate given label & var args to TranslatableText, while applying formatting parse.
      */
     fun formatted(style: Formatting, label: String? = null, vararg args: Any): MutableText {
-        return formatted(style.toString(), label, args).formatted(style)
+        return formatted(style.toString(), label, *args).formatted(style)
     }
 
     companion object {
