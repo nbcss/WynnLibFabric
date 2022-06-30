@@ -20,6 +20,11 @@ interface AbilityEffect {
             "CHEAPER_BASH_II" to CostModifier,
             "CHEAPER_WAR_SCREAM" to CostModifier,
             "CHEAPER_UPPERCUT_II" to CostModifier,
+            "WARRIOR_AIR_MASTERY" to ElementMastery,
+            "WARRIOR_FIRE_MASTERY" to ElementMastery,
+            "WARRIOR_WATER_MASTERY" to ElementMastery,
+            "WARRIOR_THUNDER_MASTERY" to ElementMastery,
+            "WARRIOR_EARTH_MASTERY" to ElementMastery,
             //Archer Ability Effects
             "ARROW_STORM" to ArrowStormSpell,
             "ESCAPE" to EscapeSpell,
@@ -32,6 +37,11 @@ interface AbilityEffect {
             "CHEAPER_ARROW_SHIELD" to CostModifier,
             "CHEAPER_ESCAPE_II" to CostModifier,
             "CHEAPER_ARROW_BOMB_II" to CostModifier,
+            "ARCHER_AIR_MASTERY" to ElementMastery,
+            "ARCHER_FIRE_MASTERY" to ElementMastery,
+            "ARCHER_WATER_MASTERY" to ElementMastery,
+            "ARCHER_THUNDER_MASTERY" to ElementMastery,
+            "ARCHER_EARTH_MASTERY" to ElementMastery,
         )
 
         fun fromData(id: String, properties: JsonObject): AbilityEffect {

@@ -45,10 +45,8 @@ enum class Element(val displayName: String,
         Formatting.DARK_GREEN, Formatting.GREEN);
 
     companion object {
-        private val VALUE_MAP: MutableMap<String, Element> = LinkedHashMap()
-        init {
-            values().forEach { VALUE_MAP[it.name.uppercase()] = it }
-        }
+        private val VALUE_MAP: Map<String, Element> = mapOf(
+            pairs = values().map { it.name.uppercase() to it }.toTypedArray())
 
         fun fromId(id: String): Element? {
             return VALUE_MAP[id.uppercase()]

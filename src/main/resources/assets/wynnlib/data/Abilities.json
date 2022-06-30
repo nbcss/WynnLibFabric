@@ -230,7 +230,11 @@
       "predecessors": [
         "UPPERCUT"
       ],
-      "properties": {}
+      "properties": {
+        "element": "EARTH",
+        "raw_booster": "2-4",
+        "pct_booster": 20
+      }
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
@@ -248,7 +252,11 @@
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "properties": {}
+      "properties": {
+        "element": "THUNDER",
+        "raw_booster": "1-8",
+        "pct_booster": 10
+      }
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
@@ -266,7 +274,11 @@
         "WARRIOR_THUNDER_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "properties": {}
+      "properties": {
+        "element": "AIR",
+        "raw_booster": "3-4",
+        "pct_booster": 15
+      }
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
@@ -282,7 +294,11 @@
       "predecessors": [
         "WAR_SCREAM"
       ],
-      "properties": {}
+      "properties": {
+        "element": "FIRE",
+        "raw_booster": "3-5",
+        "pct_booster": 15
+      }
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
@@ -300,7 +316,11 @@
         "WARRIOR_AIR_MASTERY",
         "CHEAPER_CHARGE"
       ],
-      "properties": {}
+      "properties": {
+        "element": "WATER",
+        "raw_booster": "2-4",
+        "pct_booster": 15
+      }
     },
     {
       "id": "QUADRUPLE_BASH",
@@ -1474,7 +1494,11 @@
       "predecessors": [
         "ARROW_STORM"
       ],
-      "properties": {}
+      "properties": {
+        "element": "AIR",
+        "raw_booster": "3-4",
+        "pct_booster": 15
+      }
     },
     {
       "id": "ARCHER_THUNDER_MASTERY",
@@ -1492,7 +1516,11 @@
         "CHEAPER_ESCAPE_I",
         "ARCHER_FIRE_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "element": "THUNDER",
+        "raw_booster": "1-8",
+        "pct_booster": 10
+      }
     },
     {
       "id": "ARCHER_FIRE_MASTERY",
@@ -1510,7 +1538,11 @@
         "CHEAPER_ESCAPE_I",
         "ARCHER_THUNDER_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "element": "FIRE",
+        "raw_booster": "3-5",
+        "pct_booster": 15
+      }
     },
     {
       "id": "ARCHER_EARTH_MASTERY",
@@ -1526,7 +1558,11 @@
       "predecessors": [
         "ARROW_SHIELD"
       ],
-      "properties": {}
+      "properties": {
+        "element": "EARTH",
+        "raw_booster": "2-4",
+        "pct_booster": 20
+      }
     },
     {
       "id": "ARCHER_WATER_MASTERY",
@@ -1544,7 +1580,11 @@
         "CHEAPER_ESCAPE_I",
         "ARCHER_FIRE_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "element": "WATER",
+        "raw_booster": "2-4",
+        "pct_booster": 15
+      }
     },
     {
       "id": "ARROW_RAIN",

@@ -17,7 +17,7 @@ interface AreaOfEffectProperty {
     data class AreaOfEffect(private val range: DRange,
                             private val shape: Shape?){
         constructor(data: JsonObject): this(
-            SimpleDRange.fromString(data[AOE_KEY].asString),
+            if (data.has(AOE_KEY)) SimpleDRange.fromString(data[AOE_KEY].asString) else DRange.ZERO,
             if (data.has(AOE_SHAPE_KEY)) Shape.fromName(data[AOE_SHAPE_KEY].asString) else null
         )
 
