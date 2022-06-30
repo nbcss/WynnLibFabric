@@ -6,7 +6,13 @@ import io.github.nbcss.wynnlib.data.SpellSlot
 interface BoundSpellProperty {
     companion object {
         const val KEY: String = "spell"
-        fun read(data: JsonObject): SpellSlot = SpellSlot.fromName(data[KEY].asString)!!
+
+        /**
+         * Read spell slot from the json data.
+         * If it is not available, return Spell_1
+         */
+        fun read(data: JsonObject): SpellSlot = if (data.has(KEY))
+            SpellSlot.fromName(data[KEY].asString) ?: SpellSlot.SPELL_1 else SpellSlot.SPELL_1
     }
 
     fun getSpell(): SpellSlot

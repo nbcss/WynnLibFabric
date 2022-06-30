@@ -2,11 +2,11 @@ package io.github.nbcss.wynnlib.abilities.properties
 
 import com.google.gson.JsonObject
 
-interface ManaCostProperty {
+interface ChargeProperty {
     companion object {
-        const val KEY: String = "mana_cost"
+        const val KEY: String = "charges"
         fun read(data: JsonObject): Int = if (data.has(KEY)) data[KEY].asInt else 0
     }
 
-    fun getManaCost(): Int
+    fun getCharges(): Int
 }

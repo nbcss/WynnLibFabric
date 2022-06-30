@@ -48,6 +48,7 @@ object Translations {
     val TOOLTIP_ABILITY_AREA_OF_EFFECT: Translatable = from("wynnlib.tooltip.ability.area_of_effect")
     val TOOLTIP_ABILITY_EFFECT: Translatable = from("wynnlib.tooltip.ability.effect")
     val TOOLTIP_ABILITY_DURATION: Translatable = from("wynnlib.tooltip.ability.duration")
+    val TOOLTIP_ABILITY_CHARGES: Translatable = from("wynnlib.tooltip.ability.charges")
     val TOOLTIP_SUFFIX_BLOCK: Translatable = from("wynnlib.tooltip.suffix.block")
     val TOOLTIP_SUFFIX_BLOCKS: Translatable = from("wynnlib.tooltip.suffix.blocks")
     val TOOLTIP_SUFFIX_S: Translatable = from("wynnlib.tooltip.suffix.s")

@@ -1256,10 +1256,11 @@
       "properties": {
         "spell": "SPELL_3",
         "mana_cost": 50,
-        "netutral_dmg": 160,
-        "fire_dmg": 20,
+        "neutral_damage": 160,
+        "fire_damage": 20,
         "range": 26,
-        "aoe": 4.5
+        "aoe": 4.5,
+        "aoe_shape": "CIRCLE"
       }
     },
     {
@@ -1313,7 +1314,7 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_dmg": 100
+        "neutral_damage": 100
       }
     },
     {
@@ -1389,8 +1390,8 @@
       "properties": {
         "spell": "SPELL_1",
         "mana_cost": 40,
-        "neutral_dmg": 30,
-        "thunder_dmg": 10,
+        "neutral_damage": 30,
+        "thunder_damage": 10,
         "range": 16
       }
     },
@@ -1432,9 +1433,10 @@
       "properties": {
         "spell": "SPELL_4",
         "mana_cost": 30,
-        "neutral_dmg": 90,
+        "neutral_damage": 90,
         "air_damage": 10,
-        "duration": 60
+        "duration": 60,
+        "charges": 2
       }
     },
     {
