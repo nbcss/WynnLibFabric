@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.abilities.properties.AreaOfEffectProperty
 import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
+import io.github.nbcss.wynnlib.utils.removeDecimal
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -15,9 +16,9 @@ object AreaOfEffectTooltip: EffectTooltip {
             val range = effect.getAreaOfEffect().getRange()
             val suffix = if(range.upper() <= 1)
                 Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS
-            var value = (if (range.lower() % 1.0 != 0.0) range.lower() else range.lower().toInt()).toString()
+            var value = removeDecimal(range.lower())
             if(!range.isConstant()){
-                value = "$value-${(if (range.upper() % 1.0 != 0.0) range.upper() else range.upper().toInt())}"
+                value = "$value-${removeDecimal(range.upper())}"
             }
             //val value = suffix.formatted(Formatting.WHITE, null, if (range % 1.0 != 0.0) range else range.toInt())
             val text = Symbol.AOE.asText().append(" ")

@@ -20,6 +20,10 @@ fun signed(value: Double): String {
     return if(value <= 0.0) value.toString() else "+$value"
 }
 
+fun removeDecimal(value: Double): String {
+    return (if (value % 1.0 != 0.0) value else value.toInt()).toString()
+}
+
 fun formatNumbers(num: Int): String {
     return num.toString().replace("(?=(?!\\b)(\\d{3})+$)".toRegex(), ",")
 }
