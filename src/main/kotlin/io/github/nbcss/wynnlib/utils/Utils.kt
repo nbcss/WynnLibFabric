@@ -1,6 +1,5 @@
 package io.github.nbcss.wynnlib.utils
 
-import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
@@ -11,6 +10,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import org.slf4j.Logger
 import java.util.*
+import java.util.function.Function
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
@@ -72,7 +72,7 @@ fun formattingLines(text: String, length: Int, prefix: String): List<Text> {
     return lines
 }
 
-fun replaceProperty(text: String, prefix: Char, provider: PropertyProvider): String {
+fun replaceProperty(text: String, prefix: Char, provider: Function<String, String>): String {
     val output = StringBuilder()
     var buffer: StringBuilder? = null
     var i = 0
@@ -86,7 +86,7 @@ fun replaceProperty(text: String, prefix: Char, provider: PropertyProvider): Str
                 output.append(c)
             }
         } else if (c == '}') {
-            output.append(provider.getProperty(buffer.toString()))
+            output.append(provider.apply(buffer.toString()))
             buffer = null
         } else {
             buffer.append(c)

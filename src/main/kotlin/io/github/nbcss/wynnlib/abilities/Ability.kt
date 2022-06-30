@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.effects.SpellUnlockEffect
+import io.github.nbcss.wynnlib.abilities.effects.spells.SpellUnlock
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
@@ -101,7 +101,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
         val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
-        if (effect is SpellUnlockEffect){
+        if (effect is SpellUnlock){
             effect.getSpell().getClickCombo(getCharacter().getSpellKey()).let {
                 tooltip.add(TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
                     .append(LiteralText(": ").formatted(Formatting.GOLD))
@@ -113,13 +113,11 @@ class Ability(json: JsonObject): Keyed, Translatable {
             }
         }
         tooltip.add(LiteralText.EMPTY)
-        val desc = replaceProperty(replaceProperty(translate("desc").string, '$', effect),
-            '@', object : PropertyProvider {
-            override fun getProperty(key: String): String {
-                val name = if (key.startsWith(".")) "wynnlib.ability.name${key.lowercase()}" else key
-                return from(name).translate().string
-            }
-        })
+        val desc = replaceProperty(replaceProperty(translate("desc").string, '$')
+        { effect.getPropertyString(it) }, '@') {
+            val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
+            from(name).translate().string
+        }
         formattingLines(desc, 190, Formatting.GRAY.toString()).forEach { line ->
             tooltip.add(line)
         }

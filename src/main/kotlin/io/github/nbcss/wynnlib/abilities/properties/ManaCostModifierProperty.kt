@@ -2,11 +2,11 @@ package io.github.nbcss.wynnlib.abilities.properties
 
 import com.google.gson.JsonObject
 
-interface ManaCostProperty {
+interface ManaCostModifierProperty {
     companion object {
-        const val KEY: String = "mana_cost"
+        const val KEY: String = "mana_modifier"
         fun read(data: JsonObject): Int = data[KEY].asInt
     }
 
-    fun getManaCost(): Int
+    fun getManaModifier(): Int
 }

@@ -1,17 +1,12 @@
 package io.github.nbcss.wynnlib.abilities.properties
 
-import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 
-object RangeProperty: AbilityProperty<Double> {
-    const val KEY: String = "range"
-
-    override fun read(encoding: String): Double {
-        return encoding.toDouble()
+interface RangeProperty {
+    companion object {
+        const val KEY: String = "range"
+        fun read(data: JsonObject): Double = data[KEY].asDouble
     }
 
-    override fun write(data: JsonElement): String? {
-        return data.asString
-    }
-
-    override fun getKey(): String = KEY
+    fun getRange(): Double
 }

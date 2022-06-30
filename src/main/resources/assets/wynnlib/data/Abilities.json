@@ -15,8 +15,11 @@
       "properties": {
         "spell": "SPELL_1",
         "mana_cost": 45,
+        "neutral_damage": 130,
+        "earth_damage": 20,
         "range": 3,
-        "aoe": 4
+        "aoe": 4,
+        "aoe_shape": "CIRCLE"
       }
     },
     {
@@ -49,7 +52,10 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_modifier": -10
+      }
     },
     {
       "id": "DOUBLE_BASH",
@@ -142,7 +148,12 @@
       "properties": {
         "spell": "SPELL_3",
         "mana_cost": 45,
-        "range": 5
+        "neutral_damage": 150,
+        "earth_damage": 50,
+        "thunder_damage": 50,
+        "range": 5,
+        "aoe": "1-3",
+        "aoe_shape": "CONE"
       }
     },
     {
@@ -160,7 +171,10 @@
         "UPPERCUT",
         "WAR_SCREAM"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "WAR_SCREAM",
@@ -180,6 +194,8 @@
       "properties": {
         "spell": "SPELL_4",
         "mana_cost": 35,
+        "neutral_damage": 50,
+        "fire_damage": 50,
         "duration": 30,
         "aoe": 12
       }
@@ -493,7 +509,10 @@
         "SPEAR_PROFICIENCY_II",
         "AERODYNAMICS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "AERODYNAMICS",
@@ -1041,7 +1060,10 @@
         "SHIELD_STRIKE",
         "SPARKLING_HOPE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "CHEAPER_WAR_SCREAM",
@@ -1057,7 +1079,10 @@
       "predecessors": [
         "MASSIVE_BASH"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "DISCOMBOBULATE",
@@ -1195,7 +1220,10 @@
         "BRINK_OF_MADNESS",
         "SECOND_CHANCE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "MARTYR",
@@ -1227,7 +1255,11 @@
       "predecessors": [],
       "properties": {
         "spell": "SPELL_3",
-        "mana_cost": 50
+        "mana_cost": 50,
+        "netutral_dmg": 160,
+        "fire_dmg": 20,
+        "range": 26,
+        "aoe": 4.5
       }
     },
     {
@@ -1260,7 +1292,10 @@
       "predecessors": [
         "BOW_PROFICIENCY_I"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": -10
+      }
     },
     {
       "id": "HEART_SHATTER",
@@ -1276,7 +1311,10 @@
       "predecessors": [
         "BOW_PROFICIENCY_I"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_dmg": 100
+      }
     },
     {
       "id": "ESCAPE",
@@ -1350,7 +1388,10 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "mana_cost": 40
+        "mana_cost": 40,
+        "neutral_dmg": 30,
+        "thunder_dmg": 10,
+        "range": 16
       }
     },
     {
@@ -1368,7 +1409,10 @@
         "ARROW_STORM",
         "ARROW_SHIELD"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "ARROW_SHIELD",
@@ -1387,7 +1431,10 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "mana_cost": 30
+        "mana_cost": 30,
+        "neutral_dmg": 90,
+        "air_damage": 10,
+        "duration": 60
       }
     },
     {
@@ -1404,7 +1451,12 @@
       "predecessors": [
         "ARROW_STORM"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "duration": 120,
+        "aoe": 8,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "ARCHER_AIR_MASTERY",
@@ -1507,7 +1559,11 @@
         "ARCHER_AIR_MASTERY",
         "NIMBLE_STRING"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": "120%",
+        "air_damage": 80
+      }
     },
     {
       "id": "NIMBLE_STRING",
@@ -1526,7 +1582,10 @@
         "ARCHER_THUNDER_MASTERY",
         "ARROW_RAIN"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "neutral_damage": -15
+      }
     },
     {
       "id": "PHANTOM_RAY",
@@ -1547,7 +1606,13 @@
         "ARCHER_WATER_MASTERY",
         "FIRE_CREEP"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_modifier": 10,
+        "neutral_damage": 25,
+        "water_damage": 5,
+        "range": 12
+      }
     },
     {
       "id": "FIRE_CREEP",
@@ -1565,7 +1630,14 @@
         "ARCHER_FIRE_MASTERY",
         "BRYOPHYTE_ROOTS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 30,
+        "fire_damage": 20,
+        "duration": 6,
+        "aoe": 0.8,
+        "aoe_shape": "LINE"
+      }
     },
     {
       "id": "BRYOPHYTE_ROOTS",
@@ -1584,7 +1656,14 @@
         "ARCHER_EARTH_MASTERY",
         "FIRE_CREEP"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "neutral_damage": 40,
+        "earth_damage": 20,
+        "duration": 5,
+        "aoe": 2,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "TRIPLE_SHOTS",
@@ -1637,7 +1716,13 @@
         "TRIPLE_SHOTS",
         "FRENZY"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": 40,
+        "air_damage": 60,
+        "range": 4,
+        "duration": 60
+      }
     },
     {
       "id": "FOCUS",
@@ -1673,7 +1758,14 @@
       "predecessors": [
         "BRYOPHYTE_ROOTS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 140,
+        "earth": 30,
+        "fire": 30,
+        "aoe": 7,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "WINDSTORM",
@@ -1692,7 +1784,12 @@
         "GUARDIAN_ANGELS",
         "CHEAPER_ARROW_STORM_I"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": -11,
+        "thunder_damage": -7,
+        "air_damage": 3
+      }
     },
     {
       "id": "CHEAPER_ARROW_STORM_I",
@@ -1710,7 +1807,10 @@
         "FOCUS",
         "GRAPPLING_HOOK"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "GRAPPLING_HOOK",
@@ -1730,7 +1830,10 @@
         "FOCUS",
         "MORE_SHIELDS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "range": 20
+      }
     },
     {
       "id": "MORE_SHIELDS",
@@ -1781,7 +1884,10 @@
         "GRAPPLING_HOOK",
         "MORE_SHIELDS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 40
+      }
     },
     {
       "id": "PATIENT_HUNTER",
@@ -1813,7 +1919,10 @@
       "predecessors": [
         "WINDSTORM"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "duration": 60
+      }
     },
     {
       "id": "REFINED_GUNPOWDER",
@@ -1830,7 +1939,10 @@
         "WINDSTORM",
         "TRAVELER"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 50
+      }
     },
     {
       "id": "TRAVELER",
@@ -1866,7 +1978,10 @@
         "TRAVELER",
         "MORE_FOCUS_I"
       ],
-      "properties": {}
+      "properties": {
+        "neutral_damage": 200,
+        "range": 64
+      }
     },
     {
       "id": "BOUNCING_BOMB",
@@ -1899,7 +2014,12 @@
         "REFINED_GUNPOWDER",
         "TRAVELER"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "neutral_damage": 100,
+        "aoe": 4,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "SCORCHED_EARTH",
@@ -1915,7 +2035,14 @@
       "predecessors": [
         "TWAINS_ARC"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 10,
+        "fire_damage": 5,
+        "duration": 2,
+        "aoe": 0.4,
+        "aoe_shape": "LINE"
+      }
     },
     {
       "id": "MORE_TRAPS",
@@ -2005,7 +2132,12 @@
         "TWAINS_ARC",
         "MANA_TRAP"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": 40,
+        "aoe": 1,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "MANA_TRAP",
@@ -2024,7 +2156,10 @@
         "BETTER_ARROW_SHIELD",
         "MORE_TRAPS"
       ],
-      "properties": {}
+      "properties": {
+        "mana_modifier": 10,
+        "range": 12
+      }
     },
     {
       "id": "BETTER_LEAP",
@@ -2060,7 +2195,11 @@
         "LEAP",
         "BETTER_GUARDIAN_ANGELS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "neutral_damage": 30,
+        "thunder_damage": 10
+      }
     },
     {
       "id": "BETTER_GUARDIAN_ANGELS",
@@ -2114,7 +2253,10 @@
         "INITIATOR",
         "MANA_TRAP"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        " mana_modifier": -5
+      }
     },
     {
       "id": "CALL_OF_THE_HOUND",
@@ -2131,7 +2273,10 @@
         "INITIATOR",
         "CHEAPER_ARROW_STORM_II"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": 40
+      }
     },
     {
       "id": "ARROW_HURRICANE",
@@ -2187,7 +2332,10 @@
         "PRECISE_SHOT",
         "INITIATOR"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "ROCKET_JUMP",
@@ -2223,7 +2371,11 @@
         "ARROW_HURRICANE",
         "PRECISE_SHOT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 40,
+        "fire_damage": 20
+      }
     },
     {
       "id": "DECIMATOR",
@@ -2257,7 +2409,10 @@
         "DECIMATOR",
         "CALL_OF_THE_HOUND"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "STRONGER_HOOK",
@@ -2275,7 +2430,10 @@
       "predecessors": [
         "CHEAPER_ESCAPE_II"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "range": 8
+      }
     },
     {
       "id": "GEYSER_STOMP",
@@ -2291,7 +2449,12 @@
       "predecessors": [
         "SHRAPNEL_BOMB"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "water_damage": 50,
+        "aoe": 1,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "CREPUSCULAR_RAY",
@@ -2309,7 +2472,11 @@
       "predecessors": [
         "CHEAPER_ARROW_SHIELD"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "neutral_damage": 10,
+        "water_damage": 5
+      }
     },
     {
       "id": "GRAPE_BOMB",
@@ -2325,7 +2492,13 @@
       "predecessors": [
         "CHEAPER_ESCAPE_II"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 30,
+        "fire_damage": 10,
+        "aoe": 2,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "ELUSIVE",
@@ -2357,7 +2530,10 @@
       "predecessors": [
         "GRAPE_BOMB"
       ],
-      "properties": {}
+      "properties": {
+        "neutral_damage": 20,
+        "air_damage": 20
+      }
     },
     {
       "id": "STRONGER_PATIENT_HUNTER",
@@ -2390,7 +2566,9 @@
         "GEYSER_STOMP",
         "MORE_FOCUS_II"
       ],
-      "properties": {}
+      "properties": {
+        "range": 2.5
+      }
     },
     {
       "id": "MORE_FOCUS_II",
@@ -2425,7 +2603,9 @@
       "predecessors": [
         "SNOW_STORM"
       ],
-      "properties": {}
+      "properties": {
+        "fire_damage": 20
+      }
     },
     {
       "id": "CHEAPER_ARROW_BOMB_II",
@@ -2442,7 +2622,10 @@
         "MORE_FOCUS_II",
         "MINEFIELD"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "MINEFIELD",
@@ -2461,8 +2644,12 @@
         "CHEAPER_ARROW_BOMB_II",
         "GRAPE_BOMB"
       ],
-      "properties": {}
+      "properties": {
+        "neutral_damage": -80,
+        "aoe": -2,
+        "aoe_shape": "CIRCLE"
+      }
     }
   ],
-  "version": "1.0.5"
+  "version": "1.0.6"
 }
