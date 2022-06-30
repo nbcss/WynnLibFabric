@@ -132,12 +132,12 @@ object ItemFactory {
             nbt.put("tag", tag)
             val item = ItemStack.fromNbt(nbt)
             if (item.isEmpty){
-                getLogger().warn("Could not find item with id $id and meta $meta")
+                println("Could not find item with id $id and meta $meta")
                 return ERROR_ITEM
             }
             return ItemStack.fromNbt(nbt)
         }
-        getLogger().warn("Could not find item with id $id and meta $meta")
+        println("Could not find item with id $id and meta $meta")
         return ERROR_ITEM
     }
 }

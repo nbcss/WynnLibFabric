@@ -8,7 +8,6 @@ import net.minecraft.text.StringVisitable
 import net.minecraft.text.Style
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import org.slf4j.Logger
 import java.util.*
 import java.util.function.Function
 
@@ -137,10 +136,6 @@ fun parseStyle(text: String, style: String): String {
         i++
     }
     return buffer.toString()
-}
-
-fun getLogger():Logger{
-    return com.mojang.logging.LogUtils.getLogger()
 }
 
 fun <K, V> getKey(map: Map<K, V>, target: V): K? {
