@@ -10,7 +10,8 @@
     "datafixer.EntityBlockStateFixAccessor",
     "datafixer.ItemInstanceSpawnEggFixAccessor",
     "datafixer.ItemPotionFixAccessor",
-    "datafixer.RecipeFixAccessor"
+    "datafixer.RecipeFixAccessor",
+    "render.ItemBackgroundMixin"
   ],
   "client": [
     "render.ItemGuiLightingFixMixin"

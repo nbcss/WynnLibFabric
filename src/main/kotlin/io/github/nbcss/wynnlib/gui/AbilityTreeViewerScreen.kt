@@ -7,6 +7,8 @@ import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.render.RenderKit.renderTextureWithColor
+import io.github.nbcss.wynnlib.utils.AlphaColor
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Pos
@@ -37,12 +39,12 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         const val VIEW_WIDTH = 232
         const val VIEW_HEIGHT = 138
         const val SCROLL_FRAMES = 4
-        const val ACTIVE_OUTER_COLOR: Int = 0x37ACB5 + (0xFF shl 24)
-        const val ACTIVE_INNER_COLOR: Int = 0x5FD6DF + (0xFF shl 24)
-        const val LOCKED_OUTER_COLOR: Int = 0x2D2E30 + (0xFF shl 24)
-        const val LOCKED_INNER_COLOR: Int = 0x252527 + (0xFF shl 24)
-        const val BASIC_OUTER_COLOR: Int = 0xEEEEEE + (0xFF shl 24)
-        const val BASIC_INNER_COLOR: Int = 0xAAAAAA + (0xFF shl 24)
+        val ACTIVE_OUTER_COLOR: AlphaColor = Color(0x37ACB5).toSolidColor()
+        val ACTIVE_INNER_COLOR: AlphaColor = Color(0x5FD6DF).toSolidColor()
+        val LOCKED_OUTER_COLOR: AlphaColor = Color(0x2D2E30).toSolidColor()
+        val LOCKED_INNER_COLOR: AlphaColor = Color(0x252527).toSolidColor()
+        val BASIC_OUTER_COLOR: AlphaColor = Color(0xEEEEEE).toSolidColor()
+        val BASIC_INNER_COLOR: AlphaColor = Color(0xAAAAAA).toSolidColor()
     }
     private var tree: AbilityTree = AbilityRegistry.fromCharacter(CharacterClass.WARRIOR)
     private var viewerX: Int = 0
@@ -106,7 +108,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         return mouseX >= viewerX && mouseX < viewerX + VIEW_WIDTH && mouseY >= viewerY && mouseY < viewerY + VIEW_HEIGHT
     }
 
-    private fun renderEdges(abilities: List<Ability>, matrices: MatrixStack, color: Int, inner: Boolean){
+    private fun renderEdges(abilities: List<Ability>, matrices: MatrixStack, color: AlphaColor, inner: Boolean){
         abilities.forEach {
             val to = toScreenPosition(it.getHeight(), it.getPosition())
             it.getPredecessors().forEach { node ->
@@ -114,9 +116,9 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
                 val height = min(it.getHeight(), node.getHeight())
                 val reroute = tree.getAbilityFromPosition(height, it.getPosition()) != null
                 if (inner) {
-                    drawInnerEdge(matrices, from, to, color, reroute)
+                    drawInnerEdge(matrices, from, to, color.getColorCode(), reroute)
                 }else{
-                    drawOuterEdge(matrices, from, to, color, reroute)
+                    drawOuterEdge(matrices, from, to, color.getColorCode(), reroute)
                 }
             }
         }
@@ -167,6 +169,15 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     }
 
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        val t = Identifier("wynnlib", "textures/slot/circle.png")
+        //val matrixStack = client!!
+        //itemRenderer.renderInGui()
+        matrices!!.push()
+        renderTextureWithColor(
+            matrices, t, Color.RED.toAlphaColor(160), mouseX, mouseY,
+            0, 0, 20, 20, 20, 20
+        )
+        matrices.pop()
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 143
         //render archetype values
@@ -218,8 +229,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
                     val itemX = node.x - 15
                     val itemY = node.y - 15
                     val u = 32 + 30 * (it.getTier().getLevel() - 1)
-                    RenderSystem.enableBlend()
-                    RenderKit.renderTextureWithColor(matrices, texture, color, 165, itemX, itemY,
+                    renderTextureWithColor(matrices, texture, color.toAlphaColor(165), itemX, itemY,
                         u, 144, 30, 30, 256, 256)
                 }
             }

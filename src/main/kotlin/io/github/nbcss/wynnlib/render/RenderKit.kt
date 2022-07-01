@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.render
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.utils.AlphaColor
 import io.github.nbcss.wynnlib.utils.Color
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.render.*
@@ -37,8 +38,7 @@ object RenderKit {
 
     fun renderTextureWithColor(matrices: MatrixStack,
                                texture: Identifier,
-                               color: Color,
-                               alpha: Int,
+                               color: AlphaColor,
                                x: Int,
                                y: Int,
                                u: Int,
@@ -48,7 +48,9 @@ object RenderKit {
                                texWidth: Int,
                                texHeight: Int) {
         //RenderSystem.setShader { GameRenderer.getPositionTexColorShader() }
-        RenderSystem.setShaderColor(color.floatRed(), color.floatGreen(), color.floatBlue(), Color.normalize(alpha))
+        //println(texture)
+        RenderSystem.enableBlend()
+        RenderSystem.setShaderColor(color.floatRed(), color.floatGreen(), color.floatBlue(), color.floatAlpha())
         RenderSystem.setShaderTexture(0, texture)
         RenderSystem.setShader { GameRenderer.getPositionTexShader() }
         DrawableHelper.drawTexture(matrices, x, y, u.toFloat(), v.toFloat(), width, height, texWidth, texHeight)
