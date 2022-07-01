@@ -36,7 +36,10 @@
       "predecessors": [
         "BASH"
       ],
-      "properties": {}
+      "properties": {
+        "main_damage_modifier": 5,
+        "main_range_modifier": 1
+      }
     },
     {
       "id": "CHEAPER_BASH_I",
@@ -513,7 +516,10 @@
         "BAKALS_GRASP",
         "CHEAPER_UPPERCUT_I"
       ],
-      "properties": {}
+      "properties": {
+        "main_damage_modifier": 5,
+        "main_range_modifier": 1
+      }
     },
     {
       "id": "CHEAPER_UPPERCUT_I",
@@ -1299,7 +1305,10 @@
       "predecessors": [
         "ARROW_BOMB"
       ],
-      "properties": {}
+      "properties": {
+        "main_damage_modifier": 5,
+        "main_range_modifier": 6
+      }
     },
     {
       "id": "CHEAPER_ARROW_BOMB_I",

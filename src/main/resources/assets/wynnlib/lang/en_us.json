@@ -98,6 +98,8 @@
   "wynnlib.tooltip.ability.range": "Range",
   "wynnlib.tooltip.ability.total_damage": "Total Damage",
   "wynnlib.tooltip.ability.damage_bonus": "Damage Bonus",
+  "wynnlib.tooltip.ability.main_attack_range": "Main Attack Range",
+  "wynnlib.tooltip.ability.main_attack_damage": "Main Attack Damage",
   "wynnlib.tooltip.ability.area_of_effect": "Area of Effect",
   "wynnlib.tooltip.ability.effect": "Effect",
   "wynnlib.tooltip.ability.duration": "Duration",

@@ -25,6 +25,8 @@ interface AbilityEffect {
             "WARRIOR_WATER_MASTERY" to ElementMastery,
             "WARRIOR_THUNDER_MASTERY" to ElementMastery,
             "WARRIOR_EARTH_MASTERY" to ElementMastery,
+            "SPEAR_PROFICIENCY_I" to WeaponProficiency,
+            "SPEAR_PROFICIENCY_II" to WeaponProficiency,
             //Archer Ability Effects
             "ARROW_STORM" to ArrowStormSpell,
             "ESCAPE" to EscapeSpell,
@@ -42,6 +44,7 @@ interface AbilityEffect {
             "ARCHER_WATER_MASTERY" to ElementMastery,
             "ARCHER_THUNDER_MASTERY" to ElementMastery,
             "ARCHER_EARTH_MASTERY" to ElementMastery,
+            "BOW_PROFICIENCY_I" to WeaponProficiency,
         )
 
         fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {
