@@ -197,7 +197,9 @@
         "neutral_damage": 50,
         "fire_damage": 50,
         "duration": 30,
-        "aoe": 12
+        "aoe": 12,
+        "effect_type": "ALLIES_RESISTANCE",
+        "effect_modifier": 10
       }
     },
     {
@@ -1412,6 +1414,7 @@
         "mana_cost": 40,
         "neutral_damage": 30,
         "thunder_damage": 10,
+        "hits": 16,
         "range": 16
       }
     },

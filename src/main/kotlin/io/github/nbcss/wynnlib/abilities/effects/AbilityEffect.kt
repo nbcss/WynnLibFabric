@@ -1,9 +1,8 @@
 package io.github.nbcss.wynnlib.abilities.effects
 
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.abilities.effects.spells.warrior.*
-import io.github.nbcss.wynnlib.abilities.effects.spells.SpellUnlock
-import io.github.nbcss.wynnlib.abilities.effects.spells.archer.*
+import io.github.nbcss.wynnlib.abilities.effects.warrior.*
+import io.github.nbcss.wynnlib.abilities.effects.archer.*
 import net.minecraft.text.Text
 
 interface AbilityEffect {

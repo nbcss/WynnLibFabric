@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.effects.spells.SpellUnlock
+import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from

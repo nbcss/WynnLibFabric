@@ -1,10 +1,8 @@
-package io.github.nbcss.wynnlib.abilities.effects.spells
+package io.github.nbcss.wynnlib.abilities.effects
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.ManaCostTooltip
-import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.effects.BaseEffect
 import io.github.nbcss.wynnlib.abilities.properties.BoundSpellProperty
 import io.github.nbcss.wynnlib.abilities.properties.ManaCostProperty
 import io.github.nbcss.wynnlib.data.SpellSlot

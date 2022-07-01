@@ -1,17 +1,17 @@
-package io.github.nbcss.wynnlib.abilities.effects.spells.archer
+package io.github.nbcss.wynnlib.abilities.effects.warrior
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.effects.spells.SpellUnlock
+import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
 import io.github.nbcss.wynnlib.abilities.properties.AreaOfEffectProperty
 import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
 import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
 
-class ArrowBombSpell(json: JsonObject): SpellUnlock(json), DamageProperty, AreaOfEffectProperty, RangeProperty {
+class UppercutSpell(json: JsonObject): SpellUnlock(json), DamageProperty, AreaOfEffectProperty, RangeProperty {
     companion object: AbilityEffect.Factory {
-        override fun create(properties: JsonObject): ArrowBombSpell {
-            return ArrowBombSpell(properties)
+        override fun create(properties: JsonObject): UppercutSpell {
+            return UppercutSpell(properties)
         }
     }
     private val range: Double = RangeProperty.read(json)
@@ -25,6 +25,6 @@ class ArrowBombSpell(json: JsonObject): SpellUnlock(json), DamageProperty, AreaO
     override fun getAreaOfEffect(): AreaOfEffectProperty.AreaOfEffect = aoe
 
     override fun getTooltipItems(): List<EffectTooltip> {
-        return listOf(ManaCostTooltip, DamageTooltip, RangeTooltip, AreaOfEffectTooltip)
+        return listOf(ManaCostTooltip, DamageTooltip, AreaOfEffectTooltip, RangeTooltip)
     }
 }

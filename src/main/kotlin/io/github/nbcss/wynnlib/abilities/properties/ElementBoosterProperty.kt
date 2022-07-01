@@ -16,8 +16,8 @@ interface ElementBoosterProperty {
     fun getElementBooster(): Booster
 
     data class Booster(private val element: Element,
-                      private val boosterRaw: IRange,
-                      private val boosterPct: Int) {
+                       private val boosterRaw: IRange,
+                       private val boosterPct: Int) {
         constructor(json: JsonObject): this(
             if (json.has(ELEMENT_KEY)) Element.fromId(json[ELEMENT_KEY].asString)?: Element.AIR else Element.AIR,
             if (json.has(BOOSTER_RAW_KEY)) SimpleIRange.fromString(json[BOOSTER_RAW_KEY].asString) else IRange.ZERO,
