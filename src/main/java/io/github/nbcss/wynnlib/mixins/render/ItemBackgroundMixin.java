@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(HandledScreen.class)
 public class ItemBackgroundMixin extends Screen {
-    final Identifier TEXTURE = new Identifier("wynnlib", "textures/slot/circle_2x.png");
+    final Identifier TEXTURE = new Identifier("wynnlib", "textures/slot/circle.png");
     MatrixStack matrixStack = null;
 
     protected ItemBackgroundMixin(Text title) {
