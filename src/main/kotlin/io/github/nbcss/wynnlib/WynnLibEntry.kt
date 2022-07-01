@@ -3,11 +3,8 @@ package io.github.nbcss.wynnlib
 import com.google.gson.JsonParser
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
-import io.github.nbcss.wynnlib.registry.AbilityRegistry
-import io.github.nbcss.wynnlib.registry.IngredientRegistry
-import io.github.nbcss.wynnlib.registry.PowderRegistry
-import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
-import io.github.nbcss.wynnlib.utils.getResource
+import io.github.nbcss.wynnlib.registry.*
+import io.github.nbcss.wynnlib.utils.FileUtils
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -20,20 +17,23 @@ import java.io.InputStreamReader
 @Suppress("UNUSED")
 object WynnLibEntry: ModInitializer {
     private const val MOD_ID = "wynnlib"
+    private const val ID_RESOURCE = "assets/wynnlib/data/Identifications.json"
+    private const val POWDER_RESOURCE = "assets/wynnlib/data/Powders.json"
+    private const val EQUIPMENT_RESOURCE = "assets/wynnlib/data/Equipments.json"
+    private const val INGREDIENT_RESOURCE = "assets/wynnlib/data/Ingredients.json"
+    private const val ABILITY_RESOURCE = "assets/wynnlib/data/Abilities.json"
+    private const val MATERIAL_RESOURCE = "assets/wynnlib/data/Materials.json"
 
     override fun onInitialize() {
         //Reload id metadata
         Identification.reload(JsonParser.parseReader(InputStreamReader(
-            getResource("assets/wynnlib/data/Identifications.json")!!, "utf-8")).asJsonObject)
+            FileUtils.getResource(ID_RESOURCE)!!, "utf-8")).asJsonObject)
         //Load database
-        PowderRegistry.reload(JsonParser.parseReader(InputStreamReader(
-            getResource("assets/wynnlib/data/Powders.json")!!, "utf-8")).asJsonObject)
-        RegularEquipmentRegistry.reload(JsonParser.parseReader(InputStreamReader(
-            getResource("assets/wynnlib/data/Equipments.json")!!, "utf-8")).asJsonObject)
-        IngredientRegistry.reload(JsonParser.parseReader(InputStreamReader(
-            getResource("assets/wynnlib/data/Ingredients.json")!!, "utf-8")).asJsonObject)
-        AbilityRegistry.reload(JsonParser.parseReader(InputStreamReader(
-            getResource("assets/wynnlib/data/Abilities.json")!!, "utf-8")).asJsonObject)
+        FileUtils.loadRegistry(PowderRegistry, POWDER_RESOURCE)
+        FileUtils.loadRegistry(RegularEquipmentRegistry, EQUIPMENT_RESOURCE)
+        FileUtils.loadRegistry(IngredientRegistry, INGREDIENT_RESOURCE)
+        FileUtils.loadRegistry(AbilityRegistry, ABILITY_RESOURCE)
+        FileUtils.loadRegistry(MaterialRegistry, MATERIAL_RESOURCE)
         //Register keybindings
         val openHandbook = KeyBindingHelper.registerKeyBinding(
             KeyBinding(

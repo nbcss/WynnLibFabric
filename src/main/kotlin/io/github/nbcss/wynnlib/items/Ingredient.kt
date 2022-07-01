@@ -3,14 +3,14 @@ package io.github.nbcss.wynnlib.items
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_CRAFTING_ING
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_CRAFTING_LV_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_CHARGES
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURABILITY
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_DURATION
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ING_EFFECTIVENESS
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_OR
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_MODIFIER
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CRAFTING_ING
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CRAFTING_LV_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_CHARGES
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_DURABILITY
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_DURATION
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_EFFECTIVENESS
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_OR
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_MODIFIER
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.IngredientIRange
@@ -101,7 +101,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
             val meta = if (sprite.has("damage")) sprite["damage"].asInt else 0
             ItemFactory.fromLegacyId(id, meta)
         } else {
-            ERROR_ITEM
+            ItemFactory.ERROR_ITEM
         }
     }
 
@@ -176,7 +176,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
 
     override fun getIcon(): ItemStack = texture
 
-    override fun getRarityColor(): Int {
+    override fun getRarityColor(): Color {
         return Settings.getColor("ingredient_tier", tier.name)
     }
 

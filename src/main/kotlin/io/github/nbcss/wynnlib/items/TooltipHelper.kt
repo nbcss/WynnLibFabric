@@ -2,12 +2,12 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Skill
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_CLASS_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_COMBAT_LV_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_POWDER_SLOTS
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_QUEST_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_SKILL_REQ
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_TO
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CLASS_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_COMBAT_LV_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SLOTS
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_QUEST_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_REQ
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers
@@ -24,7 +24,7 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
         tooltip.add(prefix.append(LiteralText(": ").formatted(Formatting.GRAY)).append(classReq))
     }
     if (item.getQuestReq() != null){
-        val quest = LiteralText(": " + item.getQuestReq()).formatted(Formatting.GRAY)
+        val quest = LiteralText(": ${item.getQuestReq()}").formatted(Formatting.GRAY)
         val prefix = TOOLTIP_QUEST_REQ.translate().formatted(Formatting.GRAY)
         tooltip.add(prefix.append(quest))
     }
@@ -64,8 +64,7 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
                 text.append(LiteralText("${signed(range.upper())}${it.suffix}").formatted(nextColor))
             }
             //val values = LiteralText("${range.start} to ${range.end} ")
-            val id = it.translate().formatted(Formatting.GRAY)
-            tooltip.add(text.append(LiteralText(" ")).append(id))
+            tooltip.add(text.append(" ").append(it.formatted(Formatting.GRAY)))
         }
     }
     return tooltip.size > lastSize

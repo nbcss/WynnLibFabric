@@ -42,7 +42,7 @@ class RegularArmour(parent: RegularEquipment, json: JsonObject)
             copy.nbt = tag
             texture = copy
         } else {
-            texture = ERROR_ITEM
+            texture = ItemFactory.ERROR_ITEM
         }
     }
 

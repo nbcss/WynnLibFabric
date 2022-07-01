@@ -2,25 +2,19 @@ package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.effects.UnlockContainerEffect
-import io.github.nbcss.wynnlib.abilities.tips.EffectTip
+import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
 import io.github.nbcss.wynnlib.data.CharacterClass
-import io.github.nbcss.wynnlib.data.SpellSlot
-import io.github.nbcss.wynnlib.lang.Translatable
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_BLOCKS
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_CLICK_COMBO
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_DEPENDENCY
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ABILITY_POINTS
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_TITLE
+import io.github.nbcss.wynnlib.i18n.Translatable
+import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BLOCKS
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_CLICK_COMBO
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_DEPENDENCY
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_POINTS
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ARCHETYPE_TITLE
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
-import io.github.nbcss.wynnlib.utils.ItemFactory
-import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.parseStyle
-import io.github.nbcss.wynnlib.utils.warpLines
-import net.minecraft.client.MinecraftClient
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
-import net.minecraft.text.CharacterVisitor
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -39,8 +33,8 @@ class Ability(json: JsonObject): Keyed, Translatable {
     private val blocks: MutableSet<String> = HashSet()
     private val predecessors: MutableSet<String> = HashSet()
     private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
-    private val effects: MutableList<AbilityEffect> = ArrayList()
-    private val tips: MutableList<EffectTip> = ArrayList()
+    private val effect: AbilityEffect
+    //private val tips: MutableList<EffectTip> = ArrayList()
     init {
         id = json["id"].asString
         //name = json["name"].asString
@@ -60,16 +54,6 @@ class Ability(json: JsonObject): Keyed, Translatable {
                 Archetype.fromName(it.key)?.let { arch -> archetypeReq[arch] = it.value.asInt }
             }
         }
-        if (json.has("effects")){
-            json["effects"].asJsonArray
-                .mapNotNull { AbilityEffect.fromData(it.asJsonObject) }
-                .forEach { effects.add(it) }
-        }
-        if (json.has("tips")){
-            json["tips"].asJsonArray
-                .mapNotNull { EffectTip.fromData(it.asJsonObject) }
-                .forEach { tips.add(it) }
-        }
         val level = MathHelper.clamp(json["tier"].asInt, 0, 4)
         tier = when (level) {
             1 -> Tier.TIER_1
@@ -84,6 +68,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
                 CharacterClass.SHAMAN -> Tier.SHAMAN_SPELL
             }
         }
+        effect = AbilityEffect.fromData(this, json["properties"].asJsonObject)
     }
 
     fun getCharacter(): CharacterClass = character
@@ -110,37 +95,37 @@ class Ability(json: JsonObject): Keyed, Translatable {
         return if (dependency == null) null else AbilityRegistry.get(dependency)
     }
 
-    fun getEffects(): List<AbilityEffect> = effects
+    fun getEffect(): AbilityEffect = effect
 
     fun getTooltip(): List<Text> {
         val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
-        effects.mapNotNull { if (it is UnlockContainerEffect) SpellSlot.fromName(it.getContainer()) else null }
-            .firstOrNull()?.let {
-                val combo = it.getClickCombo(getCharacter().getSpellKey())
+        if (effect is SpellUnlock){
+            effect.getSpell().getClickCombo(getCharacter().getSpellKey()).let {
                 tooltip.add(TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
                     .append(LiteralText(": ").formatted(Formatting.GOLD))
-                    .append(combo[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
+                    .append(it[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
                     .append(LiteralText("-").formatted(Formatting.WHITE))
-                    .append(combo[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
+                    .append(it[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
                     .append(LiteralText("-").formatted(Formatting.WHITE))
-                    .append(combo[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
-            }
-        tooltip.add(LiteralText.EMPTY)
-        translate("desc").string.split("//").forEach {
-            if(it == "") {
-                tooltip.add(LiteralText.EMPTY)
-            }else{
-                warpLines(parseStyle(it, Formatting.GRAY.toString()), 190).forEach { line ->
-                    tooltip.add(line)
-                }
+                    .append(it[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
             }
         }
         tooltip.add(LiteralText.EMPTY)
-        //Add effect tips
-        if (tips.isNotEmpty()){
-            tips.forEach { it.addTip(this, tooltip) }
+        val desc = replaceProperty(replaceProperty(translate("desc").string, '$')
+        { effect.getPropertyString(it) }, '@') {
+            val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
+            from(name).translate().string
+        }
+        formattingLines(desc, 190, Formatting.GRAY.toString()).forEach { line ->
+            tooltip.add(line)
+        }
+        tooltip.add(LiteralText.EMPTY)
+        //Add effect tooltip
+        val effectTooltip = effect.getEffectTooltip()
+        if (effectTooltip.isNotEmpty()){
+            tooltip.addAll(effectTooltip)
             tooltip.add(LiteralText.EMPTY)
         }
         //Add blocking abilities

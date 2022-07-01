@@ -15,11 +15,18 @@ Planned New Features:
 - New Wynncraft 2.0 content support (e.g. ability tree)
 
 # TODO LIST
-- [x] Equipment Dictionary (Base)
+- [x] Equipment Dictionary
+- [x] Ingredient Dictionary
+- [x] Material Dictionary
 - [x] Handbook Tab-switching
-- [ ] Dictionary item name filter
+- [x] Dictionary item name filter
+- [x] Ability Tree Viewer
 - [ ] Advance Search Panel
-- [ ] Ingredient Dictionary
+- [ ] Localization
+- [ ] Crafter
+- [ ] Configuration Page
+- [ ] Item Background Color
+- [ ] Ability Display Effect Item
 # Development Guide
 The current main development branch is 1.18,
 please work on this branch to add new features.

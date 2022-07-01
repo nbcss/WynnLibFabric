@@ -1,8 +1,7 @@
 package io.github.nbcss.wynnlib.data
 
-import io.github.nbcss.wynnlib.lang.Translatable
+import io.github.nbcss.wynnlib.i18n.Translatable
 import net.minecraft.text.LiteralText
-import net.minecraft.text.MutableText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import java.util.*
@@ -39,7 +38,9 @@ enum class Profession(private val type: Type,
         fun fromName(name: String): Profession? = VALUE_MAP[name.uppercase()]
     }
 
-    fun getIconText(): Text = LiteralText(icon).formatted(Formatting.WHITE)
+    fun getIconSymbol(): String = icon
+
+    fun getIconText(): Text = LiteralText(getIconSymbol()).formatted(Formatting.WHITE)
 
     fun getType(): Type = type
 

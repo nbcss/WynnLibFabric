@@ -4,7 +4,7 @@ import io.github.nbcss.wynnlib.gui.DictionaryScreen
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.items.Equipment
-import io.github.nbcss.wynnlib.lang.Translations.UI_EQUIPMENTS
+import io.github.nbcss.wynnlib.i18n.Translations.UI_EQUIPMENTS
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import net.minecraft.client.gui.screen.Screen

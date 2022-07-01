@@ -1,11 +1,13 @@
 package io.github.nbcss.wynnlib.abilities
 
 import io.github.nbcss.wynnlib.data.CharacterClass
-import io.github.nbcss.wynnlib.lang.Translatable
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_ARCHETYPE_ABILITIES
+import io.github.nbcss.wynnlib.i18n.Translatable
+import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ARCHETYPE_ABILITIES
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.formattingLines
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -59,7 +61,12 @@ enum class Archetype(private val displayName: String,
     fun getTooltip(): List<Text> {
         val tree = AbilityRegistry.fromCharacter(character)
         val tooltip: MutableList<Text> = ArrayList()
-        tooltip.add(translate().formatted(getFormatting()).formatted(Formatting.BOLD))
+        val title = Translations.TOOLTIP_ARCHETYPE_TITLE.translate(null, translate().string)
+        tooltip.add(title.formatted(getFormatting()).formatted(Formatting.BOLD))
+        tooltip.add(LiteralText.EMPTY)
+        formattingLines(translate("desc").string, 190, Formatting.GRAY.toString()).forEach { line ->
+            tooltip.add(line)
+        }
         tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_ARCHETYPE_ABILITIES.translate(null, tree.getArchetypePoint(this))
             .formatted(Formatting.GRAY))
@@ -78,6 +85,9 @@ enum class Archetype(private val displayName: String,
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.archetype.${name.lowercase()}"
+        if (label == "desc"){
+            return "wynnlib.archetype.desc.${name.lowercase()}"
+        }
+        return "wynnlib.archetype.name.${name.lowercase()}"
     }
 }

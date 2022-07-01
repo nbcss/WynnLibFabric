@@ -1,8 +1,11 @@
 package io.github.nbcss.wynnlib.gui
 
+import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.items.BaseItem
+import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -18,6 +21,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     private val slotsBackground = Identifier("wynnlib", "textures/gui/dictionary_slots.png")
     protected val items: MutableList<T> = ArrayList()
     private val slots: MutableList<ItemSlotWidget<T>> = ArrayList()
+    private var lastSearch: String = ""
+    private var searchBox: ItemSearchWidget? = null
     private var lineIndex: Int = 0
     private var lineSize: Int = 0
     private var sliderLength: Double = 1.0
@@ -29,9 +34,13 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     override fun init() {
         super.init()
-        items.clear()
-        items.addAll(fetchItems())
-        items.sortBy { t -> t.getDisplayName() }
+        searchBox = ItemSearchWidget(textRenderer, windowX + 22, windowY + 191, 120, 12)
+        searchBox!!.text = lastSearch
+        searchBox!!.isFocused = true
+        searchBox!!.setChangedListener{onSearchChanged(it)}
+        focused = addDrawableChild(searchBox!!)
+        updateItems()
+        //search!!.setDrawsBackground(false)
         //Reset lines
         lineIndex = 0
         //Excluding 6 lines (only since 7th line need additional page)
@@ -45,6 +54,12 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         }
         //update items in slots
         updateSlots()
+    }
+
+    fun updateItems() {
+        items.clear()
+        items.addAll(fetchItems().filter { searchBox!!.validate(it) })
+        items.sortBy { t -> t.getDisplayName() }
     }
 
     fun updateSlots() {
@@ -61,10 +76,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     override fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackground(matrices, mouseX, mouseY, delta)
-        this.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
+        RenderKit.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
             0, 0, this.backgroundWidth, this.backgroundHeight)
-        textRenderer.draw(matrices, "XXXXXXXXXXXXXXXXXX",
-            (windowX + 24).toFloat(), (windowY + 194).toFloat(), 0)
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
@@ -82,6 +95,11 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         return super.mouseScrolled(mouseX, mouseY, amount)
     }
 
+    override fun tick() {
+        super.tick()
+        searchBox!!.tick()
+    }
+
     override fun drawContents(matrices: MatrixStack?,
                               mouseX: Int,
                               mouseY: Int,
@@ -93,5 +111,17 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     private fun isInPage(mouseX: Double, mouseY: Double): Boolean {
         return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 240 && mouseY <= windowY + 188
+    }
+
+    fun onSearchChanged(text: String) {
+        if (text == lastSearch)
+            return
+        lastSearch = text
+        updateItems()
+        //Reset lines
+        lineIndex = 0
+        //Excluding 6 lines (only since 7th line need additional page)
+        lineSize = max(0, (items.size + (COLUMNS - 1)) / COLUMNS - ROWS)
+        updateSlots()
     }
 }

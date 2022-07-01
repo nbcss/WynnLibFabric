@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
 import io.github.nbcss.wynnlib.items.equipments.Weapon
-import io.github.nbcss.wynnlib.lang.Translations.TOOLTIP_NEUTRAL_DAMAGE
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_NEUTRAL_DAMAGE
 import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
@@ -60,19 +60,19 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
         tooltip.add(LiteralText.EMPTY)
         val lastSize = tooltip.size
         if(!damage.isZero()){
-            val text = LiteralText(": " + damage.lower().toString() + "-" + damage.upper().toString())
-            tooltip.add(TOOLTIP_NEUTRAL_DAMAGE.translate().append(text.formatted(Formatting.GOLD)))
+            val text = LiteralText(": ${damage.lower()}-${damage.upper()}")
+            tooltip.add(TOOLTIP_NEUTRAL_DAMAGE.formatted(Formatting.GOLD).append(text.formatted(Formatting.GOLD)))
         }
         Element.values().forEach {
             val range: IRange = getElementDamage(it)
             if (!range.isZero()) {
-                val text = LiteralText(": " + range.lower().toString() + "-" + range.upper().toString())
-                val prefix = it.translate("tooltip.damage").formatted(Formatting.GRAY)
+                val text = LiteralText(": ${range.lower()}-${range.upper()}")
+                val prefix = it.formatted(Formatting.GRAY, "tooltip.damage")
                 tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
             }
         }
         //append additional one empty line if damage added
-        if (tooltip.size > lastSize) tooltip.add(LiteralText(""))
+        if (tooltip.size > lastSize) tooltip.add(LiteralText.EMPTY)
         addRequirements(parent, tooltip)
         tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip

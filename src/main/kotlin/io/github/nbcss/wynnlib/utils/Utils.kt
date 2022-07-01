@@ -1,23 +1,15 @@
 package io.github.nbcss.wynnlib.utils
 
-import io.github.nbcss.wynnlib.WynnLibEntry
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
-import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.StringVisitable
 import net.minecraft.text.Style
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import net.minecraft.util.Identifier
-import net.minecraft.util.registry.Registry
-import org.slf4j.Logger
-import java.io.IOException
-import java.io.InputStream
 import java.util.*
-
-val ERROR_ITEM: ItemStack = ItemStack(Registry.ITEM.get(Identifier("barrier")))
+import java.util.function.Function
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
@@ -25,6 +17,10 @@ fun signed(value: Int): String {
 
 fun signed(value: Double): String {
     return if(value <= 0.0) value.toString() else "+$value"
+}
+
+fun removeDecimal(value: Double): String {
+    return (if (value % 1.0 != 0.0) value else value.toInt()).toString()
 }
 
 fun formatNumbers(num: Int): String {
@@ -67,6 +63,45 @@ fun asColor(text: String): Int {
     return color
 }
 
+fun formattingLines(text: String, length: Int, prefix: String): List<Text> {
+    val lines: MutableList<Text> = ArrayList()
+    text.split("//").forEach {
+        if(it == "") {
+            lines.add(LiteralText.EMPTY)
+        }else{
+            warpLines(parseStyle(it, prefix), length).forEach { line -> lines.add(line) }
+        }
+    }
+    return lines
+}
+
+fun replaceProperty(text: String, prefix: Char, provider: Function<String, String>): String {
+    val output = StringBuilder()
+    var buffer: StringBuilder? = null
+    var i = 0
+    while (i < text.length) {
+        val c = text[i]
+        if (buffer == null) {
+            if (c == prefix && i + 1 < text.length && text[i + 1] == '{') {
+                buffer = StringBuilder()
+                i += 1
+            } else {
+                output.append(c)
+            }
+        } else if (c == '}') {
+            output.append(provider.apply(buffer.toString()))
+            buffer = null
+        } else {
+            buffer.append(c)
+        }
+        i++
+    }
+    if (buffer != null) {
+        output.append(buffer)
+    }
+    return output.toString()
+}
+
 fun warpLines(text: String, length: Int): List<Text> {
     val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
         Optional.of(LiteralText(asString).setStyle(style))
@@ -101,25 +136,6 @@ fun parseStyle(text: String, style: String): String {
         i++
     }
     return buffer.toString()
-}
-
-fun getResource(filename: String): InputStream? {
-    return try {
-        val url = WynnLibEntry.javaClass.classLoader.getResource(filename)
-        if (url == null) {
-            null
-        } else {
-            val connection = url.openConnection()
-            connection.useCaches = false
-            connection.getInputStream()
-        }
-    } catch (var4: IOException) {
-        null
-    }
-}
-
-fun getLogger():Logger{
-    return com.mojang.logging.LogUtils.getLogger()
 }
 
 fun <K, V> getKey(map: Map<K, V>, target: V): K? {
