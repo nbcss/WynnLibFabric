@@ -1853,7 +1853,7 @@
         "GRAPPLING_HOOK"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "spell": "SPELL_1",
         "mana_modifier": -5
       }
     },
@@ -2300,7 +2300,7 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        " mana_modifier": -5
+        "mana_modifier": -5
       }
     },
     {

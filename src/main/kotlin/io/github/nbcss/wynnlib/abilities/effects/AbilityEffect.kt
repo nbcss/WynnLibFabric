@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.effects
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.effects.warrior.*
 import io.github.nbcss.wynnlib.abilities.effects.archer.*
 import net.minecraft.text.Text
@@ -43,8 +44,9 @@ interface AbilityEffect {
             "ARCHER_EARTH_MASTERY" to ElementMastery,
         )
 
-        fun fromData(id: String, properties: JsonObject): AbilityEffect {
-            return FACTORY_MAP.getOrDefault(id.uppercase(), BaseEffect.FACTORY).create(properties)
+        fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {
+            return FACTORY_MAP.getOrDefault(ability.getKey().uppercase(), BaseEffect.FACTORY)
+                .create(ability, properties)
         }
     }
 
@@ -64,7 +66,12 @@ interface AbilityEffect {
      */
     fun getPropertyString(key: String): String
 
+    /**
+     * Get the parent ability of the effect.
+     */
+    fun getAbility(): Ability
+
     interface Factory {
-        fun create(properties: JsonObject): AbilityEffect
+        fun create(parent: Ability, properties: JsonObject): AbilityEffect
     }
 }

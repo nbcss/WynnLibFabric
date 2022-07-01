@@ -54,7 +54,6 @@ class Ability(json: JsonObject): Keyed, Translatable {
                 Archetype.fromName(it.key)?.let { arch -> archetypeReq[arch] = it.value.asInt }
             }
         }
-        effect = AbilityEffect.fromData(id, json["properties"].asJsonObject)
         val level = MathHelper.clamp(json["tier"].asInt, 0, 4)
         tier = when (level) {
             1 -> Tier.TIER_1
@@ -69,6 +68,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
                 CharacterClass.SHAMAN -> Tier.SHAMAN_SPELL
             }
         }
+        effect = AbilityEffect.fromData(this, json["properties"].asJsonObject)
     }
 
     fun getCharacter(): CharacterClass = character

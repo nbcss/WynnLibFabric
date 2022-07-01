@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.effects.warrior
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
@@ -9,11 +10,11 @@ import io.github.nbcss.wynnlib.abilities.properties.BonusEffectProperty
 import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
 import io.github.nbcss.wynnlib.abilities.properties.DurationProperty
 
-class WarScreamSpell(json: JsonObject): SpellUnlock(json),
+class WarScreamSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, json),
     DamageProperty, DurationProperty, AreaOfEffectProperty, BonusEffectProperty {
     companion object: AbilityEffect.Factory {
-        override fun create(properties: JsonObject): WarScreamSpell {
-            return WarScreamSpell(properties)
+        override fun create(parent: Ability, properties: JsonObject): WarScreamSpell {
+            return WarScreamSpell(parent, properties)
         }
     }
     private val damage: DamageProperty.Damage = DamageProperty.read(json)

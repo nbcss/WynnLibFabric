@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.effects.archer
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
@@ -8,10 +9,11 @@ import io.github.nbcss.wynnlib.abilities.properties.AreaOfEffectProperty
 import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
 import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
 
-class ArrowBombSpell(json: JsonObject): SpellUnlock(json), DamageProperty, AreaOfEffectProperty, RangeProperty {
+class ArrowBombSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, json),
+    DamageProperty, AreaOfEffectProperty, RangeProperty {
     companion object: AbilityEffect.Factory {
-        override fun create(properties: JsonObject): ArrowBombSpell {
-            return ArrowBombSpell(properties)
+        override fun create(parent: Ability, properties: JsonObject): ArrowBombSpell {
+            return ArrowBombSpell(parent, properties)
         }
     }
     private val range: Double = RangeProperty.read(json)
