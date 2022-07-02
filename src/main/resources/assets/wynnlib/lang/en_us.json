@@ -54,6 +54,7 @@
   "wynnlib.tooltip.air_damage": "f{\u274b Air} Damage",
   "wynnlib.tooltip.thunder_damage": "e{\u2726 Thunder} Damage",
   "wynnlib.tooltip.earth_damage": "2{\u2724 Earth} Damage",
+  "wynnlib.tooltip.average_damage": "Average DPS",
   "wynnlib.tooltip.class_req": "Class Req",
   "wynnlib.tooltip.quest_req": "Quest Req",
   "wynnlib.tooltip.combat_level_req": "Combat Lv. Min",

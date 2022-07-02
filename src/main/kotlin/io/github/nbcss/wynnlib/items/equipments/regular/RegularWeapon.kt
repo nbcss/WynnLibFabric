@@ -4,17 +4,20 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_AVERAGE_DAMAGE
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_NEUTRAL_DAMAGE
 import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
+import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import kotlin.math.roundToInt
 
 class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
     : Weapon, EquipmentContainer {
@@ -71,6 +74,11 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
                 tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
             }
         }
+
+        tooltip.add(Symbol.DAMAGE.asText().append(" ")
+            .append(TOOLTIP_AVERAGE_DAMAGE.formatted(Formatting.DARK_GRAY).append(": "))
+            .append(LiteralText("${getDPS().roundToInt()}").formatted(Formatting.GRAY)))
+
         //append additional one empty line if damage added
         if (tooltip.size > lastSize) tooltip.add(LiteralText.EMPTY)
         addRequirements(parent, tooltip)
