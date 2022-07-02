@@ -1,41 +1,41 @@
 package io.github.nbcss.wynnlib.matcher
 
-import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.data.Tier
-import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.utils.Color
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NbtCompound
+import net.minecraft.text.Text
+import java.util.*
+import java.util.function.Supplier
 
 interface ItemMatcher {
-    fun toBaseItem(item: ItemStack): BaseItem?
-    fun toRarityColor(item: ItemStack): Color?
+    //fun toBaseItem(item: ItemStack): BaseItem?
+    fun toRarityColor(item: ItemStack, tooltip: List<Text>): Supplier<Color?>?
 
     companion object {
-        fun matchesItem(item: ItemStack): BaseItem? {
-            //todo
+        private val colorCacheMap: MutableMap<String, Supplier<Color?>> = WeakHashMap()
+        private val nullSupplier: Supplier<Color?> = Supplier<Color?> {null}
+        private val colorMatchers: List<ItemMatcher> = listOf(EquipmentMatcher)
+        /*fun matchesItem(item: ItemStack): BaseItem? {
             return null
-        }
+        }*/
 
         fun toRarityColor(item: ItemStack): Color? {
             //println(item.name)
             if (item.isEmpty)
                 return null
-            val tooltip = item.getTooltip(MinecraftClient.getInstance().player, TooltipContext.Default.NORMAL)
-            //todo
-            tooltip.forEach {
-                val s = it.string
-                //println(s)
-                for (tier in Tier.values()) {
-                    if (s.contains(tier.displayName)){
-                        return Settings.getTierColor(tier)
-                    }
-                }
+            val key = item.writeNbt(NbtCompound()).toString()
+            val cache = colorCacheMap[key]
+            if (cache != null) {
+                return cache.get()
             }
+            val tooltip = item.getTooltip(MinecraftClient.getInstance().player, TooltipContext.Default.NORMAL)
+            val supplier = colorMatchers.firstNotNullOfOrNull { it.toRarityColor(item, tooltip) } ?: nullSupplier
+            colorCacheMap[key] = supplier
+            return supplier.get()
             //val colors = listOf(Color.DARK_PURPLE, Color.RED, Color.AQUA, Color.PINK, Color.YELLOW)
             //return colors.random()
-            return null
         }
     }
 }

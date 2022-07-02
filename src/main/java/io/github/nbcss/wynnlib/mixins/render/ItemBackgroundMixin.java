@@ -46,6 +46,7 @@ public class ItemBackgroundMixin extends Screen {
         Color color = ItemMatcher.Companion.toRarityColor(stack);
         if(color != null) {
             matrixStack.push();
+            matrixStack.translate(0.0, 0.0, 200.0);
             RenderKit.INSTANCE.renderTextureWithColor(matrixStack, TEXTURE, color.toSolidColor(),
                     x - 2, y - 2, 0, 0, 20, 20, 20, 20);
             matrixStack.pop();
