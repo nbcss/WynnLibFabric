@@ -5,9 +5,24 @@ import io.github.nbcss.wynnlib.data.Element
 
 interface DamageProperty {
     companion object {
-        const val HITS_KEY: String = "hits"
-        const val NEUTRAL_DAMAGE_KEY: String = "neutral_damage"
-        fun read(data: JsonObject): Damage = Damage(data)
+        private const val HITS_KEY: String = "hits"
+        private const val NEUTRAL_DAMAGE_KEY: String = "neutral_damage"
+        fun readModifier(data: JsonObject): Damage {
+            return asDamage(if (data.has(HITS_KEY)) data[HITS_KEY].asInt else 0, data)
+        }
+
+        fun readDamage(data: JsonObject): Damage {
+            return asDamage(if (data.has(HITS_KEY)) data[HITS_KEY].asInt else 1, data)
+        }
+
+        private fun asDamage(hits: Int, data: JsonObject): Damage {
+            val neutral = if (data.has(NEUTRAL_DAMAGE_KEY)) data[NEUTRAL_DAMAGE_KEY].asInt else 0
+            val elementalDamage = mapOf(pairs = Element.values().map {
+                val key = "${it.getKey().lowercase()}_damage"
+                it to if (data.has(key)) data[key].asInt else 0
+            }.toTypedArray())
+            return Damage(hits, neutral, elementalDamage)
+        }
     }
 
     fun getDamage(): Damage
@@ -15,14 +30,6 @@ interface DamageProperty {
     data class Damage(private val hits: Int,
                       private val neutralDamage: Int,
                       private val elementalDamage: Map<Element, Int>) {
-        constructor(json: JsonObject): this(
-            if (json.has(HITS_KEY)) json[HITS_KEY].asInt else 1,
-            if (json.has(NEUTRAL_DAMAGE_KEY)) json[NEUTRAL_DAMAGE_KEY].asInt else 0,
-            mapOf(pairs = Element.values().map {
-                val key = "${it.getKey().lowercase()}_damage"
-                it to if (json.has(key)) json[key].asInt else 0
-            }.toTypedArray())
-        )
 
         fun getHits(): Int = hits
 
@@ -41,5 +48,14 @@ interface DamageProperty {
         fun getNeutralDamageRate(): Double = neutralDamage / 100.0
 
         fun getElementalDamageRate(element: Element): Double = getElementalDamage(element) / 100.0
+
+        fun add(damage: Damage): Damage {
+            val hits = this.hits + damage.hits
+            val neutral = this.neutralDamage + damage.neutralDamage
+            val elementalDamage = mapOf(pairs = Element.values().map {
+                it to (this.getElementalDamage(it) + damage.getElementalDamage(it))
+            }.toTypedArray())
+            return Damage(hits, neutral, elementalDamage)
+        }
     }
 }

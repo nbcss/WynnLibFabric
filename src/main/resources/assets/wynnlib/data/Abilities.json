@@ -74,7 +74,12 @@
       "predecessors": [
         "SPEAR_PROFICIENCY_I"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "hits": 1,
+        "neutral_damage": -50,
+        "range": 3
+      }
     },
     {
       "id": "CHARGE",

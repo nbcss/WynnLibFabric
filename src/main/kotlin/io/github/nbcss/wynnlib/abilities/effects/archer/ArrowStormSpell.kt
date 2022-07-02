@@ -16,7 +16,7 @@ class ArrowStormSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, js
         }
     }
     private val range: Double = RangeProperty.read(json)
-    private val damage: DamageProperty.Damage = DamageProperty.read(json)
+    private val damage: DamageProperty.Damage = DamageProperty.readDamage(json)
 
     override fun getRange(): Double = range
 

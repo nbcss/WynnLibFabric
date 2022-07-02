@@ -86,7 +86,7 @@
       "id": "damage_bonus_raw",
       "apiId": "damageBonusRaw",
       "name": "DAMAGEBONUSRAW",
-      "displayName": "Main Attack Neutral Damage",
+      "displayName": "Main Attack Damage",
       "suffix": ""
     },
     {
@@ -100,7 +100,7 @@
       "id": "spell_damage_raw",
       "apiId": "spellDamageRaw",
       "name": "SPELLDAMAGERAW",
-      "displayName": "Neutral Spell Damage",
+      "displayName": "Spell Damage",
       "suffix": ""
     },
     {

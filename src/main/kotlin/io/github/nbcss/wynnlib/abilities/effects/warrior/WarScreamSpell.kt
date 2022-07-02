@@ -17,7 +17,7 @@ class WarScreamSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, jso
             return WarScreamSpell(parent, properties)
         }
     }
-    private val damage: DamageProperty.Damage = DamageProperty.read(json)
+    private val damage: DamageProperty.Damage = DamageProperty.readDamage(json)
     private val duration: Double = DurationProperty.read(json)
     private val aoe: AreaOfEffectProperty.AreaOfEffect = AreaOfEffectProperty.read(json)
     private val effect: BonusEffectProperty.EffectBonus = BonusEffectProperty.read(json)

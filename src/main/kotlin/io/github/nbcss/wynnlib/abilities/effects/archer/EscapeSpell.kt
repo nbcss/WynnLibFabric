@@ -15,7 +15,7 @@ class EscapeSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, json),
             return EscapeSpell(parent, properties)
         }
     }
-    private val damage: DamageProperty.Damage = DamageProperty.read(json)
+    private val damage: DamageProperty.Damage = DamageProperty.readDamage(json)
 
     override fun getDamage(): DamageProperty.Damage = damage
 

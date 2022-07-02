@@ -16,7 +16,7 @@ class ArrowShieldSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, j
             return ArrowShieldSpell(parent, properties)
         }
     }
-    private val damage: DamageProperty.Damage = DamageProperty.read(json)
+    private val damage: DamageProperty.Damage = DamageProperty.readDamage(json)
     private val duration: Double = DurationProperty.read(json)
     private val charges: Int = ChargeProperty.read(json)
 
