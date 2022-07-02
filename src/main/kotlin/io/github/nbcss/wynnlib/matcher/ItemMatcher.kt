@@ -24,7 +24,7 @@ interface ItemMatcher {
     companion object {
         private val colorCacheMap: MutableMap<String, Supplier<Color?>> = WeakHashMap()
         private val nullSupplier: Supplier<Color?> = Supplier<Color?> {null}
-        private val colorMatchers: List<ItemMatcher> = listOf(EquipmentMatcher)
+        private val colorMatchers: List<ItemMatcher> = listOf(EquipmentMatcher, IngredientMatcher)
         /*fun matchesItem(item: ItemStack): BaseItem? {
             return null
         }*/

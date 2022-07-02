@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib
 
 import io.github.nbcss.wynnlib.data.Tier
+import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.utils.Color
 import java.util.*
@@ -34,6 +35,10 @@ object Settings {
 
     fun getPowderColor(powder: Powder): Color {
         return getColor("powder_tier", powder.getTier().name)
+    }
+
+    fun getIngredientColor(tier: Ingredient.Tier): Color {
+        return getColor("ingredient_tier", tier.name)
     }
 
     fun getTierColor(tier: Tier): Color{
