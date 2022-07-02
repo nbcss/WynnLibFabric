@@ -169,15 +169,6 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     }
 
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        val t = Identifier("wynnlib", "textures/slot/circle.png")
-        //val matrixStack = client!!
-        //itemRenderer.renderInGui()
-        matrices!!.push()
-        renderTextureWithColor(
-            matrices, t, Color.RED.toAlphaColor(160), mouseX, mouseY,
-            0, 0, 20, 20, 20, 20
-        )
-        matrices.pop()
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 143
         //render archetype values
