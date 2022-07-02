@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
+import io.github.nbcss.wynnlib.gui.widgets.ExitButtonWidget
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.GameRenderer
@@ -12,7 +13,8 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(title), TooltipScreen {
+abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(title),
+    TooltipScreen, ExitButtonWidget.ExitHandler {
     private val texture = Identifier("wynnlib", "textures/gui/handbook_tab.png")
     companion object {
         const val TAB_SIZE: Int = 7
@@ -42,6 +44,9 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         windowHeight = backgroundHeight
         windowX = (width - windowWidth) / 2
         windowY = (height - windowHeight) / 2
+        val closeX = windowX + 230
+        val closeY = windowY + 32
+        addDrawableChild(ExitButtonWidget(this, closeX, closeY))
     }
 
     open fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
@@ -106,15 +111,15 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
 
     override fun render(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         drawBackground(matrices, mouseX, mouseY, delta)
-        val closeX = windowX + 230
-        val closeY = windowY + 32
-        RenderSystem.enableDepthTest()
-        RenderKit.renderTexture(matrices, texture, closeX, closeY, 56, 210, 10, 10)
         super.render(matrices, mouseX, mouseY, delta)
         drawContents(matrices, mouseX, mouseY, delta)
     }
 
     override fun shouldPause(): Boolean = false
+
+    override fun exit() {
+        client!!.setScreen(parent)
+    }
 
     override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
         matrices.push()

@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib
 
+import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.utils.Color
 import java.util.*
 import kotlin.collections.LinkedHashMap
@@ -30,8 +31,12 @@ object Settings {
         colorMap["powder_tier.vi"] = Color.DARK_PURPLE
     }
 
+    fun getTierColor(tier: Tier): Color{
+        return getColor("tier", tier.name)
+    }
+
     fun getColor(prefix: String, label: String): Color {
-        val key = "${prefix}.$label".lowercase(Locale.getDefault())
-        return colorMap.getOrDefault(key, Color.BLACK)
+        val key = "${prefix}.$label".lowercase()
+        return colorMap.getOrDefault(key, Color.WHITE)
     }
 }
