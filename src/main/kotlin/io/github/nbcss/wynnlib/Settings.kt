@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib
 
 import io.github.nbcss.wynnlib.data.Tier
+import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.utils.Color
 import java.util.*
 import kotlin.collections.LinkedHashMap
@@ -29,6 +30,10 @@ object Settings {
         colorMap["powder_tier.iv"] = Color.AQUA
         colorMap["powder_tier.v"] = Color.RED
         colorMap["powder_tier.vi"] = Color.DARK_PURPLE
+    }
+
+    fun getPowderColor(powder: Powder): Color {
+        return getColor("powder_tier", powder.getTier().name)
     }
 
     fun getTierColor(tier: Tier): Color{
