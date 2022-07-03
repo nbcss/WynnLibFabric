@@ -14,7 +14,7 @@ enum class Symbol(private val icon: String,
     DAMAGE("⚔", Formatting.RED),
     COOLDOWN("⌛", Formatting.GOLD),
     CHARGE("⚡", Formatting.GREEN),
-    HITS("☄", Formatting.RED),
+    HITS("☄", Formatting.YELLOW),
     ;
     //CHARGE ⚡
 

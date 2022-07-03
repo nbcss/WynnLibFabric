@@ -105,6 +105,7 @@
   "wynnlib.tooltip.ability.effect": "Effect",
   "wynnlib.tooltip.ability.duration": "Duration",
   "wynnlib.tooltip.ability.charges": "Charges",
+  "wynnlib.tooltip.ability.hits": "Hits",
   "wynnlib.tooltip.ability.aoe_shape.circle": "Circle-Shaped",
   "wynnlib.tooltip.ability.aoe_shape.cone": "Cone-Shaped",
   "wynnlib.tooltip.ability.effect.allies_resistance": "Resistance to Allies",

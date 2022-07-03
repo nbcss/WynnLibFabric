@@ -28,6 +28,6 @@ class DoubleBash(parent: Ability, json: JsonObject): BaseEffect(parent, json),
     override fun getDamage(): DamageProperty.Damage = damage
 
     override fun getTooltipItems(): List<EffectTooltip> {
-        return listOf(DamageModifierTooltip, RangeModifierTooltip)
+        return listOf(DamageTooltip.Modifier, RangeTooltip.Modifier)
     }
 }

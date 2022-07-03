@@ -27,6 +27,6 @@ class ArrowShieldSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, j
     override fun getCharges(): Int = charges
 
     override fun getTooltipItems(): List<EffectTooltip> {
-        return listOf(ManaCostTooltip, DamageTooltip, ChargesTooltip, DurationTooltip)
+        return listOf(ManaCostTooltip, DamageTooltip, DurationTooltip, ChargesTooltip)
     }
 }
