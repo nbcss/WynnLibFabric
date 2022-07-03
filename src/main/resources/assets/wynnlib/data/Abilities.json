@@ -1843,9 +1843,10 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 140,
-        "earth": 30,
-        "fire": 30,
+        "neutral_damage": 190,
+        "earth_damage": 30,
+        "fire_damage": 30,
+        "duration": 30,
         "aoe": 7,
         "aoe_shape": "CIRCLE"
       }
@@ -1869,9 +1870,11 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": -11,
-        "thunder_damage": -7,
-        "air_damage": 3
+        "neutral_damage": -10,
+        "thunder_damage": -2,
+        "air_damage": 2,
+        "hits": 2,
+        "archer_stream": 1
       }
     },
     {
@@ -1915,7 +1918,8 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "range": 20
+        "range": 26,
+        "replacing": "ESCAPE"
       }
     },
     {
@@ -1933,7 +1937,10 @@
         "GRAPPLING_HOOK",
         "BASALTIC_TRAP"
       ],
-      "properties": {}
+      "properties": {
+        "charges": 2,
+        "archer_sentient_bows": 2
+      }
     },
     {
       "id": "MORE_FOCUS_I",
@@ -2241,7 +2248,7 @@
       ],
       "properties": {
         "mana_modifier": 10,
-        "range": 12
+        "range": 16
       }
     },
     {

@@ -58,6 +58,10 @@ interface AbilityEffect {
             "FRENZY" to Frenzy,
             "GUARDIAN_ANGELS" to GuardianAngels,
             "FOCUS" to Focus,
+            "BASALTIC_TRAP" to BasalticTrap,
+            "WINDSTORM" to WindStorm,
+            "GRAPPLING_HOOK" to GrapplingHook,
+            "MORE_SHIELDS" to MoreShields,
         )
 
         fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {
