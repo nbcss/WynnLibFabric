@@ -1300,7 +1300,8 @@
         "fire_damage": 20,
         "range": 26,
         "aoe": 4.5,
-        "aoe_shape": "CIRCLE"
+        "aoe_shape": "CIRCLE",
+        "self_damage": 25
       }
     },
     {
@@ -1734,9 +1735,14 @@
         "FIRE_CREEP"
       ],
       "properties": {
-        "spell": "SPELL_4",
-        "fire_damage": 20,
-        "range": 10
+        "spell": "SPELL_1",
+        "neutral_damage": 40,
+        "earth_damage": 20,
+        "duration": 5,
+        "aoe": 2,
+        "aoe_shape": "CIRCLE",
+        "effect_type": "ENEMIES_SLOWNESS",
+        "effect_modifier": 40
       }
     },
     {
