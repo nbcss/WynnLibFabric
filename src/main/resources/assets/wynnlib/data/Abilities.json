@@ -78,6 +78,7 @@
         "spell": "SPELL_1",
         "hits": 1,
         "neutral_damage": -50,
+        "damage_name": "BASH",
         "range": 3
       }
     },

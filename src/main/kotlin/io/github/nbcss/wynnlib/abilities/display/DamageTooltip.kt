@@ -18,9 +18,15 @@ object DamageTooltip: EffectTooltip {
             val tooltip: MutableList<Text> = ArrayList()
             if(!damage.isZero()){
                 val color = if (damage.getTotalDamage() < 0) Formatting.RED else Formatting.WHITE
-                tooltip.add(Symbol.DAMAGE.asText().append(" ")
+                val total = Symbol.DAMAGE.asText().append(" ")
                     .append(Translations.TOOLTIP_ABILITY_TOTAL_DAMAGE.formatted(Formatting.GRAY).append(": "))
-                    .append(LiteralText("${damage.getTotalDamage()}%").formatted(color)))
+                    .append(LiteralText("${damage.getTotalDamage()}%").formatted(color))
+                damage.getDamageLabel()?.let {
+                    total.append(LiteralText(" (").formatted(Formatting.DARK_GRAY))
+                        .append(it.formatted(Formatting.DARK_GRAY))
+                        .append(LiteralText(")").formatted(Formatting.DARK_GRAY))
+                }
+                tooltip.add(total)
                 //add neutral damage
                 if (damage.getNeutralDamage() != 0){
                     tooltip.add(LiteralText("   (").formatted(Formatting.DARK_GRAY)
@@ -54,10 +60,15 @@ object DamageTooltip: EffectTooltip {
                 val tooltip: MutableList<Text> = ArrayList()
                 if(!damage.isZero()){
                     val color = if (damage.getTotalDamage() < 0) Formatting.RED else Formatting.WHITE
-                    tooltip.add(
-                        Symbol.DAMAGE.asText().append(" ")
-                            .append(Translations.TOOLTIP_ABILITY_TOTAL_DAMAGE.formatted(Formatting.GRAY).append(": "))
-                            .append(LiteralText("${signed(damage.getTotalDamage())}%").formatted(color)))
+                    val total = Symbol.DAMAGE.asText().append(" ")
+                        .append(Translations.TOOLTIP_ABILITY_TOTAL_DAMAGE.formatted(Formatting.GRAY).append(": "))
+                        .append(LiteralText("${signed(damage.getTotalDamage())}%").formatted(color))
+                    damage.getDamageLabel()?.let {
+                        total.append(LiteralText(" (").formatted(Formatting.DARK_GRAY))
+                            .append(it.formatted(Formatting.DARK_GRAY))
+                            .append(LiteralText(")").formatted(Formatting.DARK_GRAY))
+                    }
+                    tooltip.add(total)
                     //add neutral damage
                     if (damage.getNeutralDamage() != 0){
                         tooltip.add(
