@@ -47,6 +47,9 @@ interface AbilityEffect {
             "ARCHER_THUNDER_MASTERY" to ElementMastery,
             "ARCHER_EARTH_MASTERY" to ElementMastery,
             "BOW_PROFICIENCY_I" to WeaponProficiency,
+            "HEART_SHATTER" to HeartShatter,
+            "WINDY_FEET" to WindyFeet,
+            "ARROW_RAIN" to ArrowRain,
         )
 
         fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {

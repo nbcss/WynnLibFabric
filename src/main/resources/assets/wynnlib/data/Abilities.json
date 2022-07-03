@@ -1434,6 +1434,7 @@
         "neutral_damage": 30,
         "thunder_damage": 10,
         "hits": 16,
+        "damage_name": "ARROW",
         "range": 16
       }
     },
@@ -1499,7 +1500,9 @@
         "spell": "SPELL_2",
         "duration": 120,
         "aoe": 8,
-        "aoe_shape": "CIRCLE"
+        "aoe_shape": "CIRCLE",
+        "effect_type": "ALLIES_WALK_SPEED",
+        "effect_modifier": 20
       }
     },
     {
@@ -1625,8 +1628,10 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": "120%",
-        "air_damage": 80
+        "neutral_damage": 120,
+        "air_damage": 80,
+        "hits": 200,
+        "damage_name": "ARROW"
       }
     },
     {
@@ -2715,5 +2720,5 @@
       }
     }
   ],
-  "version": "1.0.6"
+  "version": "1.0.7"
 }
