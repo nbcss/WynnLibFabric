@@ -7,19 +7,23 @@ import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BaseEffect
 import io.github.nbcss.wynnlib.abilities.properties.DamageBonusProperty
+import io.github.nbcss.wynnlib.abilities.properties.MaxProperty
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BONUS_DAMAGE_FOCUS
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class Focus(parent: Ability, json: JsonObject): BaseEffect(parent, json),
-    DamageBonusProperty {
+    DamageBonusProperty, MaxProperty {
     companion object: AbilityEffect.Factory {
         override fun create(parent: Ability, properties: JsonObject): Focus {
             return Focus(parent, properties)
         }
     }
+    private val maxFocus: Int = MaxProperty.read(json)
     private val bonus: Int = DamageBonusProperty.read(json)
+
+    override fun getMaxValue(): Int = maxFocus
 
     override fun getDamageBonus(): Int = bonus
 

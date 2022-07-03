@@ -62,6 +62,16 @@ interface AbilityEffect {
             "WINDSTORM" to WindStorm,
             "GRAPPLING_HOOK" to GrapplingHook,
             "MORE_SHIELDS" to MoreShields,
+            "MORE_FOCUS_I" to Focus,
+            "MORE_FOCUS_II" to Focus,
+            "IMPLOSION" to Implosion,
+            "PATIENT_HUNTER" to PatientHunter,
+            "STRONGER_PATIENT_HUNTER" to PatientHunter,
+            "STORMY_FEET" to StormyFeet,
+            "REFINED_GUNPOWDER" to SpellDamageModifier,
+            "TRAVELER" to IDTransferBooster,
+            "TWAINS_ARC" to TwainArc,
+            "BOUNCING_BOMB" to BoundSpellEffect,
         )
 
         fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {

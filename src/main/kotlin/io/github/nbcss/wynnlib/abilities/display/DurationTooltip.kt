@@ -19,4 +19,19 @@ object DurationTooltip: EffectTooltip {
         }
         return emptyList()
     }
+
+    object Modifier: EffectTooltip {
+        override fun get(effect: AbilityEffect): List<Text> {
+            if (effect is DurationProperty) {
+                val duration = effect.getDuration()
+                val color = if(duration < 0) Formatting.RED else Formatting.WHITE
+                val value = Translations.TOOLTIP_SUFFIX_S.formatted(color, null,
+                    (if(duration > 0) "+" else "") + removeDecimal(duration))
+                return listOf(Symbol.DURATION.asText().append(" ")
+                    .append(Translations.TOOLTIP_ABILITY_DURATION.formatted(Formatting.GRAY).append(": "))
+                    .append(value))
+            }
+            return emptyList()
+        }
+    }
 }

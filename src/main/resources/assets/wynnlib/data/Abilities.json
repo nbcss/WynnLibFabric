@@ -1822,7 +1822,8 @@
         "PHANTOM_RAY"
       ],
       "properties": {
-        "damage_bonus": 35
+        "damage_bonus": 35,
+        "max": 3
       }
     },
     {
@@ -1957,7 +1958,10 @@
         "CHEAPER_ARROW_STORM_I",
         "GRAPPLING_HOOK"
       ],
-      "properties": {}
+      "properties": {
+        "damage_bonus": -5,
+        "max": 2
+      }
     },
     {
       "id": "IMPLOSION",
@@ -1993,7 +1997,9 @@
       "predecessors": [
         "MORE_SHIELDS"
       ],
-      "properties": {}
+      "properties": {
+        "max": 80
+      }
     },
     {
       "id": "STORMY_FEET",
@@ -2011,7 +2017,9 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "duration": 60
+        "duration": 60,
+        "effect_type": "ALLIES_WALK_SPEED",
+        "effect_modifier": 20
       }
     },
     {
@@ -2049,7 +2057,9 @@
         "REFINED_GUNPOWDER",
         "TWAINS_ARC"
       ],
-      "properties": {}
+      "properties": {
+        "max": 100
+      }
     },
     {
       "id": "TWAINS_ARC",
@@ -2070,7 +2080,8 @@
       ],
       "properties": {
         "neutral_damage": 200,
-        "range": 64
+        "range": 64,
+        "cooldown": 1.5
       }
     },
     {
@@ -2087,7 +2098,9 @@
       "predecessors": [
         "MORE_SHIELDS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3"
+      }
     },
     {
       "id": "FIERCE_STOMP",
@@ -2639,7 +2652,9 @@
       "predecessors": [
         "GRAPE_BOMB"
       ],
-      "properties": {}
+      "properties": {
+        "max": 80
+      }
     },
     {
       "id": "SNOW_STORM",
@@ -2675,7 +2690,10 @@
         "SNOW_STORM",
         "CREPUSCULAR_RAY"
       ],
-      "properties": {}
+      "properties": {
+        "damage_bonus": -5,
+        "max": 2
+      }
     },
     {
       "id": "ALL_SEEING_PANOPTES",
