@@ -25,7 +25,7 @@ enum class Archetype(private val displayName: String,
     //Archer Archetypes
     BOLTSLINGER("Boltslinger", Formatting.YELLOW, CharacterClass.ARCHER, 74),
     SHARPSHOOTER("Sharpshooter", Formatting.LIGHT_PURPLE, CharacterClass.ARCHER, 78),
-    TRAPPER("Trapper", Formatting.GREEN, CharacterClass.ARCHER, 77),
+    TRAPPER("Trapper", Formatting.DARK_GREEN, CharacterClass.ARCHER, 77),
     //Mage Archetypes (incomplete)
     RIFTWALKER("Riftwalker", Formatting.AQUA, CharacterClass.MAGE, 72),
     LIGHT_BENDER("Light Bender", Formatting.WHITE, CharacterClass.MAGE, 73),

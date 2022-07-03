@@ -12,10 +12,9 @@ import net.minecraft.util.Formatting
 object ChargesTooltip: EffectTooltip {
     override fun get(effect: AbilityEffect): List<Text> {
         if (effect is ChargeProperty){
-            return listOf(
-                Symbol.CHARGE.asText().append(" ")
-                    .append(Translations.TOOLTIP_ABILITY_CHARGES.formatted(Formatting.GRAY).append(": "))
-                    .append(LiteralText(effect.getCharges().toString()).formatted(Formatting.WHITE)))
+            return listOf(Symbol.CHARGE.asText().append(" ")
+                .append(Translations.TOOLTIP_ABILITY_CHARGES.formatted(Formatting.GRAY).append(": "))
+                .append(LiteralText(effect.getCharges().toString()).formatted(Formatting.WHITE)))
         }
         return emptyList()
     }

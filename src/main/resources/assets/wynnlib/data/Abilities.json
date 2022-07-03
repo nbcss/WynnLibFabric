@@ -1433,7 +1433,8 @@
         "mana_cost": 40,
         "neutral_damage": 30,
         "thunder_damage": 10,
-        "hits": 16,
+        "hits": 8,
+        "archer_stream": 2,
         "damage_name": "ARROW",
         "range": 16
       }
@@ -1653,7 +1654,9 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": -15
+        "neutral_damage": -15,
+        "hits": 8,
+        "damage_name": "ARROW"
       }
     },
     {
@@ -1677,10 +1680,13 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "mana_modifier": 10,
+        "mana_modifier": -10,
         "neutral_damage": 25,
         "water_damage": 5,
-        "range": 12
+        "hits": 10,
+        "damage_name": "HIT",
+        "range": 12,
+        "replacing": "ARROW_STORM"
       }
     },
     {
@@ -1731,7 +1737,9 @@
         "earth_damage": 20,
         "duration": 5,
         "aoe": 2,
-        "aoe_shape": "CIRCLE"
+        "aoe_shape": "CIRCLE",
+        "effect_type": "ENEMIES_SLOWNESS",
+        "effect_modifier": 40
       }
     },
     {

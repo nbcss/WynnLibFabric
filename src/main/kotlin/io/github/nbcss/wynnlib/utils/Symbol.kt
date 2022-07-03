@@ -15,6 +15,9 @@ enum class Symbol(private val icon: String,
     COOLDOWN("⌛", Formatting.GOLD),
     CHARGE("⚡", Formatting.GREEN),
     HITS("☄", Formatting.YELLOW),
+    ARCHER_STREAM("☄", Formatting.BLUE),
+    ADD("✚", Formatting.LIGHT_PURPLE),
+    WARNING("⚠", Formatting.DARK_RED),
     ;
     //CHARGE ⚡
 

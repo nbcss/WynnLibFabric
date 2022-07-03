@@ -50,6 +50,10 @@ interface AbilityEffect {
             "HEART_SHATTER" to HeartShatter,
             "WINDY_FEET" to WindyFeet,
             "ARROW_RAIN" to ArrowRain,
+            "NIMBLE_STRING" to NimbleString,
+            "PHANTOM_RAY" to PhantomRay,
+            "FIRE_CREEP" to FireCreep,
+            "BRYOPHYTE_ROOTS" to BryophyteRoots,
         )
 
         fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {

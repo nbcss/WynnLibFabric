@@ -27,7 +27,7 @@ interface AreaOfEffectProperty {
     }
 
     enum class Shape: Translatable {
-        CIRCLE, CONE;
+        CIRCLE, CONE, LINE;
         companion object {
             private val VALUE_MAP: Map<String, Shape> = mapOf(
                 pairs = values().map { it.name.uppercase() to it }.toTypedArray())

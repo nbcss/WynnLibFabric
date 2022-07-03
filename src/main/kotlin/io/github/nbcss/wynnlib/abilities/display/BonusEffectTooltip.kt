@@ -15,11 +15,10 @@ object BonusEffectTooltip: EffectTooltip {
     override fun get(effect: AbilityEffect): List<Text> {
         if (effect is BonusEffectProperty) {
             val bonus = effect.getEffectBonus()
-            return listOf(
-                Symbol.EFFECT.asText().append(" ")
-                    .append(Translations.TOOLTIP_ABILITY_EFFECT.formatted(Formatting.GRAY).append(": "))
-                    .append(LiteralText("${signed(bonus.getEffectModifier())}% ").formatted(Formatting.WHITE))
-                    .append(bonus.getEffectType().formatted(Formatting.GRAY)))
+            return listOf(Symbol.EFFECT.asText().append(" ")
+                .append(Translations.TOOLTIP_ABILITY_EFFECT.formatted(Formatting.GRAY).append(": "))
+                .append(LiteralText("${signed(bonus.getEffectModifier())}% ").formatted(Formatting.WHITE))
+                .append(bonus.getEffectType().formatted(Formatting.GRAY)))
         }
         return emptyList()
     }

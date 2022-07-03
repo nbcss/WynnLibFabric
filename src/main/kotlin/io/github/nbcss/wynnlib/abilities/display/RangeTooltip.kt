@@ -27,10 +27,9 @@ object RangeTooltip: EffectTooltip {
                 val range = effect.getRange()
                 val value = (if(range <= 1) Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS)
                     .formatted(Formatting.WHITE, null, (if (range > 0) "+" else "") + removeDecimal(range))
-                return listOf(
-                    Symbol.RANGE.asText().append(" ")
-                        .append(Translations.TOOLTIP_ABILITY_RANGE.formatted(Formatting.GRAY).append(": "))
-                        .append(value))
+                return listOf(Symbol.RANGE.asText().append(" ")
+                    .append(Translations.TOOLTIP_ABILITY_RANGE.formatted(Formatting.GRAY).append(": "))
+                    .append(value))
             }
             return emptyList()
         }

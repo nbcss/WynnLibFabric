@@ -13,8 +13,7 @@ object DurationTooltip: EffectTooltip {
         if (effect is DurationProperty) {
             val duration = effect.getDuration()
             val value = Translations.TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, removeDecimal(duration))
-            return listOf(
-                Symbol.DURATION.asText().append(" ")
+            return listOf(Symbol.DURATION.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_DURATION.formatted(Formatting.GRAY).append(": "))
                 .append(value))
         }
