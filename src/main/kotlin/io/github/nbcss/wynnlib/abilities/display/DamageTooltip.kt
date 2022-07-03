@@ -36,7 +36,9 @@ object DamageTooltip: EffectTooltip {
                 }
             }
             if (damage.getHits() != 1){
-                //todo
+                tooltip.add(Symbol.HITS.asText().append(" ")
+                    .append(LiteralText("Hits").formatted(Formatting.GRAY).append(": "))
+                    .append(LiteralText("${damage.getHits()}").formatted(Formatting.WHITE)))
             }
             return tooltip
         }

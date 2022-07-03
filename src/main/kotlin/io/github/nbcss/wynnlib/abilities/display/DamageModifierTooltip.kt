@@ -40,7 +40,10 @@ object DamageModifierTooltip: EffectTooltip {
                 }
             }
             if (damage.getHits() != 0){
-                //todo
+                val hitsColor = if (damage.getHits() > 0) Formatting.GREEN else Formatting.RED
+                tooltip.add(Symbol.HITS.asText().append(" ")
+                    .append(LiteralText("Hits").formatted(Formatting.GRAY).append(": "))
+                    .append(LiteralText(signed(damage.getHits())).formatted(hitsColor)))
             }
             return tooltip
         }
