@@ -601,7 +601,9 @@
         "SPEAR_PROFICIENCY_II",
         "CHEAPER_UPPERCUT_I"
       ],
-      "properties": {}
+      "properties": {
+        "critical_damage": 30
+      }
     },
     {
       "id": "AIR_SHOUT",
@@ -1655,7 +1657,7 @@
       "properties": {
         "spell": "SPELL_1",
         "neutral_damage": -15,
-        "hits": 8,
+        "hits": 6,
         "damage_name": "ARROW"
       }
     },
@@ -1732,14 +1734,9 @@
         "FIRE_CREEP"
       ],
       "properties": {
-        "spell": "SPELL_1",
-        "neutral_damage": 40,
-        "earth_damage": 20,
-        "duration": 5,
-        "aoe": 2,
-        "aoe_shape": "CIRCLE",
-        "effect_type": "ENEMIES_SLOWNESS",
-        "effect_modifier": 40
+        "spell": "SPELL_4",
+        "fire_damage": 20,
+        "range": 10
       }
     },
     {
@@ -1795,11 +1792,11 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 40,
-        "air_damage": 60,
+        "neutral_damage": 30,
+        "air_damage": 10,
         "hits": 8,
         "damage_name": "ARROW",
-        "range": 4,
+        "range": 5,
         "duration": 60,
         "archer_sentient_bows": 2,
         "replacing": "ARROW_SHIELD"
@@ -1870,7 +1867,7 @@
         "CHEAPER_ARROW_STORM_I"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "spell": "SPELL_1",
         "neutral_damage": -10,
         "thunder_damage": -2,
         "air_damage": 2,
@@ -2326,7 +2323,10 @@
         "ESCAPE_ARTIST",
         "HOMING_SHOTS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "hits": 4
+      }
     },
     {
       "id": "INITIATOR",
@@ -2385,7 +2385,8 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 40
+        "neutral_damage": 40,
+        "duration": 60
       }
     },
     {
@@ -2407,7 +2408,10 @@
         "ESCAPE_ARTIST",
         "PRECISE_SHOT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "archer_stream": 2
+      }
     },
     {
       "id": "PRECISE_SHOT",
@@ -2425,7 +2429,9 @@
         "BETTER_GUARDIAN_ANGELS",
         "CHEAPER_ARROW_SHIELD"
       ],
-      "properties": {}
+      "properties": {
+        "critical_damage": 30
+      }
     },
     {
       "id": "CHEAPER_ARROW_SHIELD",
@@ -2462,7 +2468,9 @@
         "INITIATOR",
         "CHEAPER_ARROW_STORM_II"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3"
+      }
     },
     {
       "id": "SHRAPNEL_BOMB",
@@ -2484,7 +2492,9 @@
       "properties": {
         "spell": "SPELL_3",
         "neutral_damage": 40,
-        "fire_damage": 20
+        "fire_damage": 20,
+        "hits": 15,
+        "damage_name": "SHRAPNEL"
       }
     },
     {
@@ -2502,7 +2512,9 @@
         "CHEAPER_ARROW_SHIELD",
         "CHEAPER_ESCAPE_II"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1"
+      }
     },
     {
       "id": "CHEAPER_ESCAPE_II",
@@ -2542,7 +2554,7 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "range": 8
+        "range": 4
       }
     },
     {
@@ -2585,7 +2597,9 @@
       "properties": {
         "spell": "SPELL_1",
         "neutral_damage": 10,
-        "water_damage": 5
+        "water_damage": 5,
+        "hits": 20,
+        "damage_name": "ARROW"
       }
     },
     {
@@ -2606,6 +2620,7 @@
         "spell": "SPELL_3",
         "neutral_damage": 30,
         "fire_damage": 10,
+        "hits": 3,
         "aoe": 2,
         "aoe_shape": "CIRCLE"
       }
@@ -2624,7 +2639,9 @@
       "predecessors": [
         "GEYSER_STOMP"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1"
+      }
     },
     {
       "id": "TANGLED_TRAPS",
@@ -2679,7 +2696,9 @@
         "MORE_FOCUS_II"
       ],
       "properties": {
-        "range": 2.5
+        "range": 2.5,
+        "effect_type": "ENEMIES_SLOWNESS",
+        "effect_modifier": 30
       }
     },
     {
@@ -2719,7 +2738,11 @@
         "SNOW_STORM"
       ],
       "properties": {
-        "fire_damage": 20
+        "spell": "SPELL_4",
+        "fire_damage": 10,
+        "hits": 5,
+        "damage_name": "ARROW",
+        "range": 8
       }
     },
     {

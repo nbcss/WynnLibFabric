@@ -59,7 +59,7 @@ interface AbilityEffect {
             "GUARDIAN_ANGELS" to GuardianAngels,
             "FOCUS" to Focus,
             "BASALTIC_TRAP" to BasalticTrap,
-            "WINDSTORM" to WindStorm,
+            "WINDSTORM" to ArcherStreamBooster,
             "GRAPPLING_HOOK" to GrapplingHook,
             "MORE_SHIELDS" to MoreShields,
             "MORE_FOCUS_I" to Focus,
@@ -80,6 +80,23 @@ interface AbilityEffect {
             "BETTER_ARROW_SHIELD" to BetterArrowShield,
             "MANA_TRAP" to ManaTrap,
             "ESCAPE_ARTIST" to EscapeArtist,
+            "BETTER_GUARDIAN_ANGELS" to BetterGuardianAngels,
+            //INITIATOR
+            "CALL_OF_THE_HOUND" to CallOfTheHound,
+            "ARROW_HURRICANE" to ArcherStreamBooster,
+            "PRECISE_SHOT" to CriticalDamageModifier,
+            "ROCKET_JUMP" to BoundSpellEffect,
+            "SHRAPNEL_BOMB" to ShrapnelBomb,
+            "DECIMATOR" to BoundSpellEffect,
+            "STRONGER_HOOK" to StrongerHook,
+            "GEYSER_STOMP" to GeyserStomp,
+            "CREPUSCULAR_RAY" to CrepuscularRay,
+            "GRAPE_BOMB" to GrapeBomb,
+            "ELUSIVE" to BoundSpellEffect,
+            "TANGLED_TRAPS" to TangledTraps,
+            "SNOW_STORM" to SnowStorm,
+            "ALL_SEEING_PANOPTES" to AllSeeingPanoptes,
+            "MINEFIELD" to Minefield,
         )
 
         fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {

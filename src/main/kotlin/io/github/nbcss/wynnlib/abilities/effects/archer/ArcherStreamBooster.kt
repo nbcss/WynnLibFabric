@@ -9,11 +9,11 @@ import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellDamageModifier
 import io.github.nbcss.wynnlib.abilities.properties.ArcherStreamProperty
 
-class WindStorm(parent: Ability, json: JsonObject): SpellDamageModifier(parent, json),
+class ArcherStreamBooster(parent: Ability, json: JsonObject): SpellDamageModifier(parent, json),
     ArcherStreamProperty {
     companion object: AbilityEffect.Factory {
-        override fun create(parent: Ability, properties: JsonObject): WindStorm {
-            return WindStorm(parent, properties)
+        override fun create(parent: Ability, properties: JsonObject): ArcherStreamBooster {
+            return ArcherStreamBooster(parent, properties)
         }
     }
     private val streams: Int = ArcherStreamProperty.read(json)
