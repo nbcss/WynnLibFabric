@@ -2180,7 +2180,9 @@
         "REFINED_GUNPOWDER",
         "HOMING_SHOTS"
       ],
-      "properties": {}
+      "properties": {
+        "cooldown": 2
+      }
     },
     {
       "id": "HOMING_SHOTS",
@@ -2260,6 +2262,7 @@
         "MORE_TRAPS"
       ],
       "properties": {
+        "spell": "SPELL_3",
         "mana_modifier": 10,
         "range": 16
       }
@@ -2279,7 +2282,9 @@
         "LEAP",
         "HOMING_SHOTS"
       ],
-      "properties": {}
+      "properties": {
+        "cooldown": -1
+      }
     },
     {
       "id": "ESCAPE_ARTIST",
@@ -2301,7 +2306,9 @@
       "properties": {
         "spell": "SPELL_2",
         "neutral_damage": 30,
-        "thunder_damage": 10
+        "thunder_damage": 10,
+        "hits": 120,
+        "damage_name": "ARROW"
       }
     },
     {

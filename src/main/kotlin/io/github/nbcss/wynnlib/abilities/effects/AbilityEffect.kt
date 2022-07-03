@@ -72,6 +72,14 @@ interface AbilityEffect {
             "TRAVELER" to IDTransferBooster,
             "TWAINS_ARC" to TwainArc,
             "BOUNCING_BOMB" to BoundSpellEffect,
+            "FIERCE_STOMP" to FierceStomp,
+            "SCORCHED_EARTH" to ScorchedEarth,
+            //More Traps, HomingShots, ShockingBomb
+            "LEAP" to Leap,
+            "BETTER_LEAP" to BetterLeap,
+            "BETTER_ARROW_SHIELD" to BetterArrowShield,
+            "MANA_TRAP" to ManaTrap,
+            "ESCAPE_ARTIST" to EscapeArtist,
         )
 
         fun fromData(ability: Ability, properties: JsonObject): AbilityEffect {

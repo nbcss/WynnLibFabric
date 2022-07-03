@@ -33,4 +33,29 @@ object AreaOfEffectTooltip: EffectTooltip {
         }
         return emptyList()
     }
+
+    object Modifier: EffectTooltip {
+        override fun get(effect: AbilityEffect): List<Text> {
+            if (effect is AreaOfEffectProperty) {
+                val range = effect.getAreaOfEffect().getRange()
+                val suffix = if(range.upper() <= 1)
+                    Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS
+                var value = (if (range.lower() > 0) "+" else "") + removeDecimal(range.lower())
+                val color = if (range.lower() < 0) Formatting.RED else Formatting.WHITE
+                if(!range.isConstant()){
+                    value = "$value-${removeDecimal(range.upper())}"
+                }
+                val text = Symbol.AOE.asText().append(" ")
+                    .append(Translations.TOOLTIP_ABILITY_AREA_OF_EFFECT.formatted(Formatting.GRAY).append(": "))
+                    .append(suffix.formatted(color, null, value))
+                effect.getAreaOfEffect().getShape()?.let {
+                    text.append(LiteralText(" (").formatted(Formatting.GRAY))
+                        .append(it.translate().formatted(Formatting.GRAY))
+                        .append(LiteralText(")").formatted(Formatting.GRAY))
+                }
+                return listOf(text)
+            }
+            return emptyList()
+        }
+    }
 }
