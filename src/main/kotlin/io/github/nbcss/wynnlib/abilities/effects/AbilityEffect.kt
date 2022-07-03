@@ -28,6 +28,7 @@ interface AbilityEffect {
             "SPEAR_PROFICIENCY_I" to WeaponProficiency,
             "SPEAR_PROFICIENCY_II" to WeaponProficiency,
             "DOUBLE_BASH" to DoubleBash,
+            "HEAVY_IMPACT" to HeavyImpact,
             //Archer Ability Effects
             "ARROW_STORM" to ArrowStormSpell,
             "ESCAPE" to EscapeSpell,

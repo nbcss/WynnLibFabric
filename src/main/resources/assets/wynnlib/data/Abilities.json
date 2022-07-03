@@ -224,7 +224,11 @@
       "predecessors": [
         "UPPERCUT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "neutral_damage": 100,
+        "aoe": 4
+      }
     },
     {
       "id": "WARRIOR_EARTH_MASTERY",

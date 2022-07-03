@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Element
+import io.github.nbcss.wynnlib.i18n.Translatable
 
 interface DamageProperty {
     companion object {
@@ -57,5 +58,16 @@ interface DamageProperty {
             }.toTypedArray())
             return Damage(hits, neutral, elementalDamage)
         }
+    }
+
+    enum class HitLabel {
+        ATTACK,
+        BASH,
+        MANTLE_LOST,
+        RIPPLE,
+        ARROW,
+        HIT,
+        FOCUS,
+        SHRAPNEL;
     }
 }
