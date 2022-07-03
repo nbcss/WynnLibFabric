@@ -17,6 +17,7 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
@@ -174,7 +175,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         //render archetype values
         tree.getArchetypes().forEach {
             val icon = it.getTexture()
-            val iconText = it.getIconText()
+            val iconText = Formatting.BOLD.toString() + it.getIconText()
             val points = tree.getArchetypePoint(it).toString()
             itemRenderer.renderInGuiWithOverrides(icon, archetypeX, archetypeY)
             itemRenderer.renderGuiItemOverlay(textRenderer, icon, archetypeX, archetypeY, iconText)
