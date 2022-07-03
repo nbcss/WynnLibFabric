@@ -1797,8 +1797,12 @@
         "spell": "SPELL_4",
         "neutral_damage": 40,
         "air_damage": 60,
+        "hits": 8,
+        "damage_name": "ARROW",
         "range": 4,
-        "duration": 60
+        "duration": 60,
+        "archer_sentient_bows": 2,
+        "replacing": "ARROW_SHIELD"
       }
     },
     {
@@ -1817,7 +1821,9 @@
       "predecessors": [
         "PHANTOM_RAY"
       ],
-      "properties": {}
+      "properties": {
+        "damage_bonus": 35
+      }
     },
     {
       "id": "BASALTIC_TRAP",

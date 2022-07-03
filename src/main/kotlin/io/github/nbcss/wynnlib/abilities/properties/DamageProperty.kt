@@ -72,7 +72,6 @@ interface DamageProperty {
         RIPPLE,
         ARROW,
         HIT,
-        FOCUS,
         SHRAPNEL;
         companion object {
             private val VALUE_MAP: Map<String, DamageLabel> = mapOf(
