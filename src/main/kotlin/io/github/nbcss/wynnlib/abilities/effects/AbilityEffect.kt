@@ -37,8 +37,10 @@ interface AbilityEffect {
             "FLAMING_UPPERCUT" to FlamingUppercut,
             "HALF_MOON_SWIPE" to HalfMoonSwipe,
             "IRON_LUNGS" to SpellDamageModifier,
-            //GENERALIST, BAKALS_GRASP, ENRAGED_BLOW, AMBIDEXTROUS, INTOXICATING_BLOOD, REJUVENATING_SKIN
-            //
+            //GENERALIST, BAKALS_GRASP, ENRAGED_BLOW, AMBIDEXTROUS,
+            // INTOXICATING_BLOOD, REJUVENATING_SKIN
+            // UNCONTAINABLE_CORRUPTION, MASSIVE_BASH, MASSACRE, DISCOMBOBULATE,
+            // BLOOD_PACT, HAEMORRHAGE, BRINK_OF_MADNESS
             "COUNTER" to Counter,
             "MANTLE_OF_THE_BOVEMISTS" to MantleOfTheBovemists,
             "AERODYNAMICS" to BoundSpellEffect,
@@ -53,6 +55,21 @@ interface AbilityEffect {
             "BURNING_HEART" to IDTransferBooster,
             "STRONGER_BASH" to SpellDamageModifier,
             "COLLIDE" to Collide,
+            "COMET" to SpellDamageModifier,
+            "RADIANT_DEVOTEE" to IDTransferBooster,
+            "WHIRLWIND_STRIKE" to WhirlwindStrike,
+            "MYTHRIL_SKIN" to MythrilSkin,
+            "ARMOUR_BREAKER" to ArmourBreaker,
+            "SHIELD_STRIKE" to ShieldStrike,
+            "SPARKLING_HOPE" to SparklingHope,
+            "TEMPEST" to Tempest,
+            "SPIRIT_OF_THE_RABBIT" to SpiritOfTheRabbit,
+            "AXE_KICK" to AxeKick,
+            "RADIANCE" to Radiance,
+            "CYCLONE" to Cyclone,
+            "THUNDERCLAP" to Thunderclap,
+            "SECOND_CHANCE" to SecondChance,
+            "MARTYR" to Martyr,
             //Archer Ability Effects
             "ARROW_STORM" to ArrowStormSpell,
             "ESCAPE" to EscapeSpell,

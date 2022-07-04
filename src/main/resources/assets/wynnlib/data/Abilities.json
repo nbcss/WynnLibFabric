@@ -928,7 +928,11 @@
       "predecessors": [
         "RAGNAROKKR"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 80,
+        "earth_damage": 20
+      }
     },
     {
       "id": "UNCONTAINABLE_CORRUPTION",
@@ -983,7 +987,12 @@
         "RADIANT_DEVOTEE",
         "AMBIDEXTROUS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "air_damage": 50,
+        "aoe_shape": "CIRCLE",
+        "range": 2
+      }
     },
     {
       "id": "MYTHRIL_SKIN",
@@ -1001,7 +1010,9 @@
       "predecessors": [
         "REJUVENATING_SKIN"
       ],
-      "properties": {}
+      "properties": {
+        "resistant_bonus": 5
+      }
     },
     {
       "id": "ARMOUR_BREAKER",
@@ -1018,7 +1029,12 @@
         "UNCONTAINABLE_CORRUPTION",
         "RADIANT_DEVOTEE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "effect_type": "ENEMIES_RESISTANCE",
+        "effect_modifier": -30,
+        "duration": 5
+      }
     },
     {
       "id": "SHIELD_STRIKE",
@@ -1028,13 +1044,19 @@
       "tier": 2,
       "cost": 2,
       "archetype": "PALADIN",
-      "dependency": null,
+      "dependency": "MANTLE_OF_THE_BOVEMISTS",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "MYTHRIL_SKIN"
       ],
-      "properties": {}
+      "properties": {
+        "neutral_damage": 60,
+        "thunder_damage": 20,
+        "aoe": 5,
+        "aoe_shape": "CIRCLE",
+        "damage_name": "MANTLE_LOST"
+      }
     },
     {
       "id": "SPARKLING_HOPE",
@@ -1050,7 +1072,12 @@
       "predecessors": [
         "MYTHRIL_SKIN"
       ],
-      "properties": {}
+      "properties": {
+        "neutral_damage": 10,
+        "thunder_damage": 5,
+        "aoe": 6,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "MASSIVE_BASH",
@@ -1086,7 +1113,15 @@
         "MASSIVE_BASH",
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": 30,
+        "earth_damage": 10,
+        "air_damage": 10,
+        "hits": 3,
+        "aoe": 16,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "SPIRIT_OF_THE_RABBIT",
@@ -1105,7 +1140,10 @@
         "TEMPEST",
         "WHIRLWIND_STRIKE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "MASSACRE",
@@ -1141,7 +1179,11 @@
         "TEMPEST",
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": 10,
+        "neutral_damage": 100
+      }
     },
     {
       "id": "RADIANCE",
@@ -1160,7 +1202,13 @@
         "SPIRIT_OF_THE_RABBIT",
         "CHEAPER_BASH_II"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "effect_type": "ALLIES_ID_EFFECTIVENESS",
+        "effect_modifier": 20,
+        "duration": 8,
+        "cooldown": 15
+      }
     },
     {
       "id": "CHEAPER_BASH_II",
@@ -1234,7 +1282,15 @@
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": 10,
+        "air_damage": 10,
+        "fire_damage": 5,
+        "duration": 20,
+        "aoe": 4,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "THUNDERCLAP",
@@ -1252,7 +1308,10 @@
       "predecessors": [
         "CYCLONE"
       ],
-      "properties": {}
+      "properties": {
+        "aoe": 3,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "SECOND_CHANCE",
@@ -1270,7 +1329,9 @@
       "predecessors": [
         "CHEAPER_BASH_II"
       ],
-      "properties": {}
+      "properties": {
+        "cooldown": 600
+      }
     },
     {
       "id": "BLOOD_PACT",
@@ -1357,7 +1418,13 @@
       "predecessors": [
         "SECOND_CHANCE"
       ],
-      "properties": {}
+      "properties": {
+        "effect_type": "ALLIES_INVINCIBLE",
+        "effect_modifier": 100,
+        "duration": 3,
+        "aoe": 12,
+        "aoe_shape": "CIRCLE"
+      }
     },
     {
       "id": "ARROW_BOMB",
