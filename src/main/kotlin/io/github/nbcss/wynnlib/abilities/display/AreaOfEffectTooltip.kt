@@ -14,7 +14,7 @@ object AreaOfEffectTooltip: EffectTooltip {
     override fun get(effect: AbilityEffect): List<Text> {
         if (effect is AreaOfEffectProperty) {
             val range = effect.getAreaOfEffect().getRange()
-            if (range.lower() == 0.0 && range.upper() == 0.0){
+            if (range.isZero()){
                 val tooltip: MutableList<Text> = ArrayList()
                 effect.getAreaOfEffect().getShape()?.let {
                     tooltip.add(Symbol.AOE.asText().append(" ")
@@ -47,7 +47,7 @@ object AreaOfEffectTooltip: EffectTooltip {
         override fun get(effect: AbilityEffect): List<Text> {
             if (effect is AreaOfEffectProperty) {
                 val range = effect.getAreaOfEffect().getRange()
-                if (range.lower() == 0.0 && range.upper() == 0.0){
+                if (range.isZero()){
                     val tooltip: MutableList<Text> = ArrayList()
                     effect.getAreaOfEffect().getShape()?.let {
                         tooltip.add(Symbol.AOE.asText().append(" ")
