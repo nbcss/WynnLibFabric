@@ -7,11 +7,11 @@ import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellDamageModifier
 import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
 
-class DoubleBash(parent: Ability, json: JsonObject): SpellDamageModifier(parent, json),
+class BashUpgrade(parent: Ability, json: JsonObject): SpellDamageModifier(parent, json),
     RangeProperty {
     companion object: AbilityEffect.Factory {
-        override fun create(parent: Ability, properties: JsonObject): DoubleBash {
-            return DoubleBash(parent, properties)
+        override fun create(parent: Ability, properties: JsonObject): BashUpgrade {
+            return BashUpgrade(parent, properties)
         }
     }
     private val range: Double = RangeProperty.read(json)

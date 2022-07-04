@@ -4,7 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.properties.MaxProperty
 
-class IDTransferBooster(parent: Ability, json: JsonObject): BaseEffect(parent, json), MaxProperty {
+open class IDTransferBooster(parent: Ability, json: JsonObject): BaseEffect(parent, json), MaxProperty {
     companion object: AbilityEffect.Factory {
         override fun create(parent: Ability, properties: JsonObject): IDTransferBooster {
             return IDTransferBooster(parent, properties)

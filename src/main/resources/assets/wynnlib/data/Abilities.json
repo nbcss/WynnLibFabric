@@ -137,7 +137,9 @@
       "predecessors": [
         "CHARGE"
       ],
-      "properties": {}
+      "properties": {
+        "damage_bonus": 5
+      }
     },
     {
       "id": "UPPERCUT",
@@ -352,7 +354,13 @@
         "WARRIOR_EARTH_MASTERY",
         "FIREWORKS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "neutral_damage": -20,
+        "hits": 2,
+        "damage_name": "BASH",
+        "range": 6
+      }
     },
     {
       "id": "FIREWORKS",
@@ -369,7 +377,11 @@
         "QUADRUPLE_BASH",
         "WARRIOR_THUNDER_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "neutral_damage": 80,
+        "thunder_damage": 20
+      }
     },
     {
       "id": "FLYBY_JAB",
@@ -386,7 +398,12 @@
         "WARRIOR_AIR_MASTERY",
         "FLAMING_UPPERCUT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "neutral_damage": 20,
+        "air_damage": 40,
+        "aoe": 2
+      }
     },
     {
       "id": "FLAMING_UPPERCUT",
@@ -403,7 +420,11 @@
         "WARRIOR_FIRE_MASTERY",
         "FLYBY_JAB"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "fire_damage": 50,
+        "duration": 3
+      }
     },
     {
       "id": "HALF_MOON_SWIPE",
@@ -421,7 +442,12 @@
       "predecessors": [
         "WARRIOR_WATER_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": -10,
+        "neutral_damage": -70,
+        "range": 4
+      }
     },
     {
       "id": "IRON_LUNGS",
@@ -438,7 +464,11 @@
         "FLYBY_JAB",
         "FLAMING_UPPERCUT"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": 30,
+        "air_damage": 30
+      }
     },
     {
       "id": "GENERALIST",
@@ -472,7 +502,11 @@
       "predecessors": [
         "HALF_MOON_SWIPE"
       ],
-      "properties": {}
+      "properties": {
+        "neutral_damage": 60,
+        "air_damage": 20,
+        "thunder_damage": 20
+      }
     },
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
@@ -490,7 +524,11 @@
       "predecessors": [
         "IRON_LUNGS"
       ],
-      "properties": {}
+      "properties": {
+        "charges": 3,
+        "cooldown": 20,
+        "duration": 30
+      }
     },
     {
       "id": "BAKALS_GRASP",
@@ -567,7 +605,9 @@
         "CHEAPER_UPPERCUT_I",
         "PROVOKE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2"
+      }
     },
     {
       "id": "PROVOKE",
@@ -584,7 +624,10 @@
         "MANTLE_OF_THE_BOVEMISTS",
         "AERODYNAMICS"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "PRECISE_STRIKES",
@@ -620,7 +663,11 @@
         "AERODYNAMICS",
         "PROVOKE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "neutral_damage": 20,
+        "air_damage": 5
+      }
     },
     {
       "id": "ENRAGED_BLOW",
@@ -655,7 +702,12 @@
         "CHEAPER_UPPERCUT_I",
         "STRONGER_MANTLE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "neutral_damage": 120,
+        "air_damage": 20,
+        "water_damage": 10
+      }
     },
     {
       "id": "STRONGER_MANTLE",
@@ -672,7 +724,9 @@
         "FLYING_KICK",
         "MANACHISM"
       ],
-      "properties": {}
+      "properties": {
+        "charges": 2
+      }
     },
     {
       "id": "MANACHISM",
@@ -691,7 +745,9 @@
         "STRONGER_MANTLE",
         "PROVOKE"
       ],
-      "properties": {}
+      "properties": {
+        "cooldown": 1
+      }
     },
     {
       "id": "BOILING_BLOOD",
@@ -708,7 +764,15 @@
         "ENRAGED_BLOW",
         "RAGNAROKKR"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "neutral_damage": 25,
+        "fire_damage": 5,
+        "effect_type": "ENEMIES_SLOWNESS",
+        "effect_modifier": 20,
+        "cooldown": 3,
+        "duration": 3
+      }
     },
     {
       "id": "RAGNAROKKR",
@@ -725,7 +789,13 @@
         "BOILING_BLOOD",
         "FLYING_KICK"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_modifier": 10,
+        "effect_type": "ALLIES_DAMAGE",
+        "effect_modifier": 30,
+        "aoe": 2
+      }
     },
     {
       "id": "AMBIDEXTROUS",
@@ -777,7 +847,10 @@
         "BURNING_HEART",
         "MANACHISM"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "neutral_damage": 30
+      }
     },
     {
       "id": "INTOXICATING_BLOOD",
@@ -815,7 +888,12 @@
         "AMBIDEXTROUS",
         "BURNING_HEART"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "neutral_damage": 100,
+        "fire_damage": 50,
+        "aoe": 4
+      }
     },
     {
       "id": "REJUVENATING_SKIN",
@@ -2083,8 +2161,7 @@
       ],
       "properties": {
         "neutral_damage": 200,
-        "range": 64,
-        "cooldown": 1.5
+        "range": 64
       }
     },
     {
