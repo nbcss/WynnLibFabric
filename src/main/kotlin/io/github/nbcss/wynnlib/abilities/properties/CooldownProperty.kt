@@ -16,6 +16,9 @@ class CooldownProperty(ability: Ability, data: JsonElement): AbilityProperty(abi
         override fun getKey(): String = "cooldown"
     }
     private val cooldown: Double = data.asDouble
+    init {
+        ability.putPlaceholder(CooldownModifierProperty.getKey(), removeDecimal(cooldown))
+    }
 
     fun getCooldown(): Double = cooldown
 
