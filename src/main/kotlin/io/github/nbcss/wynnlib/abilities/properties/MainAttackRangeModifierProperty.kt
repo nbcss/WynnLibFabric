@@ -1,7 +1,6 @@
 package io.github.nbcss.wynnlib.abilities.properties
 
 import com.google.gson.JsonElement
-import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol

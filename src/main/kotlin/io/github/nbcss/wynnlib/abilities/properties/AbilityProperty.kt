@@ -19,6 +19,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DamageModifierProperty,
                 MainAttackDamageModifierProperty,
                 MainAttackRangeModifierProperty,
+                CooldownProperty,
+                CooldownModifierProperty,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
