@@ -28,8 +28,14 @@ abstract class AbilityProperty(private val ability: Ability) {
                 CooldownProperty.Modifier,
                 DurationProperty,
                 DurationProperty.Modifier,
+                AreaOfEffectProperty,
+                AreaOfEffectProperty.Modifier,
                 ChargeProperty,
                 ChargeProperty.Modifier,
+                ArcherStreamProperty,
+                ArcherStreamProperty.Modifier,
+                ArcherSentientBowsProperty,
+                ArcherSentientBowsProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
