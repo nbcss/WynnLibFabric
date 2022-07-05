@@ -487,7 +487,8 @@
         "spell": "SPELL_3",
         "mana_modifier": -10,
         "damage_modifier": {
-          "neutral": -70
+          "neutral": -70,
+          "water": 30
         },
         "range_modifier": 4
       }
@@ -499,7 +500,7 @@
       "position": 3,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
+      "archetype": "PALADIN",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
@@ -715,8 +716,8 @@
       "properties": {
         "spell": "SPELL_4",
         "damage": {
-          "neutral": 20,
-          "air": 5
+          "neutral": 40,
+          "air": 10
         }
       }
     },
@@ -756,9 +757,9 @@
       "properties": {
         "spell": "SPELL_2",
         "damage": {
-          "neutral": 120,
-          "air": 20,
-          "water": 10
+          "neutral": 150,
+          "air": 30,
+          "water": 20
         }
       }
     },
@@ -954,7 +955,7 @@
       "properties": {
         "spell": "SPELL_2",
         "damage": {
-          "neutral": 100,
+          "neutral": 150,
           "fire": 50
         },
         "aoe": {
