@@ -1,10 +1,9 @@
 package io.github.nbcss.wynnlib.abilities.display
 
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.properties.ReplacingProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ReplacingProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
-import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 

@@ -6,8 +6,8 @@ import io.github.nbcss.wynnlib.abilities.display.DamageBonusTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BaseEffect
-import io.github.nbcss.wynnlib.abilities.properties.DamageBonusProperty
-import io.github.nbcss.wynnlib.abilities.properties.MaxProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageBonusProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.MaxProperty
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BONUS_DAMAGE_FOCUS
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text

@@ -5,9 +5,9 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
-import io.github.nbcss.wynnlib.abilities.properties.ChargeProperty
-import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
-import io.github.nbcss.wynnlib.abilities.properties.DurationProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ChargeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DurationProperty
 
 class ArrowShieldSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, json),
     DamageProperty, DurationProperty, ChargeProperty {

@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.display
 
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_HITS

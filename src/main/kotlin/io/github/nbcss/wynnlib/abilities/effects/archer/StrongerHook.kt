@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.RangeTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.RangeProperty
 
 class StrongerHook(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     RangeProperty {

@@ -8,7 +8,9 @@ import io.github.nbcss.wynnlib.abilities.display.DurationTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.*
+import io.github.nbcss.wynnlib.abilities.properties.legacy.AreaOfEffectProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DurationProperty
 
 class FireCreep(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     DamageProperty, DurationProperty, AreaOfEffectProperty {

@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.RangeTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellDamageModifier
-import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.RangeProperty
 
 class AllSeeingPanoptes(parent: Ability, json: JsonObject): SpellDamageModifier(parent, json),
     RangeProperty {

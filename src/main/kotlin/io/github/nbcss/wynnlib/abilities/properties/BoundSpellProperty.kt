@@ -1,19 +1,17 @@
 package io.github.nbcss.wynnlib.abilities.properties
 
-import com.google.gson.JsonObject
+import com.google.gson.JsonElement
+import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.data.SpellSlot
 
-interface BoundSpellProperty {
-    companion object {
-        const val KEY: String = "spell"
-
-        /**
-         * Read spell slot from the json data.
-         * If it is not available, return Spell_1
-         */
-        fun read(data: JsonObject): SpellSlot = if (data.has(KEY))
-            SpellSlot.fromName(data[KEY].asString) ?: SpellSlot.SPELL_1 else SpellSlot.SPELL_1
+class BoundSpellProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+    companion object: Factory {
+        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+            return BoundSpellProperty(ability, data)
+        }
+        override fun getKey(): String = "spell"
     }
+    private val spell: SpellSlot = SpellSlot.fromName(data.asString) ?: SpellSlot.SPELL_1
 
-    fun getSpell(): SpellSlot
+    fun getSpell(): SpellSlot = spell
 }

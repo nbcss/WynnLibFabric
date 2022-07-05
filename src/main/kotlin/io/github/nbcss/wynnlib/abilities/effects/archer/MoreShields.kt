@@ -5,8 +5,8 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.ArcherSentientBowsProperty
-import io.github.nbcss.wynnlib.abilities.properties.ChargeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ArcherSentientBowsProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ChargeProperty
 
 class MoreShields(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     ChargeProperty, ArcherSentientBowsProperty {

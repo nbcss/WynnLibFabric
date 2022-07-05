@@ -7,8 +7,8 @@ import io.github.nbcss.wynnlib.abilities.display.DurationTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
-import io.github.nbcss.wynnlib.abilities.properties.DurationProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DurationProperty
 
 class FlamingUppercut(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     DamageProperty, DurationProperty {

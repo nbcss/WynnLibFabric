@@ -1,11 +1,9 @@
 package io.github.nbcss.wynnlib.abilities.display
 
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.properties.BonusEffectProperty
-import io.github.nbcss.wynnlib.abilities.properties.DurationProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.BonusEffectProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
-import io.github.nbcss.wynnlib.utils.removeDecimal
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text

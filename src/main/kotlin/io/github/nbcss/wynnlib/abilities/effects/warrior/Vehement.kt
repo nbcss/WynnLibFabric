@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.abilities.display.DamageBonusTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.IDTransferBooster
-import io.github.nbcss.wynnlib.abilities.properties.DamageBonusProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageBonusProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text

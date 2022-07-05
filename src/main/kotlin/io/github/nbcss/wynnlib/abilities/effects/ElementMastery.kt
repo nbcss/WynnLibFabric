@@ -4,7 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.ElementBoosterTooltip
-import io.github.nbcss.wynnlib.abilities.properties.ElementBoosterProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ElementBoosterProperty
 
 class ElementMastery(parent: Ability, json: JsonObject): BaseEffect(parent, json), ElementBoosterProperty {
     companion object: AbilityEffect.Factory {

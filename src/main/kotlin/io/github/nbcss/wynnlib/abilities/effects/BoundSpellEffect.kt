@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.abilities.effects
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
-import io.github.nbcss.wynnlib.abilities.properties.BoundSpellProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 
 open class BoundSpellEffect(parent: Ability, json: JsonObject): BaseEffect(parent, json),

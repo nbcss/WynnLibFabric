@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.ManaCostTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
-import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
 
 class EscapeSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, json), DamageProperty {
     companion object: AbilityEffect.Factory {

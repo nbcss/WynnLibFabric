@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.display
 
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.properties.ManaCostProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ManaCostProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.text.LiteralText

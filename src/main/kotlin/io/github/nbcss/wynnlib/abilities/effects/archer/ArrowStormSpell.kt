@@ -5,9 +5,9 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
-import io.github.nbcss.wynnlib.abilities.properties.ArcherStreamProperty
-import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
-import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ArcherStreamProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.RangeProperty
 
 class ArrowStormSpell(parent: Ability, json: JsonObject): SpellUnlock(parent, json),
     DamageProperty, RangeProperty, ArcherStreamProperty {

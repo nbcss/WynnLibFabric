@@ -4,9 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.DamageTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
-import io.github.nbcss.wynnlib.abilities.properties.BoundSpellProperty
-import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
-import io.github.nbcss.wynnlib.data.SpellSlot
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
 
 open class SpellDamageModifier(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     DamageProperty {

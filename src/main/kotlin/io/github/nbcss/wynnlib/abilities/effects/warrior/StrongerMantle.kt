@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.abilities.display.ChargesTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.ChargeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ChargeProperty
 
 class StrongerMantle(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     ChargeProperty {

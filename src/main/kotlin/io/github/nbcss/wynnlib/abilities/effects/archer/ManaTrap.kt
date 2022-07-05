@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.abilities.display.ManaCostModifierTooltip
 import io.github.nbcss.wynnlib.abilities.display.RangeTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.CostModifier
-import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.RangeProperty
 
 class ManaTrap(parent: Ability, json: JsonObject): CostModifier(parent, json),
     RangeProperty {

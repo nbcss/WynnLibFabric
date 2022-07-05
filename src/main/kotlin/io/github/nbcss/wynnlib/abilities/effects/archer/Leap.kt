@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.abilities.display.CooldownTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BaseEffect
-import io.github.nbcss.wynnlib.abilities.properties.CooldownProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.CooldownProperty
 
 open class Leap(parent: Ability, json: JsonObject): BaseEffect(parent, json), CooldownProperty {
     companion object: AbilityEffect.Factory {

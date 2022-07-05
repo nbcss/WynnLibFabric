@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.abilities.properties
+package io.github.nbcss.wynnlib.abilities.properties.legacy
 
 import com.google.gson.JsonObject
 

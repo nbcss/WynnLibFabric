@@ -5,8 +5,8 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.RangeProperty
-import io.github.nbcss.wynnlib.abilities.properties.ReplacingProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.RangeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ReplacingProperty
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 
 class GrapplingHook(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),

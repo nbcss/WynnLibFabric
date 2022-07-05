@@ -4,7 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.ManaCostModifierTooltip
-import io.github.nbcss.wynnlib.abilities.properties.ManaCostModifierProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ManaCostModifierProperty
 
 open class CostModifier(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     ManaCostModifierProperty {

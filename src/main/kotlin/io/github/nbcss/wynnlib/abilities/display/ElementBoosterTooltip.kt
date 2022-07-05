@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.display
 
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.properties.ElementBoosterProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ElementBoosterProperty
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting

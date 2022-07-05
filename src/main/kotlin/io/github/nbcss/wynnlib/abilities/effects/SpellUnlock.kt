@@ -4,8 +4,8 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.ManaCostTooltip
-import io.github.nbcss.wynnlib.abilities.properties.BoundSpellProperty
-import io.github.nbcss.wynnlib.abilities.properties.ManaCostProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.BoundSpellProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ManaCostProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 
 open class SpellUnlock(parent: Ability, json: JsonObject): BaseEffect(parent, json),

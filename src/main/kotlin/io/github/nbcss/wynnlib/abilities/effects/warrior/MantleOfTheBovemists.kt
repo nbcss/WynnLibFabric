@@ -5,9 +5,9 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.ChargeProperty
-import io.github.nbcss.wynnlib.abilities.properties.CooldownProperty
-import io.github.nbcss.wynnlib.abilities.properties.DurationProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ChargeProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.CooldownProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DurationProperty
 
 class MantleOfTheBovemists(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     ChargeProperty, CooldownProperty, DurationProperty {

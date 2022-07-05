@@ -5,7 +5,8 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BaseEffect
-import io.github.nbcss.wynnlib.abilities.properties.*
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.RangeProperty
 
 class TwainArc(parent: Ability, json: JsonObject): BaseEffect(parent, json),
     DamageProperty, RangeProperty {

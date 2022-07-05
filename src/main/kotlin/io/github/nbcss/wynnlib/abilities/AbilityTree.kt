@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.abilities
 
-import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
+import io.github.nbcss.wynnlib.abilities.properties.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.SpellSlot
 import io.github.nbcss.wynnlib.utils.Pos
@@ -44,9 +44,10 @@ class AbilityTree(val character: CharacterClass) {
         abilities.forEach {
             this.abilities.add(it)
             this.posMap[Pos(it.getHeight(), it.getPosition())] = it
-            val effect = it.getEffect()
-            if (effect is SpellUnlock){
-                this.spellMap[effect.getSpell()] = it
+            if(it.getTier().getLevel() == 0){
+                it.getProperty(BoundSpellProperty.getKey())?.let { property ->
+                    this.spellMap[(property as BoundSpellProperty).getSpell()] = it
+                }
             }
             it.getArchetype()?.let { archetype ->
                 val point = this.archetypePoints.getOrDefault(archetype, 0)

@@ -5,8 +5,8 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.MainAttackDamageModifierTooltip
 import io.github.nbcss.wynnlib.abilities.display.MainAttackRangeModifierTooltip
-import io.github.nbcss.wynnlib.abilities.properties.MainAttackDamageModifierProperty
-import io.github.nbcss.wynnlib.abilities.properties.MainAttackRangeModifierProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.MainAttackDamageModifierProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.MainAttackRangeModifierProperty
 
 class WeaponProficiency(parent: Ability, json: JsonObject): BaseEffect(parent, json),
     MainAttackDamageModifierProperty, MainAttackRangeModifierProperty {

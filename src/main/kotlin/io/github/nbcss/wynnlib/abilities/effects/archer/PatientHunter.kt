@@ -4,7 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BaseEffect
-import io.github.nbcss.wynnlib.abilities.properties.MaxProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.MaxProperty
 
 class PatientHunter(parent: Ability, json: JsonObject): BaseEffect(parent, json), MaxProperty {
     companion object: AbilityEffect.Factory {

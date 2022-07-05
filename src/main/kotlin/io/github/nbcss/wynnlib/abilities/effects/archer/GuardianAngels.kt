@@ -5,7 +5,7 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.display.*
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.*
+import io.github.nbcss.wynnlib.abilities.properties.legacy.*
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 
 class GuardianAngels(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),

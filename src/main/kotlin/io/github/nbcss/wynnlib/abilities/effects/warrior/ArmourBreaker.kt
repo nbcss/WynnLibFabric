@@ -7,8 +7,8 @@ import io.github.nbcss.wynnlib.abilities.display.DurationTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.BonusEffectProperty
-import io.github.nbcss.wynnlib.abilities.properties.DurationProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.BonusEffectProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DurationProperty
 
 class ArmourBreaker(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     BonusEffectProperty, DurationProperty {

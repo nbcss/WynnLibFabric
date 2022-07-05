@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.abilities.display.DamageTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.BoundSpellEffect
-import io.github.nbcss.wynnlib.abilities.properties.DamageProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageProperty
 
 class AirShout(parent: Ability, json: JsonObject): BoundSpellEffect(parent, json),
     DamageProperty {

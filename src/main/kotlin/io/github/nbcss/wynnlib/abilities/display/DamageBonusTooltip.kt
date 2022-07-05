@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.display
 
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.properties.DamageBonusProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.DamageBonusProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.signed

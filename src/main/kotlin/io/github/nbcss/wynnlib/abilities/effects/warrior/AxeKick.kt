@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.display.ManaCostModifierTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellDamageModifier
-import io.github.nbcss.wynnlib.abilities.properties.ManaCostModifierProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ManaCostModifierProperty
 
 class AxeKick(parent: Ability, json: JsonObject): SpellDamageModifier(parent, json),
     ManaCostModifierProperty {

@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.abilities.display.DamageTooltip
 import io.github.nbcss.wynnlib.abilities.display.EffectTooltip
 import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
 import io.github.nbcss.wynnlib.abilities.effects.SpellDamageModifier
-import io.github.nbcss.wynnlib.abilities.properties.ArcherStreamProperty
+import io.github.nbcss.wynnlib.abilities.properties.legacy.ArcherStreamProperty
 
 class ArcherStreamBooster(parent: Ability, json: JsonObject): SpellDamageModifier(parent, json),
     ArcherStreamProperty {
