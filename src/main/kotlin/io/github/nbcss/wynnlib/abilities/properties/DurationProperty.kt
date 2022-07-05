@@ -16,6 +16,9 @@ class DurationProperty(ability: Ability, data: JsonElement): AbilityProperty(abi
         override fun getKey(): String = "duration"
     }
     private val duration: Double = data.asDouble
+    init {
+        ability.putPlaceholder(getKey(), removeDecimal(duration))
+    }
 
     fun getDuration(): Double = duration
 
@@ -34,11 +37,14 @@ class DurationProperty(ability: Ability, data: JsonElement): AbilityProperty(abi
             override fun getKey(): String = "duration_modifier"
         }
         private val modifier: Double = data.asDouble
+        init {
+            ability.putPlaceholder(getKey(), removeDecimal(modifier))
+        }
 
         fun getDurationModifier(): Double = modifier
 
         override fun getTooltip(): List<Text> {
-            val color = if(modifier < 0) Formatting.RED else Formatting.WHITE
+            val color = if(modifier < 0) Formatting.RED else Formatting.GREEN
             val value = Translations.TOOLTIP_SUFFIX_S.formatted(color, null,
                 (if(modifier > 0) "+" else "") + removeDecimal(modifier))
             return listOf(Symbol.DURATION.asText().append(" ")

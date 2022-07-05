@@ -10,6 +10,8 @@ abstract class AbilityProperty(private val ability: Ability) {
         private val factoryMap: Map<String, Factory> = mapOf(
             pairs = listOf(
                 BoundSpellProperty,
+                SelfDamageProperty,
+                CriticalDamageProperty,
                 ElementMasteryProperty,
                 ResistantBonusProperty,
                 DamageBonusProperty,

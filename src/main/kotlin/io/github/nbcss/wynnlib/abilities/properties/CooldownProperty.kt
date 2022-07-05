@@ -43,7 +43,7 @@ class CooldownProperty(ability: Ability, data: JsonElement): AbilityProperty(abi
         fun getCooldownModifier(): Double = modifier
 
         override fun getTooltip(): List<Text> {
-            val color = if (modifier < 0) Formatting.WHITE else Formatting.RED
+            val color = if (modifier < 0) Formatting.GREEN else Formatting.RED
             val value = Translations.TOOLTIP_SUFFIX_S.formatted(color, null,
                 (if (modifier > 0) "+" else "") + removeDecimal(modifier))
             return listOf(Symbol.COOLDOWN.asText().append(" ")

@@ -17,6 +17,9 @@ class ArcherStreamProperty(ability: Ability, data: JsonElement): AbilityProperty
         override fun getKey(): String = "archer_stream"
     }
     private val streams: Int = data.asInt
+    init {
+        ability.putPlaceholder(getKey(), streams.toString())
+    }
 
     fun getArcherStreams(): Int = streams
 
@@ -34,6 +37,9 @@ class ArcherStreamProperty(ability: Ability, data: JsonElement): AbilityProperty
             override fun getKey(): String = "archer_stream_modifier"
         }
         private val modifier: Int = data.asInt
+        init {
+            ability.putPlaceholder(getKey(), modifier.toString())
+        }
 
         fun getArcherStreamsModifier(): Int = modifier
 

@@ -15,11 +15,15 @@
       "properties": {
         "spell": "SPELL_1",
         "mana_cost": 45,
-        "neutral_damage": 130,
-        "earth_damage": 20,
-        "range": 3,
-        "aoe": 4,
-        "aoe_shape": "CIRCLE"
+        "damage": {
+          "neutral": 130,
+          "earth": 20
+        },
+        "aoe": {
+          "range": 4,
+          "shape": "CIRCLE"
+        },
+        "range": 3
       }
     },
     {
@@ -76,10 +80,12 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "hits": 1,
-        "neutral_damage": -50,
-        "damage_name": "BASH",
-        "range": 3
+        "damage_modifier": {
+          "neutral": -50,
+          "hits": 1,
+          "label": "BASH"
+        },
+        "range_modifier": 3
       }
     },
     {
@@ -138,7 +144,7 @@
         "CHARGE"
       ],
       "properties": {
-        "damage_bonus": 5
+        "raw_damage_bonus": 5
       }
     },
     {
@@ -159,12 +165,16 @@
       "properties": {
         "spell": "SPELL_3",
         "mana_cost": 45,
-        "neutral_damage": 150,
-        "earth_damage": 50,
-        "thunder_damage": 50,
-        "range": 5,
-        "aoe": "1-3",
-        "aoe_shape": "CONE"
+        "damage": {
+          "neutral": 150,
+          "earth": 50,
+          "thunder": 50
+        },
+        "aoe": {
+          "range": "1-3",
+          "shape": "CONE"
+        },
+        "range": 5
       }
     },
     {
@@ -205,12 +215,19 @@
       "properties": {
         "spell": "SPELL_4",
         "mana_cost": 35,
-        "neutral_damage": 50,
-        "fire_damage": 50,
+        "damage": {
+          "neutral": 50,
+          "fire": 50
+        },
+        "effect": {
+          "type": "ALLIES_RESISTANCE",
+          "modifier": 10
+        },
         "duration": 30,
-        "aoe": 12,
-        "effect_type": "ALLIES_RESISTANCE",
-        "effect_modifier": 10
+        "aoe": {
+          "range": 12,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -229,8 +246,12 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "neutral_damage": 100,
-        "aoe": 4
+        "damage": {
+          "neutral": 100
+        },
+        "aoe": {
+          "range": 4
+        }
       }
     },
     {
@@ -248,9 +269,11 @@
         "UPPERCUT"
       ],
       "properties": {
-        "element": "EARTH",
-        "raw_booster": "2-4",
-        "pct_booster": 20
+        "element_mastery": {
+          "element": "EARTH",
+          "raw": "2-4",
+          "pct": 20
+        }
       }
     },
     {
@@ -270,9 +293,11 @@
         "CHEAPER_CHARGE"
       ],
       "properties": {
-        "element": "THUNDER",
-        "raw_booster": "1-8",
-        "pct_booster": 10
+        "element_mastery": {
+          "element": "THUNDER",
+          "raw": "1-8",
+          "pct": 10
+        }
       }
     },
     {
@@ -292,9 +317,11 @@
         "CHEAPER_CHARGE"
       ],
       "properties": {
-        "element": "AIR",
-        "raw_booster": "3-4",
-        "pct_booster": 15
+        "element_mastery": {
+          "element": "AIR",
+          "raw": "3-4",
+          "pct": 15
+        }
       }
     },
     {
@@ -312,9 +339,11 @@
         "WAR_SCREAM"
       ],
       "properties": {
-        "element": "FIRE",
-        "raw_booster": "3-5",
-        "pct_booster": 15
+        "element_mastery": {
+          "element": "FIRE",
+          "raw": "3-5",
+          "pct": 15
+        }
       }
     },
     {
@@ -334,9 +363,11 @@
         "CHEAPER_CHARGE"
       ],
       "properties": {
-        "element": "WATER",
-        "raw_booster": "2-4",
-        "pct_booster": 15
+        "element_mastery": {
+          "element": "WATER",
+          "raw": "2-4",
+          "pct": 15
+        }
       }
     },
     {
@@ -356,10 +387,12 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": -20,
-        "hits": 2,
-        "damage_name": "BASH",
-        "range": 6
+        "damage_modifier": {
+          "neutral": -20,
+          "hits": 2,
+          "label": "BASH"
+        },
+        "range_modifier": 6
       }
     },
     {
@@ -379,8 +412,10 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 80,
-        "thunder_damage": 20
+        "damage_modifier": {
+          "neutral": 80,
+          "thunder": 20
+        }
       }
     },
     {
@@ -400,9 +435,13 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "neutral_damage": 20,
-        "air_damage": 40,
-        "aoe": 2
+        "damage": {
+          "neutral": 20,
+          "air": 40
+        },
+        "aoe": {
+          "range": 2
+        }
       }
     },
     {
@@ -422,7 +461,9 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "fire_damage": 50,
+        "damage": {
+          "fire": 50
+        },
         "duration": 3
       }
     },
@@ -445,8 +486,10 @@
       "properties": {
         "spell": "SPELL_3",
         "mana_modifier": -10,
-        "neutral_damage": -70,
-        "range": 4
+        "damage_modifier": {
+          "neutral": -70
+        },
+        "range_modifier": 4
       }
     },
     {
@@ -466,8 +509,10 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 30,
-        "air_damage": 30
+        "damage_modifier": {
+          "neutral": 30,
+          "air": 30
+        }
       }
     },
     {
@@ -503,9 +548,11 @@
         "HALF_MOON_SWIPE"
       ],
       "properties": {
-        "neutral_damage": 60,
-        "air_damage": 20,
-        "thunder_damage": 20
+        "damage": {
+          "neutral": 60,
+          "air": 20,
+          "thunder": 20
+        }
       }
     },
     {
@@ -525,9 +572,9 @@
         "IRON_LUNGS"
       ],
       "properties": {
-        "charges": 3,
+        "duration": 30,
         "cooldown": 20,
-        "duration": 30
+        "charges": 3
       }
     },
     {
@@ -547,7 +594,9 @@
         "QUADRUPLE_BASH",
         "FIREWORKS"
       ],
-      "properties": {}
+      "properties": {
+        "cooldown": 15
+      }
     },
     {
       "id": "SPEAR_PROFICIENCY_II",
@@ -665,8 +714,10 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 20,
-        "air_damage": 5
+        "damage": {
+          "neutral": 20,
+          "air": 5
+        }
       }
     },
     {
@@ -704,9 +755,11 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "neutral_damage": 120,
-        "air_damage": 20,
-        "water_damage": 10
+        "damage": {
+          "neutral": 120,
+          "air": 20,
+          "water": 10
+        }
       }
     },
     {
@@ -725,7 +778,7 @@
         "MANACHISM"
       ],
       "properties": {
-        "charges": 2
+        "charges_modifier": 2
       }
     },
     {
@@ -766,12 +819,16 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": 25,
-        "fire_damage": 5,
-        "effect_type": "ENEMIES_SLOWNESS",
-        "effect_modifier": 20,
-        "cooldown": 3,
-        "duration": 3
+        "damage": {
+          "neutral": 25,
+          "fire": 5
+        },
+        "effect": {
+          "type": "ENEMIES_SLOWNESS",
+          "modifier": 20
+        },
+        "duration": 3,
+        "cooldown": 3
       }
     },
     {
@@ -792,9 +849,13 @@
       "properties": {
         "spell": "SPELL_4",
         "mana_modifier": 10,
-        "effect_type": "ALLIES_DAMAGE",
-        "effect_modifier": 30,
-        "aoe": 2
+        "effect": {
+          "type": "ALLIES_DAMAGE",
+          "modifier": 30
+        },
+        "aoe_modifier": {
+          "range": 2
+        }
       }
     },
     {
@@ -849,7 +910,9 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": 30
+        "damage_modifier": {
+          "neutral": 30
+        }
       }
     },
     {
@@ -890,9 +953,13 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "neutral_damage": 100,
-        "fire_damage": 50,
-        "aoe": 4
+        "damage": {
+          "neutral": 100,
+          "fire": 50
+        },
+        "aoe": {
+          "range": 4
+        }
       }
     },
     {
@@ -930,8 +997,10 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 80,
-        "earth_damage": 20
+        "damage_modifier": {
+          "neutral": 80,
+          "earth": 20
+        }
       }
     },
     {
@@ -949,7 +1018,9 @@
         "BOILING_BLOOD",
         "RADIANT_DEVOTEE"
       ],
-      "properties": {}
+      "properties": {
+        "cooldown_modifier": -5
+      }
     },
     {
       "id": "RADIANT_DEVOTEE",
@@ -989,9 +1060,13 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "air_damage": 50,
-        "aoe_shape": "CIRCLE",
-        "range": 2
+        "damage_modifier": {
+          "air": 50
+        },
+        "aoe_modifier": {
+          "shape": "CIRCLE"
+        },
+        "range_modifier": 2
       }
     },
     {
@@ -1031,8 +1106,10 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "effect_type": "ENEMIES_RESISTANCE",
-        "effect_modifier": -30,
+        "effect": {
+          "type": "ENEMIES_RESISTANCE",
+          "modifier": -30
+        },
         "duration": 5
       }
     },
@@ -1051,11 +1128,15 @@
         "MYTHRIL_SKIN"
       ],
       "properties": {
-        "neutral_damage": 60,
-        "thunder_damage": 20,
-        "aoe": 5,
-        "aoe_shape": "CIRCLE",
-        "damage_name": "MANTLE_LOST"
+        "damage": {
+          "neutral": 60,
+          "thunder": 20,
+          "label": "MANTLE_LOST"
+        },
+        "aoe": {
+          "range": 5,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1073,10 +1154,14 @@
         "MYTHRIL_SKIN"
       ],
       "properties": {
-        "neutral_damage": 10,
-        "thunder_damage": 5,
-        "aoe": 6,
-        "aoe_shape": "CIRCLE"
+        "damage": {
+          "neutral": 10,
+          "thunder": 5
+        },
+        "aoe": {
+          "range": 6,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1115,12 +1200,16 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 30,
-        "earth_damage": 10,
-        "air_damage": 10,
-        "hits": 3,
-        "aoe": 16,
-        "aoe_shape": "CIRCLE"
+        "damage": {
+          "neutral": 30,
+          "earth": 10,
+          "air": 10,
+          "hits": 3
+        },
+        "aoe": {
+          "range": 16,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1182,7 +1271,9 @@
       "properties": {
         "spell": "SPELL_3",
         "mana_modifier": 10,
-        "neutral_damage": 100
+        "damage_modifier": {
+          "neutral": 100
+        }
       }
     },
     {
@@ -1204,8 +1295,10 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "effect_type": "ALLIES_ID_EFFECTIVENESS",
-        "effect_modifier": 20,
+        "effect": {
+          "type": "ALLIES_ID_EFFECTIVENESS",
+          "modifier": 20
+        },
         "duration": 8,
         "cooldown": 15
       }
@@ -1284,12 +1377,16 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 10,
-        "air_damage": 10,
-        "fire_damage": 5,
+        "damage": {
+          "neutral": 10,
+          "air": 10,
+          "fire": 5
+        },
         "duration": 20,
-        "aoe": 4,
-        "aoe_shape": "CIRCLE"
+        "aoe": {
+          "range": 4,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1309,8 +1406,10 @@
         "CYCLONE"
       ],
       "properties": {
-        "aoe": 3,
-        "aoe_shape": "CIRCLE"
+        "aoe_modifier": {
+          "range": 3,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1419,11 +1518,15 @@
         "SECOND_CHANCE"
       ],
       "properties": {
-        "effect_type": "ALLIES_INVINCIBLE",
-        "effect_modifier": 100,
+        "effect": {
+          "type": "ALLIES_INVINCIBLE",
+          "modifier": 100
+        },
         "duration": 3,
-        "aoe": 12,
-        "aoe_shape": "CIRCLE"
+        "aoe": {
+          "range": 12,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1439,14 +1542,18 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
+        "self_damage": 25,
         "spell": "SPELL_3",
         "mana_cost": 50,
-        "neutral_damage": 160,
-        "fire_damage": 20,
+        "damage": {
+          "neutral": 160,
+          "fire": 20
+        },
         "range": 26,
-        "aoe": 4.5,
-        "aoe_shape": "CIRCLE",
-        "self_damage": 25
+        "aoe": {
+          "range": 4.5,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1503,7 +1610,9 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 100
+        "damage_modifier": {
+          "neutral": 100
+        }
       }
     },
     {
@@ -1579,11 +1688,13 @@
       "properties": {
         "spell": "SPELL_1",
         "mana_cost": 40,
-        "neutral_damage": 30,
-        "thunder_damage": 10,
-        "hits": 8,
+        "damage": {
+          "neutral": 30,
+          "thunder": 10,
+          "hits": 8,
+          "label": "ARROW"
+        },
         "archer_stream": 2,
-        "damage_name": "ARROW",
         "range": 16
       }
     },
@@ -1625,8 +1736,10 @@
       "properties": {
         "spell": "SPELL_4",
         "mana_cost": 30,
-        "neutral_damage": 90,
-        "air_damage": 10,
+        "damage": {
+          "neutral": 90,
+          "air": 10
+        },
         "duration": 60,
         "charges": 2
       }
@@ -1647,11 +1760,15 @@
       ],
       "properties": {
         "spell": "SPELL_2",
+        "effect": {
+          "type": "ALLIES_WALK_SPEED",
+          "modifier": 20
+        },
         "duration": 120,
-        "aoe": 8,
-        "aoe_shape": "CIRCLE",
-        "effect_type": "ALLIES_WALK_SPEED",
-        "effect_modifier": 20
+        "aoe": {
+          "range": 8,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1669,9 +1786,11 @@
         "ARROW_STORM"
       ],
       "properties": {
-        "element": "AIR",
-        "raw_booster": "3-4",
-        "pct_booster": 15
+        "element_mastery": {
+          "element": "AIR",
+          "raw": "3-4",
+          "pct": 15
+        }
       }
     },
     {
@@ -1691,9 +1810,11 @@
         "ARCHER_FIRE_MASTERY"
       ],
       "properties": {
-        "element": "THUNDER",
-        "raw_booster": "1-8",
-        "pct_booster": 10
+        "element_mastery": {
+          "element": "THUNDER",
+          "raw": "1-8",
+          "pct": 10
+        }
       }
     },
     {
@@ -1713,9 +1834,11 @@
         "ARCHER_THUNDER_MASTERY"
       ],
       "properties": {
-        "element": "FIRE",
-        "raw_booster": "3-5",
-        "pct_booster": 15
+        "element_mastery": {
+          "element": "FIRE",
+          "raw": "3-5",
+          "pct": 15
+        }
       }
     },
     {
@@ -1733,9 +1856,11 @@
         "ARROW_SHIELD"
       ],
       "properties": {
-        "element": "EARTH",
-        "raw_booster": "2-4",
-        "pct_booster": 20
+        "element_mastery": {
+          "element": "EARTH",
+          "raw": "2-4",
+          "pct": 20
+        }
       }
     },
     {
@@ -1755,9 +1880,11 @@
         "ARCHER_FIRE_MASTERY"
       ],
       "properties": {
-        "element": "WATER",
-        "raw_booster": "2-4",
-        "pct_booster": 15
+        "element_mastery": {
+          "element": "WATER",
+          "raw": "2-4",
+          "pct": 15
+        }
       }
     },
     {
@@ -1777,10 +1904,12 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 120,
-        "air_damage": 80,
-        "hits": 200,
-        "damage_name": "ARROW"
+        "damage": {
+          "neutral": 120,
+          "air": 80,
+          "hits": 200,
+          "label": "ARROW"
+        }
       }
     },
     {
@@ -1802,9 +1931,11 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": -15,
-        "hits": 6,
-        "damage_name": "ARROW"
+        "damage_modifier": {
+          "neutral": -15,
+          "hits": 6,
+          "label": "ARROW"
+        }
       }
     },
     {
@@ -1829,10 +1960,12 @@
       "properties": {
         "spell": "SPELL_1",
         "mana_modifier": -10,
-        "neutral_damage": 25,
-        "water_damage": 5,
-        "hits": 10,
-        "damage_name": "HIT",
+        "damage": {
+          "neutral": 25,
+          "water": 5,
+          "hits": 10,
+          "label": "HIT"
+        },
         "range": 12,
         "replacing": "ARROW_STORM"
       }
@@ -1855,11 +1988,15 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 30,
-        "fire_damage": 20,
+        "damage": {
+          "neutral": 30,
+          "fire": 20
+        },
         "duration": 6,
-        "aoe": 0.8,
-        "aoe_shape": "LINE"
+        "aoe": {
+          "range": 0.8,
+          "shape": "LINE"
+        }
       }
     },
     {
@@ -1881,13 +2018,19 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": 40,
-        "earth_damage": 20,
+        "damage": {
+          "neutral": 40,
+          "earth": 20
+        },
+        "effect": {
+          "type": "ENEMIES_SLOWNESS",
+          "modifier": 40
+        },
         "duration": 5,
-        "aoe": 2,
-        "aoe_shape": "CIRCLE",
-        "effect_type": "ENEMIES_SLOWNESS",
-        "effect_modifier": 40
+        "aoe": {
+          "range": 2,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -1943,13 +2086,15 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 30,
-        "air_damage": 10,
-        "hits": 8,
-        "damage_name": "ARROW",
+        "damage": {
+          "neutral": 30,
+          "air": 10,
+          "hits": 8,
+          "label": "ARROW"
+        },
+        "archer_sentient_bows": 2,
         "range": 5,
         "duration": 60,
-        "archer_sentient_bows": 2,
         "replacing": "ARROW_SHIELD"
       }
     },
@@ -1970,8 +2115,7 @@
         "PHANTOM_RAY"
       ],
       "properties": {
-        "damage_bonus": 35,
-        "max": 3
+        "focus_damage_bonus": 35
       }
     },
     {
@@ -1992,12 +2136,16 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 190,
-        "earth_damage": 30,
-        "fire_damage": 30,
+        "damage": {
+          "neutral": 190,
+          "earth": 30,
+          "fire": 30
+        },
         "duration": 30,
-        "aoe": 7,
-        "aoe_shape": "CIRCLE"
+        "aoe": {
+          "range": 7,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -2019,11 +2167,13 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": -10,
-        "thunder_damage": -2,
-        "air_damage": 2,
-        "hits": 2,
-        "archer_stream": 1
+        "damage_modifier": {
+          "neutral": -10,
+          "thunder": -2,
+          "air": 2,
+          "hits": 2
+        },
+        "archer_stream_modifier": 1
       }
     },
     {
@@ -2087,8 +2237,8 @@
         "BASALTIC_TRAP"
       ],
       "properties": {
-        "charges": 2,
-        "archer_sentient_bows": 2
+        "charges_modifier": 2,
+        "archer_sentient_bows_modifier": 2
       }
     },
     {
@@ -2107,8 +2257,7 @@
         "GRAPPLING_HOOK"
       ],
       "properties": {
-        "damage_bonus": -5,
-        "max": 2
+        "focus_damage_bonus": -5
       }
     },
     {
@@ -2128,7 +2277,9 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 40
+        "damage_modifier": {
+          "neutral": 40
+        }
       }
     },
     {
@@ -2145,9 +2296,7 @@
       "predecessors": [
         "MORE_SHIELDS"
       ],
-      "properties": {
-        "max": 80
-      }
+      "properties": {}
     },
     {
       "id": "STORMY_FEET",
@@ -2165,9 +2314,11 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "duration": 60,
-        "effect_type": "ALLIES_WALK_SPEED",
-        "effect_modifier": 20
+        "effect": {
+          "type": "ALLIES_WALK_SPEED",
+          "modifier": 20
+        },
+        "duration_modifier": 60
       }
     },
     {
@@ -2187,7 +2338,9 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 50
+        "damage_modifier": {
+          "neutral": 50
+        }
       }
     },
     {
@@ -2205,9 +2358,7 @@
         "REFINED_GUNPOWDER",
         "TWAINS_ARC"
       ],
-      "properties": {
-        "max": 100
-      }
+      "properties": {}
     },
     {
       "id": "TWAINS_ARC",
@@ -2227,7 +2378,9 @@
         "MORE_FOCUS_I"
       ],
       "properties": {
-        "neutral_damage": 200,
+        "damage": {
+          "neutral": 200
+        },
         "range": 64
       }
     },
@@ -2266,9 +2419,13 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "neutral_damage": 100,
-        "aoe": 4,
-        "aoe_shape": "CIRCLE"
+        "damage": {
+          "neutral": 100
+        },
+        "aoe": {
+          "range": 4,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -2287,11 +2444,15 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 10,
-        "fire_damage": 5,
-        "duration": 2,
-        "aoe": 0.4,
-        "aoe_shape": "LINE"
+        "damage_modifier": {
+          "neutral": 10,
+          "fire": 5
+        },
+        "duration_modifier": 2,
+        "aoe_modifier": {
+          "range": 0.4,
+          "shape": "LINE"
+        }
       }
     },
     {
@@ -2386,9 +2547,13 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 40,
-        "aoe": 1,
-        "aoe_shape": "CIRCLE"
+        "damage_modifier": {
+          "neutral": 40
+        },
+        "aoe_modifier": {
+          "range": 1,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -2430,7 +2595,7 @@
         "HOMING_SHOTS"
       ],
       "properties": {
-        "cooldown": -1
+        "cooldown_modifier": -1
       }
     },
     {
@@ -2452,10 +2617,12 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "neutral_damage": 30,
-        "thunder_damage": 10,
-        "hits": 120,
-        "damage_name": "ARROW"
+        "damage": {
+          "neutral": 30,
+          "thunder": 10,
+          "hits": 120,
+          "label": "ARROW"
+        }
       }
     },
     {
@@ -2475,7 +2642,9 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "hits": 4
+        "damage_modifier": {
+          "hits": 4
+        }
       }
     },
     {
@@ -2535,7 +2704,9 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "neutral_damage": 40,
+        "damage": {
+          "neutral": 40
+        },
         "duration": 60
       }
     },
@@ -2560,7 +2731,7 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "archer_stream": 2
+        "archer_stream_modifier": 2
       }
     },
     {
@@ -2641,10 +2812,12 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 40,
-        "fire_damage": 20,
-        "hits": 15,
-        "damage_name": "SHRAPNEL"
+        "damage": {
+          "neutral": 40,
+          "fire": 20,
+          "hits": 15,
+          "label": "SHRAPNEL"
+        }
       }
     },
     {
@@ -2704,7 +2877,7 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "range": 4
+        "range_modifier": 4
       }
     },
     {
@@ -2723,9 +2896,13 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "water_damage": 50,
-        "aoe": 1,
-        "aoe_shape": "CIRCLE"
+        "damage_modifier": {
+          "water": 50
+        },
+        "aoe_modifier": {
+          "range": 1,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -2746,10 +2923,11 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "neutral_damage": 10,
-        "water_damage": 5,
-        "hits": 20,
-        "damage_name": "ARROW"
+        "damage": {
+          "neutral": 10,
+          "water": 5,
+          "label": "ARROW"
+        }
       }
     },
     {
@@ -2768,11 +2946,15 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "neutral_damage": 30,
-        "fire_damage": 10,
-        "hits": 3,
-        "aoe": 2,
-        "aoe_shape": "CIRCLE"
+        "damage": {
+          "neutral": 30,
+          "fire": 10,
+          "hits": 3
+        },
+        "aoe": {
+          "range": 2,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -2808,8 +2990,10 @@
         "GRAPE_BOMB"
       ],
       "properties": {
-        "neutral_damage": 20,
-        "air_damage": 20
+        "damage": {
+          "neutral": 20,
+          "air": 20
+        }
       }
     },
     {
@@ -2826,9 +3010,7 @@
       "predecessors": [
         "GRAPE_BOMB"
       ],
-      "properties": {
-        "max": 80
-      }
+      "properties": {}
     },
     {
       "id": "SNOW_STORM",
@@ -2846,9 +3028,11 @@
         "MORE_FOCUS_II"
       ],
       "properties": {
-        "range": 2.5,
-        "effect_type": "ENEMIES_SLOWNESS",
-        "effect_modifier": 30
+        "effect": {
+          "type": "ENEMIES_SLOWNESS",
+          "modifier": 30
+        },
+        "range": 2.5
       }
     },
     {
@@ -2867,8 +3051,7 @@
         "CREPUSCULAR_RAY"
       ],
       "properties": {
-        "damage_bonus": -5,
-        "max": 2
+        "focus_damage_bonus": -5
       }
     },
     {
@@ -2889,10 +3072,12 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "fire_damage": 10,
-        "hits": 5,
-        "damage_name": "ARROW",
-        "range": 8
+        "damage_modifier": {
+          "fire": 10,
+          "hits": 5,
+          "label": "ARROW"
+        },
+        "range_modifier": 8
       }
     },
     {
@@ -2933,9 +3118,13 @@
         "GRAPE_BOMB"
       ],
       "properties": {
-        "neutral_damage": -80,
-        "aoe": -2,
-        "aoe_shape": "CIRCLE"
+        "damage_modifier": {
+          "neutral": -80
+        },
+        "aoe_modifier": {
+          "range": -2,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -3919,5 +4108,5 @@
       "properties": {}
     }
   ],
-  "version": "1.0.7"
+  "version": "1.0.8"
 }

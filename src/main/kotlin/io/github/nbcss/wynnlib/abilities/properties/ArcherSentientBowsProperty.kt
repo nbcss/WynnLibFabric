@@ -17,6 +17,9 @@ class ArcherSentientBowsProperty(ability: Ability, data: JsonElement): AbilityPr
         override fun getKey(): String = "archer_sentient_bows"
     }
     private val bows: Int = data.asInt
+    init {
+        ability.putPlaceholder(getKey(), bows.toString())
+    }
 
     fun getArcherSentientBows(): Int = bows
 
@@ -34,6 +37,9 @@ class ArcherSentientBowsProperty(ability: Ability, data: JsonElement): AbilityPr
             override fun getKey(): String = "archer_sentient_bows_modifier"
         }
         private val modifier: Int = data.asInt
+        init {
+            ability.putPlaceholder(getKey(), modifier.toString())
+        }
 
         fun getArcherSentientBowsModifier(): Int = modifier
 

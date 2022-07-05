@@ -17,6 +17,9 @@ class ChargeProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
         override fun getKey(): String = "charges"
     }
     private val charges: Int = data.asInt
+    init {
+        ability.putPlaceholder(getKey(), charges.toString())
+    }
 
     fun getCharges(): Int = charges
 
@@ -34,11 +37,14 @@ class ChargeProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
             override fun getKey(): String = "charges_modifier"
         }
         private val modifier: Int = data.asInt
+        init {
+            ability.putPlaceholder(getKey(), modifier.toString())
+        }
 
         fun getChargesModifier(): Int = modifier
 
         override fun getTooltip(): List<Text> {
-            val color = if (modifier < 0) Formatting.RED else Formatting.WHITE
+            val color = if (modifier < 0) Formatting.RED else Formatting.GREEN
             return listOf(Symbol.CHARGE.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_CHARGES.formatted(Formatting.GRAY).append(": "))
                 .append(LiteralText(signed(modifier)).formatted(color)))
