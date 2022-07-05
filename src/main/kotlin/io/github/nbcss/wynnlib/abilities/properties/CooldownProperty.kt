@@ -40,7 +40,7 @@ class CooldownProperty(ability: Ability, data: JsonElement): AbilityProperty(abi
             ability.putPlaceholder(getKey(), removeDecimal(modifier))
         }
 
-        fun getCooldown(): Double = modifier
+        fun getCooldownModifier(): Double = modifier
 
         override fun getTooltip(): List<Text> {
             val color = if (modifier < 0) Formatting.WHITE else Formatting.RED
