@@ -21,6 +21,19 @@ class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty
             return AreaOfEffectProperty(ability, data)
         }
         override fun getKey(): String = "aoe"
+
+        private fun checkZero(aoe: AreaOfEffect): List<Text>? {
+            if (aoe.getRange().isZero()){
+                val tooltip: MutableList<Text> = ArrayList()
+                aoe.getShape()?.let {
+                    tooltip.add(Symbol.AOE.asText().append(" ")
+                        .append(Translations.TOOLTIP_ABILITY_AREA_OF_EFFECT.formatted(Formatting.GRAY).append(": "))
+                        .append(it.formatted(Formatting.WHITE)))
+                }
+                return tooltip
+            }
+            return null
+        }
     }
     private val aoe: AreaOfEffect = AreaOfEffect(data.asJsonObject)
 
@@ -28,15 +41,7 @@ class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty
 
     override fun getTooltip(): List<Text> {
         val range = aoe.getRange()
-        if (range.isZero()){
-            val tooltip: MutableList<Text> = ArrayList()
-            aoe.getShape()?.let {
-                tooltip.add(Symbol.AOE.asText().append(" ")
-                    .append(Translations.TOOLTIP_ABILITY_AREA_OF_EFFECT.formatted(Formatting.GRAY).append(": "))
-                    .append(it.formatted(Formatting.WHITE)))
-            }
-            return tooltip
-        }
+        checkZero(aoe)?.let { return it }
         val suffix = if(range.upper() <= 1)
             Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS
         var value = removeDecimal(range.lower())
@@ -69,15 +74,7 @@ class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty
 
         override fun getTooltip(): List<Text> {
             val range = modifier.getRange()
-            if (range.isZero()){
-                val tooltip: MutableList<Text> = ArrayList()
-                modifier.getShape()?.let {
-                    tooltip.add(Symbol.AOE.asText().append(" ")
-                        .append(Translations.TOOLTIP_ABILITY_AREA_OF_EFFECT.formatted(Formatting.GRAY).append(": "))
-                        .append(it.formatted(Formatting.WHITE)))
-                }
-                return tooltip
-            }
+            checkZero(modifier)?.let { return it }
             val suffix = if(range.upper() <= 1)
                 Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS
             var value = (if (range.lower() > 0) "+" else "") + removeDecimal(range.lower())
