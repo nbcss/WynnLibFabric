@@ -12,6 +12,10 @@ abstract class AbilityProperty(private val ability: Ability) {
                 BoundSpellProperty,
                 ElementMasteryProperty,
                 ResistantBonusProperty,
+                DamageBonusProperty,
+                DamageBonusProperty.Raw,
+                DamageBonusProperty.PerFocus,
+                BonusEffectProperty,
                 ManaCostProperty,
                 ManaCostModifierProperty,
                 DamageProperty,
@@ -24,6 +28,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 CooldownProperty.Modifier,
                 DurationProperty,
                 DurationProperty.Modifier,
+                ChargeProperty,
+                ChargeProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
