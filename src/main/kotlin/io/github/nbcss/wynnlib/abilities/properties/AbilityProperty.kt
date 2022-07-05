@@ -15,6 +15,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 RangeProperty,
                 RangeModifierProperty,
                 ResistantBonusProperty,
+                DamageProperty,
+                DamageModifierProperty,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
