@@ -39,8 +39,9 @@ class RangeProperty(ability: Ability, data: JsonElement): AbilityProperty(abilit
         fun getRangeModifier(): Double = modifier
 
         override fun getTooltip(): List<Text> {
+            val color = if (modifier <= 0) Formatting.RED else Formatting.GREEN
             val value = (if(modifier <= 1) Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS)
-                .formatted(Formatting.WHITE, null, (if (modifier > 0) "+" else "") + removeDecimal(modifier))
+                .formatted(color, null, (if (modifier > 0) "+" else "") + removeDecimal(modifier))
             return listOf(Symbol.RANGE.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_RANGE.formatted(Formatting.GRAY).append(": "))
                 .append(value))

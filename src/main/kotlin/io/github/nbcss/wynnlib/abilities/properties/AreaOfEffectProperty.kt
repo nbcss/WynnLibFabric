@@ -81,7 +81,7 @@ class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty
             val suffix = if(range.upper() <= 1)
                 Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS
             var value = (if (range.lower() > 0) "+" else "") + removeDecimal(range.lower())
-            val color = if (range.lower() < 0) Formatting.RED else Formatting.WHITE
+            val color = if (range.lower() < 0) Formatting.RED else Formatting.GREEN
             if(!range.isConstant()){
                 value = "$value-${removeDecimal(range.upper())}"
             }
