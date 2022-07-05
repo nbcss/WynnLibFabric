@@ -22,6 +22,6 @@ class ManaCostProperty(ability: Ability, data: JsonElement): AbilityProperty(abi
     override fun getTooltip(): List<Text> {
         return listOf(Symbol.MANA.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_MANA_COST.formatted(Formatting.GRAY).append(": "))
-            .append(LiteralText(getManaCost().toString()).formatted(Formatting.WHITE)))
+            .append(LiteralText(cost.toString()).formatted(Formatting.WHITE)))
     }
 }

@@ -10,6 +10,7 @@ abstract class AbilityProperty(private val ability: Ability) {
         private val factoryMap: Map<String, Factory> = mapOf(
             BoundSpellProperty.getKey() to BoundSpellProperty,
             ManaCostProperty.getKey() to ManaCostProperty,
+            ManaCostModifierProperty.getKey() to ManaCostModifierProperty,
         )
 
         fun fromData(ability: Ability, key: String, data: JsonElement): AbilityProperty? {
