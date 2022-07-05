@@ -8,9 +8,14 @@ import net.minecraft.text.Text
 abstract class AbilityProperty(private val ability: Ability) {
     companion object {
         private val factoryMap: Map<String, Factory> = mapOf(
-            BoundSpellProperty.getKey() to BoundSpellProperty,
-            ManaCostProperty.getKey() to ManaCostProperty,
-            ManaCostModifierProperty.getKey() to ManaCostModifierProperty,
+            pairs = listOf(
+                BoundSpellProperty,
+                ManaCostProperty,
+                ManaCostModifierProperty,
+                RangeProperty,
+                RangeModifierProperty,
+                ResistantBonusProperty,
+            ).map { it.getKey() to it }.toTypedArray()
         )
 
         fun fromData(ability: Ability, key: String, data: JsonElement): AbilityProperty? {
