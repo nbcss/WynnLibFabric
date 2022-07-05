@@ -10,19 +10,19 @@ abstract class AbilityProperty(private val ability: Ability) {
         private val factoryMap: Map<String, Factory> = mapOf(
             pairs = listOf(
                 BoundSpellProperty,
+                ResistantBonusProperty,
                 ManaCostProperty,
                 ManaCostModifierProperty,
-                RangeProperty,
-                RangeModifierProperty,
-                ResistantBonusProperty,
                 DamageProperty,
                 DamageModifierProperty,
                 MainAttackDamageModifierProperty,
                 MainAttackRangeModifierProperty,
+                RangeProperty,
+                RangeProperty.Modifier,
                 CooldownProperty,
-                CooldownModifierProperty,
+                CooldownProperty.Modifier,
                 DurationProperty,
-                DurationModifierProperty,
+                DurationProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
