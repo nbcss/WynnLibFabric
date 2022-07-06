@@ -4215,9 +4215,10 @@
         "CHEAPER_ICE_SNAKE_II"
       ],
       "properties": {
-        "effect": {
+        "grow_effect": {
           "type": "ALLIES_WALK_SPEED",
-          "modifier": 10
+          "modifier": 10,
+          "max": 300
         },
         "aoe": {
           "range": 2,

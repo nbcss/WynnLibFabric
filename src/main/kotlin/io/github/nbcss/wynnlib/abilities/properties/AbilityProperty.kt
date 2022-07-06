@@ -13,6 +13,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 TotalHealProperty,
                 PulseHealProperty,
                 SelfDamageProperty,
+                GrowingEffectProperty,
                 CriticalDamageProperty,
                 ElementMasteryProperty,
                 ResistantBonusProperty,

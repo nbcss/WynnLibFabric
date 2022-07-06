@@ -11,7 +11,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class BonusEffectProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+open class BonusEffectProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
     companion object: Factory {
         private const val TYPE_KEY: String = "type"
         private const val MODIFIER_KEY: String = "modifier"

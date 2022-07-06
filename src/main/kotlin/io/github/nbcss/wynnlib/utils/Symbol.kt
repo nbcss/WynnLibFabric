@@ -8,6 +8,7 @@ enum class Symbol(private val icon: String,
                   private val formatting: Formatting) {
     MANA("✺", Formatting.AQUA),
     HEART("❤", Formatting.RED),
+    MAX("▲", Formatting.GRAY),
     RANGE("➼", Formatting.DARK_GREEN),
     AOE("☀", Formatting.DARK_AQUA),
     DURATION("⌛", Formatting.LIGHT_PURPLE),

@@ -49,6 +49,7 @@ object Translations {
     val TOOLTIP_ABILITY_ARCHER_STREAM: Translatable = from("wynnlib.tooltip.ability.archer_stream")
     val TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS: Translatable = from("wynnlib.tooltip.ability.archer_sentient_bows")
     val TOOLTIP_ABILITY_REPLACING: Translatable = from("wynnlib.tooltip.ability.replacing")
+    val TOOLTIP_ABILITY_MAX: Translatable = from("wynnlib.tooltip.ability.maximum")
     val TOOLTIP_ABILITY_TOTAL_DAMAGE: Translatable = from("wynnlib.tooltip.ability.total_damage")
     val TOOLTIP_ABILITY_DAMAGE_BONUS: Translatable = from("wynnlib.tooltip.ability.damage_bonus")
     val TOOLTIP_ABILITY_MAIN_ATTACK_DAMAGE: Translatable = from("wynnlib.tooltip.ability.main_attack_damage")
@@ -64,4 +65,5 @@ object Translations {
     val TOOLTIP_SUFFIX_BLOCK: Translatable = from("wynnlib.tooltip.suffix.block")
     val TOOLTIP_SUFFIX_BLOCKS: Translatable = from("wynnlib.tooltip.suffix.blocks")
     val TOOLTIP_SUFFIX_S: Translatable = from("wynnlib.tooltip.suffix.s")
+    val TOOLTIP_SUFFIX_PER_S: Translatable = from("wynnlib.tooltip.suffix.per_s")
 }
