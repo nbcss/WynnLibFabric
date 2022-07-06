@@ -25,25 +25,29 @@ class BonusEffectProperty(ability: Ability, data: JsonElement): AbilityProperty(
     fun getEffectBonus(): EffectBonus = bonus
 
     override fun getTooltip(): List<Text> {
-        return listOf(Symbol.EFFECT.asText().append(" ")
+        val modifier = bonus.getEffectModifier()
+        val text = Symbol.EFFECT.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_EFFECT.formatted(Formatting.GRAY).append(": "))
-            .append(LiteralText("${signed(bonus.getEffectModifier())}% ").formatted(Formatting.WHITE))
-            .append(bonus.getEffectType().formatted(Formatting.GRAY)))
+        if (modifier != null){
+            text.append(LiteralText("${signed(modifier)}% ").formatted(Formatting.WHITE))
+                .append(bonus.getEffectType().formatted(Formatting.GRAY))
+        }else{
+            text.append(bonus.getEffectType().formatted(Formatting.WHITE))
+        }
+        return listOf(text)
     }
 
     data class EffectBonus(private val type: EffectType,
-                           private val modifier: Int){
+                           private val modifier: Int?){
         constructor(json: JsonObject): this(
             if (json.has(TYPE_KEY)) EffectType.fromName(json[TYPE_KEY].asString)
                 ?: EffectType.ENEMIES_SLOWNESS else EffectType.ENEMIES_SLOWNESS,
-            if (json.has(MODIFIER_KEY)) json[MODIFIER_KEY].asInt else 0
+            if (json.has(MODIFIER_KEY)) json[MODIFIER_KEY].asInt else null
         )
 
         fun getEffectType(): EffectType = type
 
-        fun getEffectModifier(): Int = modifier
-
-        fun getEffectModifierRate(): Double = getEffectModifier() / 100.0
+        fun getEffectModifier(): Int? = modifier
     }
 
     enum class EffectType: Translatable {
@@ -53,6 +57,7 @@ class BonusEffectProperty(ability: Ability, data: JsonElement): AbilityProperty(
         ALLIES_ID_EFFECTIVENESS,
         ALLIES_INVINCIBLE,
         ENEMIES_RESISTANCE,
+        ENEMIES_BLINDNESS,
         ENEMIES_SLOWNESS;
         companion object {
             private val VALUE_MAP: Map<String, EffectType> = mapOf(
