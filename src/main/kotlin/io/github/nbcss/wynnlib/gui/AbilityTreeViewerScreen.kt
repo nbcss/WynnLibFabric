@@ -12,10 +12,14 @@ import io.github.nbcss.wynnlib.utils.AlphaColor
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Pos
+import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
+import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
@@ -39,7 +43,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         const val GRID_SIZE: Int = 24
         const val VIEW_WIDTH = 232
         const val VIEW_HEIGHT = 138
-        const val SCROLL_FRAMES = 4
+        const val SCROLL_FRAMES = 5
         val ACTIVE_OUTER_COLOR: AlphaColor = Color(0x37ACB5).toSolidColor()
         val ACTIVE_INNER_COLOR: AlphaColor = Color(0x5FD6DF).toSolidColor()
         val LOCKED_OUTER_COLOR: AlphaColor = Color(0x2D2E30).toSolidColor()
@@ -51,8 +55,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     private var viewerX: Int = 0
     private var viewerY: Int = 0
     private var scroll: Int = 0
-    private var movingScroll: Int = 0
-    private var scrollTicks: Int = 0
+    private var renderScrollPos: Int = 0
+    private var scrollTicks: Int = -1
 
     private fun drawOuterEdge(matrices: MatrixStack, from: Pos, to: Pos, color: Int, reroute: Boolean){
         RenderSystem.enableDepthTest()
@@ -81,8 +85,12 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     }
 
     private fun toScreenPosition(height: Int, position: Int): Pos {
+        return toScreenPosition(height, position, renderScrollPos)
+    }
+
+    private fun toScreenPosition(height: Int, position: Int, scrollPos: Int): Pos {
         val posX = windowX + 9 + GRID_SIZE / 2 + (position + 4) * GRID_SIZE
-        val posY = windowY + 47 + GRID_SIZE / 2 + height * GRID_SIZE - movingScroll
+        val posY = windowY + 47 + GRID_SIZE / 2 + height * GRID_SIZE - scrollPos
         return Pos(posX, posY)
     }
 
@@ -107,6 +115,12 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
 
     private fun isOverViewer(mouseX: Int, mouseY: Int): Boolean {
         return mouseX >= viewerX && mouseX < viewerX + VIEW_WIDTH && mouseY >= viewerY && mouseY < viewerY + VIEW_HEIGHT
+    }
+
+    private fun setScroll(targetScroll: Int) {
+        val max = max(0, 8 + (1 + tree.getMaxHeight()) * GRID_SIZE - VIEW_HEIGHT)
+        scroll = MathHelper.clamp(targetScroll, 0, max)
+        scrollTicks = SCROLL_FRAMES
     }
 
     private fun renderEdges(abilities: List<Ability>, matrices: MatrixStack, color: AlphaColor, inner: Boolean){
@@ -135,11 +149,14 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
         return title.copy().append(" [").append(tree.character.translate()).append("]")
     }
 
+    override fun tick() {
+        super.tick()
+        scrollTicks = max(-1, scrollTicks - 1)
+    }
+
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
         if (isOverViewer(mouseX.toInt(), mouseY.toInt())){
-            val max = max(0, 8 + (1 + tree.getMaxHeight()) * GRID_SIZE - VIEW_HEIGHT)
-            scroll = MathHelper.clamp(scroll - amount.toInt() * GRID_SIZE, 0, max)
-            scrollTicks = SCROLL_FRAMES
+            setScroll(scroll - amount.toInt() * GRID_SIZE)
         }
         return super.mouseScrolled(mouseX, mouseY, amount)
     }
@@ -158,12 +175,36 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (isOverViewer(mouseX.toInt(), mouseY.toInt())) {
+            for (ability in tree.getAbilities()) {
+                val node = toScreenPosition(ability.getHeight(), ability.getPosition())
+                if (isOverNode(node, mouseX.toInt(), mouseY.toInt())){
+                    val dependency = ability.getAbilityDependency()
+                    if (dependency != null) {
+                        MinecraftClient.getInstance().soundManager.play(
+                            PositionedSoundInstance.master(
+                                SoundEvents.ENTITY_ITEM_PICKUP,
+                                1.0f
+                            ))
+                        val currPos = toScreenPosition(dependency.getHeight(), dependency.getPosition())
+                        val diff = (height / 2) - currPos.y
+                        val scale = client!!.window.scaleFactor
+                        setScroll(scroll - diff)
+                        val endPos = toScreenPosition(dependency.getHeight(), dependency.getPosition(), scroll)
+                        InputUtil.setCursorParameters(client!!.window.handle, 212993,
+                            endPos.x.toDouble() * scale, endPos.y.toDouble() * scale)
+                    }
+                    break
+                }
+            }
+            //InputUtil.setCursorParameters(client!!.window.handle, 212993, 200.0, 300.0)
+        }
         CharacterClass.values()
             .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
                 this.tree = AbilityRegistry.fromCharacter(it)
                 this.scroll = 0
-                this.movingScroll = 0
-                this.scrollTicks = 0
+                this.renderScrollPos = 0
+                this.scrollTicks = -1
                 return true
             }
         return super.mouseClicked(mouseX, mouseY, button)
@@ -186,11 +227,10 @@ class AbilityTreeViewerScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE
             archetypeX += 60
         }
         //update moving scroll
-        if (scrollTicks > 0){
-            movingScroll += ((scroll - movingScroll).toFloat() / scrollTicks.toFloat()).toInt()
-            scrollTicks -= 1
+        if (scrollTicks >= 0){
+            renderScrollPos += ((scroll - renderScrollPos).toFloat() / scrollTicks.toFloat()).toInt()
         }else {
-            movingScroll = scroll
+            renderScrollPos = scroll
         }
         val bottom = (viewerY + VIEW_HEIGHT)
         val scale = client!!.window.scaleFactor
