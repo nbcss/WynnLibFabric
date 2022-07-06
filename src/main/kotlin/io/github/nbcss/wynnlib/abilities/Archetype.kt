@@ -30,14 +30,14 @@ enum class Archetype(private val displayName: String,
     RIFTWALKER("Riftwalker", Formatting.AQUA, CharacterClass.MAGE, 72),
     LIGHT_BENDER("Light Bender", Formatting.WHITE, CharacterClass.MAGE, 73),
     ARCANIST("Arcanist", Formatting.DARK_PURPLE, CharacterClass.MAGE, 78),
-    //Assassin Archetypes (incomplete)
-    SHADESTEPPER("Shadestepper", Formatting.WHITE, CharacterClass.ASSASSIN, 73),
-    TRICKSTER("Trickster", Formatting.WHITE, CharacterClass.ASSASSIN, 73),
+    //Assassin Archetypes
+    SHADESTEPPER("Shadestepper", Formatting.DARK_RED, CharacterClass.ASSASSIN, 75),
+    TRICKSTER("Trickster", Formatting.LIGHT_PURPLE, CharacterClass.ASSASSIN, 78),
     ACROBAT("Acrobat", Formatting.WHITE, CharacterClass.ASSASSIN, 73),
-    //Shaman Archetypes (incomplete)
-    SUMMONER("Summoner", Formatting.WHITE, CharacterClass.SHAMAN, 73),
-    RITUALIST("Ritualist", Formatting.WHITE, CharacterClass.SHAMAN, 73),
-    ACOLYTE("Acolyte", Formatting.WHITE, CharacterClass.SHAMAN, 73);
+    //Shaman Archetypes
+    SUMMONER("Summoner", Formatting.GOLD, CharacterClass.SHAMAN, 76),
+    RITUALIST("Ritualist", Formatting.GREEN, CharacterClass.SHAMAN, 77),
+    ACOLYTE("Acolyte", Formatting.RED, CharacterClass.SHAMAN, 75);
     private val texture: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#$meta")
     companion object {
         private val VALUE_MAP: MutableMap<String, Archetype> = LinkedHashMap()
