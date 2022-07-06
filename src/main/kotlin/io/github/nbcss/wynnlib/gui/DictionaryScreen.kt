@@ -4,14 +4,16 @@ import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.utils.Color
+import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
-import java.lang.Integer.max
+import kotlin.math.max
+import kotlin.math.roundToInt
 
 abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
@@ -104,9 +106,18 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
                               mouseX: Int,
                               mouseY: Int,
                               delta: Float){
+        //slide bar?
+        val barHeight: Float = max(ROWS / (ROWS + lineSize).toFloat(), 0.1f)
+        val barPos: Float = if (barHeight == 1.0f) 0.0f else (1 - barHeight) / lineSize * lineIndex
+        val x1 = windowX + 227
+        val x2 = windowX + 239
+        val y1 = windowY + 45
+        val y2 = windowY + 187
+        val top = y1 + ((y2 - y1) * barPos).roundToInt()
+        val bottom = top + ((y2 - y1) * barHeight).roundToInt()
+        DrawableHelper.fill(matrices, x1, top, x2, bottom, Color.DARK_GRAY.toSolidColor().getColorCode())
         //ButtonWidget
         slots.forEach{it.render(matrices, mouseX, mouseY, delta)}
-        //println(isInPage(mouseX, mouseY))
     }
 
     private fun isInPage(mouseX: Double, mouseY: Double): Boolean {
