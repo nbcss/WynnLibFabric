@@ -35,6 +35,7 @@ class GrowingEffectProperty(ability: Ability, data: JsonElement): BonusEffectPro
                 null, "${signed(modifier)}%")).append(" ")
                 .append(getEffectBonus().getEffectType().formatted(Formatting.GRAY))
             return listOf(text, LiteralText("   (").formatted(Formatting.DARK_GRAY)
+                .append(Symbol.MAX.asText()).append(" ")
                 .append(TOOLTIP_ABILITY_MAX.formatted(Formatting.DARK_GRAY))
                 .append(": ${signed(max)}%)"))
         }else{
