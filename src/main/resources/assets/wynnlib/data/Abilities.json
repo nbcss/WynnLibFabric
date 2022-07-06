@@ -1520,8 +1520,7 @@
       ],
       "properties": {
         "effect": {
-          "type": "ALLIES_INVINCIBLE",
-          "modifier": 100
+          "type": "ALLIES_INVINCIBLE"
         },
         "duration": 3,
         "aoe": {
@@ -3141,7 +3140,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "spell": "SPELL_3"
+        "spell": "SPELL_3",
+        "mana_cost": 55,
+        "damage": {
+          "neutral": 300,
+          "earth": 100
+        },
+        "range": 18,
+        "aoe": {
+          "range": 5,
+          "shape": "CIRCLE"
+        }
       }
     },
     {
@@ -3158,7 +3167,10 @@
       "predecessors": [
         "METEOR"
       ],
-      "properties": {}
+      "properties": {
+        "main_damage_modifier": 5,
+        "main_range_modifier": 2
+      }
     },
     {
       "id": "CHEAPER_METEOR_I",
@@ -3174,7 +3186,10 @@
       "predecessors": [
         "WAND_PROFICIENCY_I"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": -10
+      }
     },
     {
       "id": "SHOOTING_STAR",
@@ -3206,7 +3221,10 @@
       "predecessors": [
         "TELEPORT"
       ],
-      "properties": {}
+      "properties": {
+        "main_damage_modifier": 5,
+        "main_range_modifier": 2
+      }
     },
     {
       "id": "TELEPORT",
@@ -3223,7 +3241,9 @@
         "SHOOTING_STAR"
       ],
       "properties": {
-        "spell": "SPELL_2"
+        "spell": "SPELL_2",
+        "mana_cost": 25,
+        "range": 12
       }
     },
     {
@@ -3258,7 +3278,10 @@
         "CHEAPER_TELEPORT_I"
       ],
       "properties": {
-        "spell": "SPELL_1"
+        "spell": "SPELL_1",
+        "mana_cost": 35,
+        "total_heal": 10,
+        "range": 5
       }
     },
     {
@@ -3276,7 +3299,10 @@
         "HEAL",
         "ICE_SNAKE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "ICE_SNAKE",
@@ -3294,7 +3320,18 @@
         "CHEAPER_TELEPORT_I"
       ],
       "properties": {
-        "spell": "SPELL_4"
+        "spell": "SPELL_4",
+        "mana_cost": 35,
+        "damage": {
+          "neutral": 70,
+          "water": 30
+        },
+        "range": 18,
+        "effect": {
+          "type": "ENEMIES_SLOWNESS",
+          "modifier": 40
+        },
+        "duration": 3
       }
     },
     {
@@ -3311,7 +3348,13 @@
       "predecessors": [
         "HEAL"
       ],
-      "properties": {}
+      "properties": {
+        "element_mastery": {
+          "element": "AIR",
+          "raw": "3-4",
+          "pct": 15
+        }
+      }
     },
     {
       "id": "MAGE_THUNDER_MASTERY",
@@ -3328,7 +3371,13 @@
         "HEAL",
         "CHEAPER_TELEPORT_I"
       ],
-      "properties": {}
+      "properties": {
+        "element_mastery": {
+          "element": "THUNDER",
+          "raw": "1-8",
+          "pct": 10
+        }
+      }
     },
     {
       "id": "MAGE_FIRE_MASTERY",
@@ -3344,7 +3393,13 @@
       "predecessors": [
         "ICE_SNAKE"
       ],
-      "properties": {}
+      "properties": {
+        "element_mastery": {
+          "element": "FIRE",
+          "raw": "3-5",
+          "pct": 15
+        }
+      }
     },
     {
       "id": "MAGE_EARTH_MASTERY",
@@ -3360,7 +3415,13 @@
       "predecessors": [
         "ICE_SNAKE"
       ],
-      "properties": {}
+      "properties": {
+        "element_mastery": {
+          "element": "EARTH",
+          "raw": "2-4",
+          "pct": 20
+        }
+      }
     },
     {
       "id": "MAGE_WATER_MASTERY",
@@ -3377,7 +3438,13 @@
         "CHEAPER_TELEPORT_I",
         "MAGE_THUNDER_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "element_mastery": {
+          "element": "WATER",
+          "raw": "2-4",
+          "pct": 15
+        }
+      }
     },
     {
       "id": "WIND_SLASH",
@@ -3394,7 +3461,12 @@
         "MAGE_AIR_MASTERY",
         "THUNDERSTORM"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 50,
+          "air": 50
+        }
+      }
     },
     {
       "id": "THUNDERSTORM",
@@ -3411,7 +3483,17 @@
         "MAGE_THUNDER_MASTERY",
         "WIND_SLASH"
       ],
-      "properties": {}
+      "properties": {
+        "damage_modifier": {
+          "neutral": 30,
+          "thunder": 15,
+          "hits": 3
+        },
+        "aoe": {
+          "range": 2,
+          "shape": "CIRCLE"
+        }
+      }
     },
     {
       "id": "BURNING_SIGIL",
@@ -3428,7 +3510,16 @@
         "MAGE_FIRE_MASTERY",
         "MAGE_EARTH_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 15,
+          "fire": 25
+        },
+        "aoe": {
+          "range": 7,
+          "shape": "CIRCLE"
+        }
+      }
     },
     {
       "id": "SUNSHOWER",
@@ -3444,7 +3535,12 @@
       "predecessors": [
         "MAGE_WATER_MASTERY"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 70,
+          "water": 30
+        }
+      }
     },
     {
       "id": "STRONGER_METEOR",
@@ -3460,7 +3556,12 @@
       "predecessors": [
         "BURNING_SIGIL"
       ],
-      "properties": {}
+      "properties": {
+        "damage_modifier": {
+          "neutral": 30,
+          "earth": 90
+        }
+      }
     },
     {
       "id": "WINDSWEEPER",
@@ -3477,7 +3578,14 @@
         "WIND_SLASH",
         "THUNDERSTORM"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 30,
+          "water": 10,
+          "label": "WINDED"
+        },
+        "cooldown": 0.5
+      }
     },
     {
       "id": "OPHANIM",
@@ -3493,7 +3601,16 @@
       "predecessors": [
         "SUNSHOWER"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": 30,
+        "damage": {
+          "neutral": 50,
+          "water": 20,
+          "thunder": 30
+        },
+        "range": 22
+      }
     },
     {
       "id": "ARCANE_TRANSFER",
@@ -3526,7 +3643,10 @@
         "WINDSWEEPER",
         "PURIFICATION"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "PURIFICATION",
@@ -3544,7 +3664,9 @@
         "CHEAPER_HEAL_I",
         "SENTIENT_SNAKE"
       ],
-      "properties": {}
+      "properties": {
+        "cooldown": 3
+      }
     },
     {
       "id": "SENTIENT_SNAKE",
@@ -3577,7 +3699,12 @@
       "predecessors": [
         "CHEAPER_HEAL_I"
       ],
-      "properties": {}
+      "properties": {
+        "effect": {
+          "type": "ENEMIES_BLINDNESS"
+        },
+        "duration": 1
+      }
     },
     {
       "id": "BREATHLESS",
@@ -3594,7 +3721,13 @@
         "CHEAPER_HEAL_I",
         "PURIFICATION"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 20,
+          "earth": 20,
+          "label": "WINDED"
+        }
+      }
     },
     {
       "id": "LARGER_HEAL",
@@ -3610,7 +3743,9 @@
       "predecessors": [
         "PURIFICATION"
       ],
-      "properties": {}
+      "properties": {
+        "range_modifier": 2
+      }
     },
     {
       "id": "LARGER_MANA_BANK_I",
@@ -3643,7 +3778,10 @@
         "EYE_PIERCER",
         "FORTITUDE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "FORTITUDE",
@@ -3660,7 +3798,14 @@
         "CHEAPER_ICE_SNAKE_I",
         "CHEAPER_TELEPORT_II"
       ],
-      "properties": {}
+      "properties": {
+        "effect": {
+          "type": "ALLIES_DAMAGE",
+          "modifier": 100
+        },
+        "duration": 4,
+        "cooldown": 15
+      }
     },
     {
       "id": "CHEAPER_TELEPORT_II",
@@ -3677,7 +3822,10 @@
         "PURIFICATION",
         "FORTITUDE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "PYROKINESIS",
@@ -3693,7 +3841,15 @@
       "predecessors": [
         "SENTIENT_SNAKE"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 150
+        },
+        "aoe": {
+          "range": 4,
+          "shape": "CIRCLE"
+        }
+      }
     },
     {
       "id": "BLINK",
@@ -3710,7 +3866,9 @@
         "CHEAPER_ICE_SNAKE_I",
         "FORTITUDE"
       ],
-      "properties": {}
+      "properties": {
+        "range_modifier": -4
+      }
     },
     {
       "id": "HEALTHIER_OPHANIM_I",
@@ -3746,7 +3904,11 @@
         "HEALTHIER_OPHANIM_I",
         "SEANCE"
       ],
-      "properties": {}
+      "properties": {
+        "damage_modifier": {
+          "hits": 2
+        }
+      }
     },
     {
       "id": "SEANCE",
@@ -3780,7 +3942,14 @@
         "CHEAPER_ICE_SNAKE_I",
         "FLUID_HEALING"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 40,
+          "thunder": 10,
+          "air": 10,
+          "label": "WINDED"
+        }
+      }
     },
     {
       "id": "FLUID_HEALING",
@@ -3814,7 +3983,9 @@
         "HEALTHIER_OPHANIM_I",
         "SNAKE_NEST"
       ],
-      "properties": {}
+      "properties": {
+        "pulse_heal": 15
+      }
     },
     {
       "id": "ARCANE_RESTORATION",
@@ -3831,7 +4002,9 @@
         "SNAKE_NEST",
         "SEANCE"
       ],
-      "properties": {}
+      "properties": {
+        "duration": 4
+      }
     },
     {
       "id": "DIFFUSION",
@@ -3848,7 +4021,9 @@
         "TRANSONIC_WARP",
         "FLUID_HEALING"
       ],
-      "properties": {}
+      "properties": {
+        "range": 6
+      }
     },
     {
       "id": "LIGHTWEAVER",
@@ -3865,7 +4040,12 @@
         "ORPHIONS_PULSE",
         "ARCANE_SPEED"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 30,
+          "fire": 20
+        }
+      }
     },
     {
       "id": "ARCANE_SPEED",
@@ -3882,7 +4062,10 @@
         "LIGHTWEAVER",
         "LARGER_MANA_BANK_II"
       ],
-      "properties": {}
+      "properties": {
+        "duration": 3,
+        "cooldown": 8
+      }
     },
     {
       "id": "LARGER_MANA_BANK_II",
@@ -3949,7 +4132,10 @@
         "DIFFUSION",
         "EXPLOSIVE_ENTRANCE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "EXPLOSIVE_ENTRANCE",
@@ -3966,7 +4152,16 @@
         "CHEAPER_ICE_SNAKE_II",
         "CHEAPER_METEOR_II"
       ],
-      "properties": {}
+      "properties": {
+        "damage": {
+          "neutral": 50,
+          "fire": 30
+        },
+        "aoe": {
+          "range": 3,
+          "shape": "CIRCLE"
+        }
+      }
     },
     {
       "id": "CHEAPER_METEOR_II",
@@ -3984,7 +4179,10 @@
         "ARCANE_SPEED",
         "EXPLOSIVE_ENTRANCE"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "CHAOS_EXPLOSION",
@@ -4016,7 +4214,16 @@
       "predecessors": [
         "CHEAPER_ICE_SNAKE_II"
       ],
-      "properties": {}
+      "properties": {
+        "effect": {
+          "type": "ALLIES_WALK_SPEED",
+          "modifier": 10
+        },
+        "aoe": {
+          "range": 2,
+          "shape": "CIRCLE"
+        }
+      }
     },
     {
       "id": "GUST",
@@ -4033,7 +4240,11 @@
         "CHEAPER_ICE_SNAKE_II",
         "EXPLOSIVE_ENTRANCE"
       ],
-      "properties": {}
+      "properties": {
+        "damage_modifier": {
+          "air": 20
+        }
+      }
     },
     {
       "id": "BETTER_OPHANIM",
@@ -4066,7 +4277,9 @@
       "predecessors": [
         "CHAOS_EXPLOSION"
       ],
-      "properties": {}
+      "properties": {
+        "duration": 2
+      }
     },
     {
       "id": "ARCANE_POWER",
@@ -4183,7 +4396,12 @@
         "DYNAMIC_FAITH",
         "HEALTHIER_OPHANIM_II"
       ],
-      "properties": {}
+      "properties": {
+        "damage_modifier": {
+          "neutral": -50,
+          "thunder": -10
+        }
+      }
     },
     {
       "id": "SUNFLARE",
@@ -4199,7 +4417,14 @@
       "predecessors": [
         "HEALTHIER_OPHANIM_II"
       ],
-      "properties": {}
+      "properties": {
+        "range": 12,
+        "effect": {
+          "type": "ALLIES_RESISTANCE",
+          "modifier": 100
+        },
+        "duration": 5
+      }
     },
     {
       "id": "ARCANE_OVERFLOW",
@@ -4232,7 +4457,10 @@
         "MORE_WINDED_II",
         "CHEAPER_HEAL_II"
       ],
-      "properties": {}
+      "properties": {
+        "range": 12,
+        "duration_modifier": 1
+      }
     },
     {
       "id": "CHEAPER_HEAL_II",
@@ -4249,7 +4477,10 @@
         "TIMELOCK",
         "MANASTORM"
       ],
-      "properties": {}
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_modifier": -5
+      }
     },
     {
       "id": "MANASTORM",
@@ -4267,7 +4498,9 @@
         "ARCANE_OVERFLOW",
         "CHEAPER_HEAL_II"
       ],
-      "properties": {}
+      "properties": {
+        "duration": 5
+      }
     },
     {
       "id": "MEMORY_RECOLLECTION",

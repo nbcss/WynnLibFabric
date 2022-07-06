@@ -132,6 +132,7 @@
   "wynnlib.tooltip.ability.damage_label.arrow": "per arrow",
   "wynnlib.tooltip.ability.damage_label.hit": "per hit",
   "wynnlib.tooltip.ability.damage_label.shrapnel": "per shrapnel",
+  "wynnlib.tooltip.ability.damage_label.winded": "per Winded",
   "wynnlib.tooltip.suffix.block": "%s Block",
   "wynnlib.tooltip.suffix.blocks": "%s Blocks",
   "wynnlib.tooltip.suffix.s": "%ss",

@@ -43,7 +43,8 @@ data class DamageMultiplier(private val hits: Int,
         RIPPLE,
         ARROW,
         HIT,
-        SHRAPNEL;
+        SHRAPNEL,
+        WINDED;
         companion object {
             private val VALUE_MAP: Map<String, Label> = mapOf(
                 pairs = values().map { it.name.uppercase() to it }.toTypedArray())
