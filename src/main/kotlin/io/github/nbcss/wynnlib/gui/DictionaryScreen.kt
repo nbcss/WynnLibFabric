@@ -28,11 +28,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     private var lineIndex: Int = 0
     private var lineSize: Int = 0
     private var sliderLength: Double = 1.0
+    private var initialized = false
     protected abstract fun fetchItems(): Collection<T>
-
-    init {
-
-    }
 
     override fun init() {
         super.init()
@@ -41,12 +38,14 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         searchBox!!.isFocused = true
         searchBox!!.setChangedListener{onSearchChanged(it)}
         focused = addDrawableChild(searchBox!!)
-        updateItems()
-        //search!!.setDrawsBackground(false)
-        //Reset lines
-        lineIndex = 0
-        //Excluding 6 lines (only since 7th line need additional page)
-        lineSize = max(0, (items.size + (COLUMNS - 1)) / COLUMNS - ROWS)
+        if (!initialized) {
+            updateItems()
+            //Reset lines
+            lineIndex = 0
+            //Excluding 6 lines (only since 7th line need additional page)
+            lineSize = max(0, (items.size + (COLUMNS - 1)) / COLUMNS - ROWS)
+            initialized = true
+        }
         //setup slots
         slots.clear()
         (0 until (ROWS * COLUMNS)).forEach {
