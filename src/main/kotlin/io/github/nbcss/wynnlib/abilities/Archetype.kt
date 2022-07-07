@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ARCHETYPE_ABILITIES
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.formattingLines
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
@@ -58,7 +59,7 @@ enum class Archetype(private val displayName: String,
 
     fun getTexture(): ItemStack = texture
 
-    fun getTooltip(): List<Text> {
+    fun getTooltip(build: AbilityBuild? = null): List<Text> {
         val tree = AbilityRegistry.fromCharacter(character)
         val tooltip: MutableList<Text> = ArrayList()
         val title = Translations.TOOLTIP_ARCHETYPE_TITLE.translate(null, translate().string)
@@ -73,12 +74,27 @@ enum class Archetype(private val displayName: String,
         tree.getAbilities()
             .filter { it.getArchetype() == this }
             .sortedWith { x, y ->
+                if (build != null){
+                    val compare = build.hasAbility(x).compareTo(build.hasAbility(y))
+                    if (compare != 0)
+                        return@sortedWith -compare
+                }
                 val tier = x.getTier().compareTo(y.getTier())
                 return@sortedWith if (tier != 0) tier else
                     x.translate().string.compareTo(y.translate().string)
             }
-            .forEach { tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
-                .append(it.translate().formatted(it.getTier().getFormatting()))) }
+            .forEach {
+                val prefix = if (build == null){
+                    LiteralText("- ").formatted(Formatting.GRAY)
+                }else if(build.hasAbility(it)){
+                    //LiteralText("- ").formatted(Formatting.GREEN)
+                    Symbol.TICK.asText().append(" ")
+                }else{
+                    //LiteralText("- ").formatted(Formatting.RED)
+                    Symbol.CROSS.asText().append(" ")
+                }
+                tooltip.add(prefix.append(it.translate().formatted(it.getTier().getFormatting())))
+            }
         return tooltip
     }
 

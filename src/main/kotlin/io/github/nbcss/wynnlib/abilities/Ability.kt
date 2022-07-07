@@ -126,7 +126,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
         placeholderMap[key] = value
     }
 
-    fun getTooltip(): List<Text> {
+    fun getTooltip(build: AbilityBuild? = null): List<Text> {
         val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
@@ -142,15 +142,6 @@ class Ability(json: JsonObject): Keyed, Translatable {
                         .append(combo[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
                 }
             }
-            /*effect.getSpell().getClickCombo(getCharacter().getSpellKey()).let {
-                tooltip.add(TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
-                    .append(LiteralText(": ").formatted(Formatting.GOLD))
-                    .append(it[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
-                    .append(LiteralText("-").formatted(Formatting.WHITE))
-                    .append(it[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
-                    .append(LiteralText("-").formatted(Formatting.WHITE))
-                    .append(it[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
-            }*/
         }
         tooltip.add(LiteralText.EMPTY)
         val desc = replaceProperty(replaceProperty(translate("desc").string, '$')
@@ -173,28 +164,63 @@ class Ability(json: JsonObject): Keyed, Translatable {
         if (incompatibles.isNotEmpty()){
             tooltip.add(TOOLTIP_ABILITY_BLOCKS.translate().formatted(Formatting.RED))
             incompatibles.forEach {
+                val color = if (build == null || !build.hasAbility(it)){
+                    Formatting.GRAY
+                }else{
+                    Formatting.DARK_RED
+                }
                 tooltip.add(LiteralText("- ").formatted(Formatting.RED)
-                    .append(it.translate().formatted(Formatting.GRAY)))
+                    .append(it.translate().formatted(color)))
             }
             tooltip.add(LiteralText.EMPTY)
         }
+        val apReq = if (build == null || build.hasAbility(this)){
+            LiteralText("")
+        }else if(build.getSpareAbilityPoints() >= getAbilityPointCost()){
+            Symbol.TICK.asText().append(" ")
+        }else{
+            Symbol.CROSS.asText().append(" ")
+        }
         //Requirements
-        tooltip.add(TOOLTIP_ABILITY_POINTS.translate().formatted(Formatting.GRAY)
+        tooltip.add(apReq.append(TOOLTIP_ABILITY_POINTS.formatted(Formatting.GRAY))
             .append(LiteralText(": ").formatted(Formatting.GRAY))
             .append(LiteralText(getAbilityPointCost().toString()).formatted(Formatting.WHITE)))
         if (dependency != null){
             getAbilityDependency()?.let {
-                tooltip.add(TOOLTIP_ABILITY_DEPENDENCY.translate().formatted(Formatting.GRAY)
+                val dependencyReq = if (build == null || build.hasAbility(this)){
+                    LiteralText("")
+                }else if(build.hasAbility(it)){
+                    Symbol.TICK.asText().append(" ")
+                }else{
+                    Symbol.CROSS.asText().append(" ")
+                }
+                tooltip.add(dependencyReq.append(TOOLTIP_ABILITY_DEPENDENCY.formatted(Formatting.GRAY))
                     .append(LiteralText(": ").formatted(Formatting.GRAY))
-                    .append(it.translate().formatted(Formatting.WHITE)))
+                    .append(it.formatted(Formatting.WHITE)))
             }
         }
         tree.getArchetypes().filter { getArchetypeRequirement(it) != 0 }.forEach {
-            val points = getArchetypeRequirement(it).toString()
+            val requirement = getArchetypeRequirement(it)
+            val archReq = if (build == null || build.hasAbility(this)){
+                LiteralText("")
+            }else if(build.getArchetypePoint(it) >= requirement){
+                Symbol.TICK.asText().append(" ")
+            }else{
+                Symbol.CROSS.asText().append(" ")
+            }
+            val points = if (build == null || build.hasAbility(this)){
+                LiteralText(requirement.toString()).formatted(Formatting.WHITE)
+            }else if(build.getArchetypePoint(it) >= requirement){
+                LiteralText(build.getArchetypePoint(it).toString()).formatted(Formatting.WHITE)
+                    .append(LiteralText("/${requirement}").formatted(Formatting.GRAY))
+            }else{
+                LiteralText(build.getArchetypePoint(it).toString()).formatted(Formatting.RED)
+                    .append(LiteralText("/${requirement}").formatted(Formatting.GRAY))
+            }
             val title = TOOLTIP_ABILITY_MIN_ARCHETYPE.translate(null, it.translate().string)
-            tooltip.add(title.formatted(Formatting.GRAY)
+            tooltip.add(archReq.append(title.formatted(Formatting.GRAY))
                 .append(LiteralText(": ").formatted(Formatting.GRAY))
-                .append(LiteralText(points).formatted(Formatting.WHITE)))
+                .append(points))
         }
         getArchetype()?.let {
             tooltip.add(LiteralText.EMPTY)
