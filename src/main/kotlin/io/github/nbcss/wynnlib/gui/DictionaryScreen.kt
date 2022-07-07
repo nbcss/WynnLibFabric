@@ -29,6 +29,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     private var lineSize: Int = 0
     private var sliderLength: Double = 1.0
     private var initialized = false
+    private var barTop: Int = 0
+    private var barBottom: Int = 1
     protected abstract fun fetchItems(): Collection<T>
 
     override fun init() {
@@ -57,18 +59,24 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         updateSlots()
     }
 
-    fun updateItems() {
+    private fun updateItems() {
         items.clear()
         items.addAll(fetchItems().filter { searchBox!!.validate(it) })
         items.sortBy { t -> t.getDisplayName() }
     }
 
-    fun updateSlots() {
+    private fun updateSlots() {
         (0 until (ROWS * COLUMNS)).forEach {
             val index = lineIndex * COLUMNS + it
             val item = if(index < items.size) items[index] else null
             slots[it].setItem(item)
         }
+        val barHeight: Float = max(ROWS / (ROWS + lineSize).toFloat(), 0.1f)
+        val barPos: Float = if (barHeight == 1.0f) 0.0f else (1 - barHeight) / lineSize * lineIndex
+        val y1 = windowY + 45
+        val y2 = windowY + 187
+        barTop = y1 + ((y2 - y1) * barPos).roundToInt()
+        barBottom = barTop + ((y2 - y1) * barHeight).roundToInt()
     }
 
     override fun getTitle(): Text {
@@ -81,9 +89,9 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
             0, 0, this.backgroundWidth, this.backgroundHeight)
     }
 
-    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        //println("${keyCode}, ${scanCode}, $modifiers")
-        return super.keyPressed(keyCode, scanCode, modifiers)
+    override fun mouseDragged(mouseX: Double, mouseY: Double, button: Int, deltaX: Double, deltaY: Double): Boolean {
+        //println("$mouseX $mouseY $button $deltaX $deltaY")
+        return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
@@ -105,16 +113,10 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
                               mouseX: Int,
                               mouseY: Int,
                               delta: Float){
-        //slide bar?
-        val barHeight: Float = max(ROWS / (ROWS + lineSize).toFloat(), 0.1f)
-        val barPos: Float = if (barHeight == 1.0f) 0.0f else (1 - barHeight) / lineSize * lineIndex
+        //slide bar
         val x1 = windowX + 227
         val x2 = windowX + 239
-        val y1 = windowY + 45
-        val y2 = windowY + 187
-        val top = y1 + ((y2 - y1) * barPos).roundToInt()
-        val bottom = top + ((y2 - y1) * barHeight).roundToInt()
-        DrawableHelper.fill(matrices, x1, top, x2, bottom, Color.DARK_GRAY.toSolidColor().getColorCode())
+        DrawableHelper.fill(matrices, x1, barTop, x2, barBottom, Color.DARK_GRAY.toSolidColor().getColorCode())
         //ButtonWidget
         slots.forEach{it.render(matrices, mouseX, mouseY, delta)}
     }

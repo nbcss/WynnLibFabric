@@ -3133,7 +3133,7 @@
       "height": 0,
       "position": 0,
       "tier": 0,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3159,7 +3159,7 @@
       "height": 2,
       "position": 0,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3178,7 +3178,7 @@
       "height": 2,
       "position": 2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3197,7 +3197,7 @@
       "height": 4,
       "position": 0,
       "tier": 2,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3213,10 +3213,12 @@
       "height": 6,
       "position": -2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "RIFTWALKER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "WISDOM"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "TELEPORT"
@@ -3232,7 +3234,7 @@
       "height": 6,
       "position": 0,
       "tier": 0,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3252,10 +3254,12 @@
       "height": 6,
       "position": 2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "WAND_PROFICIENCY_II"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "TELEPORT"
@@ -3268,7 +3272,7 @@
       "height": 8,
       "position": -2,
       "tier": 0,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3290,7 +3294,7 @@
       "height": 8,
       "position": 0,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3310,7 +3314,7 @@
       "height": 8,
       "position": 2,
       "tier": 0,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3340,7 +3344,7 @@
       "height": 10,
       "position": -4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "RIFTWALKER",
       "dependency": null,
       "blocks": [],
@@ -3362,7 +3366,7 @@
       "height": 10,
       "position": -2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "RIFTWALKER",
       "dependency": null,
       "blocks": [],
@@ -3385,7 +3389,7 @@
       "height": 10,
       "position": 2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
       "dependency": null,
       "blocks": [],
@@ -3407,7 +3411,7 @@
       "height": 10,
       "position": 4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
       "dependency": null,
       "blocks": [],
@@ -3429,7 +3433,7 @@
       "height": 11,
       "position": 0,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "LIGHT_BENDER",
       "dependency": null,
       "blocks": [],
@@ -3452,9 +3456,9 @@
       "height": 12,
       "position": -4,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "TELEPORT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3474,7 +3478,7 @@
       "height": 12,
       "position": -2,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3501,7 +3505,7 @@
       "height": 12,
       "position": 3,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3527,10 +3531,12 @@
       "height": 13,
       "position": 0,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "ARCANE_TRANSFER"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "MAGE_WATER_MASTERY"
@@ -3548,11 +3554,13 @@
       "height": 13,
       "position": 4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "METEOR",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ARCANIST": 2
+      },
       "predecessors": [
         "BURNING_SIGIL"
       ],
@@ -3569,11 +3577,13 @@
       "height": 15,
       "position": -3,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "ICE_SNAKE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RIFTWALKER": 3
+      },
       "predecessors": [
         "WIND_SLASH",
         "THUNDERSTORM"
@@ -3593,11 +3603,13 @@
       "height": 15,
       "position": 0,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
+      "dependency": "METEOR",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "LIGHT_BENDER": 2
+      },
       "predecessors": [
         "SUNSHOWER"
       ],
@@ -3618,11 +3630,17 @@
       "height": 15,
       "position": 3,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "ARCANIST",
-      "dependency": null,
-      "blocks": [],
-      "archetype_requirements": {},
+      "dependency": "HEAL",
+      "blocks": [
+        "SUNSHOWER",
+        "LARGER_HEAL",
+        "ORPHIONS_PULSE"
+      ],
+      "archetype_requirements": {
+        "ARCANIST": 2
+      },
       "predecessors": [
         "BURNING_SIGIL"
       ],
@@ -3634,7 +3652,7 @@
       "height": 17,
       "position": -3,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3654,7 +3672,7 @@
       "height": 17,
       "position": 0,
       "tier": 3,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3674,9 +3692,9 @@
       "height": 17,
       "position": 2,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ICE_SNAKE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3691,9 +3709,9 @@
       "height": 18,
       "position": -4,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TELEPORT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3712,9 +3730,9 @@
       "height": 18,
       "position": -2,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "WINDSWEEPER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3735,10 +3753,12 @@
       "height": 18,
       "position": 1,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
-      "blocks": [],
+      "dependency": "HEALER",
+      "blocks": [
+        "ARCANE_TRANSFER"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "PURIFICATION"
@@ -3753,9 +3773,9 @@
       "height": 18,
       "position": 4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "ARCANE_TRANSFER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3769,7 +3789,7 @@
       "height": 20,
       "position": -4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3789,7 +3809,7 @@
       "height": 20,
       "position": -2,
       "tier": 3,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
       "dependency": null,
       "blocks": [],
@@ -3813,7 +3833,7 @@
       "height": 20,
       "position": 0,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -3833,11 +3853,13 @@
       "height": 20,
       "position": 3,
       "tier": 3,
-      "cost": 0,
+      "cost": 2,
       "archetype": "ARCANIST",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ARCANIST": 4
+      },
       "predecessors": [
         "SENTIENT_SNAKE"
       ],
@@ -3857,9 +3879,9 @@
       "height": 21,
       "position": -3,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "TELEPORT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3876,9 +3898,9 @@
       "height": 22,
       "position": -1,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
+      "dependency": "OPHANIM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3894,9 +3916,9 @@
       "height": 22,
       "position": 1,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ICE_SNAKE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -3916,7 +3938,7 @@
       "height": 22,
       "position": 3,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
       "dependency": null,
       "blocks": [],
@@ -3933,11 +3955,13 @@
       "height": 23,
       "position": -4,
       "tier": 3,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "WINDSWEEPER",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RIFTWALKER": 5
+      },
       "predecessors": [
         "CHEAPER_ICE_SNAKE_I",
         "FLUID_HEALING"
@@ -3957,7 +3981,7 @@
       "height": 23,
       "position": -2,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
       "dependency": null,
       "blocks": [],
@@ -3974,10 +3998,12 @@
       "height": 23,
       "position": 0,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
-      "blocks": [],
+      "dependency": "HEAL",
+      "blocks": [
+        "ARCANE_TRANSFER"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "HEALTHIER_OPHANIM_I",
@@ -3993,9 +4019,9 @@
       "height": 23,
       "position": 2,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "PYROKINESIS",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4012,11 +4038,13 @@
       "height": 25,
       "position": -3,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RIFTWALKER": 6
+      },
       "predecessors": [
         "TRANSONIC_WARP",
         "FLUID_HEALING"
@@ -4031,11 +4059,13 @@
       "height": 25,
       "position": 0,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "LIGHT_BENDER": 7
+      },
       "predecessors": [
         "ORPHIONS_PULSE",
         "ARCANE_SPEED"
@@ -4053,9 +4083,9 @@
       "height": 25,
       "position": 2,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "HEAL",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4073,9 +4103,9 @@
       "height": 25,
       "position": 4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "ARCANE_TRANSFER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4090,9 +4120,9 @@
       "height": 26,
       "position": -4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "WINDSWEEPER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4106,11 +4136,13 @@
       "height": 26,
       "position": 3,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "METEOR",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ARCANIST": 5
+      },
       "predecessors": [
         "ARCANE_SPEED",
         "LARGER_MANA_BANK_II"
@@ -4123,7 +4155,7 @@
       "height": 27,
       "position": -3,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -4143,9 +4175,9 @@
       "height": 27,
       "position": -1,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TELEPORT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4169,7 +4201,7 @@
       "height": 27,
       "position": 1,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -4190,11 +4222,13 @@
       "height": 27,
       "position": 4,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ARCANIST": 8
+      },
       "predecessors": [
         "LARGER_MANA_BANK_II"
       ],
@@ -4206,11 +4240,13 @@
       "height": 28,
       "position": -4,
       "tier": 3,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RIFTWALKER": 5
+      },
       "predecessors": [
         "CHEAPER_ICE_SNAKE_II"
       ],
@@ -4232,11 +4268,13 @@
       "height": 28,
       "position": -2,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "WINDSWEEPER",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RIFTWALKER": 7
+      },
       "predecessors": [
         "CHEAPER_ICE_SNAKE_II",
         "EXPLOSIVE_ENTRANCE"
@@ -4253,9 +4291,9 @@
       "height": 28,
       "position": 0,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
+      "dependency": "OPHANIM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4270,9 +4308,9 @@
       "height": 28,
       "position": 3,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ICE_SNAKE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4288,9 +4326,9 @@
       "height": 29,
       "position": 2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "ARCANE_TRANSFER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4304,7 +4342,7 @@
       "height": 30,
       "position": -4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "RIFTWALKER",
       "dependency": null,
       "blocks": [],
@@ -4321,7 +4359,7 @@
       "height": 30,
       "position": -2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -4338,9 +4376,9 @@
       "height": 30,
       "position": 0,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
+      "dependency": "HEALTHIER_OPHANIM_I",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4355,9 +4393,9 @@
       "height": 30,
       "position": 3,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "ARCANE_TRANSFER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4371,11 +4409,13 @@
       "height": 31,
       "position": -3,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RIFTWALKER": 5
+      },
       "predecessors": [
         "MORE_WINDED_II",
         "DYNAMIC_FAITH"
@@ -4388,9 +4428,9 @@
       "height": 31,
       "position": -1,
       "tier": 3,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
+      "dependency": "OPHANIM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4410,11 +4450,13 @@
       "height": 31,
       "position": 1,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "LIGHT_BENDER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "LIGHT_BENDER": 12
+      },
       "predecessors": [
         "HEALTHIER_OPHANIM_II"
       ],
@@ -4433,11 +4475,13 @@
       "height": 32,
       "position": 3,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "ARCANE_TRANSFER",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ARCANIST": 11
+      },
       "predecessors": [
         "LARGER_MANA_BANK_III"
       ],
@@ -4449,11 +4493,13 @@
       "height": 33,
       "position": -4,
       "tier": 4,
-      "cost": 0,
+      "cost": 2,
       "archetype": "RIFTWALKER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RIFTWALKER": 12
+      },
       "predecessors": [
         "MORE_WINDED_II",
         "CHEAPER_HEAL_II"
@@ -4469,7 +4515,7 @@
       "height": 33,
       "position": -2,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": null,
       "dependency": null,
       "blocks": [],
@@ -4489,11 +4535,13 @@
       "height": 33,
       "position": 1,
       "tier": 2,
-      "cost": 0,
+      "cost": 2,
       "archetype": "ARCANIST",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ARCANIST": 2
+      },
       "predecessors": [
         "SUNFLARE",
         "ARCANE_OVERFLOW",
@@ -4509,9 +4557,9 @@
       "height": 33,
       "position": 4,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "ARCANIST",
-      "dependency": null,
+      "dependency": "CHAOS_EXPLOSION",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -4525,9 +4573,9 @@
       "height": 34,
       "position": 0,
       "tier": 1,
-      "cost": 0,
+      "cost": 1,
       "archetype": "LIGHT_BENDER",
-      "dependency": null,
+      "dependency": "LIGHTWEAVER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
