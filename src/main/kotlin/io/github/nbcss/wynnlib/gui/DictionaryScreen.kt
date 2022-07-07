@@ -94,6 +94,13 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }
 
+    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        if (focused == searchBox && this.client!!.options.inventoryKey.matchesKey(keyCode, scanCode)){
+            return true
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers)
+    }
+
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
         //println("${mouseX}, ${mouseY}, $amount")
         if(isInPage(mouseX, mouseY)){

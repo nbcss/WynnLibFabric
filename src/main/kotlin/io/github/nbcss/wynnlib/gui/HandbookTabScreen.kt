@@ -9,7 +9,7 @@ import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
 import io.github.nbcss.wynnlib.gui.widgets.ExitButtonWidget
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.render.GameRenderer
+import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
@@ -98,6 +98,16 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
     }
 
     abstract fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float)
+
+    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        if (super.keyPressed(keyCode, scanCode, modifiers)) {
+            return true
+        }else if (this.client!!.options.inventoryKey.matchesKey(keyCode, scanCode)) {
+            client!!.setScreen(parent)
+            return true
+        }
+        return false
+    }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         val tabIndex = tabPage * TAB_SIZE
