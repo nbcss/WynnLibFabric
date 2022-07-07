@@ -95,7 +95,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        if (focused == searchBox && this.client!!.options.inventoryKey.matchesKey(keyCode, scanCode)){
+        if (searchBox!!.isFocused && this.client!!.options.inventoryKey.matchesKey(keyCode, scanCode)){
             return true
         }
         return super.keyPressed(keyCode, scanCode, modifiers)
