@@ -2010,7 +2010,7 @@
       "dependency": "ARROW_STORM",
       "blocks": [],
       "archetype_requirements": {
-        "TRAPPER": 2
+        "TRAPPER": 1
       },
       "predecessors": [
         "ARCHER_EARTH_MASTERY",
@@ -2129,7 +2129,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "TRAPPER": 10
+        "TRAPPER": 2
       },
       "predecessors": [
         "BRYOPHYTE_ROOTS"
