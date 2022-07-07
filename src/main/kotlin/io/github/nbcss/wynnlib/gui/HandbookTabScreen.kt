@@ -24,6 +24,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
     protected val backgroundHeight = 210
     protected val tabs: MutableList<TabFactory> = ArrayList()
     private var tabPage: Int = 0
+    protected var exitButton: ExitButtonWidget? = null
     protected var windowWidth = backgroundWidth
     protected var windowHeight = backgroundHeight
     protected var windowX = backgroundWidth
@@ -47,7 +48,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         windowY = (height - windowHeight) / 2
         val closeX = windowX + 230
         val closeY = windowY + 32
-        addDrawableChild(ExitButtonWidget(this, closeX, closeY))
+        exitButton = addDrawableChild(ExitButtonWidget(this, closeX, closeY))
     }
 
     open fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {

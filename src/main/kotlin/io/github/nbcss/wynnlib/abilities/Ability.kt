@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass

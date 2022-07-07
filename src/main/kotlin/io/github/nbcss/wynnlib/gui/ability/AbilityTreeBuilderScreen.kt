@@ -1,10 +1,12 @@
 package io.github.nbcss.wynnlib.gui.ability
 
 import io.github.nbcss.wynnlib.abilities.Ability
-import io.github.nbcss.wynnlib.abilities.AbilityBuild
+import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
+import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Pos
+import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.sound.PositionedSoundInstance
@@ -12,6 +14,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import net.minecraft.util.Identifier
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -23,6 +26,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
         const val MAX_AP = 45
+        const val PANE_WIDTH = 118
     }
     private val activeNodes: MutableSet<Ability> = HashSet()
     private val paths: MutableMap<Ability, List<Ability>> = HashMap()
@@ -112,14 +116,17 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         return title.copy().append(" [$ap/$MAX_AP]")
     }
 
+    override fun init() {
+        super.init()
+        windowX = (width - windowWidth - PANE_WIDTH) / 2
+        viewerX = windowX + 7
+        exitButton!!.x = windowX + 230
+    }
+
     override fun onClickNode(ability: Ability, button: Int): Boolean {
         if (button == 0){
             if (ability in activeNodes){
-                MinecraftClient.getInstance().soundManager.play(
-                    PositionedSoundInstance.master(
-                        SoundEvents.BLOCK_LAVA_POP,
-                        1.0f
-                    ))
+                playSound(SoundEvents.BLOCK_LAVA_POP)
                 activeNodes.remove(ability)
                 fixNodes()
                 computePath()
@@ -127,11 +134,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 paths[ability]?.let {
                     if (it.isNotEmpty()){
                         //Successful Add
-                        MinecraftClient.getInstance().soundManager.play(
-                            PositionedSoundInstance.master(
-                                SoundEvents.BLOCK_END_PORTAL_FRAME_FILL,
-                                1.0f
-                            ))
+                        playSound(SoundEvents.BLOCK_END_PORTAL_FRAME_FILL)
                         for (node in it) {
                             activeNodes.add(node)
                             ap -= ability.getAbilityPointCost()
@@ -141,17 +144,19 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                         }
                         computePath()
                     }else{
-                        MinecraftClient.getInstance().soundManager.play(
-                            PositionedSoundInstance.master(
-                                SoundEvents.ENTITY_SHULKER_HURT_CLOSED,
-                                1.0f
-                            ))
+                        playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
                     }
                 }
             }
             return true
         }
         return super.onClickNode(ability, button)
+    }
+
+    override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
+        val pane = Identifier("wynnlib", "textures/gui/extend_pane.png")
+        RenderKit.renderTexture(matrices, pane, windowX + 245, windowY + 28, 0, 0, PANE_WIDTH, 210)
     }
 
     override fun renderViewer(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
@@ -194,6 +199,9 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
+        //render extra pane content
+        //todo
+        //========****=========
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 143
         //render archetype values
@@ -214,8 +222,6 @@ class AbilityTreeBuilderScreen(parent: Screen?,
             itemRenderer.renderInGuiWithOverrides(ICON, archetypeX, archetypeY)
             textRenderer.draw(matrices, "$ap/$MAX_AP", archetypeX.toFloat() + 18, archetypeY.toFloat() + 4, 0)
         }*/
-        //render extra pane
-        //todo
         //render ability tooltip
         if (isOverViewer(mouseX, mouseY)){
             for (ability in tree.getAbilities()) {

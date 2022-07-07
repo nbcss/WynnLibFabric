@@ -3,6 +3,9 @@ package io.github.nbcss.wynnlib.utils
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
+import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.sound.SoundEvent
+import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.StringVisitable
 import net.minecraft.text.Style
@@ -41,6 +44,10 @@ fun colorOfDark(num: Int): Formatting {
         num < 0 -> Formatting.DARK_RED
         else -> Formatting.GRAY
     }
+}
+
+fun playSound(sound: SoundEvent, pitch: Float = 1.0f) {
+    MinecraftClient.getInstance().soundManager.play(PositionedSoundInstance.master(sound, pitch))
 }
 
 fun asRange(text: String): IRange = try {
