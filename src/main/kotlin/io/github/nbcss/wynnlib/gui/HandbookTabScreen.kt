@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen

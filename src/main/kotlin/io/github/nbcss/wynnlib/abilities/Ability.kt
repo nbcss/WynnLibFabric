@@ -93,6 +93,11 @@ class Ability(json: JsonObject): Keyed, Translatable {
 
     fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
 
+    //fixme it is very slow process! The result should be cached
+    fun getSuccessors(): List<Ability> {
+        return AbilityRegistry.fromCharacter(character).getAbilities().filter { this in it.getPredecessors() }
+    }
+
     fun getBlockAbilities(): List<Ability> = blocks.mapNotNull { x -> AbilityRegistry.get(x) }
 
     fun getArchetypeRequirement(archetype: Archetype): Int {
