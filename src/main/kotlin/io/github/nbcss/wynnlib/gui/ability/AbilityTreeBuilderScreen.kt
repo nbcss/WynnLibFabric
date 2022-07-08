@@ -4,14 +4,17 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
+import io.github.nbcss.wynnlib.abilities.builder.AbilityEffectContainer
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.Pos
+import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.playSound
-import net.minecraft.client.MinecraftClient
+import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
@@ -31,6 +34,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     private val activeNodes: MutableSet<Ability> = HashSet()
     private val paths: MutableMap<Ability, List<Ability>> = HashMap()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
+    private var container: AbilityEffectContainer = AbilityEffectContainer(activeNodes)
     private var ap: Int = MAX_AP
     init {
         tabs.clear()
@@ -39,7 +43,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     fun reset() {
         activeNodes.clear()
-        computePath()
+        update()
     }
 
     private fun canUnlock(ability: Ability, nodes: Collection<Ability>): Boolean {
@@ -93,9 +97,10 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         activeNodes.addAll(validated)
     }
 
-    private fun computePath() {
+    private fun update() {
         paths.clear()
         tree.getAbilities().forEach { paths[it] = ArrayList() }
+        //compute path
         //todo replace with optimal search
         if(activeNodes.isEmpty()){
             tree.getRootAbility()?.let { paths[it] = listOf(it) }
@@ -108,6 +113,8 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 }
             }
         }
+        //update container
+        container = AbilityEffectContainer(activeNodes)
     }
 
     override fun getAbilityTree(): AbilityTree = tree
@@ -129,7 +136,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 playSound(SoundEvents.BLOCK_LAVA_POP)
                 activeNodes.remove(ability)
                 fixNodes()
-                computePath()
+                update()
             }else{
                 paths[ability]?.let {
                     if (it.isNotEmpty()){
@@ -142,7 +149,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                                 archetypePoints[arch] = 1 + (archetypePoints[arch] ?: 0)
                             }
                         }
-                        computePath()
+                        update()
                     }else{
                         playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
                     }
@@ -157,6 +164,11 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
         val pane = Identifier("wynnlib", "textures/gui/extend_pane.png")
         RenderKit.renderTexture(matrices, pane, windowX + 245, windowY + 28, 0, 0, PANE_WIDTH, 210)
+        textRenderer.draw(
+            matrices, LiteralText("Ability List"),
+            (windowX + 251).toFloat(),//251
+            (windowY + 34).toFloat(), 0
+        )
     }
 
     override fun renderViewer(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
@@ -200,7 +212,28 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         //render extra pane content
-        //todo
+        container.getEntries().forEachIndexed { i, entry ->
+            val x1 = windowX + 251
+            val x2 = x1 + 18
+            val y1 = windowY + 44 + i * 20
+            val y2 = y1 + 18
+            //DrawableHelper.fill(matrices, x1, y1, x2, y2, Color.GRAY.toSolidColor().getColorCode())
+            RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
+                18, 18, 18, 18)
+            val tier = entry.getTierText()
+            textRenderer.drawWithShadow(matrices, tier,
+                x2.toFloat() - textRenderer.getWidth(tier) + 1,
+                y2.toFloat() - 7, 0xFFFFFF
+            )
+            textRenderer.draw(matrices, entry.getAbility().translate(),
+                x2.toFloat() + 3,
+                y1.toFloat() + 1, 0
+            )
+            textRenderer.draw(matrices, entry.getSideText(),
+                x2.toFloat() + 3,
+                y1.toFloat() + 10, 0
+            )
+        }
         //========****=========
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 143
