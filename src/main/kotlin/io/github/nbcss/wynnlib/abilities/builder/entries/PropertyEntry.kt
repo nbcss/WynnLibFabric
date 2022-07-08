@@ -15,6 +15,7 @@ open class PropertyEntry(private val root: Ability,
             "SPELL" to SpellEntry,
             "REPLACE" to ReplaceSpellEntry,
             "EXTEND" to ExtendEntry,
+            "BOUND" to BoundEntry,
         )
 
         fun createEntry(type: String,

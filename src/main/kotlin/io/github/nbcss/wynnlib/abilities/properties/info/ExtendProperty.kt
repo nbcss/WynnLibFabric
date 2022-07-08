@@ -2,6 +2,8 @@ package io.github.nbcss.wynnlib.abilities.properties.info
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 
 class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
@@ -13,5 +15,5 @@ class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
     }
     private val parent: String = data.asString
 
-    fun getExtendParent(): String = parent
+    fun getParent(container: EntryContainer): PropertyEntry? = container.getEntry(parent)
 }

@@ -44,7 +44,6 @@ class EntryProperty(ability: Ability, data: JsonElement): AbilityProperty(abilit
     }
 
     override fun updateEntries(container: EntryContainer) {
-        //fixme replace with factory
         PropertyEntry.createEntry(info.getType() ?: "",
             container, getAbility(), info.getTexture())?.let { entry ->
             for (property in getAbility().getProperties()) {

@@ -20,6 +20,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 ModifyProperty,
                 KeysUpgradeProperty,
                 ExtendProperty,
+                BoundingExtendProperty,
                 BoundSpellProperty,
                 TotalHealProperty,
                 PulseHealProperty,

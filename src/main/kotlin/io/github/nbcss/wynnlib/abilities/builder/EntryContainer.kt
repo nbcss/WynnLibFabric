@@ -8,7 +8,6 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     init {
         entries = LinkedHashMap()
         abilities.sortedBy { it.getPropertyPriorityIndex() }.forEach {
-            //println("Setup " + it.getKey())
             it.updateEntries(this)
         }
     }
