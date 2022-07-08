@@ -1,7 +1,8 @@
-package io.github.nbcss.wynnlib.abilities.properties
+package io.github.nbcss.wynnlib.abilities.properties.archer
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 
 class SelfDamageProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
     companion object: Factory {

@@ -1,7 +1,8 @@
-package io.github.nbcss.wynnlib.abilities.properties
+package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.data.DamageMultiplier
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.i18n.Translations

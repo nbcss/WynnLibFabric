@@ -2,8 +2,9 @@ package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
+import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
-import io.github.nbcss.wynnlib.abilities.properties.BoundSpellProperty
+import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
@@ -114,6 +115,8 @@ class Ability(json: JsonObject): Keyed, Translatable {
     fun getPropertiesTooltip(): List<Text> {
         return properties.values.map { it.getTooltip() }.flatten()
     }
+
+    fun getProperties(): List<AbilityProperty> = properties.values.toList()
 
     fun getProperty(key: String): AbilityProperty? {
         return properties[key]
@@ -230,6 +233,16 @@ class Ability(json: JsonObject): Keyed, Translatable {
         }
         return tooltip
     }
+
+    fun getPropertyPriorityIndex(): Int {
+        return properties.values.maxOfOrNull { it.getPriority() } ?: 999
+    }
+
+    fun updateEntries(container: EntryContainer) {
+        properties.values.forEach { it.updateEntries(container) }
+    }
+
+    fun getAbilityTree(): AbilityTree = AbilityRegistry.fromCharacter(character)
 
     override fun getKey(): String = id
 

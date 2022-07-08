@@ -1,17 +1,26 @@
 package io.github.nbcss.wynnlib.abilities.builder
 
 import io.github.nbcss.wynnlib.abilities.Ability
-import io.github.nbcss.wynnlib.abilities.properties.ManaCostProperty
+import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.general.ManaCostProperty
 import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
-class AbilityEffectEntry(private val root: Ability) {
+class PropertyEntry(private val root: Ability,
+                    private val icon: Identifier) {
+    private val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
     private val upgrades: MutableList<Ability> = ArrayList()
 
     fun getAbility(): Ability = root
+
+    fun getProperty(key: String): AbilityProperty? = properties[key]
+
+    fun setProperty(key: String, property: AbilityProperty) {
+        properties[key] = property
+    }
 
     fun addUpgrade(ability: Ability) {
         upgrades.add(ability)
@@ -32,9 +41,7 @@ class AbilityEffectEntry(private val root: Ability) {
         return LiteralText.EMPTY
     }
 
-    fun getTexture(): Identifier {
-        return Identifier("wynnlib", "textures/icons/unknown.png")
-    }
+    fun getTexture(): Identifier = icon
 
     fun getTier(): Int {
         return 1 + getUpgrades().size

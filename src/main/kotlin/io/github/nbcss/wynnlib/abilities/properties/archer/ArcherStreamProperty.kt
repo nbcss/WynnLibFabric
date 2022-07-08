@@ -1,7 +1,8 @@
-package io.github.nbcss.wynnlib.abilities.properties
+package io.github.nbcss.wynnlib.abilities.properties.archer
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.signed
@@ -9,24 +10,24 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class ArcherSentientBowsProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+class ArcherStreamProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
     companion object: Factory {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return ArcherSentientBowsProperty(ability, data)
+            return ArcherStreamProperty(ability, data)
         }
-        override fun getKey(): String = "archer_sentient_bows"
+        override fun getKey(): String = "archer_stream"
     }
-    private val bows: Int = data.asInt
+    private val streams: Int = data.asInt
     init {
-        ability.putPlaceholder(getKey(), bows.toString())
+        ability.putPlaceholder(getKey(), streams.toString())
     }
 
-    fun getArcherSentientBows(): Int = bows
+    fun getArcherStreams(): Int = streams
 
     override fun getTooltip(): List<Text> {
         return listOf(Symbol.ALTER_HITS.asText().append(" ")
-            .append(Translations.TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS.formatted(Formatting.GRAY).append(": "))
-            .append(LiteralText(bows.toString()).formatted(Formatting.WHITE)))
+            .append(Translations.TOOLTIP_ABILITY_ARCHER_STREAM.formatted(Formatting.GRAY).append(": "))
+            .append(LiteralText(streams.toString()).formatted(Formatting.WHITE)))
     }
 
     class Modifier(ability: Ability, data: JsonElement): AbilityProperty(ability) {
@@ -34,18 +35,18 @@ class ArcherSentientBowsProperty(ability: Ability, data: JsonElement): AbilityPr
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data)
             }
-            override fun getKey(): String = "archer_sentient_bows_modifier"
+            override fun getKey(): String = "archer_stream_modifier"
         }
         private val modifier: Int = data.asInt
         init {
             ability.putPlaceholder(getKey(), modifier.toString())
         }
 
-        fun getArcherSentientBowsModifier(): Int = modifier
+        fun getArcherStreamsModifier(): Int = modifier
 
         override fun getTooltip(): List<Text> {
             return listOf(Symbol.ALTER_HITS.asText().append(" ")
-                .append(Translations.TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS.formatted(Formatting.GRAY).append(": "))
+                .append(Translations.TOOLTIP_ABILITY_ARCHER_STREAM.formatted(Formatting.GRAY).append(": "))
                 .append(LiteralText(signed(modifier)).formatted(Formatting.WHITE)))
         }
     }

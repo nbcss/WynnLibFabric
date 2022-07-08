@@ -4,13 +4,10 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
-import io.github.nbcss.wynnlib.abilities.builder.AbilityEffectContainer
+import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.render.RenderKit
-import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.Pos
-import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.playSound
-import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
@@ -34,7 +31,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     private val activeNodes: MutableSet<Ability> = HashSet()
     private val paths: MutableMap<Ability, List<Ability>> = HashMap()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
-    private var container: AbilityEffectContainer = AbilityEffectContainer(activeNodes)
+    private var container: EntryContainer = EntryContainer()
     private var ap: Int = MAX_AP
     init {
         tabs.clear()
@@ -114,7 +111,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
             }
         }
         //update container
-        container = AbilityEffectContainer(activeNodes)
+        container = EntryContainer(activeNodes)
     }
 
     override fun getAbilityTree(): AbilityTree = tree
@@ -251,10 +248,10 @@ class AbilityTreeBuilderScreen(parent: Screen?,
             archetypeX += 60
         }
         //render ap points
-        /*run {
+        run {
             itemRenderer.renderInGuiWithOverrides(ICON, archetypeX, archetypeY)
             textRenderer.draw(matrices, "$ap/$MAX_AP", archetypeX.toFloat() + 18, archetypeY.toFloat() + 4, 0)
-        }*/
+        }
         //render ability tooltip
         if (isOverViewer(mouseX, mouseY)){
             for (ability in tree.getAbilities()) {
