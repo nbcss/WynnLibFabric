@@ -122,7 +122,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun init() {
         super.init()
-        windowX = (width - windowWidth - PANE_WIDTH) / 2
+        windowX = PANE_WIDTH + (width - windowWidth - PANE_WIDTH) / 2
         viewerX = windowX + 7
         exitButton!!.x = windowX + 230
     }
@@ -160,10 +160,10 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
         val pane = Identifier("wynnlib", "textures/gui/extend_pane.png")
-        RenderKit.renderTexture(matrices, pane, windowX + 245, windowY + 28, 0, 0, PANE_WIDTH, 210)
+        RenderKit.renderTexture(matrices, pane, windowX - PANE_WIDTH, windowY + 28, 0, 0, PANE_WIDTH, 210)
         textRenderer.draw(
             matrices, LiteralText("Ability List"),
-            (windowX + 251).toFloat(),//251
+            (windowX - PANE_WIDTH + 6).toFloat(),
             (windowY + 34).toFloat(), 0
         )
     }
@@ -210,7 +210,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         //render extra pane content
         container.getEntries().forEachIndexed { i, entry ->
-            val x1 = windowX + 251
+            val x1 = windowX - PANE_WIDTH + 6
             val x2 = x1 + 18
             val y1 = windowY + 44 + i * 20
             val y2 = y1 + 18
