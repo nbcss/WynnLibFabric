@@ -1,17 +1,33 @@
 package io.github.nbcss.wynnlib.abilities.builder.entries
 
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
-import io.github.nbcss.wynnlib.abilities.properties.general.ManaCostProperty
 import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
-import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
 open class PropertyEntry(private val root: Ability,
                          private val icon: Identifier): Keyed {
+    companion object: Factory {
+        private val factoryMap: Map<String, Factory> = mapOf(
+            "SPELL" to SpellEntry,
+            "REPLACE" to ReplaceSpellEntry,
+            "EXTEND" to ExtendEntry,
+        )
+
+        fun createEntry(type: String,
+                        container: EntryContainer,
+                        ability: Ability,
+                        texture: Identifier): PropertyEntry? {
+            return (factoryMap[type.uppercase()] ?: this).create(container, ability, texture)
+        }
+
+        override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry {
+            return PropertyEntry(ability, texture)
+        }
+    }
     protected val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
     private val upgrades: MutableList<Ability> = ArrayList()
 
@@ -55,5 +71,9 @@ open class PropertyEntry(private val root: Ability,
             10 -> "X"
             else -> "✰"
         }
+    }
+
+    interface Factory {
+        fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry?
     }
 }

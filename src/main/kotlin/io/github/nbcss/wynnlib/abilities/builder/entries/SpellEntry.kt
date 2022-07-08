@@ -1,6 +1,8 @@
 package io.github.nbcss.wynnlib.abilities.builder.entries
 
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.ManaCostProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -11,7 +13,17 @@ import net.minecraft.util.Identifier
 
 open class SpellEntry(private val spell: SpellSlot,
                       root: Ability, icon: Identifier): PropertyEntry(root, icon) {
+    companion object: Factory {
+        override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry? {
+            val property = ability.getProperty(BoundSpellProperty.getKey())
+            return if (property is BoundSpellProperty){
+                SpellEntry(property.getSpell(), ability, texture)
+            }else{
+                null
+            }
+        }
 
+    }
     fun getManaCost(): Int {
         val property = getProperty(ManaCostProperty.getKey())
         if (property is ManaCostProperty){

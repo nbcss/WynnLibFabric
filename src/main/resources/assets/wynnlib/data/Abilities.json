@@ -1637,6 +1637,7 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
+        "spell": "SPELL_3",
         "mana_modifier": -10
       }
     },
@@ -1655,9 +1656,13 @@
         "BOW_PROFICIENCY_I"
       ],
       "properties": {
-        "spell": "SPELL_3",
-        "damage_modifier": {
+        "extend": "SPELL_3",
+        "damage": {
           "neutral": 100
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -1771,6 +1776,7 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
+        "spell": "SPELL_2",
         "mana_modifier": -5
       }
     },
@@ -1819,7 +1825,7 @@
         "ARROW_STORM"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "extend": "SPELL_2",
         "effect": {
           "type": "ALLIES_WALK_SPEED",
           "modifier": 20
@@ -1828,6 +1834,10 @@
         "aoe": {
           "range": 8,
           "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -1963,12 +1973,16 @@
         "NIMBLE_STRING"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "extend": "SPELL_4",
         "damage": {
           "neutral": 120,
           "air": 80,
           "hits": 200,
           "label": "ARROW"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -1990,7 +2004,10 @@
         "ARROW_RAIN"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1",
+          "ability": "ARROW_STORM"
+        },
         "damage_modifier": {
           "neutral": -15,
           "hits": 6,
@@ -2053,7 +2070,7 @@
         "BRYOPHYTE_ROOTS"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "extend": "SPELL_3",
         "damage": {
           "neutral": 30,
           "fire": 20
@@ -2062,6 +2079,10 @@
         "aoe": {
           "range": 0.8,
           "shape": "LINE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -2083,7 +2104,7 @@
         "FIRE_CREEP"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "extend": "SPELL_1",
         "damage": {
           "neutral": 40,
           "earth": 20
@@ -2096,6 +2117,10 @@
         "aoe": {
           "range": 2,
           "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -2184,7 +2209,10 @@
         "PHANTOM_RAY"
       ],
       "properties": {
-        "focus_damage_bonus": 35
+        "focus_damage_bonus": 35,
+        "entry": {
+          "icon": "unknown"
+        }
       }
     },
     {
@@ -2204,7 +2232,7 @@
         "BRYOPHYTE_ROOTS"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "extend": "SPELL_3",
         "damage": {
           "neutral": 190,
           "earth": 30,
@@ -2214,6 +2242,10 @@
         "aoe": {
           "range": 7,
           "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -2235,7 +2267,10 @@
         "CHEAPER_ARROW_STORM_I"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1",
+          "ability": "ARROW_STORM"
+        },
         "damage_modifier": {
           "neutral": -10,
           "thunder": -2,
@@ -2265,6 +2300,7 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
+        "spell": "SPELL_1",
         "mana_modifier": -5
       }
     },
@@ -2311,6 +2347,9 @@
         "BASALTIC_TRAP"
       ],
       "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
         "charges_modifier": 2,
         "archer_sentient_bows_modifier": 2
       }
@@ -2331,6 +2370,9 @@
         "GRAPPLING_HOOK"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "FOCUS"
+        },
         "focus_damage_bonus": -5
       }
     },
@@ -2350,6 +2392,9 @@
         "MORE_SHIELDS"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "HEART_SHATTER"
+        },
         "spell": "SPELL_3",
         "damage_modifier": {
           "neutral": 40
@@ -2364,13 +2409,17 @@
       "tier": 2,
       "cost": 2,
       "archetype": "TRAPPER",
-      "dependency": "BASALTIC TRAP",
+      "dependency": "BASALTIC_TRAP",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "MORE_SHIELDS"
       ],
-      "properties": {}
+      "properties": {
+        "upgrade": {
+          "ability": "BASALTIC_TRAP"
+        }
+      }
     },
     {
       "id": "STORMY_FEET",
@@ -2387,6 +2436,9 @@
         "WINDSTORM"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "WINDSTORM"
+        },
         "spell": "SPELL_2",
         "effect": {
           "type": "ALLIES_WALK_SPEED",
@@ -2411,7 +2463,9 @@
         "TRAVELER"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "damage_modifier": {
           "neutral": 50
         }
@@ -2455,7 +2509,10 @@
         "damage": {
           "neutral": 200
         },
-        "range": 64
+        "range": 64,
+        "entry": {
+          "icon": "unknown"
+        }
       }
     },
     {
@@ -2473,7 +2530,9 @@
         "MORE_SHIELDS"
       ],
       "properties": {
-        "spell": "SPELL_3"
+        "upgrade": {
+          "spell": "SPELL_3"
+        }
       }
     },
     {
@@ -2492,13 +2551,17 @@
         "TRAVELER"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "extend": "SPELL_2",
         "damage": {
           "neutral": 100
         },
         "aoe": {
           "range": 4,
           "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -2517,7 +2580,9 @@
         "TWAINS_ARC"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "ability": "FIRE_CREEP"
+        },
         "damage_modifier": {
           "neutral": 10,
           "fire": 5
@@ -2543,7 +2608,11 @@
       "predecessors": [
         "BOUNCING_BOMB"
       ],
-      "properties": {}
+      "properties": {
+        "upgrade": {
+          "ability": "BASALTIC_TRAP"
+        }
+      }
     },
     {
       "id": "LEAP",
@@ -2563,7 +2632,10 @@
         "HOMING_SHOTS"
       ],
       "properties": {
-        "cooldown": 2
+        "cooldown": 2,
+        "entry": {
+          "icon": "unknown"
+        }
       }
     },
     {
@@ -2601,7 +2673,11 @@
         "TWAINS_ARC",
         "BETTER_ARROW_SHIELD"
       ],
-      "properties": {}
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3"
+        }
+      }
     },
     {
       "id": "BETTER_ARROW_SHIELD",
@@ -2620,7 +2696,10 @@
         "MANA_TRAP"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "upgrade": {
+          "spell": "SPELL_4",
+          "ability": "ARROW_SHIELD"
+        },
         "damage_modifier": {
           "neutral": 40
         },
@@ -2648,11 +2727,17 @@
         "MORE_TRAPS"
       ],
       "properties": {
-        "upgrade": {
+        "modify": {
           "spell": "SPELL_3"
         },
+        "spell": "SPELL_3",
         "mana_modifier": 10,
-        "range": 16
+        "range": 16,
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
+        },
+        "extend": "BASALTIC_TRAP"
       }
     },
     {
@@ -2671,6 +2756,9 @@
         "HOMING_SHOTS"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "LEAP"
+        },
         "cooldown_modifier": -1
       }
     },
@@ -2692,12 +2780,16 @@
         "BETTER_GUARDIAN_ANGELS"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "extend": "SPELL_2",
         "damage": {
           "neutral": 30,
           "thunder": 10,
           "hits": 120,
           "label": "ARROW"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -2717,7 +2809,10 @@
         "HOMING_SHOTS"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "upgrade": {
+          "spell": "SPELL_4",
+          "ability": "GUARDIAN_ANGELS"
+        },
         "damage_modifier": {
           "hits": 4
         }
@@ -2741,7 +2836,11 @@
         "BETTER_ARROW_SHIELD",
         "CHEAPER_ARROW_STORM_II"
       ],
-      "properties": {}
+      "properties": {
+        "upgrade": {
+          "ability": "FOCUS"
+        }
+      }
     },
     {
       "id": "CHEAPER_ARROW_STORM_II",
@@ -2762,6 +2861,7 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
+        "spell": "SPELL_1",
         "mana_modifier": -5
       }
     },
@@ -2781,11 +2881,15 @@
         "CHEAPER_ARROW_STORM_II"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "extend": "SPELL_4",
         "damage": {
           "neutral": 40
         },
-        "duration": 60
+        "duration": 60,
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
+        }
       }
     },
     {
@@ -2808,7 +2912,10 @@
         "PRECISE_SHOT"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1",
+          "ability": "ARROW_STORM"
+        },
         "archer_stream_modifier": 2
       }
     },
@@ -2851,6 +2958,7 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
+        "spell": "SPELL_4",
         "mana_modifier": -5
       }
     },
@@ -2870,7 +2978,9 @@
         "CHEAPER_ARROW_STORM_II"
       ],
       "properties": {
-        "spell": "SPELL_3"
+        "upgrade": {
+          "spell": "SPELL_3"
+        }
       }
     },
     {
@@ -2891,12 +3001,16 @@
         "PRECISE_SHOT"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "extend": "SPELL_3",
         "damage": {
           "neutral": 40,
           "fire": 20,
           "hits": 15,
           "label": "SHRAPNEL"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTENDx"
         }
       }
     },
@@ -2916,7 +3030,10 @@
         "CHEAPER_ESCAPE_II"
       ],
       "properties": {
-        "spell": "SPELL_1"
+        "upgrade": {
+          "spell": "SPELL_1",
+          "ability": "PHANTOM_RAY"
+        }
       }
     },
     {
@@ -2938,6 +3055,7 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
+        "spell": "SPELL_2",
         "mana_modifier": -5
       }
     },
@@ -2958,7 +3076,10 @@
         "CHEAPER_ESCAPE_II"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "upgrade": {
+          "spell": "SPELL_2",
+          "ability": "GRAPPLING_HOOK"
+        },
         "range_modifier": 4
       }
     },
@@ -2977,7 +3098,9 @@
         "SHRAPNEL_BOMB"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "upgrade": {
+          "ability": "FIERCE_STOMP"
+        },
         "damage_modifier": {
           "water": 50
         },
@@ -3004,11 +3127,15 @@
         "CHEAPER_ARROW_SHIELD"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "extend": "SPELL_1",
         "damage": {
           "neutral": 10,
           "water": 5,
           "label": "ARROW"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -3027,7 +3154,7 @@
         "CHEAPER_ESCAPE_II"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "extend": "SPELL_3",
         "damage": {
           "neutral": 30,
           "fire": 10,
@@ -3036,6 +3163,10 @@
         "aoe": {
           "range": 2,
           "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -3054,7 +3185,10 @@
         "GEYSER_STOMP"
       ],
       "properties": {
-        "spell": "SPELL_1"
+        "upgrade": {
+          "spell": "SPELL_1",
+          "ability": "ARROW_STORM"
+        }
       }
     },
     {
@@ -3072,9 +3206,14 @@
         "GRAPE_BOMB"
       ],
       "properties": {
+        "extend": "BASALTIC_TRAP",
         "damage": {
           "neutral": 20,
           "air": 20
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
         }
       }
     },
@@ -3092,7 +3231,11 @@
       "predecessors": [
         "GRAPE_BOMB"
       ],
-      "properties": {}
+      "properties": {
+        "upgrade": {
+          "ability": "BASALTIC_TRAP"
+        }
+      }
     },
     {
       "id": "SNOW_STORM",
@@ -3133,6 +3276,9 @@
         "CREPUSCULAR_RAY"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "FOCUS"
+        },
         "focus_damage_bonus": -5
       }
     },
@@ -3153,7 +3299,10 @@
         "SNOW_STORM"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "upgrade": {
+          "spell": "SPELL_4",
+          "ability": "GUARDIAN_ANGELS"
+        },
         "damage_modifier": {
           "fire": 10,
           "hits": 5,
@@ -3181,6 +3330,7 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
+        "spell": "SPELL_3",
         "mana_modifier": -5
       }
     },
@@ -3202,6 +3352,9 @@
         "GRAPE_BOMB"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "BASALTIC_TRAPS"
+        },
         "damage_modifier": {
           "neutral": -80
         },

@@ -5,11 +5,8 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.SpellEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
-import io.github.nbcss.wynnlib.abilities.properties.UpgradeableProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 import net.minecraft.util.Identifier
@@ -43,36 +40,13 @@ class EntryProperty(ability: Ability, data: JsonElement): AbilityProperty(abilit
                 }
             }
         }
-        return 999
+        return 100
     }
 
     override fun updateEntries(container: EntryContainer) {
         //fixme replace with factory
-        val entry = when (info.getType()){
-            "SPELL" -> {
-                val property = getAbility().getProperty(BoundSpellProperty.getKey())
-                if (property is BoundSpellProperty){
-                    SpellEntry(property.getSpell(), getAbility(), info.getTexture())
-                }else{
-                    null
-                }
-            }
-            "REPLACE" -> {
-                val property = getAbility().getProperty(BoundSpellProperty.getKey())
-                if (property is BoundSpellProperty){
-                    val current = container.getEntry(property.getSpell().name)
-                    if (current != null){
-                        ReplaceSpellEntry(current, property.getSpell(), getAbility(), info.getTexture())
-                    }else{
-                        null
-                    }
-                }else{
-                    null
-                }
-            }
-            else -> PropertyEntry(getAbility(), info.getTexture())
-        }
-        if (entry != null) {
+        PropertyEntry.createEntry(info.getType() ?: "",
+            container, getAbility(), info.getTexture())?.let { entry ->
             for (property in getAbility().getProperties()) {
                 if (property is SetupProperty){
                     property.setup(entry)

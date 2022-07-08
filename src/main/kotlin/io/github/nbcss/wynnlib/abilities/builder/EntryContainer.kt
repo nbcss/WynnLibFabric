@@ -7,8 +7,10 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     private val entries: MutableMap<String, PropertyEntry>
     init {
         entries = LinkedHashMap()
-        abilities.sortedBy { it.getPropertyPriorityIndex() }
-            .forEach { it.updateEntries(this) }
+        abilities.sortedBy { it.getPropertyPriorityIndex() }.forEach {
+            //println("Setup " + it.getKey())
+            it.updateEntries(this)
+        }
     }
 
     fun putEntry(entry: PropertyEntry) {

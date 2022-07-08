@@ -6,16 +6,19 @@ import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 
-class UpgradeProperty(ability: Ability, data: JsonElement): ModifyProperty(ability, data) {
+class KeysUpgradeProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
     companion object: Factory {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return UpgradeProperty(ability, data)
+            return KeysUpgradeProperty(ability, data)
         }
-        override fun getKey(): String = "upgrade"
+        override fun getKey(): String = "keys_upgrade"
     }
+    private val keys: List<String> = data.asJsonArray.map { it.asString }.toList()
+
+    fun getUpgradeKeys(): List<String> = keys
 
     override fun updateEntries(container: EntryContainer) {
-        getModifyEntry(container)?.let { entry ->
+        keys.mapNotNull { container.getEntry(it) }.forEach { entry ->
             for (property in getAbility().getProperties()) {
                 if (property is ModifiableProperty){
                     property.modify(entry)
