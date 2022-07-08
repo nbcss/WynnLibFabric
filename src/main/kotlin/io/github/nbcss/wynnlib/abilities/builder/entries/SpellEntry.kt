@@ -27,7 +27,8 @@ open class SpellEntry(private val spell: SpellSlot,
     override fun getSideText(): Text {
         getProperty(ManaCostProperty.getKey())?.let {
             return Symbol.MANA.asText().append(" ").append(
-                LiteralText("${(it as ManaCostProperty).getManaCost()}").formatted(Formatting.GRAY)
+                LiteralText("${(it as ManaCostProperty).getManaCost()}")
+                    .formatted(Formatting.WHITE)
             )
         }
         return super.getSideText()

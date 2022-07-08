@@ -8,6 +8,8 @@ import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
 import io.github.nbcss.wynnlib.abilities.builder.entries.SpellEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
+import io.github.nbcss.wynnlib.abilities.properties.UpgradeableProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 import net.minecraft.util.Identifier
@@ -49,7 +51,6 @@ class EntryProperty(ability: Ability, data: JsonElement): AbilityProperty(abilit
         val entry = when (info.getType()){
             "SPELL" -> {
                 val property = getAbility().getProperty(BoundSpellProperty.getKey())
-                println(property)
                 if (property is BoundSpellProperty){
                     SpellEntry(property.getSpell(), getAbility(), info.getTexture())
                 }else{
@@ -71,8 +72,14 @@ class EntryProperty(ability: Ability, data: JsonElement): AbilityProperty(abilit
             }
             else -> PropertyEntry(getAbility(), info.getTexture())
         }
-        if (entry != null)
+        if (entry != null) {
+            for (property in getAbility().getProperties()) {
+                if (property is SetupProperty){
+                    property.setup(entry)
+                }
+            }
             container.putEntry(entry)
+        }
     }
 
     class Info(json: JsonObject) {

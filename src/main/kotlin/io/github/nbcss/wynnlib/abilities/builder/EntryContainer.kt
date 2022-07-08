@@ -12,7 +12,7 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     }
 
     fun putEntry(entry: PropertyEntry) {
-        println("put " + entry.getAbility().getKey())
+        //println("put " + entry.getAbility().getKey())
         entries[entry.getKey()] = entry
     }
 

@@ -209,7 +209,9 @@
         "WAR_SCREAM"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
         "mana_modifier": -5
       }
     },
@@ -504,7 +506,9 @@
         "WARRIOR_WATER_MASTERY"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": -10,
         "damage_modifier": {
           "neutral": -70,
@@ -656,7 +660,9 @@
         "AERODYNAMICS"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": -5
       }
     },
@@ -695,7 +701,9 @@
         "AERODYNAMICS"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
         "mana_modifier": -5
       }
     },
@@ -868,7 +876,9 @@
         "FLYING_KICK"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
         "mana_modifier": 10,
         "effect": {
           "type": "ALLIES_DAMAGE",
@@ -1251,7 +1261,9 @@
         "WHIRLWIND_STRIKE"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
         "mana_modifier": -5
       }
     },
@@ -1290,7 +1302,9 @@
         "SPIRIT_OF_THE_RABBIT"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": 10,
         "damage_modifier": {
           "neutral": 100
@@ -1341,7 +1355,9 @@
         "SPARKLING_HOPE"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
         "mana_modifier": -5
       }
     },
@@ -1360,7 +1376,9 @@
         "MASSIVE_BASH"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
         "mana_modifier": -5
       }
     },
@@ -1520,7 +1538,9 @@
         "SECOND_CHANCE"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": -5
       }
     },
@@ -1748,7 +1768,9 @@
         "ARROW_SHIELD"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
         "mana_modifier": -5
       }
     },
@@ -1997,6 +2019,9 @@
       ],
       "properties": {
         "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
         "mana_modifier": -10,
         "damage": {
           "neutral": 25,
@@ -2237,7 +2262,9 @@
         "GRAPPLING_HOOK"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
         "mana_modifier": -5
       }
     },
@@ -2621,7 +2648,9 @@
         "MORE_TRAPS"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": 10,
         "range": 16
       }
@@ -2730,7 +2759,9 @@
         "MANA_TRAP"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
         "mana_modifier": -5
       }
     },
@@ -2817,7 +2848,9 @@
         "INITIATOR"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
         "mana_modifier": -5
       }
     },
@@ -2902,7 +2935,9 @@
         "CALL_OF_THE_HOUND"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
         "mana_modifier": -5
       }
     },
@@ -3143,7 +3178,9 @@
         "MINEFIELD"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": -5
       }
     },

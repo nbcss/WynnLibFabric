@@ -226,9 +226,9 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 x2.toFloat() + 3,
                 y1.toFloat() + 1, 0
             )
-            textRenderer.draw(matrices, entry.getSideText(),
+            textRenderer.drawWithShadow(matrices, entry.getSideText(),
                 x2.toFloat() + 3,
-                y1.toFloat() + 10, 0
+                y1.toFloat() + 10, 0xFFFFFF
             )
         }
         //========****=========
