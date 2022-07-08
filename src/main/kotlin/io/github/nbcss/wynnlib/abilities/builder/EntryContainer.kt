@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.builder
 
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 
 class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     private val entries: MutableMap<String, PropertyEntry>
@@ -10,8 +11,9 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
             .forEach { it.updateEntries(this) }
     }
 
-    fun setEntry(key: String, entry: PropertyEntry) {
-        entries[key] = entry
+    fun putEntry(entry: PropertyEntry) {
+        println("put " + entry.getAbility().getKey())
+        entries[entry.getKey()] = entry
     }
 
     fun getEntry(key: String): PropertyEntry? {

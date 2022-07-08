@@ -23,7 +23,11 @@
           "range": 4,
           "shape": "CIRCLE"
         },
-        "range": 3
+        "range": 3,
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
+        }
       }
     },
     {
@@ -60,7 +64,9 @@
         "SPEAR_PROFICIENCY_I"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
         "mana_modifier": -10
       }
     },
@@ -79,7 +85,9 @@
         "SPEAR_PROFICIENCY_I"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
         "damage_modifier": {
           "neutral": -50,
           "hits": 1,
@@ -104,7 +112,11 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "mana_cost": 25
+        "mana_cost": 25,
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
+        }
       }
     },
     {
@@ -174,7 +186,11 @@
           "range": "1-3",
           "shape": "CONE"
         },
-        "range": 5
+        "range": 5,
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
+        }
       }
     },
     {
@@ -227,6 +243,10 @@
         "aoe": {
           "range": 12,
           "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
         }
       }
     },
@@ -1553,6 +1573,10 @@
         "aoe": {
           "range": 4.5,
           "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
         }
       }
     },
@@ -1590,7 +1614,9 @@
         "BOW_PROFICIENCY_I"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": -10
       }
     },
@@ -1631,7 +1657,11 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "mana_cost": 25
+        "mana_cost": 25,
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
+        }
       }
     },
     {
@@ -1695,7 +1725,11 @@
           "label": "ARROW"
         },
         "archer_stream": 2,
-        "range": 16
+        "range": 16,
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
+        }
       }
     },
     {
@@ -1741,7 +1775,11 @@
           "air": 10
         },
         "duration": 60,
-        "charges": 2
+        "charges": 2,
+        "entry": {
+          "icon": "unknown",
+          "type": "SPELL"
+        }
       }
     },
     {
@@ -1967,7 +2005,10 @@
           "label": "HIT"
         },
         "range": 12,
-        "replacing": "ARROW_STORM"
+        "entry": {
+          "icon": "unknown",
+          "type": "REPLACE"
+        }
       }
     },
     {
@@ -2095,7 +2136,10 @@
         "archer_sentient_bows": 2,
         "range": 5,
         "duration": 60,
-        "replacing": "ARROW_SHIELD"
+        "entry": {
+          "icon": "unknown",
+          "type": "REPLACE"
+        }
       }
     },
     {
@@ -2218,7 +2262,10 @@
       "properties": {
         "spell": "SPELL_2",
         "range": 26,
-        "replacing": "ESCAPE"
+        "entry": {
+          "icon": "unknown",
+          "type": "REPLACE"
+        }
       }
     },
     {

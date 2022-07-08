@@ -235,7 +235,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
     }
 
     fun getPropertyPriorityIndex(): Int {
-        return properties.values.maxOfOrNull { it.getPriority() } ?: 999
+        return properties.values.minOfOrNull { it.getPriority() } ?: 999
     }
 
     fun updateEntries(container: EntryContainer) {

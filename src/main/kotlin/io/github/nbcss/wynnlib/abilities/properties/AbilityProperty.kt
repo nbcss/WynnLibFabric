@@ -64,7 +64,7 @@ abstract class AbilityProperty(private val ability: Ability) {
 
     fun getAbility(): Ability = ability
 
-    open fun getPriority(): Int = 0
+    open fun getPriority(): Int = 999
 
     open fun getTooltip(): List<Text> = emptyList()
 

@@ -3,7 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.info
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
-import io.github.nbcss.wynnlib.abilities.builder.PropertyEntry
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.UpgradeableProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
@@ -49,6 +49,7 @@ class UpgradeProperty(ability: Ability, data: JsonElement): AbilityProperty(abil
                     property.upgrade(entry)
                 }
             }
+            entry.addUpgrade(getAbility())
         }
     }
 }
