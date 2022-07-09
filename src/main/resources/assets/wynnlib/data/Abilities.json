@@ -529,7 +529,9 @@
         },
         "mana_modifier": -10,
         "damage_modifier": {
-          "neutral": -70,
+          "neutral": -70
+        },
+        "damage": {
           "water": 30
         },
         "range_modifier": 4
@@ -2335,7 +2337,7 @@
         "PHANTOM_RAY"
       ],
       "properties": {
-        "focus_damage_bonus": 35,
+        "focus_damage_bonus": 40,
         "entry": {
           "icon": "unknown"
         }
@@ -2908,7 +2910,7 @@
       "properties": {
         "extend": "SPELL_2",
         "damage": {
-          "neutral": 30,
+          "neutral": 20,
           "thunder": 10,
           "hits": 120,
           "label": "ARROW"
@@ -3255,7 +3257,7 @@
       "properties": {
         "extend": "SPELL_1",
         "damage": {
-          "neutral": 10,
+          "neutral": 20,
           "water": 5,
           "label": "ARROW"
         },
@@ -3468,7 +3470,7 @@
       "tier": 4,
       "cost": 2,
       "archetype": "TRAPPER",
-      "dependency": "BASALTIC_TRAPS",
+      "dependency": "BASALTIC_TRAP",
       "blocks": [],
       "archetype_requirements": {
         "TRAPPER": 10
@@ -3479,7 +3481,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "BASALTIC_TRAPS"
+          "ability": "BASALTIC_TRAP"
         },
         "damage_modifier": {
           "neutral": -80
@@ -4013,7 +4015,7 @@
       ],
       "properties": {
         "damage": {
-          "neutral": 30,
+          "neutral": 20,
           "water": 10,
           "label": "WINDED"
         },
@@ -4193,8 +4195,8 @@
           "ability": "WINDSWEEPER"
         },
         "damage": {
-          "neutral": 20,
-          "earth": 20,
+          "neutral": 15,
+          "earth": 15,
           "label": "WINDED"
         }
       }
@@ -4289,9 +4291,9 @@
         },
         "effect": {
           "type": "ALLIES_DAMAGE",
-          "modifier": 100
+          "modifier": 60
         },
-        "duration": 4,
+        "duration": 5,
         "cooldown": 15
       }
     },
@@ -4429,7 +4431,7 @@
       "position": 3,
       "tier": 1,
       "cost": 1,
-      "archetype": "ARCANIST",
+      "archetype": null,
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
@@ -4461,9 +4463,9 @@
           "ability": "WINDSWEEPER"
         },
         "damage": {
-          "neutral": 40,
+          "neutral": 30,
           "thunder": 10,
-          "air": 10,
+          "air": 5,
           "label": "WINDED"
         }
       }
@@ -4759,7 +4761,7 @@
       "position": 4,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
+      "archetype": "ARCANIST",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
@@ -5143,7 +5145,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "ARCANIST": 2
+        "ARCANIST": 1
       },
       "predecessors": [
         "SUNFLARE",

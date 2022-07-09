@@ -48,6 +48,10 @@ open class PropertyEntry(private val root: Ability,
         return upgrades
     }
 
+    fun getTooltip(): List<Text> {
+        return emptyList()
+    }
+
     override fun getKey(): String = root.getKey()
 
     open fun getSideText(): Text = LiteralText.EMPTY
