@@ -18,7 +18,7 @@ abstract class AbilityProperty(private val ability: Ability) {
     companion object {
         private val typeMap: Map<String, Type<out AbilityProperty>> = mapOf(
             pairs = listOf(
-                EntryProperty,
+                //EntryProperty,
                 UpgradeProperty,
                 ModifyProperty,
                 ExtendProperty,

@@ -28,7 +28,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SPEAR_PROFICIENCY_I",
@@ -47,7 +48,8 @@
       "properties": {
         "main_damage_modifier": 5,
         "main_range_modifier": 1
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_BASH_I",
@@ -69,7 +71,8 @@
         },
         "spell": "SPELL_1",
         "mana_modifier": -10
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DOUBLE_BASH",
@@ -95,7 +98,8 @@
           "label": "BASH"
         },
         "range_modifier": 3
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHARGE",
@@ -118,7 +122,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TOUGHER_SKIN",
@@ -138,7 +143,8 @@
       ],
       "properties": {
         "resistant_bonus": 5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "VEHEMENT",
@@ -158,7 +164,8 @@
       ],
       "properties": {
         "raw_damage_bonus": 5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "UPPERCUT",
@@ -192,7 +199,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_CHARGE",
@@ -215,7 +223,8 @@
         },
         "spell": "SPELL_2",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WAR_SCREAM",
@@ -252,7 +261,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "HEAVY_IMPACT",
@@ -269,7 +279,9 @@
         "UPPERCUT"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "damage": {
           "neutral": 100
         },
@@ -280,7 +292,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WARRIOR_EARTH_MASTERY",
@@ -302,7 +315,8 @@
           "raw": "2-4",
           "pct": 20
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
@@ -326,7 +340,8 @@
           "raw": "1-8",
           "pct": 10
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
@@ -350,7 +365,8 @@
           "raw": "3-4",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
@@ -372,7 +388,8 @@
           "raw": "3-5",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
@@ -396,7 +413,8 @@
           "raw": "2-4",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "QUADRUPLE_BASH",
@@ -423,7 +441,8 @@
           "label": "BASH"
         },
         "range_modifier": 6
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FIREWORKS",
@@ -448,7 +467,8 @@
           "neutral": 80,
           "thunder": 20
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FLYBY_JAB",
@@ -466,7 +486,9 @@
         "FLAMING_UPPERCUT"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "damage": {
           "neutral": 20,
           "air": 40
@@ -478,7 +500,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FLAMING_UPPERCUT",
@@ -496,7 +519,9 @@
         "FLYBY_JAB"
       ],
       "properties": {
-        "extend": "SPELL_3",
+        "extend": {
+          "spell": "SPELL_3"
+        },
         "damage": {
           "fire": 50
         },
@@ -505,7 +530,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "HALF_MOON_SWIPE",
@@ -533,7 +559,8 @@
           "water": 30
         },
         "range_modifier": 4
-      }
+      },
+      "metadata": null
     },
     {
       "id": "IRON_LUNGS",
@@ -558,7 +585,8 @@
           "neutral": 30,
           "air": 30
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "GENERALIST",
@@ -576,7 +604,8 @@
       "predecessors": [
         "COUNTER"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "COUNTER",
@@ -601,7 +630,8 @@
         "entry": {
           "icon": "unknown"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
@@ -620,7 +650,9 @@
         "IRON_LUNGS"
       ],
       "properties": {
-        "extend": "SPELL_4",
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "duration": 30,
         "cooldown": 20,
         "charges": 3,
@@ -628,7 +660,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BAKALS_GRASP",
@@ -648,13 +681,16 @@
         "FIREWORKS"
       ],
       "properties": {
-        "extend": "SPELL_4",
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "cooldown": 15,
         "entry": {
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SPEAR_PROFICIENCY_II",
@@ -674,7 +710,8 @@
       "properties": {
         "main_damage_modifier": 5,
         "main_range_modifier": 1
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_UPPERCUT_I",
@@ -698,7 +735,8 @@
         },
         "spell": "SPELL_3",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "AERODYNAMICS",
@@ -719,7 +757,8 @@
         "upgrade": {
           "spell": "SPELL_2"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PROVOKE",
@@ -742,7 +781,8 @@
         },
         "spell": "SPELL_4",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PRECISE_STRIKES",
@@ -761,7 +801,8 @@
       ],
       "properties": {
         "critical_damage": 30
-      }
+      },
+      "metadata": null
     },
     {
       "id": "AIR_SHOUT",
@@ -779,7 +820,9 @@
         "PROVOKE"
       ],
       "properties": {
-        "extend": "SPELL_4",
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "spell": "SPELL_4",
         "damage": {
           "neutral": 40,
@@ -789,7 +832,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ENRAGED_BLOW",
@@ -809,7 +853,8 @@
         "upgrade": {
           "ability": "BAKALS_GRASP"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FLYING_KICK",
@@ -829,7 +874,9 @@
         "STRONGER_MANTLE"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "damage": {
           "neutral": 150,
           "air": 30,
@@ -839,7 +886,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "STRONGER_MANTLE",
@@ -861,7 +909,8 @@
           "ability": "MANTLE_OF_THE_BOVEMISTS"
         },
         "charges_modifier": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MANACHISM",
@@ -882,7 +931,8 @@
       ],
       "properties": {
         "cooldown": 1
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BOILING_BLOOD",
@@ -900,7 +950,9 @@
         "RAGNAROKKR"
       ],
       "properties": {
-        "extend": "SPELL_1",
+        "extend": {
+          "spell": "SPELL_1"
+        },
         "damage": {
           "neutral": 25,
           "fire": 5
@@ -915,7 +967,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "RAGNAROKKR",
@@ -944,7 +997,8 @@
         "aoe_modifier": {
           "range": 2
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "AMBIDEXTROUS",
@@ -966,7 +1020,8 @@
         "upgrade": {
           "ability": "COUNTER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BURNING_HEART",
@@ -983,7 +1038,8 @@
         "AMBIDEXTROUS",
         "STRONGER_BASH"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "STRONGER_BASH",
@@ -1007,7 +1063,8 @@
         "damage_modifier": {
           "neutral": 30
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "INTOXICATING_BLOOD",
@@ -1030,7 +1087,8 @@
         "upgrade": {
           "ability": "BAKALS_GRASP"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "COLLIDE",
@@ -1050,7 +1108,9 @@
         "BURNING_HEART"
       ],
       "properties": {
-        "extend": "FLYING_KICK",
+        "extend": {
+          "ability": "FLYING_KICK"
+        },
         "damage": {
           "neutral": 150,
           "fire": 50
@@ -1062,7 +1122,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "REJUVENATING_SKIN",
@@ -1081,7 +1142,8 @@
         "BURNING_HEART",
         "STRONGER_BASH"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "COMET",
@@ -1105,7 +1167,8 @@
           "neutral": 80,
           "earth": 20
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "UNCONTAINABLE_CORRUPTION",
@@ -1127,7 +1190,8 @@
           "ability": "BAKALS_GRASP"
         },
         "cooldown_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "RADIANT_DEVOTEE",
@@ -1146,7 +1210,8 @@
         "UNCONTAINABLE_CORRUPTION",
         "WHIRLWIND_STRIKE"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "WHIRLWIND_STRIKE",
@@ -1176,7 +1241,8 @@
           "shape": "CIRCLE"
         },
         "range_modifier": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MYTHRIL_SKIN",
@@ -1196,7 +1262,8 @@
       ],
       "properties": {
         "resistant_bonus": 5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARMOUR_BREAKER",
@@ -1214,7 +1281,9 @@
         "RADIANT_DEVOTEE"
       ],
       "properties": {
-        "extend": "SPELL_3",
+        "extend": {
+          "spell": "SPELL_3"
+        },
         "effect": {
           "type": "ENEMIES_RESISTANCE",
           "modifier": -30
@@ -1224,7 +1293,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SHIELD_STRIKE",
@@ -1241,7 +1311,9 @@
         "MYTHRIL_SKIN"
       ],
       "properties": {
-        "extend": "MANTLE_OF_THE_BOVEMISTS",
+        "extend": {
+          "ability": "MANTLE_OF_THE_BOVEMISTS"
+        },
         "damage": {
           "neutral": 60,
           "thunder": 20,
@@ -1255,7 +1327,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SPARKLING_HOPE",
@@ -1283,7 +1356,8 @@
         "entry": {
           "icon": "unknown"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MASSIVE_BASH",
@@ -1306,7 +1380,8 @@
         "upgrade": {
           "spell": "SPELL_1"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TEMPEST",
@@ -1324,7 +1399,9 @@
         "SPIRIT_OF_THE_RABBIT"
       ],
       "properties": {
-        "extend": "SPELL_4",
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "damage": {
           "neutral": 30,
           "earth": 10,
@@ -1339,7 +1416,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SPIRIT_OF_THE_RABBIT",
@@ -1364,7 +1442,8 @@
         },
         "spell": "SPELL_2",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MASSACRE",
@@ -1387,7 +1466,8 @@
         "upgrade": {
           "ability": "BAKALS_GRASP"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "AXE_KICK",
@@ -1413,7 +1493,8 @@
         "damage_modifier": {
           "neutral": 100
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "RADIANCE",
@@ -1433,7 +1514,9 @@
         "CHEAPER_BASH_II"
       ],
       "properties": {
-        "extend": "SPELL_1",
+        "extend": {
+          "spell": "SPELL_1"
+        },
         "effect": {
           "type": "ALLIES_ID_EFFECTIVENESS",
           "modifier": 20
@@ -1444,7 +1527,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_BASH_II",
@@ -1468,7 +1552,8 @@
         },
         "spell": "SPELL_1",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_WAR_SCREAM",
@@ -1490,7 +1575,8 @@
         },
         "spell": "SPELL_4",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DISCOMBOBULATE",
@@ -1508,7 +1594,8 @@
       "predecessors": [
         "CYCLONE"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "CYCLONE",
@@ -1525,7 +1612,9 @@
         "SPIRIT_OF_THE_RABBIT"
       ],
       "properties": {
-        "extend": "SPELL_4",
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "damage": {
           "neutral": 10,
           "air": 10,
@@ -1540,7 +1629,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "THUNDERCLAP",
@@ -1567,7 +1657,8 @@
           "shape": "CIRCLE"
         },
         "element_convert": "THUNDER"
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SECOND_CHANCE",
@@ -1587,7 +1678,8 @@
       ],
       "properties": {
         "cooldown": 600
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BLOOD_PACT",
@@ -1609,7 +1701,8 @@
         "entry": {
           "icon": "unknown"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "HAEMORRHAGE",
@@ -1629,7 +1722,8 @@
         "upgrade": {
           "ability": "BLOOD_PACT"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BRINK_OF_MADNESS",
@@ -1646,7 +1740,8 @@
         "BLOOD_PACT",
         "CHEAPER_UPPERCUT_II"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "CHEAPER_UPPERCUT_II",
@@ -1669,7 +1764,8 @@
         },
         "spell": "SPELL_3",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MARTYR",
@@ -1694,7 +1790,8 @@
           "range": 12,
           "shape": "CIRCLE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARROW_BOMB",
@@ -1725,7 +1822,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BOW_PROFICIENCY_I",
@@ -1744,7 +1842,8 @@
       "properties": {
         "main_damage_modifier": 5,
         "main_range_modifier": 6
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ARROW_BOMB_I",
@@ -1766,7 +1865,8 @@
         },
         "spell": "SPELL_3",
         "mana_modifier": -10
-      }
+      },
+      "metadata": null
     },
     {
       "id": "HEART_SHATTER",
@@ -1783,7 +1883,9 @@
         "BOW_PROFICIENCY_I"
       ],
       "properties": {
-        "extend": "SPELL_3",
+        "extend": {
+          "spell": "SPELL_3"
+        },
         "damage": {
           "neutral": 100
         },
@@ -1791,7 +1893,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ESCAPE",
@@ -1814,7 +1917,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DOUBLE_SHOTS",
@@ -1832,7 +1936,8 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "POWER_SHOTS",
@@ -1850,7 +1955,8 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "ARROW_STORM",
@@ -1882,7 +1988,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ESCAPE_I",
@@ -1905,7 +2012,8 @@
         },
         "spell": "SPELL_2",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARROW_SHIELD",
@@ -1935,7 +2043,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WINDY_FEET",
@@ -1952,7 +2061,9 @@
         "ARROW_STORM"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "effect": {
           "type": "ALLIES_WALK_SPEED",
           "modifier": 20
@@ -1966,7 +2077,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCHER_AIR_MASTERY",
@@ -1988,7 +2100,8 @@
           "raw": "3-4",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCHER_THUNDER_MASTERY",
@@ -2012,7 +2125,8 @@
           "raw": "1-8",
           "pct": 10
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCHER_FIRE_MASTERY",
@@ -2036,7 +2150,8 @@
           "raw": "3-5",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCHER_EARTH_MASTERY",
@@ -2058,7 +2173,8 @@
           "raw": "2-4",
           "pct": 20
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCHER_WATER_MASTERY",
@@ -2082,7 +2198,8 @@
           "raw": "2-4",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARROW_RAIN",
@@ -2100,7 +2217,9 @@
         "NIMBLE_STRING"
       ],
       "properties": {
-        "extend": "SPELL_4",
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "damage": {
           "neutral": 120,
           "air": 80,
@@ -2111,7 +2230,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "NIMBLE_STRING",
@@ -2140,7 +2260,8 @@
           "hits": 6,
           "label": "ARROW"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PHANTOM_RAY",
@@ -2178,7 +2299,8 @@
           "icon": "unknown",
           "type": "REPLACE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FIRE_CREEP",
@@ -2197,7 +2319,9 @@
         "BRYOPHYTE_ROOTS"
       ],
       "properties": {
-        "extend": "SPELL_3",
+        "extend": {
+          "spell": "SPELL_3"
+        },
         "damage": {
           "neutral": 30,
           "fire": 20
@@ -2211,7 +2335,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BRYOPHYTE_ROOTS",
@@ -2231,7 +2356,9 @@
         "FIRE_CREEP"
       ],
       "properties": {
-        "extend": "SPELL_1",
+        "extend": {
+          "spell": "SPELL_1"
+        },
         "damage": {
           "neutral": 40,
           "earth": 20
@@ -2249,7 +2376,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TRIPLE_SHOTS",
@@ -2266,7 +2394,8 @@
         "ARROW_RAIN",
         "FRENZY"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "FRENZY",
@@ -2283,7 +2412,8 @@
         "NIMBLE_STRING",
         "TRIPLE_SHOTS"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "GUARDIAN_ANGELS",
@@ -2317,7 +2447,8 @@
           "icon": "unknown",
           "type": "REPLACE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FOCUS",
@@ -2340,7 +2471,8 @@
         "entry": {
           "icon": "unknown"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BASALTIC_TRAP",
@@ -2359,7 +2491,9 @@
         "BRYOPHYTE_ROOTS"
       ],
       "properties": {
-        "extend": "SPELL_3",
+        "extend": {
+          "spell": "SPELL_3"
+        },
         "damage": {
           "neutral": 190,
           "earth": 30,
@@ -2374,7 +2508,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WINDSTORM",
@@ -2406,7 +2541,8 @@
           "label": "ARROW"
         },
         "archer_stream_modifier": 1
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ARROW_STORM_I",
@@ -2430,7 +2566,8 @@
         },
         "spell": "SPELL_1",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "GRAPPLING_HOOK",
@@ -2457,7 +2594,8 @@
           "icon": "unknown",
           "type": "REPLACE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MORE_SHIELDS",
@@ -2480,7 +2618,8 @@
         },
         "charges_modifier": 2,
         "archer_sentient_bows_modifier": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MORE_FOCUS_I",
@@ -2502,7 +2641,8 @@
           "ability": "FOCUS"
         },
         "focus_damage_bonus": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "IMPLOSION",
@@ -2527,7 +2667,8 @@
         "damage_modifier": {
           "neutral": 40
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PATIENT_HUNTER",
@@ -2547,7 +2688,8 @@
         "upgrade": {
           "ability": "BASALTIC_TRAP"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "STORMY_FEET",
@@ -2572,7 +2714,8 @@
           "modifier": 20
         },
         "duration_modifier": 60
-      }
+      },
+      "metadata": null
     },
     {
       "id": "REFINED_GUNPOWDER",
@@ -2596,7 +2739,8 @@
         "damage_modifier": {
           "neutral": 50
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TRAVELER",
@@ -2613,7 +2757,8 @@
         "REFINED_GUNPOWDER",
         "TWAINS_ARC"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "TWAINS_ARC",
@@ -2640,7 +2785,8 @@
         "entry": {
           "icon": "unknown"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BOUNCING_BOMB",
@@ -2660,7 +2806,8 @@
         "upgrade": {
           "spell": "SPELL_3"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FIERCE_STOMP",
@@ -2678,7 +2825,9 @@
         "TRAVELER"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "damage": {
           "neutral": 100
         },
@@ -2690,7 +2839,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SCORCHED_EARTH",
@@ -2719,7 +2869,8 @@
           "range": 0.4,
           "shape": "LINE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MORE_TRAPS",
@@ -2739,7 +2890,8 @@
         "upgrade": {
           "ability": "BASALTIC_TRAP"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "LEAP",
@@ -2763,7 +2915,8 @@
         "entry": {
           "icon": "unknown"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "HOMING_SHOTS",
@@ -2780,7 +2933,8 @@
         "LEAP",
         "SHOCKING_BOMB"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "SHOCKING_BOMB",
@@ -2805,7 +2959,8 @@
           "spell": "SPELL_3"
         },
         "element_convert": "THUNDER"
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BETTER_ARROW_SHIELD",
@@ -2835,7 +2990,8 @@
           "range": 1,
           "shape": "CIRCLE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MANA_TRAP",
@@ -2855,6 +3011,9 @@
         "MORE_TRAPS"
       ],
       "properties": {
+        "extend": {
+          "ability": "BASALTIC_TRAP"
+        },
         "modify": {
           "spell": "SPELL_3"
         },
@@ -2864,9 +3023,9 @@
         "entry": {
           "icon": "unknown",
           "type": "EXTEND"
-        },
-        "extend": "BASALTIC_TRAP"
-      }
+        }
+      },
+      "metadata": null
     },
     {
       "id": "BETTER_LEAP",
@@ -2888,7 +3047,8 @@
           "ability": "LEAP"
         },
         "cooldown_modifier": -1
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ESCAPE_ARTIST",
@@ -2908,7 +3068,9 @@
         "BETTER_GUARDIAN_ANGELS"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "damage": {
           "neutral": 20,
           "thunder": 10,
@@ -2919,7 +3081,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BETTER_GUARDIAN_ANGELS",
@@ -2944,7 +3107,8 @@
         "damage_modifier": {
           "hits": 4
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "INITIATOR",
@@ -2968,7 +3132,8 @@
         "upgrade": {
           "ability": "FOCUS"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ARROW_STORM_II",
@@ -2991,7 +3156,8 @@
         },
         "spell": "SPELL_1",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CALL_OF_THE_HOUND",
@@ -3009,7 +3175,9 @@
         "CHEAPER_ARROW_STORM_II"
       ],
       "properties": {
-        "extend": "SPELL_4",
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "damage": {
           "neutral": 40
         },
@@ -3018,7 +3186,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARROW_HURRICANE",
@@ -3045,7 +3214,8 @@
           "ability": "ARROW_STORM"
         },
         "archer_stream_modifier": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PRECISE_SHOT",
@@ -3065,7 +3235,8 @@
       ],
       "properties": {
         "critical_damage": 30
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ARROW_SHIELD",
@@ -3088,7 +3259,8 @@
         },
         "spell": "SPELL_4",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ROCKET_JUMP",
@@ -3109,7 +3281,8 @@
         "upgrade": {
           "spell": "SPELL_3"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SHRAPNEL_BOMB",
@@ -3129,7 +3302,9 @@
         "PRECISE_SHOT"
       ],
       "properties": {
-        "extend": "SPELL_3",
+        "extend": {
+          "spell": "SPELL_3"
+        },
         "damage": {
           "neutral": 40,
           "fire": 20,
@@ -3140,7 +3315,8 @@
           "icon": "unknown",
           "type": "EXTENDx"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DECIMATOR",
@@ -3162,7 +3338,8 @@
           "spell": "SPELL_1",
           "ability": "PHANTOM_RAY"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ESCAPE_II",
@@ -3185,7 +3362,8 @@
         },
         "spell": "SPELL_2",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "STRONGER_HOOK",
@@ -3209,7 +3387,8 @@
           "ability": "GRAPPLING_HOOK"
         },
         "range_modifier": 4
-      }
+      },
+      "metadata": null
     },
     {
       "id": "GEYSER_STOMP",
@@ -3236,7 +3415,8 @@
           "range": 1,
           "shape": "CIRCLE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CREPUSCULAR_RAY",
@@ -3255,7 +3435,9 @@
         "CHEAPER_ARROW_SHIELD"
       ],
       "properties": {
-        "extend": "SPELL_1",
+        "extend": {
+          "spell": "SPELL_1"
+        },
         "damage": {
           "neutral": 20,
           "water": 5,
@@ -3265,7 +3447,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "GRAPE_BOMB",
@@ -3282,7 +3465,9 @@
         "CHEAPER_ESCAPE_II"
       ],
       "properties": {
-        "extend": "SPELL_3",
+        "extend": {
+          "spell": "SPELL_3"
+        },
         "damage": {
           "neutral": 30,
           "fire": 10,
@@ -3296,7 +3481,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ELUSIVE",
@@ -3317,7 +3503,8 @@
           "spell": "SPELL_1",
           "ability": "ARROW_STORM"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TANGLED_TRAPS",
@@ -3334,7 +3521,9 @@
         "GRAPE_BOMB"
       ],
       "properties": {
-        "extend": "BASALTIC_TRAP",
+        "extend": {
+          "ability": "BASALTIC_TRAP"
+        },
         "damage": {
           "neutral": 20,
           "air": 20
@@ -3343,7 +3532,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "STRONGER_PATIENT_HUNTER",
@@ -3363,7 +3553,8 @@
         "upgrade": {
           "ability": "BASALTIC_TRAP"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SNOW_STORM",
@@ -3386,7 +3577,8 @@
           "modifier": 30
         },
         "range": 2.5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MORE_FOCUS_II",
@@ -3408,7 +3600,8 @@
           "ability": "FOCUS"
         },
         "focus_damage_bonus": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ALL_SEEING_PANOPTES",
@@ -3437,7 +3630,8 @@
           "label": "ARROW"
         },
         "range_modifier": 8
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ARROW_BOMB_II",
@@ -3460,7 +3654,8 @@
         },
         "spell": "SPELL_3",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MINEFIELD",
@@ -3490,7 +3685,8 @@
           "range": -2,
           "shape": "CIRCLE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "METEOR",
@@ -3515,11 +3711,11 @@
         "aoe": {
           "range": 5,
           "shape": "CIRCLE"
-        },
-        "entry": {
-          "icon": "unknown",
-          "type": "SPELL"
         }
+      },
+      "metadata": {
+        "icon": "METEOR",
+        "type": "SPELL"
       }
     },
     {
@@ -3539,7 +3735,8 @@
       "properties": {
         "main_damage_modifier": 5,
         "main_range_modifier": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_METEOR_I",
@@ -3561,7 +3758,8 @@
         },
         "spell": "SPELL_3",
         "mana_modifier": -10
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SHOOTING_STAR",
@@ -3582,7 +3780,8 @@
           "spell": "SPELL_3",
           "ability": "METEOR"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WAND_PROFICIENCY_II",
@@ -3603,7 +3802,8 @@
       "properties": {
         "main_damage_modifier": 5,
         "main_range_modifier": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TELEPORT",
@@ -3627,7 +3827,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WISDOM",
@@ -3645,7 +3846,8 @@
       "predecessors": [
         "TELEPORT"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "HEAL",
@@ -3671,7 +3873,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_TELEPORT_I",
@@ -3694,7 +3897,8 @@
         },
         "spell": "SPELL_2",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ICE_SNAKE",
@@ -3728,7 +3932,8 @@
           "icon": "unknown",
           "type": "SPELL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MAGE_AIR_MASTERY",
@@ -3750,7 +3955,8 @@
           "raw": "3-4",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MAGE_THUNDER_MASTERY",
@@ -3773,7 +3979,8 @@
           "raw": "1-8",
           "pct": 10
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MAGE_FIRE_MASTERY",
@@ -3795,7 +4002,8 @@
           "raw": "3-5",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MAGE_EARTH_MASTERY",
@@ -3817,7 +4025,8 @@
           "raw": "2-4",
           "pct": 20
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MAGE_WATER_MASTERY",
@@ -3840,7 +4049,8 @@
           "raw": "2-4",
           "pct": 15
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WIND_SLASH",
@@ -3867,7 +4077,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "THUNDERSTORM",
@@ -3885,7 +4096,7 @@
         "WIND_SLASH"
       ],
       "properties": {
-        "bounding": {
+        "extend": {
           "spell": "SPELL_3",
           "ability": "METEOR"
         },
@@ -3900,9 +4111,10 @@
         },
         "entry": {
           "icon": "unknown",
-          "type": "BOUND"
+          "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BURNING_SIGIL",
@@ -3920,7 +4132,7 @@
         "MAGE_EARTH_MASTERY"
       ],
       "properties": {
-        "bounding": {
+        "extend": {
           "spell": "SPELL_3",
           "ability": "METEOR"
         },
@@ -3934,9 +4146,10 @@
         },
         "entry": {
           "icon": "unknown",
-          "type": "BOUND"
+          "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SUNSHOWER",
@@ -3955,7 +4168,7 @@
         "MAGE_WATER_MASTERY"
       ],
       "properties": {
-        "bounding": {
+        "extend": {
           "spell": "SPELL_1",
           "ability": "HEAL"
         },
@@ -3965,9 +4178,10 @@
         },
         "entry": {
           "icon": "unknown",
-          "type": "BOUND"
+          "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "STRONGER_METEOR",
@@ -3994,7 +4208,8 @@
           "neutral": 30,
           "earth": 90
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "WINDSWEEPER",
@@ -4023,7 +4238,8 @@
         "entry": {
           "icon": "unknown"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "OPHANIM",
@@ -4054,7 +4270,8 @@
           "icon": "unknown",
           "type": "REPLACE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCANE_TRANSFER",
@@ -4082,7 +4299,8 @@
           "icon": "unknown",
           "type": "REPLACE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_HEAL_I",
@@ -4105,7 +4323,8 @@
         },
         "spell": "SPELL_1",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PURIFICATION",
@@ -4128,7 +4347,8 @@
           "spell": "SPELL_1"
         },
         "cooldown": 3
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SENTIENT_SNAKE",
@@ -4149,7 +4369,8 @@
         "upgrade": {
           "spell": "SPELL_4"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "EYE_PIERCER",
@@ -4173,7 +4394,8 @@
           "type": "ENEMIES_BLINDNESS"
         },
         "duration": 1
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BREATHLESS",
@@ -4199,7 +4421,8 @@
           "earth": 15,
           "label": "WINDED"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "LARGER_HEAL",
@@ -4223,7 +4446,8 @@
           "ability": "HEAL"
         },
         "range_modifier": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "LARGER_MANA_BANK_I",
@@ -4244,7 +4468,8 @@
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ICE_SNAKE_I",
@@ -4267,7 +4492,8 @@
         },
         "spell": "SPELL_4",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FORTITUDE",
@@ -4295,7 +4521,8 @@
         },
         "duration": 5,
         "cooldown": 15
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_TELEPORT_II",
@@ -4318,7 +4545,8 @@
         },
         "spell": "SPELL_2",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PYROKINESIS",
@@ -4337,7 +4565,7 @@
         "SENTIENT_SNAKE"
       ],
       "properties": {
-        "bounding": {
+        "extend": {
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         },
@@ -4350,9 +4578,10 @@
         },
         "entry": {
           "icon": "unknown",
-          "type": "BOUND"
+          "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BLINK",
@@ -4374,7 +4603,8 @@
           "spell": "SPELL_2"
         },
         "range_modifier": -4
-      }
+      },
+      "metadata": null
     },
     {
       "id": "HEALTHIER_OPHANIM_I",
@@ -4397,7 +4627,8 @@
           "spell": "SPELL_3",
           "ability": "OPHANIM"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SNAKE_NEST",
@@ -4422,7 +4653,8 @@
         "damage_modifier": {
           "hits": 2
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SEANCE",
@@ -4439,7 +4671,8 @@
         "PYROKINESIS",
         "SNAKE_NEST"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "TRANSONIC_WARP",
@@ -4468,7 +4701,8 @@
           "air": 5,
           "label": "WINDED"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "FLUID_HEALING",
@@ -4490,7 +4724,8 @@
           "spell": "SPELL_1",
           "ability": "HEAL"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ORPHIONS_PULSE",
@@ -4515,7 +4750,8 @@
           "ability": "HEAL"
         },
         "pulse_heal": 15
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCANE_RESTORATION",
@@ -4537,7 +4773,8 @@
           "ability": "PYROKINESIS"
         },
         "duration": 4
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DIFFUSION",
@@ -4561,7 +4798,8 @@
           "ability": "WINDSWEEPER"
         },
         "range": 6
-      }
+      },
+      "metadata": null
     },
     {
       "id": "LIGHTWEAVER",
@@ -4581,7 +4819,7 @@
         "ARCANE_SPEED"
       ],
       "properties": {
-        "bounding": {
+        "extend": {
           "spell": "SPELL_1",
           "ability": "HEAL"
         },
@@ -4591,9 +4829,10 @@
         },
         "entry": {
           "icon": "unknown",
-          "type": "BOUND"
+          "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCANE_SPEED",
@@ -4616,7 +4855,8 @@
         },
         "duration": 3,
         "cooldown": 8
-      }
+      },
+      "metadata": null
     },
     {
       "id": "LARGER_MANA_BANK_II",
@@ -4638,7 +4878,8 @@
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MORE_WINDED_I",
@@ -4658,7 +4899,8 @@
         "upgrade": {
           "ability": "WINDSWEEPER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "PSYCHOKINESIS",
@@ -4682,7 +4924,8 @@
           "spell": "SPELL_3",
           "ability": "METEOR"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_ICE_SNAKE_II",
@@ -4705,7 +4948,8 @@
         },
         "spell": "SPELL_4",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "EXPLOSIVE_ENTRANCE",
@@ -4736,7 +4980,8 @@
           "icon": "unknown",
           "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_METEOR_II",
@@ -4760,7 +5005,8 @@
         },
         "spell": "SPELL_3",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHAOS_EXPLOSION",
@@ -4779,15 +5025,16 @@
         "LARGER_MANA_BANK_II"
       ],
       "properties": {
-        "bounding": {
+        "extend": {
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         },
         "entry": {
           "icon": "unknown",
-          "type": "BOUND"
+          "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TIME_DILATION",
@@ -4815,7 +5062,8 @@
           "range": 2,
           "shape": "CIRCLE"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "GUST",
@@ -4841,7 +5089,8 @@
         "damage_modifier": {
           "air": 20
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BETTER_OPHANIM",
@@ -4863,7 +5112,8 @@
           "spell": "SPELL_3",
           "ability": "OPHANIM"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCTIC_SNAKE",
@@ -4884,7 +5134,8 @@
           "spell": "SPELL_4"
         },
         "duration": 2
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCANE_POWER",
@@ -4905,7 +5156,8 @@
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MORE_WINDED_II",
@@ -4926,7 +5178,8 @@
         "upgrade": {
           "ability": "WINDSWEEPER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DYNAMIC_FAITH",
@@ -4943,7 +5196,8 @@
         "MORE_WINDED_II",
         "HEALTHIER_OPHANIM_II"
       ],
-      "properties": {}
+      "properties": {},
+      "metadata": null
     },
     {
       "id": "HEALTHIER_OPHANIM_II",
@@ -4965,7 +5219,8 @@
           "spell": "SPELL_3",
           "ability": "OPHANIM"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "LARGER_MANA_BANK_III",
@@ -4986,7 +5241,8 @@
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DEVITALIZE",
@@ -5009,7 +5265,8 @@
         "upgrade": {
           "ability": "WINDSWEEPER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "DIVINATION",
@@ -5035,7 +5292,8 @@
           "neutral": -50,
           "thunder": -10
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "SUNFLARE",
@@ -5064,7 +5322,8 @@
           "modifier": 100
         },
         "duration": 5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "ARCANE_OVERFLOW",
@@ -5087,7 +5346,8 @@
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "TIMELOCK",
@@ -5107,7 +5367,7 @@
         "CHEAPER_HEAL_II"
       ],
       "properties": {
-        "bounding": {
+        "extend": {
           "spell": "SPELL_1",
           "ability": "HEAL"
         },
@@ -5115,9 +5375,10 @@
         "duration_modifier": 1,
         "entry": {
           "icon": "unknown",
-          "type": "BOUND"
+          "type": "EXTEND"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "CHEAPER_HEAL_II",
@@ -5140,7 +5401,8 @@
         },
         "spell": "SPELL_1",
         "mana_modifier": -5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MANASTORM",
@@ -5162,7 +5424,8 @@
       ],
       "properties": {
         "duration": 5
-      }
+      },
+      "metadata": null
     },
     {
       "id": "MEMORY_RECOLLECTION",
@@ -5182,7 +5445,8 @@
         "upgrade": {
           "ability": "CHAOS_EXPLOSION"
         }
-      }
+      },
+      "metadata": null
     },
     {
       "id": "BETTER_LIGHTWEAVER",
@@ -5203,7 +5467,8 @@
         "upgrade": {
           "ability": "LIGHTWEAVER"
         }
-      }
+      },
+      "metadata": null
     }
   ],
   "version": "1.0.8"

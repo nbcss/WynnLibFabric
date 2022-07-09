@@ -36,6 +36,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
     private val placeholderMap: MutableMap<String, String> = HashMap()
     private val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
+    private val metadata: AbilityMetadata?
     //private val effect: AbilityEffect
     init {
         id = json["id"].asString
@@ -64,7 +65,11 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             4 -> Tier.TIER_4
             else -> Tier.ofCharacter(character)
         }
-        //effect = AbilityEffect.fromData(this, json["properties"].asJsonObject)
+        metadata = if (json.has("metadata") && json["metadata"].isJsonObject){
+            AbilityMetadata(this, json["metadata"].asJsonObject)
+        }else{
+            null
+        }
         if (json.has("properties")){
             json["properties"].asJsonObject.entrySet().forEach {
                 AbilityProperty.fromData(this, it.key, it.value)?.let { property ->
@@ -86,6 +91,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     fun getPosition(): Int = position
 
     fun getAbilityPointCost(): Int = cost
+
+    fun getMetadata(): AbilityMetadata? = metadata
 
     fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
 
@@ -124,6 +131,15 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         placeholderMap[key] = value
     }
 
+    fun getDescriptionTooltip(): List<Text> {
+        val desc = replaceProperty(replaceProperty(translate("desc").string, '$')
+        { getPlaceholder(it) }, '@') {
+            val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
+            from(name).translate().string
+        }
+        return formattingLines(desc, 190, Formatting.GRAY.toString()).toList()
+    }
+
     fun getTooltip(build: AbilityBuild? = null): List<Text> {
         val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
@@ -134,14 +150,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             }
         }
         tooltip.add(LiteralText.EMPTY)
-        val desc = replaceProperty(replaceProperty(translate("desc").string, '$')
-        { getPlaceholder(it) }, '@') {
-            val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
-            from(name).translate().string
-        }
-        formattingLines(desc, 190, Formatting.GRAY.toString()).forEach { line ->
-            tooltip.add(line)
-        }
+        tooltip.addAll(getDescriptionTooltip())
         tooltip.add(LiteralText.EMPTY)
         //Add effect tooltip
         val propertyTooltip = getPropertiesTooltip()
