@@ -22,12 +22,11 @@ open class SpellEntry(private val spell: SpellSlot,
                 null
             }
         }
-
     }
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
-        tooltip.add(getDisplayNameText().formatted(Formatting.BOLD))
+        tooltip.add(getDisplayNameText().append(" ${getTierText()}").formatted(Formatting.BOLD))
         tooltip.add(spell.getComboText(getAbility().getCharacter()))
         tooltip.add(LiteralText.EMPTY)
         tooltip.addAll(getDescriptionTooltip())
@@ -36,6 +35,14 @@ open class SpellEntry(private val spell: SpellSlot,
         if (propertyTooltip.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
             tooltip.addAll(propertyTooltip)
+        }
+        if (getUpgrades().isNotEmpty()){
+            tooltip.add(LiteralText.EMPTY)
+            tooltip.add(LiteralText("Upgrades:").formatted(Formatting.GRAY))
+            for (upgrade in getUpgrades()) {
+                tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
+                    .append(upgrade.formatted(upgrade.getTier().getFormatting())))
+            }
         }
         return tooltip
     }

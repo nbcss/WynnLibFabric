@@ -84,7 +84,7 @@ open class PropertyEntry(private val root: Ability,
 
     open fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
-        tooltip.add(getDisplayNameText().formatted(Formatting.BOLD))
+        tooltip.add(getDisplayNameText().append(" ${getTierText()}").formatted(Formatting.BOLD))
         tooltip.add(LiteralText.EMPTY)
         tooltip.addAll(getDescriptionTooltip())
         //Add effect tooltip
@@ -92,6 +92,14 @@ open class PropertyEntry(private val root: Ability,
         if (propertyTooltip.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
             tooltip.addAll(propertyTooltip)
+        }
+        if (upgrades.isNotEmpty()){
+            tooltip.add(LiteralText.EMPTY)
+            tooltip.add(LiteralText("Upgrades:").formatted(Formatting.GRAY))
+            for (upgrade in upgrades) {
+                tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
+                    .append(upgrade.formatted(upgrade.getTier().getFormatting())))
+            }
         }
         return tooltip
     }

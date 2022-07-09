@@ -2,7 +2,11 @@ package io.github.nbcss.wynnlib.abilities.properties.archer
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.signed
@@ -10,19 +14,25 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class ArcherStreamProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+class ArcherStreamProperty(ability: Ability,
+                           private val streams: Int):
+    AbilityProperty(ability), SetupProperty {
     companion object: Factory {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return ArcherStreamProperty(ability, data)
+            return ArcherStreamProperty(ability, data.asInt)
         }
         override fun getKey(): String = "archer_stream"
     }
-    private val streams: Int = data.asInt
-    init {
-        ability.putPlaceholder(getKey(), streams.toString())
-    }
 
     fun getArcherStreams(): Int = streams
+
+    override fun writePlaceholder(container: PlaceholderContainer) {
+        container.putPlaceholder(getKey(), streams.toString())
+    }
+
+    override fun setup(entry: PropertyEntry) {
+        entry.setProperty(getKey(), this)
+    }
 
     override fun getTooltip(): List<Text> {
         return listOf(Symbol.ALTER_HITS.asText().append(" ")
@@ -30,7 +40,8 @@ class ArcherStreamProperty(ability: Ability, data: JsonElement): AbilityProperty
             .append(LiteralText(streams.toString()).formatted(Formatting.WHITE)))
     }
 
-    class Modifier(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+    class Modifier(ability: Ability, data: JsonElement):
+        AbilityProperty(ability), ModifiableProperty {
         companion object: Factory {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data)
@@ -43,6 +54,13 @@ class ArcherStreamProperty(ability: Ability, data: JsonElement): AbilityProperty
         }
 
         fun getArcherStreamsModifier(): Int = modifier
+
+        override fun modify(entry: PropertyEntry) {
+            entry.getProperty(ArcherStreamProperty.getKey())?.let {
+                val streams = (it as ArcherStreamProperty).getArcherStreams() + getArcherStreamsModifier()
+                entry.setProperty(ArcherStreamProperty.getKey(), ArcherStreamProperty(it.getAbility(), streams))
+            }
+        }
 
         override fun getTooltip(): List<Text> {
             return listOf(Symbol.ALTER_HITS.asText().append(" ")

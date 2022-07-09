@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.archer.ArcherSentientBowsProperty
 import io.github.nbcss.wynnlib.abilities.properties.archer.ArcherStreamProperty
@@ -60,6 +61,8 @@ abstract class AbilityProperty(private val ability: Ability) {
             return (factoryMap[key.lowercase()] ?: return null).create(ability, data)
         }
     }
+
+    open fun writePlaceholder(container: PlaceholderContainer) = Unit
 
     open fun updateEntries(container: EntryContainer) = Unit
 

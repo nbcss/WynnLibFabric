@@ -2,7 +2,9 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 import io.github.nbcss.wynnlib.data.DamageMultiplier
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.i18n.Translations
@@ -12,7 +14,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class DamageModifierProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+class DamageModifierProperty(ability: Ability, data: JsonElement):
+    AbilityProperty(ability), ModifiableProperty {
     companion object: Factory {
         private const val HITS_KEY: String = "hits"
         private const val DAMAGE_LABEL_KEY: String = "label"
@@ -38,6 +41,13 @@ class DamageModifierProperty(ability: Ability, data: JsonElement): AbilityProper
     }
 
     fun getDamageModifier(): DamageMultiplier = modifier
+
+    override fun modify(entry: PropertyEntry) {
+        entry.getProperty(DamageProperty.getKey())?.let {
+            val damage = (it as DamageProperty).getDamage().add(modifier, modifier.getDamageLabel())
+            entry.setProperty(DamageProperty.getKey(), DamageProperty(it.getAbility(), damage))
+        }
+    }
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
