@@ -5,6 +5,9 @@ import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.ManaCostProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
+import net.minecraft.text.MutableText
+import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
 class ReplaceSpellEntry(parent: PropertyEntry,
@@ -29,5 +32,10 @@ class ReplaceSpellEntry(parent: PropertyEntry,
             val cost = (it as ManaCostProperty).getManaCost()
             setProperty(ManaCostProperty.getKey(), ManaCostProperty(root, cost))
         }
+    }
+
+    override fun getDisplayNameText(): MutableText {
+        return getAbility().translate()
+            .formatted(Ability.Tier.ofCharacter(getAbility().getCharacter()).getFormatting())
     }
 }

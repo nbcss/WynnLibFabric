@@ -1,13 +1,16 @@
 package io.github.nbcss.wynnlib.gui.ability
 
+import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.Pos
 import io.github.nbcss.wynnlib.utils.playSound
+import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
@@ -214,7 +217,8 @@ class AbilityTreeBuilderScreen(parent: Screen?,
             val x2 = x1 + 18
             val y1 = windowY + 44 + i * 20
             val y2 = y1 + 18
-            //DrawableHelper.fill(matrices, x1, y1, x2, y2, Color.GRAY.toSolidColor().getColorCode())
+            RenderSystem.enableDepthTest()
+            DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 106, y2 + 1, Color.DARK_GRAY.toSolidColor().getColorCode())
             RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
                 18, 18, 18, 18)
             val tier = entry.getTierText()
@@ -222,7 +226,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 x2.toFloat() - textRenderer.getWidth(tier) + 1,
                 y2.toFloat() - 7, 0xFFFFFF
             )
-            textRenderer.draw(matrices, entry.getAbility().translate(),
+            textRenderer.drawWithShadow(matrices, entry.getDisplayNameText(),
                 x2.toFloat() + 3,
                 y1.toFloat() + 1, 0
             )
@@ -230,6 +234,9 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 x2.toFloat() + 3,
                 y1.toFloat() + 10, 0xFFFFFF
             )
+            if (mouseY in y1..y2 && mouseX >= x1 && mouseX <= x1 + 100){
+                drawTooltip(matrices, entry.getTooltip(), mouseX, mouseY)
+            }
         }
         //========****=========
         var archetypeX = viewerX + 2

@@ -63,13 +63,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
             2 -> Tier.TIER_2
             3 -> Tier.TIER_3
             4 -> Tier.TIER_4
-            else -> when (character) {
-                CharacterClass.WARRIOR -> Tier.WARRIOR_SPELL
-                CharacterClass.ARCHER -> Tier.ARCHER_SPELL
-                CharacterClass.MAGE -> Tier.MAGE_SPELL
-                CharacterClass.ASSASSIN -> Tier.ASSASSIN_SPELL
-                CharacterClass.SHAMAN -> Tier.SHAMAN_SPELL
-            }
+            else -> Tier.ofCharacter(character)
         }
         //effect = AbilityEffect.fromData(this, json["properties"].asJsonObject)
         if (json.has("properties")){
@@ -136,15 +130,7 @@ class Ability(json: JsonObject): Keyed, Translatable {
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
         if (getTier().getLevel() == 0){
             properties[BoundSpellProperty.getKey()]?.let {
-                (it as BoundSpellProperty).getSpell().getClickCombo(getCharacter().getSpellKey()).let { combo ->
-                    tooltip.add(TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
-                        .append(LiteralText(": ").formatted(Formatting.GOLD))
-                        .append(combo[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
-                        .append(LiteralText("-").formatted(Formatting.WHITE))
-                        .append(combo[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
-                        .append(LiteralText("-").formatted(Formatting.WHITE))
-                        .append(combo[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
-                }
+                tooltip.add((it as BoundSpellProperty).getSpell().getComboText(getCharacter()))
             }
         }
         tooltip.add(LiteralText.EMPTY)
@@ -295,6 +281,17 @@ class Ability(json: JsonObject): Keyed, Translatable {
             ItemFactory.fromEncoding("minecraft:stone_axe#54"),
             ItemFactory.fromEncoding("minecraft:stone_axe#55"),
             ItemFactory.fromEncoding("minecraft:stone_axe#56"));
+        companion object {
+            fun ofCharacter(character: CharacterClass): Tier {
+                return when (character) {
+                    CharacterClass.WARRIOR -> WARRIOR_SPELL
+                    CharacterClass.ARCHER -> ARCHER_SPELL
+                    CharacterClass.MAGE -> MAGE_SPELL
+                    CharacterClass.ASSASSIN -> ASSASSIN_SPELL
+                    CharacterClass.SHAMAN -> SHAMAN_SPELL
+                }
+            }
+        }
 
         fun getLevel(): Int = level
 

@@ -3,9 +3,15 @@ package io.github.nbcss.wynnlib.abilities.builder.entries
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
+import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.formattingLines
+import io.github.nbcss.wynnlib.utils.replaceProperty
 import net.minecraft.text.LiteralText
+import net.minecraft.text.MutableText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
 open class PropertyEntry(private val root: Ability,
@@ -30,6 +36,7 @@ open class PropertyEntry(private val root: Ability,
         }
     }
     protected val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
+    private val placeholderMap: MutableMap<String, String> = HashMap()
     private val upgrades: MutableList<Ability> = ArrayList()
 
     fun getAbility(): Ability = root
@@ -48,8 +55,45 @@ open class PropertyEntry(private val root: Ability,
         return upgrades
     }
 
-    fun getTooltip(): List<Text> {
-        return emptyList()
+    open fun getDisplayNameText(): MutableText {
+        return getAbility().translate()
+            .formatted(getAbility().getTier().getFormatting())
+    }
+
+    fun getPlaceholder(key: String): String {
+        return placeholderMap.getOrDefault(key, key)
+    }
+
+    fun putPlaceholder(key: String, value: String) {
+        placeholderMap[key] = value
+    }
+
+    fun getPropertiesTooltip(): List<Text> {
+        return properties.values.map { it.getTooltip() }.flatten()
+    }
+
+    fun getDescriptionTooltip(): List<Text> {
+        //fixme replace with own placeholder
+        val desc = replaceProperty(replaceProperty(root.translate("desc").string, '$')
+        { root.getPlaceholder(it) }, '@') {
+            val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
+            Translatable.from(name).translate().string
+        }
+        return formattingLines(desc, 190, Formatting.GRAY.toString()).toList()
+    }
+
+    open fun getTooltip(): List<Text> {
+        val tooltip: MutableList<Text> = ArrayList()
+        tooltip.add(getDisplayNameText().formatted(Formatting.BOLD))
+        tooltip.add(LiteralText.EMPTY)
+        tooltip.addAll(getDescriptionTooltip())
+        //Add effect tooltip
+        val propertyTooltip = getPropertiesTooltip()
+        if (propertyTooltip.isNotEmpty()){
+            tooltip.add(LiteralText.EMPTY)
+            tooltip.addAll(propertyTooltip)
+        }
+        return tooltip
     }
 
     override fun getKey(): String = root.getKey()

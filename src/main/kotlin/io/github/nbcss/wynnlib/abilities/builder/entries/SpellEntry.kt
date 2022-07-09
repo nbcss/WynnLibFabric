@@ -24,6 +24,22 @@ open class SpellEntry(private val spell: SpellSlot,
         }
 
     }
+
+    override fun getTooltip(): List<Text> {
+        val tooltip: MutableList<Text> = ArrayList()
+        tooltip.add(getDisplayNameText().formatted(Formatting.BOLD))
+        tooltip.add(spell.getComboText(getAbility().getCharacter()))
+        tooltip.add(LiteralText.EMPTY)
+        tooltip.addAll(getDescriptionTooltip())
+        //Add effect tooltip
+        val propertyTooltip = getPropertiesTooltip()
+        if (propertyTooltip.isNotEmpty()){
+            tooltip.add(LiteralText.EMPTY)
+            tooltip.addAll(propertyTooltip)
+        }
+        return tooltip
+    }
+
     fun getManaCost(): Int {
         val property = getProperty(ManaCostProperty.getKey())
         if (property is ManaCostProperty){
