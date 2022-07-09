@@ -7,7 +7,6 @@ import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
-import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 import net.minecraft.util.Identifier
 

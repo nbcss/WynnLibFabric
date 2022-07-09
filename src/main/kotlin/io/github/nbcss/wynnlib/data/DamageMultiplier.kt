@@ -21,7 +21,7 @@ data class DamageMultiplier(private val hits: Int,
 
     fun getNeutralDamage(): Int = neutralDamage
 
-    fun getElementalDamage(element: Element): Int = elementalDamage[element]!!
+    fun getElementalDamage(element: Element): Int = elementalDamage[element] ?: 0
 
     fun getNeutralDamageRate(): Double = neutralDamage / 100.0
 

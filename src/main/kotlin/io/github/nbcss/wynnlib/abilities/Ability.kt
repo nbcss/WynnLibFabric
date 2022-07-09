@@ -4,12 +4,11 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
-import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
+import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BLOCKS
-import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_CLICK_COMBO
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_DEPENDENCY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_POINTS

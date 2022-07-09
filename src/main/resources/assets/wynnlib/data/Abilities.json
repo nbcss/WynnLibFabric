@@ -529,9 +529,7 @@
         },
         "mana_modifier": -10,
         "damage_modifier": {
-          "neutral": -70
-        },
-        "damage": {
+          "neutral": -70,
           "water": 30
         },
         "range_modifier": 4
@@ -1567,7 +1565,8 @@
         "aoe_modifier": {
           "range": 3,
           "shape": "CIRCLE"
-        }
+        },
+        "element_convert": "THUNDER"
       }
     },
     {
@@ -2804,7 +2803,8 @@
       "properties": {
         "upgrade": {
           "spell": "SPELL_3"
-        }
+        },
+        "element_convert": "THUNDER"
       }
     },
     {

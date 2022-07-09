@@ -30,6 +30,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 CriticalDamageProperty,
                 ElementMasteryProperty,
                 ResistantBonusProperty,
+                ElementConversionProperty,
                 DamageBonusProperty,
                 DamageBonusProperty.Raw,
                 DamageBonusProperty.PerFocus,

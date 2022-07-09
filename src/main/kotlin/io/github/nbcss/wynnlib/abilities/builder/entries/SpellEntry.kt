@@ -2,8 +2,8 @@ package io.github.nbcss.wynnlib.abilities.builder.entries
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
-import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.ManaCostProperty
+import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.text.LiteralText

@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.abilities
 
-import io.github.nbcss.wynnlib.abilities.properties.general.BoundSpellProperty
+import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.SpellSlot
 import io.github.nbcss.wynnlib.utils.Pos
