@@ -15,7 +15,8 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
 abstract class PropertyEntry(private val ability: Ability,
-                             private val icon: Identifier): Keyed, PropertyProvider {
+                             private val icon: Identifier,
+                             private val upgradable: Boolean): Keyed, PropertyProvider {
     companion object {
         private val factoryMap: Map<String, Factory> = mapOf(
             pairs = listOf(
@@ -78,7 +79,7 @@ abstract class PropertyEntry(private val ability: Ability,
 
     fun getUpgradeTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
-        if (upgrades.isNotEmpty()){
+        if (upgradable && upgrades.isNotEmpty()){
             tooltip.add(LiteralText("Upgrades:").formatted(Formatting.GRAY))
             for (upgrade in upgrades) {
                 tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
@@ -118,22 +119,29 @@ abstract class PropertyEntry(private val ability: Ability,
     }
 
     fun getTierText(): String {
-        return when (getTier()){
-            1 -> "I"
-            2 -> "II"
-            3 -> "III"
-            4 -> "IV"
-            5 -> "V"
-            6 -> "VI"
-            7 -> "VII"
-            8 -> "VIII"
-            9 -> "IX"
-            10 -> "X"
-            else -> "✰"
+        return if (upgradable){
+            when (getTier()){
+                1 -> "I"
+                2 -> "II"
+                3 -> "III"
+                4 -> "IV"
+                5 -> "V"
+                6 -> "VI"
+                7 -> "VII"
+                8 -> "VIII"
+                9 -> "IX"
+                10 -> "X"
+                else -> "✰"
+            }
+        }else{
+            ""
         }
     }
 
     interface Factory: Keyed {
-        fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry?
+        fun create(container: EntryContainer,
+                   ability: Ability,
+                   texture: Identifier,
+                   upgradable: Boolean): PropertyEntry?
     }
 }

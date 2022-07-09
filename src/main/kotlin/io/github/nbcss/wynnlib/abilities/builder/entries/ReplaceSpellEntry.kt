@@ -11,14 +11,18 @@ import net.minecraft.util.Identifier
 class ReplaceSpellEntry(parent: PropertyEntry,
                         spell: SpellSlot,
                         root: Ability,
-                        icon: Identifier): SpellEntry(spell, root, icon) {
+                        icon: Identifier,
+                        upgradable: Boolean): SpellEntry(spell, root, icon, upgradable) {
     companion object: Factory {
-        override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry? {
+        override fun create(container: EntryContainer,
+                            ability: Ability,
+                            texture: Identifier,
+                            upgradable: Boolean): PropertyEntry? {
             val property = BoundSpellProperty.from(ability)
             if (property != null){
                 val current = container.getEntry(property.getSpell().name)
                 if (current != null){
-                    return ReplaceSpellEntry(current, property.getSpell(), ability, texture)
+                    return ReplaceSpellEntry(current, property.getSpell(), ability, texture, upgradable)
                 }
             }
             return null
