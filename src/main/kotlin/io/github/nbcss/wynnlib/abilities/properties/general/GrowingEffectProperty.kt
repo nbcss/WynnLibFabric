@@ -12,14 +12,14 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class GrowingEffectProperty(ability: Ability,
-                            bonus: EffectBonus,
-                            private val max: Int): BonusEffectProperty(ability, bonus) {
+                            bonuses: Map<EffectType, EffectBonus>,
+                            private val max: Int): BonusEffectProperty(ability, bonuses) {
     companion object: Type<GrowingEffectProperty> {
         override fun create(ability: Ability, data: JsonElement): GrowingEffectProperty {
             val json = data.asJsonObject
             val max = if (json.has(MAX_KEY)) json[MAX_KEY].asInt else 0
             val bonus = EffectBonus(json)
-            return GrowingEffectProperty(ability, bonus, max)
+            return GrowingEffectProperty(ability, mapOf(bonus.getEffectType() to bonus), max)
         }
         override fun getKey(): String = "grow_effect"
         private const val MAX_KEY = "max"
@@ -27,21 +27,21 @@ class GrowingEffectProperty(ability: Ability,
 
     fun getMaxModifier(): Int = max
 
-    override fun getTooltip(): List<Text> {
-        val modifier = getEffectBonus().getEffectModifier()
+    override fun getBonusText(bonus: EffectBonus): List<Text> {
+        val modifier = bonus.getEffectModifier()
         val text = Symbol.EFFECT.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_EFFECT.formatted(Formatting.GRAY).append(": "))
         if (modifier != null){
             text.append(Translations.TOOLTIP_SUFFIX_PER_S.formatted(Formatting.WHITE,
                 null, "${signed(modifier)}%")).append(" ")
-                .append(getEffectBonus().getEffectType().formatted(Formatting.GRAY))
+                .append(bonus.getEffectType().formatted(Formatting.GRAY))
             return listOf(text, LiteralText("   (").formatted(Formatting.DARK_GRAY)
                 .append(Symbol.MAX.asText()).append(" ")
                 .append(TOOLTIP_ABILITY_MAX.formatted(Formatting.DARK_GRAY))
                 .append(": ${signed(max)}%)"))
         }else{
             //it should not happen...right?
-            text.append(getEffectBonus().getEffectType().formatted(Formatting.WHITE))
+            text.append(bonus.getEffectType().formatted(Formatting.WHITE))
         }
         return listOf(text)
     }

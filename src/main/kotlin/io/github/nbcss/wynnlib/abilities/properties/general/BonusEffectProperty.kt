@@ -16,18 +16,19 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 open class BonusEffectProperty(ability: Ability,
-                               private val bonus: EffectBonus):
+                               private val bonuses: Map<EffectType, EffectBonus>):
     AbilityProperty(ability), SetupProperty, ModifiableProperty {
     companion object: Type<BonusEffectProperty> {
         private const val TYPE_KEY: String = "type"
         private const val MODIFIER_KEY: String = "modifier"
         override fun create(ability: Ability, data: JsonElement): BonusEffectProperty {
-            return BonusEffectProperty(ability, EffectBonus(data.asJsonObject))
+            val bonus = EffectBonus(data.asJsonObject)
+            return BonusEffectProperty(ability, mapOf(bonus.getEffectType() to bonus))
         }
         override fun getKey(): String = "effect"
     }
 
-    fun getEffectBonus(): EffectBonus = bonus
+    fun getEffectBonus(type: EffectType): EffectBonus? = bonuses[type]
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)
@@ -35,12 +36,23 @@ open class BonusEffectProperty(ability: Ability,
 
     override fun modify(entry: PropertyEntry) {
         from(entry)?.let {
-            val effect = it.getEffectBonus().upgrade(getEffectBonus())
-            entry.setProperty(getKey(), BonusEffectProperty(it.getAbility(), effect))
+            val bonuses: MutableMap<EffectType, EffectBonus> = mutableMapOf()
+            for (effectType in EffectType.values()) {
+                val self = getEffectBonus(effectType)
+                val other = it.getEffectBonus(effectType)
+                if (self != null && other != null){
+                    bonuses[effectType] = other.upgrade(self)
+                }else if(self != null){
+                    bonuses[effectType] = self
+                }else if(other != null){
+                    bonuses[effectType] = other
+                }
+            }
+            entry.setProperty(getKey(), BonusEffectProperty(it.getAbility(), bonuses))
         }
     }
 
-    override fun getTooltip(): List<Text> {
+    open fun getBonusText(bonus: EffectBonus): List<Text> {
         val modifier = bonus.getEffectModifier()
         val text = Symbol.EFFECT.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_EFFECT.formatted(Formatting.GRAY).append(": "))
@@ -51,6 +63,10 @@ open class BonusEffectProperty(ability: Ability,
             text.append(bonus.getEffectType().formatted(Formatting.WHITE))
         }
         return listOf(text)
+    }
+
+    override fun getTooltip(): List<Text> {
+        return bonuses.values.map { getBonusText(it) }.flatten()
     }
 
     data class EffectBonus(private val type: EffectType,

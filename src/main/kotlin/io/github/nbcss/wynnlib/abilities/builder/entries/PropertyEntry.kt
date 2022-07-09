@@ -44,7 +44,9 @@ abstract class PropertyEntry(private val ability: Ability,
     }
 
     fun addUpgrade(ability: Ability) {
-        upgrades.add(ability)
+        if (ability != this.ability){
+            upgrades.add(ability)
+        }
     }
 
     fun getUpgrades(): List<Ability> {

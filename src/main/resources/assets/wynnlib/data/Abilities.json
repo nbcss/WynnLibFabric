@@ -2419,12 +2419,11 @@
         "PHANTOM_RAY"
       ],
       "properties": {
-        "focus_damage_bonus": 40,
-        "entry": {
-          "icon": "unknown"
-        }
+        "focus_damage_bonus": 40
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "BASALTIC_TRAP",
@@ -2729,12 +2728,11 @@
         "damage": {
           "neutral": 200
         },
-        "range": 64,
-        "entry": {
-          "icon": "unknown"
-        }
+        "range": 64
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "BOUNCING_BOMB",
@@ -2857,12 +2855,11 @@
         "HOMING_SHOTS"
       ],
       "properties": {
-        "cooldown": 2,
-        "entry": {
-          "icon": "unknown"
-        }
+        "cooldown": 2
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "HOMING_SHOTS",
@@ -5283,7 +5280,8 @@
         "duration_modifier": 1
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
