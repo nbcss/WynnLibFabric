@@ -3,7 +3,10 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -14,12 +17,14 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+class AreaOfEffectProperty(ability: Ability,
+                           private val aoe: AreaOfEffect):
+    AbilityProperty(ability), SetupProperty {
     companion object: Factory {
         private const val RANGE_KEY: String = "range"
         private const val SHAPE_KEY: String = "shape"
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return AreaOfEffectProperty(ability, data)
+            return AreaOfEffectProperty(ability, AreaOfEffect(data.asJsonObject))
         }
         override fun getKey(): String = "aoe"
 
@@ -36,9 +41,12 @@ class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty
             return null
         }
     }
-    private val aoe: AreaOfEffect = AreaOfEffect(data.asJsonObject)
 
     fun getAreaOfEffect(): AreaOfEffect = aoe
+
+    override fun setup(entry: PropertyEntry) {
+        entry.setProperty(getKey(), this)
+    }
 
     override fun getTooltip(): List<Text> {
         val range = aoe.getRange()
@@ -61,17 +69,24 @@ class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty
         return listOf(text)
     }
 
-    class Modifier(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+    class Modifier(ability: Ability, data: JsonElement):
+        AbilityProperty(ability), ModifiableProperty {
         companion object: Factory {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data)
             }
             override fun getKey(): String = "aoe_modifier"
-            fun read(data: JsonObject): AreaOfEffect = AreaOfEffect(data)
         }
         private val modifier: AreaOfEffect = AreaOfEffect(data.asJsonObject)
 
         fun getAreaOfEffectModifier(): AreaOfEffect = modifier
+
+        override fun modify(entry: PropertyEntry) {
+            entry.getProperty(AreaOfEffectProperty.getKey())?.let {
+                val aoe = (it as AreaOfEffectProperty).getAreaOfEffect().upgrade(getAreaOfEffectModifier())
+                entry.setProperty(AreaOfEffectProperty.getKey(), AreaOfEffectProperty(it.getAbility(), aoe))
+            }
+        }
 
         override fun getTooltip(): List<Text> {
             val range = modifier.getRange()
@@ -105,6 +120,13 @@ class AreaOfEffectProperty(ability: Ability, data: JsonElement): AbilityProperty
         fun getRange(): DRange = range
 
         fun getShape(): Shape? = shape
+
+        fun upgrade(modifier: AreaOfEffect): AreaOfEffect {
+            val lower = range.lower() + modifier.range.lower()
+            val upper = range.upper() + modifier.range.upper()
+            val shape = modifier.shape ?: this.shape
+            return AreaOfEffect(SimpleDRange(lower, upper), shape)
+        }
     }
 
     enum class Shape: Translatable {

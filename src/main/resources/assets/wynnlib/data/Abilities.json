@@ -2403,7 +2403,8 @@
           "neutral": -10,
           "thunder": -2,
           "air": 2,
-          "hits": 2
+          "hits": 2,
+          "label": "ARROW"
         },
         "archer_stream_modifier": 1
       }
@@ -4723,11 +4724,19 @@
         "CHEAPER_METEOR_II"
       ],
       "properties": {
-        "upgrade": {
-          "spell": "SPELL_3"
+        "extend": "SPELL_2",
+        "damage": {
+          "neutral": 50,
+          "fire": 30
         },
-        "spell": "SPELL_3",
-        "mana_modifier": -5
+        "aoe": {
+          "range": 3,
+          "shape": "CIRCLE"
+        },
+        "entry": {
+          "icon": "unknown",
+          "type": "EXTEND"
+        }
       }
     },
     {
