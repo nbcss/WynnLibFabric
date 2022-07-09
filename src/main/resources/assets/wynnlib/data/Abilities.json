@@ -3994,7 +3994,9 @@
         "THUNDERSTORM"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "damage": {
           "neutral": 50,
           "air": 50
@@ -4876,7 +4878,9 @@
         "CHEAPER_METEOR_II"
       ],
       "properties": {
-        "extend": "SPELL_2",
+        "extend": {
+          "spell": "SPELL_2"
+        },
         "damage": {
           "neutral": 50,
           "fire": 30
