@@ -16,11 +16,11 @@ import net.minecraft.util.Formatting
 
 class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type {
+    companion object: Type<DamageProperty> {
         private const val HITS_KEY: String = "hits"
         private const val DAMAGE_LABEL_KEY: String = "label"
         private const val NEUTRAL_DAMAGE_KEY: String = "neutral"
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        override fun create(ability: Ability, data: JsonElement): DamageProperty {
             val json = data.asJsonObject
             val hits = if (json.has(HITS_KEY)) json[HITS_KEY].asInt else 1
             val label = if (json.has(DAMAGE_LABEL_KEY))

@@ -6,8 +6,8 @@ import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 
 class BoundSpellProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<BoundSpellProperty> {
+        override fun create(ability: Ability, data: JsonElement): BoundSpellProperty {
             return BoundSpellProperty(ability, data)
         }
         override fun getKey(): String = "spell"

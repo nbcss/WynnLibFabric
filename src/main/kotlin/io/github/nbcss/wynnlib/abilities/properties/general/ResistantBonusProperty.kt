@@ -5,8 +5,8 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 
 class ResistantBonusProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<ResistantBonusProperty> {
+        override fun create(ability: Ability, data: JsonElement): ResistantBonusProperty {
             return ResistantBonusProperty(ability, data)
         }
         override fun getKey(): String = "resistant_bonus"

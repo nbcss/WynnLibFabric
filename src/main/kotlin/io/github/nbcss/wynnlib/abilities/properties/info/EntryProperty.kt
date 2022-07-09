@@ -10,11 +10,11 @@ import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import net.minecraft.util.Identifier
 
 class EntryProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
+    companion object: Type<EntryProperty> {
         private val UNKNOWN = Identifier("wynnlib", "textures/icons/unknown.png")
         private const val ICON_KEY: String = "icon"
         private const val TYPE_KEY: String = "type"
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        override fun create(ability: Ability, data: JsonElement): EntryProperty {
             return EntryProperty(ability, data)
         }
         override fun getKey(): String = "entry"

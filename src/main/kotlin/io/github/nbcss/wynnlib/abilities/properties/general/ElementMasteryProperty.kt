@@ -12,11 +12,11 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class ElementMasteryProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
+    companion object: Type<ElementMasteryProperty> {
         private const val ELEMENT_KEY: String = "element"
         private const val RAW_KEY: String = "raw"
         private const val PCT_KEY: String = "pct"
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        override fun create(ability: Ability, data: JsonElement): ElementMasteryProperty {
             return ElementMasteryProperty(ability, data)
         }
         override fun getKey(): String = "element_mastery"

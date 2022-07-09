@@ -5,8 +5,8 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 
 class SelfDamageProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<SelfDamageProperty> {
+        override fun create(ability: Ability, data: JsonElement): SelfDamageProperty {
             return SelfDamageProperty(ability, data)
         }
         override fun getKey(): String = "self_damage"

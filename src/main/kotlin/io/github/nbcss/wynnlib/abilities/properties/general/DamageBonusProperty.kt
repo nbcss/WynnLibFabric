@@ -15,8 +15,8 @@ import net.minecraft.util.Formatting
 
 open class DamageBonusProperty(ability: Ability,
                                protected val bonus: Int): AbilityProperty(ability) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<DamageBonusProperty> {
+        override fun create(ability: Ability, data: JsonElement): DamageBonusProperty {
             return DamageBonusProperty(ability, data.asInt)
         }
         override fun getKey(): String = "damage_bonus"
@@ -40,8 +40,8 @@ open class DamageBonusProperty(ability: Ability,
     }
 
     class Raw(ability: Ability, bonus: Int): DamageBonusProperty(ability, bonus) {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<Raw> {
+            override fun create(ability: Ability, data: JsonElement): Raw {
                 return Raw(ability, data.asInt)
             }
             override fun getKey(): String = "raw_damage_bonus"
@@ -56,8 +56,8 @@ open class DamageBonusProperty(ability: Ability,
 
     class PerFocus(ability: Ability, bonus: Int):
         DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<PerFocus> {
+            override fun create(ability: Ability, data: JsonElement): PerFocus {
                 return PerFocus(ability, data.asInt)
             }
             override fun getKey(): String = "focus_damage_bonus"
@@ -70,8 +70,8 @@ open class DamageBonusProperty(ability: Ability,
         }
 
         override fun modify(entry: PropertyEntry) {
-            entry.getProperty(getKey())?.let {
-                val upgrade = (it as PerFocus).getDamageBonus() + getDamageBonus()
+            from(entry)?.let {
+                val upgrade = it.getDamageBonus() + getDamageBonus()
                 entry.setProperty(getKey(), PerFocus(it.getAbility(), upgrade))
             }
         }

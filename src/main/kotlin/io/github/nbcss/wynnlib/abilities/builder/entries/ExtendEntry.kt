@@ -12,8 +12,8 @@ class ExtendEntry(private val parent: PropertyEntry,
                   root: Ability, icon: Identifier): PropertyEntry(root, icon) {
     companion object: Factory {
         override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry? {
-            val property = ability.getProperty(ExtendProperty.getKey())
-            if (property is ExtendProperty){
+            val property = ExtendProperty.from(ability)
+            if (property != null){
                 val parent = property.getParent(container)
                 if (parent != null){
                     return ExtendEntry(parent, ability, texture)

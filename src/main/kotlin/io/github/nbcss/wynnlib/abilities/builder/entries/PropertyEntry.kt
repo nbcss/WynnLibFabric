@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.abilities.builder.entries
 
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
@@ -14,7 +15,7 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
 open class PropertyEntry(private val root: Ability,
-                         private val icon: Identifier): Keyed {
+                         private val icon: Identifier): Keyed, PropertyProvider {
     companion object: Factory {
         private val factoryMap: Map<String, Factory> = mapOf(
             pairs = listOf(
@@ -40,9 +41,9 @@ open class PropertyEntry(private val root: Ability,
     private val placeholderMap: MutableMap<String, String> = HashMap()
     private val upgrades: MutableList<Ability> = ArrayList()
 
-    fun getAbility(): Ability = root
+    override fun getProperty(key: String): AbilityProperty? = properties[key]
 
-    fun getProperty(key: String): AbilityProperty? = properties[key]
+    fun getAbility(): Ability = root
 
     fun setProperty(key: String, property: AbilityProperty) {
         properties[key] = property

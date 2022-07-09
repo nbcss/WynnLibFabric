@@ -16,8 +16,8 @@ import net.minecraft.util.Formatting
 
 class CooldownProperty(ability: Ability, private val cooldown: Double):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<CooldownProperty> {
+        override fun create(ability: Ability, data: JsonElement): CooldownProperty {
             return CooldownProperty(ability, data.asDouble)
         }
         override fun getKey(): String = "cooldown"
@@ -41,8 +41,8 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
 
     class Modifier(ability: Ability, private val modifier: Double):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<Modifier> {
+            override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data.asDouble)
             }
             override fun getKey(): String = "cooldown_modifier"
@@ -55,8 +55,8 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
         }
 
         override fun modify(entry: PropertyEntry) {
-            entry.getProperty(CooldownProperty.getKey())?.let {
-                val cd = round((it as CooldownProperty).getCooldown() + getCooldownModifier())
+            CooldownProperty.from(entry)?.let {
+                val cd = round(it.getCooldown() + getCooldownModifier())
                 entry.setProperty(CooldownProperty.getKey(), CooldownProperty(it.getAbility(), cd))
             }
         }

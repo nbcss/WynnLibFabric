@@ -17,8 +17,8 @@ import net.minecraft.util.Formatting
 class ArcherStreamProperty(ability: Ability,
                            private val streams: Int):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<ArcherStreamProperty> {
+        override fun create(ability: Ability, data: JsonElement): ArcherStreamProperty {
             return ArcherStreamProperty(ability, data.asInt)
         }
         override fun getKey(): String = "archer_stream"
@@ -42,8 +42,8 @@ class ArcherStreamProperty(ability: Ability,
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<Modifier> {
+            override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data)
             }
             override fun getKey(): String = "archer_stream_modifier"
@@ -56,8 +56,8 @@ class ArcherStreamProperty(ability: Ability,
         fun getArcherStreamsModifier(): Int = modifier
 
         override fun modify(entry: PropertyEntry) {
-            entry.getProperty(ArcherStreamProperty.getKey())?.let {
-                val streams = (it as ArcherStreamProperty).getArcherStreams() + getArcherStreamsModifier()
+            ArcherStreamProperty.from(entry)?.let {
+                val streams = it.getArcherStreams() + getArcherStreamsModifier()
                 entry.setProperty(ArcherStreamProperty.getKey(), ArcherStreamProperty(it.getAbility(), streams))
             }
         }

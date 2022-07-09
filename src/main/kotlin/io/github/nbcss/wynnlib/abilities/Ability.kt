@@ -21,7 +21,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 
-class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer {
+class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, PropertyProvider {
     private val id: String
     //private val name: String
     private val tier: Tier
@@ -112,12 +112,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer {
 
     fun getProperties(): List<AbilityProperty> = properties.values.toList()
 
-    fun getProperty(key: String): AbilityProperty? {
+    override fun getProperty(key: String): AbilityProperty? {
         return properties[key]
-    }
-
-    fun getProperty(type: AbilityProperty.Type): AbilityProperty? {
-        return properties[type.getKey()]
     }
 
     override fun getPlaceholder(key: String): String {

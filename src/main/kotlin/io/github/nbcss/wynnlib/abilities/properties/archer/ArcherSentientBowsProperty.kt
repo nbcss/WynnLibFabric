@@ -17,8 +17,8 @@ import net.minecraft.util.Formatting
 class ArcherSentientBowsProperty(ability: Ability,
                                  private val bows: Int):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<ArcherSentientBowsProperty> {
+        override fun create(ability: Ability, data: JsonElement): ArcherSentientBowsProperty {
             return ArcherSentientBowsProperty(ability, data.asInt)
         }
         override fun getKey(): String = "archer_sentient_bows"
@@ -42,8 +42,8 @@ class ArcherSentientBowsProperty(ability: Ability,
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<Modifier> {
+            override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data)
             }
             override fun getKey(): String = "archer_sentient_bows_modifier"
@@ -56,9 +56,8 @@ class ArcherSentientBowsProperty(ability: Ability,
         fun getArcherSentientBowsModifier(): Int = modifier
 
         override fun modify(entry: PropertyEntry) {
-            entry.getProperty(ArcherSentientBowsProperty.getKey())?.let {
-                val bows = (it as ArcherSentientBowsProperty)
-                    .getArcherSentientBows() + getArcherSentientBowsModifier()
+            ArcherSentientBowsProperty.from(entry)?.let {
+                val bows = it.getArcherSentientBows() + getArcherSentientBowsModifier()
                 entry.setProperty(ArcherSentientBowsProperty.getKey(), ArcherSentientBowsProperty(it.getAbility(), bows))
             }
         }

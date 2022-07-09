@@ -17,8 +17,8 @@ import net.minecraft.util.Formatting
 class ChargeProperty(ability: Ability,
                      private val charges: Int):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<ChargeProperty> {
+        override fun create(ability: Ability, data: JsonElement): ChargeProperty {
             return ChargeProperty(ability, data.asInt)
         }
         override fun getKey(): String = "charges"
@@ -42,8 +42,8 @@ class ChargeProperty(ability: Ability,
 
     class Modifier(ability: Ability, private val modifier: Int):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<Modifier> {
+            override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data.asInt)
             }
             override fun getKey(): String = "charges_modifier"
@@ -52,8 +52,8 @@ class ChargeProperty(ability: Ability,
         fun getChargesModifier(): Int = modifier
 
         override fun modify(entry: PropertyEntry) {
-            entry.getProperty(ChargeProperty.getKey())?.let {
-                val charges = (it as ChargeProperty).getCharges() + getChargesModifier()
+            ChargeProperty.from(entry)?.let {
+                val charges = it.getCharges() + getChargesModifier()
                 entry.setProperty(ChargeProperty.getKey(), ChargeProperty(it.getAbility(), charges))
             }
         }

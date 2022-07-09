@@ -16,7 +16,7 @@ import net.minecraft.util.Formatting
 
 class ManaCostModifierProperty(ability: Ability, data: JsonElement):
     AbilityProperty(ability), ModifiableProperty {
-    companion object: Type {
+    companion object: Type<ManaCostModifierProperty> {
         override fun create(ability: Ability, data: JsonElement): ManaCostModifierProperty {
             return ManaCostModifierProperty(ability, data)
         }
@@ -27,8 +27,8 @@ class ManaCostModifierProperty(ability: Ability, data: JsonElement):
     fun getManaModifier(): Int = modifier
 
     override fun modify(entry: PropertyEntry) {
-        entry.getProperty(ManaCostProperty.getKey())?.let {
-            val cost = (it as ManaCostProperty).getManaCost() + modifier
+        ManaCostProperty.from(entry)?.let {
+            val cost = it.getManaCost() + modifier
             entry.setProperty(ManaCostProperty.getKey(), ManaCostProperty(it.getAbility(), cost))
         }
     }
@@ -38,9 +38,9 @@ class ManaCostModifierProperty(ability: Ability, data: JsonElement):
         val text = Symbol.MANA.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_MANA_COST.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText(signed(modifier)).formatted(formatting))
-        getAbility().getProperty(BoundSpellProperty)?.let {
+        BoundSpellProperty.from(getAbility())?.let {
             val tree = AbilityRegistry.fromCharacter(getAbility().getCharacter())
-            tree.getSpellAbility((it as BoundSpellProperty).getSpell())?.let { spell ->
+            tree.getSpellAbility(it.getSpell())?.let { spell ->
                 text.append(LiteralText(" (").formatted(Formatting.GRAY)
                     .append(spell.formatted(Formatting.GRAY)).append(")"))
             }

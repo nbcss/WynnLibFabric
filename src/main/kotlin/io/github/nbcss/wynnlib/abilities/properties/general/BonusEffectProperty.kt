@@ -18,10 +18,10 @@ import net.minecraft.util.Formatting
 open class BonusEffectProperty(ability: Ability,
                                private val bonus: EffectBonus):
     AbilityProperty(ability), SetupProperty, ModifiableProperty {
-    companion object: Type {
+    companion object: Type<BonusEffectProperty> {
         private const val TYPE_KEY: String = "type"
         private const val MODIFIER_KEY: String = "modifier"
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        override fun create(ability: Ability, data: JsonElement): BonusEffectProperty {
             return BonusEffectProperty(ability, EffectBonus(data.asJsonObject))
         }
         override fun getKey(): String = "effect"
@@ -34,8 +34,8 @@ open class BonusEffectProperty(ability: Ability,
     }
 
     override fun modify(entry: PropertyEntry) {
-        entry.getProperty(getKey())?.let {
-            val effect = (it as BonusEffectProperty).getEffectBonus().upgrade(getEffectBonus())
+        from(entry)?.let {
+            val effect = it.getEffectBonus().upgrade(getEffectBonus())
             entry.setProperty(getKey(), BonusEffectProperty(it.getAbility(), effect))
         }
     }

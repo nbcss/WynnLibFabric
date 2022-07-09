@@ -15,8 +15,8 @@ open class SpellEntry(private val spell: SpellSlot,
                       root: Ability, icon: Identifier): PropertyEntry(root, icon) {
     companion object: Factory {
         override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry? {
-            val property = ability.getProperty(BoundSpellProperty.getKey())
-            return if (property is BoundSpellProperty){
+            val property = BoundSpellProperty.from(ability)
+            return if (property != null){
                 SpellEntry(property.getSpell(), ability, texture)
             }else{
                 null
@@ -50,11 +50,7 @@ open class SpellEntry(private val spell: SpellSlot,
     }
 
     fun getManaCost(): Int {
-        val property = getProperty(ManaCostProperty.getKey())
-        if (property is ManaCostProperty){
-            return property.getManaCost()
-        }
-        return 0
+        return ManaCostProperty.from(this)?.getManaCost() ?: 0
     }
 
     override fun getKey(): String {
@@ -62,9 +58,9 @@ open class SpellEntry(private val spell: SpellSlot,
     }
 
     override fun getSideText(): Text {
-        getProperty(ManaCostProperty.getKey())?.let {
+        ManaCostProperty.from(this)?.let {
             return Symbol.MANA.asText().append(" ").append(
-                LiteralText("${(it as ManaCostProperty).getManaCost()}")
+                LiteralText("${it.getManaCost()}")
                     .formatted(Formatting.WHITE)
             )
         }

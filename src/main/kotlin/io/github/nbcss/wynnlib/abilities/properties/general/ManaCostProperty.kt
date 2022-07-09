@@ -13,8 +13,8 @@ import net.minecraft.util.Formatting
 
 class ManaCostProperty(ability: Ability,
                        private val cost: Int): AbilityProperty(ability), SetupProperty {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<ManaCostProperty> {
+        override fun create(ability: Ability, data: JsonElement): ManaCostProperty {
             return ManaCostProperty(ability, data.asInt)
         }
         override fun getKey(): String = "mana_cost"

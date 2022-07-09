@@ -14,8 +14,8 @@ class ReplaceSpellEntry(parent: PropertyEntry,
                         icon: Identifier): SpellEntry(spell, root, icon) {
     companion object: Factory {
         override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry? {
-            val property = ability.getProperty(BoundSpellProperty.getKey())
-            if (property is BoundSpellProperty){
+            val property = BoundSpellProperty.from(ability)
+            if (property != null){
                 val current = container.getEntry(property.getSpell().name)
                 if (current != null){
                     return ReplaceSpellEntry(current, property.getSpell(), ability, texture)
@@ -27,8 +27,8 @@ class ReplaceSpellEntry(parent: PropertyEntry,
     }
     init {
         //Copy replace mana cost
-        parent.getProperty(ManaCostProperty.getKey())?.let {
-            val cost = (it as ManaCostProperty).getManaCost()
+        ManaCostProperty.from(parent)?.let {
+            val cost = it.getManaCost()
             setProperty(ManaCostProperty.getKey(), ManaCostProperty(root, cost))
         }
     }

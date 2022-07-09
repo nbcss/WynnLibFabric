@@ -7,8 +7,8 @@ import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 
 class UpgradeProperty(ability: Ability, data: JsonElement): ModifyProperty(ability, data) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<UpgradeProperty> {
+        override fun create(ability: Ability, data: JsonElement): UpgradeProperty {
             return UpgradeProperty(ability, data)
         }
         override fun getKey(): String = "upgrade"

@@ -11,8 +11,8 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class MainAttackDamageModifierProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<MainAttackDamageModifierProperty> {
+        override fun create(ability: Ability, data: JsonElement): MainAttackDamageModifierProperty {
             return MainAttackDamageModifierProperty(ability, data)
         }
         override fun getKey(): String = "main_damage_modifier"

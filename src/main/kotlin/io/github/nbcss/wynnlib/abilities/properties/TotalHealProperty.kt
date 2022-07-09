@@ -9,8 +9,8 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class TotalHealProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<TotalHealProperty> {
+        override fun create(ability: Ability, data: JsonElement): TotalHealProperty {
             return TotalHealProperty(ability, data)
         }
         override fun getKey(): String = "total_heal"

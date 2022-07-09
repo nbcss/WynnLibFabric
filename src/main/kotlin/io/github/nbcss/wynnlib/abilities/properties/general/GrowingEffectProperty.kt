@@ -14,8 +14,8 @@ import net.minecraft.util.Formatting
 class GrowingEffectProperty(ability: Ability,
                             bonus: EffectBonus,
                             private val max: Int): BonusEffectProperty(ability, bonus) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<GrowingEffectProperty> {
+        override fun create(ability: Ability, data: JsonElement): GrowingEffectProperty {
             val json = data.asJsonObject
             val max = if (json.has(MAX_KEY)) json[MAX_KEY].asInt else 0
             val bonus = EffectBonus(json)

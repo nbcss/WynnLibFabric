@@ -16,11 +16,11 @@ import net.minecraft.util.Formatting
 
 class DamageModifierProperty(ability: Ability, data: JsonElement):
     AbilityProperty(ability), ModifiableProperty {
-    companion object: Type {
+    companion object: Type<DamageModifierProperty> {
         private const val HITS_KEY: String = "hits"
         private const val DAMAGE_LABEL_KEY: String = "label"
         private const val NEUTRAL_DAMAGE_KEY: String = "neutral"
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        override fun create(ability: Ability, data: JsonElement): DamageModifierProperty {
             return DamageModifierProperty(ability, data)
         }
         override fun getKey(): String = "damage_modifier"
@@ -43,8 +43,8 @@ class DamageModifierProperty(ability: Ability, data: JsonElement):
     fun getDamageModifier(): DamageMultiplier = modifier
 
     override fun modify(entry: PropertyEntry) {
-        entry.getProperty(DamageProperty.getKey())?.let {
-            val damage = (it as DamageProperty).getDamage().add(modifier, modifier.getDamageLabel())
+        DamageProperty.from(entry)?.let {
+            val damage = it.getDamage().add(modifier, modifier.getDamageLabel())
             entry.setProperty(DamageProperty.getKey(), DamageProperty(it.getAbility(), damage))
         }
     }

@@ -15,8 +15,8 @@ import net.minecraft.util.Formatting
 
 class RangeProperty(ability: Ability, private val range: Double):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<RangeProperty> {
+        override fun create(ability: Ability, data: JsonElement): RangeProperty {
             return RangeProperty(ability, data.asDouble)
         }
         override fun getKey(): String = "range"
@@ -38,8 +38,8 @@ class RangeProperty(ability: Ability, private val range: Double):
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<Modifier> {
+            override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data)
             }
             override fun getKey(): String = "range_modifier"
@@ -49,8 +49,8 @@ class RangeProperty(ability: Ability, private val range: Double):
         fun getRangeModifier(): Double = modifier
 
         override fun modify(entry: PropertyEntry) {
-            entry.getProperty(RangeProperty.getKey())?.let {
-                val range = round((it as RangeProperty).getRange() + modifier)
+            RangeProperty.from(entry)?.let {
+                val range = round(it.getRange() + modifier)
                 entry.setProperty(RangeProperty.getKey(), RangeProperty(it.getAbility(), range))
             }
         }

@@ -8,8 +8,8 @@ import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 
 class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<ExtendProperty> {
+        override fun create(ability: Ability, data: JsonElement): ExtendProperty {
             return ExtendProperty(ability, data)
         }
         override fun getKey(): String = "extend"

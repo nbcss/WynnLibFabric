@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.archer.ArcherSentientBowsProperty
 import io.github.nbcss.wynnlib.abilities.properties.archer.ArcherStreamProperty
@@ -12,14 +13,14 @@ import io.github.nbcss.wynnlib.abilities.properties.info.*
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.text.Text
 
+@Suppress("UNCHECKED_CAST")
 abstract class AbilityProperty(private val ability: Ability) {
     companion object {
-        private val typeMap: Map<String, Type> = mapOf(
+        private val typeMap: Map<String, Type<out AbilityProperty>> = mapOf(
             pairs = listOf(
                 EntryProperty,
                 UpgradeProperty,
                 ModifyProperty,
-                KeysUpgradeProperty,
                 ExtendProperty,
                 BoundSpellProperty,
                 TotalHealProperty,
@@ -70,7 +71,10 @@ abstract class AbilityProperty(private val ability: Ability) {
 
     open fun getTooltip(): List<Text> = emptyList()
 
-    interface Type: Keyed {
-        fun create(ability: Ability, data: JsonElement): AbilityProperty?
+    interface Type<T: AbilityProperty>: Keyed {
+        fun create(ability: Ability, data: JsonElement): T?
+        fun from(provider: PropertyProvider): T? {
+            return provider.getProperty(getKey()) as? T
+        }
     }
 }

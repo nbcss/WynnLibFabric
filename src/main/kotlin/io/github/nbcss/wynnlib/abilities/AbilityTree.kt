@@ -52,8 +52,8 @@ class AbilityTree(val character: CharacterClass) {
                 root = it
             }
             if(it.getTier().getLevel() == 0){
-                it.getProperty(BoundSpellProperty.getKey())?.let { property ->
-                    this.spellMap[(property as BoundSpellProperty).getSpell()] = it
+                BoundSpellProperty.from(it)?.let { property ->
+                    this.spellMap[property.getSpell()] = it
                 }
             }
             it.getArchetype()?.let { archetype ->

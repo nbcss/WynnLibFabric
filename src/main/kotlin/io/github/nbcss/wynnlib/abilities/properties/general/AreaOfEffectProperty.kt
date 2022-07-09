@@ -21,10 +21,10 @@ import net.minecraft.util.Formatting
 class AreaOfEffectProperty(ability: Ability,
                            private val aoe: AreaOfEffect):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type {
+    companion object: Type<AreaOfEffectProperty> {
         private const val RANGE_KEY: String = "range"
         private const val SHAPE_KEY: String = "shape"
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        override fun create(ability: Ability, data: JsonElement): AreaOfEffectProperty {
             return AreaOfEffectProperty(ability, AreaOfEffect(data.asJsonObject))
         }
         override fun getKey(): String = "aoe"
@@ -72,8 +72,8 @@ class AreaOfEffectProperty(ability: Ability,
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Type {
-            override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+        companion object: Type<Modifier> {
+            override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data)
             }
             override fun getKey(): String = "aoe_modifier"
@@ -83,8 +83,8 @@ class AreaOfEffectProperty(ability: Ability,
         fun getAreaOfEffectModifier(): AreaOfEffect = modifier
 
         override fun modify(entry: PropertyEntry) {
-            entry.getProperty(AreaOfEffectProperty.getKey())?.let {
-                val aoe = (it as AreaOfEffectProperty).getAreaOfEffect().upgrade(getAreaOfEffectModifier())
+            AreaOfEffectProperty.from(entry)?.let {
+                val aoe = it.getAreaOfEffect().upgrade(getAreaOfEffectModifier())
                 entry.setProperty(AreaOfEffectProperty.getKey(), AreaOfEffectProperty(it.getAbility(), aoe))
             }
         }

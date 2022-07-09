@@ -11,8 +11,8 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
         val spells: MutableSet<Ability> = HashSet()
 
         for (ability in abilities) {
-            val entry = ability.getProperty(EntryProperty.getKey())
-            if (entry is EntryProperty){
+            val entry = EntryProperty.from(ability)
+            if (entry != null){
                 //todo
             }
         }

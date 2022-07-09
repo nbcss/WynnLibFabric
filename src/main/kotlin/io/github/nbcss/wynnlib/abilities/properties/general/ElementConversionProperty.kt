@@ -11,8 +11,8 @@ import io.github.nbcss.wynnlib.data.Element
 class ElementConversionProperty(ability: Ability,
                                 private val element: Element):
     AbilityProperty(ability), ModifiableProperty {
-    companion object: Type {
-        override fun create(ability: Ability, data: JsonElement): AbilityProperty {
+    companion object: Type<ElementConversionProperty> {
+        override fun create(ability: Ability, data: JsonElement): ElementConversionProperty {
             val elem = Element.fromId(data.asString) ?: Element.AIR
             return ElementConversionProperty(ability, elem)
         }
@@ -20,8 +20,8 @@ class ElementConversionProperty(ability: Ability,
     }
 
     override fun modify(entry: PropertyEntry) {
-        entry.getProperty(DamageProperty.getKey())?.let { property ->
-            val damage = (property as DamageProperty).getDamage()
+        DamageProperty.from(entry)?.let { property ->
+            val damage = property.getDamage()
             val modified = DamageMultiplier(damage.getHits(), damage.getDamageLabel(), damage.getNeutralDamage(),
                 mapOf(element to Element.values().sumOf { damage.getElementalDamage(it) }))
             entry.setProperty(DamageProperty.getKey(), DamageProperty(getAbility(), modified))
