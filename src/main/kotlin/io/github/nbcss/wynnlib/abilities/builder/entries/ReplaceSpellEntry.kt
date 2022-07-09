@@ -23,6 +23,7 @@ class ReplaceSpellEntry(parent: PropertyEntry,
             }
             return null
         }
+        override fun getKey(): String = "REPLACE"
     }
     init {
         //Copy replace mana cost

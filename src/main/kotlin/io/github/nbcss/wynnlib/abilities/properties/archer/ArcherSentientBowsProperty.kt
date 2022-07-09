@@ -17,7 +17,7 @@ import net.minecraft.util.Formatting
 class ArcherSentientBowsProperty(ability: Ability,
                                  private val bows: Int):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return ArcherSentientBowsProperty(ability, data.asInt)
         }
@@ -42,7 +42,7 @@ class ArcherSentientBowsProperty(ability: Ability,
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data)
             }

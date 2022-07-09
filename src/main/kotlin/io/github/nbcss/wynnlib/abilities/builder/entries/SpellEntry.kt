@@ -22,6 +22,8 @@ open class SpellEntry(private val spell: SpellSlot,
                 null
             }
         }
+
+        override fun getKey(): String = "SPELL"
     }
 
     override fun getTooltip(): List<Text> {

@@ -17,21 +17,23 @@ open class PropertyEntry(private val root: Ability,
                          private val icon: Identifier): Keyed {
     companion object: Factory {
         private val factoryMap: Map<String, Factory> = mapOf(
-            "SPELL" to SpellEntry,
-            "REPLACE" to ReplaceSpellEntry,
-            "EXTEND" to ExtendEntry,
-            "BOUND" to BoundEntry,
+            pairs = listOf(
+                SpellEntry,
+                ReplaceSpellEntry,
+                ExtendEntry
+            ).map { it.getKey().uppercase() to it }.toTypedArray()
         )
 
-        fun createEntry(type: String,
-                        container: EntryContainer,
-                        ability: Ability,
-                        texture: Identifier): PropertyEntry? {
-            return (factoryMap[type.uppercase()] ?: this).create(container, ability, texture)
+        fun getFactory(id: String?): Factory {
+            return if (id != null) (factoryMap[id.uppercase()] ?: this) else this
         }
 
         override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry {
             return PropertyEntry(ability, texture)
+        }
+
+        override fun getKey(): String {
+            return "NEW"
         }
     }
     protected val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
@@ -129,7 +131,7 @@ open class PropertyEntry(private val root: Ability,
         }
     }
 
-    interface Factory {
+    interface Factory: Keyed {
         fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry?
     }
 }

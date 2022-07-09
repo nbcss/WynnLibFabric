@@ -15,7 +15,7 @@ import net.minecraft.util.Formatting
 
 class RangeProperty(ability: Ability, private val range: Double):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return RangeProperty(ability, data.asDouble)
         }
@@ -38,7 +38,7 @@ class RangeProperty(ability: Ability, private val range: Double):
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data)
             }

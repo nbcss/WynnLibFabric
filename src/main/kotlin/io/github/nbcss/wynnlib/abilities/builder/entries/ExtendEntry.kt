@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.abilities.properties.info.ExtendProperty
 import net.minecraft.util.Identifier
 
 /**
- * Extend a particular ability (parent), but will NOT overwrite by ReplaceEntry.
+ * Extend a particular ability (parent).
  */
 class ExtendEntry(private val parent: PropertyEntry,
                   root: Ability, icon: Identifier): PropertyEntry(root, icon) {
@@ -21,5 +21,7 @@ class ExtendEntry(private val parent: PropertyEntry,
             }
             return null
         }
+
+        override fun getKey(): String = "EXTEND"
     }
 }

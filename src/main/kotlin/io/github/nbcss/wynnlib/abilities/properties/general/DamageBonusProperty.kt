@@ -15,7 +15,7 @@ import net.minecraft.util.Formatting
 
 open class DamageBonusProperty(ability: Ability,
                                protected val bonus: Int): AbilityProperty(ability) {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return DamageBonusProperty(ability, data.asInt)
         }
@@ -40,7 +40,7 @@ open class DamageBonusProperty(ability: Ability,
     }
 
     class Raw(ability: Ability, bonus: Int): DamageBonusProperty(ability, bonus) {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Raw(ability, data.asInt)
             }
@@ -56,7 +56,7 @@ open class DamageBonusProperty(ability: Ability,
 
     class PerFocus(ability: Ability, bonus: Int):
         DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return PerFocus(ability, data.asInt)
             }

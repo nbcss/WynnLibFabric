@@ -16,7 +16,7 @@ import net.minecraft.util.Formatting
 
 class DamageModifierProperty(ability: Ability, data: JsonElement):
     AbilityProperty(ability), ModifiableProperty {
-    companion object: Factory {
+    companion object: Type {
         private const val HITS_KEY: String = "hits"
         private const val DAMAGE_LABEL_KEY: String = "label"
         private const val NEUTRAL_DAMAGE_KEY: String = "neutral"

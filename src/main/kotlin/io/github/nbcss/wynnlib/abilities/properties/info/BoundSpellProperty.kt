@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 
 class BoundSpellProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return BoundSpellProperty(ability, data)
         }

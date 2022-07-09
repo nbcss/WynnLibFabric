@@ -21,7 +21,7 @@ import net.minecraft.util.Formatting
 class AreaOfEffectProperty(ability: Ability,
                            private val aoe: AreaOfEffect):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         private const val RANGE_KEY: String = "range"
         private const val SHAPE_KEY: String = "shape"
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
@@ -72,7 +72,7 @@ class AreaOfEffectProperty(ability: Ability,
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data)
             }

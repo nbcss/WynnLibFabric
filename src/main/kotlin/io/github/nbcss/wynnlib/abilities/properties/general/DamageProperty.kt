@@ -16,7 +16,7 @@ import net.minecraft.util.Formatting
 
 class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         private const val HITS_KEY: String = "hits"
         private const val DAMAGE_LABEL_KEY: String = "label"
         private const val NEUTRAL_DAMAGE_KEY: String = "neutral"

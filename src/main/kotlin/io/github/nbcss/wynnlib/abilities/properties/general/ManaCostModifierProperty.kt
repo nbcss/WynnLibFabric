@@ -16,7 +16,7 @@ import net.minecraft.util.Formatting
 
 class ManaCostModifierProperty(ability: Ability, data: JsonElement):
     AbilityProperty(ability), ModifiableProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): ManaCostModifierProperty {
             return ManaCostModifierProperty(ability, data)
         }
@@ -38,7 +38,7 @@ class ManaCostModifierProperty(ability: Ability, data: JsonElement):
         val text = Symbol.MANA.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_MANA_COST.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText(signed(modifier)).formatted(formatting))
-        getAbility().getProperty(BoundSpellProperty.getKey())?.let {
+        getAbility().getProperty(BoundSpellProperty)?.let {
             val tree = AbilityRegistry.fromCharacter(getAbility().getCharacter())
             tree.getSpellAbility((it as BoundSpellProperty).getSpell())?.let { spell ->
                 text.append(LiteralText(" (").formatted(Formatting.GRAY)

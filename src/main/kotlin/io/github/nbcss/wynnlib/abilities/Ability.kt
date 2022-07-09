@@ -116,6 +116,10 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer {
         return properties[key]
     }
 
+    fun getProperty(type: AbilityProperty.Type): AbilityProperty? {
+        return properties[type.getKey()]
+    }
+
     override fun getPlaceholder(key: String): String {
         return placeholderMap.getOrDefault(key, key)
     }
@@ -218,10 +222,6 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer {
             tooltip.add(title.formatted(it.getFormatting()).formatted(Formatting.BOLD))
         }
         return tooltip
-    }
-
-    fun getPropertyPriorityIndex(): Int {
-        return properties.values.minOfOrNull { it.getPriority() } ?: 999
     }
 
     fun updateEntries(container: EntryContainer) {

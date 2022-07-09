@@ -9,7 +9,7 @@ import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 
 open class ModifyProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return ModifyProperty(ability, data)
         }

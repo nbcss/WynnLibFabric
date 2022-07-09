@@ -2,14 +2,23 @@ package io.github.nbcss.wynnlib.abilities.builder
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
+import io.github.nbcss.wynnlib.abilities.properties.info.EntryProperty
 
 class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     private val entries: MutableMap<String, PropertyEntry>
     init {
         entries = LinkedHashMap()
-        abilities.sortedBy { it.getPropertyPriorityIndex() }.forEach {
-            it.updateEntries(this)
+        val spells: MutableSet<Ability> = HashSet()
+
+        for (ability in abilities) {
+            val entry = ability.getProperty(EntryProperty.getKey())
+            if (entry is EntryProperty){
+                //todo
+            }
         }
+        /*abilities.sortedBy { it.getPropertyPriorityIndex() }.forEach {
+            it.updateEntries(this)
+        }*/
     }
 
     fun putEntry(entry: PropertyEntry) {

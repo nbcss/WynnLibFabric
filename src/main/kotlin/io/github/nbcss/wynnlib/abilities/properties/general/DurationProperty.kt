@@ -17,7 +17,7 @@ import net.minecraft.util.Formatting
 class DurationProperty(ability: Ability,
                        private val duration: Double):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return DurationProperty(ability, data.asDouble)
         }
@@ -43,7 +43,7 @@ class DurationProperty(ability: Ability,
 
     class Modifier(ability: Ability, private val modifier: Double):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data.asDouble)
             }

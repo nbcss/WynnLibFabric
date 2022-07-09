@@ -17,7 +17,7 @@ import net.minecraft.util.Formatting
 class ChargeProperty(ability: Ability,
                      private val charges: Int):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return ChargeProperty(ability, data.asInt)
         }
@@ -42,7 +42,7 @@ class ChargeProperty(ability: Ability,
 
     class Modifier(ability: Ability, private val modifier: Int):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data.asInt)
             }

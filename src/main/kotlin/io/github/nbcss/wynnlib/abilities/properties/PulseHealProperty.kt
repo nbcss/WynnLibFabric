@@ -9,7 +9,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class PulseHealProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return PulseHealProperty(ability, data)
         }

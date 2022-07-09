@@ -11,7 +11,7 @@ import io.github.nbcss.wynnlib.data.Element
 class ElementConversionProperty(ability: Ability,
                                 private val element: Element):
     AbilityProperty(ability), ModifiableProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             val elem = Element.fromId(data.asString) ?: Element.AIR
             return ElementConversionProperty(ability, elem)

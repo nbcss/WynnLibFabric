@@ -12,7 +12,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class ElementMasteryProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Factory {
+    companion object: Type {
         private const val ELEMENT_KEY: String = "element"
         private const val RAW_KEY: String = "raw"
         private const val PCT_KEY: String = "pct"

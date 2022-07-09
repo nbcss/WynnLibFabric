@@ -13,7 +13,7 @@ import net.minecraft.util.Formatting
 
 class ManaCostProperty(ability: Ability,
                        private val cost: Int): AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return ManaCostProperty(ability, data.asInt)
         }

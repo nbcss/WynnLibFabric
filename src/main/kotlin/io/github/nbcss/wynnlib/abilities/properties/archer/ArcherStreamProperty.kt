@@ -17,7 +17,7 @@ import net.minecraft.util.Formatting
 class ArcherStreamProperty(ability: Ability,
                            private val streams: Int):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return ArcherStreamProperty(ability, data.asInt)
         }
@@ -42,7 +42,7 @@ class ArcherStreamProperty(ability: Ability,
 
     class Modifier(ability: Ability, data: JsonElement):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data)
             }

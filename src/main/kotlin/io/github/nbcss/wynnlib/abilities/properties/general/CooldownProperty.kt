@@ -16,7 +16,7 @@ import net.minecraft.util.Formatting
 
 class CooldownProperty(ability: Ability, private val cooldown: Double):
     AbilityProperty(ability), SetupProperty {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return CooldownProperty(ability, data.asDouble)
         }
@@ -41,7 +41,7 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
 
     class Modifier(ability: Ability, private val modifier: Double):
         AbilityProperty(ability), ModifiableProperty {
-        companion object: Factory {
+        companion object: Type {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
                 return Modifier(ability, data.asDouble)
             }

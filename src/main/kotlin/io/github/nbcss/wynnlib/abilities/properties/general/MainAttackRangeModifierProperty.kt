@@ -10,7 +10,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class MainAttackRangeModifierProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
-    companion object: Factory {
+    companion object: Type {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
             return MainAttackRangeModifierProperty(ability, data)
         }

@@ -14,14 +14,13 @@ import net.minecraft.text.Text
 
 abstract class AbilityProperty(private val ability: Ability) {
     companion object {
-        private val factoryMap: Map<String, Factory> = mapOf(
+        private val typeMap: Map<String, Type> = mapOf(
             pairs = listOf(
                 EntryProperty,
                 UpgradeProperty,
                 ModifyProperty,
                 KeysUpgradeProperty,
                 ExtendProperty,
-                BoundingExtendProperty,
                 BoundSpellProperty,
                 TotalHealProperty,
                 PulseHealProperty,
@@ -59,7 +58,7 @@ abstract class AbilityProperty(private val ability: Ability) {
         )
 
         fun fromData(ability: Ability, key: String, data: JsonElement): AbilityProperty? {
-            return (factoryMap[key.lowercase()] ?: return null).create(ability, data)
+            return (typeMap[key.lowercase()] ?: return null).create(ability, data)
         }
     }
 
@@ -69,11 +68,9 @@ abstract class AbilityProperty(private val ability: Ability) {
 
     fun getAbility(): Ability = ability
 
-    open fun getPriority(): Int = 999
-
     open fun getTooltip(): List<Text> = emptyList()
 
-    interface Factory: Keyed {
+    interface Type: Keyed {
         fun create(ability: Ability, data: JsonElement): AbilityProperty?
     }
 }

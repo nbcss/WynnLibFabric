@@ -18,7 +18,7 @@ import net.minecraft.util.Formatting
 open class BonusEffectProperty(ability: Ability,
                                private val bonus: EffectBonus):
     AbilityProperty(ability), SetupProperty, ModifiableProperty {
-    companion object: Factory {
+    companion object: Type {
         private const val TYPE_KEY: String = "type"
         private const val MODIFIER_KEY: String = "modifier"
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
