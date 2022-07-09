@@ -9,18 +9,14 @@ import net.minecraft.util.Identifier
 class AbilityMetadata(val ability: Ability,
                       data: JsonObject) {
     companion object {
-        private val UNKNOWN = Identifier("wynnlib", "textures/icons/unknown.png")
         private const val ICON_KEY: String = "icon"
         private const val TYPE_KEY: String = "type"
     }
-    private val icon: String? = if (data.has(ICON_KEY)) data[ICON_KEY].asString else null
+    private val icon: AbilityIcon = AbilityIcon.fromName(if (data.has(ICON_KEY)) data[ICON_KEY].asString else null)
     private val factory: PropertyEntry.Factory = PropertyEntry.getFactory(
         if (data.has(TYPE_KEY)) data[TYPE_KEY].asString else null)
 
-    fun getTexture(): Identifier {
-        return if (icon == null) UNKNOWN else
-            Identifier("wynnlib", "textures/icons/${icon.lowercase()}.png")
-    }
+    fun getTexture(): Identifier = icon.getTexture()
 
     fun getFactory(): PropertyEntry.Factory = factory
 
