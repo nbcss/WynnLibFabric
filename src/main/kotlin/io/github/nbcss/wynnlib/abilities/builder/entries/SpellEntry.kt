@@ -38,13 +38,10 @@ open class SpellEntry(private val spell: SpellSlot,
             tooltip.add(LiteralText.EMPTY)
             tooltip.addAll(propertyTooltip)
         }
-        if (getUpgrades().isNotEmpty()){
+        val upgradeTooltip = getUpgradeTooltip()
+        if (upgradeTooltip.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
-            tooltip.add(LiteralText("Upgrades:").formatted(Formatting.GRAY))
-            for (upgrade in getUpgrades()) {
-                tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
-                    .append(upgrade.formatted(upgrade.getTier().getFormatting())))
-            }
+            tooltip.addAll(upgradeTooltip)
         }
         return tooltip
     }

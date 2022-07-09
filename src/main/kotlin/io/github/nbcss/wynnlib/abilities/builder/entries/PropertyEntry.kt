@@ -14,27 +14,20 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
-open class PropertyEntry(private val root: Ability,
-                         private val icon: Identifier): Keyed, PropertyProvider {
-    companion object: Factory {
+abstract class PropertyEntry(private val ability: Ability,
+                             private val icon: Identifier): Keyed, PropertyProvider {
+    companion object {
         private val factoryMap: Map<String, Factory> = mapOf(
             pairs = listOf(
                 SpellEntry,
                 ReplaceSpellEntry,
-                ExtendEntry
+                ExtendEntry,
+                BasicEntry
             ).map { it.getKey().uppercase() to it }.toTypedArray()
         )
 
         fun getFactory(id: String?): Factory {
-            return if (id != null) (factoryMap[id.uppercase()] ?: this) else this
-        }
-
-        override fun create(container: EntryContainer, ability: Ability, texture: Identifier): PropertyEntry {
-            return PropertyEntry(ability, texture)
-        }
-
-        override fun getKey(): String {
-            return "NEW"
+            return if (id != null) (factoryMap[id.uppercase()] ?: BasicEntry) else BasicEntry
         }
     }
     protected val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
@@ -43,7 +36,7 @@ open class PropertyEntry(private val root: Ability,
 
     override fun getProperty(key: String): AbilityProperty? = properties[key]
 
-    fun getAbility(): Ability = root
+    fun getAbility(): Ability = ability
 
     fun setProperty(key: String, property: AbilityProperty) {
         properties[key] = property
@@ -58,8 +51,7 @@ open class PropertyEntry(private val root: Ability,
     }
 
     open fun getDisplayNameText(): MutableText {
-        return getAbility().translate()
-            .formatted(getAbility().getTier().getFormatting())
+        return getAbility().translate().formatted(getAbility().getTier().getFormatting())
     }
 
     fun getPlaceholder(key: String): String {
@@ -76,12 +68,24 @@ open class PropertyEntry(private val root: Ability,
 
     fun getDescriptionTooltip(): List<Text> {
         //fixme replace with own placeholder
-        val desc = replaceProperty(replaceProperty(root.translate("desc").string, '$')
-        { root.getPlaceholder(it) }, '@') {
+        val desc = replaceProperty(replaceProperty(ability.translate("desc").string, '$')
+        { ability.getPlaceholder(it) }, '@') {
             val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
             Translatable.from(name).translate().string
         }
         return formattingLines(desc, 190, Formatting.GRAY.toString()).toList()
+    }
+
+    fun getUpgradeTooltip(): List<Text> {
+        val tooltip: MutableList<Text> = ArrayList()
+        if (upgrades.isNotEmpty()){
+            tooltip.add(LiteralText("Upgrades:").formatted(Formatting.GRAY))
+            for (upgrade in upgrades) {
+                tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
+                    .append(upgrade.formatted(upgrade.getTier().getFormatting())))
+            }
+        }
+        return tooltip
     }
 
     open fun getTooltip(): List<Text> {
@@ -95,18 +99,15 @@ open class PropertyEntry(private val root: Ability,
             tooltip.add(LiteralText.EMPTY)
             tooltip.addAll(propertyTooltip)
         }
-        if (upgrades.isNotEmpty()){
+        val upgradeTooltip = getUpgradeTooltip()
+        if (upgradeTooltip.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
-            tooltip.add(LiteralText("Upgrades:").formatted(Formatting.GRAY))
-            for (upgrade in upgrades) {
-                tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
-                    .append(upgrade.formatted(upgrade.getTier().getFormatting())))
-            }
+            tooltip.addAll(upgradeTooltip)
         }
         return tooltip
     }
 
-    override fun getKey(): String = root.getKey()
+    override fun getKey(): String = ability.getKey()
 
     open fun getSideText(): Text = LiteralText.EMPTY
 
