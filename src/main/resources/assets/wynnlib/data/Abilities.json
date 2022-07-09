@@ -2566,9 +2566,8 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "WINDSTORM"
+          "ability": "WINDY_FEET"
         },
-        "spell": "SPELL_2",
         "effect": {
           "type": "ALLIES_WALK_SPEED",
           "modifier": 20

@@ -2,7 +2,11 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.signed
@@ -10,19 +14,25 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class ChargeProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+class ChargeProperty(ability: Ability,
+                     private val charges: Int):
+    AbilityProperty(ability), SetupProperty {
     companion object: Factory {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return ChargeProperty(ability, data)
+            return ChargeProperty(ability, data.asInt)
         }
         override fun getKey(): String = "charges"
     }
-    private val charges: Int = data.asInt
-    init {
-        ability.putPlaceholder(getKey(), charges.toString())
-    }
 
     fun getCharges(): Int = charges
+
+    override fun writePlaceholder(container: PlaceholderContainer) {
+        container.putPlaceholder(getKey(), charges.toString())
+    }
+
+    override fun setup(entry: PropertyEntry) {
+        entry.setProperty(getKey(), this)
+    }
 
     override fun getTooltip(): List<Text> {
         return listOf(Symbol.CHARGE.asText().append(" ")
@@ -30,19 +40,27 @@ class ChargeProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
             .append(LiteralText(charges.toString()).formatted(Formatting.WHITE)))
     }
 
-    class Modifier(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+    class Modifier(ability: Ability, private val modifier: Int):
+        AbilityProperty(ability), ModifiableProperty {
         companion object: Factory {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-                return Modifier(ability, data)
+                return Modifier(ability, data.asInt)
             }
             override fun getKey(): String = "charges_modifier"
         }
-        private val modifier: Int = data.asInt
-        init {
-            ability.putPlaceholder(getKey(), modifier.toString())
-        }
 
         fun getChargesModifier(): Int = modifier
+
+        override fun modify(entry: PropertyEntry) {
+            entry.getProperty(ChargeProperty.getKey())?.let {
+                val charges = (it as ChargeProperty).getCharges() + getChargesModifier()
+                entry.setProperty(ChargeProperty.getKey(), ChargeProperty(it.getAbility(), charges))
+            }
+        }
+
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder(getKey(), modifier.toString())
+        }
 
         override fun getTooltip(): List<Text> {
             val color = if (modifier < 0) Formatting.RED else Formatting.GREEN

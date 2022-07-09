@@ -11,18 +11,18 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class GrowingEffectProperty(ability: Ability, data: JsonElement): BonusEffectProperty(ability, data) {
+class GrowingEffectProperty(ability: Ability,
+                            bonus: EffectBonus,
+                            private val max: Int): BonusEffectProperty(ability, bonus) {
     companion object: Factory {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return GrowingEffectProperty(ability, data)
+            val json = data.asJsonObject
+            val max = if (json.has(MAX_KEY)) json[MAX_KEY].asInt else 0
+            val bonus = EffectBonus(json)
+            return GrowingEffectProperty(ability, bonus, max)
         }
         override fun getKey(): String = "grow_effect"
         private const val MAX_KEY = "max"
-    }
-    private val max: Int
-    init {
-        val json = data.asJsonObject
-        max = if (json.has(MAX_KEY)) json[MAX_KEY].asInt else 0
     }
 
     fun getMaxModifier(): Int = max

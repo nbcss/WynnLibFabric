@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.removeDecimal
+import io.github.nbcss.wynnlib.utils.round
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
@@ -49,7 +50,7 @@ class RangeProperty(ability: Ability, private val range: Double):
 
         override fun modify(entry: PropertyEntry) {
             entry.getProperty(RangeProperty.getKey())?.let {
-                val range = (it as RangeProperty).getRange() + modifier
+                val range = round((it as RangeProperty).getRange() + modifier)
                 entry.setProperty(RangeProperty.getKey(), RangeProperty(it.getAbility(), range))
             }
         }

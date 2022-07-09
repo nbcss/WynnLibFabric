@@ -13,6 +13,7 @@ import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.range.DRange
 import io.github.nbcss.wynnlib.utils.range.SimpleDRange
 import io.github.nbcss.wynnlib.utils.removeDecimal
+import io.github.nbcss.wynnlib.utils.round
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -122,8 +123,8 @@ class AreaOfEffectProperty(ability: Ability,
         fun getShape(): Shape? = shape
 
         fun upgrade(modifier: AreaOfEffect): AreaOfEffect {
-            val lower = range.lower() + modifier.range.lower()
-            val upper = range.upper() + modifier.range.upper()
+            val lower = round(range.lower() + modifier.range.lower())
+            val upper = round(range.upper() + modifier.range.upper())
             val shape = modifier.shape ?: this.shape
             return AreaOfEffect(SimpleDRange(lower, upper), shape)
         }

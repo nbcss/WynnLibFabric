@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.removeDecimal
+import io.github.nbcss.wynnlib.utils.round
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
@@ -55,7 +56,7 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
 
         override fun modify(entry: PropertyEntry) {
             entry.getProperty(CooldownProperty.getKey())?.let {
-                val cd = (it as CooldownProperty).getCooldown() + getCooldownModifier()
+                val cd = round((it as CooldownProperty).getCooldown() + getCooldownModifier())
                 entry.setProperty(CooldownProperty.getKey(), CooldownProperty(it.getAbility(), cd))
             }
         }

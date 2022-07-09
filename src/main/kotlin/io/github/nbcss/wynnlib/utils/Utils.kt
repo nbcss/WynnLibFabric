@@ -13,6 +13,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import java.util.*
 import java.util.function.Function
+import kotlin.math.roundToInt
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
@@ -20,6 +21,10 @@ fun signed(value: Int): String {
 
 fun signed(value: Double): String {
     return if(value <= 0.0) value.toString() else "+$value"
+}
+
+fun round(value: Double): Double {
+    return (value * 1000).roundToInt() / 1000.0
 }
 
 fun removeDecimal(value: Double): String {

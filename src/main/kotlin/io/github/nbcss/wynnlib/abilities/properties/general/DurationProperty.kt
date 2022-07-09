@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.removeDecimal
+import io.github.nbcss.wynnlib.utils.round
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
@@ -57,7 +58,7 @@ class DurationProperty(ability: Ability,
 
         override fun modify(entry: PropertyEntry) {
             entry.getProperty(DurationProperty.getKey())?.let {
-                val duration = (it as DurationProperty).getDuration() + getDurationModifier()
+                val duration = round((it as DurationProperty).getDuration() + getDurationModifier())
                 entry.setProperty(DurationProperty.getKey(), DurationProperty(it.getAbility(), duration))
             }
         }

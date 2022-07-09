@@ -3,7 +3,10 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -12,18 +15,30 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-open class BonusEffectProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+open class BonusEffectProperty(ability: Ability,
+                               private val bonus: EffectBonus):
+    AbilityProperty(ability), SetupProperty, ModifiableProperty {
     companion object: Factory {
         private const val TYPE_KEY: String = "type"
         private const val MODIFIER_KEY: String = "modifier"
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return BonusEffectProperty(ability, data)
+            return BonusEffectProperty(ability, EffectBonus(data.asJsonObject))
         }
         override fun getKey(): String = "effect"
     }
-    private val bonus: EffectBonus = EffectBonus(data.asJsonObject)
 
     fun getEffectBonus(): EffectBonus = bonus
+
+    override fun setup(entry: PropertyEntry) {
+        entry.setProperty(getKey(), this)
+    }
+
+    override fun modify(entry: PropertyEntry) {
+        entry.getProperty(getKey())?.let {
+            val effect = (it as BonusEffectProperty).getEffectBonus().upgrade(getEffectBonus())
+            entry.setProperty(getKey(), BonusEffectProperty(it.getAbility(), effect))
+        }
+    }
 
     override fun getTooltip(): List<Text> {
         val modifier = bonus.getEffectModifier()
@@ -49,6 +64,17 @@ open class BonusEffectProperty(ability: Ability, data: JsonElement): AbilityProp
         fun getEffectType(): EffectType = type
 
         fun getEffectModifier(): Int? = modifier
+
+        fun upgrade(modifier: EffectBonus): EffectBonus {
+            if (modifier.type != this.type)
+                return this     //invalid modify (different type)
+            val booster = if (modifier.modifier == null || this.modifier == null){
+                null
+            }else{
+                this.modifier + modifier.modifier
+            }
+            return EffectBonus(this.type, booster)
+        }
     }
 
     enum class EffectType: Translatable {

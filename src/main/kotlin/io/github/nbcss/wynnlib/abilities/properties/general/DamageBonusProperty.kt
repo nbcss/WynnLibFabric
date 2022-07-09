@@ -2,7 +2,10 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.signed
@@ -10,14 +13,14 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-open class DamageBonusProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+open class DamageBonusProperty(ability: Ability,
+                               protected val bonus: Int): AbilityProperty(ability) {
     companion object: Factory {
         override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-            return DamageBonusProperty(ability, data)
+            return DamageBonusProperty(ability, data.asInt)
         }
         override fun getKey(): String = "damage_bonus"
     }
-    private val bonus: Int = data.asInt
 
     fun getDamageBonus(): Int = bonus
 
@@ -36,10 +39,10 @@ open class DamageBonusProperty(ability: Ability, data: JsonElement): AbilityProp
             .append(value))
     }
 
-    class Raw(ability: Ability, data: JsonElement): DamageBonusProperty(ability, data) {
+    class Raw(ability: Ability, bonus: Int): DamageBonusProperty(ability, bonus) {
         companion object: Factory {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-                return Raw(ability, data)
+                return Raw(ability, data.asInt)
             }
             override fun getKey(): String = "raw_damage_bonus"
         }
@@ -51,10 +54,11 @@ open class DamageBonusProperty(ability: Ability, data: JsonElement): AbilityProp
         }
     }
 
-    class PerFocus(ability: Ability, data: JsonElement): DamageBonusProperty(ability, data) {
+    class PerFocus(ability: Ability, bonus: Int):
+        DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty {
         companion object: Factory {
             override fun create(ability: Ability, data: JsonElement): AbilityProperty {
-                return PerFocus(ability, data)
+                return PerFocus(ability, data.asInt)
             }
             override fun getKey(): String = "focus_damage_bonus"
         }
@@ -63,6 +67,17 @@ open class DamageBonusProperty(ability: Ability, data: JsonElement): AbilityProp
             return LiteralText(" (").formatted(Formatting.DARK_GRAY)
                 .append(Translations.TOOLTIP_ABILITY_BONUS_DAMAGE_FOCUS.formatted(Formatting.DARK_GRAY))
                 .append(LiteralText(")").formatted(Formatting.DARK_GRAY))
+        }
+
+        override fun modify(entry: PropertyEntry) {
+            entry.getProperty(getKey())?.let {
+                val upgrade = (it as PerFocus).getDamageBonus() + getDamageBonus()
+                entry.setProperty(getKey(), PerFocus(it.getAbility(), upgrade))
+            }
+        }
+
+        override fun setup(entry: PropertyEntry) {
+            entry.setProperty(getKey(), this)
         }
     }
 }
