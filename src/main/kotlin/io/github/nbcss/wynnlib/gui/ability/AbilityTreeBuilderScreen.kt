@@ -201,7 +201,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 it.getTier().getActiveTexture()
             }else if (path == null || path.isEmpty()){
                 it.getTier().getLockedTexture()
-            }else if(isOverNode(node, mouseX, mouseY)){
+            }else if(isOverViewer(mouseX, mouseY) && isOverNode(node, mouseX, mouseY)){
                 it.getTier().getActiveTexture()     //hover over unlockable node
             }else{
                 it.getTier().getUnlockedTexture()
