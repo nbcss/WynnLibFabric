@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.builder.entries.ExtendEntry
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
 import io.github.nbcss.wynnlib.abilities.builder.entries.SpellEntry
+import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 
 class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     private val entries: MutableMap<String, PropertyEntry>
@@ -25,7 +26,8 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
                 }
             }
         }
-        spells.mapNotNull {it.createEntry(this)}.forEach { putEntry(it) }
+        spells.sortedBy { BoundSpellProperty.from(it.ability)?.getSpell()?.ordinal ?: 99 }
+            .mapNotNull {it.createEntry(this)}.forEach { putEntry(it) }
         replaces.mapNotNull {it.createEntry(this)}.forEach { putEntry(it) }
         var keys: List<AbilityMetadata>
         do {
@@ -55,4 +57,6 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     fun getEntries(): List<PropertyEntry> {
         return entries.values.toList()
     }
+
+    fun getSize(): Int = entries.size
 }

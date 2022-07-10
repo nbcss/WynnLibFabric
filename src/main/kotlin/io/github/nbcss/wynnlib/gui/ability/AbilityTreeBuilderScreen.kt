@@ -18,10 +18,12 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.MathHelper
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.collections.HashSet
+import kotlin.math.max
 import kotlin.math.min
 
 class AbilityTreeBuilderScreen(parent: Screen?,
@@ -30,12 +32,14 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     companion object {
         const val MAX_AP = 45
         const val PANE_WIDTH = 118
+        const val MAX_ENTRY_ITEM = 8
     }
     private val activeNodes: MutableSet<Ability> = HashSet()
     private val paths: MutableMap<Ability, List<Ability>> = HashMap()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
     private var container: EntryContainer = EntryContainer()
     private var ap: Int = MAX_AP
+    private var entryIndex = 0
     init {
         tabs.clear()
         reset()
@@ -115,6 +119,20 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         }
         //update container
         container = EntryContainer(activeNodes)
+        setEntryIndex(entryIndex) //for update entry
+    }
+
+    private fun setEntryIndex(index: Int) {
+        val maxIndex = max(0, container.getSize() - MAX_ENTRY_ITEM)
+        entryIndex = MathHelper.clamp(index, 0, maxIndex)
+    }
+
+    private fun isInEntries(mouseX: Double, mouseY: Double): Boolean {
+        val x1 = windowX - PANE_WIDTH + 6
+        val x2 = windowX - 6
+        val y1 = windowY + 44
+        val y2 = windowY + 204
+        return mouseX >= x1 && mouseX < x2 && mouseY >= y1 && mouseY < y2
     }
 
     override fun getAbilityTree(): AbilityTree = tree
@@ -171,6 +189,15 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         )
     }
 
+    override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
+        //println("${mouseX}, ${mouseY}, $amount")
+        if(isInEntries(mouseX, mouseY)){
+            setEntryIndex(entryIndex - amount.toInt())
+            return true
+        }
+        return super.mouseScrolled(mouseX, mouseY, amount)
+    }
+
     override fun renderViewer(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         val list = tree.getAbilities().toList()
         renderEdges(list, matrices, LOCKED_INNER_COLOR, false)
@@ -212,13 +239,17 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         //render extra pane content
-        container.getEntries().forEachIndexed { i, entry ->
+        val entries = container.getEntries()
+
+        for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
+            val entry = entries[entryIndex + i]
             val x1 = windowX - PANE_WIDTH + 6
             val x2 = x1 + 18
             val y1 = windowY + 44 + i * 20
             val y2 = y1 + 18
             RenderSystem.enableDepthTest()
-            DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 106, y2 + 1, Color.DARK_GRAY.toSolidColor().getColorCode())
+            DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 106, y2 + 1,
+                Color.DARK_GRAY.toSolidColor().getColorCode())
             RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
                 18, 18, 18, 18)
             val tier = entry.getTierText()
@@ -234,7 +265,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 x2.toFloat() + 3,
                 y1.toFloat() + 10, 0xFFFFFF
             )
-            if (mouseY in y1..y2 && mouseX >= x1 && mouseX <= x1 + 100){
+            if (mouseY in y1..y2 && mouseX >= x1 && mouseX <= x1 + 106){
                 drawTooltip(matrices, entry.getTooltip(), mouseX, mouseY)
             }
         }
