@@ -2003,6 +2003,10 @@
           "air": 10
         },
         "duration": 60,
+        "aoe": {
+          "range": 2,
+          "shape": "CIRCLE"
+        },
         "charges": 2
       },
       "metadata": {
@@ -2257,7 +2261,8 @@
         "range": 12
       },
       "metadata": {
-        "type": "REPLACE"
+        "type": "REPLACE",
+        "icon": "PHANTOM_RAY"
       }
     },
     {
@@ -2399,7 +2404,8 @@
         "duration": 60
       },
       "metadata": {
-        "type": "REPLACE"
+        "type": "REPLACE",
+        "icon": "GUARDIAN_ANGELS"
       }
     },
     {
@@ -2419,7 +2425,8 @@
         "PHANTOM_RAY"
       ],
       "properties": {
-        "focus_damage_bonus": 40
+        "focus_damage_bonus": 40,
+        "max_focus": 3
       },
       "metadata": {
         "type": "NEW"
@@ -2454,7 +2461,8 @@
         "aoe": {
           "range": 7,
           "shape": "CIRCLE"
-        }
+        },
+        "max_trap": 2
       },
       "metadata": {
         "type": "EXTEND"
@@ -2541,7 +2549,8 @@
         "range": 26
       },
       "metadata": {
-        "type": "REPLACE"
+        "type": "REPLACE",
+        "icon": "GRAPPLING_HOOK"
       }
     },
     {
@@ -2587,7 +2596,8 @@
         "upgrade": {
           "ability": "FOCUS"
         },
-        "focus_damage_bonus": -5
+        "focus_damage_bonus": -5,
+        "max_focus_modifier": 2
       },
       "metadata": null
     },
@@ -2833,7 +2843,8 @@
       "properties": {
         "upgrade": {
           "ability": "BASALTIC_TRAP"
-        }
+        },
+        "max_trap_modifier": 2
       },
       "metadata": null
     },
@@ -3068,11 +3079,13 @@
         "CHEAPER_ARROW_STORM_II"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "ability": "FOCUS"
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "CHEAPER_ARROW_STORM_II",
@@ -3528,7 +3541,8 @@
         "upgrade": {
           "ability": "FOCUS"
         },
-        "focus_damage_bonus": -5
+        "focus_damage_bonus": -5,
+        "max_focus_modifier": 2
       },
       "metadata": null
     },
@@ -3613,7 +3627,8 @@
         "aoe_modifier": {
           "range": -2,
           "shape": "CIRCLE"
-        }
+        },
+        "max_trap_modifier": 6
       },
       "metadata": null
     },
@@ -4178,11 +4193,19 @@
       ],
       "properties": {
         "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
         "mana_modifier": 30,
         "damage": {
           "neutral": 50,
           "water": 20,
           "thunder": 30
+        },
+        "ophanim": {
+          "count": 2,
+          "health": 200,
+          "loss": 20
         },
         "range": 22
       },
@@ -4542,6 +4565,10 @@
         "upgrade": {
           "spell": "SPELL_3",
           "ability": "OPHANIM"
+        },
+        "ophanim_modifier": {
+          "health": 800,
+          "loss": -5
         }
       },
       "metadata": null
@@ -5029,6 +5056,9 @@
         "upgrade": {
           "spell": "SPELL_3",
           "ability": "OPHANIM"
+        },
+        "ophanim_modifier": {
+          "count": 1
         }
       },
       "metadata": null
@@ -5136,6 +5166,9 @@
         "upgrade": {
           "spell": "SPELL_3",
           "ability": "OPHANIM"
+        },
+        "ophanim_modifier": {
+          "health": 3000
         }
       },
       "metadata": null
@@ -5210,6 +5243,9 @@
         "damage_modifier": {
           "neutral": -50,
           "thunder": -10
+        },
+        "ophanim_modifier": {
+          "count": 3
         }
       },
       "metadata": null

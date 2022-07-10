@@ -32,8 +32,9 @@ class MageManaBankProperty(ability: Ability,
     }
 
     override fun getTooltip(): List<Text> {
+        val bank = Translations.TOOLTIP_ABILITY_MAGE_MANA_BANK.translate().string
         return listOf(Symbol.MANA.asText().append(" ")
-            .append(Translations.TOOLTIP_ABILITY_MAGE_MANA_BANK.formatted(Formatting.GRAY).append(": "))
+            .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${bank}): "))
             .append(LiteralText(getManaBankSize().toString()).formatted(Formatting.WHITE)))
     }
 
@@ -56,8 +57,9 @@ class MageManaBankProperty(ability: Ability,
         }
 
         override fun getTooltip(): List<Text> {
+            val bank = Translations.TOOLTIP_ABILITY_MAGE_MANA_BANK.translate().string
             return listOf(Symbol.MANA.asText().append(" ")
-                .append(Translations.TOOLTIP_ABILITY_MAGE_MANA_BANK.formatted(Formatting.GRAY).append(": "))
+                .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${bank}): "))
                 .append(LiteralText(signed(modifier)).formatted(colorOf(modifier))))
         }
     }
