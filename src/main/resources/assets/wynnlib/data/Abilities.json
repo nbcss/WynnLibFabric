@@ -4210,7 +4210,8 @@
         "range": 22
       },
       "metadata": {
-        "type": "REPLACE"
+        "type": "REPLACE",
+        "icon": "OPHANIM"
       }
     },
     {
@@ -4238,7 +4239,8 @@
         "mana_bank": 60
       },
       "metadata": {
-        "type": "REPLACE"
+        "type": "REPLACE",
+        "icon": "ARCANE_TRANSFER"
       }
     },
     {
