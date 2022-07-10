@@ -39,6 +39,10 @@ abstract class PropertyEntry(private val ability: Ability,
 
     fun getAbility(): Ability = ability
 
+    fun clearProperty(key: String) {
+        properties.remove(key)
+    }
+
     fun setProperty(key: String, property: AbilityProperty) {
         properties[key] = property
     }

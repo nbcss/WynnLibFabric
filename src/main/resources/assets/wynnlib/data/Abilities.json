@@ -4211,7 +4211,8 @@
         "BURNING_SIGIL"
       ],
       "properties": {
-        "spell": "SPELL_1"
+        "spell": "SPELL_1",
+        "mana_bank": 60
       },
       "metadata": {
         "type": "REPLACE"
@@ -4234,7 +4235,8 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1"
+          "spell": "SPELL_1",
+          "ability": "HEAL"
         },
         "spell": "SPELL_1",
         "mana_modifier": -5
@@ -4382,7 +4384,8 @@
         "upgrade": {
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
-        }
+        },
+        "mana_bank_modifier": 30
       },
       "metadata": null
     },
@@ -4662,7 +4665,10 @@
           "spell": "SPELL_1",
           "ability": "HEAL"
         },
-        "pulse_heal": 15
+        "pulse_heal": {
+          "heal": 15,
+          "trigger": 2
+        }
       },
       "metadata": null
     },
@@ -4761,13 +4767,15 @@
         "LARGER_MANA_BANK_II"
       ],
       "properties": {
-        "upgrade": {
-          "spell": "SPELL_2"
+        "extend": {
+          "spell": "SPELL_1"
         },
         "duration": 3,
         "cooldown": 8
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "LARGER_MANA_BANK_II",
@@ -4788,7 +4796,8 @@
         "upgrade": {
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
-        }
+        },
+        "mana_bank_modifier": 30
       },
       "metadata": null
     },
@@ -5149,7 +5158,8 @@
         "upgrade": {
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
-        }
+        },
+        "mana_bank_modifier": 30
       },
       "metadata": null
     },
@@ -5305,7 +5315,8 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1"
+          "spell": "SPELL_1",
+          "ability": "HEAL"
         },
         "spell": "SPELL_1",
         "mana_modifier": -5

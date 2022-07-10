@@ -10,6 +10,9 @@ import io.github.nbcss.wynnlib.abilities.properties.archer.ArcherStreamProperty
 import io.github.nbcss.wynnlib.abilities.properties.archer.SelfDamageProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
+import io.github.nbcss.wynnlib.abilities.properties.mage.MageManaBankProperty
+import io.github.nbcss.wynnlib.abilities.properties.mage.PulseHealProperty
+import io.github.nbcss.wynnlib.abilities.properties.mage.TotalHealProperty
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.text.Text
 
@@ -55,6 +58,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 ArcherStreamProperty.Modifier,
                 ArcherSentientBowsProperty,
                 ArcherSentientBowsProperty.Modifier,
+                MageManaBankProperty,
+                MageManaBankProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
