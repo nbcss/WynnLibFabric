@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.Pos
@@ -31,7 +32,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
         const val MAX_AP = 45
-        const val PANE_WIDTH = 118
+        const val PANE_WIDTH = 150
         const val MAX_ENTRY_ITEM = 8
     }
     private val activeNodes: MutableSet<Ability> = HashSet()
@@ -183,7 +184,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         val pane = Identifier("wynnlib", "textures/gui/extend_pane.png")
         RenderKit.renderTexture(matrices, pane, windowX - PANE_WIDTH, windowY + 28, 0, 0, PANE_WIDTH, 210)
         textRenderer.draw(
-            matrices, LiteralText("Ability List"),
+            matrices, Translations.TOOLTIP_ABILITY_OVERVIEW.translate(),
             (windowX - PANE_WIDTH + 6).toFloat(),
             (windowY + 34).toFloat(), 0
         )

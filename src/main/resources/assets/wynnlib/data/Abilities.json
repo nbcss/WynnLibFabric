@@ -4179,6 +4179,7 @@
           "water": 10,
           "label": "WINDED"
         },
+        "max_winded": 5,
         "cooldown": 0.5
       },
       "metadata": {
@@ -4368,9 +4369,8 @@
         "PURIFICATION"
       ],
       "properties": {
-        "upgrade": {
-          "spell": "SPELL_3",
-          "ability": "METEOR"
+        "extend": {
+          "spell": "SPELL_3"
         },
         "damage": {
           "neutral": 15,
@@ -4378,7 +4378,9 @@
           "label": "WINDED"
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "LARGER_HEAL",
@@ -4656,8 +4658,8 @@
         "FLUID_HEALING"
       ],
       "properties": {
-        "upgrade": {
-          "spell": "SPELL_2"
+        "extend": {
+          "ability": "WIND_SLASH"
         },
         "damage": {
           "neutral": 30,
@@ -4666,7 +4668,9 @@
           "label": "WINDED"
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "FLUID_HEALING",
@@ -4866,7 +4870,8 @@
       "properties": {
         "upgrade": {
           "ability": "WINDSWEEPER"
-        }
+        },
+        "max_winded_modifier": 5
       },
       "metadata": null
     },
@@ -5146,7 +5151,8 @@
       "properties": {
         "upgrade": {
           "ability": "WINDSWEEPER"
-        }
+        },
+        "max_winded_modifier": 5
       },
       "metadata": null
     },
@@ -5355,6 +5361,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "TIMELOCK",
         "upgradable": false
       }
     },

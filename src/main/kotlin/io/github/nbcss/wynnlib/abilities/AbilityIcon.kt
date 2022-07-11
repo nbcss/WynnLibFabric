@@ -6,6 +6,8 @@ enum class AbilityIcon() {
     UNKNOWN,
     OPHANIM,
     ARCANE_TRANSFER,
+    TIMELOCK,
+    ARROW_BOMB,
     PHANTOM_RAY,
     GUARDIAN_ANGELS,
     GRAPPLING_HOOK,

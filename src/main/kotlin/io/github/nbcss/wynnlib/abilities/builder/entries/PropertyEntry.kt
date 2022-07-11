@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
+import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.formattingLines
 import io.github.nbcss.wynnlib.utils.replaceProperty
@@ -86,7 +87,7 @@ abstract class PropertyEntry(private val ability: Ability,
     fun getUpgradeTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         if (upgradable && upgrades.isNotEmpty()){
-            tooltip.add(LiteralText("Upgrades:").formatted(Formatting.GRAY))
+            tooltip.add(Translations.TOOLTIP_ABILITY_UPGRADE.formatted(Formatting.GRAY).append(":"))
             for (upgrade in upgrades) {
                 tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
                     .append(upgrade.formatted(upgrade.getTier().getFormatting())))
