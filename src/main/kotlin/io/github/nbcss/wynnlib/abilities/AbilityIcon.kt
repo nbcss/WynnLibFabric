@@ -5,6 +5,9 @@ import net.minecraft.util.Identifier
 enum class AbilityIcon() {
     UNKNOWN,
     HEAL,
+    TELEPORT,
+    METEOR,
+    ICE_SNAKE, 
     OPHANIM,
     ARCANE_TRANSFER,
     TIMELOCK,

@@ -598,7 +598,11 @@
         "COUNTER"
       ],
       "properties": {},
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "GENERALIST",
+        "upgradable": false
+      }
     },
     {
       "id": "COUNTER",
@@ -1501,7 +1505,8 @@
         "cooldown": 15
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
@@ -1569,7 +1574,10 @@
         "CYCLONE"
       ],
       "properties": {},
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "upgradable": false
+      }
     },
     {
       "id": "CYCLONE",
@@ -1651,7 +1659,9 @@
       "properties": {
         "cooldown": 600
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "BLOOD_PACT",
@@ -1711,7 +1721,9 @@
         "CHEAPER_UPPERCUT_II"
       ],
       "properties": {},
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "CHEAPER_UPPERCUT_II",
@@ -1761,7 +1773,9 @@
           "shape": "CIRCLE"
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "ARROW_BOMB",
@@ -2340,7 +2354,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BRYOPHYTE_ROOTS"
+        "icon": "BRYOPHYTE_ROOTS",
+        "upgradable": false
       }
     },
     {
@@ -2749,7 +2764,8 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "TWAINS_ARC"
+        "icon": "TWAINS_ARC",
+        "upgradable": false
       }
     },
     {
@@ -2987,7 +3003,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "MANA_TRAP"
+        "icon": "MANA_TRAP",
+        "upgradable": false
       }
     },
     {
@@ -3097,7 +3114,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "INITIATOR"
+        "icon": "INITIATOR",
+        "upgradable": false
       }
     },
     {
@@ -3148,10 +3166,7 @@
         },
         "duration": 60
       },
-      "metadata": {
-        "type": "EXTEND",
-        "icon": "CALL_OF_THE_HOUND"
-      }
+      "metadata": null
     },
     {
       "id": "ARROW_HURRICANE",
