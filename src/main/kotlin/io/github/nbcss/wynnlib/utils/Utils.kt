@@ -117,7 +117,7 @@ fun warpLines(text: Text, length: Int): List<Text> {
     }
     return MinecraftClient.getInstance().textRenderer.textHandler
         .wrapLines(text, length, Style.EMPTY)
-        .map { it.visit(visitor, Style.EMPTY).get() }
+        .mapNotNull { it.visit(visitor, Style.EMPTY).orElse(null) }
         .toList()
 }
 
