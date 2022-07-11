@@ -115,8 +115,6 @@ object ItemFactory {
         }
 
 
-
-
         if (itemName != "minecraft:air") {
             val nbt = NbtCompound()
             val tag = NbtCompound()
