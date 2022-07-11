@@ -3474,7 +3474,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
@@ -3766,6 +3767,9 @@
       "properties": {
         "spell": "SPELL_2",
         "mana_cost": 25,
+        "damage": {
+          "hits": 1
+        },
         "range": 12
       },
       "metadata": {
@@ -4137,7 +4141,10 @@
       "properties": {
         "upgrade": {
           "spell": "SPELL_3",
-          "ability": "METEOR"
+          "ability": "METEOR",
+          "extends": [
+            "THUNDERSTORM"
+          ]
         },
         "damage_modifier": {
           "neutral": 30,
@@ -4164,6 +4171,9 @@
         "THUNDERSTORM"
       ],
       "properties": {
+        "extend": {
+          "spell": "SPELL_4"
+        },
         "damage": {
           "neutral": 20,
           "water": 10,
@@ -4172,7 +4182,7 @@
         "cooldown": 0.5
       },
       "metadata": {
-        "type": "NEW"
+        "type": "EXTEND"
       }
     },
     {
@@ -4200,7 +4210,8 @@
         "damage": {
           "neutral": 50,
           "water": 20,
-          "thunder": 30
+          "thunder": 30,
+          "label": "ATTACK"
         },
         "ophanim": {
           "count": 2,
@@ -4285,12 +4296,14 @@
         "SENTIENT_SNAKE"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "spell": "SPELL_1"
         },
         "cooldown": 3
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "SENTIENT_SNAKE",
@@ -4356,7 +4369,8 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "WINDSWEEPER"
+          "spell": "SPELL_3",
+          "ability": "METEOR"
         },
         "damage": {
           "neutral": 15,
@@ -4454,7 +4468,7 @@
         "CHEAPER_TELEPORT_II"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "spell": "SPELL_1",
           "ability": "HEAL"
         },
@@ -4465,7 +4479,9 @@
         "duration": 5,
         "cooldown": 15
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "CHEAPER_TELEPORT_II",
@@ -4542,6 +4558,9 @@
       "properties": {
         "upgrade": {
           "spell": "SPELL_2"
+        },
+        "damage_modifier": {
+          "hits": 1
         },
         "range_modifier": -4
       },
@@ -4638,7 +4657,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "WINDSWEEPER"
+          "spell": "SPELL_2"
         },
         "damage": {
           "neutral": 30,
@@ -5245,6 +5264,9 @@
         "damage_modifier": {
           "neutral": -50,
           "thunder": -10
+        },
+        "damage": {
+          "label": "ATTACK"
         },
         "ophanim_modifier": {
           "count": 3

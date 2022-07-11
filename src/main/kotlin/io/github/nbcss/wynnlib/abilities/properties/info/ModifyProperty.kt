@@ -16,37 +16,46 @@ open class ModifyProperty(ability: Ability, data: JsonElement): AbilityProperty(
         override fun getKey(): String = "modify"
         private const val SPELL_KEY = "spell"
         private const val ABILITY_KEY = "ability"
+        private const val EXTEND_KEY = "extends"
     }
     private val spell: SpellSlot?
     private val name: String?
+    private val extends: List<String>
 
     init {
         val json = data.asJsonObject
         spell = if (json.has(SPELL_KEY)) SpellSlot.fromName(json[SPELL_KEY].asString) else null
         name = if (json.has(ABILITY_KEY)) json[ABILITY_KEY].asString else null
+        extends = if(json.has(EXTEND_KEY)) json[EXTEND_KEY].asJsonArray.map { it.asString } else emptyList()
     }
 
-    fun getModifyEntry(container: EntryContainer): PropertyEntry? {
+    fun getModifyEntries(container: EntryContainer): List<PropertyEntry> {
+        val entries: MutableList<PropertyEntry> = mutableListOf()
         if (spell != null){
             val entry = container.getEntry(spell.name)
-            if (entry != null && name != null && entry.getAbility().getKey() != name) {
-                return null
+            if (entry != null){
+                if (name == null || entry.getAbility().getKey() == name){
+                    entries.add(entry)
+                }
             }
-            return entry
+        }else if (name != null){
+            container.getEntry(name)?.let { entries.add(it) }
         }
-        if (name != null){
-            return container.getEntry(name)
+        if (entries.isNotEmpty()){
+            extends.mapNotNull { container.getEntry(it) }.forEach { entries.add(it) }
         }
-        return null
+        return entries
+    }
+
+    fun modifyEntry(entry: PropertyEntry){
+        for (property in getAbility().getProperties()) {
+            if (property is ModifiableProperty){
+                property.modify(entry)
+            }
+        }
     }
 
     override fun updateEntries(container: EntryContainer) {
-        getModifyEntry(container)?.let { entry ->
-            for (property in getAbility().getProperties()) {
-                if (property is ModifiableProperty){
-                    property.modify(entry)
-                }
-            }
-        }
+        getModifyEntries(container).forEach { modifyEntry(it) }
     }
 }

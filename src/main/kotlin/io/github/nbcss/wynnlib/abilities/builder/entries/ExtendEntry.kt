@@ -29,4 +29,6 @@ class ExtendEntry(private val parent: PropertyEntry,
 
         override fun getKey(): String = "EXTEND"
     }
+
+    fun getParent(): PropertyEntry = parent
 }

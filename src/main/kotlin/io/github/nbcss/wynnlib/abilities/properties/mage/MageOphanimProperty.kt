@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
+import io.github.nbcss.wynnlib.data.DamageMultiplier
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_HP
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_LOSS
@@ -49,7 +50,9 @@ class MageOphanimProperty(ability: Ability,
             .append(LiteralText(lightOfOrb.health.toString()).formatted(Formatting.WHITE)))
         tooltip.add(Symbol.HEART.asText().append(" ")
             .append(TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_LOSS.formatted(Formatting.GRAY).append(": "))
-            .append(LiteralText("${lightOfOrb.healthLose}%").formatted(Formatting.WHITE)))
+            .append(LiteralText("${lightOfOrb.healthLose}%").formatted(Formatting.WHITE))
+            .append(LiteralText(" (${DamageMultiplier.Label.ATTACK.translate().string})")
+                .formatted(Formatting.DARK_GRAY)))
         return tooltip
     }
 
@@ -85,7 +88,9 @@ class MageOphanimProperty(ability: Ability,
                 tooltip.add(Symbol.HEART.asText().append(" ")
                     .append(TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_LOSS.formatted(Formatting.GRAY).append(": "))
                     .append(LiteralText("${signed(modifier.healthLose)}%")
-                        .formatted(colorOf(-modifier.healthLose))))
+                        .formatted(colorOf(-modifier.healthLose)))
+                    .append(LiteralText(" (${DamageMultiplier.Label.ATTACK.translate().string})")
+                        .formatted(Formatting.DARK_GRAY)))
             }
             return tooltip
         }

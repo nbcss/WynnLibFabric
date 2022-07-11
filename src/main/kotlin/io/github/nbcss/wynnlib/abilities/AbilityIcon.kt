@@ -8,7 +8,8 @@ enum class AbilityIcon() {
     ARCANE_TRANSFER,
     PHANTOM_RAY,
     GUARDIAN_ANGELS,
-    GRAPPLING_HOOK;
+    GRAPPLING_HOOK,
+    HEAL;
     companion object {
         private val iconMap: Map<String, AbilityIcon> = mapOf(
             pairs = values().map { it.name to it }.toTypedArray()
