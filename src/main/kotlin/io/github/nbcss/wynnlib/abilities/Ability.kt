@@ -137,7 +137,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
             from(name).translate().string
         }
-        return formattingLines(desc, 190, Formatting.GRAY.toString()).toList()
+        return formattingLines(desc, Formatting.GRAY.toString()).toList()
     }
 
     fun getTooltip(build: AbilityBuild? = null): List<Text> {

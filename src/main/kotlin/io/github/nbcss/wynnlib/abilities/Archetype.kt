@@ -66,7 +66,7 @@ enum class Archetype(private val displayName: String,
         val title = Translations.TOOLTIP_ARCHETYPE_TITLE.translate(null, translate().string)
         tooltip.add(title.formatted(getFormatting()).formatted(Formatting.BOLD))
         tooltip.add(LiteralText.EMPTY)
-        formattingLines(translate("desc").string, 190, Formatting.GRAY.toString()).forEach { line ->
+        formattingLines(translate("desc").string, Formatting.GRAY.toString()).forEach { line ->
             tooltip.add(line)
         }
         tooltip.add(LiteralText.EMPTY)

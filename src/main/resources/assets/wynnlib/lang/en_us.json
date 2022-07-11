@@ -143,6 +143,7 @@
   "wynnlib.tooltip.suffix.per_3s": "%s/3s",
   "wynnlib.tooltip.suffix.per_5s": "%s/5s",
   "wynnlib.tooltip.suffix.tier": "%s tier",
+  "wynnlib.tooltip.shift_for_upgrade_description": "Hold shift to see upgrade descriptions",
   "wynnlib.class.warrior": "Warrior/Knight",
   "wynnlib.class.archer": "Archer/Hunter",
   "wynnlib.class.mage": "Mage/Dark Wizard",

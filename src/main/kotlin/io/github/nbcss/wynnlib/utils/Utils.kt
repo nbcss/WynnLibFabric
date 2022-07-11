@@ -6,10 +6,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.sound.SoundEvent
 import net.minecraft.sound.SoundEvents
-import net.minecraft.text.LiteralText
-import net.minecraft.text.StringVisitable
-import net.minecraft.text.Style
-import net.minecraft.text.Text
+import net.minecraft.text.*
 import net.minecraft.util.Formatting
 import java.util.*
 import java.util.function.Function
@@ -75,13 +72,13 @@ fun asColor(text: String): Int {
     return color
 }
 
-fun formattingLines(text: String, length: Int, prefix: String): List<Text> {
+fun formattingLines(text: String, prefix: String, length: Int = 200): List<Text> {
     val lines: MutableList<Text> = ArrayList()
     text.split("//").forEach {
         if(it == "") {
             lines.add(LiteralText.EMPTY)
         }else{
-            warpLines(parseStyle(it, prefix), length).forEach { line -> lines.add(line) }
+            warpLines(LiteralText(parseStyle(it, prefix)), length).forEach { line -> lines.add(line) }
         }
     }
     return lines
@@ -114,7 +111,7 @@ fun replaceProperty(text: String, prefix: Char, provider: Function<String, Strin
     return output.toString()
 }
 
-fun warpLines(text: String, length: Int): List<Text> {
+fun warpLines(text: Text, length: Int): List<Text> {
     val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
         Optional.of(LiteralText(asString).setStyle(style))
     }

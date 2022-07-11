@@ -36,7 +36,7 @@ open class SpellEntry(private val spell: SpellSlot,
         tooltip.add(getDisplayNameText().append(" ${getTierText()}").formatted(Formatting.BOLD))
         tooltip.add(spell.getComboText(getAbility().getCharacter()))
         tooltip.add(LiteralText.EMPTY)
-        tooltip.addAll(getDescriptionTooltip())
+        tooltip.addAll(getAbilityDescriptionTooltip(getAbility()))
         //Add effect tooltip
         val propertyTooltip = getPropertiesTooltip()
         if (propertyTooltip.isNotEmpty()){

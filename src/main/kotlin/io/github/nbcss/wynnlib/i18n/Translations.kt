@@ -68,6 +68,7 @@ object Translations {
     val TOOLTIP_SUFFIX_BLOCKS: Translatable = from("wynnlib.tooltip.suffix.blocks")
     val TOOLTIP_SUFFIX_S: Translatable = from("wynnlib.tooltip.suffix.s")
     val TOOLTIP_SUFFIX_PER_S: Translatable = from("wynnlib.tooltip.suffix.per_s")
+    val TOOLTIP_SHIFT_UPGRADE: Translatable = from("wynnlib.tooltip.shift_for_upgrade_description")
     //ability spec
     val TOOLTIP_ABILITY_ARCHER_STREAM: Translatable = from("wynnlib.gameplay.archer_stream")
     val TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS: Translatable = from("wynnlib.gameplay.archer_sentient_bows")
