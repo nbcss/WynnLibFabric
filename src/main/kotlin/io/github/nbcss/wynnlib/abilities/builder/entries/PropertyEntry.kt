@@ -93,7 +93,11 @@ abstract class PropertyEntry(private val ability: Ability,
         val tooltip: MutableList<Text> = ArrayList()
         if (upgradable && upgrades.isNotEmpty()){
             tooltip.add(Translations.TOOLTIP_ABILITY_UPGRADE.formatted(Formatting.GRAY).append(":"))
-            for (upgrade in upgrades) {
+            upgrades.sortedWith { x, y ->
+                val tier = x.getTier().compareTo(y.getTier())
+                return@sortedWith if (tier != 0) tier else
+                    x.translate().string.compareTo(y.translate().string)
+            }.forEach { upgrade ->
                 if (KeysKit.isShiftDown()){
                     tooltip.add(LiteralText("+ ").formatted(Formatting.AQUA)
                         .append(upgrade.formatted(upgrade.getTier().getFormatting())))
