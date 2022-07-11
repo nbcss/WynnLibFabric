@@ -254,10 +254,13 @@ class AbilityTreeBuilderScreen(parent: Screen?,
             RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
                 18, 18, 18, 18)
             val tier = entry.getTierText()
-            textRenderer.drawWithShadow(matrices, tier,
+            RenderKit.renderOutlineText(matrices, tier,
+                x2.toFloat() - textRenderer.getWidth(tier) + 1,
+                y2.toFloat() - 7)
+            /*textRenderer.drawWithShadow(matrices, tier,
                 x2.toFloat() - textRenderer.getWidth(tier) + 1,
                 y2.toFloat() - 7, 0xFFFFFF
-            )
+            )*/
             textRenderer.drawWithShadow(matrices, entry.getDisplayNameText(),
                 x2.toFloat() + 3,
                 y1.toFloat() + 1, 0

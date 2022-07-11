@@ -451,7 +451,7 @@
   "wynnlib.ability.name.power_shots": "Power Shots",
   "wynnlib.ability.desc.power_shots": "Your n{@{wynnlib.gameplay.main_attack}} arrows have increased speed and knockback.",
   "wynnlib.ability.name.arrow_storm": "Arrow Storm",
-  "wynnlib.ability.desc.arrow_storm": "Shoot two stream of f{${hits}} arrows, dealing significant damage to close mobs and pushing them back.",
+  "wynnlib.ability.desc.arrow_storm": "Shoot f{${archer_stream}} stream of f{${hits}} arrows, dealing significant damage to close mobs and pushing them back.",
   "wynnlib.ability.name.cheaper_escape_i": "Cheaper Escape",
   "wynnlib.ability.desc.cheaper_escape_i": "Reduce the Mana cost of n{@{.escape}}.",
   "wynnlib.ability.name.arrow_shield": "Arrow Shield",
