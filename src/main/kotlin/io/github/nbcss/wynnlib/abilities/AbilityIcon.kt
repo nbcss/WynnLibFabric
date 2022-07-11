@@ -4,6 +4,7 @@ import net.minecraft.util.Identifier
 
 enum class AbilityIcon() {
     UNKNOWN,
+    HEAL,
     OPHANIM,
     ARCANE_TRANSFER,
     TIMELOCK,
@@ -11,7 +12,14 @@ enum class AbilityIcon() {
     PHANTOM_RAY,
     GUARDIAN_ANGELS,
     GRAPPLING_HOOK,
-    HEAL;
+    HEART_SHATTER,
+    BRYOPHYTE_ROOTS,
+    BASALTIC_TRAP,
+    FIRE_CREEP,
+    MANA_TRAP,
+    GRAPE_BOMB,
+    CALL_OF_THE_HOUND,
+    TANGLED_TRAPS;
     companion object {
         private val iconMap: Map<String, AbilityIcon> = mapOf(
             pairs = values().map { it.name to it }.toTypedArray()

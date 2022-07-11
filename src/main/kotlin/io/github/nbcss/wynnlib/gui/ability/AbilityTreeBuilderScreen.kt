@@ -32,7 +32,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
         const val MAX_AP = 45
-        const val PANE_WIDTH = 150
+        const val PANE_WIDTH = 118
         const val MAX_ENTRY_ITEM = 8
     }
     private val activeNodes: MutableSet<Ability> = HashSet()

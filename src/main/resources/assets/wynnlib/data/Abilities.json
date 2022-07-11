@@ -1860,7 +1860,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "HEART_SHATTER"
       }
     },
     {
@@ -2043,7 +2044,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "WINDY_FEET"
       }
     },
     {
@@ -2194,7 +2196,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "ARROW_RAIN"
       }
     },
     {
@@ -2296,7 +2299,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "FIRE_CREEP"
       }
     },
     {
@@ -2335,7 +2339,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "BRYOPHYTE_ROOTS"
       }
     },
     {
@@ -2429,7 +2434,8 @@
         "max_focus": 3
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "FOCUS"
       }
     },
     {
@@ -2465,7 +2471,8 @@
         "max_trap": 2
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "BASALTIC_TRAP"
       }
     },
     {
@@ -2741,7 +2748,8 @@
         "range": 64
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "TWAINS_ARC"
       }
     },
     {
@@ -2793,7 +2801,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "FIERCE_STOMP"
       }
     },
     {
@@ -2869,7 +2878,8 @@
         "cooldown": 2
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "LEAP"
       }
     },
     {
@@ -2976,7 +2986,8 @@
         "range": 16
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "MANA_TRAP"
       }
     },
     {
@@ -3031,7 +3042,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "ESCAPE_ARTIST"
       }
     },
     {
@@ -3084,7 +3096,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "INITIATOR"
       }
     },
     {
@@ -3136,7 +3149,8 @@
         "duration": 60
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "CALL_OF_THE_HOUND"
       }
     },
     {
@@ -3263,7 +3277,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "SHRAPNEL_BOMB"
       }
     },
     {
@@ -3393,7 +3408,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "CREPUSCULAR_RAY"
       }
     },
     {
@@ -3425,7 +3441,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "GRAPE_BOMB"
       }
     },
     {
@@ -3475,6 +3492,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "TANGLED_TRAPS",
         "upgradable": false
       }
     },
