@@ -26,6 +26,7 @@ interface ItemMatcher {
         private val nullSupplier: Supplier<Color?> = Supplier<Color?> {null}
         private val colorMatchers: List<ItemMatcher> = listOf(
             EquipmentMatcher,
+            BoxMatcher,
             IngredientMatcher,
             MaterialMatcher,
         )

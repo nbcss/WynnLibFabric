@@ -9,18 +9,30 @@ import net.minecraft.text.TextColor
 import java.util.function.Supplier
 
 object EquipmentMatcher: ItemMatcher {
-    //private val tierMap = mapOf(pairs = Tier.values().map { it.displayName to it }.toTypedArray())
+    private val tierMap = mapOf(pairs = Tier.values().map { TextColor.fromFormatting(it.formatting) to it }.toTypedArray())
     override fun toRarityColor(item: ItemStack, tooltip: List<Text>): Supplier<Color?>? {
         tooltip.asSequence()
             .filter { it.siblings.isNotEmpty() }
             .map { it.siblings[0] }
-            .forEach {
-                //todo map it to Supplier<Color?> if find associated tier
+            .forEach next@{
+                var innerIt = it
+                // Crafted
+                if (it.siblings.isNotEmpty()){
+                    innerIt = it.siblings[0]
+                }
+
+                val tier = tierMap[innerIt.style.color] ?: return@next
+                if (tier.name.lowercase() in innerIt.asString().lowercase()){
+                    System.out.println("${innerIt.asString()} -> ${tier.name}")
+                    return Supplier { Settings.getTierColor(tier) }
+                }
             }
-            /*.map { tierMap[it.string] to it.style.color }
+        /*.map { tierMap[it.string] to it.style.color }
             .filter { it.first != null && it.second == TextColor.fromFormatting(it.first!!.formatting) }
             .map { Supplier<Color?> { Settings.getTierColor(it.first!!) } }
             .firstOrNull()*/
         return null
+
+        // example "Rare Item [0]"
     }
 }
