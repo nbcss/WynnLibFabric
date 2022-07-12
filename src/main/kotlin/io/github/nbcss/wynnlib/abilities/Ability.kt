@@ -8,6 +8,7 @@ import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
+import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BLOCKS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_DEPENDENCY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
@@ -145,8 +146,13 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
         if (getTier().getLevel() == 0){
-            properties[BoundSpellProperty.getKey()]?.let {
-                tooltip.add((it as BoundSpellProperty).getSpell().getComboText(getCharacter()))
+            val spell = BoundSpellProperty.from(this)
+            if (spell != null){
+                tooltip.add(spell.getSpell().getComboText(getCharacter()))
+            }else{
+                tooltip.add(Translations.TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
+                    .append(": ").append(character.getMainAttackKey().translate()
+                        .formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
             }
         }
         tooltip.add(LiteralText.EMPTY)

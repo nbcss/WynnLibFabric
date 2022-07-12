@@ -1,6 +1,25 @@
 {
   "data": [
     {
+      "id": "WARRIOR_MAIN_ATTACK",
+      "class": "WARRIOR",
+      "height": 2,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "main_attack_range": 5
+      },
+      "metadata": {
+        "type": "MAIN_ATTACK"
+      }
+    },
+    {
       "id": "BASH",
       "class": "WARRIOR",
       "height": 0,
@@ -45,6 +64,9 @@
         "BASH"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 1
       },
@@ -703,6 +725,9 @@
         "CHEAPER_UPPERCUT_I"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 1
       },
@@ -1778,6 +1803,25 @@
       }
     },
     {
+      "id": "ARCHER_MAIN_ATTACK",
+      "class": "ARCHER",
+      "height": 2,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "main_attack_range": 5
+      },
+      "metadata": {
+        "type": "MAIN_ATTACK"
+      }
+    },
+    {
       "id": "ARROW_BOMB",
       "class": "ARCHER",
       "height": 0,
@@ -1823,6 +1867,9 @@
         "ARROW_BOMB"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 6
       },
@@ -1917,7 +1964,11 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        }
+      },
       "metadata": null
     },
     {
@@ -2373,7 +2424,11 @@
         "ARROW_RAIN",
         "FRENZY"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        }
+      },
       "metadata": null
     },
     {
@@ -3166,7 +3221,11 @@
         },
         "duration": 60
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "CALL_OF_THE_HOUND",
+        "upgradable": false
+      }
     },
     {
       "id": "ARROW_HURRICANE",
@@ -3667,6 +3726,25 @@
       "metadata": null
     },
     {
+      "id": "MAGE_MAIN_ATTACK",
+      "class": "MAGE",
+      "height": 2,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "main_attack_range": 5
+      },
+      "metadata": {
+        "type": "MAIN_ATTACK"
+      }
+    },
+    {
       "id": "METEOR",
       "class": "MAGE",
       "height": 0,
@@ -3711,6 +3789,9 @@
         "METEOR"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 2
       },
@@ -3778,6 +3859,9 @@
         "TELEPORT"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 2
       },
@@ -4830,7 +4914,8 @@
         "damage": {
           "neutral": 30,
           "fire": 20
-        }
+        },
+        "duration": 20
       },
       "metadata": {
         "type": "EXTEND"

@@ -2,10 +2,7 @@ package io.github.nbcss.wynnlib.abilities.builder
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityMetadata
-import io.github.nbcss.wynnlib.abilities.builder.entries.ExtendEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.SpellEntry
+import io.github.nbcss.wynnlib.abilities.builder.entries.*
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 
 class EntryContainer(abilities: Collection<Ability> = emptyList()) {
@@ -18,11 +15,22 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
         val dummy: MutableSet<AbilityMetadata> = HashSet()
         for (ability in abilities) {
             ability.getMetadata()?.let {
-                when (it.getFactory().getKey()) {
-                    SpellEntry.getKey() -> {spells.add(it)}
-                    ReplaceSpellEntry.getKey() -> {replaces.add(it)}
-                    ExtendEntry.getKey() -> {extending.add(it)}
-                    else -> {dummy.add(it)}
+                when (it.getFactory()) {
+                    is MainAttackEntry.Companion -> {
+                        it.createEntry(this)?.let { x -> putEntry(x) }
+                    }
+                    is SpellEntry.Companion -> {
+                        spells.add(it)
+                    }
+                    is ReplaceSpellEntry.Companion -> {
+                        replaces.add(it)
+                    }
+                    is ExtendEntry.Companion -> {
+                        extending.add(it)
+                    }
+                    else -> {
+                        dummy.add(it)
+                    }
                 }
             }
         }

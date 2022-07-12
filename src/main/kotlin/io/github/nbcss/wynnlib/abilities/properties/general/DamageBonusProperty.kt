@@ -26,11 +26,13 @@ open class DamageBonusProperty(ability: Ability,
 
     protected open fun getDamageBonusLabel(): Text? = null
 
+    open fun getSuffix(): String = ""
+
     fun getDamageBonusRate(): Double = getDamageBonus() / 100.0
 
     override fun getTooltip(): List<Text> {
         val color = if (bonus < 0) Formatting.RED else Formatting.WHITE
-        val value = LiteralText("${signed(bonus)}%").formatted(color)
+        val value = LiteralText(signed(bonus) + getSuffix()).formatted(color)
         getDamageBonusLabel()?.let {
             value.append(it)
         }
@@ -62,6 +64,8 @@ open class DamageBonusProperty(ability: Ability,
             }
             override fun getKey(): String = "focus_damage_bonus"
         }
+
+        override fun getSuffix(): String = "%"
 
         override fun getDamageBonusLabel(): Text? {
             return LiteralText(" (").formatted(Formatting.DARK_GRAY)

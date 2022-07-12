@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Color
@@ -48,6 +49,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     fun reset() {
         activeNodes.clear()
+        tree.getMainAttackAbility()?.let { activeNodes.add(it) }
         update()
     }
 
@@ -100,6 +102,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         //replace active nodes with all validated nodes
         activeNodes.clear()
         activeNodes.addAll(validated)
+        tree.getMainAttackAbility()?.let { activeNodes.add(it) }
     }
 
     private fun update() {
@@ -107,16 +110,15 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         tree.getAbilities().forEach { paths[it] = ArrayList() }
         //compute path
         //todo replace with optimal search
-        if(activeNodes.isEmpty()){
-            tree.getRootAbility()?.let { paths[it] = listOf(it) }
-        }else{
-            for (ability in activeNodes) {
-                for (successor in ability.getSuccessors()) {
-                    if (canUnlock(successor, activeNodes)){
-                        paths[successor] = listOf(successor)
-                    }
+        for (ability in activeNodes) {
+            for (successor in ability.getSuccessors()) {
+                if (canUnlock(successor, activeNodes)){
+                    paths[successor] = listOf(successor)
                 }
             }
+        }
+        tree.getRootAbility()?.let {
+            if (it !in activeNodes) paths[it] = listOf(it)
         }
         //update container
         container = EntryContainer(activeNodes)
@@ -151,6 +153,10 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun onClickNode(ability: Ability, button: Int): Boolean {
         if (button == 0){
+            if (ability.getMetadata()?.getFactory() is MainAttackEntry.Companion){
+                playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
+                return true
+            }
             if (ability in activeNodes){
                 playSound(SoundEvents.BLOCK_LAVA_POP)
                 activeNodes.remove(ability)
@@ -241,7 +247,6 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         //render extra pane content
         val entries = container.getEntries()
-
         for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
             val entry = entries[entryIndex + i]
             val x1 = windowX - PANE_WIDTH + 6

@@ -29,7 +29,8 @@ abstract class PropertyEntry(private val ability: Ability,
                 SpellEntry,
                 ReplaceSpellEntry,
                 ExtendEntry,
-                BasicEntry
+                BasicEntry,
+                MainAttackEntry,
             ).map { it.getKey().uppercase() to it }.toTypedArray()
         )
 
