@@ -1661,6 +1661,7 @@
           "range": 3,
           "shape": "CIRCLE"
         },
+        "range_clear": true,
         "element_convert": "THUNDER"
       },
       "metadata": null
@@ -1818,7 +1819,8 @@
         "main_attack_range": 5
       },
       "metadata": {
-        "type": "MAIN_ATTACK"
+        "type": "MAIN_ATTACK",
+        "icon": "ARCHER_MAIN_ATTACK"
       }
     },
     {
