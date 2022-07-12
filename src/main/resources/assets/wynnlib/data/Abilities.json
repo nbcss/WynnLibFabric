@@ -1987,7 +1987,11 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        }
+      },
       "metadata": null
     },
     {
