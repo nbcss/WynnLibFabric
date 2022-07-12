@@ -1,6 +1,7 @@
 {
 	"data": [
 		{
+			"id": "EARTH_1",
 			"name": "EARTH 1",
 			"displayName": "✤ Earth Powder I",
 			"element": "earth",
@@ -23,6 +24,7 @@
 			}
 		},
 		{
+			"id": "EARTH_2",
 			"name": "EARTH 2",
 			"displayName": "✤ Earth Powder II",
 			"element": "earth",
@@ -45,6 +47,7 @@
 			}
 		},
 		{
+			"id": "EARTH_3",
 			"name": "EARTH 3",
 			"displayName": "✤ Earth Powder III",
 			"element": "earth",
@@ -67,6 +70,7 @@
 			}
 		},
 		{
+			"id": "EARTH_4",
 			"name": "EARTH 4",
 			"displayName": "✤ Earth Powder IV",
 			"element": "earth",
@@ -89,6 +93,7 @@
 			}
 		},
 		{
+			"id": "EARTH_5",
 			"name": "EARTH 5",
 			"displayName": "✤ Earth Powder V",
 			"element": "earth",
@@ -111,6 +116,7 @@
 			}
 		},
 		{
+			"id": "EARTH_6",
 			"name": "EARTH 6",
 			"displayName": "✤ Earth Powder VI",
 			"element": "earth",
@@ -133,6 +139,7 @@
 			}
 		},
 		{
+			"id": "THUNDER_1",
 			"name": "THUNDER 1",
 			"displayName": "✦ Thunder Powder I",
 			"element": "thunder",
@@ -155,6 +162,7 @@
 			}
 		},
 		{
+			"id": "THUNDER_2",
 			"name": "THUNDER 2",
 			"displayName": "✦ Thunder Powder II",
 			"element": "thunder",
@@ -177,6 +185,7 @@
 			}
 		},
 		{
+			"id": "THUNDER_3",
 			"name": "THUNDER 3",
 			"displayName": "✦ Thunder Powder III",
 			"element": "thunder",
@@ -199,6 +208,7 @@
 			}
 		},
 		{
+			"id": "THUNDER_4",
 			"name": "THUNDER 4",
 			"displayName": "✦ Thunder Powder IV",
 			"element": "thunder",
@@ -221,6 +231,7 @@
 			}
 		},
 		{
+			"id": "THUNDER_5",
 			"name": "THUNDER 5",
 			"displayName": "✦ Thunder Powder V",
 			"element": "thunder",
@@ -243,6 +254,7 @@
 			}
 		},
 		{
+			"id": "THUNDER_6",
 			"name": "THUNDER 6",
 			"displayName": "✦ Thunder Powder VI",
 			"element": "thunder",
@@ -265,6 +277,7 @@
 			}
 		},
 		{
+			"id": "WATER_1",
 			"name": "WATER 1",
 			"displayName": "❉ Water Powder I",
 			"element": "water",
@@ -287,6 +300,7 @@
 			}
 		},
 		{
+			"id": "WATER_2",
 			"name": "WATER 2",
 			"displayName": "❉ Water Powder II",
 			"element": "water",
@@ -309,6 +323,7 @@
 			}
 		},
 		{
+			"id": "WATER_3",
 			"name": "WATER 3",
 			"displayName": "❉ Water Powder III",
 			"element": "water",
@@ -331,6 +346,7 @@
 			}
 		},
 		{
+			"id": "WATER_4",
 			"name": "WATER 4",
 			"displayName": "❉ Water Powder IV",
 			"element": "water",
@@ -353,6 +369,7 @@
 			}
 		},
 		{
+			"id": "WATER_5",
 			"name": "WATER 5",
 			"displayName": "❉ Water Powder V",
 			"element": "water",
@@ -375,6 +392,7 @@
 			}
 		},
 		{
+			"id": "WATER_6",
 			"name": "WATER 6",
 			"displayName": "❉ Water Powder VI",
 			"element": "water",
@@ -397,6 +415,7 @@
 			}
 		},
 		{
+			"id": "FIRE_1",
 			"name": "FIRE 1",
 			"displayName": "✹ Fire Powder I",
 			"element": "fire",
@@ -419,6 +438,7 @@
 			}
 		},
 		{
+			"id": "FIRE_2",
 			"name": "FIRE 2",
 			"displayName": "✹ Fire Powder II",
 			"element": "fire",
@@ -441,6 +461,7 @@
 			}
 		},
 		{
+			"id": "FIRE_3",
 			"name": "FIRE 3",
 			"displayName": "✹ Fire Powder III",
 			"element": "fire",
@@ -463,6 +484,7 @@
 			}
 		},
 		{
+			"id": "FIRE_4",
 			"name": "FIRE 4",
 			"displayName": "✹ Fire Powder IV",
 			"element": "fire",
@@ -485,6 +507,7 @@
 			}
 		},
 		{
+			"id": "FIRE_5",
 			"name": "FIRE 5",
 			"displayName": "✹ Fire Powder V",
 			"element": "fire",
@@ -507,6 +530,7 @@
 			}
 		},
 		{
+			"id": "FIRE_6",
 			"name": "FIRE 6",
 			"displayName": "✹ Fire Powder VI",
 			"element": "fire",
@@ -529,6 +553,7 @@
 			}
 		},
 		{
+			"id": "AIR_1",
 			"name": "AIR 1",
 			"displayName": "❋ Air Powder I",
 			"element": "air",
@@ -551,6 +576,7 @@
 			}
 		},
 		{
+			"id": "AIR_2",
 			"name": "AIR 2",
 			"displayName": "❋ Air Powder II",
 			"element": "air",
@@ -573,6 +599,7 @@
 			}
 		},
 		{
+			"id": "AIR_3",
 			"name": "AIR 3",
 			"displayName": "❋ Air Powder III",
 			"element": "air",
@@ -595,6 +622,7 @@
 			}
 		},
 		{
+			"id": "AIR_4",
 			"name": "AIR 4",
 			"displayName": "❋ Air Powder IV",
 			"element": "air",
@@ -617,6 +645,7 @@
 			}
 		},
 		{
+			"id": "AIR_5",
 			"name": "AIR 5",
 			"displayName": "❋ Air Powder V",
 			"element": "air",
@@ -639,6 +668,7 @@
 			}
 		},
 		{
+			"id": "AIR_6",
 			"name": "AIR 6",
 			"displayName": "❋ Air Powder VI",
 			"element": "air",
@@ -661,5 +691,5 @@
 			}
 		}
 	],
-	"version": "1.0.4"
+	"version": "1.0.5"
 }

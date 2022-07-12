@@ -21,4 +21,9 @@ interface Weapon {
     fun getElementDamage(elem: Element): IRange
     
     fun getAttackSpeed(): AttackSpeed
+
+    fun getDPS(): Double {
+        return getAttackSpeed().speedModifier * ((getDamage().upper() + getDamage().lower()) +
+                Element.values().map { getElementDamage(it) }.sumOf { it.upper() + it.lower() }) / 2.0
+    }
 }

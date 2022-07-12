@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.abilities
 
+import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
@@ -7,6 +8,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ARCHETYPE_ABILITIES
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.formattingLines
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
@@ -25,19 +27,19 @@ enum class Archetype(private val displayName: String,
     //Archer Archetypes
     BOLTSLINGER("Boltslinger", Formatting.YELLOW, CharacterClass.ARCHER, 74),
     SHARPSHOOTER("Sharpshooter", Formatting.LIGHT_PURPLE, CharacterClass.ARCHER, 78),
-    TRAPPER("Trapper", Formatting.GREEN, CharacterClass.ARCHER, 77),
-    //Mage Archetypes (incomplete)
+    TRAPPER("Trapper", Formatting.DARK_GREEN, CharacterClass.ARCHER, 77),
+    //Mage Archetypes
     RIFTWALKER("Riftwalker", Formatting.AQUA, CharacterClass.MAGE, 72),
     LIGHT_BENDER("Light Bender", Formatting.WHITE, CharacterClass.MAGE, 73),
-    ARCANIST("Arcanist", Formatting.LIGHT_PURPLE, CharacterClass.MAGE, 78),
-    //Assassin Archetypes (incomplete)
-    SHADESTEPPER("Shadestepper", Formatting.WHITE, CharacterClass.ASSASSIN, 72),
-    TRICKSTER("Trickster", Formatting.WHITE, CharacterClass.ASSASSIN, 72),
-    ACROBAT("Acrobat", Formatting.WHITE, CharacterClass.ASSASSIN, 72),
-    //Shaman Archetypes (incomplete)
-    SUMMONER("Summoner", Formatting.WHITE, CharacterClass.SHAMAN, 72),
-    RITUALIST("Ritualist", Formatting.WHITE, CharacterClass.SHAMAN, 72),
-    ACOLYTE("Acolyte", Formatting.WHITE, CharacterClass.SHAMAN, 72);
+    ARCANIST("Arcanist", Formatting.DARK_PURPLE, CharacterClass.MAGE, 78),
+    //Assassin Archetypes
+    SHADESTEPPER("Shadestepper", Formatting.DARK_RED, CharacterClass.ASSASSIN, 75),
+    TRICKSTER("Trickster", Formatting.LIGHT_PURPLE, CharacterClass.ASSASSIN, 78),
+    ACROBAT("Acrobat", Formatting.WHITE, CharacterClass.ASSASSIN, 73),
+    //Shaman Archetypes
+    SUMMONER("Summoner", Formatting.GOLD, CharacterClass.SHAMAN, 76),
+    RITUALIST("Ritualist", Formatting.GREEN, CharacterClass.SHAMAN, 77),
+    ACOLYTE("Acolyte", Formatting.RED, CharacterClass.SHAMAN, 75);
     private val texture: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#$meta")
     companion object {
         private val VALUE_MAP: MutableMap<String, Archetype> = LinkedHashMap()
@@ -58,13 +60,13 @@ enum class Archetype(private val displayName: String,
 
     fun getTexture(): ItemStack = texture
 
-    fun getTooltip(): List<Text> {
+    fun getTooltip(build: AbilityBuild? = null): List<Text> {
         val tree = AbilityRegistry.fromCharacter(character)
         val tooltip: MutableList<Text> = ArrayList()
         val title = Translations.TOOLTIP_ARCHETYPE_TITLE.translate(null, translate().string)
         tooltip.add(title.formatted(getFormatting()).formatted(Formatting.BOLD))
         tooltip.add(LiteralText.EMPTY)
-        formattingLines(translate("desc").string, 190, Formatting.GRAY.toString()).forEach { line ->
+        formattingLines(translate("desc").string, Formatting.GRAY.toString()).forEach { line ->
             tooltip.add(line)
         }
         tooltip.add(LiteralText.EMPTY)
@@ -73,12 +75,27 @@ enum class Archetype(private val displayName: String,
         tree.getAbilities()
             .filter { it.getArchetype() == this }
             .sortedWith { x, y ->
+                if (build != null){
+                    val compare = build.hasAbility(x).compareTo(build.hasAbility(y))
+                    if (compare != 0)
+                        return@sortedWith -compare
+                }
                 val tier = x.getTier().compareTo(y.getTier())
                 return@sortedWith if (tier != 0) tier else
                     x.translate().string.compareTo(y.translate().string)
             }
-            .forEach { tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
-                .append(it.translate().formatted(it.getTier().getFormatting()))) }
+            .forEach {
+                val prefix = if (build == null){
+                    LiteralText("- ").formatted(Formatting.GRAY)
+                }else if(build.hasAbility(it)){
+                    //LiteralText("- ").formatted(Formatting.GREEN)
+                    Symbol.TICK.asText().append(" ")
+                }else{
+                    //LiteralText("- ").formatted(Formatting.RED)
+                    Symbol.CROSS.asText().append(" ")
+                }
+                tooltip.add(prefix.append(it.translate().formatted(it.getTier().getFormatting())))
+            }
         return tooltip
     }
 

@@ -7,6 +7,10 @@ import net.minecraft.util.Formatting
 enum class Symbol(private val icon: String,
                   private val formatting: Formatting) {
     MANA("✺", Formatting.AQUA),
+    HEART("❤", Formatting.RED),
+    MAX("▲", Formatting.GRAY),
+    TICK("✔", Formatting.GREEN),
+    CROSS("✖", Formatting.RED),
     RANGE("➼", Formatting.DARK_GREEN),
     AOE("☀", Formatting.DARK_AQUA),
     DURATION("⌛", Formatting.LIGHT_PURPLE),
@@ -14,8 +18,10 @@ enum class Symbol(private val icon: String,
     DAMAGE("⚔", Formatting.RED),
     COOLDOWN("⌛", Formatting.GOLD),
     CHARGE("⚡", Formatting.GREEN),
-    ;
-    //CHARGE ⚡
+    HITS("☄", Formatting.YELLOW),
+    ALTER_HITS("☄", Formatting.GREEN),
+    ADD("✚", Formatting.LIGHT_PURPLE),
+    WARNING("⚠", Formatting.DARK_RED);
 
     fun asText(): MutableText {
         return LiteralText(icon).formatted(formatting)

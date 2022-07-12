@@ -1,5 +1,10 @@
 package io.github.nbcss.wynnlib.data
 
+import io.github.nbcss.wynnlib.i18n.Translations
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
+import net.minecraft.util.Formatting
+
 enum class SpellSlot {
     SPELL_1{
         override fun getClickCombo(spellKey: MouseKey): Array<MouseKey> {
@@ -21,6 +26,18 @@ enum class SpellSlot {
             return arrayOf(spellKey, spellKey, spellKey.opposite())
         }
     };
+
+    fun getComboText(character: CharacterClass): Text {
+        getClickCombo(character.getSpellKey()).let { combo ->
+            return Translations.TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
+                .append(LiteralText(": ").formatted(Formatting.GOLD))
+                .append(combo[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
+                .append(LiteralText("-").formatted(Formatting.WHITE))
+                .append(combo[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
+                .append(LiteralText("-").formatted(Formatting.WHITE))
+                .append(combo[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
+        }
+    }
 
     companion object {
         private val VALUE_MAP: MutableMap<String, SpellSlot> = LinkedHashMap()

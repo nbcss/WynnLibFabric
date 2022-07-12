@@ -28,6 +28,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val powderSlots: Int
     private val container: EquipmentContainer?
     private val identified: Boolean
+    private val majorIds: Array<String>
     init {
         name = json.get("name").asString
         displayName = if (json.has("displayName")) json.get("displayName").asString else name
@@ -39,7 +40,8 @@ class RegularEquipment(json: JsonObject) : Equipment {
         restriction = if (json.has("restrictions") && !json.get("restrictions").isJsonNull)
             Restriction.fromId(json.get("restrictions").asString) else null
         powderSlots = if (json.has("sockets")) json.get("sockets").asInt else 0
-        identified = json.has("identified") && json.get("identified").asBoolean;
+        identified = json.has("identified") && json.get("identified").asBoolean
+        majorIds = arrayOf() //todo
         Skill.values().forEach{
             val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
             if(value != 0){
@@ -96,7 +98,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getIcon(): ItemStack = container!!.getIcon()
 
     override fun getRarityColor(): Color {
-        return Settings.getColor("tier", tier.name)
+        return Settings.getTierColor(tier)
     }
 
     override fun getTooltip(): List<Text> = container!!.getTooltip()
@@ -105,7 +107,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun getRestriction(): Restriction? = restriction
 
-    override fun isIdentifiable(): Boolean = getTier().canIdentify() && !identified
+    override fun isIdentifiable(): Boolean = getTier().canIdentify() && !identified && idMap.isNotEmpty()
 
     override fun asWeapon(): Weapon? {
         return if(container is Weapon) container else null

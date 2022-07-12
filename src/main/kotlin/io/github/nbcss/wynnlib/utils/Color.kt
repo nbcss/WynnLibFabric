@@ -2,9 +2,9 @@ package io.github.nbcss.wynnlib.utils
 
 import net.minecraft.util.Formatting
 
-class Color(val red: Int,
-            val green: Int,
-            val blue: Int) {
+data class Color(val red: Int,
+                 val green: Int,
+                 val blue: Int) {
     constructor(code: Int): this(code shr 16 and 0xFF, code shr 8 and 0xFF, code and 0xFF)
 
     companion object {
@@ -56,14 +56,18 @@ class Color(val red: Int,
     fun getColorCode(): Int = (red shl 16) + (green shl 8) + blue
 
     /**
-     * Get the color code of the color with given alpha.
+     * Get the AlphaColor of the color with given alpha.
      * Note that the method will NOT check if given alpha is in range!
      *
      * @param alpha alpha value, should be in [0, 255]. (8 bits)
-     * @return color code with the given alpha value.
+     * @return alpha color
      */
-    fun getColorCode(alpha: Int): Int {
-        return getColorCode() + (alpha shl 24)
+    fun toAlphaColor(alpha: Int): AlphaColor {
+        return AlphaColor(this, alpha)
+    }
+
+    fun toSolidColor(): AlphaColor {
+        return AlphaColor(this, 0xFF)
     }
 
     fun floatRed(): Float = normalize(red)

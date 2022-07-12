@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.data.Skill
+import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_DURABILITY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_ARMOUR
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_CONVERT
@@ -21,8 +22,9 @@ import net.minecraft.util.math.MathHelper
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Powder(json: JsonObject) : Keyed, BaseItem {
+class Powder(json: JsonObject) : Keyed, BaseItem, Translatable {
     private val skillMap: MutableMap<Skill, Int> = EnumMap(Skill::class.java)
+    private val id: String
     private val name: String
     private val displayName: String
     private val tier: Tier
@@ -36,6 +38,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
     private val oppoElem: Element
     private val texture: ItemStack
     init {
+        id = json["id"].asString
         name = json["name"].asString
         displayName = json["displayName"].asString
         tier = Tier.values()[MathHelper.clamp(json["tier"].asInt - 1, 0, Tier.values().size - 1)]
@@ -63,14 +66,18 @@ class Powder(json: JsonObject) : Keyed, BaseItem {
 
     override fun getKey(): String = name
 
-    override fun getDisplayText(): Text = LiteralText(displayName).formatted(element.color)
+    override fun getDisplayText(): Text = formatted(element.color)
 
-    override fun getDisplayName(): String = displayName
+    override fun getDisplayName(): String = translate().string
 
     override fun getIcon(): ItemStack = texture
 
+    override fun getTranslationKey(label: String?): String {
+        return "wynnlib.powder.${id.lowercase()}"
+    }
+
     override fun getRarityColor(): Color {
-        return Settings.getColor("powder_tier", tier.name)
+        return Settings.getPowderColor(this)
     }
 
     override fun getTooltip(): List<Text> {

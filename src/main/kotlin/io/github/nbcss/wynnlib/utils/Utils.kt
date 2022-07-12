@@ -3,13 +3,14 @@ package io.github.nbcss.wynnlib.utils
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
-import net.minecraft.text.LiteralText
-import net.minecraft.text.StringVisitable
-import net.minecraft.text.Style
-import net.minecraft.text.Text
+import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.sound.SoundEvent
+import net.minecraft.sound.SoundEvents
+import net.minecraft.text.*
 import net.minecraft.util.Formatting
 import java.util.*
 import java.util.function.Function
+import kotlin.math.roundToInt
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
@@ -17,6 +18,10 @@ fun signed(value: Int): String {
 
 fun signed(value: Double): String {
     return if(value <= 0.0) value.toString() else "+$value"
+}
+
+fun round(value: Double): Double {
+    return (value * 1000).roundToInt() / 1000.0
 }
 
 fun removeDecimal(value: Double): String {
@@ -43,6 +48,10 @@ fun colorOfDark(num: Int): Formatting {
     }
 }
 
+fun playSound(sound: SoundEvent, pitch: Float = 1.0f) {
+    MinecraftClient.getInstance().soundManager.play(PositionedSoundInstance.master(sound, pitch))
+}
+
 fun asRange(text: String): IRange = try {
     val array = text.split("-")
     SimpleIRange(array[0].toInt(), array[1].toInt())
@@ -63,13 +72,13 @@ fun asColor(text: String): Int {
     return color
 }
 
-fun formattingLines(text: String, length: Int, prefix: String): List<Text> {
+fun formattingLines(text: String, prefix: String, length: Int = 200): List<Text> {
     val lines: MutableList<Text> = ArrayList()
     text.split("//").forEach {
         if(it == "") {
             lines.add(LiteralText.EMPTY)
         }else{
-            warpLines(parseStyle(it, prefix), length).forEach { line -> lines.add(line) }
+            warpLines(LiteralText(parseStyle(it, prefix)), length).forEach { line -> lines.add(line) }
         }
     }
     return lines
@@ -102,13 +111,13 @@ fun replaceProperty(text: String, prefix: Char, provider: Function<String, Strin
     return output.toString()
 }
 
-fun warpLines(text: String, length: Int): List<Text> {
+fun warpLines(text: Text, length: Int): List<Text> {
     val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
         Optional.of(LiteralText(asString).setStyle(style))
     }
     return MinecraftClient.getInstance().textRenderer.textHandler
         .wrapLines(text, length, Style.EMPTY)
-        .map { it.visit(visitor, Style.EMPTY).get() }
+        .mapNotNull { it.visit(visitor, Style.EMPTY).orElse(null) }
         .toList()
 }
 

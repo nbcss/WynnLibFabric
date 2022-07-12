@@ -1,18 +1,21 @@
 package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
+import io.github.nbcss.wynnlib.gui.widgets.ExitButtonWidget
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.render.GameRenderer
+import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(title), TooltipScreen {
+abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(title),
+    TooltipScreen, ExitButtonWidget.ExitHandler {
     private val texture = Identifier("wynnlib", "textures/gui/handbook_tab.png")
     companion object {
         const val TAB_SIZE: Int = 7
@@ -21,6 +24,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
     protected val backgroundHeight = 210
     protected val tabs: MutableList<TabFactory> = ArrayList()
     private var tabPage: Int = 0
+    protected var exitButton: ExitButtonWidget? = null
     protected var windowWidth = backgroundWidth
     protected var windowHeight = backgroundHeight
     protected var windowX = backgroundWidth
@@ -42,6 +46,9 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         windowHeight = backgroundHeight
         windowX = (width - windowWidth) / 2
         windowY = (height - windowHeight) / 2
+        val closeX = windowX + 230
+        val closeY = windowY + 32
+        exitButton = addDrawableChild(ExitButtonWidget(this, closeX, closeY))
     }
 
     open fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
@@ -93,6 +100,16 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
 
     abstract fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float)
 
+    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        if (super.keyPressed(keyCode, scanCode, modifiers)) {
+            return true
+        }else if (this.client!!.options.inventoryKey.matchesKey(keyCode, scanCode)) {
+            client!!.setScreen(parent)
+            return true
+        }
+        return false
+    }
+
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         val tabIndex = tabPage * TAB_SIZE
         (0 until TAB_SIZE).filter{tabIndex + it < tabs.size}
@@ -106,15 +123,15 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
 
     override fun render(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         drawBackground(matrices, mouseX, mouseY, delta)
-        val closeX = windowX + 230
-        val closeY = windowY + 32
-        RenderSystem.enableDepthTest()
-        RenderKit.renderTexture(matrices, texture, closeX, closeY, 56, 210, 10, 10)
         super.render(matrices, mouseX, mouseY, delta)
         drawContents(matrices, mouseX, mouseY, delta)
     }
 
     override fun shouldPause(): Boolean = false
+
+    override fun exit() {
+        client!!.setScreen(parent)
+    }
 
     override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
         matrices.push()

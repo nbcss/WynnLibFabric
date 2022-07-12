@@ -1,13 +1,14 @@
 package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.abilities.effects.AbilityEffect
-import io.github.nbcss.wynnlib.abilities.effects.SpellUnlock
+import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
+import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BLOCKS
-import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_CLICK_COMBO
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_DEPENDENCY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_POINTS
@@ -20,7 +21,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 
-class Ability(json: JsonObject): Keyed, Translatable {
+class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, PropertyProvider {
     private val id: String
     //private val name: String
     private val tier: Tier
@@ -33,8 +34,10 @@ class Ability(json: JsonObject): Keyed, Translatable {
     private val blocks: MutableSet<String> = HashSet()
     private val predecessors: MutableSet<String> = HashSet()
     private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
-    private val effect: AbilityEffect
-    //private val tips: MutableList<EffectTip> = ArrayList()
+    private val placeholderMap: MutableMap<String, String> = HashMap()
+    private val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
+    private val metadata: AbilityMetadata?
+    //private val effect: AbilityEffect
     init {
         id = json["id"].asString
         //name = json["name"].asString
@@ -60,15 +63,21 @@ class Ability(json: JsonObject): Keyed, Translatable {
             2 -> Tier.TIER_2
             3 -> Tier.TIER_3
             4 -> Tier.TIER_4
-            else -> when (character) {
-                CharacterClass.WARRIOR -> Tier.WARRIOR_SPELL
-                CharacterClass.ARCHER -> Tier.ARCHER_SPELL
-                CharacterClass.MAGE -> Tier.MAGE_SPELL
-                CharacterClass.ASSASSIN -> Tier.ASSASSIN_SPELL
-                CharacterClass.SHAMAN -> Tier.SHAMAN_SPELL
+            else -> Tier.ofCharacter(character)
+        }
+        metadata = if (json.has("metadata") && json["metadata"].isJsonObject){
+            AbilityMetadata(this, json["metadata"].asJsonObject)
+        }else{
+            null
+        }
+        if (json.has("properties")){
+            json["properties"].asJsonObject.entrySet().forEach {
+                AbilityProperty.fromData(this, it.key, it.value)?.let { property ->
+                    properties[it.key] = property
+                    property.writePlaceholder(this)
+                }
             }
         }
-        effect = AbilityEffect.fromData(this, json["properties"].asJsonObject)
     }
 
     fun getCharacter(): CharacterClass = character
@@ -83,7 +92,14 @@ class Ability(json: JsonObject): Keyed, Translatable {
 
     fun getAbilityPointCost(): Int = cost
 
+    fun getMetadata(): AbilityMetadata? = metadata
+
     fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
+
+    //fixme it is very slow process! The result should be cached
+    fun getSuccessors(): List<Ability> {
+        return AbilityRegistry.fromCharacter(character).getAbilities().filter { this in it.getPredecessors() }
+    }
 
     fun getBlockAbilities(): List<Ability> = blocks.mapNotNull { x -> AbilityRegistry.get(x) }
 
@@ -95,37 +111,51 @@ class Ability(json: JsonObject): Keyed, Translatable {
         return if (dependency == null) null else AbilityRegistry.get(dependency)
     }
 
-    fun getEffect(): AbilityEffect = effect
+    //fun getEffect(): AbilityEffect = effect
 
-    fun getTooltip(): List<Text> {
-        val tree = AbilityRegistry.fromCharacter(getCharacter())
-        val tooltip: MutableList<Text> = ArrayList()
-        tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
-        if (effect is SpellUnlock){
-            effect.getSpell().getClickCombo(getCharacter().getSpellKey()).let {
-                tooltip.add(TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
-                    .append(LiteralText(": ").formatted(Formatting.GOLD))
-                    .append(it[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
-                    .append(LiteralText("-").formatted(Formatting.WHITE))
-                    .append(it[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
-                    .append(LiteralText("-").formatted(Formatting.WHITE))
-                    .append(it[2].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
-            }
-        }
-        tooltip.add(LiteralText.EMPTY)
+    fun getPropertiesTooltip(): List<Text> {
+        return properties.values.map { it.getTooltip() }.flatten()
+    }
+
+    fun getProperties(): List<AbilityProperty> = properties.values.toList()
+
+    override fun getProperty(key: String): AbilityProperty? {
+        return properties[key]
+    }
+
+    override fun getPlaceholder(key: String): String {
+        return placeholderMap.getOrDefault(key, key)
+    }
+
+    override fun putPlaceholder(key: String, value: String) {
+        placeholderMap[key] = value
+    }
+
+    fun getDescriptionTooltip(): List<Text> {
         val desc = replaceProperty(replaceProperty(translate("desc").string, '$')
-        { effect.getPropertyString(it) }, '@') {
+        { getPlaceholder(it) }, '@') {
             val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it
             from(name).translate().string
         }
-        formattingLines(desc, 190, Formatting.GRAY.toString()).forEach { line ->
-            tooltip.add(line)
+        return formattingLines(desc, Formatting.GRAY.toString()).toList()
+    }
+
+    fun getTooltip(build: AbilityBuild? = null): List<Text> {
+        val tree = AbilityRegistry.fromCharacter(getCharacter())
+        val tooltip: MutableList<Text> = ArrayList()
+        tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
+        if (getTier().getLevel() == 0){
+            properties[BoundSpellProperty.getKey()]?.let {
+                tooltip.add((it as BoundSpellProperty).getSpell().getComboText(getCharacter()))
+            }
         }
         tooltip.add(LiteralText.EMPTY)
+        tooltip.addAll(getDescriptionTooltip())
+        tooltip.add(LiteralText.EMPTY)
         //Add effect tooltip
-        val effectTooltip = effect.getEffectTooltip()
-        if (effectTooltip.isNotEmpty()){
-            tooltip.addAll(effectTooltip)
+        val propertyTooltip = getPropertiesTooltip()
+        if (propertyTooltip.isNotEmpty()){
+            tooltip.addAll(propertyTooltip)
             tooltip.add(LiteralText.EMPTY)
         }
         //Add blocking abilities
@@ -133,28 +163,63 @@ class Ability(json: JsonObject): Keyed, Translatable {
         if (incompatibles.isNotEmpty()){
             tooltip.add(TOOLTIP_ABILITY_BLOCKS.translate().formatted(Formatting.RED))
             incompatibles.forEach {
+                val color = if (build == null || !build.hasAbility(it)){
+                    Formatting.GRAY
+                }else{
+                    Formatting.DARK_RED
+                }
                 tooltip.add(LiteralText("- ").formatted(Formatting.RED)
-                    .append(it.translate().formatted(Formatting.GRAY)))
+                    .append(it.translate().formatted(color)))
             }
             tooltip.add(LiteralText.EMPTY)
         }
+        val apReq = if (build == null || build.hasAbility(this)){
+            LiteralText("")
+        }else if(build.getSpareAbilityPoints() >= getAbilityPointCost()){
+            Symbol.TICK.asText().append(" ")
+        }else{
+            Symbol.CROSS.asText().append(" ")
+        }
         //Requirements
-        tooltip.add(TOOLTIP_ABILITY_POINTS.translate().formatted(Formatting.GRAY)
+        tooltip.add(apReq.append(TOOLTIP_ABILITY_POINTS.formatted(Formatting.GRAY))
             .append(LiteralText(": ").formatted(Formatting.GRAY))
             .append(LiteralText(getAbilityPointCost().toString()).formatted(Formatting.WHITE)))
         if (dependency != null){
             getAbilityDependency()?.let {
-                tooltip.add(TOOLTIP_ABILITY_DEPENDENCY.translate().formatted(Formatting.GRAY)
+                val dependencyReq = if (build == null || build.hasAbility(this)){
+                    LiteralText("")
+                }else if(build.hasAbility(it)){
+                    Symbol.TICK.asText().append(" ")
+                }else{
+                    Symbol.CROSS.asText().append(" ")
+                }
+                tooltip.add(dependencyReq.append(TOOLTIP_ABILITY_DEPENDENCY.formatted(Formatting.GRAY))
                     .append(LiteralText(": ").formatted(Formatting.GRAY))
-                    .append(it.translate().formatted(Formatting.WHITE)))
+                    .append(it.formatted(Formatting.WHITE)))
             }
         }
         tree.getArchetypes().filter { getArchetypeRequirement(it) != 0 }.forEach {
-            val points = getArchetypeRequirement(it).toString()
+            val requirement = getArchetypeRequirement(it)
+            val archReq = if (build == null || build.hasAbility(this)){
+                LiteralText("")
+            }else if(build.getArchetypePoint(it) >= requirement){
+                Symbol.TICK.asText().append(" ")
+            }else{
+                Symbol.CROSS.asText().append(" ")
+            }
+            val points = if (build == null || build.hasAbility(this)){
+                LiteralText(requirement.toString()).formatted(Formatting.WHITE)
+            }else if(build.getArchetypePoint(it) >= requirement){
+                LiteralText(build.getArchetypePoint(it).toString()).formatted(Formatting.WHITE)
+                    .append(LiteralText("/${requirement}").formatted(Formatting.GRAY))
+            }else{
+                LiteralText(build.getArchetypePoint(it).toString()).formatted(Formatting.RED)
+                    .append(LiteralText("/${requirement}").formatted(Formatting.GRAY))
+            }
             val title = TOOLTIP_ABILITY_MIN_ARCHETYPE.translate(null, it.translate().string)
-            tooltip.add(title.formatted(Formatting.GRAY)
+            tooltip.add(archReq.append(title.formatted(Formatting.GRAY))
                 .append(LiteralText(": ").formatted(Formatting.GRAY))
-                .append(LiteralText(points).formatted(Formatting.WHITE)))
+                .append(points))
         }
         getArchetype()?.let {
             tooltip.add(LiteralText.EMPTY)
@@ -163,6 +228,12 @@ class Ability(json: JsonObject): Keyed, Translatable {
         }
         return tooltip
     }
+
+    fun updateEntries(container: EntryContainer) {
+        properties.values.forEach { it.updateEntries(container) }
+    }
+
+    fun getAbilityTree(): AbilityTree = AbilityRegistry.fromCharacter(character)
 
     override fun getKey(): String = id
 
@@ -215,6 +286,17 @@ class Ability(json: JsonObject): Keyed, Translatable {
             ItemFactory.fromEncoding("minecraft:stone_axe#54"),
             ItemFactory.fromEncoding("minecraft:stone_axe#55"),
             ItemFactory.fromEncoding("minecraft:stone_axe#56"));
+        companion object {
+            fun ofCharacter(character: CharacterClass): Tier {
+                return when (character) {
+                    CharacterClass.WARRIOR -> WARRIOR_SPELL
+                    CharacterClass.ARCHER -> ARCHER_SPELL
+                    CharacterClass.MAGE -> MAGE_SPELL
+                    CharacterClass.ASSASSIN -> ASSASSIN_SPELL
+                    CharacterClass.SHAMAN -> SHAMAN_SPELL
+                }
+            }
+        }
 
         fun getLevel(): Int = level
 
