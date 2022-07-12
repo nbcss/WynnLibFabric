@@ -43,6 +43,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MainAttackRangeModifierProperty,
                 RangeProperty,
                 RangeProperty.Modifier,
+                RangeProperty.Clear,
                 CooldownProperty,
                 CooldownProperty.Modifier,
                 DurationProperty,
