@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
@@ -83,6 +84,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
 
     fun getCharacter(): CharacterClass = character
 
+    fun isMainAttack(): Boolean = metadata?.getFactory() is MainAttackEntry.Companion
+
     fun getTier(): Tier = tier
 
     fun getArchetype(): Archetype? = archetype
@@ -149,7 +152,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             val spell = BoundSpellProperty.from(this)
             if (spell != null){
                 tooltip.add(spell.getSpell().getComboText(getCharacter()))
-            }else{
+            }else if(isMainAttack()){
                 tooltip.add(Translations.TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
                     .append(": ").append(character.getMainAttackKey().translate()
                         .formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))

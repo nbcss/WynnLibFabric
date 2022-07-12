@@ -1,6 +1,5 @@
 package io.github.nbcss.wynnlib.abilities
 
-import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.SpellSlot
@@ -55,7 +54,7 @@ class AbilityTree(val character: CharacterClass) {
         abilities.forEach {
             this.abilities.add(it)
             this.posMap[Pos(it.getHeight(), it.getPosition())] = it
-            if (it.getMetadata()?.getFactory() == MainAttackEntry.Companion){
+            if (it.isMainAttack()){
                 mainAttack = it
             }
             if(it.getHeight() == 0){
