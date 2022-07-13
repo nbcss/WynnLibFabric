@@ -1816,7 +1816,7 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_range": 5
+        "main_attack_range": 20
       },
       "metadata": {
         "type": "MAIN_ATTACK",
@@ -2974,7 +2974,11 @@
         "LEAP",
         "SHOCKING_BOMB"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        }
+      },
       "metadata": null
     },
     {
@@ -3744,7 +3748,7 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_range": 5
+        "main_attack_range": 13
       },
       "metadata": {
         "type": "MAIN_ATTACK"
