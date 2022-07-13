@@ -11,6 +11,7 @@
     "datafixer.ItemInstanceSpawnEggFixAccessor",
     "datafixer.ItemPotionFixAccessor",
     "datafixer.RecipeFixAccessor",
+    "render.HotbarBackgroundMixin",
     "render.ItemBackgroundMixin"
   ],
   "client": [
