@@ -13,6 +13,8 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 1,
         "main_attack_range": 5
       },
       "metadata": {
@@ -1816,6 +1818,8 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 1,
         "main_attack_range": 20
       },
       "metadata": {
@@ -1969,7 +1973,9 @@
       "properties": {
         "upgrade": {
           "ability": "MAIN_ATTACK"
-        }
+        },
+        "main_damage_modifier": -30,
+        "main_attack_hits_modifier": 1
       },
       "metadata": null
     },
@@ -2433,7 +2439,9 @@
       "properties": {
         "upgrade": {
           "ability": "MAIN_ATTACK"
-        }
+        },
+        "main_damage_modifier": -20,
+        "main_attack_hits_modifier": 1
       },
       "metadata": null
     },
@@ -2977,7 +2985,8 @@
       "properties": {
         "upgrade": {
           "ability": "MAIN_ATTACK"
-        }
+        },
+        "main_range_clear": true
       },
       "metadata": null
     },
@@ -3748,6 +3757,8 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 1,
         "main_attack_range": 13
       },
       "metadata": {

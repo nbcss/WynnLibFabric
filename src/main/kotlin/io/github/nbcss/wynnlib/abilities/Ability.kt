@@ -160,16 +160,16 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         }
         tooltip.add(LiteralText.EMPTY)
         tooltip.addAll(getDescriptionTooltip())
-        tooltip.add(LiteralText.EMPTY)
         //Add effect tooltip
         val propertyTooltip = getPropertiesTooltip()
         if (propertyTooltip.isNotEmpty()){
-            tooltip.addAll(propertyTooltip)
             tooltip.add(LiteralText.EMPTY)
+            tooltip.addAll(propertyTooltip)
         }
         //Add blocking abilities
         val incompatibles = getBlockAbilities()
         if (incompatibles.isNotEmpty()){
+            tooltip.add(LiteralText.EMPTY)
             tooltip.add(TOOLTIP_ABILITY_BLOCKS.translate().formatted(Formatting.RED))
             incompatibles.forEach {
                 val color = if (build == null || !build.hasAbility(it)){
@@ -180,8 +180,10 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
                 tooltip.add(LiteralText("- ").formatted(Formatting.RED)
                     .append(it.translate().formatted(color)))
             }
-            tooltip.add(LiteralText.EMPTY)
         }
+        if (isMainAttack())
+            return tooltip
+        tooltip.add(LiteralText.EMPTY)
         val apReq = if (build == null || build.hasAbility(this)){
             LiteralText("")
         }else if(build.getSpareAbilityPoints() >= getAbilityPointCost()){
