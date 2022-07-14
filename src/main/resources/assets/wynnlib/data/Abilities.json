@@ -15,7 +15,7 @@
       "properties": {
         "main_attack_damage": 100,
         "main_attack_hits": 1,
-        "main_attack_range": 5
+        "main_attack_range": 4
       },
       "metadata": {
         "type": "MAIN_ATTACK"
@@ -1820,7 +1820,7 @@
       "properties": {
         "main_attack_damage": 100,
         "main_attack_hits": 1,
-        "main_attack_range": 20
+        "main_attack_range": 16
       },
       "metadata": {
         "type": "MAIN_ATTACK",
@@ -1998,7 +1998,8 @@
       "properties": {
         "upgrade": {
           "ability": "MAIN_ATTACK"
-        }
+        },
+        "main_range_modifier": 6
       },
       "metadata": null
     },
@@ -3012,6 +3013,7 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
+        "range_clear": true,
         "element_convert": "THUNDER"
       },
       "metadata": null
