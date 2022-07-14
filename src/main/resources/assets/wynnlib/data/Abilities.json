@@ -1999,7 +1999,7 @@
         "upgrade": {
           "ability": "MAIN_ATTACK"
         },
-        "main_range_modifier": 6
+        "main_range_modifier": 10
       },
       "metadata": null
     },
@@ -3907,9 +3907,6 @@
       "properties": {
         "spell": "SPELL_2",
         "mana_cost": 25,
-        "damage": {
-          "hits": 1
-        },
         "range": 12
       },
       "metadata": {
@@ -4483,7 +4480,7 @@
         "CHEAPER_HEAL_I"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "spell": "SPELL_2"
         },
         "effect": {
@@ -4491,7 +4488,10 @@
         },
         "duration": 1
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "upgradable": false
+      }
     },
     {
       "id": "BREATHLESS",
@@ -4701,10 +4701,8 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "damage_modifier": {
-          "hits": 1
-        },
-        "range_modifier": -4
+        "range_modifier": -4,
+        "tp_successions": 2
       },
       "metadata": null
     },

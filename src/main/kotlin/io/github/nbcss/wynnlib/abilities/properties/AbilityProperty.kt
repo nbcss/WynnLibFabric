@@ -38,6 +38,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 ManaCostModifierProperty,
                 DamageProperty,
                 DamageModifierProperty,
+                TeleportSuccessionProperty,
                 MainAttackDamageProperty,
                 MainAttackDamageModifierProperty,
                 MainAttackRangeProperty,
