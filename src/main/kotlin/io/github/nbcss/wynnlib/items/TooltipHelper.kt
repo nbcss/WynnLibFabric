@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Skill
+import io.github.nbcss.wynnlib.i18n.SuffixTranslation
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CLASS_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_COMBAT_LV_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SLOTS
@@ -50,7 +51,7 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
         val range = item.getIdentification(it)
         if (!range.isZero()){
             val color = colorOf(if (it.inverted) -range.lower() else range.lower())
-            val text = LiteralText("${signed(range.lower())}${it.suffix}").formatted(color)
+            val text = SuffixTranslation.withSuffix(range.lower(), it.suffix).formatted(color)
             if (!range.isConstant()){
                 val nextColor = colorOf(if (it.inverted) -range.upper() else range.upper())
                 val rangeColor = colorOfDark(
@@ -60,8 +61,8 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
                         else -> range.lower()
                     }
                 )
-                text.append(TOOLTIP_TO.translate().formatted(rangeColor))
-                text.append(LiteralText("${signed(range.upper())}${it.suffix}").formatted(nextColor))
+                text.append(TOOLTIP_TO.formatted(rangeColor))
+                text.append(SuffixTranslation.withSuffix(range.upper(), it.suffix).formatted(nextColor))
             }
             //val values = LiteralText("${range.start} to ${range.end} ")
             tooltip.add(text.append(" ").append(it.formatted(Formatting.GRAY)))

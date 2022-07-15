@@ -34,6 +34,11 @@ data class Identification(val id: String,               //id used in translation
             return NAME_MAP[name.uppercase()]
         }
 
+        override fun put(item: Identification) {
+            NAME_MAP[item.name] = item
+            super.put(item)
+        }
+
         override fun read(data: JsonObject): Identification {
             return Identification(data)
         }
