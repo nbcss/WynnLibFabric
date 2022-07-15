@@ -33,7 +33,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
         const val MAX_AP = 45
-        const val PANE_WIDTH = 118
+        const val PANE_WIDTH = 150
         const val MAX_ENTRY_ITEM = 8
     }
     private val activeNodes: MutableSet<Ability> = HashSet()
@@ -253,8 +253,9 @@ class AbilityTreeBuilderScreen(parent: Screen?,
             val x2 = x1 + 18
             val y1 = windowY + 44 + i * 20
             val y2 = y1 + 18
+            val xRight = windowX - 4
             RenderSystem.enableDepthTest()
-            DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 106, y2 + 1,
+            DrawableHelper.fill(matrices, x1 - 1, y1 - 1, xRight, y2 + 1,
                 Color.DARK_GRAY.toSolidColor().getColorCode())
             RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
                 18, 18, 18, 18)
@@ -274,7 +275,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 x2.toFloat() + 3,
                 y1.toFloat() + 10, 0xFFFFFF
             )
-            if (mouseY in y1..y2 && mouseX >= x1 && mouseX <= x1 + 106){
+            if (mouseY in y1..y2 && mouseX >= x1 && mouseX < xRight){
                 drawTooltip(matrices, entry.getTooltip(), mouseX, mouseY)
             }
         }
