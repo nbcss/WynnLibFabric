@@ -2,15 +2,23 @@ package io.github.nbcss.wynnlib.registry
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.utils.FileUtils
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.Version
-import java.util.function.Consumer
 
 abstract class Registry<T: Keyed> {
     protected val itemMap: MutableMap<String, T> = LinkedHashMap()
     private var version: Version? = null
 
     protected abstract fun read(data: JsonObject): T?
+
+    protected open fun getFilename(): String? = null
+
+    fun load() {
+        getFilename()?.let {
+            FileUtils.loadRegistry(this, it)
+        }
+    }
 
     fun reload(json: JsonObject){
         val ver = Version(json["version"].asString)

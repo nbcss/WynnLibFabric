@@ -9,10 +9,13 @@ import java.util.*
 import kotlin.collections.HashSet
 
 object AbilityRegistry: Registry<Ability>() {
+    private const val RESOURCE = "assets/wynnlib/data/Abilities.json"
     private val treeMap: MutableMap<CharacterClass, AbilityTree> = EnumMap(CharacterClass::class.java)
     init {
         CharacterClass.values().forEach { treeMap[it] = AbilityTree(it) }
     }
+
+    override fun getFilename(): String = RESOURCE
 
     override fun read(data: JsonObject): Ability? = try {
         Ability(data)

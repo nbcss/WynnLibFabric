@@ -1,0 +1,137 @@
+{
+  "data": [
+    {
+      "name": "MAGNET",
+      "displayName": "Magnet",
+      "description": "Pulls items within an 8 block radius towards you"
+    },
+    {
+      "name": "PLAGUE",
+      "displayName": "Plague",
+      "description": "Poisoned mobs spread their poison to nearby mobs"
+    },
+    {
+      "name": "HAWKEYE",
+      "displayName": "Hawkeye",
+      "description": "Arrow storm fires 5 arrows each dealing 80% damage",
+      "data": {
+        "arrows": 5,
+        "damage": 0.8
+      }
+    },
+    {
+      "name": "GREED",
+      "displayName": "Greed",
+      "description": "Picking up emeralds heals you and nearby players for 15% max health"
+    },
+    {
+      "name": "CAVALRYMAN",
+      "displayName": "Cavalryman",
+      "description": "You may cast spells and attack with a 70% damage penalty while on a horse"
+    },
+    {
+      "name": "GUARDIAN",
+      "displayName": "Guardian",
+      "description": "50% of the damage taken by nearby allies is redirected to you"
+    },
+    {
+      "name": "HERO",
+      "displayName": "Saviour’s Sacrifice",
+      "description": "While under 50% maximum health, nearby allies gain 50% bonus damage and defense"
+    },
+    {
+      "name": "ALTRUISM",
+      "displayName": "Heart of the Pack",
+      "description": "Nearby players gain 35% of the health you naturally regenerate"
+    },
+    {
+      "name": "ARCANES",
+      "displayName": "Transcendence",
+      "description": "50% chance for spells to cost no mana when casted"
+    },
+    {
+      "name": "ENTROPY",
+      "displayName": "Entropy",
+      "description": "Meteor falls three times faster"
+    },
+    {
+      "name": "ROVINGASSASSIN",
+      "displayName": "Roving Assassin",
+      "description": "Vanish no longer drains mana while invisible"
+    },
+    {
+      "name": "MADNESS",
+      "displayName": "Madness",
+      "description": "Cast a random ability every 3 seconds"
+    },
+    {
+      "name": "LIGHTWEIGHT",
+      "displayName": "Lightweight",
+      "description": "You no longer take fall damage"
+    },
+    {
+      "name": "SORCERY",
+      "displayName": "Sorcery",
+      "description": "30% chance for spells and attacks to cast a second time at no additional cost"
+    },
+    {
+      "name": "TAUNT",
+      "displayName": "Taunt",
+      "description": "Mobs within 12 blocks target you upon casting War Scream"
+    },
+    {
+      "name": "RALLY",
+      "displayName": "Rally",
+      "description": "Charge heals you by 10% and nearby allies by 15% on impact, but becomes harmless",
+      "data": {
+        "self": 0.1,
+        "ally": 0.15
+      }
+    },
+    {
+      "name": "CHERRY_BOMBS",
+      "displayName": "Cherry Bombs",
+      "description": "Your Smoke Bombs explodes instantly on contact, dealing 110% damage each",
+      "data": {
+        "bombs": 3,
+        "damage": 1.1
+      }
+    },
+    {
+      "name": "FREERUNNER",
+      "displayName": "Freerunner",
+      "description": "Double your sprint speed when your sprint bar is under 30%"
+    },
+    {
+      "name": "PEACEFUL_EFFIGY",
+      "displayName": "Peaceful Effigy",
+      "description": "Your totem will last twice as long"
+    },
+    {
+      "name": "FURIOUS_EFFIGY",
+      "displayName": "Furious Effigy",
+      "description": "Totem effects are twice as fast, but duration is halved"
+    },
+    {
+      "name": "FLASHFREEZE",
+      "displayName": "Flashfreeze",
+      "description": "Ice Snake is instant but has a reduced range"
+    },
+    {
+      "name": "FISSION",
+      "displayName": "Fission",
+      "description": "Explosions from your \"Exploding\" ID are twice as big and twice as strong"
+    },
+    {
+      "name": "EXPLOSIVE_IMPACT",
+      "displayName": "Explosive Impact",
+      "description": "Your \"Exploding\" ID can trigger when hitting mobs with your basic attack"
+    },
+    {
+      "name": "GEOCENTRISM",
+      "displayName": "Geocentrism",
+      "description": "Aura radiates from you instead of your Totem and can be cast any time"
+    }
+  ],
+  "version": "1.0.12"
+}
