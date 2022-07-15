@@ -39,6 +39,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     private val placeholderMap: MutableMap<String, String> = HashMap()
     private val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
     private val metadata: AbilityMetadata?
+    private var successors: List<Ability>? = null
     //private val effect: AbilityEffect
     init {
         id = json["id"].asString
@@ -100,9 +101,12 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
 
     fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
 
-    //fixme it is very slow process! The result should be cached
     fun getSuccessors(): List<Ability> {
-        return AbilityRegistry.fromCharacter(character).getAbilities().filter { this in it.getPredecessors() }
+        if (successors != null) {
+            successors = AbilityRegistry.fromCharacter(character)
+                .getAbilities().filter { this in it.getPredecessors() }
+        }
+        return successors!!
     }
 
     fun getBlockAbilities(): List<Ability> = blocks.mapNotNull { x -> AbilityRegistry.get(x) }
