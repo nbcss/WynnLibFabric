@@ -8,7 +8,7 @@ import io.github.nbcss.wynnlib.utils.Keyed
 data class MajorId(val id: String,
                    val displayName: String): Keyed, Translatable {
     constructor(json: JsonObject) : this(
-        json.get("id").asString,
+        json.get("name").asString,
         json.get("displayName").asString,
     )
 

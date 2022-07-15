@@ -2,8 +2,7 @@ package io.github.nbcss.wynnlib.mixins.render;
 
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.nbcss.wynnlib.matcher.ItemMatcher;
-import io.github.nbcss.wynnlib.render.RenderKit;
+import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
 import io.github.nbcss.wynnlib.utils.Color;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -49,7 +48,7 @@ public class HotbarBackgroundMixin {
             for(int i = 0; i < 6; i++) {
                 int x = this.scaledWidth / 2 - 90 + i * 20 + 2;
                 ItemStack stack = playerEntity.getInventory().main.get(i);
-                Color color = ItemMatcher.Companion.toRarityColor(stack);
+                Color color = ColorMatcher.Companion.toRarityColor(stack);
                 if(color != null){
                     RenderSystem.disableDepthTest();
                     DrawableHelper.fill(matrices, x, y, x + 16, y + 16, color.toAlphaColor(0xCC).getColorCode());

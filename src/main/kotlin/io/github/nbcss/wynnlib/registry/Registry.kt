@@ -39,7 +39,7 @@ abstract class Registry<T: Keyed> {
         }
     }
 
-    fun put(item: T) {
+    open fun put(item: T) {
         itemMap[item.getKey()] = item
     }
 
