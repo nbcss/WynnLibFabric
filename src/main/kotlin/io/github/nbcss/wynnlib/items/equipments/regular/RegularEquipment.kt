@@ -28,7 +28,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val powderSlots: Int
     private val container: EquipmentContainer?
     private val identified: Boolean
-    private val majorIds: Array<String>
+    private val majorIds: Array<MajorId>
     init {
         name = json.get("name").asString
         displayName = if (json.has("displayName")) json.get("displayName").asString else name
@@ -41,7 +41,11 @@ class RegularEquipment(json: JsonObject) : Equipment {
             Restriction.fromId(json.get("restrictions").asString) else null
         powderSlots = if (json.has("sockets")) json.get("sockets").asInt else 0
         identified = json.has("identified") && json.get("identified").asBoolean
-        majorIds = arrayOf() //todo
+        majorIds = if (json.has("majorIds")){
+            json["majorIds"].asJsonArray.mapNotNull { MajorId.get(it.asString) }.toTypedArray()
+        }else{
+            emptyArray()
+        }
         Skill.values().forEach{
             val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
             if(value != 0){
