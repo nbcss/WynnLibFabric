@@ -33,6 +33,9 @@ object Settings {
         colorMap["powder_tier.v"] = Color.RED
         colorMap["powder_tier.vi"] = Color.DARK_PURPLE
     }
+    private var analysisMode: Boolean = true
+
+    fun isAnalysisModeEnabled(): Boolean = analysisMode
 
     fun getPowderColor(powder: Powder): Color {
         return getColor("powder_tier", powder.getTier().name)
