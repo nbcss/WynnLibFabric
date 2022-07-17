@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.items.equipments
 
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.data.PowderSpecialAbility
+import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.signed
@@ -26,7 +26,7 @@ interface Wearable {
      */
     fun getElementDefence(elem: Element): Int
 
-    fun getPowderSpecialAbility(): PowderSpecialAbility? = null
+    fun getPowderSpecialAbility(): PowderSpecial? = null
 
     fun getDefenseTooltip(): List<Text> {
         val tooltip: MutableList<Text> = mutableListOf()

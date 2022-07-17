@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.items.equipments
 
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.data.PowderSpecialAbility
+import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.range.IRange
@@ -34,7 +34,7 @@ interface Weapon {
                 Element.values().map { getElementDamage(it) }.sumOf { it.upper() + it.lower() }) / 2.0
     }
 
-    fun getPowderSpecialAbility(): PowderSpecialAbility? = null
+    fun getPowderSpecialAbility(): PowderSpecial? = null
 
     fun getDamageTooltip(): List<Text> {
         val tooltip: MutableList<Text> = mutableListOf()
