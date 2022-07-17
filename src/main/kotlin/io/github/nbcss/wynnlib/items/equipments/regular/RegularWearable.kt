@@ -2,18 +2,13 @@ package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
+import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.Wearable
-import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_HEALTH
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
-import io.github.nbcss.wynnlib.utils.signed
-import net.minecraft.text.LiteralText
-import net.minecraft.text.Text
-import net.minecraft.util.Formatting
 
 abstract class RegularWearable(protected val parent: RegularEquipment, json: JsonObject)
-    : Wearable, EquipmentContainer {
+    : Wearable, EquipmentCategory {
     private val health: Int
     private val elemDefence: MutableMap<Element, Int> = LinkedHashMap()
     init {
@@ -25,23 +20,5 @@ abstract class RegularWearable(protected val parent: RegularEquipment, json: Jso
 
     override fun getElementDefence(elem: Element): Int {
         return elemDefence.getOrDefault(elem, 0)
-    }
-
-    protected fun addDefenseTooltip(tooltip: MutableList<Text>): Boolean {
-        val lastSize: Int = tooltip.size
-        if (health != 0) {
-            val text = LiteralText(": " + signed(health)).formatted(Formatting.DARK_RED)
-            val prefix = TOOLTIP_HEALTH.formatted(Formatting.DARK_RED)
-            tooltip.add(prefix.append(text))
-        }
-        Element.values().forEach {
-            val value: Int = getElementDefence(it)
-            if (value != 0) {
-                val text = LiteralText(": " + signed(value)).formatted(Formatting.GRAY)
-                val prefix = it.formatted(Formatting.GRAY, "tooltip.defence")
-                tooltip.add(prefix.append(text))
-            }
-        }
-        return tooltip.size > lastSize
     }
 }

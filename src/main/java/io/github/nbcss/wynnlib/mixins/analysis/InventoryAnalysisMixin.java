@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.mixins.analysis;
 
 import io.github.nbcss.wynnlib.Settings;
+import io.github.nbcss.wynnlib.analysis.TooltipTransformer;
 import io.github.nbcss.wynnlib.items.BaseItem;
 import io.github.nbcss.wynnlib.matcher.item.ItemMatcher;
 import net.minecraft.client.gui.screen.Screen;
@@ -25,10 +26,11 @@ public abstract class InventoryAnalysisMixin {
         if(Settings.INSTANCE.isAnalysisModeEnabled()){
             BaseItem item = ItemMatcher.Companion.toItem(stack);
             if (item != null){
-                //todo create analysis tooltip
-                List<Text> tooltip = item.getTooltip();
-                //renderTooltip(matrices, tooltip, stack.getTooltipData(), x, y);
-                info.cancel();
+                TooltipTransformer transformer = TooltipTransformer.Companion.asTransformer(stack, item);
+                if (transformer != null) {
+                    renderTooltip(matrices, transformer.getTooltip(), stack.getTooltipData(), x, y);
+                    info.cancel();
+                }
             }
         }
     }

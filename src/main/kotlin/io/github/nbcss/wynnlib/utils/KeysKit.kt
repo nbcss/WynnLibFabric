@@ -10,4 +10,11 @@ object KeysKit {
             MinecraftClient.getInstance().window.handle,
             InputUtil.GLFW_KEY_RIGHT_SHIFT)
     }
+
+    fun isAltDown(): Boolean {
+        return InputUtil.isKeyPressed(MinecraftClient.getInstance().window.handle,
+            InputUtil.GLFW_KEY_LEFT_ALT) || InputUtil.isKeyPressed(
+            MinecraftClient.getInstance().window.handle,
+            InputUtil.GLFW_KEY_RIGHT_ALT)
+    }
 }

@@ -33,8 +33,11 @@ class RegularAccessory(parent: RegularEquipment, json: JsonObject)
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(parent.getDisplayText())
         tooltip.add(LiteralText.EMPTY)
-        if (addDefenseTooltip(tooltip))
+        val defense = getDefenseTooltip()
+        if (defense.isNotEmpty()){
+            tooltip.addAll(defense)
             tooltip.add(LiteralText.EMPTY)
+        }
         addRequirements(parent, tooltip)
         tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip

@@ -4,25 +4,19 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
-import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_AVERAGE_DAMAGE
 import io.github.nbcss.wynnlib.items.*
-import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
 import io.github.nbcss.wynnlib.items.equipments.Weapon
-import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_NEUTRAL_DAMAGE
 import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
-import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.asRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
-import net.minecraft.util.Formatting
-import kotlin.math.roundToInt
 
 class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
-    : Weapon, EquipmentContainer {
+    : Weapon, io.github.nbcss.wynnlib.items.equipments.EquipmentCategory {
     private val elemDamage: MutableMap<Element, IRange> = LinkedHashMap()
-    private val type: EquipmentType
+    private val type: io.github.nbcss.wynnlib.data.EquipmentType
     private val damage: IRange
     private val atkSpeed: AttackSpeed
     private val texture: ItemStack
@@ -50,7 +44,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
 
     override fun getAttackSpeed(): AttackSpeed = atkSpeed
 
-    override fun getType(): EquipmentType = type
+    override fun getType(): io.github.nbcss.wynnlib.data.EquipmentType = type
 
     override fun getIcon(): ItemStack {
         return texture
@@ -59,28 +53,8 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(parent.getDisplayText())
-        tooltip.add(atkSpeed.translate().formatted(Formatting.GRAY))
+        tooltip.addAll(getDamageTooltip())
         tooltip.add(LiteralText.EMPTY)
-        val lastSize = tooltip.size
-        if(!damage.isZero()){
-            val text = LiteralText(": ${damage.lower()}-${damage.upper()}")
-            tooltip.add(TOOLTIP_NEUTRAL_DAMAGE.formatted(Formatting.GOLD).append(text.formatted(Formatting.GOLD)))
-        }
-        Element.values().forEach {
-            val range: IRange = getElementDamage(it)
-            if (!range.isZero()) {
-                val text = LiteralText(": ${range.lower()}-${range.upper()}")
-                val prefix = it.formatted(Formatting.GRAY, "tooltip.damage")
-                tooltip.add(prefix.append(text.formatted(Formatting.GRAY)))
-            }
-        }
-
-        tooltip.add(Symbol.DAMAGE.asText().append(" ")
-            .append(TOOLTIP_AVERAGE_DAMAGE.formatted(Formatting.DARK_GRAY).append(": "))
-            .append(LiteralText("${getDPS().roundToInt()}").formatted(Formatting.GRAY)))
-
-        //append additional one empty line if damage added
-        if (tooltip.size > lastSize) tooltip.add(LiteralText.EMPTY)
         addRequirements(parent, tooltip)
         tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip

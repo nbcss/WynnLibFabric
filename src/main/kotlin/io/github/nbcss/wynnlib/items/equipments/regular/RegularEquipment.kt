@@ -4,10 +4,11 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
 import io.github.nbcss.wynnlib.items.Equipment
-import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
+import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.utils.Color
+import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
@@ -26,7 +27,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val tier: Tier
     private val level: Int
     private val powderSlots: Int
-    private val container: EquipmentContainer?
+    private val container: EquipmentCategory?
     private val identified: Boolean
     private val majorIds: Array<MajorId>
     init {
@@ -65,9 +66,11 @@ class RegularEquipment(json: JsonObject) : Equipment {
         }else if(category.equals("accessory")){
             RegularAccessory(this, json)
         }else{
-            null //hmm it should not happen right?
+            null //hmm it should not happen right? ok it can happen if wynn updates...
         }
     }
+
+    fun getCategory(): EquipmentCategory? = container
 
     override fun getTier(): Tier = tier
 
@@ -76,7 +79,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     }
 
     override fun getType(): EquipmentType {
-        return container!!.getType()
+        return container?.getType() ?: EquipmentType.INVALID
     }
 
     override fun getLevel(): IRange = SimpleIRange(level, level)
@@ -99,13 +102,13 @@ class RegularEquipment(json: JsonObject) : Equipment {
         return LiteralText(displayName).formatted(tier.formatting)
     }
 
-    override fun getIcon(): ItemStack = container!!.getIcon()
+    override fun getIcon(): ItemStack = container?.getIcon() ?: ERROR_ITEM
 
     override fun getRarityColor(): Color {
         return Settings.getTierColor(tier)
     }
 
-    override fun getTooltip(): List<Text> = container!!.getTooltip()
+    override fun getTooltip(): List<Text> = container?.getTooltip() ?: listOf(getDisplayText())
 
     override fun getPowderSlot(): Int = powderSlots
 

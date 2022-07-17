@@ -2,17 +2,17 @@ package io.github.nbcss.wynnlib.data
 
 import io.github.nbcss.wynnlib.i18n.Translatable
 
-enum class PowderSpecial: Translatable {
-    QUAKE,
-    CHAIN_LIGHTING,
-    CURSE,
-    COURAGE,
-    WIND_PRISON,
-    RAGE,
-    KILL_STREAK,
-    CONCENTRATION,
-    ENDURANCE,
-    DODGE;
+enum class PowderSpecial(private val element: Element): Translatable {
+    QUAKE(Element.EARTH),
+    CHAIN_LIGHTING(Element.THUNDER),
+    CURSE(Element.WATER),
+    COURAGE(Element.FIRE),
+    WIND_PRISON(Element.AIR),
+    RAGE(Element.EARTH),
+    KILL_STREAK(Element.THUNDER),
+    CONCENTRATION(Element.WATER),
+    ENDURANCE(Element.FIRE),
+    DODGE(Element.AIR);
     companion object {
         fun fromWeaponElement(element: Element): PowderSpecial {
             return when (element){
@@ -34,6 +34,8 @@ enum class PowderSpecial: Translatable {
             }
         }
     }
+
+    fun getElement(): Element = element
 
     override fun getTranslationKey(label: String?): String {
         return "wynnlib.powder_spec.${name.lowercase()}"
