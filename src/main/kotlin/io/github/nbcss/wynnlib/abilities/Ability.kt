@@ -102,7 +102,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
 
     fun getSuccessors(): List<Ability> {
-        if (successors != null) {
+        if (successors == null) {
             successors = AbilityRegistry.fromCharacter(character)
                 .getAbilities().filter { this in it.getPredecessors() }
         }

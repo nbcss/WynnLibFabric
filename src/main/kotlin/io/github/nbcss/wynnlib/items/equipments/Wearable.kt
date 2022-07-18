@@ -26,8 +26,6 @@ interface Wearable {
      */
     fun getElementDefence(elem: Element): Int
 
-    fun getPowderSpecialAbility(): PowderSpecial? = null
-
     fun getDefenseTooltip(): List<Text> {
         val tooltip: MutableList<Text> = mutableListOf()
         val range = getHealth()
@@ -47,9 +45,6 @@ interface Wearable {
                 val prefix = it.formatted(Formatting.GRAY, "tooltip.defence")
                 tooltip.add(prefix.append(text))
             }
-        }
-        getPowderSpecialAbility()?.let {
-            tooltip.addAll(it.getTooltip().map { line -> LiteralText("  ").append(line) })
         }
         return tooltip
     }

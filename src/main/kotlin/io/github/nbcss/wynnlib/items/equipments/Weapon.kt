@@ -34,8 +34,6 @@ interface Weapon {
                 Element.values().map { getElementDamage(it) }.sumOf { it.upper() + it.lower() }) / 2.0
     }
 
-    fun getPowderSpecialAbility(): PowderSpecial? = null
-
     fun getDamageTooltip(): List<Text> {
         val tooltip: MutableList<Text> = mutableListOf()
         tooltip.add(getAttackSpeed().formatted(Formatting.GRAY))
@@ -58,9 +56,6 @@ interface Weapon {
         tooltip.add(Symbol.DAMAGE.asText().append(" ")
             .append(Translations.TOOLTIP_AVERAGE_DAMAGE.formatted(Formatting.DARK_GRAY).append(": "))
             .append(LiteralText("${getDPS().roundToInt()}").formatted(Formatting.GRAY)))
-        getPowderSpecialAbility()?.let {
-            tooltip.addAll(it.getTooltip().map { line -> LiteralText("  ").append(line) })
-        }
         return tooltip
     }
 }
