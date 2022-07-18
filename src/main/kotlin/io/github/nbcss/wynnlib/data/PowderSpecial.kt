@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.data
 
+import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.SUFFIX_POWDER_SPEC_BLOCKS
@@ -12,21 +13,52 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SPEC_DAMAGE_BOOS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SPEC_DURATION
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SPEC_KNOCKBACK
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SPEC_RADIUS
+import io.github.nbcss.wynnlib.registry.Registry
+import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.removeDecimal
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-interface PowderSpecial {
-    companion object {
+abstract class PowderSpecial(private val tier: Int): Keyed {
+    companion object: Registry<PowderSpecial>() {
+        private const val RESOURCE = "assets/wynnlib/data/PowderSpecs.json"
+        private val factoryMap: Map<String, Factory<out PowderSpecial>> = mapOf(
+            pairs = listOf(
+                Quake, Rage,                //earth
+                ChainLighting, KillStreak,  //thunder
+                Courage, Endurance,         //fire
+                Curse, Concentration,       //water
+                WindPrison, Dodge,          //air
+            ).map { it.type.name.uppercase() to it }.toTypedArray()
+        )
 
+        override fun getFilename(): String = RESOURCE
+
+        override fun read(data: JsonObject): PowderSpecial? {
+            return factoryMap[data["type"].asString.uppercase()]?.fromData(data)
+        }
     }
-    fun getType(): Type
-    fun getTooltip(): List<Text>
+    abstract fun getType(): Type
+    abstract fun getTooltip(): List<Text>
+    fun getTier(): Int = tier
+    override fun getKey(): String {
+        return getType().name.lowercase() + ":" + getTier()
+    }
 
     class Quake(private val radius: Double,
-                private val damage: Int) : PowderSpecial {
+                private val damage: Int,
+                tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<Quake> {
+            override val type: Type = Type.QUAKE
+            override fun fromData(data: JsonObject): Quake {
+                val radius = data["radius"].asDouble
+                val damage = data["damage"].asInt
+                val tier = data["tier"].asInt
+                return Quake(radius, damage, tier)
+            }
+        }
 
         override fun getType(): Type = Type.QUAKE
 
@@ -45,7 +77,16 @@ interface PowderSpecial {
         }
     }
 
-    class Rage(private val damage: Double) : PowderSpecial {
+    class Rage(private val damage: Double,
+               tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<Rage> {
+            override val type: Type = Type.RAGE
+            override fun fromData(data: JsonObject): Rage {
+                val damage = data["damage"].asDouble
+                val tier = data["tier"].asInt
+                return Rage(damage, tier)
+            }
+        }
 
         override fun getType(): Type = Type.RAGE
 
@@ -61,7 +102,17 @@ interface PowderSpecial {
     }
 
     class ChainLighting(private val chains: Int,
-                        private val damage: Int) : PowderSpecial {
+                        private val damage: Int,
+                        tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<ChainLighting> {
+            override val type: Type = Type.CHAIN_LIGHTING
+            override fun fromData(data: JsonObject): ChainLighting {
+                val chains = data["chains"].asInt
+                val damage = data["damage"].asInt
+                val tier = data["tier"].asInt
+                return ChainLighting(chains, damage, tier)
+            }
+        }
 
         override fun getType(): Type = Type.CHAIN_LIGHTING
 
@@ -80,7 +131,17 @@ interface PowderSpecial {
     }
 
     class KillStreak(private val damage: Double,
-                     private val duration: Double) : PowderSpecial {
+                     private val duration: Double,
+                     tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<KillStreak> {
+            override val type: Type = Type.KILL_STREAK
+            override fun fromData(data: JsonObject): KillStreak {
+                val damage = data["damage"].asDouble
+                val duration = data["duration"].asDouble
+                val tier = data["tier"].asInt
+                return KillStreak(damage, duration, tier)
+            }
+        }
 
         override fun getType(): Type = Type.KILL_STREAK
 
@@ -101,7 +162,18 @@ interface PowderSpecial {
 
     class Courage(private val duration: Double,
                   private val damage: Double,
-                  private val boost: Double) : PowderSpecial {
+                  private val boost: Double,
+                  tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<Courage> {
+            override val type: Type = Type.COURAGE
+            override fun fromData(data: JsonObject): Courage {
+                val duration = data["duration"].asDouble
+                val damage = data["damage"].asDouble
+                val boost = data["boost"].asDouble
+                val tier = data["tier"].asInt
+                return Courage(duration, damage, boost, tier)
+            }
+        }
 
         override fun getType(): Type = Type.COURAGE
 
@@ -125,7 +197,17 @@ interface PowderSpecial {
     }
 
     class Endurance(private val damage: Double,
-                    private val duration: Double) : PowderSpecial {
+                    private val duration: Double,
+                    tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<Endurance> {
+            override val type: Type = Type.ENDURANCE
+            override fun fromData(data: JsonObject): Endurance {
+                val damage = data["damage"].asDouble
+                val duration = data["duration"].asDouble
+                val tier = data["tier"].asInt
+                return Endurance(damage, duration, tier)
+            }
+        }
 
         override fun getType(): Type = Type.ENDURANCE
 
@@ -146,7 +228,17 @@ interface PowderSpecial {
     }
 
     class Curse(private val duration: Double,
-                private val boost: Double) : PowderSpecial {
+                private val boost: Double,
+                tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<Curse> {
+            override val type: Type = Type.CURSE
+            override fun fromData(data: JsonObject): Curse {
+                val duration = data["duration"].asDouble
+                val boost = data["boost"].asDouble
+                val tier = data["tier"].asInt
+                return Curse(duration, boost, tier)
+            }
+        }
 
         override fun getType(): Type = Type.CURSE
 
@@ -167,7 +259,17 @@ interface PowderSpecial {
     }
 
     class Concentration(private val damage: Double,
-                        private val duration: Double) : PowderSpecial {
+                        private val duration: Double,
+                        tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<Concentration> {
+            override val type: Type = Type.CONCENTRATION
+            override fun fromData(data: JsonObject): Concentration {
+                val damage = data["damage"].asDouble
+                val duration = data["duration"].asDouble
+                val tier = data["tier"].asInt
+                return Concentration(damage, duration, tier)
+            }
+        }
 
         override fun getType(): Type = Type.CONCENTRATION
 
@@ -191,7 +293,18 @@ interface PowderSpecial {
 
     class WindPrison(private val duration: Double,
                      private val boost: Double,
-                     private val knockback: Int) : PowderSpecial {
+                     private val knockback: Int,
+                     tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<WindPrison> {
+            override val type: Type = Type.WIND_PRISON
+            override fun fromData(data: JsonObject): WindPrison {
+                val duration = data["duration"].asDouble
+                val boost = data["boost"].asDouble
+                val knockback = data["knockback"].asInt
+                val tier = data["tier"].asInt
+                return WindPrison(duration, boost, knockback, tier)
+            }
+        }
 
         override fun getType(): Type = Type.WIND_PRISON
 
@@ -216,7 +329,17 @@ interface PowderSpecial {
     }
 
     class Dodge(private val damage: Double,
-                private val duration: Double) : PowderSpecial {
+                private val duration: Double,
+                tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<Dodge> {
+            override val type: Type = Type.DODGE
+            override fun fromData(data: JsonObject): Dodge {
+                val damage = data["damage"].asDouble
+                val duration = data["duration"].asDouble
+                val tier = data["tier"].asInt
+                return Dodge(damage, duration, tier)
+            }
+        }
 
         override fun getType(): Type = Type.DODGE
 
@@ -234,6 +357,11 @@ interface PowderSpecial {
                 .append(SUFFIX_POWDER_SPEC_SEC.formatted(Formatting.GRAY, label = null, removeDecimal(duration))))
             return tooltip
         }
+    }
+
+    interface Factory<T: PowderSpecial> {
+        val type: Type
+        fun fromData(data: JsonObject): T
     }
 
     enum class Type(private val element: Element): Translatable {

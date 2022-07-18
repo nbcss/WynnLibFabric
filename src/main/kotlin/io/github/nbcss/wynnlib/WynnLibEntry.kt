@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib
 
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId
+import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.registry.*
 import net.fabricmc.api.ModInitializer
@@ -20,6 +21,7 @@ object WynnLibEntry: ModInitializer {
         //Reload id metadata
         Identification.load()
         MajorId.load()
+        PowderSpecial.load()
         //Load database
         PowderRegistry.load()
         RegularEquipmentRegistry.load()
