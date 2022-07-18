@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SLOTS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_QUEST_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
+import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers
@@ -47,7 +48,7 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
 fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): Boolean {
     val lastSize = tooltip.size
     Identification.getAll().forEach {
-        val range = item.getIdentification(it)
+        val range = item.getIdentificationRange(it)
         if (!range.isZero()){
             val color = colorOf(if (it.inverted) -range.lower() else range.lower())
             val text = SuffixTranslation.withSuffix(range.lower(), it.suffix).formatted(color)

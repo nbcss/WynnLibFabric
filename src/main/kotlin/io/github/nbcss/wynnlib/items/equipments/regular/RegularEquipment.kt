@@ -3,7 +3,7 @@ package io.github.nbcss.wynnlib.items.equipments.regular
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.items.Equipment
+import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
@@ -27,7 +27,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val tier: Tier
     private val level: Int
     private val powderSlots: Int
-    private val container: EquipmentCategory?
+    private val category: EquipmentCategory?
     private val identified: Boolean
     private val majorIds: Array<MajorId>
     init {
@@ -59,7 +59,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
                 idMap[it] = BaseIRange(it, value)
         }
         val category = json.get("category").asString
-        container = if(category.equals("weapon")){
+        this.category = if(category.equals("weapon")){
             RegularWeapon(this, json)
         }else if(category.equals("armor")){
             RegularArmour(this, json)
@@ -70,22 +70,22 @@ class RegularEquipment(json: JsonObject) : Equipment {
         }
     }
 
-    fun getCategory(): EquipmentCategory? = container
+    fun getCategory(): EquipmentCategory? = category
 
     override fun getTier(): Tier = tier
 
-    override fun getIdentification(id: Identification): IRange {
+    override fun getIdentificationRange(id: Identification): IRange {
         return idMap.getOrDefault(id, IRange.ZERO)
     }
 
     override fun getType(): EquipmentType {
-        return container?.getType() ?: EquipmentType.INVALID
+        return category?.getType() ?: EquipmentType.INVALID
     }
 
     override fun getLevel(): IRange = SimpleIRange(level, level)
 
     override fun getClassReq(): CharacterClass? {
-        return if(container is Weapon) CharacterClass.fromWeaponType(getType()) else classReq
+        return if(category is Weapon) CharacterClass.fromWeaponType(getType()) else classReq
     }
 
     override fun getQuestReq(): String? = questReq
@@ -102,13 +102,13 @@ class RegularEquipment(json: JsonObject) : Equipment {
         return LiteralText(displayName).formatted(tier.formatting)
     }
 
-    override fun getIcon(): ItemStack = container?.getIcon() ?: ERROR_ITEM
+    override fun getIcon(): ItemStack = category?.getIcon() ?: ERROR_ITEM
 
     override fun getRarityColor(): Color {
         return Settings.getTierColor(tier)
     }
 
-    override fun getTooltip(): List<Text> = container?.getTooltip() ?: listOf(getDisplayText())
+    override fun getTooltip(): List<Text> = category?.getTooltip() ?: listOf(getDisplayText())
 
     override fun getPowderSlot(): Int = powderSlots
 
@@ -117,10 +117,10 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun isIdentifiable(): Boolean = getTier().canIdentify() && !identified && idMap.isNotEmpty()
 
     override fun asWeapon(): Weapon? {
-        return if(container is Weapon) container else null
+        return if(category is Weapon) category else null
     }
 
     override fun asWearable(): Wearable? {
-        return if(container is Wearable) container else null
+        return if(category is Wearable) category else null
     }
 }

@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.items.*
+import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.utils.ItemFactory.fromLegacyId
 import io.github.nbcss.wynnlib.utils.range.IRange
@@ -14,9 +15,9 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
 class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
-    : Weapon, io.github.nbcss.wynnlib.items.equipments.EquipmentCategory {
+    : Weapon, EquipmentCategory {
     private val elemDamage: MutableMap<Element, IRange> = LinkedHashMap()
-    private val type: io.github.nbcss.wynnlib.data.EquipmentType
+    private val type: EquipmentType
     private val damage: IRange
     private val atkSpeed: AttackSpeed
     private val texture: ItemStack
@@ -44,7 +45,7 @@ class RegularWeapon(private val parent: RegularEquipment, json: JsonObject)
 
     override fun getAttackSpeed(): AttackSpeed = atkSpeed
 
-    override fun getType(): io.github.nbcss.wynnlib.data.EquipmentType = type
+    override fun getType(): EquipmentType = type
 
     override fun getIcon(): ItemStack {
         return texture
