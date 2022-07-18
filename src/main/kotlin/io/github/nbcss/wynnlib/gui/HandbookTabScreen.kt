@@ -8,9 +8,11 @@ import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
 import io.github.nbcss.wynnlib.gui.widgets.ExitButtonWidget
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
@@ -116,6 +118,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
             .firstOrNull {isOverTab(it, mouseX.toInt(), mouseY.toInt())}?.let {
                 val tab = tabs[tabIndex + it]
                 client!!.setScreen(tab.createScreen(parent))
+                playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
                 return true
             }
         return super.mouseClicked(mouseX, mouseY, button)

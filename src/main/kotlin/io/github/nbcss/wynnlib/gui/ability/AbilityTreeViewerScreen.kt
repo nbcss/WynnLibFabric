@@ -9,9 +9,11 @@ import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderTextureWithColor
 import io.github.nbcss.wynnlib.utils.Color
+import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
+import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
@@ -78,6 +80,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
         CharacterClass.values()
             .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
                 this.tree = AbilityRegistry.fromCharacter(it)
+                playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
                 resetScroll()
                 return true
             }

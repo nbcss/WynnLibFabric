@@ -6,14 +6,9 @@ import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
-import io.github.nbcss.wynnlib.utils.AlphaColor
-import io.github.nbcss.wynnlib.utils.Color
-import io.github.nbcss.wynnlib.utils.ItemFactory
-import io.github.nbcss.wynnlib.utils.Pos
-import net.minecraft.client.MinecraftClient
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
@@ -144,11 +139,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     open fun onClickNode(ability: Ability, button: Int): Boolean {
         val dependency = ability.getAbilityDependency()
         if (button == 1 && dependency != null) {
-            MinecraftClient.getInstance().soundManager.play(
-                PositionedSoundInstance.master(
-                    SoundEvents.ENTITY_ITEM_PICKUP,
-                    1.0f
-                ))
+            playSound(SoundEvents.ENTITY_ITEM_PICKUP)
             val currPos = toScreenPosition(dependency.getHeight(), dependency.getPosition())
             val diff = (height / 2) - currPos.y
             val scale = client!!.window.scaleFactor
@@ -157,6 +148,8 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
             InputUtil.setCursorParameters(client!!.window.handle, 212993,
                 endPos.x.toDouble() * scale, endPos.y.toDouble() * scale)
             return true
+        }else{
+            playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
         }
         return false
     }
