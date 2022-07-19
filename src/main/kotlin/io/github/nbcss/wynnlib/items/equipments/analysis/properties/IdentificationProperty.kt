@@ -10,7 +10,7 @@ class IdentificationProperty: ItemProperty {
     private val idMap: MutableMap<Identification, Int> = mutableMapOf()
 
     override fun set(tooltip: List<Text>, line: Int): Int {
-        TODO("Not yet implemented")
+        return 0
     }
 
     fun getIdentificationValue(id: Identification): Int {

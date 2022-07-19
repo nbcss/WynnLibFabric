@@ -1,31 +1,41 @@
 package io.github.nbcss.wynnlib.items.equipments.analysis
 
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
+import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.items.equipments.analysis.properties.IdentificationProperty
 import io.github.nbcss.wynnlib.items.equipments.analysis.properties.ItemProperty
+import io.github.nbcss.wynnlib.items.equipments.regular.RegularArmour
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
+import io.github.nbcss.wynnlib.items.equipments.regular.RegularWeapon
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.range.IRange
+import net.minecraft.client.MinecraftClient
+import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 
 class AnalysisEquipment(private val parent: RegularEquipment,
-                        tooltip: List<Text>): RolledEquipment {
-    companion object {
-
-    }
-    private val propertyMap: Map<String, ItemProperty> = mapOf(
+                        private val stack: ItemStack): RolledEquipment {
+    private val propertyMap: MutableMap<String, ItemProperty> = mutableMapOf(
         pairs = listOf(
             IdentificationProperty()
         ).map { it.getKey() to it }.toTypedArray()
     )
-    private val category: EquipmentCategory?
+    //private val category: TooltipProvider?
     init {
-        category = null //todo
+        //if (parent.getCategory())
+        //category = null //todo
+        val category = parent.getCategory()
+        if (category is RegularWeapon) {
+            propertyMap["CATEGORY"] = AnalysisWeapon(this, category)
+        }else if (category is RegularArmour) {
+            //propertyMap["CATEGORY"] = AnalysisWeapon(category)
+        }
+        val tooltip: List<Text> = stack.getTooltip(MinecraftClient.getInstance().player, TooltipContext.Default.NORMAL)
         var line = 0
         outer@ while (line < tooltip.size) {
             for (property in propertyMap.values) {
@@ -47,6 +57,12 @@ class AnalysisEquipment(private val parent: RegularEquipment,
         TODO("Not yet implemented")
     }
 
+    override fun getTooltip(): List<Text> {
+        val category = propertyMap["CATEGORY"]
+        return if (category is TooltipProvider) category.getTooltip() else
+            stack.getTooltip(MinecraftClient.getInstance().player, TooltipContext.Default.NORMAL)
+    }
+
     override fun getIdentificationValue(id: Identification): Int {
         return (propertyMap[IdentificationProperty.KEY] as IdentificationProperty).getIdentificationValue(id)
     }
@@ -56,7 +72,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getType(): EquipmentType {
-        TODO("Not yet implemented")
+        return parent.getType()
     }
 
     override fun getLevel(): IRange {
@@ -96,26 +112,26 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getKey(): String {
-        TODO("Not yet implemented")
+        return parent.getKey()
     }
 
     override fun getDisplayText(): Text {
-        TODO("Not yet implemented")
+        return parent.getDisplayText()
     }
 
     override fun getDisplayName(): String {
-        TODO("Not yet implemented")
+        return parent.getDisplayName()
     }
 
     override fun getIcon(): ItemStack {
-        TODO("Not yet implemented")
+        return stack
     }
 
     override fun getRarityColor(): Color {
-        TODO("Not yet implemented")
+        return Settings.getTierColor(getTier())
     }
 
     override fun getIdentificationRange(id: Identification): IRange {
-        TODO("Not yet implemented")
+        return parent.getIdentificationRange(id)
     }
 }

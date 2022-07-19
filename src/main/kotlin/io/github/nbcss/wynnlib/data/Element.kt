@@ -47,9 +47,15 @@ enum class Element(val displayName: String,
     companion object {
         private val VALUE_MAP: Map<String, Element> = mapOf(
             pairs = values().map { it.name.uppercase() to it }.toTypedArray())
+        private val DISPLAY_NAME_MAP: Map<String, Element> = mapOf(
+            pairs = values().map { it.displayName to it }.toTypedArray())
 
         fun fromId(id: String): Element? {
             return VALUE_MAP[id.uppercase()]
+        }
+
+        fun fromDisplayName(displayName: String): Element? {
+            return DISPLAY_NAME_MAP[displayName]
         }
     }
 

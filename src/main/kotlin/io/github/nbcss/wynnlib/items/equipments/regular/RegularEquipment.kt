@@ -99,13 +99,13 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getDisplayName(): String = displayName
 
     override fun getDisplayText(): Text {
-        return LiteralText(displayName).formatted(tier.formatting)
+        return LiteralText(displayName).formatted(getTier().formatting)
     }
 
     override fun getIcon(): ItemStack = category?.getIcon() ?: ERROR_ITEM
 
     override fun getRarityColor(): Color {
-        return Settings.getTierColor(tier)
+        return Settings.getTierColor(getTier())
     }
 
     override fun getTooltip(): List<Text> = category?.getTooltip() ?: listOf(getDisplayText())

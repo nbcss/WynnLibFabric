@@ -3,23 +3,24 @@ package io.github.nbcss.wynnlib.data
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import java.util.*
-import kotlin.collections.LinkedHashMap
 
 enum class AttackSpeed(val displayName: String,
                        val speedModifier: Double): Keyed, Translatable {
-    SUPER_SLOW("Super Slow", 0.51),
-    VERY_SLOW("Very Slow", 0.83),
-    SLOW("Slow", 1.5),
-    NORMAL("Normal", 2.05),
-    FAST("Fast", 2.5),
-    VERY_FAST("Very Fast", 3.1),
-    SUPER_FAST("Super Fast", 4.3);
+    SUPER_SLOW("Super Slow Attack Speed", 0.51),
+    VERY_SLOW("Very Slow Attack Speed", 0.83),
+    SLOW("Slow Attack Speed", 1.5),
+    NORMAL("Normal Attack Speed", 2.05),
+    FAST("Fast Attack Speed", 2.5),
+    VERY_FAST("Very Fast Attack Speed", 3.1),
+    SUPER_FAST("Super Fast Attack Speed", 4.3);
 
     companion object {
-        private val VALUE_MAP: MutableMap<String, AttackSpeed> = LinkedHashMap()
-        init {
-            values().forEach { VALUE_MAP[it.name.lowercase()] = it }
-        }
+        private val NAME_MAP: Map<String, AttackSpeed> = mapOf(
+            pairs = values().map { it.name.uppercase() to it }.toTypedArray()
+        )
+        private val DISPLAY_NAME_MAP: Map<String, AttackSpeed> = mapOf(
+            pairs = values().map { it.displayName to it }.toTypedArray()
+        )
 
         /**
          * Get AttackSpeed instance from case-insensitive name.
@@ -29,7 +30,11 @@ enum class AttackSpeed(val displayName: String,
          * if there is not a such instance with given name, the method will return Normal attack speed.
          */
         fun fromName(name: String): AttackSpeed {
-            return VALUE_MAP.getOrDefault(name.lowercase(), NORMAL)
+            return NAME_MAP.getOrDefault(name.uppercase(), NORMAL)
+        }
+
+        fun fromDisplayName(displayName: String): AttackSpeed? {
+            return DISPLAY_NAME_MAP[displayName]
         }
     }
 

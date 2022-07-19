@@ -1,7 +1,6 @@
 package io.github.nbcss.wynnlib.items.equipments
 
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.signed
