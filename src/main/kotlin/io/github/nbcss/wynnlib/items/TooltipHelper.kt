@@ -11,6 +11,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
+import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers
@@ -22,19 +23,19 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
     //append class & quest req
     if (item.getClassReq() != null){
         val classReq = item.getClassReq()!!.translate().formatted(Formatting.GRAY)
-        val prefix = TOOLTIP_CLASS_REQ.translate().formatted(Formatting.GRAY)
+        val prefix = TOOLTIP_CLASS_REQ.formatted(Formatting.GRAY)
         tooltip.add(prefix.append(LiteralText(": ").formatted(Formatting.GRAY)).append(classReq))
     }
     if (item.getQuestReq() != null){
         val quest = LiteralText(": ${item.getQuestReq()}").formatted(Formatting.GRAY)
-        val prefix = TOOLTIP_QUEST_REQ.translate().formatted(Formatting.GRAY)
+        val prefix = TOOLTIP_QUEST_REQ.formatted(Formatting.GRAY)
         tooltip.add(prefix.append(quest))
     }
     //append level req
     val level = item.getLevel()
     val levelText = LiteralText(": " + if (level.isConstant()) level.lower().toString()
         else level.lower().toString() + "-" + level.upper().toString()).formatted(Formatting.GRAY)
-    tooltip.add(TOOLTIP_COMBAT_LV_REQ.translate().formatted(Formatting.GRAY).append(levelText))
+    tooltip.add(TOOLTIP_COMBAT_LV_REQ.formatted(Formatting.GRAY).append(levelText))
     //append skill point req
     Skill.values().forEach{
         val point = item.getRequirement(it)
@@ -42,6 +43,40 @@ fun addRequirements(item: Equipment, tooltip: MutableList<Text>) {
             val text = LiteralText(": $point").formatted(Formatting.GRAY)
             val prefix = TOOLTIP_SKILL_REQ.translate(null, it.translate().string)
             tooltip.add(prefix.formatted(Formatting.GRAY).append(text))
+        }
+    }
+}
+
+fun addRolledRequirements(item: RolledEquipment, tooltip: MutableList<Text>) {
+    //append class & quest req
+    if (item.getClassReq() != null){
+        val classReq = item.getClassReq()!!.translate().formatted(Formatting.GRAY)
+        val name = TOOLTIP_CLASS_REQ.formatted(Formatting.GRAY)
+        val prefix = if (item.meetClassReq()) Symbol.TICK.asText() else Symbol.CROSS.asText()
+        tooltip.add(prefix.append(" ").append(name.append(": ").append(classReq)))
+    }
+    if (item.getQuestReq() != null){
+        val quest = LiteralText(": ${item.getQuestReq()}").formatted(Formatting.GRAY)
+        val name = TOOLTIP_QUEST_REQ.formatted(Formatting.GRAY)
+        val prefix = if (item.meetQuestReq()) Symbol.TICK.asText() else Symbol.CROSS.asText()
+        tooltip.add(prefix.append(" ").append(name.append(quest)))
+    }
+    //append level req
+    run {
+        val level = item.getLevel()
+        val levelText = LiteralText(": " + if (level.isConstant()) level.lower().toString()
+        else level.lower().toString() + "-" + level.upper().toString()).formatted(Formatting.GRAY)
+        val prefix = if (item.meetLevelReq()) Symbol.TICK.asText() else Symbol.CROSS.asText()
+        tooltip.add(prefix.append(" ").append(TOOLTIP_COMBAT_LV_REQ.formatted(Formatting.GRAY).append(levelText)))
+    }
+    //append skill point req
+    Skill.values().forEach{
+        val point = item.getRequirement(it)
+        if(point != 0){
+            val text = LiteralText(": $point").formatted(Formatting.GRAY)
+            val name = TOOLTIP_SKILL_REQ.translate(null, it.translate().string)
+            val prefix = if (item.meetSkillReq(it)) Symbol.TICK.asText() else Symbol.CROSS.asText()
+            tooltip.add(prefix.append(" ").append(name.formatted(Formatting.GRAY).append(text)))
         }
     }
 }

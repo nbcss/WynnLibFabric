@@ -2,10 +2,7 @@ package io.github.nbcss.wynnlib.items.equipments.analysis
 
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.items.TooltipProvider
-import io.github.nbcss.wynnlib.items.addIdentifications
-import io.github.nbcss.wynnlib.items.addItemSuffix
-import io.github.nbcss.wynnlib.items.addRolledIdentifications
+import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.analysis.properties.ItemProperty
 import io.github.nbcss.wynnlib.utils.range.IRange
@@ -27,6 +24,8 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment,
         val tooltip: MutableList<Text> = mutableListOf()
         tooltip.add(equipment.getDisplayText())
         tooltip.addAll(getDamageTooltip())
+        tooltip.add(LiteralText.EMPTY)
+        addRolledRequirements(equipment, tooltip)
         tooltip.add(LiteralText.EMPTY)
         if (addRolledIdentifications(equipment, tooltip))
             tooltip.add(LiteralText.EMPTY)

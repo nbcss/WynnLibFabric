@@ -8,11 +8,13 @@ import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.items.equipments.analysis.properties.IdentificationProperty
 import io.github.nbcss.wynnlib.items.equipments.analysis.properties.ItemProperty
+import io.github.nbcss.wynnlib.items.equipments.analysis.properties.RequirementProperty
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularArmour
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularWeapon
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.range.IRange
+import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
@@ -22,7 +24,8 @@ class AnalysisEquipment(private val parent: RegularEquipment,
                         private val stack: ItemStack): RolledEquipment {
     private val propertyMap: MutableMap<String, ItemProperty> = mutableMapOf(
         pairs = listOf(
-            IdentificationProperty()
+            RequirementProperty(),
+            IdentificationProperty(),
         ).map { it.getKey() to it }.toTypedArray()
     )
     //private val category: TooltipProvider?
@@ -45,6 +48,22 @@ class AnalysisEquipment(private val parent: RegularEquipment,
             }
             line += 1
         }
+    }
+
+    override fun meetLevelReq(): Boolean {
+        return (propertyMap[RequirementProperty.KEY] as RequirementProperty).meetLevelReq()
+    }
+
+    override fun meetClassReq(): Boolean {
+        return (propertyMap[RequirementProperty.KEY] as RequirementProperty).meetClassReq()
+    }
+
+    override fun meetQuestReq(): Boolean {
+        return (propertyMap[RequirementProperty.KEY] as RequirementProperty).meetQuestReq()
+    }
+
+    override fun meetSkillReq(skill: Skill): Boolean {
+        return (propertyMap[RequirementProperty.KEY] as RequirementProperty).meetSkillReq(skill)
     }
 
     override fun getPowderSpecial(): PowderSpecial? {
@@ -74,19 +93,20 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getLevel(): IRange {
-        return parent.getLevel() //todo
+        val level = (propertyMap[RequirementProperty.KEY] as RequirementProperty).getLevel()
+        return SimpleIRange(level, level)
     }
 
     override fun getClassReq(): CharacterClass? {
-        TODO("Not yet implemented")
+        return (propertyMap[RequirementProperty.KEY] as RequirementProperty).getClassReq()
     }
 
     override fun getQuestReq(): String? {
-        TODO("Not yet implemented")
+        return (propertyMap[RequirementProperty.KEY] as RequirementProperty).getQuestReq()
     }
 
     override fun getRequirement(skill: Skill): Int {
-        TODO("Not yet implemented")
+        return (propertyMap[RequirementProperty.KEY] as RequirementProperty).getRequirement(skill)
     }
 
     override fun getPowderSlot(): Int {

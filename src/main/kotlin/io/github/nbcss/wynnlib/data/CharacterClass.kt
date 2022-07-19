@@ -4,20 +4,25 @@ import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import java.util.*
 
-enum class CharacterClass(private val weaponName: String,
+enum class CharacterClass(private val displayName: String,
+                          private val weaponName: String,
                           private val mainKey: MouseKey): Keyed, Translatable {
-    WARRIOR("Spear", MouseKey.LEFT),
-    ARCHER("Bow", MouseKey.RIGHT),
-    MAGE("Wand", MouseKey.LEFT),
-    ASSASSIN("Dagger", MouseKey.LEFT),
-    SHAMAN("Relik", MouseKey.LEFT);
+    WARRIOR("Warrior/Knight", "Spear", MouseKey.LEFT),
+    ARCHER("Archer/Hunter", "Bow", MouseKey.RIGHT),
+    MAGE("Mage/Dark Wizard", "Wand", MouseKey.LEFT),
+    ASSASSIN("Assassin/Ninja", "Dagger", MouseKey.LEFT),
+    SHAMAN("Shaman/Skyseer", "Relik", MouseKey.LEFT);
     companion object {
-        private val VALUE_MAP: MutableMap<EquipmentType, CharacterClass> = EnumMap(EquipmentType::class.java)
-        init {
-            values().forEach { VALUE_MAP[it.getWeapon()] = it }
-        }
+        private val TYPE_MAP: Map<EquipmentType, CharacterClass> = mapOf(
+            pairs = values().map { it.getWeapon() to it }.toTypedArray()
+        )
+        private val NAME_MAP: Map<String, CharacterClass> = mapOf(
+            pairs = values().map { it.displayName to it }.toTypedArray()
+        )
 
-        fun fromWeaponType(type: EquipmentType): CharacterClass? = VALUE_MAP[type]
+        fun fromWeaponType(type: EquipmentType): CharacterClass? = TYPE_MAP[type]
+
+        fun fromDisplayName(displayName: String): CharacterClass? = NAME_MAP[displayName]
     }
 
     fun getMainAttackKey(): MouseKey = mainKey

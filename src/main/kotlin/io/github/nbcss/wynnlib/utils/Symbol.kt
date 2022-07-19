@@ -4,8 +4,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
 import net.minecraft.util.Formatting
 
-enum class Symbol(private val icon: String,
-                  private val formatting: Formatting) {
+enum class Symbol(val icon: String,
+                  val formatting: Formatting) {
     MANA("✺", Formatting.AQUA),
     HEART("❤", Formatting.RED),
     MAX("▲", Formatting.GRAY),
