@@ -107,6 +107,12 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
     return tooltip.size > lastSize
 }
 
+fun addPowderSpecial(item: RolledEquipment, tooltip: MutableList<Text>) {
+    item.getPowderSpecial()?.let {
+        tooltip.addAll(it.getTooltip().map { line -> LiteralText("   ").append(line) })
+    }
+}
+
 fun addRolledIdentifications(item: RolledEquipment, tooltip: MutableList<Text>): Boolean {
     val lastSize = tooltip.size
     Identification.getAll().forEach {

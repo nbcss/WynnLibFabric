@@ -7,7 +7,8 @@ import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.items.equipments.analysis.properties.IdentificationProperty
-import io.github.nbcss.wynnlib.items.equipments.analysis.properties.ItemProperty
+import io.github.nbcss.wynnlib.items.equipments.analysis.properties.AnalysisProperty
+import io.github.nbcss.wynnlib.items.equipments.analysis.properties.PowderSpecialProperty
 import io.github.nbcss.wynnlib.items.equipments.analysis.properties.RequirementProperty
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularArmour
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
@@ -22,10 +23,11 @@ import net.minecraft.text.Text
 
 class AnalysisEquipment(private val parent: RegularEquipment,
                         private val stack: ItemStack): RolledEquipment {
-    private val propertyMap: MutableMap<String, ItemProperty> = mutableMapOf(
+    private val propertyMap: MutableMap<String, AnalysisProperty> = mutableMapOf(
         pairs = listOf(
             RequirementProperty(),
             IdentificationProperty(),
+            PowderSpecialProperty(),
         ).map { it.getKey() to it }.toTypedArray()
     )
     //private val category: TooltipProvider?
@@ -67,7 +69,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getPowderSpecial(): PowderSpecial? {
-        TODO("Not yet implemented")
+        return (propertyMap[PowderSpecialProperty.KEY] as PowderSpecialProperty).getPowderSpecial()
     }
 
     override fun getRoll(): Int {

@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-class RequirementProperty: ItemProperty {
+class RequirementProperty: AnalysisProperty {
     companion object {
         private val LEVEL_PATTERN = Pattern.compile(" Combat Lv\\. Min: (\\d+)")
         private val CHARACTER_PATTERN = Pattern.compile(" Class Req: (.+)")

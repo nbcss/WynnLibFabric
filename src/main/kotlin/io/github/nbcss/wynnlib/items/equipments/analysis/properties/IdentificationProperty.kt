@@ -4,7 +4,7 @@ import io.github.nbcss.wynnlib.data.Identification
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-class IdentificationProperty: ItemProperty {
+class IdentificationProperty: AnalysisProperty {
     companion object {
         private val ID_VALUE_PATTERN = Pattern.compile("(\\+\\d+|-\\d+)(.*)")
         const val KEY = "IDENTIFICATION"
