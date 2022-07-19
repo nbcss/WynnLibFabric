@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.data
 
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.registry.Registry
@@ -26,7 +27,8 @@ data class Identification(val id: String,               //id used in translation
 
     companion object: Registry<Identification>() {
         private const val RESOURCE = "assets/wynnlib/data/Identifications.json"
-        private val NAME_MAP: MutableMap<String, Identification> = LinkedHashMap()
+        private val NAME_MAP: MutableMap<String, Identification> = linkedMapOf()
+        private val SUFFIX_NAME_MAP: MutableMap<String, Identification> = linkedMapOf()
 
         override fun getFilename(): String = RESOURCE
 
@@ -34,8 +36,20 @@ data class Identification(val id: String,               //id used in translation
             return NAME_MAP[name.uppercase()]
         }
 
+        fun fromSuffixName(suffix: String, displayName: String): Identification? {
+            return SUFFIX_NAME_MAP["$displayName@$suffix"]
+        }
+
+        override fun reload(array: JsonArray) {
+            NAME_MAP.clear()
+            SUFFIX_NAME_MAP.clear()
+            super.reload(array)
+        }
+
         override fun put(item: Identification) {
             NAME_MAP[item.name] = item
+            SUFFIX_NAME_MAP["${item.displayName}@${item.suffix}"] = item
+            //todo also need to add alias display name
             super.put(item)
         }
 

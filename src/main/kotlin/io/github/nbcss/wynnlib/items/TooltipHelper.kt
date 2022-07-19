@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_QUEST_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.items.equipments.Equipment
+import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers
@@ -65,6 +66,19 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
                 text.append(SuffixTranslation.withSuffix(range.upper(), it.suffix).formatted(nextColor))
             }
             //val values = LiteralText("${range.start} to ${range.end} ")
+            tooltip.add(text.append(" ").append(it.formatted(Formatting.GRAY)))
+        }
+    }
+    return tooltip.size > lastSize
+}
+
+fun addRolledIdentifications(item: RolledEquipment, tooltip: MutableList<Text>): Boolean {
+    val lastSize = tooltip.size
+    Identification.getAll().forEach {
+        val value = item.getIdentificationValue(it)
+        if (value != 0){
+            val color = colorOf(if (it.inverted) -value else value)
+            val text = SuffixTranslation.withSuffix(value, it.suffix).formatted(color)
             tooltip.add(text.append(" ").append(it.formatted(Formatting.GRAY)))
         }
     }

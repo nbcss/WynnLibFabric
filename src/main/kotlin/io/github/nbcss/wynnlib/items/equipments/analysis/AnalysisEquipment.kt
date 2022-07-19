@@ -27,8 +27,6 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     )
     //private val category: TooltipProvider?
     init {
-        //if (parent.getCategory())
-        //category = null //todo
         val category = parent.getCategory()
         if (category is RegularWeapon) {
             propertyMap["CATEGORY"] = AnalysisWeapon(this, category)
@@ -68,7 +66,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getTier(): Tier {
-        TODO("Not yet implemented")
+        return parent.getTier()
     }
 
     override fun getType(): EquipmentType {
@@ -76,7 +74,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getLevel(): IRange {
-        TODO("Not yet implemented")
+        return parent.getLevel() //todo
     }
 
     override fun getClassReq(): CharacterClass? {
@@ -100,7 +98,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun isIdentifiable(): Boolean {
-        TODO("Not yet implemented")
+        return parent.isIdentifiable()
     }
 
     override fun asWeapon(): Weapon? {
