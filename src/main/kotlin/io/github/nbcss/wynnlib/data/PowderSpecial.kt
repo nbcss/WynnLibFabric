@@ -2,7 +2,6 @@ package io.github.nbcss.wynnlib.data
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.i18n.Translatable
-import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.SUFFIX_POWDER_SPEC_BLOCKS
 import io.github.nbcss.wynnlib.i18n.Translations.SUFFIX_POWDER_SPEC_DAM_PER_MANA
 import io.github.nbcss.wynnlib.i18n.Translations.SUFFIX_POWDER_SPEC_SEC
@@ -27,7 +26,7 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
         private val factoryMap: Map<String, Factory<out PowderSpecial>> = mapOf(
             pairs = listOf(
                 Quake, Rage,                //earth
-                ChainLighting, KillStreak,  //thunder
+                ChainLightning, KillStreak,  //thunder
                 Courage, Endurance,         //fire
                 Curse, Concentration,       //water
                 WindPrison, Dodge,          //air
@@ -95,26 +94,26 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
             val color = getType().getElement().color
             tooltip.add(getType().formatted(color))
             tooltip.add(LiteralText("- ").formatted(color)
-                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: +${damage}% ✤")
+                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: +${removeDecimal(damage)}% ✤")
                     .formatted(Formatting.GRAY)))
             return tooltip
         }
     }
 
-    class ChainLighting(private val chains: Int,
-                        private val damage: Int,
-                        tier: Int) : PowderSpecial(tier) {
-        companion object: Factory<ChainLighting> {
-            override val type: Type = Type.CHAIN_LIGHTING
-            override fun fromData(data: JsonObject): ChainLighting {
+    class ChainLightning(private val chains: Int,
+                         private val damage: Int,
+                         tier: Int) : PowderSpecial(tier) {
+        companion object: Factory<ChainLightning> {
+            override val type: Type = Type.CHAIN_LIGHTNING
+            override fun fromData(data: JsonObject): ChainLightning {
                 val chains = data["chains"].asInt
                 val damage = data["damage"].asInt
                 val tier = data["tier"].asInt
-                return ChainLighting(chains, damage, tier)
+                return ChainLightning(chains, damage, tier)
             }
         }
 
-        override fun getType(): Type = Type.CHAIN_LIGHTING
+        override fun getType(): Type = Type.CHAIN_LIGHTNING
 
         override fun getTooltip(): List<Text> {
             val tooltip: MutableList<Text> = mutableListOf()
@@ -150,7 +149,7 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
             val color = getType().getElement().color
             tooltip.add(getType().formatted(color))
             tooltip.add(LiteralText("- ").formatted(color)
-                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: ${damage}% ✦")
+                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: ${removeDecimal(damage)}% ✦")
                     .formatted(Formatting.GRAY)))
             tooltip.add(LiteralText("- ").formatted(color)
                 .append(LiteralText("${TOOLTIP_POWDER_SPEC_DURATION.translate().string}: ")
@@ -186,7 +185,7 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
                     .formatted(Formatting.GRAY))
                 .append(SUFFIX_POWDER_SPEC_SEC.formatted(Formatting.GRAY, label = null, removeDecimal(duration))))
             tooltip.add(LiteralText("- ").formatted(color)
-                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: ${damage}% ✹")
+                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: ${removeDecimal(damage)}% ✹")
                     .formatted(Formatting.GRAY)))
             tooltip.add(LiteralText("- ").formatted(color)
                 .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE_BOOST.translate().string}: " +
@@ -318,12 +317,12 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
                 .append(SUFFIX_POWDER_SPEC_SEC.formatted(Formatting.GRAY, label = null, removeDecimal(duration))))
             tooltip.add(LiteralText("- ").formatted(color)
                 .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE_BOOST.translate().string}: " +
-                        "+${removeDecimal(boost)}% ❋")
+                        "+${removeDecimal(boost)}%")
                     .formatted(Formatting.GRAY)))
             tooltip.add(LiteralText("- ").formatted(color)
                 .append(LiteralText("${TOOLTIP_POWDER_SPEC_KNOCKBACK.translate().string}: ")
                     .formatted(Formatting.GRAY))
-                .append(SUFFIX_POWDER_SPEC_BLOCKS.formatted(Formatting.GRAY, label = null, signed(knockback))))
+                .append(SUFFIX_POWDER_SPEC_BLOCKS.formatted(Formatting.GRAY, label = null, knockback)))
             return tooltip
         }
     }
@@ -366,7 +365,7 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
 
     enum class Type(private val element: Element): Translatable {
         QUAKE(Element.EARTH),
-        CHAIN_LIGHTING(Element.THUNDER),
+        CHAIN_LIGHTNING(Element.THUNDER),
         CURSE(Element.WATER),
         COURAGE(Element.FIRE),
         WIND_PRISON(Element.AIR),
@@ -381,7 +380,7 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
                     Element.FIRE -> COURAGE
                     Element.WATER -> CURSE
                     Element.AIR -> WIND_PRISON
-                    Element.THUNDER -> CHAIN_LIGHTING
+                    Element.THUNDER -> CHAIN_LIGHTNING
                     Element.EARTH -> QUAKE
                 }
             }
