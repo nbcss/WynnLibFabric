@@ -6,10 +6,7 @@ import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
-import io.github.nbcss.wynnlib.items.equipments.analysis.properties.IdentificationProperty
-import io.github.nbcss.wynnlib.items.equipments.analysis.properties.AnalysisProperty
-import io.github.nbcss.wynnlib.items.equipments.analysis.properties.PowderSpecialProperty
-import io.github.nbcss.wynnlib.items.equipments.analysis.properties.RequirementProperty
+import io.github.nbcss.wynnlib.items.equipments.analysis.properties.*
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularArmour
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularWeapon
@@ -28,6 +25,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
             RequirementProperty(),
             IdentificationProperty(),
             PowderSpecialProperty(),
+            PowderProperty(),
         ).map { it.getKey() to it }.toTypedArray()
     )
     //private val category: TooltipProvider?
@@ -72,6 +70,10 @@ class AnalysisEquipment(private val parent: RegularEquipment,
         return (propertyMap[PowderSpecialProperty.KEY] as PowderSpecialProperty).getPowderSpecial()
     }
 
+    override fun getPowders(): List<Element> {
+        return (propertyMap[PowderProperty.KEY] as PowderProperty).getPowders()
+    }
+
     override fun getRoll(): Int {
         TODO("Not yet implemented")
     }
@@ -112,7 +114,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getPowderSlot(): Int {
-        TODO("Not yet implemented")
+        return (propertyMap[PowderProperty.KEY] as PowderProperty).getPowderSlots()
     }
 
     override fun getRestriction(): Restriction? {

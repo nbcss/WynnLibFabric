@@ -31,6 +31,7 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment,
         if (addRolledIdentifications(equipment, tooltip))
             tooltip.add(LiteralText.EMPTY)
         //todo
+        addRolledPowderSlots(equipment, tooltip)
         addItemSuffix(equipment, tooltip)
         return tooltip
     }

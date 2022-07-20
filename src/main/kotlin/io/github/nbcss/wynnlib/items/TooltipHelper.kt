@@ -126,6 +126,21 @@ fun addRolledIdentifications(item: RolledEquipment, tooltip: MutableList<Text>):
     return tooltip.size > lastSize
 }
 
+fun addRolledPowderSlots(item: RolledEquipment, tooltip: MutableList<Text>) {
+    val powders = item.getPowders()
+    val text = LiteralText("[${powders.size}/${item.getPowderSlot()}] ").formatted(Formatting.GRAY)
+        .append(TOOLTIP_POWDER_SLOTS.formatted(Formatting.GRAY))
+    if (powders.isNotEmpty()) {
+        text.append(LiteralText(" [").formatted(Formatting.GRAY))
+            .append(LiteralText(powders[0].icon).formatted(powders[0].color))
+        for (i in (1 until powders.size)) {
+            text.append(" ").append(LiteralText(powders[i].icon).formatted(powders[i].color))
+        }
+        text.append(LiteralText("]").formatted(Formatting.GRAY))
+    }
+    tooltip.add(text)
+}
+
 fun addPowderSlots(item: Equipment, tooltip: MutableList<Text>) {
     val slots = LiteralText(item.getPowderSlot().toString()).formatted(
         if (item.getPowderSlot() >= 2) Formatting.GREEN else if
