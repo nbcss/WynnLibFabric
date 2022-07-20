@@ -26,6 +26,8 @@ class AnalysisEquipment(private val parent: RegularEquipment,
             IdentificationProperty(),
             PowderSpecialProperty(),
             PowderProperty(),
+            SuffixProperty(),
+            RestrictionProperty(),
         ).map { it.getKey() to it }.toTypedArray()
     )
     //private val category: TooltipProvider?
@@ -75,7 +77,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getRoll(): Int {
-        TODO("Not yet implemented")
+        return (propertyMap[SuffixProperty.KEY] as SuffixProperty).getRoll()
     }
 
     override fun getTooltip(): List<Text> {
@@ -93,7 +95,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getTier(): Tier {
-        return parent.getTier()
+        return (propertyMap[SuffixProperty.KEY] as SuffixProperty).getTier() ?: parent.getTier()
     }
 
     override fun getType(): EquipmentType {
@@ -122,7 +124,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun getRestriction(): Restriction? {
-        TODO("Not yet implemented")
+        return (propertyMap[RestrictionProperty.KEY] as RestrictionProperty).getRestriction()
     }
 
     override fun isIdentifiable(): Boolean {

@@ -157,12 +157,18 @@ fun addPowderSlots(item: Equipment, tooltip: MutableList<Text>) {
         .append(TOOLTIP_POWDER_SLOTS.translate().formatted(Formatting.GRAY)))
 }
 
-fun addItemSuffix(item: Equipment, tooltip: MutableList<Text>) {
+fun addItemSuffix(item: Equipment, tooltip: MutableList<Text>, roll: Int = 0) {
     val tier = item.getTier().translate().formatted(item.getTier().formatting)
     val type = item.getType().translate().formatted(item.getTier().formatting)
     val text = tier.append(LiteralText(" ").append(type))
     if(item.isIdentifiable()){
-        val cost = item.getTier().getIdentifyPrice(item.getLevel().lower())
+        var cost = item.getTier().getIdentifyPrice(item.getLevel().lower())
+        for (i in (0 until roll)){
+            cost *= 5
+        }
+        if (roll > 1) {
+            text.append(" [$roll]")
+        }
         text.append(LiteralText(" [" + formatNumbers(cost) + "\u00B2]").formatted(Formatting.GREEN))
     }
     tooltip.add(text)

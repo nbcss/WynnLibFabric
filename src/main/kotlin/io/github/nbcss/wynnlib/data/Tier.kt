@@ -4,7 +4,6 @@ import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.util.Formatting
 import java.util.*
-import kotlin.collections.LinkedHashMap
 import kotlin.math.ceil
 
 enum class Tier(val id: String,
@@ -23,13 +22,19 @@ enum class Tier(val id: String,
     CRAFTED("Crafted", Formatting.DARK_AQUA, "Crafted Item", null, null);
 
     companion object {
-        private val VALUE_MAP: MutableMap<String, Tier> = LinkedHashMap()
-        init {
-            values().forEach { VALUE_MAP[it.name.lowercase()] = it }
-        }
+        private val NAME_MAP: Map<String, Tier> = mapOf(
+            pairs = values().map { it.name.uppercase() to it }.toTypedArray()
+        )
+        private val ID_MAP: Map<String, Tier> = mapOf(
+            pairs = values().map { it.id to it }.toTypedArray()
+        )
 
         fun fromName(name: String): Tier {
-            return VALUE_MAP.getOrDefault(name.lowercase(), NORMAL)
+            return NAME_MAP.getOrDefault(name.uppercase(), NORMAL)
+        }
+
+        fun fromId(id: String): Tier? {
+            return ID_MAP[id]
         }
     }
 
