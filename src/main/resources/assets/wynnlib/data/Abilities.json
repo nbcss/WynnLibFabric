@@ -5651,7 +5651,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SPIN_ATTACK"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5666,7 +5668,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DAGGER_PROFICIENCY_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5681,7 +5685,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DAGGER_PROFICIENCY_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5696,7 +5702,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DOUBLE_SPIN"
+      ],
       "properties": {
         "spell": "SPELL_2",
         "mana_cost": 20
@@ -5716,7 +5724,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DASH"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5731,7 +5741,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DASH"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5746,7 +5758,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "POISONED_BLADE",
+        "CHEAPER_DASH_1"
+      ],
       "properties": {
         "spell": "SPELL_4",
         "mana_cost": 40,
@@ -5777,7 +5792,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SMOKE_BOMB",
+        "MULTIHIT"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5792,13 +5810,17 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DOUBLE_SLICE",
+        "CHEAPER_DASH_1"
+      ],
       "properties": {
         "spell": "SPELL_3",
         "mana_cost": 45,
         "damage": {
           "neutral": 25,
-          "water": 10
+          "water": 10,
+          "label": "HIT"
         },
         "range": 3
       },
@@ -5817,7 +5839,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SMOKE_BOMB"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5832,7 +5856,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SMOKE_BOMB"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5847,7 +5873,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_DASH_1",
+        "MULTIHIT"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5862,7 +5891,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MULTIHIT",
+        "ASSASSIN_WATER_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5877,7 +5909,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_DASH_1",
+        "ASSASSIN_WATER_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5892,7 +5927,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ASSASSIN_EARTH_MASTERY",
+        "ASSASSIN_THUNDER_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5907,7 +5945,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ASSASSIN_WATER_MASTERY",
+        "ASSASSIN_AIR_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5922,7 +5963,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BACKSTAB",
+        "STICKY_BOMB"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5937,7 +5981,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "VANISH",
+        "ASSASSIN_FIRE_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5952,7 +5999,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "FATALITY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5967,7 +6016,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "VANISH"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5982,7 +6033,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "STICKY_BOMB"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -5997,7 +6050,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "FATALITY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6012,7 +6067,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SURPRISE_STRIKE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6027,7 +6084,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MIRROR_IMAGE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6042,7 +6101,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "LACERATE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6057,7 +6118,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SILENT_KILLER",
+        "SHADOW_TRAVEL"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6072,7 +6136,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SILENT_KILLER",
+        "CHEAPER_MULTIHIT_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6087,7 +6154,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHENANIGANS",
+        "SHADOW_TRAVEL",
+        "DAGGER_PROFICIENCY_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6102,7 +6173,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "WALL_OF_SMOKE",
+        "CHEAPER_MULTIHIT_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6117,7 +6191,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHADOW_TRAVEL",
+        "CHEAPER_MULTIHIT_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6132,7 +6209,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BETTER_SMOKE_BOMB",
+        "BLAZING_POWDER"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6147,7 +6227,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHADOW_TRAVEL",
+        "CHEAPER_MULTIHIT_1",
+        "CHEAPER_SMOKE_BOMB_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6162,7 +6246,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_MULTIHIT_1",
+        "DAGGER_PROFICIENCY_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6177,7 +6264,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_1",
+        "BLAZING_POWDER"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6192,7 +6282,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BLAZING_POWDER",
+        "HOP"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6207,7 +6300,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "WEIGHTLESS",
+        "SANDBAGGING"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6222,7 +6318,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "WEIGHTLESS"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6237,7 +6335,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6252,7 +6352,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SANDBAGGING"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6267,7 +6369,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "VIOLENT_VORTEX"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6282,7 +6386,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SANDBAGGING",
+        "SHURIKENS"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6297,7 +6404,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ECHO",
+        "FAR_REACH"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6312,7 +6422,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DANCING_BLADE",
+        "SHURIKENS"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6327,7 +6440,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ECHO",
+        "SHURIKENS"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6342,7 +6458,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHURIKENS",
+        "FAR_REACH"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6357,7 +6476,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MARKED"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6372,7 +6493,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "ECHO"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6387,7 +6510,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_SPIN_ATTACK_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6402,7 +6527,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "FAR_REACH"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6417,7 +6544,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "AMBUSH",
+        "CHEAPER_MULTIHIT_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6432,7 +6562,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "AMBUSH",
+        "HOODWINK"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6447,7 +6580,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_DASH_2",
+        "CHEAPER_MULTIHIT_2",
+        "CHOKE_BOMB"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6462,7 +6599,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "PARRY",
+        "HOODWINK",
+        "WALL_JUMP"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6477,7 +6618,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_SPIN_ATTACK_2",
+        "CHOKE_BOMB"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6492,7 +6636,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DEATH_MAGNET",
+        "CHEAPER_MULTIHIT_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6507,7 +6654,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHOKE_BOMB",
+        "WALL_JUMP"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6522,7 +6672,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "FATAL_SPIN"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6537,7 +6689,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "FATAL_SPIN",
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6552,7 +6707,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HOODWINK",
+        "HARVESTER",
+        "BLADE_FURY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6567,7 +6726,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "STRONGER_LACERATE",
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6582,7 +6744,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HARVESTER",
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6597,7 +6762,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_2",
+        "BLADE_FURY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6612,7 +6780,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BLADE_FURY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6627,7 +6797,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HARVESTER"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6642,7 +6814,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6657,7 +6831,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BLADE_FURY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6672,7 +6848,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "FORBIDDEN_ART"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6687,7 +6865,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "JASMINE_BLOOM"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6702,7 +6882,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SATSUJIN"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -6717,7 +6899,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SATSUJIN"
+      ],
       "properties": {},
       "metadata": null
     }
