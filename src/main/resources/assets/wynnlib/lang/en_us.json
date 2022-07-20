@@ -111,6 +111,7 @@
   "wynnlib.tooltip.ability.hits": "Hits",
   "wynnlib.tooltip.ability.mage_orbs_of_light_hp": "Orbs Health",
   "wynnlib.tooltip.ability.mage_orbs_of_light_loss": "Orbs Health Loss",
+  "wynnlib.tooltip.ability.mage_timelock_absorb": "per %s Winded absorbed",
   "wynnlib.tooltip.ability.replacing": "Replacing",
   "wynnlib.tooltip.ability.maximum": "Max",
   "wynnlib.tooltip.ability.upgrade": "Upgrade",

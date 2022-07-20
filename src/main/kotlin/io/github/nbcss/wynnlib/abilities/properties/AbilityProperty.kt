@@ -39,6 +39,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DamageProperty,
                 DamageModifierProperty,
                 TeleportSuccessionProperty,
+                TimelockProperty,
                 MainAttackDamageProperty,
                 MainAttackDamageModifierProperty,
                 MainAttackRangeProperty,

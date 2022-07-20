@@ -5496,7 +5496,11 @@
           "ability": "HEAL"
         },
         "range": 12,
-        "duration_modifier": 1
+        "timelock": {
+          "duration": 1,
+          "max": 5,
+          "per_winded": 5
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -5820,6 +5824,7 @@
         "damage": {
           "neutral": 25,
           "water": 10,
+          "hits": 8,
           "label": "HIT"
         },
         "range": 3
