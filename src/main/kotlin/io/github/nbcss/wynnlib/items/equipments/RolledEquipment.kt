@@ -14,4 +14,5 @@ interface RolledEquipment: Equipment {
     fun getPowders(): List<Element>
     fun getRoll(): Int
     fun getIdentificationValue(id: Identification): Int
+    fun getIdentificationStars(id: Identification): Int
 }

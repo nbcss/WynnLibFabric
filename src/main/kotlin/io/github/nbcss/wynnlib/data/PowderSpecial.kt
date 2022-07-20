@@ -149,7 +149,8 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
             val color = getType().getElement().color
             tooltip.add(getType().formatted(color))
             tooltip.add(LiteralText("- ").formatted(color)
-                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: ${removeDecimal(damage)}% ✦")
+                .append(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: " +
+                        "+${removeDecimal(damage)}% ✦")
                     .formatted(Formatting.GRAY)))
             tooltip.add(LiteralText("- ").formatted(color)
                 .append(LiteralText("${TOOLTIP_POWDER_SPEC_DURATION.translate().string}: ")

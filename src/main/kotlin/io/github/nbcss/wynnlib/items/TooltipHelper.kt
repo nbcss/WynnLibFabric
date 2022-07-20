@@ -120,6 +120,11 @@ fun addRolledIdentifications(item: RolledEquipment, tooltip: MutableList<Text>):
         if (value != 0){
             val color = colorOf(if (it.inverted) -value else value)
             val text = SuffixTranslation.withSuffix(value, it.suffix).formatted(color)
+            val stars = item.getIdentificationStars(it)
+            if (stars > 0) {
+                text.append(LiteralText(MutableList(stars){ "*" }.reduce { x, y -> x + y})
+                    .formatted(Formatting.DARK_GREEN))
+            }
             tooltip.add(text.append(" ").append(it.formatted(Formatting.GRAY)))
         }
     }

@@ -2,7 +2,6 @@ package io.github.nbcss.wynnlib.items.equipments
 
 import io.github.nbcss.wynnlib.data.AttackSpeed
 import io.github.nbcss.wynnlib.data.Element
-import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.range.IRange

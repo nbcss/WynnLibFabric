@@ -52,7 +52,7 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment):
         if (tooltip[line].siblings.isEmpty())
             return 0
         val base = tooltip[line].siblings[0]
-        if (line == 1 && base.siblings.isNotEmpty()) {
+        if (line == 1 && base.siblings.isEmpty()) {
             AttackSpeed.fromDisplayName(base.asString())?.let {
                 attackSpeed = it
                 return 1

@@ -10,6 +10,15 @@ class IdentificationProperty: AnalysisProperty {
         const val KEY = "IDENTIFICATION"
     }
     private val idMap: MutableMap<Identification, Int> = mutableMapOf()
+    private val starMap: MutableMap<Identification, Int> = mutableMapOf()
+
+    fun getIdentificationValue(id: Identification): Int {
+        return idMap[id] ?: 0
+    }
+
+    fun getIdentificationStars(id: Identification): Int {
+        return starMap[id] ?: 0
+    }
 
     override fun set(tooltip: List<Text>, line: Int): Int {
         if (tooltip[line].siblings.isEmpty())
@@ -19,20 +28,19 @@ class IdentificationProperty: AnalysisProperty {
             return 0
         val matcher = ID_VALUE_PATTERN.matcher(base.siblings[0].asString().trim())
         if (matcher.find()) {
-            //todo did not parse star yet
             val value = matcher.group(1).toInt()
             val suffix = matcher.group(2)
             val idName = base.siblings.last().asString()
-            Identification.fromSuffixName(suffix, idName)?.let {
-                idMap[it] = value
+            Identification.fromSuffixName(suffix, idName)?.let { id ->
+                idMap[id] = value
+                if (base.siblings.size > 2){
+                    val stars = base.siblings[1].asString().chars().filter { it.toChar() == '*' }.count()
+                    starMap[id] = stars.toInt()
+                }
                 return 1
             }
         }
         return 0
-    }
-
-    fun getIdentificationValue(id: Identification): Int {
-        return idMap[id] ?: 0
     }
 
     override fun getKey(): String = KEY

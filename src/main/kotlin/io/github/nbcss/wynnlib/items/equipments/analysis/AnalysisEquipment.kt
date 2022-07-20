@@ -88,6 +88,10 @@ class AnalysisEquipment(private val parent: RegularEquipment,
         return (propertyMap[IdentificationProperty.KEY] as IdentificationProperty).getIdentificationValue(id)
     }
 
+    override fun getIdentificationStars(id: Identification): Int {
+        return (propertyMap[IdentificationProperty.KEY] as IdentificationProperty).getIdentificationStars(id)
+    }
+
     override fun getTier(): Tier {
         return parent.getTier()
     }

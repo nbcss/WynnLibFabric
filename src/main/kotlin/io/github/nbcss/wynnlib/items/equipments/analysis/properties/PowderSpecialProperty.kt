@@ -8,13 +8,13 @@ class PowderSpecialProperty: AnalysisProperty {
     companion object {
         private val SPEC_NAME_PATTERN = Pattern.compile(" {3}(.+)")
         private val DURATION_PATTERN = Pattern.compile("Duration: (\\d+\\.?\\d*)")
-        private val DAMAGE_PATTERN = Pattern.compile("Damage: (\\d+\\.?\\d*)")
+        private val DAMAGE_PATTERN = Pattern.compile("Damage: (\\+?\\d+\\.?\\d*)")
         private val BOOST_PATTERN = Pattern.compile("Damage Boost: \\+(\\d+\\.?\\d*)")
         private val RADIUS_PATTERN = Pattern.compile("Radius: (\\d+\\.?\\d*)")
         private val CHAINS_PATTERN = Pattern.compile("Chains: (\\d+\\.?\\d*)")
         private val KNOCKBACK_PATTERN = Pattern.compile("Knockback: (\\d+\\.?\\d*)")
         private val FACTORY_MAP: Map<String, SpecFactory> = mapOf(
-            pairs = listOf( //todo conduct testing for armour spec
+            pairs = listOf(
                 QuakeSpec,
                 RageSpec,
                 ChainLightningSpec,
