@@ -10,7 +10,7 @@ import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 abstract class RegularWearable(protected val parent: RegularEquipment, json: JsonObject)
     : Wearable, EquipmentCategory {
     private val health: Int
-    private val elemDefence: MutableMap<Element, Int> = LinkedHashMap()
+    private val elemDefence: MutableMap<Element, Int> = linkedMapOf()
     init {
         health = if(json.has("health")) json.get("health").asInt else 0
         Element.values().forEach{elemDefence[it] = json.get(it.defenceName).asInt }

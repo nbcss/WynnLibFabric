@@ -11,7 +11,7 @@ object EquipmentItemMatcher: ItemMatcher {
             return null
         val name = item.name.asString()
         if (name.length > 2 && name.startsWith("§")){
-            return RegularEquipmentRegistry.get(name.substring(2))
+            return RegularEquipmentRegistry.fromName(name.substring(2))
         }
         return null
     }

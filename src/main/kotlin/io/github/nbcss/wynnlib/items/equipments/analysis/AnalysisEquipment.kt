@@ -31,10 +31,10 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     //private val category: TooltipProvider?
     init {
         val category = parent.getCategory()
-        if (category is RegularWeapon) {
-            propertyMap["CATEGORY"] = AnalysisWeapon(this, category)
-        }else if (category is RegularArmour) {
-            //propertyMap["CATEGORY"] = AnalysisWeapon(category)
+        if (category is Weapon) {
+            propertyMap["CATEGORY"] = AnalysisWeapon(this)
+        }else if (category is Wearable) {
+            propertyMap["CATEGORY"] = AnalysisWearable(this)
         }
         val tooltip: List<Text> = stack.getTooltip(MinecraftClient.getInstance().player, TooltipContext.Default.NORMAL)
         var line = 0
@@ -126,11 +126,13 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     }
 
     override fun asWeapon(): Weapon? {
-        TODO("Not yet implemented")
+        val category = propertyMap["CATEGORY"]
+        return if(category is Weapon) category else null
     }
 
     override fun asWearable(): Wearable? {
-        TODO("Not yet implemented")
+        val category = propertyMap["CATEGORY"]
+        return if(category is Wearable) category else null
     }
 
     override fun getKey(): String {

@@ -11,13 +11,13 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-class AnalysisWeapon(private val equipment: AnalysisEquipment,
-                     weapon: Weapon): Weapon, TooltipProvider, AnalysisProperty {
+class AnalysisWeapon(private val equipment: AnalysisEquipment):
+    Weapon, TooltipProvider, AnalysisProperty {
     companion object {
         private val DAMAGE_PATTERN = Pattern.compile("Neutral Damage: (\\d+)-(\\d+)")
         private val ELEM_DAMAGE_PATTERN = Pattern.compile(" Damage: (\\d+)-(\\d+)")
     }
-    private var attackSpeed: AttackSpeed = weapon.getAttackSpeed()
+    private var attackSpeed: AttackSpeed = AttackSpeed.NORMAL
     private var damage: IRange = IRange.ZERO
     private val elemDamage: MutableMap<Element, IRange> = mutableMapOf()
     override fun getTooltip(): List<Text> {
@@ -51,15 +51,15 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment,
     override fun set(tooltip: List<Text>, line: Int): Int {
         if (tooltip[line].siblings.isEmpty())
             return 0
-        val text = tooltip[line].siblings[0]
-        if (line == 1 && text.siblings.isNotEmpty()) {
-            AttackSpeed.fromDisplayName(text.asString())?.let {
+        val base = tooltip[line].siblings[0]
+        if (line == 1 && base.siblings.isNotEmpty()) {
+            AttackSpeed.fromDisplayName(base.asString())?.let {
                 attackSpeed = it
                 return 1
             }
         }
         run {
-            val matcher = DAMAGE_PATTERN.matcher(text.asString())
+            val matcher = DAMAGE_PATTERN.matcher(base.asString())
             if (matcher.find()) {
                 val lower = matcher.group(1).toInt()
                 val upper = matcher.group(2).toInt()
@@ -67,10 +67,10 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment,
                 return 1
             }
         }
-        if (text.siblings.size == 2){
+        if (base.siblings.size == 2){
             //matches elem damage
-            Element.fromDisplayName(text.siblings[0].asString())?.let { elem ->
-                val matcher = ELEM_DAMAGE_PATTERN.matcher(text.siblings[1].asString())
+            Element.fromDisplayName(base.siblings[0].asString())?.let { elem ->
+                val matcher = ELEM_DAMAGE_PATTERN.matcher(base.siblings[1].asString())
                 if (matcher.find()) {
                     val lower = matcher.group(1).toInt()
                     val upper = matcher.group(2).toInt()

@@ -127,6 +127,8 @@ fun addRolledIdentifications(item: RolledEquipment, tooltip: MutableList<Text>):
 }
 
 fun addRolledPowderSlots(item: RolledEquipment, tooltip: MutableList<Text>) {
+    if (item.getPowderSlot() == 0)
+        return
     val powders = item.getPowders()
     val text = LiteralText("[${powders.size}/${item.getPowderSlot()}] ").formatted(Formatting.GRAY)
         .append(TOOLTIP_POWDER_SLOTS.formatted(Formatting.GRAY))
