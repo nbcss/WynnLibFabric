@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.abilities.properties.archer
+package io.github.nbcss.wynnlib.abilities.properties.assassin
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
@@ -15,20 +15,20 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class ArcherSentientBowsProperty(ability: Ability,
-                                 private val bows: Int):
+class SmokeBombProperty(ability: Ability,
+                        private val bombs: Int):
     AbilityProperty(ability), SetupProperty {
-    companion object: Type<ArcherSentientBowsProperty> {
-        override fun create(ability: Ability, data: JsonElement): ArcherSentientBowsProperty {
-            return ArcherSentientBowsProperty(ability, data.asInt)
+    companion object: Type<SmokeBombProperty> {
+        override fun create(ability: Ability, data: JsonElement): SmokeBombProperty {
+            return SmokeBombProperty(ability, data.asInt)
         }
-        override fun getKey(): String = "sentient_bows"
+        override fun getKey(): String = "smoke_bombs"
     }
 
-    fun getArcherSentientBows(): Int = bows
+    fun getSmokeBombs(): Int = bombs
 
     override fun writePlaceholder(container: PlaceholderContainer) {
-        container.putPlaceholder(getKey(), bows.toString())
+        container.putPlaceholder(getKey(), bombs.toString())
     }
 
     override fun setup(entry: PropertyEntry) {
@@ -37,8 +37,8 @@ class ArcherSentientBowsProperty(ability: Ability,
 
     override fun getTooltip(): List<Text> {
         return listOf(Symbol.ALTER_HITS.asText().append(" ")
-            .append(Translations.TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS.formatted(Formatting.GRAY).append(": "))
-            .append(LiteralText(bows.toString()).formatted(Formatting.WHITE)))
+            .append(Translations.TOOLTIP_ABILITY_ASSASSIN_SMOKE_BOMBS.formatted(Formatting.GRAY).append(": "))
+            .append(LiteralText(bombs.toString()).formatted(Formatting.WHITE)))
     }
 
     class Modifier(ability: Ability, data: JsonElement):
@@ -47,25 +47,25 @@ class ArcherSentientBowsProperty(ability: Ability,
             override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data)
             }
-            override fun getKey(): String = "sentient_bows_modifier"
+            override fun getKey(): String = "smoke_bombs_modifier"
         }
         private val modifier: Int = data.asInt
         init {
             ability.putPlaceholder(getKey(), modifier.toString())
         }
 
-        fun getArcherSentientBowsModifier(): Int = modifier
+        fun getModifier(): Int = modifier
 
         override fun modify(entry: PropertyEntry) {
-            ArcherSentientBowsProperty.from(entry)?.let {
-                val bows = it.getArcherSentientBows() + getArcherSentientBowsModifier()
-                entry.setProperty(ArcherSentientBowsProperty.getKey(), ArcherSentientBowsProperty(it.getAbility(), bows))
+            SmokeBombProperty.from(entry)?.let {
+                val bombs = it.getSmokeBombs() + getModifier()
+                entry.setProperty(SmokeBombProperty.getKey(), SmokeBombProperty(it.getAbility(), bombs))
             }
         }
 
         override fun getTooltip(): List<Text> {
             return listOf(Symbol.ALTER_HITS.asText().append(" ")
-                .append(Translations.TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS.formatted(Formatting.GRAY).append(": "))
+                .append(Translations.TOOLTIP_ABILITY_ASSASSIN_SMOKE_BOMBS.formatted(Formatting.GRAY).append(": "))
                 .append(LiteralText(signed(modifier)).formatted(colorOf(modifier))))
         }
     }
