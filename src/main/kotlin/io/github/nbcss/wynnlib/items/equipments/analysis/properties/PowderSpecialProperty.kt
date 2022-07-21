@@ -81,7 +81,8 @@ class PowderSpecialProperty: AnalysisProperty {
                 return null to 0
             val radius = readValue(tooltip[line], RADIUS_PATTERN)
             val damage = readValue(tooltip[line + 1], DAMAGE_PATTERN)
-            return PowderSpecial.Quake(radius, damage.toInt(), 0) to 2
+            val spec = PowderSpecial.Quake(radius, damage.toInt(), 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
         }
     }
 
@@ -91,7 +92,8 @@ class PowderSpecialProperty: AnalysisProperty {
             if (line + 1 > tooltip.size)
                 return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
-            return PowderSpecial.Rage(damage, 0) to 1
+            val spec = PowderSpecial.Rage(damage, 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 1
         }
     }
 
@@ -102,7 +104,8 @@ class PowderSpecialProperty: AnalysisProperty {
                 return null to 0
             val chains = readValue(tooltip[line], CHAINS_PATTERN)
             val damage = readValue(tooltip[line + 1], DAMAGE_PATTERN)
-            return PowderSpecial.ChainLightning(chains.toInt(), damage.toInt(), 0) to 2
+            val spec = PowderSpecial.ChainLightning(chains.toInt(), damage.toInt(), 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
         }
     }
 
@@ -113,7 +116,8 @@ class PowderSpecialProperty: AnalysisProperty {
                 return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
             val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            return PowderSpecial.KillStreak(damage, duration, 0) to 2
+            val spec = PowderSpecial.KillStreak(damage, duration, 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
         }
     }
 
@@ -125,7 +129,8 @@ class PowderSpecialProperty: AnalysisProperty {
             val duration = readValue(tooltip[line], DURATION_PATTERN)
             val damage = readValue(tooltip[line + 1], DAMAGE_PATTERN)
             val boost = readValue(tooltip[line + 2], BOOST_PATTERN)
-            return PowderSpecial.Courage(duration, damage, boost, 0) to 3
+            val spec = PowderSpecial.Courage(duration, damage, boost, 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 3
         }
     }
 
@@ -136,7 +141,8 @@ class PowderSpecialProperty: AnalysisProperty {
                 return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
             val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            return PowderSpecial.Endurance(damage, duration, 0) to 2
+            val spec = PowderSpecial.Endurance(damage, duration, 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
         }
     }
 
@@ -147,7 +153,8 @@ class PowderSpecialProperty: AnalysisProperty {
                 return null to 0
             val duration = readValue(tooltip[line], DURATION_PATTERN)
             val boost = readValue(tooltip[line + 1], BOOST_PATTERN)
-            return PowderSpecial.Curse(duration, boost, 0) to 2
+            val spec = PowderSpecial.Curse(duration, boost, 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
         }
     }
 
@@ -158,7 +165,8 @@ class PowderSpecialProperty: AnalysisProperty {
                 return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
             val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            return PowderSpecial.Concentration(damage, duration, 0) to 2
+            val spec = PowderSpecial.Concentration(damage, duration, 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
         }
     }
 
@@ -170,7 +178,8 @@ class PowderSpecialProperty: AnalysisProperty {
             val duration = readValue(tooltip[line], DURATION_PATTERN)
             val boost = readValue(tooltip[line + 1], BOOST_PATTERN)
             val knockback = readValue(tooltip[line + 2], KNOCKBACK_PATTERN)
-            return PowderSpecial.WindPrison(duration, boost, knockback.toInt(), 0) to 3
+            val spec = PowderSpecial.WindPrison(duration, boost, knockback.toInt(), 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 3
         }
     }
 
@@ -181,7 +190,8 @@ class PowderSpecialProperty: AnalysisProperty {
                 return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
             val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            return PowderSpecial.Dodge(damage, duration, 0) to 2
+            val spec = PowderSpecial.Dodge(damage, duration, 0)
+            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
         }
     }
 }

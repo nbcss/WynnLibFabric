@@ -11,6 +11,7 @@ import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.keys.KeysKit
 import io.github.nbcss.wynnlib.utils.formattingLines
 import io.github.nbcss.wynnlib.utils.replaceProperty
+import io.github.nbcss.wynnlib.utils.tierOf
 import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
@@ -146,19 +147,7 @@ abstract class PropertyEntry(private val ability: Ability,
 
     fun getTierText(): String {
         return if (upgradable){
-            when (getTier()){
-                1 -> "I"
-                2 -> "II"
-                3 -> "III"
-                4 -> "IV"
-                5 -> "V"
-                6 -> "VI"
-                7 -> "VII"
-                8 -> "VIII"
-                9 -> "IX"
-                10 -> "X"
-                else -> "✰"
-            }
+            tierOf(getTier())
         }else{
             ""
         }

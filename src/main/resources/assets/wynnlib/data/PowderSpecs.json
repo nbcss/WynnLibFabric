@@ -56,31 +56,31 @@
       "damage": 1.0
     },
     {
-      "type": "CHAIN_LIGHTING",
+      "type": "CHAIN_LIGHTNING",
       "tier": 1,
       "chains": 5,
       "damage": 200
     },
     {
-      "type": "CHAIN_LIGHTING",
+      "type": "CHAIN_LIGHTNING",
       "tier": 2,
       "chains": 6,
       "damage": 225
     },
     {
-      "type": "CHAIN_LIGHTING",
+      "type": "CHAIN_LIGHTNING",
       "tier": 3,
       "chains": 7,
       "damage": 250
     },
     {
-      "type": "CHAIN_LIGHTING",
+      "type": "CHAIN_LIGHTNING",
       "tier": 4,
       "chains": 8,
       "damage": 275
     },
     {
-      "type": "CHAIN_LIGHTING",
+      "type": "CHAIN_LIGHTNING",
       "tier": 5,
       "chains": 9,
       "damage": 300
@@ -141,14 +141,14 @@
       "tier": 4,
       "duration": 7.5,
       "damage": 112.5,
-      "boost": 70
+      "boost": 130
     },
     {
       "type": "COURAGE",
       "tier": 5,
-      "duration": 6.0,
-      "damage": 75.0,
-      "boost": 70
+      "duration": 8.0,
+      "damage": 125.0,
+      "boost": 150
     },
     {
       "type": "ENDURANCE",
@@ -244,28 +244,28 @@
       "type": "WIND_PRISON",
       "tier": 1,
       "duration": 3.0,
-      "boost": 400,
+      "boost": 200,
       "knockback": 8
     },
     {
       "type": "WIND_PRISON",
       "tier": 2,
       "duration": 3.5,
-      "boost": 450,
+      "boost": 300,
       "knockback": 12
     },
     {
       "type": "WIND_PRISON",
       "tier": 3,
       "duration": 4.0,
-      "boost": 500,
+      "boost": 400,
       "knockback": 16
     },
     {
       "type": "WIND_PRISON",
       "tier": 4,
       "duration": 4.5,
-      "boost": 550,
+      "boost": 500,
       "knockback": 20
     },
     {
