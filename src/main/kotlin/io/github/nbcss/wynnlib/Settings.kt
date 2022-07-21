@@ -5,8 +5,6 @@ import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.utils.Color
-import io.github.nbcss.wynnlib.utils.KeysKit
-import java.util.*
 import kotlin.collections.LinkedHashMap
 
 object Settings {
@@ -36,7 +34,11 @@ object Settings {
     }
     private var analysisMode: Boolean = true
 
-    fun isAnalysisModeEnabled(): Boolean = KeysKit.isShiftDown() //fixme implement adjust settings
+    fun isAnalysisModeEnabled(): Boolean = analysisMode
+
+    fun toggleAnalysisMode() {
+        analysisMode = !analysisMode
+    }
 
     fun getPowderColor(powder: Powder): Color {
         return getColor("powder_tier", powder.getTier().name)

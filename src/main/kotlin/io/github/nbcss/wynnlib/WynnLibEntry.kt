@@ -5,6 +5,8 @@ import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.registry.*
+import io.github.nbcss.wynnlib.utils.keys.KeysKit
+import io.github.nbcss.wynnlib.utils.keys.ToggleCallback
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -29,18 +31,17 @@ object WynnLibEntry: ModInitializer {
         AbilityRegistry.load()
         MaterialRegistry.load()
         //Register keybindings
-        val openHandbook = KeyBindingHelper.registerKeyBinding(
-            KeyBinding(
-                "wynnlib.key.handbook",
-                InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_H,
-                "wynnlib.category.keys"
-            )
-        )
+        val openHandbook = registerKey("wynnlib.key.handbook", GLFW.GLFW_KEY_H)
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (openHandbook.wasPressed()) {
                 it.setScreen(EquipmentDictScreen(it.currentScreen))
             }
         })
+    }
+
+    private fun registerKey(name: String, key: Int): KeyBinding {
+        return KeyBindingHelper.registerKeyBinding(
+            KeyBinding(name, InputUtil.Type.KEYSYM, key, "wynnlib.category.keys")
+        )
     }
 }
