@@ -3,11 +3,13 @@ package io.github.nbcss.wynnlib.abilities
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
+import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_BLOCKS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_DEPENDENCY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MIN_ARCHETYPE
@@ -37,6 +39,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     private val placeholderMap: MutableMap<String, String> = HashMap()
     private val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
     private val metadata: AbilityMetadata?
+    private var successors: List<Ability>? = null
     //private val effect: AbilityEffect
     init {
         id = json["id"].asString
@@ -82,6 +85,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
 
     fun getCharacter(): CharacterClass = character
 
+    fun isMainAttack(): Boolean = metadata?.getFactory() is MainAttackEntry.Companion
+
     fun getTier(): Tier = tier
 
     fun getArchetype(): Archetype? = archetype
@@ -96,9 +101,12 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
 
     fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
 
-    //fixme it is very slow process! The result should be cached
     fun getSuccessors(): List<Ability> {
-        return AbilityRegistry.fromCharacter(character).getAbilities().filter { this in it.getPredecessors() }
+        if (successors == null) {
+            successors = AbilityRegistry.fromCharacter(character)
+                .getAbilities().filter { this in it.getPredecessors() }
+        }
+        return successors!!
     }
 
     fun getBlockAbilities(): List<Ability> = blocks.mapNotNull { x -> AbilityRegistry.get(x) }
@@ -145,22 +153,27 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))
         if (getTier().getLevel() == 0){
-            properties[BoundSpellProperty.getKey()]?.let {
-                tooltip.add((it as BoundSpellProperty).getSpell().getComboText(getCharacter()))
+            val spell = BoundSpellProperty.from(this)
+            if (spell != null){
+                tooltip.add(spell.getSpell().getComboText(getCharacter()))
+            }else if(isMainAttack()){
+                tooltip.add(Translations.TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
+                    .append(": ").append(character.getMainAttackKey().translate()
+                        .formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD)))
             }
         }
         tooltip.add(LiteralText.EMPTY)
         tooltip.addAll(getDescriptionTooltip())
-        tooltip.add(LiteralText.EMPTY)
         //Add effect tooltip
         val propertyTooltip = getPropertiesTooltip()
         if (propertyTooltip.isNotEmpty()){
-            tooltip.addAll(propertyTooltip)
             tooltip.add(LiteralText.EMPTY)
+            tooltip.addAll(propertyTooltip)
         }
         //Add blocking abilities
         val incompatibles = getBlockAbilities()
         if (incompatibles.isNotEmpty()){
+            tooltip.add(LiteralText.EMPTY)
             tooltip.add(TOOLTIP_ABILITY_BLOCKS.translate().formatted(Formatting.RED))
             incompatibles.forEach {
                 val color = if (build == null || !build.hasAbility(it)){
@@ -171,8 +184,10 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
                 tooltip.add(LiteralText("- ").formatted(Formatting.RED)
                     .append(it.translate().formatted(color)))
             }
-            tooltip.add(LiteralText.EMPTY)
         }
+        if (isMainAttack())
+            return tooltip
+        tooltip.add(LiteralText.EMPTY)
         val apReq = if (build == null || build.hasAbility(this)){
             LiteralText("")
         }else if(build.getSpareAbilityPoints() >= getAbilityPointCost()){
@@ -229,8 +244,14 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         return tooltip
     }
 
-    fun updateEntries(container: EntryContainer) {
-        properties.values.forEach { it.updateEntries(container) }
+    fun updateEntries(container: EntryContainer): Boolean {
+        var flag = true
+        for (property in properties.values) {
+            if(!property.updateEntries(container)){
+                flag = false
+            }
+        }
+        return flag
     }
 
     fun getAbilityTree(): AbilityTree = AbilityRegistry.fromCharacter(character)

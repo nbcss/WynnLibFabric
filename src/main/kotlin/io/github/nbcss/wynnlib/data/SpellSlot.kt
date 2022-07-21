@@ -30,7 +30,7 @@ enum class SpellSlot {
     fun getComboText(character: CharacterClass): Text {
         getClickCombo(character.getSpellKey()).let { combo ->
             return Translations.TOOLTIP_ABILITY_CLICK_COMBO.translate().formatted(Formatting.GOLD)
-                .append(LiteralText(": ").formatted(Formatting.GOLD))
+                .append(": ")
                 .append(combo[0].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))
                 .append(LiteralText("-").formatted(Formatting.WHITE))
                 .append(combo[1].translate().formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD))

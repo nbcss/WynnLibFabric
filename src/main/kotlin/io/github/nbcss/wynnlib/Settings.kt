@@ -5,7 +5,6 @@ import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.utils.Color
-import java.util.*
 import kotlin.collections.LinkedHashMap
 
 object Settings {
@@ -32,6 +31,13 @@ object Settings {
         colorMap["powder_tier.iv"] = Color.AQUA
         colorMap["powder_tier.v"] = Color.RED
         colorMap["powder_tier.vi"] = Color.DARK_PURPLE
+    }
+    private var analysisMode: Boolean = true
+
+    fun isAnalysisModeEnabled(): Boolean = analysisMode
+
+    fun toggleAnalysisMode() {
+        analysisMode = !analysisMode
     }
 
     fun getPowderColor(powder: Powder): Color {

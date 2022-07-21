@@ -1,6 +1,27 @@
 {
   "data": [
     {
+      "id": "WARRIOR_MAIN_ATTACK",
+      "class": "WARRIOR",
+      "height": 2,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 1,
+        "main_attack_range": 4
+      },
+      "metadata": {
+        "type": "MAIN_ATTACK"
+      }
+    },
+    {
       "id": "BASH",
       "class": "WARRIOR",
       "height": 0,
@@ -31,7 +52,7 @@
       }
     },
     {
-      "id": "SPEAR_PROFICIENCY_I",
+      "id": "SPEAR_PROFICIENCY_1",
       "class": "WARRIOR",
       "height": 2,
       "position": 0,
@@ -45,13 +66,16 @@
         "BASH"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 1
       },
       "metadata": null
     },
     {
-      "id": "CHEAPER_BASH_I",
+      "id": "CHEAPER_BASH_1",
       "class": "WARRIOR",
       "height": 2,
       "position": -2,
@@ -62,7 +86,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SPEAR_PROFICIENCY_I"
+        "SPEAR_PROFICIENCY_1"
       ],
       "properties": {
         "upgrade": {
@@ -85,7 +109,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SPEAR_PROFICIENCY_I"
+        "SPEAR_PROFICIENCY_1"
       ],
       "properties": {
         "upgrade": {
@@ -178,7 +202,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "VEHEMENT",
-        "CHEAPER_CHARGE"
+        "CHEAPER_CHARGE_1"
       ],
       "properties": {
         "spell": "SPELL_3",
@@ -200,7 +224,7 @@
       }
     },
     {
-      "id": "CHEAPER_CHARGE",
+      "id": "CHEAPER_CHARGE_1",
       "class": "WARRIOR",
       "height": 8,
       "position": 0,
@@ -236,7 +260,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "TOUGHER_SKIN",
-        "CHEAPER_CHARGE"
+        "CHEAPER_CHARGE_1"
       ],
       "properties": {
         "spell": "SPELL_4",
@@ -327,7 +351,7 @@
       "predecessors": [
         "UPPERCUT",
         "WARRIOR_AIR_MASTERY",
-        "CHEAPER_CHARGE"
+        "CHEAPER_CHARGE_1"
       ],
       "properties": {
         "element_mastery": {
@@ -352,7 +376,7 @@
       "predecessors": [
         "WAR_SCREAM",
         "WARRIOR_THUNDER_MASTERY",
-        "CHEAPER_CHARGE"
+        "CHEAPER_CHARGE_1"
       ],
       "properties": {
         "element_mastery": {
@@ -400,7 +424,7 @@
       "predecessors": [
         "WARRIOR_THUNDER_MASTERY",
         "WARRIOR_AIR_MASTERY",
-        "CHEAPER_CHARGE"
+        "CHEAPER_CHARGE_1"
       ],
       "properties": {
         "element_mastery": {
@@ -688,7 +712,7 @@
       }
     },
     {
-      "id": "SPEAR_PROFICIENCY_II",
+      "id": "SPEAR_PROFICIENCY_2",
       "class": "WARRIOR",
       "height": 17,
       "position": -4,
@@ -700,16 +724,19 @@
       "archetype_requirements": {},
       "predecessors": [
         "BAKALS_GRASP",
-        "CHEAPER_UPPERCUT_I"
+        "CHEAPER_UPPERCUT_1"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 1
       },
       "metadata": null
     },
     {
-      "id": "CHEAPER_UPPERCUT_I",
+      "id": "CHEAPER_UPPERCUT_1",
       "class": "WARRIOR",
       "height": 17,
       "position": -1,
@@ -721,7 +748,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "COUNTER",
-        "SPEAR_PROFICIENCY_II",
+        "SPEAR_PROFICIENCY_2",
         "AERODYNAMICS"
       ],
       "properties": {
@@ -745,7 +772,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_UPPERCUT_I",
+        "CHEAPER_UPPERCUT_1",
         "PROVOKE"
       ],
       "properties": {
@@ -791,8 +818,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SPEAR_PROFICIENCY_II",
-        "CHEAPER_UPPERCUT_I"
+        "SPEAR_PROFICIENCY_2",
+        "CHEAPER_UPPERCUT_1"
       ],
       "properties": {
         "critical_damage": 30
@@ -840,7 +867,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SPEAR_PROFICIENCY_II"
+        "SPEAR_PROFICIENCY_2"
       ],
       "properties": {
         "upgrade": {
@@ -863,7 +890,7 @@
         "BATTLE_MONK": 1
       },
       "predecessors": [
-        "CHEAPER_UPPERCUT_I",
+        "CHEAPER_UPPERCUT_1",
         "STRONGER_MANTLE"
       ],
       "properties": {
@@ -1275,7 +1302,7 @@
           "type": "ENEMIES_RESISTANCE",
           "modifier": -30
         },
-        "duration": 5
+        "duration": 8
       },
       "metadata": {
         "type": "EXTEND"
@@ -1491,7 +1518,7 @@
       },
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT",
-        "CHEAPER_BASH_II"
+        "CHEAPER_BASH_2"
       ],
       "properties": {
         "extend": {
@@ -1510,7 +1537,7 @@
       }
     },
     {
-      "id": "CHEAPER_BASH_II",
+      "id": "CHEAPER_BASH_2",
       "class": "WARRIOR",
       "height": 27,
       "position": 3,
@@ -1636,6 +1663,7 @@
           "range": 3,
           "shape": "CIRCLE"
         },
+        "range_clear": true,
         "element_convert": "THUNDER"
       },
       "metadata": null
@@ -1654,7 +1682,7 @@
         "PALADIN": 12
       },
       "predecessors": [
-        "CHEAPER_BASH_II"
+        "CHEAPER_BASH_2"
       ],
       "properties": {
         "cooldown": 600
@@ -1718,7 +1746,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "BLOOD_PACT",
-        "CHEAPER_UPPERCUT_II"
+        "CHEAPER_UPPERCUT_2"
       ],
       "properties": {},
       "metadata": {
@@ -1726,7 +1754,7 @@
       }
     },
     {
-      "id": "CHEAPER_UPPERCUT_II",
+      "id": "CHEAPER_UPPERCUT_2",
       "class": "WARRIOR",
       "height": 31,
       "position": 2,
@@ -1778,6 +1806,28 @@
       }
     },
     {
+      "id": "ARCHER_MAIN_ATTACK",
+      "class": "ARCHER",
+      "height": 2,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 1,
+        "main_attack_range": 16
+      },
+      "metadata": {
+        "type": "MAIN_ATTACK",
+        "icon": "ARCHER_MAIN_ATTACK"
+      }
+    },
+    {
       "id": "ARROW_BOMB",
       "class": "ARCHER",
       "height": 0,
@@ -1809,7 +1859,7 @@
       }
     },
     {
-      "id": "BOW_PROFICIENCY_I",
+      "id": "BOW_PROFICIENCY_1",
       "class": "ARCHER",
       "height": 2,
       "position": 0,
@@ -1823,13 +1873,16 @@
         "ARROW_BOMB"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 6
       },
       "metadata": null
     },
     {
-      "id": "CHEAPER_ARROW_BOMB_I",
+      "id": "CHEAPER_ARROW_BOMB_1",
       "class": "ARCHER",
       "height": 2,
       "position": 2,
@@ -1840,7 +1893,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "BOW_PROFICIENCY_I"
+        "BOW_PROFICIENCY_1"
       ],
       "properties": {
         "upgrade": {
@@ -1863,7 +1916,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "BOW_PROFICIENCY_I"
+        "BOW_PROFICIENCY_1"
       ],
       "properties": {
         "extend": {
@@ -1917,7 +1970,13 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_damage_modifier": -30,
+        "main_attack_hits_modifier": 1
+      },
       "metadata": null
     },
     {
@@ -1936,7 +1995,12 @@
       "predecessors": [
         "ESCAPE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_range_modifier": 10
+      },
       "metadata": null
     },
     {
@@ -1952,7 +2016,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "DOUBLE_SHOTS",
-        "CHEAPER_ESCAPE_I"
+        "CHEAPER_ESCAPE_1"
       ],
       "properties": {
         "spell": "SPELL_1",
@@ -1972,7 +2036,7 @@
       }
     },
     {
-      "id": "CHEAPER_ESCAPE_I",
+      "id": "CHEAPER_ESCAPE_1",
       "class": "ARCHER",
       "height": 8,
       "position": 0,
@@ -2008,7 +2072,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "POWER_SHOTS",
-        "CHEAPER_ESCAPE_I"
+        "CHEAPER_ESCAPE_1"
       ],
       "properties": {
         "spell": "SPELL_4",
@@ -2098,7 +2162,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARROW_STORM",
-        "CHEAPER_ESCAPE_I",
+        "CHEAPER_ESCAPE_1",
         "ARCHER_FIRE_MASTERY"
       ],
       "properties": {
@@ -2123,7 +2187,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARROW_SHIELD",
-        "CHEAPER_ESCAPE_I",
+        "CHEAPER_ESCAPE_1",
         "ARCHER_THUNDER_MASTERY"
       ],
       "properties": {
@@ -2171,7 +2235,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARCHER_THUNDER_MASTERY",
-        "CHEAPER_ESCAPE_I",
+        "CHEAPER_ESCAPE_1",
         "ARCHER_FIRE_MASTERY"
       ],
       "properties": {
@@ -2275,7 +2339,7 @@
           "hits": 10,
           "label": "HIT"
         },
-        "range": 12
+        "range": 16
       },
       "metadata": {
         "type": "REPLACE",
@@ -2373,7 +2437,13 @@
         "ARROW_RAIN",
         "FRENZY"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_damage_modifier": -20,
+        "main_attack_hits_modifier": 1
+      },
       "metadata": null
     },
     {
@@ -2419,7 +2489,7 @@
           "hits": 8,
           "label": "ARROW"
         },
-        "archer_sentient_bows": 2,
+        "sentient_bows": 2,
         "range": 5,
         "duration": 60
       },
@@ -2505,7 +2575,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "GUARDIAN_ANGELS",
-        "CHEAPER_ARROW_STORM_I"
+        "CHEAPER_ARROW_STORM_1"
       ],
       "properties": {
         "upgrade": {
@@ -2524,7 +2594,7 @@
       "metadata": null
     },
     {
-      "id": "CHEAPER_ARROW_STORM_I",
+      "id": "CHEAPER_ARROW_STORM_1",
       "class": "ARCHER",
       "height": 17,
       "position": -1,
@@ -2562,7 +2632,7 @@
       ],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ARROW_STORM_I",
+        "CHEAPER_ARROW_STORM_1",
         "FOCUS",
         "MORE_SHIELDS"
       ],
@@ -2595,12 +2665,12 @@
           "spell": "SPELL_4"
         },
         "charges_modifier": 2,
-        "archer_sentient_bows_modifier": 2
+        "sentient_bows_modifier": 2
       },
       "metadata": null
     },
     {
-      "id": "MORE_FOCUS_I",
+      "id": "MORE_FOCUS_1",
       "class": "ARCHER",
       "height": 18,
       "position": 0,
@@ -2611,7 +2681,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ARROW_STORM_I",
+        "CHEAPER_ARROW_STORM_1",
         "GRAPPLING_HOOK"
       ],
       "properties": {
@@ -2754,7 +2824,7 @@
       },
       "predecessors": [
         "TRAVELER",
-        "MORE_FOCUS_I"
+        "MORE_FOCUS_1"
       ],
       "properties": {
         "damage": {
@@ -2908,12 +2978,19 @@
       "archetype": "SHARPSHOOTER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHARPSHOOTER": 2
+      },
       "predecessors": [
         "LEAP",
         "SHOCKING_BOMB"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_range_clear": true
+      },
       "metadata": null
     },
     {
@@ -2938,6 +3015,7 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
+        "range_clear": true,
         "element_convert": "THUNDER"
       },
       "metadata": null
@@ -3105,7 +3183,7 @@
       "predecessors": [
         "SHOCKING_BOMB",
         "BETTER_ARROW_SHIELD",
-        "CHEAPER_ARROW_STORM_II"
+        "CHEAPER_ARROW_STORM_2"
       ],
       "properties": {
         "extend": {
@@ -3119,7 +3197,7 @@
       }
     },
     {
-      "id": "CHEAPER_ARROW_STORM_II",
+      "id": "CHEAPER_ARROW_STORM_2",
       "class": "ARCHER",
       "height": 25,
       "position": 4,
@@ -3155,7 +3233,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "INITIATOR",
-        "CHEAPER_ARROW_STORM_II"
+        "CHEAPER_ARROW_STORM_2"
       ],
       "properties": {
         "extend": {
@@ -3166,7 +3244,11 @@
         },
         "duration": 60
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "CALL_OF_THE_HOUND",
+        "upgradable": false
+      }
     },
     {
       "id": "ARROW_HURRICANE",
@@ -3210,7 +3292,7 @@
       "predecessors": [
         "ARROW_HURRICANE",
         "BETTER_GUARDIAN_ANGELS",
-        "CHEAPER_ARROW_SHIELD"
+        "CHEAPER_ARROW_SHIELD_1"
       ],
       "properties": {
         "critical_damage": 30
@@ -3218,7 +3300,7 @@
       "metadata": null
     },
     {
-      "id": "CHEAPER_ARROW_SHIELD",
+      "id": "CHEAPER_ARROW_SHIELD_1",
       "class": "ARCHER",
       "height": 27,
       "position": 0,
@@ -3254,7 +3336,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "INITIATOR",
-        "CHEAPER_ARROW_STORM_II"
+        "CHEAPER_ARROW_STORM_2"
       ],
       "properties": {
         "upgrade": {
@@ -3308,8 +3390,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ARROW_SHIELD",
-        "CHEAPER_ESCAPE_II"
+        "CHEAPER_ARROW_SHIELD_1",
+        "CHEAPER_ESCAPE_2"
       ],
       "properties": {
         "upgrade": {
@@ -3320,7 +3402,7 @@
       "metadata": null
     },
     {
-      "id": "CHEAPER_ESCAPE_II",
+      "id": "CHEAPER_ESCAPE_2",
       "class": "ARCHER",
       "height": 28,
       "position": 3,
@@ -3357,7 +3439,7 @@
         "TRAPPER": 5
       },
       "predecessors": [
-        "CHEAPER_ESCAPE_II"
+        "CHEAPER_ESCAPE_2"
       ],
       "properties": {
         "upgrade": {
@@ -3410,7 +3492,7 @@
         "SHARPSHOOTER": 10
       },
       "predecessors": [
-        "CHEAPER_ARROW_SHIELD"
+        "CHEAPER_ARROW_SHIELD_1"
       ],
       "properties": {
         "extend": {
@@ -3439,7 +3521,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ESCAPE_II"
+        "CHEAPER_ESCAPE_2"
       ],
       "properties": {
         "extend": {
@@ -3545,7 +3627,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "GEYSER_STOMP",
-        "MORE_FOCUS_II"
+        "MORE_FOCUS_2"
       ],
       "properties": {
         "effect": {
@@ -3557,7 +3639,7 @@
       "metadata": null
     },
     {
-      "id": "MORE_FOCUS_II",
+      "id": "MORE_FOCUS_2",
       "class": "ARCHER",
       "height": 32,
       "position": 0,
@@ -3611,7 +3693,7 @@
       "metadata": null
     },
     {
-      "id": "CHEAPER_ARROW_BOMB_II",
+      "id": "CHEAPER_ARROW_BOMB_2",
       "class": "ARCHER",
       "height": 33,
       "position": 1,
@@ -3622,7 +3704,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "MORE_FOCUS_II",
+        "MORE_FOCUS_2",
         "MINEFIELD"
       ],
       "properties": {
@@ -3648,7 +3730,7 @@
         "TRAPPER": 10
       },
       "predecessors": [
-        "CHEAPER_ARROW_BOMB_II",
+        "CHEAPER_ARROW_BOMB_2",
         "GRAPE_BOMB"
       ],
       "properties": {
@@ -3665,6 +3747,27 @@
         "max_trap_modifier": 6
       },
       "metadata": null
+    },
+    {
+      "id": "MAGE_MAIN_ATTACK",
+      "class": "MAGE",
+      "height": 2,
+      "position": -2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 1,
+        "main_attack_range": 13
+      },
+      "metadata": {
+        "type": "MAIN_ATTACK"
+      }
     },
     {
       "id": "METEOR",
@@ -3697,7 +3800,7 @@
       }
     },
     {
-      "id": "WAND_PROFICIENCY_I",
+      "id": "WAND_PROFICIENCY_1",
       "class": "MAGE",
       "height": 2,
       "position": 0,
@@ -3711,13 +3814,16 @@
         "METEOR"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 2
       },
       "metadata": null
     },
     {
-      "id": "CHEAPER_METEOR_I",
+      "id": "CHEAPER_METEOR_1",
       "class": "MAGE",
       "height": 2,
       "position": 2,
@@ -3728,7 +3834,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "WAND_PROFICIENCY_I"
+        "WAND_PROFICIENCY_1"
       ],
       "properties": {
         "upgrade": {
@@ -3751,7 +3857,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "WAND_PROFICIENCY_I"
+        "WAND_PROFICIENCY_1"
       ],
       "properties": {
         "upgrade": {
@@ -3762,7 +3868,7 @@
       "metadata": null
     },
     {
-      "id": "WAND_PROFICIENCY_II",
+      "id": "WAND_PROFICIENCY_2",
       "class": "MAGE",
       "height": 6,
       "position": -2,
@@ -3778,6 +3884,9 @@
         "TELEPORT"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
         "main_damage_modifier": 5,
         "main_range_modifier": 2
       },
@@ -3800,9 +3909,6 @@
       "properties": {
         "spell": "SPELL_2",
         "mana_cost": 25,
-        "damage": {
-          "hits": 1
-        },
         "range": 12
       },
       "metadata": {
@@ -3820,7 +3926,7 @@
       "archetype": "ARCANIST",
       "dependency": null,
       "blocks": [
-        "WAND_PROFICIENCY_II"
+        "WAND_PROFICIENCY_2"
       ],
       "archetype_requirements": {},
       "predecessors": [
@@ -3841,8 +3947,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "WAND_PROFICIENCY_II",
-        "CHEAPER_TELEPORT_I"
+        "WAND_PROFICIENCY_2",
+        "CHEAPER_TELEPORT_1"
       ],
       "properties": {
         "spell": "SPELL_1",
@@ -3856,7 +3962,7 @@
       }
     },
     {
-      "id": "CHEAPER_TELEPORT_I",
+      "id": "CHEAPER_TELEPORT_1",
       "class": "MAGE",
       "height": 8,
       "position": 0,
@@ -3892,7 +3998,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "WISDOM",
-        "CHEAPER_TELEPORT_I"
+        "CHEAPER_TELEPORT_1"
       ],
       "properties": {
         "spell": "SPELL_4",
@@ -3949,7 +4055,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "HEAL",
-        "CHEAPER_TELEPORT_I"
+        "CHEAPER_TELEPORT_1"
       ],
       "properties": {
         "element_mastery": {
@@ -4018,7 +4124,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_TELEPORT_I",
+        "CHEAPER_TELEPORT_1",
         "MAGE_THUNDER_MASTERY"
       ],
       "properties": {
@@ -4289,7 +4395,7 @@
       }
     },
     {
-      "id": "CHEAPER_HEAL_I",
+      "id": "CHEAPER_HEAL_1",
       "class": "MAGE",
       "height": 17,
       "position": -3,
@@ -4326,7 +4432,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "OPHANIM",
-        "CHEAPER_HEAL_I",
+        "CHEAPER_HEAL_1",
         "SENTIENT_SNAKE"
       ],
       "properties": {
@@ -4373,10 +4479,10 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_HEAL_I"
+        "CHEAPER_HEAL_1"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "spell": "SPELL_2"
         },
         "effect": {
@@ -4384,7 +4490,10 @@
         },
         "duration": 1
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "upgradable": false
+      }
     },
     {
       "id": "BREATHLESS",
@@ -4398,7 +4507,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_HEAL_I",
+        "CHEAPER_HEAL_1",
         "PURIFICATION"
       ],
       "properties": {
@@ -4407,7 +4516,7 @@
         },
         "damage": {
           "neutral": 15,
-          "earth": 15,
+          "earth": 10,
           "label": "WINDED"
         }
       },
@@ -4441,7 +4550,7 @@
       "metadata": null
     },
     {
-      "id": "LARGER_MANA_BANK_I",
+      "id": "LARGER_MANA_BANK_1",
       "class": "MAGE",
       "height": 18,
       "position": 4,
@@ -4464,7 +4573,7 @@
       "metadata": null
     },
     {
-      "id": "CHEAPER_ICE_SNAKE_I",
+      "id": "CHEAPER_ICE_SNAKE_1",
       "class": "MAGE",
       "height": 20,
       "position": -4,
@@ -4499,8 +4608,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ICE_SNAKE_I",
-        "CHEAPER_TELEPORT_II"
+        "CHEAPER_ICE_SNAKE_1",
+        "CHEAPER_TELEPORT_2"
       ],
       "properties": {
         "extend": {
@@ -4519,7 +4628,7 @@
       }
     },
     {
-      "id": "CHEAPER_TELEPORT_II",
+      "id": "CHEAPER_TELEPORT_2",
       "class": "MAGE",
       "height": 20,
       "position": 0,
@@ -4587,22 +4696,20 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ICE_SNAKE_I",
+        "CHEAPER_ICE_SNAKE_1",
         "FORTITUDE"
       ],
       "properties": {
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "damage_modifier": {
-          "hits": 1
-        },
-        "range_modifier": -4
+        "range_modifier": -4,
+        "tp_successions": 2
       },
       "metadata": null
     },
     {
-      "id": "HEALTHIER_OPHANIM_I",
+      "id": "HEALTHIER_OPHANIM_1",
       "class": "MAGE",
       "height": 22,
       "position": -1,
@@ -4614,7 +4721,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "FORTITUDE",
-        "CHEAPER_TELEPORT_II",
+        "CHEAPER_TELEPORT_2",
         "SNAKE_NEST"
       ],
       "properties": {
@@ -4641,8 +4748,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_TELEPORT_II",
-        "HEALTHIER_OPHANIM_I",
+        "CHEAPER_TELEPORT_2",
+        "HEALTHIER_OPHANIM_1",
         "SEANCE"
       ],
       "properties": {
@@ -4687,7 +4794,7 @@
         "RIFTWALKER": 5
       },
       "predecessors": [
-        "CHEAPER_ICE_SNAKE_I",
+        "CHEAPER_ICE_SNAKE_1",
         "FLUID_HEALING"
       ],
       "properties": {
@@ -4695,8 +4802,8 @@
           "ability": "WIND_SLASH"
         },
         "damage": {
-          "neutral": 30,
-          "thunder": 10,
+          "neutral": 20,
+          "thunder": 5,
           "air": 5,
           "label": "WINDED"
         }
@@ -4717,7 +4824,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "HEALTHIER_OPHANIM_I",
+        "HEALTHIER_OPHANIM_1",
         "TRANSONIC_WARP"
       ],
       "properties": {
@@ -4742,7 +4849,7 @@
       ],
       "archetype_requirements": {},
       "predecessors": [
-        "HEALTHIER_OPHANIM_I",
+        "HEALTHIER_OPHANIM_1",
         "SNAKE_NEST"
       ],
       "properties": {
@@ -4830,7 +4937,8 @@
         "damage": {
           "neutral": 30,
           "fire": 20
-        }
+        },
+        "duration": 20
       },
       "metadata": {
         "type": "EXTEND"
@@ -4849,7 +4957,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "LIGHTWEAVER",
-        "LARGER_MANA_BANK_II"
+        "LARGER_MANA_BANK_2"
       ],
       "properties": {
         "extend": {
@@ -4863,7 +4971,7 @@
       }
     },
     {
-      "id": "LARGER_MANA_BANK_II",
+      "id": "LARGER_MANA_BANK_2",
       "class": "MAGE",
       "height": 25,
       "position": 4,
@@ -4887,7 +4995,7 @@
       "metadata": null
     },
     {
-      "id": "MORE_WINDED_I",
+      "id": "MORE_WINDED_1",
       "class": "MAGE",
       "height": 26,
       "position": -4,
@@ -4923,7 +5031,7 @@
       },
       "predecessors": [
         "ARCANE_SPEED",
-        "LARGER_MANA_BANK_II"
+        "LARGER_MANA_BANK_2"
       ],
       "properties": {
         "upgrade": {
@@ -4934,7 +5042,7 @@
       "metadata": null
     },
     {
-      "id": "CHEAPER_ICE_SNAKE_II",
+      "id": "CHEAPER_ICE_SNAKE_2",
       "class": "MAGE",
       "height": 27,
       "position": -3,
@@ -4969,8 +5077,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ICE_SNAKE_II",
-        "CHEAPER_METEOR_II"
+        "CHEAPER_ICE_SNAKE_2",
+        "CHEAPER_METEOR_2"
       ],
       "properties": {
         "extend": {
@@ -4990,7 +5098,7 @@
       }
     },
     {
-      "id": "CHEAPER_METEOR_II",
+      "id": "CHEAPER_METEOR_2",
       "class": "MAGE",
       "height": 27,
       "position": 1,
@@ -5028,7 +5136,7 @@
         "ARCANIST": 8
       },
       "predecessors": [
-        "LARGER_MANA_BANK_II"
+        "LARGER_MANA_BANK_2"
       ],
       "properties": {
         "extend": {
@@ -5054,7 +5162,7 @@
         "RIFTWALKER": 5
       },
       "predecessors": [
-        "CHEAPER_ICE_SNAKE_II"
+        "CHEAPER_ICE_SNAKE_2"
       ],
       "properties": {
         "grow_effect": {
@@ -5083,7 +5191,7 @@
         "RIFTWALKER": 7
       },
       "predecessors": [
-        "CHEAPER_ICE_SNAKE_II",
+        "CHEAPER_ICE_SNAKE_2",
         "EXPLOSIVE_ENTRANCE"
       ],
       "properties": {
@@ -5109,7 +5217,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "EXPLOSIVE_ENTRANCE",
-        "CHEAPER_METEOR_II"
+        "CHEAPER_METEOR_2"
       ],
       "properties": {
         "upgrade": {
@@ -5167,14 +5275,14 @@
       "metadata": null
     },
     {
-      "id": "MORE_WINDED_II",
+      "id": "MORE_WINDED_2",
       "class": "MAGE",
       "height": 30,
       "position": -4,
       "tier": 1,
       "cost": 1,
       "archetype": "RIFTWALKER",
-      "dependency": null,
+      "dependency": "WINDSWEEPER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -5201,21 +5309,21 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "MORE_WINDED_II",
-        "HEALTHIER_OPHANIM_II"
+        "MORE_WINDED_2",
+        "HEALTHIER_OPHANIM_2"
       ],
       "properties": {},
       "metadata": null
     },
     {
-      "id": "HEALTHIER_OPHANIM_II",
+      "id": "HEALTHIER_OPHANIM_2",
       "class": "MAGE",
       "height": 30,
       "position": 0,
       "tier": 1,
       "cost": 1,
       "archetype": "LIGHT_BENDER",
-      "dependency": "HEALTHIER_OPHANIM_I",
+      "dependency": "HEALTHIER_OPHANIM_1",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -5234,7 +5342,7 @@
       "metadata": null
     },
     {
-      "id": "LARGER_MANA_BANK_III",
+      "id": "LARGER_MANA_BANK_3",
       "class": "MAGE",
       "height": 30,
       "position": 3,
@@ -5270,7 +5378,7 @@
         "RIFTWALKER": 5
       },
       "predecessors": [
-        "MORE_WINDED_II",
+        "MORE_WINDED_2",
         "DYNAMIC_FAITH"
       ],
       "properties": {
@@ -5293,7 +5401,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "DYNAMIC_FAITH",
-        "HEALTHIER_OPHANIM_II"
+        "HEALTHIER_OPHANIM_2"
       ],
       "properties": {
         "upgrade": {
@@ -5301,7 +5409,7 @@
           "ability": "OPHANIM"
         },
         "damage_modifier": {
-          "neutral": -50,
+          "neutral": -30,
           "thunder": -10
         },
         "damage": {
@@ -5327,10 +5435,10 @@
         "LIGHT_BENDER": 12
       },
       "predecessors": [
-        "HEALTHIER_OPHANIM_II"
+        "HEALTHIER_OPHANIM_2"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "spell": "SPELL_1",
           "ability": "HEAL"
         },
@@ -5341,7 +5449,11 @@
         },
         "duration": 5
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "SUNFLARE",
+        "upgradable": false
+      }
     },
     {
       "id": "ARCANE_OVERFLOW",
@@ -5357,7 +5469,7 @@
         "ARCANIST": 11
       },
       "predecessors": [
-        "LARGER_MANA_BANK_III"
+        "LARGER_MANA_BANK_3"
       ],
       "properties": {
         "upgrade": {
@@ -5381,8 +5493,8 @@
         "RIFTWALKER": 12
       },
       "predecessors": [
-        "MORE_WINDED_II",
-        "CHEAPER_HEAL_II"
+        "MORE_WINDED_2",
+        "CHEAPER_HEAL_2"
       ],
       "properties": {
         "extend": {
@@ -5390,7 +5502,11 @@
           "ability": "HEAL"
         },
         "range": 12,
-        "duration_modifier": 1
+        "timelock": {
+          "duration": 1,
+          "max": 5,
+          "per_winded": 5
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -5399,7 +5515,7 @@
       }
     },
     {
-      "id": "CHEAPER_HEAL_II",
+      "id": "CHEAPER_HEAL_2",
       "class": "MAGE",
       "height": 33,
       "position": -2,
@@ -5439,7 +5555,7 @@
       "predecessors": [
         "SUNFLARE",
         "ARCANE_OVERFLOW",
-        "CHEAPER_HEAL_II"
+        "CHEAPER_HEAL_2"
       ],
       "properties": {
         "duration": 5
@@ -5479,7 +5595,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_HEAL_II",
+        "CHEAPER_HEAL_2",
         "MANASTORM"
       ],
       "properties": {
@@ -5488,7 +5604,1505 @@
         }
       },
       "metadata": null
+    },
+    {
+      "id": "ASSASSIN_MAIN_ATTACK",
+      "class": "ASSASSIN",
+      "height": 2,
+      "position": 2,
+      "tier": 0,
+      "cost": 0,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 1,
+        "main_attack_range": 3
+      },
+      "metadata": {
+        "type": "MAIN_ATTACK"
+      }
+    },
+    {
+      "id": "SPIN_ATTACK",
+      "class": "ASSASSIN",
+      "height": 0,
+      "position": 0,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [],
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_cost": 45,
+        "damage": {
+          "neutral": 120,
+          "thunder": 30
+        },
+        "aoe": {
+          "range": 4.5,
+          "shape": "CIRCLE"
+        }
+      },
+      "metadata": {
+        "type": "SPELL"
+      }
+    },
+    {
+      "id": "DAGGER_PROFICIENCY_1",
+      "class": "ASSASSIN",
+      "height": 2,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SPIN_ATTACK"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_damage_modifier": 5
+      },
+      "metadata": null
+    },
+    {
+      "id": "CHEAPER_SPIN_ATTACK_1",
+      "class": "ASSASSIN",
+      "height": 2,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DAGGER_PROFICIENCY_1"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
+        "spell": "SPELL_1",
+        "mana_modifier": -10
+      },
+      "metadata": null
+    },
+    {
+      "id": "DOUBLE_SPIN",
+      "class": "ASSASSIN",
+      "height": 4,
+      "position": 0,
+      "tier": 2,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DAGGER_PROFICIENCY_1"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_1",
+          "ability": "SPIN_ATTACK"
+        },
+        "damage_modifier": {
+          "neutral": -40,
+          "hits": 1
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "DASH",
+      "class": "ASSASSIN",
+      "height": 6,
+      "position": 0,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DOUBLE_SPIN"
+      ],
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_cost": 20
+      },
+      "metadata": {
+        "type": "SPELL"
+      }
+    },
+    {
+      "id": "POISONED_BLADE",
+      "class": "ASSASSIN",
+      "height": 6,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DASH"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_range_modifier": 1
+      },
+      "metadata": null
+    },
+    {
+      "id": "DOUBLE_SLICE",
+      "class": "ASSASSIN",
+      "height": 6,
+      "position": 2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DASH"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_damage_modifier": -40,
+        "main_attack_hits_modifier": 1
+      },
+      "metadata": null
+    },
+    {
+      "id": "SMOKE_BOMB",
+      "class": "ASSASSIN",
+      "height": 8,
+      "position": -2,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "POISONED_BLADE",
+        "CHEAPER_DASH_1"
+      ],
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_cost": 40,
+        "damage": {
+          "neutral": 25,
+          "air": 5,
+          "earth": 5
+        },
+        "smoke_bombs": 1,
+        "range": 10,
+        "duration": 5,
+        "aoe": {
+          "range": 3,
+          "shape": "CIRCLE"
+        }
+      },
+      "metadata": {
+        "type": "SPELL"
+      }
+    },
+    {
+      "id": "CHEAPER_DASH_1",
+      "class": "ASSASSIN",
+      "height": 8,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SMOKE_BOMB",
+        "MULTIHIT"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      },
+      "metadata": null
+    },
+    {
+      "id": "MULTIHIT",
+      "class": "ASSASSIN",
+      "height": 8,
+      "position": 2,
+      "tier": 0,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DOUBLE_SLICE",
+        "CHEAPER_DASH_1"
+      ],
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_cost": 45,
+        "damage": {
+          "neutral": 25,
+          "water": 10,
+          "hits": 8,
+          "label": "HIT"
+        },
+        "range": 3
+      },
+      "metadata": {
+        "type": "SPELL"
+      }
+    },
+    {
+      "id": "ASSASSIN_EARTH_MASTERY",
+      "class": "ASSASSIN",
+      "height": 10,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SMOKE_BOMB"
+      ],
+      "properties": {
+        "element_mastery": {
+          "element": "EARTH",
+          "raw": "2-4",
+          "pct": 20
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "ASSASSIN_THUNDER_MASTERY",
+      "class": "ASSASSIN",
+      "height": 10,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SMOKE_BOMB"
+      ],
+      "properties": {
+        "element_mastery": {
+          "element": "THUNDER",
+          "raw": "1-8",
+          "pct": 10
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "ASSASSIN_WATER_MASTERY",
+      "class": "ASSASSIN",
+      "height": 10,
+      "position": 2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_DASH_1",
+        "MULTIHIT"
+      ],
+      "properties": {
+        "element_mastery": {
+          "element": "WATER",
+          "raw": "2-4",
+          "pct": 15
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "ASSASSIN_AIR_MASTERY",
+      "class": "ASSASSIN",
+      "height": 10,
+      "position": 4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MULTIHIT",
+        "ASSASSIN_WATER_MASTERY"
+      ],
+      "properties": {
+        "element_mastery": {
+          "element": "AIR",
+          "raw": "3-4",
+          "pct": 15
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "ASSASSIN_FIRE_MASTERY",
+      "class": "ASSASSIN",
+      "height": 11,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_DASH_1",
+        "ASSASSIN_WATER_MASTERY"
+      ],
+      "properties": {
+        "element_mastery": {
+          "element": "FIRE",
+          "raw": "3-5",
+          "pct": 15
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "BACKSTAB",
+      "class": "ASSASSIN",
+      "height": 12,
+      "position": -3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "ASSASSIN_EARTH_MASTERY",
+        "ASSASSIN_THUNDER_MASTERY"
+      ],
+      "properties": {
+        "spell": "SPELL_3",
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
+        "mana_modifier": -5,
+        "damage": {
+          "neutral": 200,
+          "earth": 50
+        }
+      },
+      "metadata": {
+        "type": "REPLACE",
+        "icon": "BACKSTAB"
+      }
+    },
+    {
+      "id": "FATALITY",
+      "class": "ASSASSIN",
+      "height": 12,
+      "position": 3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "ASSASSIN_WATER_MASTERY",
+        "ASSASSIN_AIR_MASTERY"
+      ],
+      "properties": {
+        "extend": {
+          "spell": "SPELL_3",
+          "ability": "MULTIHIT"
+        },
+        "damage": {
+          "neutral": 100,
+          "air": 50
+        }
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
+    },
+    {
+      "id": "VANISH",
+      "class": "ASSASSIN",
+      "height": 13,
+      "position": -2,
+      "tier": 3,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BACKSTAB",
+        "STICKY_BOMB"
+      ],
+      "properties": {
+        "extend": {
+          "spell": "SPELL_2"
+        },
+        "effect": {
+          "type": "SELF_INVISIBLE"
+        },
+        "duration": 5,
+        "cooldown": 10
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "VANISH"
+      }
+    },
+    {
+      "id": "STICKY_BOMB",
+      "class": "ASSASSIN",
+      "height": 13,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "VANISH",
+        "ASSASSIN_FIRE_MASTERY"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "damage_modifier": {
+          "fire": 10
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "RIGHTING_REFLEX",
+      "class": "ASSASSIN",
+      "height": 13,
+      "position": 2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FATALITY"
+      ],
+      "properties": {},
+      "metadata": {
+        "type": "NEW"
+      }
+    },
+    {
+      "id": "SURPRISE_STRIKE",
+      "class": "ASSASSIN",
+      "height": 15,
+      "position": -2,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "VANISH"
+      ],
+      "properties": {
+        "extend": {
+          "ability": "VANISH"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
+    },
+    {
+      "id": "MIRROR_IMAGE",
+      "class": "ASSASSIN",
+      "height": 15,
+      "position": 0,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "STICKY_BOMB"
+      ],
+      "properties": {
+        "extend": {
+          "ability": "VANISH"
+        },
+        "cooldown": 20
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
+    },
+    {
+      "id": "LACERATE",
+      "class": "ASSASSIN",
+      "height": 15,
+      "position": 3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FATALITY"
+      ],
+      "properties": {
+        "spell": "SPELL_1",
+        "damage": {
+          "neutral": 40,
+          "water": 10,
+          "air": 20,
+          "hits": 3,
+          "label": "STRIKE"
+        }
+      },
+      "metadata": {
+        "type": "REPLACE",
+        "icon": "LACERATE"
+      }
+    },
+    {
+      "id": "SILENT_KILLER",
+      "class": "ASSASSIN",
+      "height": 16,
+      "position": -3,
+      "tier": 3,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SURPRISE_STRIKE"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "VANISH"
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "SHENANIGANS",
+      "class": "ASSASSIN",
+      "height": 16,
+      "position": 1,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MIRROR_IMAGE"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "WALL_OF_SMOKE",
+      "class": "ASSASSIN",
+      "height": 16,
+      "position": 4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "LACERATE"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "damage_modifier": {
+          "neutral": -20
+        },
+        "smoke_bombs_modifier": 2
+      },
+      "metadata": null
+    },
+    {
+      "id": "BETTER_SMOKE_BOMB",
+      "class": "ASSASSIN",
+      "height": 18,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SILENT_KILLER",
+        "SHADOW_TRAVEL"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "range_modifier": 10,
+        "aoe_modifier": {
+          "range": 1
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "SHADOW_TRAVEL",
+      "class": "ASSASSIN",
+      "height": 18,
+      "position": -2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SILENT_KILLER",
+        "CHEAPER_MULTIHIT_1"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "VANISH"
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "CHEAPER_MULTIHIT_1",
+      "class": "ASSASSIN",
+      "height": 18,
+      "position": 1,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SHENANIGANS",
+        "SHADOW_TRAVEL",
+        "DAGGER_PROFICIENCY_2"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
+        "spell": "SPELL_3",
+        "mana_modifier": -5
+      },
+      "metadata": null
+    },
+    {
+      "id": "DAGGER_PROFICIENCY_2",
+      "class": "ASSASSIN",
+      "height": 18,
+      "position": 4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WALL_OF_SMOKE",
+        "CHEAPER_MULTIHIT_1"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "MAIN_ATTACK"
+        },
+        "main_range_modifier": 1
+      },
+      "metadata": null
+    },
+    {
+      "id": "LAST_LAUGH",
+      "class": "ASSASSIN",
+      "height": 19,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SHADOW_TRAVEL",
+        "CHEAPER_MULTIHIT_1"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "MIRROR_IMAGE"
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "CHEAPER_SMOKE_BOMB_1",
+      "class": "ASSASSIN",
+      "height": 20,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BETTER_SMOKE_BOMB",
+        "BLAZING_POWDER"
+      ],
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "spell": "SPELL_4",
+        "mana_modifier": -5
+      },
+      "metadata": null
+    },
+    {
+      "id": "BLAZING_POWDER",
+      "class": "ASSASSIN",
+      "height": 20,
+      "position": -1,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SHADOW_TRAVEL",
+        "CHEAPER_MULTIHIT_1",
+        "CHEAPER_SMOKE_BOMB_1"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "WEIGHTLESS",
+      "class": "ASSASSIN",
+      "height": 20,
+      "position": 3,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_MULTIHIT_1",
+        "DAGGER_PROFICIENCY_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "BLACK_HOLE",
+      "class": "ASSASSIN",
+      "height": 21,
+      "position": -3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_1",
+        "BLAZING_POWDER"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "SANDBAGGING",
+      "class": "ASSASSIN",
+      "height": 21,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BLAZING_POWDER",
+        "HOP"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "HOP",
+      "class": "ASSASSIN",
+      "height": 21,
+      "position": 2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WEIGHTLESS",
+        "SANDBAGGING"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "DANCING_BLADE",
+      "class": "ASSASSIN",
+      "height": 21,
+      "position": 4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "WEIGHTLESS"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "VIOLENT_VORTEX",
+      "class": "ASSASSIN",
+      "height": 22,
+      "position": -4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_1"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "DELIRIOUS_GAS",
+      "class": "ASSASSIN",
+      "height": 22,
+      "position": -1,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SANDBAGGING"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "MARKED",
+      "class": "ASSASSIN",
+      "height": 23,
+      "position": -3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "VIOLENT_VORTEX"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "ECHO",
+      "class": "ASSASSIN",
+      "height": 23,
+      "position": 0,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SANDBAGGING",
+        "SHURIKENS"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "SHURIKENS",
+      "class": "ASSASSIN",
+      "height": 23,
+      "position": 2,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "ECHO",
+        "FAR_REACH"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "FAR_REACH",
+      "class": "ASSASSIN",
+      "height": 23,
+      "position": 4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DANCING_BLADE",
+        "SHURIKENS"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "STRONGER_MULTIHIT",
+      "class": "ASSASSIN",
+      "height": 24,
+      "position": 1,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "ECHO",
+        "SHURIKENS"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "PSITHURISM",
+      "class": "ASSASSIN",
+      "height": 24,
+      "position": 3,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SHURIKENS",
+        "FAR_REACH"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "AMBUSH",
+      "class": "ASSASSIN",
+      "height": 25,
+      "position": -3,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "MARKED"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "CHEAPER_DASH_2",
+      "class": "ASSASSIN",
+      "height": 25,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "ECHO"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "PARRY",
+      "class": "ASSASSIN",
+      "height": 25,
+      "position": 2,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_SPIN_ATTACK_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "CHEAPER_SPIN_ATTACK_2",
+      "class": "ASSASSIN",
+      "height": 25,
+      "position": 4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FAR_REACH"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "DEATH_MAGNET",
+      "class": "ASSASSIN",
+      "height": 27,
+      "position": -4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "AMBUSH",
+        "CHEAPER_MULTIHIT_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "CHEAPER_MULTIHIT_2",
+      "class": "ASSASSIN",
+      "height": 27,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "AMBUSH",
+        "HOODWINK"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "HOODWINK",
+      "class": "ASSASSIN",
+      "height": 27,
+      "position": 0,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_DASH_2",
+        "CHEAPER_MULTIHIT_2",
+        "CHOKE_BOMB"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "CHOKE_BOMB",
+      "class": "ASSASSIN",
+      "height": 27,
+      "position": 2,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "PARRY",
+        "HOODWINK",
+        "WALL_JUMP"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "WALL_JUMP",
+      "class": "ASSASSIN",
+      "height": 27,
+      "position": 4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_SPIN_ATTACK_2",
+        "CHOKE_BOMB"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "FATAL_SPIN",
+      "class": "ASSASSIN",
+      "height": 28,
+      "position": -3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "DEATH_MAGNET",
+        "CHEAPER_MULTIHIT_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "STRONGER_LACERATE",
+      "class": "ASSASSIN",
+      "height": 28,
+      "position": 3,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHOKE_BOMB",
+        "WALL_JUMP"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "STRONGER_VORTEX",
+      "class": "ASSASSIN",
+      "height": 29,
+      "position": -4,
+      "tier": 1,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FATAL_SPIN"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "HARVESTER",
+      "class": "ASSASSIN",
+      "height": 30,
+      "position": -3,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FATAL_SPIN",
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "CHEAPER_SMOKE_BOMB_2",
+      "class": "ASSASSIN",
+      "height": 30,
+      "position": 0,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "HOODWINK",
+        "HARVESTER",
+        "BLADE_FURY"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "BLADE_FURY",
+      "class": "ASSASSIN",
+      "height": 30,
+      "position": 3,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "STRONGER_LACERATE",
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "MORE_MARKS",
+      "class": "ASSASSIN",
+      "height": 31,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "HARVESTER",
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "STRONGER_CLONE",
+      "class": "ASSASSIN",
+      "height": 31,
+      "position": 1,
+      "tier": 1,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_2",
+        "BLADE_FURY"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "RICOCHETS",
+      "class": "ASSASSIN",
+      "height": 31,
+      "position": 4,
+      "tier": 2,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BLADE_FURY"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "SATSUJIN",
+      "class": "ASSASSIN",
+      "height": 32,
+      "position": -3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "HARVESTER"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "FORBIDDEN_ART",
+      "class": "ASSASSIN",
+      "height": 32,
+      "position": 0,
+      "tier": 3,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "CHEAPER_SMOKE_BOMB_2"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "JASMINE_BLOOM",
+      "class": "ASSASSIN",
+      "height": 32,
+      "position": 3,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "BLADE_FURY"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "DIVERSION",
+      "class": "ASSASSIN",
+      "height": 33,
+      "position": 1,
+      "tier": 4,
+      "cost": 2,
+      "archetype": "TRICKSTER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "FORBIDDEN_ART"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "BETTER_RICOCHETS",
+      "class": "ASSASSIN",
+      "height": 33,
+      "position": 4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "ACROBAT",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "JASMINE_BLOOM"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "DEVOUR",
+      "class": "ASSASSIN",
+      "height": 34,
+      "position": -4,
+      "tier": 1,
+      "cost": 1,
+      "archetype": "SHADESTEPPER",
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SATSUJIN"
+      ],
+      "properties": {},
+      "metadata": null
+    },
+    {
+      "id": "BETTER_MARKED",
+      "class": "ASSASSIN",
+      "height": 34,
+      "position": -2,
+      "tier": 1,
+      "cost": 1,
+      "archetype": null,
+      "dependency": null,
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "SATSUJIN"
+      ],
+      "properties": {},
+      "metadata": null
     }
   ],
-  "version": "1.0.9"
+  "version": "0.1.11"
 }

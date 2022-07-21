@@ -44,6 +44,7 @@ data class DamageMultiplier(private val hits: Int,
         ARROW,
         HIT,
         SHRAPNEL,
+        STRIKE,
         WINDED;
         companion object {
             private val VALUE_MAP: Map<String, Label> = mapOf(

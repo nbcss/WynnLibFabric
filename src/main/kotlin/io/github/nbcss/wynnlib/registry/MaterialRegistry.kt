@@ -5,7 +5,11 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.items.Material
 
 object MaterialRegistry: Registry<Material>() {
+    private const val RESOURCE = "assets/wynnlib/data/Materials.json"
     private var tier: Material.Tier = Material.Tier.STAR_1
+
+    override fun getFilename(): String = RESOURCE
+
     override fun read(data: JsonObject): Material? = try {
         Material(tier, data)
     }catch (e: Exception){

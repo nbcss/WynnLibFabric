@@ -1,0 +1,310 @@
+{
+  "data": [
+    {
+      "type": "QUAKE",
+      "tier": 1,
+      "radius": 4.4,
+      "damage": 155
+    },
+    {
+      "type": "QUAKE",
+      "tier": 2,
+      "radius": 4.9,
+      "damage": 220
+    },
+    {
+      "type": "QUAKE",
+      "tier": 3,
+      "radius": 5.4,
+      "damage": 285
+    },
+    {
+      "type": "QUAKE",
+      "tier": 4,
+      "radius": 5.9,
+      "damage": 350
+    },
+    {
+      "type": "QUAKE",
+      "tier": 5,
+      "radius": 6.4,
+      "damage": 415
+    },
+    {
+      "type": "RAGE",
+      "tier": 1,
+      "damage": 0.3
+    },
+    {
+      "type": "RAGE",
+      "tier": 2,
+      "damage": 0.4
+    },
+    {
+      "type": "RAGE",
+      "tier": 3,
+      "damage": 0.5
+    },
+    {
+      "type": "RAGE",
+      "tier": 4,
+      "damage": 0.7
+    },
+    {
+      "type": "RAGE",
+      "tier": 5,
+      "damage": 1.0
+    },
+    {
+      "type": "CHAIN_LIGHTNING",
+      "tier": 1,
+      "chains": 5,
+      "damage": 200
+    },
+    {
+      "type": "CHAIN_LIGHTNING",
+      "tier": 2,
+      "chains": 6,
+      "damage": 225
+    },
+    {
+      "type": "CHAIN_LIGHTNING",
+      "tier": 3,
+      "chains": 7,
+      "damage": 250
+    },
+    {
+      "type": "CHAIN_LIGHTNING",
+      "tier": 4,
+      "chains": 8,
+      "damage": 275
+    },
+    {
+      "type": "CHAIN_LIGHTNING",
+      "tier": 5,
+      "chains": 9,
+      "damage": 300
+    },
+    {
+      "type": "KILL_STREAK",
+      "tier": 1,
+      "damage": 3.0,
+      "duration": 5
+    },
+    {
+      "type": "KILL_STREAK",
+      "tier": 2,
+      "damage": 4.5,
+      "duration": 5
+    },
+    {
+      "type": "KILL_STREAK",
+      "tier": 3,
+      "damage": 6.0,
+      "duration": 5
+    },
+    {
+      "type": "KILL_STREAK",
+      "tier": 4,
+      "damage": 7.5,
+      "duration": 5
+    },
+    {
+      "type": "KILL_STREAK",
+      "tier": 5,
+      "damage": 9.0,
+      "duration": 5
+    },
+    {
+      "type": "COURAGE",
+      "tier": 1,
+      "duration": 6.0,
+      "damage": 75.0,
+      "boost": 70
+    },
+    {
+      "type": "COURAGE",
+      "tier": 2,
+      "duration": 6.5,
+      "damage": 87.5,
+      "boost": 90
+    },
+    {
+      "type": "COURAGE",
+      "tier": 3,
+      "duration": 7.0,
+      "damage": 100.0,
+      "boost": 110
+    },
+    {
+      "type": "COURAGE",
+      "tier": 4,
+      "duration": 7.5,
+      "damage": 112.5,
+      "boost": 130
+    },
+    {
+      "type": "COURAGE",
+      "tier": 5,
+      "duration": 8.0,
+      "damage": 125.0,
+      "boost": 150
+    },
+    {
+      "type": "ENDURANCE",
+      "tier": 1,
+      "damage": 2,
+      "duration": 8
+    },
+    {
+      "type": "ENDURANCE",
+      "tier": 2,
+      "damage": 3,
+      "duration": 8
+    },
+    {
+      "type": "ENDURANCE",
+      "tier": 3,
+      "damage": 4,
+      "duration": 8
+    },
+    {
+      "type": "ENDURANCE",
+      "tier": 4,
+      "damage": 5,
+      "duration": 8
+    },
+    {
+      "type": "ENDURANCE",
+      "tier": 5,
+      "damage": 6,
+      "duration": 8
+    },
+    {
+      "type": "CURSE",
+      "tier": 1,
+      "duration": 7.0,
+      "boost": 90
+    },
+    {
+      "type": "CURSE",
+      "tier": 2,
+      "duration": 7.5,
+      "boost": 120
+    },
+    {
+      "type": "CURSE",
+      "tier": 3,
+      "duration": 8.0,
+      "boost": 150
+    },
+    {
+      "type": "CURSE",
+      "tier": 4,
+      "duration": 8.5,
+      "boost": 180
+    },
+    {
+      "type": "CURSE",
+      "tier": 5,
+      "duration": 9.0,
+      "boost": 210
+    },
+    {
+      "type": "CONCENTRATION",
+      "tier": 1,
+      "damage": 1,
+      "duration": 1
+    },
+    {
+      "type": "CONCENTRATION",
+      "tier": 2,
+      "damage": 2,
+      "duration": 1
+    },
+    {
+      "type": "CONCENTRATION",
+      "tier": 3,
+      "damage": 3,
+      "duration": 1
+    },
+    {
+      "type": "CONCENTRATION",
+      "tier": 4,
+      "damage": 4,
+      "duration": 1
+    },
+    {
+      "type": "CONCENTRATION",
+      "tier": 5,
+      "damage": 5,
+      "duration": 1
+    },
+    {
+      "type": "WIND_PRISON",
+      "tier": 1,
+      "duration": 3.0,
+      "boost": 200,
+      "knockback": 8
+    },
+    {
+      "type": "WIND_PRISON",
+      "tier": 2,
+      "duration": 3.5,
+      "boost": 300,
+      "knockback": 12
+    },
+    {
+      "type": "WIND_PRISON",
+      "tier": 3,
+      "duration": 4.0,
+      "boost": 400,
+      "knockback": 16
+    },
+    {
+      "type": "WIND_PRISON",
+      "tier": 4,
+      "duration": 4.5,
+      "boost": 500,
+      "knockback": 20
+    },
+    {
+      "type": "WIND_PRISON",
+      "tier": 5,
+      "duration": 5.0,
+      "boost": 600,
+      "knockback": 24
+    },
+    {
+      "type": "DODGE",
+      "tier": 1,
+      "damage": 2,
+      "duration": 2
+    },
+    {
+      "type": "DODGE",
+      "tier": 2,
+      "damage": 3,
+      "duration": 3
+    },
+    {
+      "type": "DODGE",
+      "tier": 3,
+      "damage": 4,
+      "duration": 4
+    },
+    {
+      "type": "DODGE",
+      "tier": 4,
+      "damage": 5,
+      "duration": 5
+    },
+    {
+      "type": "DODGE",
+      "tier": 5,
+      "damage": 6,
+      "duration": 6
+    }
+  ],
+  "version": "1.0.0"
+}

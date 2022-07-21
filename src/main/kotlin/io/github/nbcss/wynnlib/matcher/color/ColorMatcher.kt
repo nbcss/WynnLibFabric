@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.matcher
+package io.github.nbcss.wynnlib.matcher.color
 
 import io.github.nbcss.wynnlib.utils.Color
 import net.minecraft.client.MinecraftClient
@@ -9,8 +9,7 @@ import net.minecraft.text.Text
 import java.util.*
 import java.util.function.Supplier
 
-interface ItemMatcher {
-    //fun toBaseItem(item: ItemStack): BaseItem?
+interface ColorMatcher {
     /**
      * Match item to rarity color provider.
      * If the item cannot match with an associated color provider, the method will return null.
@@ -24,18 +23,14 @@ interface ItemMatcher {
     companion object {
         private val colorCacheMap: MutableMap<String, Supplier<Color?>> = WeakHashMap()
         private val nullSupplier: Supplier<Color?> = Supplier<Color?> {null}
-        private val colorMatchers: List<ItemMatcher> = listOf(
-            EquipmentMatcher,
-            BoxMatcher,
-            IngredientMatcher,
-            MaterialMatcher,
+        private val colorMatchers: List<ColorMatcher> = listOf(
+            EquipmentColorMatcher,
+            BoxColorMatcher,
+            IngredientColorMatcher,
+            MaterialColorMatcher,
         )
-        /*fun matchesItem(item: ItemStack): BaseItem? {
-            return null
-        }*/
 
         fun toRarityColor(item: ItemStack): Color? {
-            //println(item.name)
             if (item.isEmpty)
                 return null
             val key = item.writeNbt(NbtCompound()).toString()
@@ -47,8 +42,6 @@ interface ItemMatcher {
             val supplier = colorMatchers.firstNotNullOfOrNull { it.toRarityColor(item, tooltip) } ?: nullSupplier
             colorCacheMap[key] = supplier
             return supplier.get()
-            //val colors = listOf(Color.DARK_PURPLE, Color.RED, Color.AQUA, Color.PINK, Color.YELLOW)
-            //return colors.random()
         }
     }
 }

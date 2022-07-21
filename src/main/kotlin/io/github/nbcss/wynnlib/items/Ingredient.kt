@@ -180,7 +180,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         return Settings.getIngredientColor(tier)
     }
 
-    override fun getIdentification(id: Identification): IRange {
+    override fun getIdentificationRange(id: Identification): IRange {
         return idMap.getOrDefault(id, IRange.ZERO)
     }
 

@@ -2,14 +2,12 @@ package io.github.nbcss.wynnlib.abilities.builder
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityMetadata
-import io.github.nbcss.wynnlib.abilities.builder.entries.ExtendEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.SpellEntry
+import io.github.nbcss.wynnlib.abilities.builder.entries.*
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 
 class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     private val entries: MutableMap<String, PropertyEntry>
+    private val disabled: MutableSet<Ability> = mutableSetOf()
     init {
         entries = LinkedHashMap()
         val spells: MutableSet<AbilityMetadata> = HashSet()
@@ -18,11 +16,22 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
         val dummy: MutableSet<AbilityMetadata> = HashSet()
         for (ability in abilities) {
             ability.getMetadata()?.let {
-                when (it.getFactory().getKey()) {
-                    SpellEntry.getKey() -> {spells.add(it)}
-                    ReplaceSpellEntry.getKey() -> {replaces.add(it)}
-                    ExtendEntry.getKey() -> {extending.add(it)}
-                    else -> {dummy.add(it)}
+                when (it.getFactory()) {
+                    is MainAttackEntry.Companion -> {
+                        it.createEntry(this)?.let { x -> putEntry(x) }
+                    }
+                    is SpellEntry.Companion -> {
+                        spells.add(it)
+                    }
+                    is ReplaceSpellEntry.Companion -> {
+                        replaces.add(it)
+                    }
+                    is ExtendEntry.Companion -> {
+                        extending.add(it)
+                    }
+                    else -> {
+                        dummy.add(it)
+                    }
                 }
             }
         }
@@ -31,6 +40,9 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
         replaces.mapNotNull {it.createEntry(this)}.forEach { putEntry(it) }
         dummy.mapNotNull {it.createEntry(this)}.forEach { putEntry(it) }
         var keys: List<AbilityMetadata>
+        for (metadata in extending) {
+            println(metadata.ability.getKey())
+        }
         do {
             keys = extending.toList()
             for (meta in keys) {
@@ -41,8 +53,12 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
                 }
             }
         }while (extending.isNotEmpty() && extending.size < keys.size)
-        //we can warn something if extending is still not empty here?
-        abilities.forEach { it.updateEntries(this) }
+        disabled.addAll(extending.map { it.ability })
+        for (ability in abilities) {
+            if (!ability.updateEntries(this)) {
+                disabled.add(ability)
+            }
+        }
     }
 
     fun putEntry(entry: PropertyEntry) {
@@ -56,6 +72,10 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
 
     fun getEntries(): List<PropertyEntry> {
         return entries.values.toList()
+    }
+
+    fun isAbilityDisabled(ability: Ability): Boolean {
+        return ability in disabled
     }
 
     fun getSize(): Int = entries.size

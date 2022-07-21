@@ -10,5 +10,5 @@ interface IdentificationHolder {
      * @param id: the identification to query
      * @return the range of the given identification
      */
-    fun getIdentification(id: Identification): IRange
+    fun getIdentificationRange(id: Identification): IRange
 }

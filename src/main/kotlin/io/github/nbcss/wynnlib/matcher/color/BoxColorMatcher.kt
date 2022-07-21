@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.matcher
+package io.github.nbcss.wynnlib.matcher.color
 
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.Tier
@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import java.util.function.Supplier
 
-object BoxMatcher: ItemMatcher {
+object BoxColorMatcher: ColorMatcher {
     //private val tierMap = mapOf(pairs = Tier.values().map { TextColor.fromFormatting(it.formatting) to it }.toTypedArray())
 
     override fun toRarityColor(item: ItemStack, tooltip: List<Text>): Supplier<Color?>? {

@@ -5,7 +5,8 @@ import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.util.Formatting
 import java.util.*
 
-enum class Element(val displayName: String,
+enum class Element(val icon: String,
+                   val displayName: String,
                    val damageName: String,
                    val defenceName: String,
                    val damageBonusName: String,
@@ -13,31 +14,36 @@ enum class Element(val displayName: String,
                    val color: Formatting,
                    val altColor: Formatting
                    ): Keyed, Translatable {
-    FIRE("✹ Fire",
+    FIRE("✹",
+        "✹ Fire",
         "fireDamage",
         "fireDefense",
         "bonusFireDamage",
         "bonusFireDefense",
         Formatting.RED, Formatting.DARK_RED),
-    WATER("❉ Water",
+    WATER("❉",
+        "❉ Water",
         "waterDamage",
         "waterDefense",
         "bonusWaterDamage",
         "bonusWaterDefense",
         Formatting.AQUA, Formatting.DARK_AQUA),
-    AIR("❋ Air",
+    AIR("❋",
+        "❋ Air",
         "airDamage",
         "airDefense",
         "bonusAirDamage",
         "bonusAirDefense",
         Formatting.WHITE, Formatting.GRAY),
-    THUNDER("✦ Thunder",
+    THUNDER("✦",
+        "✦ Thunder",
         "thunderDamage",
         "thunderDefense",
         "bonusThunderDamage",
         "bonusThunderDefense",
         Formatting.YELLOW, Formatting.GOLD),
-    EARTH("✤ Earth",
+    EARTH("✤",
+        "✤ Earth",
         "earthDamage",
         "earthDefense",
         "bonusEarthDamage",
@@ -47,9 +53,21 @@ enum class Element(val displayName: String,
     companion object {
         private val VALUE_MAP: Map<String, Element> = mapOf(
             pairs = values().map { it.name.uppercase() to it }.toTypedArray())
+        private val DISPLAY_NAME_MAP: Map<String, Element> = mapOf(
+            pairs = values().map { it.displayName to it }.toTypedArray())
+        private val ICON_MAP: Map<String, Element> = mapOf(
+            pairs = values().map { it.icon to it }.toTypedArray())
 
         fun fromId(id: String): Element? {
             return VALUE_MAP[id.uppercase()]
+        }
+
+        fun fromDisplayName(displayName: String): Element? {
+            return DISPLAY_NAME_MAP[displayName]
+        }
+
+        fun fromIcon(icon: String): Element? {
+            return ICON_MAP[icon]
         }
     }
 

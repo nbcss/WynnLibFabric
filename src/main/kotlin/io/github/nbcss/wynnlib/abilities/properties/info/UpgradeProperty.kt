@@ -12,10 +12,14 @@ open class UpgradeProperty(ability: Ability, data: JsonElement): ModifyProperty(
         override fun getKey(): String = "upgrade"
     }
 
-    override fun updateEntries(container: EntryContainer) {
-        getModifyEntries(container).forEach { entry ->
+    override fun updateEntries(container: EntryContainer): Boolean {
+        val entries = getModifyEntries(container)
+        if (entries.isEmpty())
+            return false
+        entries.forEach { entry ->
             modifyEntry(entry)
             entry.addUpgrade(getAbility())
         }
+        return true
     }
 }

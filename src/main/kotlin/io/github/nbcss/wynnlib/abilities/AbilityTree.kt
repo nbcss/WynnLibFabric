@@ -15,6 +15,7 @@ class AbilityTree(val character: CharacterClass) {
     private val posMap: MutableMap<Pos, Ability> = HashMap()
     private val abilities: MutableSet<Ability> = HashSet()
     private val spellMap: MutableMap<SpellSlot, Ability> = EnumMap(SpellSlot::class.java)
+    private var mainAttack: Ability? = null
     private var root: Ability? = null
     private var height: Int = 0
 
@@ -38,16 +39,24 @@ class AbilityTree(val character: CharacterClass) {
         return spellMap[spell]
     }
 
+    fun getMainAttackAbility(): Ability? {
+        return mainAttack
+    }
+
     fun setAbilities(abilities: Collection<Ability>) {
         this.abilities.clear()
         this.archetypePoints.clear()
         this.posMap.clear()
         this.spellMap.clear()
         this.height = 0
+        this.mainAttack = null
         this.root = null
         abilities.forEach {
             this.abilities.add(it)
             this.posMap[Pos(it.getHeight(), it.getPosition())] = it
+            if (it.isMainAttack()){
+                mainAttack = it
+            }
             if(it.getHeight() == 0){
                 root = it
             }

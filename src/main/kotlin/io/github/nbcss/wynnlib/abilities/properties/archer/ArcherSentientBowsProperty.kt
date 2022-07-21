@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
+import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -21,7 +22,7 @@ class ArcherSentientBowsProperty(ability: Ability,
         override fun create(ability: Ability, data: JsonElement): ArcherSentientBowsProperty {
             return ArcherSentientBowsProperty(ability, data.asInt)
         }
-        override fun getKey(): String = "archer_sentient_bows"
+        override fun getKey(): String = "sentient_bows"
     }
 
     fun getArcherSentientBows(): Int = bows
@@ -46,7 +47,7 @@ class ArcherSentientBowsProperty(ability: Ability,
             override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data)
             }
-            override fun getKey(): String = "archer_sentient_bows_modifier"
+            override fun getKey(): String = "sentient_bows_modifier"
         }
         private val modifier: Int = data.asInt
         init {
@@ -65,7 +66,7 @@ class ArcherSentientBowsProperty(ability: Ability,
         override fun getTooltip(): List<Text> {
             return listOf(Symbol.ALTER_HITS.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS.formatted(Formatting.GRAY).append(": "))
-                .append(LiteralText(signed(modifier)).formatted(Formatting.WHITE)))
+                .append(LiteralText(signed(modifier)).formatted(colorOf(modifier))))
         }
     }
 }

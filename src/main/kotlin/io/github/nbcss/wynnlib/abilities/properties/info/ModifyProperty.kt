@@ -55,7 +55,8 @@ open class ModifyProperty(ability: Ability, data: JsonElement): AbilityProperty(
         }
     }
 
-    override fun updateEntries(container: EntryContainer) {
+    override fun updateEntries(container: EntryContainer): Boolean {
         getModifyEntries(container).forEach { modifyEntry(it) }
+        return true
     }
 }

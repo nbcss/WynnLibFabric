@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.archer.*
+import io.github.nbcss.wynnlib.abilities.properties.assassin.SmokeBombProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
 import io.github.nbcss.wynnlib.abilities.properties.mage.*
@@ -38,10 +39,18 @@ abstract class AbilityProperty(private val ability: Ability) {
                 ManaCostModifierProperty,
                 DamageProperty,
                 DamageModifierProperty,
+                TeleportSuccessionProperty,
+                TimelockProperty,
+                MainAttackDamageProperty,
                 MainAttackDamageModifierProperty,
-                MainAttackRangeModifierProperty,
+                MainAttackRangeProperty,
+                MainAttackRangeProperty.Modifier,
+                MainAttackRangeProperty.Clear,
+                MainAttackHitsProperty,
+                MainAttackHitsProperty.Modifier,
                 RangeProperty,
                 RangeProperty.Modifier,
+                RangeProperty.Clear,
                 CooldownProperty,
                 CooldownProperty.Modifier,
                 DurationProperty,
@@ -64,6 +73,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MageOphanimProperty.Modifier,
                 MaxWindedProperty,
                 MaxWindedProperty.Modifier,
+                SmokeBombProperty,
+                SmokeBombProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
@@ -74,7 +85,7 @@ abstract class AbilityProperty(private val ability: Ability) {
 
     open fun writePlaceholder(container: PlaceholderContainer) = Unit
 
-    open fun updateEntries(container: EntryContainer) = Unit
+    open fun updateEntries(container: EntryContainer): Boolean = true
 
     fun getAbility(): Ability = ability
 

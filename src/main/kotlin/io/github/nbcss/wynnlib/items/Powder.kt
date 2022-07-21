@@ -95,7 +95,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem, Translatable {
             .append(TOOLTIP_POWDER_CONVERT.formatted(Formatting.GRAY))
             .append(element.formatted(Formatting.GRAY, "tooltip.damage")))
         if (tier.index() >= 4){
-            val spec = PowderSpecial.fromWeaponElement(element)
+            val spec = PowderSpecial.Type.fromWeaponElement(element)
             tooltip.add(prefix.copy().formatted(element.altColor)
                 .append(LiteralText("+").formatted(Formatting.GRAY))
                 .append(TOOLTIP_POWDER_SPECIAL.formatted(Formatting.GRAY))
@@ -112,7 +112,7 @@ class Powder(json: JsonObject) : Keyed, BaseItem, Translatable {
             .append(LiteralText("$defencePenalty ").formatted(Formatting.GRAY))
             .append(oppoElem.formatted(Formatting.GRAY, "tooltip.defence")))
         if (tier.index() >= 4){
-            val spec = PowderSpecial.fromArmourElement(element)
+            val spec = PowderSpecial.Type.fromArmourElement(element)
             tooltip.add(prefix.copy().formatted(element.altColor)
                 .append(LiteralText("+").formatted(Formatting.GRAY))
                 .append(TOOLTIP_POWDER_SPECIAL.formatted(Formatting.GRAY))

@@ -12,6 +12,13 @@ enum class Skill(val id: String,               //The id of the skill; used in eq
     INTELLIGENCE("intelligence", "Intelligence", "intelligenceRequirement"),
     DEFENCE("defense", "Defence", "defenceRequirement"),
     AGILITY("agility", "Agility", "agilityRequirement");
+    companion object {
+        private val NAME_MAP: Map<String, Skill> = mapOf(
+            pairs = values().map { it.displayName to it }.toTypedArray()
+        )
+
+        fun fromDisplayName(displayName: String): Skill? = NAME_MAP[displayName]
+    }
 
     override fun getKey(): String = id
 

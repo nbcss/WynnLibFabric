@@ -99,6 +99,7 @@ open class BonusEffectProperty(ability: Ability,
         ALLIES_WALK_SPEED,
         ALLIES_ID_EFFECTIVENESS,
         ALLIES_INVINCIBLE,
+        SELF_INVISIBLE,
         ENEMIES_RESISTANCE,
         ENEMIES_BLINDNESS,
         ENEMIES_SLOWNESS;

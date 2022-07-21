@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.mixins.render;
 
-import io.github.nbcss.wynnlib.matcher.ItemMatcher;
+import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
 import io.github.nbcss.wynnlib.render.RenderKit;
 import io.github.nbcss.wynnlib.utils.Color;
 import net.minecraft.client.gui.screen.Screen;
@@ -43,7 +43,7 @@ public class ItemBackgroundMixin extends Screen {
     }
 
     private void drawColorSlot(ItemStack stack, int x, int y) {
-        Color color = ItemMatcher.Companion.toRarityColor(stack);
+        Color color = ColorMatcher.Companion.toRarityColor(stack);
         if(color != null) {
             matrixStack.push();
             matrixStack.translate(0.0, 0.0, 200.0);

@@ -64,4 +64,21 @@ class RangeProperty(ability: Ability, private val range: Double):
                 .append(value))
         }
     }
+
+    class Clear(ability: Ability):
+        AbilityProperty(ability), ModifiableProperty {
+        companion object: Type<Clear> {
+            override fun create(ability: Ability, data: JsonElement): Clear {
+                return Clear(ability)
+            }
+
+            override fun getKey(): String = "range_clear"
+        }
+
+        override fun modify(entry: PropertyEntry) {
+            RangeProperty.from(entry)?.let {
+                entry.clearProperty(RangeProperty.getKey())
+            }
+        }
+    }
 }

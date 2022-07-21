@@ -72,6 +72,23 @@ fun asColor(text: String): Int {
     return color
 }
 
+fun tierOf(tier: Int): String {
+    if (tier <= 0) return ""
+    return when (tier){
+        1 -> "I"
+        2 -> "II"
+        3 -> "III"
+        4 -> "IV"
+        5 -> "V"
+        6 -> "VI"
+        7 -> "VII"
+        8 -> "VIII"
+        9 -> "IX"
+        10 -> "X"
+        else -> "✰"
+    }
+}
+
 fun formattingLines(text: String, prefix: String, length: Int = 200): List<Text> {
     val lines: MutableList<Text> = ArrayList()
     text.split("//").forEach {
