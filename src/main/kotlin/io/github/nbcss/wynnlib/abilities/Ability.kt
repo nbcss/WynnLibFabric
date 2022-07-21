@@ -244,8 +244,14 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         return tooltip
     }
 
-    fun updateEntries(container: EntryContainer) {
-        properties.values.forEach { it.updateEntries(container) }
+    fun updateEntries(container: EntryContainer): Boolean {
+        var flag = true
+        for (property in properties.values) {
+            if(!property.updateEntries(container)){
+                flag = false
+            }
+        }
+        return flag
     }
 
     fun getAbilityTree(): AbilityTree = AbilityRegistry.fromCharacter(character)

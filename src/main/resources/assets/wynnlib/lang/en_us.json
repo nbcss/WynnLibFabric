@@ -90,6 +90,7 @@
   "wynnlib.tooltip.powder.in_crafting": "Effect in Crafting",
   "wynnlib.tooltip.archetype.title": "%s Archetype",
   "wynnlib.tooltip.archetype.abilities": "Abilities (%d):",
+  "wynnlib.tooltip.ability.unusable_warning": "This ability have no effect",
   "wynnlib.tooltip.ability.click_combo": "Click Combo",
   "wynnlib.tooltip.ability.blocks": "Unlocking will block:",
   "wynnlib.tooltip.ability.cost": "Ability Points",

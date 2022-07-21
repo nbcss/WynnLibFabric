@@ -82,7 +82,7 @@ abstract class AbilityProperty(private val ability: Ability) {
 
     open fun writePlaceholder(container: PlaceholderContainer) = Unit
 
-    open fun updateEntries(container: EntryContainer) = Unit
+    open fun updateEntries(container: EntryContainer): Boolean = true
 
     fun getAbility(): Ability = ability
 
