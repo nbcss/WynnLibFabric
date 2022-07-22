@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib
 
+import io.github.nbcss.wynnlib.abilities.AbilityIcon
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
@@ -20,6 +21,8 @@ object WynnLibEntry: ModInitializer {
     private const val MOD_ID = "wynnlib"
 
     override fun onInitialize() {
+        //Reload icons
+        AbilityIcon.reload()
         //Reload id metadata
         Identification.load()
         MajorId.load()

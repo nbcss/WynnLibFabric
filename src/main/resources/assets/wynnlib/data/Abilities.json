@@ -852,7 +852,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "AIR_SHOUT"
       }
     },
     {
@@ -904,7 +905,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "FLYING_KICK"
       }
     },
     {
@@ -983,7 +985,8 @@
         "cooldown": 3
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "BOILING_BLOOD"
       }
     },
     {
@@ -1137,7 +1140,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "COLLIDE"
       }
     },
     {
@@ -1306,7 +1310,8 @@
         "duration": 8
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "ARMOUR_BREAKER"
       }
     },
     {
@@ -1338,7 +1343,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "SHIELD_STRIKE"
       }
     },
     {
@@ -1366,7 +1372,8 @@
         }
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "SPARKLING_HOPE"
       }
     },
     {
@@ -1424,7 +1431,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "TEMPEST"
       }
     },
     {
@@ -1537,6 +1545,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "RADIANCE",
         "upgradable": false
       }
     },
@@ -1607,6 +1616,7 @@
       "properties": {},
       "metadata": {
         "type": "NEW",
+        "icon": "DISCOMBOBULATE",
         "upgradable": false
       }
     },
@@ -1640,7 +1650,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "CYCLONE"
       }
     },
     {
@@ -1692,7 +1703,8 @@
         "cooldown": 600
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "SECOND_CHANCE"
       }
     },
     {
@@ -1713,7 +1725,8 @@
       ],
       "properties": {},
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "BLOOD_PACT"
       }
     },
     {
@@ -1754,7 +1767,8 @@
       ],
       "properties": {},
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "BRINK_OF_MADNESS"
       }
     },
     {
@@ -1806,7 +1820,8 @@
         }
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "MARTYR"
       }
     },
     {
@@ -2467,7 +2482,8 @@
       ],
       "properties": {},
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "FRENZY"
       }
     },
     {
@@ -3644,6 +3660,7 @@
       },
       "metadata": {
         "type": "NEW",
+        "icon": "SNOW_STORM",
         "upgradable": false
       }
     },
@@ -3775,7 +3792,8 @@
         "main_attack_range": 13
       },
       "metadata": {
-        "type": "MAIN_ATTACK"
+        "type": "MAIN_ATTACK",
+        "icon": "MAGE_MAIN_ATTACK"
       }
     },
     {
@@ -4170,7 +4188,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "WIND_SLASH"
       }
     },
     {
@@ -4204,7 +4223,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "THUNDERSTORM"
       }
     },
     {
@@ -4237,7 +4257,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "BURNING_SIGIL"
       }
     },
     {
@@ -4267,7 +4288,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "SUNSHOWER"
       }
     },
     {
@@ -4331,7 +4353,8 @@
         "cooldown": 0.5
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "WINDSWEEPER"
       }
     },
     {
@@ -4452,6 +4475,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "PURIFICATION",
         "upgradable": false
       }
     },
@@ -4502,6 +4526,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "EYE_PIERCER",
         "upgradable": false
       }
     },
@@ -4531,7 +4556,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "BREATHLESS"
       }
     },
     {
@@ -4635,6 +4661,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "FORTITUDE",
         "upgradable": false
       }
     },
@@ -4692,7 +4719,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "PYROKINESIS"
       }
     },
     {
@@ -4820,7 +4848,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "TRANSONIC_WARP"
       }
     },
     {
@@ -4952,7 +4981,8 @@
         "duration": 20
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "LIGHTWEAVER"
       }
     },
     {
@@ -4979,6 +5009,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "ARCANE_SPEED",
         "upgradable": false
       }
     },
@@ -5106,7 +5137,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "EXPLOSIVE_ENTRANCE"
       }
     },
     {
@@ -5157,7 +5189,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "CHAOS_EXPLOSION"
       }
     },
     {
@@ -5574,6 +5607,7 @@
       },
       "metadata": {
         "type": "NEW",
+        "icon": "MANASTORM",
         "upgradable": false
       }
     },
@@ -5638,7 +5672,8 @@
         "main_attack_range": 3
       },
       "metadata": {
-        "type": "MAIN_ATTACK"
+        "type": "MAIN_ATTACK",
+        "icon": "ASSASSIN_MAIN_ATTACK"
       }
     },
     {
@@ -5666,7 +5701,8 @@
         }
       },
       "metadata": {
-        "type": "SPELL"
+        "type": "SPELL",
+        "icon": "SPIN_ATTACK"
       }
     },
     {
@@ -5762,7 +5798,8 @@
         "mana_cost": 20
       },
       "metadata": {
-        "type": "SPELL"
+        "type": "SPELL",
+        "icon": "DASH"
       }
     },
     {
@@ -5846,7 +5883,8 @@
         }
       },
       "metadata": {
-        "type": "SPELL"
+        "type": "SPELL",
+        "icon": "SMOKE_BOMB"
       }
     },
     {
@@ -5900,7 +5938,8 @@
         "range": 3
       },
       "metadata": {
-        "type": "SPELL"
+        "type": "SPELL",
+        "icon": "MULTIHIT"
       }
     },
     {
@@ -6083,6 +6122,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "FATALITY",
         "upgradable": false
       }
     },
@@ -6157,7 +6197,8 @@
       ],
       "properties": {},
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "RIGHTING_REFLEX"
       }
     },
     {
@@ -6182,7 +6223,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "SURPRISE_STRIKE"
       }
     },
     {
@@ -6211,7 +6253,8 @@
         "cooldown": 20
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "MIRROR_IMAGE"
       }
     },
     {
@@ -6484,7 +6527,8 @@
         "duration": 1
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "BLAZING_POWDER"
       }
     },
     {
@@ -6506,7 +6550,8 @@
       ],
       "properties": {},
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "WEIGHTLESS"
       }
     },
     {
@@ -6552,6 +6597,7 @@
       },
       "metadata": {
         "type": "NEW",
+        "icon": "SANDBAGGING",
         "upgradable": false
       }
     },
@@ -6574,7 +6620,8 @@
         "cooldown": 2
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "HOP"
       }
     },
     {
@@ -6601,7 +6648,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "DANCING_BLADE"
       }
     },
     {
@@ -6625,7 +6673,8 @@
         }
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "icon": "VIOLENT_VORTEX"
       }
     },
     {
@@ -6651,7 +6700,8 @@
         "duration": 20
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "DELIRIOUS_GAS"
       }
     },
     {
@@ -6677,7 +6727,8 @@
         "cooldown": 0.5
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "MARKED"
       }
     },
     {
@@ -6731,7 +6782,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "SHURIKENS"
       }
     },
     {
@@ -6878,6 +6930,7 @@
       },
       "metadata": {
         "type": "NEW",
+        "icon": "PARRY",
         "upgradable": false
       }
     },
@@ -6999,6 +7052,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "CHOKE_BOMB",
         "upgradable": false
       }
     },
@@ -7120,7 +7174,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "HARVESTER"
       }
     },
     {
@@ -7239,7 +7294,8 @@
         "range": 12
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "icon": "RICOCHETS"
       }
     },
     {
@@ -7317,6 +7373,7 @@
       },
       "metadata": {
         "type": "NEW",
+        "icon": "JASMINE_BLOOM",
         "upgradable": false
       }
     },
@@ -7344,6 +7401,7 @@
       },
       "metadata": {
         "type": "EXTEND",
+        "icon": "DIVERSION",
         "upgradable": false
       }
     },
