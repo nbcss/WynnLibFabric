@@ -1005,6 +1005,7 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
+        "spell": "SPELL_4",
         "mana_modifier": 10,
         "effect": {
           "type": "ALLIES_DAMAGE",
@@ -1448,7 +1449,10 @@
           "spell": "SPELL_2"
         },
         "spell": "SPELL_2",
-        "mana_modifier": -5
+        "mana_modifier": -5,
+        "id_modifier": {
+          "SPEED": 20
+        }
       },
       "metadata": null
     },
@@ -5674,7 +5678,10 @@
         "upgrade": {
           "ability": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5
+        "main_damage_modifier": 5,
+        "id_modifier": {
+          "SPEED": 5
+        }
       },
       "metadata": null
     },
@@ -6190,6 +6197,7 @@
         "extend": {
           "ability": "VANISH"
         },
+        "clones": 3,
         "cooldown": 20
       },
       "metadata": {
@@ -6533,7 +6541,8 @@
         "cooldown": 1
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "upgradable": false
       }
     },
     {
@@ -7262,6 +7271,7 @@
         "upgrade": {
           "ability": "MIRROR_IMAGE"
         },
+        "clones_modifier": 3,
         "cooldown_modifier": 20
       },
       "metadata": null
@@ -7388,5 +7398,5 @@
       "metadata": null
     }
   ],
-  "version": "0.1.10"
+  "version": "0.1.11"
 }

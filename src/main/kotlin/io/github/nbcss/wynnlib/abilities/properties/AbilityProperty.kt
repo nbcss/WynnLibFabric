@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.archer.*
+import io.github.nbcss.wynnlib.abilities.properties.assassin.AssassinClonesProperty
 import io.github.nbcss.wynnlib.abilities.properties.assassin.SmokeBombProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
@@ -76,6 +77,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MaxWindedProperty.Modifier,
                 SmokeBombProperty,
                 SmokeBombProperty.Modifier,
+                AssassinClonesProperty,
+                AssassinClonesProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
