@@ -14,6 +14,7 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
@@ -127,11 +128,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
         val archetypeY = viewerY + 143
         //render archetype values
         tree.getArchetypes().forEach {
-            val icon = it.getTexture()
-            val iconText = Formatting.BOLD.toString() + it.getIconText()
+            renderArchetypeIcon(matrices, it, archetypeX, archetypeY)
             val points = tree.getArchetypePoint(it).toString()
-            itemRenderer.renderInGuiWithOverrides(icon, archetypeX, archetypeY)
-            itemRenderer.renderGuiItemOverlay(textRenderer, icon, archetypeX, archetypeY, iconText)
             textRenderer.draw(matrices, points, archetypeX.toFloat() + 20, archetypeY.toFloat() + 4, 0)
             if (mouseX >= archetypeX && mouseY >= archetypeY && mouseX <= archetypeX + 16 && mouseY <= archetypeY + 16){
                 drawTooltip(matrices, it.getTooltip(), mouseX, mouseY)

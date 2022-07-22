@@ -293,11 +293,8 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         val archetypeY = viewerY + 143
         //render archetype values
         tree.getArchetypes().forEach {
-            val icon = it.getTexture()
-            val iconText = Formatting.BOLD.toString() + it.getIconText()
+            renderArchetypeIcon(matrices, it, archetypeX, archetypeY)
             val points = "${archetypePoints[it]?: 0}/${tree.getArchetypePoint(it)}"
-            itemRenderer.renderInGuiWithOverrides(icon, archetypeX, archetypeY)
-            itemRenderer.renderGuiItemOverlay(textRenderer, icon, archetypeX, archetypeY, iconText)
             textRenderer.draw(matrices, points, archetypeX.toFloat() + 20, archetypeY.toFloat() + 4, 0)
             if (mouseX >= archetypeX && mouseY >= archetypeY && mouseX <= archetypeX + 16 && mouseY <= archetypeY + 16){
                 drawTooltip(matrices, it.getTooltip(this), mouseX, mouseY)

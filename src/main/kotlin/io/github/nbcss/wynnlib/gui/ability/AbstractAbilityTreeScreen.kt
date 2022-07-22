@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.gui.ability
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
+import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -13,7 +14,9 @@ import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
@@ -99,6 +102,18 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
                 }
             }
         }
+    }
+
+    fun renderArchetypeIcon(matrices: MatrixStack, archetype: Archetype, x: Int, y: Int) {
+        val icon = archetype.getTexture()
+        val iconText = LiteralText(archetype.getIconText())
+            .formatted(Formatting.BOLD).formatted(archetype.getFormatting())
+        itemRenderer.renderInGuiWithOverrides(icon, x, y)
+        //itemRenderer.renderGuiItemOverlay(textRenderer, icon, archetypeX, archetypeY, iconText)
+        matrices.push()
+        matrices.translate(0.0, 0.0, 200.0)
+        RenderKit.renderOutlineText(matrices, iconText, x.toFloat() + 10, y.toFloat() + 9)
+        matrices.pop()
     }
 
     fun toScreenPosition(height: Int, position: Int): Pos {
