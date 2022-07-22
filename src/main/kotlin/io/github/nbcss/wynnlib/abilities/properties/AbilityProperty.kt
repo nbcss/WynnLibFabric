@@ -35,6 +35,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DamageBonusProperty.Raw,
                 DamageBonusProperty.PerFocus,
                 BonusEffectProperty,
+                IDModifierProperty,
                 ManaCostProperty,
                 ManaCostModifierProperty,
                 DamageProperty,
