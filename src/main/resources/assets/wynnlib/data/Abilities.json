@@ -2466,7 +2466,9 @@
         "TRIPLE_SHOTS"
       ],
       "properties": {},
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "GUARDIAN_ANGELS",
@@ -3640,7 +3642,10 @@
         },
         "range": 2.5
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "upgradable": false
+      }
     },
     {
       "id": "MORE_FOCUS_2",
