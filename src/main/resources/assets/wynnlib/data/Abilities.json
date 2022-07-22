@@ -5560,7 +5560,9 @@
       "properties": {
         "duration": 5
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "MEMORY_RECOLLECTION",
@@ -5756,7 +5758,9 @@
       "cost": 1,
       "archetype": "SHADESTEPPER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "DOUBLE_SLICE"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "DASH"
@@ -5778,7 +5782,9 @@
       "cost": 1,
       "archetype": "ACROBAT",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "POISONED_BLADE"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "DASH"
@@ -6007,9 +6013,13 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
-      "blocks": [],
-      "archetype_requirements": {},
+      "dependency": "MULTIHIT",
+      "blocks": [
+        "STRONGER_MULTIHIT"
+      ],
+      "archetype_requirements": {
+        "SHADESTEPPER": 2
+      },
       "predecessors": [
         "ASSASSIN_EARTH_MASTERY",
         "ASSASSIN_THUNDER_MASTERY"
@@ -6038,7 +6048,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "MULTIHIT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6067,7 +6077,7 @@
       "tier": 3,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "DASH",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6097,7 +6107,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "SMOKE_BOMB",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6141,9 +6151,11 @@
       "tier": 4,
       "cost": 2,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "VANISH",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHADESTEPPER": 3
+      },
       "predecessors": [
         "VANISH"
       ],
@@ -6164,9 +6176,13 @@
       "tier": 4,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
-      "blocks": [],
-      "archetype_requirements": {},
+      "dependency": "VANISH",
+      "blocks": [
+        "LACERATE"
+      ],
+      "archetype_requirements": {
+        "TRICKSTER": 2
+      },
       "predecessors": [
         "STICKY_BOMB"
       ],
@@ -6189,8 +6205,12 @@
       "cost": 2,
       "archetype": "ACROBAT",
       "dependency": null,
-      "blocks": [],
-      "archetype_requirements": {},
+      "blocks": [
+        "MIRROR_IMAGE"
+      ],
+      "archetype_requirements": {
+        "ACROBAT": 2
+      },
       "predecessors": [
         "FATALITY"
       ],
@@ -6217,7 +6237,7 @@
       "tier": 3,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "VANISH",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6255,7 +6275,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "SMOKE_BOMB",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6280,7 +6300,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "VANISH",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6376,9 +6396,11 @@
       "tier": 2,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "MIRROR_IMAGE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRICKSTER": 3
+      },
       "predecessors": [
         "SHADOW_TRAVEL",
         "CHEAPER_MULTIHIT_1"
@@ -6398,7 +6420,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "SMOKE_BOMB",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6430,8 +6452,22 @@
         "CHEAPER_MULTIHIT_1",
         "CHEAPER_SMOKE_BOMB_1"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "spell": "SPELL_1",
+          "ability": "SPIN_ATTACK"
+        },
+        "damage": {
+          "fire": 20
+        },
+        "effect": {
+          "type": "ENEMIES_BLINDNESS"
+        },
+        "duration": 1
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "WEIGHTLESS",
@@ -6443,13 +6479,17 @@
       "archetype": "ACROBAT",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACROBAT": 4
+      },
       "predecessors": [
         "CHEAPER_MULTIHIT_1",
         "DAGGER_PROFICIENCY_2"
       ],
       "properties": {},
-      "metadata": null
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "BLACK_HOLE",
@@ -6466,7 +6506,12 @@
         "CHEAPER_SMOKE_BOMB_1",
         "BLAZING_POWDER"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "range": 6
+      },
       "metadata": null
     },
     {
@@ -6484,8 +6529,12 @@
         "BLAZING_POWDER",
         "HOP"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "cooldown": 1
+      },
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "HOP",
@@ -6502,8 +6551,12 @@
         "WEIGHTLESS",
         "SANDBAGGING"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "cooldown": 2
+      },
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "DANCING_BLADE",
@@ -6513,14 +6566,24 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "DASH",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "WEIGHTLESS"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "spell": "SPELL_2"
+        },
+        "damage": {
+          "neutral": 80,
+          "air": 20
+        }
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "VIOLENT_VORTEX",
@@ -6536,8 +6599,15 @@
       "predecessors": [
         "CHEAPER_SMOKE_BOMB_1"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "aoe": {
+          "range": 6,
+          "shape": "CIRCLE"
+        }
+      },
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "DELIRIOUS_GAS",
@@ -6547,14 +6617,23 @@
       "tier": 3,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "SMOKE_BOMB",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRICKSTER": 4
+      },
       "predecessors": [
         "SANDBAGGING"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "spell": "SPELL_4"
+        },
+        "duration": 20
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "MARKED",
@@ -6566,12 +6645,21 @@
       "archetype": "SHADESTEPPER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHADESTEPPER": 5
+      },
       "predecessors": [
         "VIOLENT_VORTEX"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "spell": "SPELL_4"
+        },
+        "cooldown": 0.5
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "ECHO",
@@ -6581,14 +6669,20 @@
       "tier": 4,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "MIRROR_IMAGE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRICKSTER": 6
+      },
       "predecessors": [
         "SANDBAGGING",
         "SHURIKENS"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MIRROR_IMAGE"
+        }
+      },
       "metadata": null
     },
     {
@@ -6606,8 +6700,20 @@
         "ECHO",
         "FAR_REACH"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "spell": "SPELL_2"
+        },
+        "damage": {
+          "neutral": 90,
+          "fire": 10,
+          "hits": 3,
+          "label": "SHURIKEN"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "FAR_REACH",
@@ -6617,14 +6723,20 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "MULTIHIT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "DANCING_BLADE",
         "SHURIKENS"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3",
+          "ability": "MULTIHIT"
+        },
+        "range_modifier": 2
+      },
       "metadata": null
     },
     {
@@ -6636,13 +6748,23 @@
       "cost": 1,
       "archetype": null,
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "BACKSTAB"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "ECHO",
         "SHURIKENS"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3",
+          "ability": "MULTIHIT"
+        },
+        "damage_modifier": {
+          "hits": 3
+        }
+      },
       "metadata": null
     },
     {
@@ -6655,12 +6777,19 @@
       "archetype": "ACROBAT",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACROBAT": 5
+      },
       "predecessors": [
         "SHURIKENS",
         "FAR_REACH"
       ],
-      "properties": {},
+      "properties": {
+        "id_modifier": {
+          "SPEED": 20,
+          "JUMP_HEIGHT": 1
+        }
+      },
       "metadata": null
     },
     {
@@ -6671,13 +6800,19 @@
       "tier": 1,
       "cost": 1,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "SURPRISE_STRIKE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHADESTEPPER": 4
+      },
       "predecessors": [
         "MARKED"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "SURPRISE_STRIKE"
+        }
+      },
       "metadata": null
     },
     {
@@ -6694,7 +6829,13 @@
       "predecessors": [
         "ECHO"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
+        "spell": "SPELL_2",
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -6707,12 +6848,18 @@
       "archetype": "ACROBAT",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACROBAT": 5
+      },
       "predecessors": [
         "CHEAPER_SPIN_ATTACK_2"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "cooldown": 3
+      },
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "CHEAPER_SPIN_ATTACK_2",
@@ -6728,7 +6875,13 @@
       "predecessors": [
         "FAR_REACH"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
+        "spell": "SPELL_1",
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -6739,14 +6892,18 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "VANISH",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHADESTEPPER": 5
+      },
       "predecessors": [
         "AMBUSH",
         "CHEAPER_MULTIHIT_2"
       ],
-      "properties": {},
+      "properties": {
+        "range": 16
+      },
       "metadata": null
     },
     {
@@ -6764,7 +6921,13 @@
         "AMBUSH",
         "HOODWINK"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
+        "spell": "SPELL_3",
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -6775,9 +6938,11 @@
       "tier": 2,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "SPIN_ATTACK",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRICKSTER": 1
+      },
       "predecessors": [
         "CHEAPER_DASH_2",
         "CHEAPER_MULTIHIT_2",
@@ -6802,8 +6967,19 @@
         "HOODWINK",
         "WALL_JUMP"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "spell": "SPELL_4"
+        },
+        "effect": {
+          "type": "ENEMIES_SLOWNESS",
+          "modifier": 40
+        },
+        "duration": 1
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "WALL_JUMP",
@@ -6813,14 +6989,20 @@
       "tier": 2,
       "cost": 2,
       "archetype": "ACROBAT",
-      "dependency": null,
+      "dependency": "HOP",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACROBAT": 5
+      },
       "predecessors": [
         "CHEAPER_SPIN_ATTACK_2",
         "CHOKE_BOMB"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "HOP"
+        }
+      },
       "metadata": null
     },
     {
@@ -6831,14 +7013,20 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "MARKED",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHADESTEPPER": 8
+      },
       "predecessors": [
         "DEATH_MAGNET",
         "CHEAPER_MULTIHIT_2"
       ],
-      "properties": {},
+      "properties": {
+        "aoe_modifier": {
+          "range": 1
+        }
+      },
       "metadata": null
     },
     {
@@ -6849,14 +7037,22 @@
       "tier": 1,
       "cost": 1,
       "archetype": "ACROBAT",
-      "dependency": null,
+      "dependency": "LACERATE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "CHOKE_BOMB",
         "WALL_JUMP"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_1",
+          "ability": "LACERATE"
+        },
+        "damage_modifier": {
+          "hits": 1
+        }
+      },
       "metadata": null
     },
     {
@@ -6867,13 +7063,19 @@
       "tier": 1,
       "cost": 2,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "VIOLENT_VORTEX",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHADESTEPPER": 4
+      },
       "predecessors": [
         "FATAL_SPIN"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "VIOLENT_VORTEX"
+        }
+      },
       "metadata": null
     },
     {
@@ -6884,15 +7086,21 @@
       "tier": 3,
       "cost": 2,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "MARKED",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "FATAL_SPIN",
         "CHEAPER_SMOKE_BOMB_2"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "MARKED"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "CHEAPER_SMOKE_BOMB_2",
@@ -6902,7 +7110,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "SMOKE_BOMB",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6910,7 +7118,13 @@
         "HARVESTER",
         "BLADE_FURY"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "spell": "SPELL_4",
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -6928,7 +7142,11 @@
         "STRONGER_LACERATE",
         "CHEAPER_SMOKE_BOMB_2"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3"
+        }
+      },
       "metadata": null
     },
     {
@@ -6939,14 +7157,18 @@
       "tier": 1,
       "cost": 1,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "MARKED",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "HARVESTER",
         "CHEAPER_SMOKE_BOMB_2"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MARKED"
+        }
+      },
       "metadata": null
     },
     {
@@ -6957,14 +7179,20 @@
       "tier": 1,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "MIRROR_IMAGE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRICKSTER": 7
+      },
       "predecessors": [
         "CHEAPER_SMOKE_BOMB_2",
         "BLADE_FURY"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MIRROR_IMAGE"
+        }
+      },
       "metadata": null
     },
     {
@@ -6975,14 +7203,23 @@
       "tier": 2,
       "cost": 2,
       "archetype": "ACROBAT",
-      "dependency": null,
+      "dependency": "SHURIKENS",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACROBAT": 6
+      },
       "predecessors": [
         "BLADE_FURY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "SHURIKENS"
+        },
+        "range": 12
+      },
+      "metadata": {
+        "type": "EXTEND"
+      }
     },
     {
       "id": "SATSUJIN",
@@ -6994,11 +7231,15 @@
       "archetype": "SHADESTEPPER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SHADESTEPPER": 12
+      },
       "predecessors": [
         "HARVESTER"
       ],
-      "properties": {},
+      "properties": {
+        "cooldown": 30
+      },
       "metadata": null
     },
     {
@@ -7009,13 +7250,20 @@
       "tier": 3,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "MIRROR_IMAGE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRICKSTER": 8
+      },
       "predecessors": [
         "CHEAPER_SMOKE_BOMB_2"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MIRROR_IMAGE"
+        },
+        "cooldown_modifier": 20
+      },
       "metadata": null
     },
     {
@@ -7028,12 +7276,26 @@
       "archetype": "ACROBAT",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACROBAT": 12
+      },
       "predecessors": [
         "BLADE_FURY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "damage": {
+          "neutral": 60,
+          "water": 15,
+          "earth": 5
+        },
+        "duration": 5,
+        "aoe": {
+          "range": 2
+        }
+      },
+      "metadata": {
+        "type": "NEW"
+      }
     },
     {
       "id": "DIVERSION",
@@ -7043,14 +7305,24 @@
       "tier": 4,
       "cost": 2,
       "archetype": "TRICKSTER",
-      "dependency": null,
+      "dependency": "DELIRIOUS_GAS",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRICKSTER": 12
+      },
       "predecessors": [
         "FORBIDDEN_ART"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "DELIRIOUS_GAS"
+        },
+        "cooldown": 3
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "upgradable": false
+      }
     },
     {
       "id": "BETTER_RICOCHETS",
@@ -7060,13 +7332,17 @@
       "tier": 1,
       "cost": 1,
       "archetype": "ACROBAT",
-      "dependency": null,
+      "dependency": "RICOCHETS",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "JASMINE_BLOOM"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "RICOCHETS"
+        }
+      },
       "metadata": null
     },
     {
@@ -7077,13 +7353,17 @@
       "tier": 1,
       "cost": 1,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "HARVESTER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "SATSUJIN"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "HARVESTER"
+        }
+      },
       "metadata": null
     },
     {
@@ -7100,9 +7380,13 @@
       "predecessors": [
         "SATSUJIN"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MARKED"
+        }
+      },
       "metadata": null
     }
   ],
-  "version": "0.1.11"
+  "version": "0.1.10"
 }
