@@ -4446,7 +4446,8 @@
         "cooldown": 3
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
@@ -4628,7 +4629,8 @@
         "cooldown": 15
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
@@ -4971,7 +4973,8 @@
         "cooldown": 8
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
@@ -5565,7 +5568,8 @@
         "duration": 5
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "upgradable": false
       }
     },
     {
@@ -6073,7 +6077,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
@@ -6308,7 +6313,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": "VANISH",
+      "dependency": "SMOKE_BOMB",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6334,7 +6339,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SHADESTEPPER",
-      "dependency": null,
+      "dependency": "VANISH",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -6867,7 +6872,8 @@
         "cooldown": 3
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "upgradable": false
       }
     },
     {
@@ -6987,7 +6993,8 @@
         "duration": 1
       },
       "metadata": {
-        "type": "EXTEND"
+        "type": "EXTEND",
+        "upgradable": false
       }
     },
     {
@@ -7304,7 +7311,8 @@
         }
       },
       "metadata": {
-        "type": "NEW"
+        "type": "NEW",
+        "upgradable": false
       }
     },
     {
