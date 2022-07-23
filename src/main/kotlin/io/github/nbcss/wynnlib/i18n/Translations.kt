@@ -27,6 +27,7 @@ object Translations {
     val TOOLTIP_ING_CHARGES: Translatable = from("wynnlib.tooltip.ingredient.charges")
     val TOOLTIP_CRAFTING_ING: Translatable = from("wynnlib.tooltip.crafting_ingredient")
     val TOOLTIP_CRAFTING_MAT: Translatable = from("wynnlib.tooltip.crafting_material")
+    val TOOLTIP_ATTACK_SPEED: Translatable = from("wynnlib.tooltip.attack_speed")
     val TOOLTIP_NEUTRAL_DAMAGE: Translatable = from("wynnlib.tooltip.neutral_damage")
     val TOOLTIP_AVERAGE_DAMAGE: Translatable = from("wynnlib.tooltip.average_damage")
     val TOOLTIP_HEALTH: Translatable = from("wynnlib.tooltip.health")
