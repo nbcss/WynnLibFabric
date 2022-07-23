@@ -1311,7 +1311,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "ARMOUR_BREAKER"
+        "icon": "ARMOUR_BREAKER",
+        "upgradable": false
       }
     },
     {
@@ -1704,7 +1705,8 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "SECOND_CHANCE"
+        "icon": "SECOND_CHANCE",
+        "upgradable": false
       }
     },
     {
@@ -1768,7 +1770,8 @@
       "properties": {},
       "metadata": {
         "type": "NEW",
-        "icon": "BRINK_OF_MADNESS"
+        "icon": "BRINK_OF_MADNESS",
+        "upgradable": false
       }
     },
     {
@@ -1821,7 +1824,8 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "MARTYR"
+        "icon": "MARTYR",
+        "upgradable": false
       }
     },
     {
@@ -3528,7 +3532,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "CREPUSCULAR_RAY"
+        "icon": "CREPUSCULAR_RAY",
+        "upgradable": false
       }
     },
     {
@@ -3561,7 +3566,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "GRAPE_BOMB"
+        "icon": "GRAPE_BOMB",
+        "upgradable": false
       }
     },
     {
@@ -5245,6 +5251,9 @@
         },
         "damage_modifier": {
           "air": 20
+        },
+        "damage": {
+          "label": "WINDED"
         }
       },
       "metadata": null
