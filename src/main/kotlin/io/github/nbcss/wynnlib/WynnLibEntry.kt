@@ -23,15 +23,14 @@ object WynnLibEntry: ModInitializer {
     override fun onInitialize() {
         //Reload icons
         AbilityIcon.reload()
-        //Reload id metadata
+        //Load data
+        AbilityRegistry.load()
         Identification.load()
         MajorId.load()
         PowderSpecial.load()
-        //Load database
         PowderRegistry.load()
         RegularEquipmentRegistry.load()
         IngredientRegistry.load()
-        AbilityRegistry.load()
         MaterialRegistry.load()
         //Register keybindings
         val openHandbook = registerKey("wynnlib.key.handbook", GLFW.GLFW_KEY_H)

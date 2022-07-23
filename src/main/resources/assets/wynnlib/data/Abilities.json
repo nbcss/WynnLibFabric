@@ -2,6 +2,7 @@
   "data": [
     {
       "id": "WARRIOR_MAIN_ATTACK",
+      "name": "Main Attack",
       "class": "WARRIOR",
       "height": 2,
       "position": 2,
@@ -23,6 +24,7 @@
     },
     {
       "id": "BASH",
+      "name": "Bash",
       "class": "WARRIOR",
       "height": 0,
       "position": 0,
@@ -53,6 +55,7 @@
     },
     {
       "id": "SPEAR_PROFICIENCY_1",
+      "name": "Spear Proficiency I",
       "class": "WARRIOR",
       "height": 2,
       "position": 0,
@@ -76,6 +79,7 @@
     },
     {
       "id": "CHEAPER_BASH_1",
+      "name": "Cheaper Bash",
       "class": "WARRIOR",
       "height": 2,
       "position": -2,
@@ -99,6 +103,7 @@
     },
     {
       "id": "DOUBLE_BASH",
+      "name": "Double Bash",
       "class": "WARRIOR",
       "height": 4,
       "position": 0,
@@ -126,6 +131,7 @@
     },
     {
       "id": "CHARGE",
+      "name": "Charge",
       "class": "WARRIOR",
       "height": 6,
       "position": 0,
@@ -149,6 +155,7 @@
     },
     {
       "id": "TOUGHER_SKIN",
+      "name": "Tougher Skin",
       "class": "WARRIOR",
       "height": 6,
       "position": 2,
@@ -170,6 +177,7 @@
     },
     {
       "id": "VEHEMENT",
+      "name": "Vehement",
       "class": "WARRIOR",
       "height": 6,
       "position": -2,
@@ -191,6 +199,7 @@
     },
     {
       "id": "UPPERCUT",
+      "name": "Uppercut",
       "class": "WARRIOR",
       "height": 8,
       "position": -2,
@@ -225,6 +234,7 @@
     },
     {
       "id": "CHEAPER_CHARGE_1",
+      "name": "Cheaper Charge",
       "class": "WARRIOR",
       "height": 8,
       "position": 0,
@@ -249,6 +259,7 @@
     },
     {
       "id": "WAR_SCREAM",
+      "name": "War Scream",
       "class": "WARRIOR",
       "height": 8,
       "position": 2,
@@ -286,6 +297,7 @@
     },
     {
       "id": "HEAVY_IMPACT",
+      "name": "Heavy Impact",
       "class": "WARRIOR",
       "height": 9,
       "position": -3,
@@ -316,6 +328,7 @@
     },
     {
       "id": "WARRIOR_EARTH_MASTERY",
+      "name": "Earth Mastery",
       "class": "WARRIOR",
       "height": 10,
       "position": -4,
@@ -339,6 +352,7 @@
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
+      "name": "Thunder Mastery",
       "class": "WARRIOR",
       "height": 10,
       "position": -2,
@@ -364,6 +378,7 @@
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
+      "name": "Air Mastery",
       "class": "WARRIOR",
       "height": 10,
       "position": 2,
@@ -389,6 +404,7 @@
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
+      "name": "Fire Mastery",
       "class": "WARRIOR",
       "height": 10,
       "position": 4,
@@ -412,6 +428,7 @@
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
+      "name": "Water Mastery",
       "class": "WARRIOR",
       "height": 11,
       "position": 0,
@@ -437,6 +454,7 @@
     },
     {
       "id": "QUADRUPLE_BASH",
+      "name": "Quadruple Bash",
       "class": "WARRIOR",
       "height": 12,
       "position": -4,
@@ -465,6 +483,7 @@
     },
     {
       "id": "FIREWORKS",
+      "name": "Fireworks",
       "class": "WARRIOR",
       "height": 12,
       "position": -2,
@@ -491,6 +510,7 @@
     },
     {
       "id": "FLYBY_JAB",
+      "name": "Flyby Jab",
       "class": "WARRIOR",
       "height": 12,
       "position": 2,
@@ -523,6 +543,7 @@
     },
     {
       "id": "FLAMING_UPPERCUT",
+      "name": "Flaming Uppercut",
       "class": "WARRIOR",
       "height": 12,
       "position": 4,
@@ -552,6 +573,7 @@
     },
     {
       "id": "HALF_MOON_SWIPE",
+      "name": "Half-Moon Swipe",
       "class": "WARRIOR",
       "height": 13,
       "position": 0,
@@ -581,6 +603,7 @@
     },
     {
       "id": "IRON_LUNGS",
+      "name": "Iron Lungs",
       "class": "WARRIOR",
       "height": 13,
       "position": 3,
@@ -607,6 +630,7 @@
     },
     {
       "id": "GENERALIST",
+      "name": "Generalist",
       "class": "WARRIOR",
       "height": 15,
       "position": -2,
@@ -630,6 +654,7 @@
     },
     {
       "id": "COUNTER",
+      "name": "Counter",
       "class": "WARRIOR",
       "height": 15,
       "position": 0,
@@ -656,6 +681,7 @@
     },
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
+      "name": "Mantle of the Bovemists",
       "class": "WARRIOR",
       "height": 15,
       "position": 3,
@@ -685,6 +711,7 @@
     },
     {
       "id": "BAKALS_GRASP",
+      "name": "Bak'al's Grasp",
       "class": "WARRIOR",
       "height": 16,
       "position": -3,
@@ -713,6 +740,7 @@
     },
     {
       "id": "SPEAR_PROFICIENCY_2",
+      "name": "Spear Proficiency II",
       "class": "WARRIOR",
       "height": 17,
       "position": -4,
@@ -737,6 +765,7 @@
     },
     {
       "id": "CHEAPER_UPPERCUT_1",
+      "name": "Cheaper Uppercut",
       "class": "WARRIOR",
       "height": 17,
       "position": -1,
@@ -762,6 +791,7 @@
     },
     {
       "id": "AERODYNAMICS",
+      "name": "Aerodynamics",
       "class": "WARRIOR",
       "height": 17,
       "position": 1,
@@ -784,6 +814,7 @@
     },
     {
       "id": "PROVOKE",
+      "name": "Provoke",
       "class": "WARRIOR",
       "height": 17,
       "position": 3,
@@ -808,6 +839,7 @@
     },
     {
       "id": "PRECISE_STRIKES",
+      "name": "Precise Strikes",
       "class": "WARRIOR",
       "height": 18,
       "position": -2,
@@ -828,6 +860,7 @@
     },
     {
       "id": "AIR_SHOUT",
+      "name": "Air Shout",
       "class": "WARRIOR",
       "height": 18,
       "position": 2,
@@ -858,6 +891,7 @@
     },
     {
       "id": "ENRAGED_BLOW",
+      "name": "Enraged Blow",
       "class": "WARRIOR",
       "height": 19,
       "position": -4,
@@ -879,6 +913,7 @@
     },
     {
       "id": "FLYING_KICK",
+      "name": "Flying Kick",
       "class": "WARRIOR",
       "height": 19,
       "position": -1,
@@ -911,6 +946,7 @@
     },
     {
       "id": "STRONGER_MANTLE",
+      "name": "Stronger Mantle",
       "class": "WARRIOR",
       "height": 19,
       "position": 2,
@@ -934,6 +970,7 @@
     },
     {
       "id": "MANACHISM",
+      "name": "Manachism",
       "class": "WARRIOR",
       "height": 19,
       "position": 4,
@@ -956,6 +993,7 @@
     },
     {
       "id": "BOILING_BLOOD",
+      "name": "Boiling Blood",
       "class": "WARRIOR",
       "height": 21,
       "position": -4,
@@ -991,6 +1029,7 @@
     },
     {
       "id": "RAGNAROKKR",
+      "name": "Ragnarokkr",
       "class": "WARRIOR",
       "height": 21,
       "position": -2,
@@ -1022,6 +1061,7 @@
     },
     {
       "id": "AMBIDEXTROUS",
+      "name": "Ambidextrous",
       "class": "WARRIOR",
       "height": 21,
       "position": 0,
@@ -1045,6 +1085,7 @@
     },
     {
       "id": "BURNING_HEART",
+      "name": "Burning Heart",
       "class": "WARRIOR",
       "height": 21,
       "position": 2,
@@ -1063,6 +1104,7 @@
     },
     {
       "id": "STRONGER_BASH",
+      "name": "Stronger Bash",
       "class": "WARRIOR",
       "height": 21,
       "position": 4,
@@ -1088,6 +1130,7 @@
     },
     {
       "id": "INTOXICATING_BLOOD",
+      "name": "Intoxicating Blood",
       "class": "WARRIOR",
       "height": 22,
       "position": -3,
@@ -1112,6 +1155,7 @@
     },
     {
       "id": "COLLIDE",
+      "name": "Collide",
       "class": "WARRIOR",
       "height": 22,
       "position": 1,
@@ -1146,6 +1190,7 @@
     },
     {
       "id": "REJUVENATING_SKIN",
+      "name": "Rejuvenating Skin",
       "class": "WARRIOR",
       "height": 22,
       "position": 3,
@@ -1166,6 +1211,7 @@
     },
     {
       "id": "COMET",
+      "name": "Comet",
       "class": "WARRIOR",
       "height": 23,
       "position": -2,
@@ -1191,6 +1237,7 @@
     },
     {
       "id": "UNCONTAINABLE_CORRUPTION",
+      "name": "Uncontainable Corruption",
       "class": "WARRIOR",
       "height": 24,
       "position": -4,
@@ -1214,6 +1261,7 @@
     },
     {
       "id": "RADIANT_DEVOTEE",
+      "name": "Radiant Devotee",
       "class": "WARRIOR",
       "height": 24,
       "position": -2,
@@ -1234,6 +1282,7 @@
     },
     {
       "id": "WHIRLWIND_STRIKE",
+      "name": "Whirlwind Strike",
       "class": "WARRIOR",
       "height": 24,
       "position": 0,
@@ -1265,6 +1314,7 @@
     },
     {
       "id": "MYTHRIL_SKIN",
+      "name": "Mythril Skin",
       "class": "WARRIOR",
       "height": 24,
       "position": 3,
@@ -1286,6 +1336,7 @@
     },
     {
       "id": "ARMOUR_BREAKER",
+      "name": "Armour Breaker",
       "class": "WARRIOR",
       "height": 25,
       "position": -3,
@@ -1317,6 +1368,7 @@
     },
     {
       "id": "SHIELD_STRIKE",
+      "name": "Shield Strike",
       "class": "WARRIOR",
       "height": 25,
       "position": 2,
@@ -1350,6 +1402,7 @@
     },
     {
       "id": "SPARKLING_HOPE",
+      "name": "Sparkling Hope",
       "class": "WARRIOR",
       "height": 25,
       "position": 4,
@@ -1379,6 +1432,7 @@
     },
     {
       "id": "MASSIVE_BASH",
+      "name": "Massive Bash",
       "class": "WARRIOR",
       "height": 26,
       "position": -4,
@@ -1403,6 +1457,7 @@
     },
     {
       "id": "TEMPEST",
+      "name": "Tempest",
       "class": "WARRIOR",
       "height": 26,
       "position": -2,
@@ -1438,6 +1493,7 @@
     },
     {
       "id": "SPIRIT_OF_THE_RABBIT",
+      "name": "Spirit of the Rabbit",
       "class": "WARRIOR",
       "height": 26,
       "position": 0,
@@ -1467,6 +1523,7 @@
     },
     {
       "id": "MASSACRE",
+      "name": "Massacre",
       "class": "WARRIOR",
       "height": 27,
       "position": -3,
@@ -1491,6 +1548,7 @@
     },
     {
       "id": "AXE_KICK",
+      "name": "Axe Kick",
       "class": "WARRIOR",
       "height": 27,
       "position": -1,
@@ -1518,6 +1576,7 @@
     },
     {
       "id": "RADIANCE",
+      "name": "Radiance",
       "class": "WARRIOR",
       "height": 27,
       "position": 1,
@@ -1552,6 +1611,7 @@
     },
     {
       "id": "CHEAPER_BASH_2",
+      "name": "Cheaper Bash",
       "class": "WARRIOR",
       "height": 27,
       "position": 3,
@@ -1577,6 +1637,7 @@
     },
     {
       "id": "CHEAPER_WAR_SCREAM",
+      "name": "Cheaper War Scream",
       "class": "WARRIOR",
       "height": 28,
       "position": -4,
@@ -1600,6 +1661,7 @@
     },
     {
       "id": "DISCOMBOBULATE",
+      "name": "Discombobulate",
       "class": "WARRIOR",
       "height": 28,
       "position": -2,
@@ -1623,6 +1685,7 @@
     },
     {
       "id": "CYCLONE",
+      "name": "Cyclone",
       "class": "WARRIOR",
       "height": 28,
       "position": 0,
@@ -1657,6 +1720,7 @@
     },
     {
       "id": "THUNDERCLAP",
+      "name": "Thunderclap",
       "class": "WARRIOR",
       "height": 29,
       "position": 1,
@@ -1686,6 +1750,7 @@
     },
     {
       "id": "SECOND_CHANCE",
+      "name": "Second Chance",
       "class": "WARRIOR",
       "height": 29,
       "position": 3,
@@ -1711,6 +1776,7 @@
     },
     {
       "id": "BLOOD_PACT",
+      "name": "Blood Pact",
       "class": "WARRIOR",
       "height": 30,
       "position": -4,
@@ -1733,6 +1799,7 @@
     },
     {
       "id": "HAEMORRHAGE",
+      "name": "Haemorrhage",
       "class": "WARRIOR",
       "height": 31,
       "position": -2,
@@ -1754,6 +1821,7 @@
     },
     {
       "id": "BRINK_OF_MADNESS",
+      "name": "Brink of Madness",
       "class": "WARRIOR",
       "height": 31,
       "position": 0,
@@ -1776,6 +1844,7 @@
     },
     {
       "id": "CHEAPER_UPPERCUT_2",
+      "name": "Cheaper Uppercut",
       "class": "WARRIOR",
       "height": 31,
       "position": 2,
@@ -1800,6 +1869,7 @@
     },
     {
       "id": "MARTYR",
+      "name": "Martyr",
       "class": "WARRIOR",
       "height": 31,
       "position": 4,
@@ -1830,6 +1900,7 @@
     },
     {
       "id": "ARCHER_MAIN_ATTACK",
+      "name": "Main Attack",
       "class": "ARCHER",
       "height": 2,
       "position": -2,
@@ -1852,6 +1923,7 @@
     },
     {
       "id": "ARROW_BOMB",
+      "name": "Arrow Bomb",
       "class": "ARCHER",
       "height": 0,
       "position": 0,
@@ -1883,6 +1955,7 @@
     },
     {
       "id": "BOW_PROFICIENCY_1",
+      "name": "Bow Proficiency I",
       "class": "ARCHER",
       "height": 2,
       "position": 0,
@@ -1906,6 +1979,7 @@
     },
     {
       "id": "CHEAPER_ARROW_BOMB_1",
+      "name": "Cheaper Arrow Bomb",
       "class": "ARCHER",
       "height": 2,
       "position": 2,
@@ -1929,6 +2003,7 @@
     },
     {
       "id": "HEART_SHATTER",
+      "name": "Heart Shatter",
       "class": "ARCHER",
       "height": 4,
       "position": 0,
@@ -1956,6 +2031,7 @@
     },
     {
       "id": "ESCAPE",
+      "name": "Escape",
       "class": "ARCHER",
       "height": 6,
       "position": 0,
@@ -1979,6 +2055,7 @@
     },
     {
       "id": "DOUBLE_SHOTS",
+      "name": "Double Shots",
       "class": "ARCHER",
       "height": 6,
       "position": -2,
@@ -2004,6 +2081,7 @@
     },
     {
       "id": "POWER_SHOTS",
+      "name": "Power Shots",
       "class": "ARCHER",
       "height": 6,
       "position": 2,
@@ -2028,6 +2106,7 @@
     },
     {
       "id": "ARROW_STORM",
+      "name": "Arrow Storm",
       "class": "ARCHER",
       "height": 8,
       "position": -2,
@@ -2060,6 +2139,7 @@
     },
     {
       "id": "CHEAPER_ESCAPE_1",
+      "name": "Cheaper Escape",
       "class": "ARCHER",
       "height": 8,
       "position": 0,
@@ -2084,6 +2164,7 @@
     },
     {
       "id": "ARROW_SHIELD",
+      "name": "Arrow Shield",
       "class": "ARCHER",
       "height": 8,
       "position": 2,
@@ -2118,6 +2199,7 @@
     },
     {
       "id": "WINDY_FEET",
+      "name": "Windy Feet",
       "class": "ARCHER",
       "height": 9,
       "position": -3,
@@ -2151,6 +2233,7 @@
     },
     {
       "id": "ARCHER_AIR_MASTERY",
+      "name": "Air Mastery",
       "class": "ARCHER",
       "height": 10,
       "position": -4,
@@ -2174,6 +2257,7 @@
     },
     {
       "id": "ARCHER_THUNDER_MASTERY",
+      "name": "Thunder Mastery",
       "class": "ARCHER",
       "height": 10,
       "position": -2,
@@ -2199,6 +2283,7 @@
     },
     {
       "id": "ARCHER_FIRE_MASTERY",
+      "name": "Fire Mastery",
       "class": "ARCHER",
       "height": 10,
       "position": 2,
@@ -2224,6 +2309,7 @@
     },
     {
       "id": "ARCHER_EARTH_MASTERY",
+      "name": "Earth Mastery",
       "class": "ARCHER",
       "height": 10,
       "position": 4,
@@ -2247,6 +2333,7 @@
     },
     {
       "id": "ARCHER_WATER_MASTERY",
+      "name": "Water Mastery",
       "class": "ARCHER",
       "height": 11,
       "position": 0,
@@ -2272,6 +2359,7 @@
     },
     {
       "id": "ARROW_RAIN",
+      "name": "Arrow Rain",
       "class": "ARCHER",
       "height": 12,
       "position": -4,
@@ -2303,6 +2391,7 @@
     },
     {
       "id": "NIMBLE_STRING",
+      "name": "Nimble String",
       "class": "ARCHER",
       "height": 12,
       "position": -2,
@@ -2333,6 +2422,7 @@
     },
     {
       "id": "PHANTOM_RAY",
+      "name": "Phantom Ray",
       "class": "ARCHER",
       "height": 13,
       "position": 0,
@@ -2371,6 +2461,7 @@
     },
     {
       "id": "FIRE_CREEP",
+      "name": "Fire Creep",
       "class": "ARCHER",
       "height": 13,
       "position": 2,
@@ -2406,6 +2497,7 @@
     },
     {
       "id": "BRYOPHYTE_ROOTS",
+      "name": "Bryophyte Roots",
       "class": "ARCHER",
       "height": 13,
       "position": 4,
@@ -2447,6 +2539,7 @@
     },
     {
       "id": "TRIPLE_SHOTS",
+      "name": "Triple Shots",
       "class": "ARCHER",
       "height": 14,
       "position": -4,
@@ -2471,6 +2564,7 @@
     },
     {
       "id": "FRENZY",
+      "name": "Frenzy",
       "class": "ARCHER",
       "height": 14,
       "position": -2,
@@ -2492,6 +2586,7 @@
     },
     {
       "id": "GUARDIAN_ANGELS",
+      "name": "Guardian Angels",
       "class": "ARCHER",
       "height": 15,
       "position": -3,
@@ -2526,6 +2621,7 @@
     },
     {
       "id": "FOCUS",
+      "name": "Focus",
       "class": "ARCHER",
       "height": 15,
       "position": 0,
@@ -2551,6 +2647,7 @@
     },
     {
       "id": "BASALTIC_TRAP",
+      "name": "Basaltic Trap",
       "class": "ARCHER",
       "height": 15,
       "position": 4,
@@ -2588,6 +2685,7 @@
     },
     {
       "id": "WINDSTORM",
+      "name": "Windstorm",
       "class": "ARCHER",
       "height": 17,
       "position": -3,
@@ -2621,6 +2719,7 @@
     },
     {
       "id": "CHEAPER_ARROW_STORM_1",
+      "name": "Cheaper Arrow Storm",
       "class": "ARCHER",
       "height": 17,
       "position": -1,
@@ -2646,6 +2745,7 @@
     },
     {
       "id": "GRAPPLING_HOOK",
+      "name": "Grappling Hook",
       "class": "ARCHER",
       "height": 17,
       "position": 1,
@@ -2673,6 +2773,7 @@
     },
     {
       "id": "MORE_SHIELDS",
+      "name": "More Shields",
       "class": "ARCHER",
       "height": 17,
       "position": 3,
@@ -2697,6 +2798,7 @@
     },
     {
       "id": "MORE_FOCUS_1",
+      "name": "More Focus I",
       "class": "ARCHER",
       "height": 18,
       "position": 0,
@@ -2721,6 +2823,7 @@
     },
     {
       "id": "IMPLOSION",
+      "name": "Implosion",
       "class": "ARCHER",
       "height": 18,
       "position": 2,
@@ -2747,6 +2850,7 @@
     },
     {
       "id": "PATIENT_HUNTER",
+      "name": "Patient Hunter",
       "class": "ARCHER",
       "height": 18,
       "position": 4,
@@ -2768,6 +2872,7 @@
     },
     {
       "id": "STORMY_FEET",
+      "name": "Stormy Feet",
       "class": "ARCHER",
       "height": 19,
       "position": -3,
@@ -2794,6 +2899,7 @@
     },
     {
       "id": "REFINED_GUNPOWDER",
+      "name": "Refined Gunpowder",
       "class": "ARCHER",
       "height": 20,
       "position": -4,
@@ -2819,6 +2925,7 @@
     },
     {
       "id": "TRAVELER",
+      "name": "Traveler",
       "class": "ARCHER",
       "height": 20,
       "position": -2,
@@ -2837,6 +2944,7 @@
     },
     {
       "id": "TWAINS_ARC",
+      "name": "Twain's Arc",
       "class": "ARCHER",
       "height": 20,
       "position": 0,
@@ -2866,6 +2974,7 @@
     },
     {
       "id": "BOUNCING_BOMB",
+      "name": "Bouncing Bomb",
       "class": "ARCHER",
       "height": 20,
       "position": 3,
@@ -2887,6 +2996,7 @@
     },
     {
       "id": "FIERCE_STOMP",
+      "name": "Fierce Stomp",
       "class": "ARCHER",
       "height": 21,
       "position": -3,
@@ -2919,6 +3029,7 @@
     },
     {
       "id": "SCORCHED_EARTH",
+      "name": "Scorched Earth",
       "class": "ARCHER",
       "height": 21,
       "position": 1,
@@ -2949,6 +3060,7 @@
     },
     {
       "id": "MORE_TRAPS",
+      "name": "More Traps",
       "class": "ARCHER",
       "height": 21,
       "position": 4,
@@ -2971,6 +3083,7 @@
     },
     {
       "id": "LEAP",
+      "name": "Leap",
       "class": "ARCHER",
       "height": 23,
       "position": -4,
@@ -2996,6 +3109,7 @@
     },
     {
       "id": "HOMING_SHOTS",
+      "name": "Homing Shots",
       "class": "ARCHER",
       "height": 23,
       "position": -2,
@@ -3021,6 +3135,7 @@
     },
     {
       "id": "SHOCKING_BOMB",
+      "name": "Shocking Bomb",
       "class": "ARCHER",
       "height": 23,
       "position": 0,
@@ -3048,6 +3163,7 @@
     },
     {
       "id": "BETTER_ARROW_SHIELD",
+      "name": "Better Arrow Shield",
       "class": "ARCHER",
       "height": 23,
       "position": 2,
@@ -3079,6 +3195,7 @@
     },
     {
       "id": "MANA_TRAP",
+      "name": "Mana Trap",
       "class": "ARCHER",
       "height": 23,
       "position": 4,
@@ -3113,6 +3230,7 @@
     },
     {
       "id": "BETTER_LEAP",
+      "name": "Better Leap",
       "class": "ARCHER",
       "height": 24,
       "position": -3,
@@ -3136,6 +3254,7 @@
     },
     {
       "id": "ESCAPE_ARTIST",
+      "name": "Escape Artist",
       "class": "ARCHER",
       "height": 25,
       "position": -4,
@@ -3169,6 +3288,7 @@
     },
     {
       "id": "BETTER_GUARDIAN_ANGELS",
+      "name": "Better Guardian Angels",
       "class": "ARCHER",
       "height": 25,
       "position": -2,
@@ -3195,6 +3315,7 @@
     },
     {
       "id": "INITIATOR",
+      "name": "Initiator",
       "class": "ARCHER",
       "height": 25,
       "position": 1,
@@ -3224,6 +3345,7 @@
     },
     {
       "id": "CHEAPER_ARROW_STORM_2",
+      "name": "Cheaper Arrow Storm",
       "class": "ARCHER",
       "height": 25,
       "position": 4,
@@ -3248,6 +3370,7 @@
     },
     {
       "id": "CALL_OF_THE_HOUND",
+      "name": "Call of the Hound",
       "class": "ARCHER",
       "height": 26,
       "position": 3,
@@ -3278,6 +3401,7 @@
     },
     {
       "id": "ARROW_HURRICANE",
+      "name": "Arrow Hurricane",
       "class": "ARCHER",
       "height": 27,
       "position": -4,
@@ -3306,6 +3430,7 @@
     },
     {
       "id": "PRECISE_SHOT",
+      "name": "Precise Shot",
       "class": "ARCHER",
       "height": 27,
       "position": -2,
@@ -3327,6 +3452,7 @@
     },
     {
       "id": "CHEAPER_ARROW_SHIELD_1",
+      "name": "Cheaper Arrow Shield",
       "class": "ARCHER",
       "height": 27,
       "position": 0,
@@ -3351,6 +3477,7 @@
     },
     {
       "id": "ROCKET_JUMP",
+      "name": "Rocket Jump",
       "class": "ARCHER",
       "height": 27,
       "position": 2,
@@ -3373,6 +3500,7 @@
     },
     {
       "id": "SHRAPNEL_BOMB",
+      "name": "Shrapnel Bomb",
       "class": "ARCHER",
       "height": 28,
       "position": -3,
@@ -3406,6 +3534,7 @@
     },
     {
       "id": "DECIMATOR",
+      "name": "Decimator",
       "class": "ARCHER",
       "height": 28,
       "position": 1,
@@ -3429,6 +3558,7 @@
     },
     {
       "id": "CHEAPER_ESCAPE_2",
+      "name": "Cheaper Escape",
       "class": "ARCHER",
       "height": 28,
       "position": 3,
@@ -3453,6 +3583,7 @@
     },
     {
       "id": "STRONGER_HOOK",
+      "name": "Stronger Hook",
       "class": "ARCHER",
       "height": 29,
       "position": 4,
@@ -3478,6 +3609,7 @@
     },
     {
       "id": "GEYSER_STOMP",
+      "name": "Geyser Stomp",
       "class": "ARCHER",
       "height": 30,
       "position": -3,
@@ -3506,6 +3638,7 @@
     },
     {
       "id": "CREPUSCULAR_RAY",
+      "name": "Crepuscular Ray",
       "class": "ARCHER",
       "height": 30,
       "position": 0,
@@ -3538,6 +3671,7 @@
     },
     {
       "id": "GRAPE_BOMB",
+      "name": "Grape Bomb",
       "class": "ARCHER",
       "height": 30,
       "position": 3,
@@ -3572,6 +3706,7 @@
     },
     {
       "id": "ELUSIVE",
+      "name": "Elusive",
       "class": "ARCHER",
       "height": 31,
       "position": -4,
@@ -3594,6 +3729,7 @@
     },
     {
       "id": "TANGLED_TRAPS",
+      "name": "Tangled Traps",
       "class": "ARCHER",
       "height": 31,
       "position": 2,
@@ -3623,6 +3759,7 @@
     },
     {
       "id": "STRONGER_PATIENT_HUNTER",
+      "name": "Stronger Patient Hunter",
       "class": "ARCHER",
       "height": 31,
       "position": 4,
@@ -3644,6 +3781,7 @@
     },
     {
       "id": "SNOW_STORM",
+      "name": "Snow Storm",
       "class": "ARCHER",
       "height": 32,
       "position": -2,
@@ -3672,6 +3810,7 @@
     },
     {
       "id": "MORE_FOCUS_2",
+      "name": "More Focus II",
       "class": "ARCHER",
       "height": 32,
       "position": 0,
@@ -3696,6 +3835,7 @@
     },
     {
       "id": "ALL_SEEING_PANOPTES",
+      "name": "All-Seeing Panoptes",
       "class": "ARCHER",
       "height": 33,
       "position": -3,
@@ -3726,6 +3866,7 @@
     },
     {
       "id": "CHEAPER_ARROW_BOMB_2",
+      "name": "Cheaper Arrow Bomb",
       "class": "ARCHER",
       "height": 33,
       "position": 1,
@@ -3750,6 +3891,7 @@
     },
     {
       "id": "MINEFIELD",
+      "name": "Minefield",
       "class": "ARCHER",
       "height": 33,
       "position": 3,
@@ -3782,6 +3924,7 @@
     },
     {
       "id": "MAGE_MAIN_ATTACK",
+      "name": "Main Attack",
       "class": "MAGE",
       "height": 2,
       "position": -2,
@@ -3804,6 +3947,7 @@
     },
     {
       "id": "METEOR",
+      "name": "Meteor",
       "class": "MAGE",
       "height": 0,
       "position": 0,
@@ -3834,6 +3978,7 @@
     },
     {
       "id": "WAND_PROFICIENCY_1",
+      "name": "Wand Proficiency I",
       "class": "MAGE",
       "height": 2,
       "position": 0,
@@ -3857,6 +4002,7 @@
     },
     {
       "id": "CHEAPER_METEOR_1",
+      "name": "Cheaper Meteor",
       "class": "MAGE",
       "height": 2,
       "position": 2,
@@ -3880,6 +4026,7 @@
     },
     {
       "id": "SHOOTING_STAR",
+      "name": "Shooting Star",
       "class": "MAGE",
       "height": 4,
       "position": 0,
@@ -3902,6 +4049,7 @@
     },
     {
       "id": "WAND_PROFICIENCY_2",
+      "name": "Wand Proficiency II",
       "class": "MAGE",
       "height": 6,
       "position": -2,
@@ -3927,6 +4075,7 @@
     },
     {
       "id": "TELEPORT",
+      "name": "Teleport",
       "class": "MAGE",
       "height": 6,
       "position": 0,
@@ -3951,6 +4100,7 @@
     },
     {
       "id": "WISDOM",
+      "name": "Wisdom",
       "class": "MAGE",
       "height": 6,
       "position": 2,
@@ -3970,6 +4120,7 @@
     },
     {
       "id": "HEAL",
+      "name": "Heal",
       "class": "MAGE",
       "height": 8,
       "position": -2,
@@ -3996,6 +4147,7 @@
     },
     {
       "id": "CHEAPER_TELEPORT_1",
+      "name": "Cheaper Teleport",
       "class": "MAGE",
       "height": 8,
       "position": 0,
@@ -4020,6 +4172,7 @@
     },
     {
       "id": "ICE_SNAKE",
+      "name": "Ice Snake",
       "class": "MAGE",
       "height": 8,
       "position": 2,
@@ -4054,6 +4207,7 @@
     },
     {
       "id": "MAGE_AIR_MASTERY",
+      "name": "Air Mastery",
       "class": "MAGE",
       "height": 10,
       "position": -4,
@@ -4077,6 +4231,7 @@
     },
     {
       "id": "MAGE_THUNDER_MASTERY",
+      "name": "Thunder Mastery",
       "class": "MAGE",
       "height": 10,
       "position": -2,
@@ -4101,6 +4256,7 @@
     },
     {
       "id": "MAGE_FIRE_MASTERY",
+      "name": "Fire Mastery",
       "class": "MAGE",
       "height": 10,
       "position": 2,
@@ -4124,6 +4280,7 @@
     },
     {
       "id": "MAGE_EARTH_MASTERY",
+      "name": "Earth Mastery",
       "class": "MAGE",
       "height": 10,
       "position": 4,
@@ -4147,6 +4304,7 @@
     },
     {
       "id": "MAGE_WATER_MASTERY",
+      "name": "Water Mastery",
       "class": "MAGE",
       "height": 11,
       "position": 0,
@@ -4171,6 +4329,7 @@
     },
     {
       "id": "WIND_SLASH",
+      "name": "Wind Slash",
       "class": "MAGE",
       "height": 12,
       "position": -4,
@@ -4200,6 +4359,7 @@
     },
     {
       "id": "THUNDERSTORM",
+      "name": "Thunderstorm",
       "class": "MAGE",
       "height": 12,
       "position": -2,
@@ -4235,6 +4395,7 @@
     },
     {
       "id": "BURNING_SIGIL",
+      "name": "Burning Sigil",
       "class": "MAGE",
       "height": 12,
       "position": 3,
@@ -4269,6 +4430,7 @@
     },
     {
       "id": "SUNSHOWER",
+      "name": "Sunshower",
       "class": "MAGE",
       "height": 13,
       "position": 0,
@@ -4300,6 +4462,7 @@
     },
     {
       "id": "STRONGER_METEOR",
+      "name": "Stronger Meteor",
       "class": "MAGE",
       "height": 13,
       "position": 4,
@@ -4331,6 +4494,7 @@
     },
     {
       "id": "WINDSWEEPER",
+      "name": "Windsweeper",
       "class": "MAGE",
       "height": 15,
       "position": -3,
@@ -4365,6 +4529,7 @@
     },
     {
       "id": "OPHANIM",
+      "name": "Ophanim",
       "class": "MAGE",
       "height": 15,
       "position": 0,
@@ -4405,6 +4570,7 @@
     },
     {
       "id": "ARCANE_TRANSFER",
+      "name": "Arcane Transfer",
       "class": "MAGE",
       "height": 15,
       "position": 3,
@@ -4434,6 +4600,7 @@
     },
     {
       "id": "CHEAPER_HEAL_1",
+      "name": "Cheaper Heal",
       "class": "MAGE",
       "height": 17,
       "position": -3,
@@ -4459,6 +4626,7 @@
     },
     {
       "id": "PURIFICATION",
+      "name": "Purification",
       "class": "MAGE",
       "height": 17,
       "position": 0,
@@ -4487,6 +4655,7 @@
     },
     {
       "id": "SENTIENT_SNAKE",
+      "name": "Sentient Snake",
       "class": "MAGE",
       "height": 17,
       "position": 2,
@@ -4509,6 +4678,7 @@
     },
     {
       "id": "EYE_PIERCER",
+      "name": "Eye Piercer",
       "class": "MAGE",
       "height": 18,
       "position": -4,
@@ -4538,6 +4708,7 @@
     },
     {
       "id": "BREATHLESS",
+      "name": "Breathless",
       "class": "MAGE",
       "height": 18,
       "position": -2,
@@ -4568,6 +4739,7 @@
     },
     {
       "id": "LARGER_HEAL",
+      "name": "Larger Heal",
       "class": "MAGE",
       "height": 18,
       "position": 1,
@@ -4593,6 +4765,7 @@
     },
     {
       "id": "LARGER_MANA_BANK_1",
+      "name": "Larger Mana Bank I",
       "class": "MAGE",
       "height": 18,
       "position": 4,
@@ -4616,6 +4789,7 @@
     },
     {
       "id": "CHEAPER_ICE_SNAKE_1",
+      "name": "Cheaper Ice Snake",
       "class": "MAGE",
       "height": 20,
       "position": -4,
@@ -4640,6 +4814,7 @@
     },
     {
       "id": "FORTITUDE",
+      "name": "Fortitude",
       "class": "MAGE",
       "height": 20,
       "position": -2,
@@ -4673,6 +4848,7 @@
     },
     {
       "id": "CHEAPER_TELEPORT_2",
+      "name": "Cheaper Teleport",
       "class": "MAGE",
       "height": 20,
       "position": 0,
@@ -4697,6 +4873,7 @@
     },
     {
       "id": "PYROKINESIS",
+      "name": "Pyrokinesis",
       "class": "MAGE",
       "height": 20,
       "position": 3,
@@ -4731,6 +4908,7 @@
     },
     {
       "id": "BLINK",
+      "name": "Blink",
       "class": "MAGE",
       "height": 21,
       "position": -3,
@@ -4755,6 +4933,7 @@
     },
     {
       "id": "HEALTHIER_OPHANIM_1",
+      "name": "Healthier Ophanim I",
       "class": "MAGE",
       "height": 22,
       "position": -1,
@@ -4783,6 +4962,7 @@
     },
     {
       "id": "SNAKE_NEST",
+      "name": "Snake Nest",
       "class": "MAGE",
       "height": 22,
       "position": 1,
@@ -4809,6 +4989,7 @@
     },
     {
       "id": "SEANCE",
+      "name": "Seance",
       "class": "MAGE",
       "height": 22,
       "position": 3,
@@ -4827,6 +5008,7 @@
     },
     {
       "id": "TRANSONIC_WARP",
+      "name": "Transonic Warp",
       "class": "MAGE",
       "height": 23,
       "position": -4,
@@ -4860,6 +5042,7 @@
     },
     {
       "id": "FLUID_HEALING",
+      "name": "Fluid Healing",
       "class": "MAGE",
       "height": 23,
       "position": -2,
@@ -4883,6 +5066,7 @@
     },
     {
       "id": "ORPHIONS_PULSE",
+      "name": "Orphion's Pulse",
       "class": "MAGE",
       "height": 23,
       "position": 0,
@@ -4912,6 +5096,7 @@
     },
     {
       "id": "ARCANE_RESTORATION",
+      "name": "Arcane Restoration",
       "class": "MAGE",
       "height": 23,
       "position": 2,
@@ -4935,6 +5120,7 @@
     },
     {
       "id": "DIFFUSION",
+      "name": "Diffusion",
       "class": "MAGE",
       "height": 25,
       "position": -3,
@@ -4960,6 +5146,7 @@
     },
     {
       "id": "LIGHTWEAVER",
+      "name": "Lightweaver",
       "class": "MAGE",
       "height": 25,
       "position": 0,
@@ -4993,6 +5180,7 @@
     },
     {
       "id": "ARCANE_SPEED",
+      "name": "Arcane Speed",
       "class": "MAGE",
       "height": 25,
       "position": 2,
@@ -5021,6 +5209,7 @@
     },
     {
       "id": "LARGER_MANA_BANK_2",
+      "name": "Larger Mana Bank II",
       "class": "MAGE",
       "height": 25,
       "position": 4,
@@ -5045,6 +5234,7 @@
     },
     {
       "id": "MORE_WINDED_1",
+      "name": "More Winded I",
       "class": "MAGE",
       "height": 26,
       "position": -4,
@@ -5067,6 +5257,7 @@
     },
     {
       "id": "PSYCHOKINESIS",
+      "name": "Psychokinesis",
       "class": "MAGE",
       "height": 26,
       "position": 3,
@@ -5092,6 +5283,7 @@
     },
     {
       "id": "CHEAPER_ICE_SNAKE_2",
+      "name": "Cheaper Ice Snake",
       "class": "MAGE",
       "height": 27,
       "position": -3,
@@ -5116,6 +5308,7 @@
     },
     {
       "id": "EXPLOSIVE_ENTRANCE",
+      "name": "Explosive Entrance",
       "class": "MAGE",
       "height": 27,
       "position": -1,
@@ -5149,6 +5342,7 @@
     },
     {
       "id": "CHEAPER_METEOR_2",
+      "name": "Cheaper Meteor",
       "class": "MAGE",
       "height": 27,
       "position": 1,
@@ -5174,6 +5368,7 @@
     },
     {
       "id": "CHAOS_EXPLOSION",
+      "name": "Chaos Explosion",
       "class": "MAGE",
       "height": 27,
       "position": 4,
@@ -5201,6 +5396,7 @@
     },
     {
       "id": "TIME_DILATION",
+      "name": "Time Dilation",
       "class": "MAGE",
       "height": 28,
       "position": -4,
@@ -5230,6 +5426,7 @@
     },
     {
       "id": "GUST",
+      "name": "Gust",
       "class": "MAGE",
       "height": 28,
       "position": -2,
@@ -5260,6 +5457,7 @@
     },
     {
       "id": "BETTER_OPHANIM",
+      "name": "Better Ophanim",
       "class": "MAGE",
       "height": 28,
       "position": 0,
@@ -5286,6 +5484,7 @@
     },
     {
       "id": "ARCTIC_SNAKE",
+      "name": "Arctic Snake",
       "class": "MAGE",
       "height": 28,
       "position": 3,
@@ -5308,6 +5507,7 @@
     },
     {
       "id": "ARCANE_POWER",
+      "name": "Arcane Power",
       "class": "MAGE",
       "height": 29,
       "position": 2,
@@ -5330,6 +5530,7 @@
     },
     {
       "id": "MORE_WINDED_2",
+      "name": "More Winded II",
       "class": "MAGE",
       "height": 30,
       "position": -4,
@@ -5353,6 +5554,7 @@
     },
     {
       "id": "DYNAMIC_FAITH",
+      "name": "Dynamic Faith",
       "class": "MAGE",
       "height": 30,
       "position": -2,
@@ -5371,6 +5573,7 @@
     },
     {
       "id": "HEALTHIER_OPHANIM_2",
+      "name": "Healthier Ophanim II",
       "class": "MAGE",
       "height": 30,
       "position": 0,
@@ -5397,6 +5600,7 @@
     },
     {
       "id": "LARGER_MANA_BANK_3",
+      "name": "Larger Mana Bank III",
       "class": "MAGE",
       "height": 30,
       "position": 3,
@@ -5420,6 +5624,7 @@
     },
     {
       "id": "DEVITALIZE",
+      "name": "Devitalize",
       "class": "MAGE",
       "height": 31,
       "position": -3,
@@ -5444,6 +5649,7 @@
     },
     {
       "id": "DIVINATION",
+      "name": "Divination",
       "class": "MAGE",
       "height": 31,
       "position": -1,
@@ -5477,6 +5683,7 @@
     },
     {
       "id": "SUNFLARE",
+      "name": "Sunflare",
       "class": "MAGE",
       "height": 31,
       "position": 1,
@@ -5511,6 +5718,7 @@
     },
     {
       "id": "ARCANE_OVERFLOW",
+      "name": "Arcane Overflow",
       "class": "MAGE",
       "height": 32,
       "position": 3,
@@ -5535,6 +5743,7 @@
     },
     {
       "id": "TIMELOCK",
+      "name": "Timelock",
       "class": "MAGE",
       "height": 33,
       "position": -4,
@@ -5570,6 +5779,7 @@
     },
     {
       "id": "CHEAPER_HEAL_2",
+      "name": "Cheaper Heal",
       "class": "MAGE",
       "height": 33,
       "position": -2,
@@ -5595,6 +5805,7 @@
     },
     {
       "id": "MANASTORM",
+      "name": "Manastorm",
       "class": "MAGE",
       "height": 33,
       "position": 1,
@@ -5622,6 +5833,7 @@
     },
     {
       "id": "MEMORY_RECOLLECTION",
+      "name": "Memory Recollection",
       "class": "MAGE",
       "height": 33,
       "position": 4,
@@ -5643,6 +5855,7 @@
     },
     {
       "id": "BETTER_LIGHTWEAVER",
+      "name": "Better Lightweaver",
       "class": "MAGE",
       "height": 34,
       "position": 0,
@@ -5665,6 +5878,7 @@
     },
     {
       "id": "ASSASSIN_MAIN_ATTACK",
+      "name": "Main Attack",
       "class": "ASSASSIN",
       "height": 2,
       "position": 2,
@@ -5687,6 +5901,7 @@
     },
     {
       "id": "SPIN_ATTACK",
+      "name": "Spin Attack",
       "class": "ASSASSIN",
       "height": 0,
       "position": 0,
@@ -5716,6 +5931,7 @@
     },
     {
       "id": "DAGGER_PROFICIENCY_1",
+      "name": "Dagger Proficiency I",
       "class": "ASSASSIN",
       "height": 2,
       "position": 0,
@@ -5741,6 +5957,7 @@
     },
     {
       "id": "CHEAPER_SPIN_ATTACK_1",
+      "name": "Cheaper Spin Attack",
       "class": "ASSASSIN",
       "height": 2,
       "position": -2,
@@ -5764,6 +5981,7 @@
     },
     {
       "id": "DOUBLE_SPIN",
+      "name": "Double Spin",
       "class": "ASSASSIN",
       "height": 4,
       "position": 0,
@@ -5790,6 +6008,7 @@
     },
     {
       "id": "DASH",
+      "name": "Dash",
       "class": "ASSASSIN",
       "height": 6,
       "position": 0,
@@ -5813,6 +6032,7 @@
     },
     {
       "id": "POISONED_BLADE",
+      "name": "Poisoned Blade",
       "class": "ASSASSIN",
       "height": 6,
       "position": -2,
@@ -5837,6 +6057,7 @@
     },
     {
       "id": "DOUBLE_SLICE",
+      "name": "Double Slice",
       "class": "ASSASSIN",
       "height": 6,
       "position": 2,
@@ -5862,6 +6083,7 @@
     },
     {
       "id": "SMOKE_BOMB",
+      "name": "Smoke Bomb",
       "class": "ASSASSIN",
       "height": 8,
       "position": -2,
@@ -5898,6 +6120,7 @@
     },
     {
       "id": "CHEAPER_DASH_1",
+      "name": "Cheaper Dash",
       "class": "ASSASSIN",
       "height": 8,
       "position": 0,
@@ -5922,6 +6145,7 @@
     },
     {
       "id": "MULTIHIT",
+      "name": "Multihit",
       "class": "ASSASSIN",
       "height": 8,
       "position": 2,
@@ -5953,6 +6177,7 @@
     },
     {
       "id": "ASSASSIN_EARTH_MASTERY",
+      "name": "Earth Mastery",
       "class": "ASSASSIN",
       "height": 10,
       "position": -4,
@@ -5976,6 +6201,7 @@
     },
     {
       "id": "ASSASSIN_THUNDER_MASTERY",
+      "name": "Thunder Mastery",
       "class": "ASSASSIN",
       "height": 10,
       "position": -2,
@@ -5999,6 +6225,7 @@
     },
     {
       "id": "ASSASSIN_WATER_MASTERY",
+      "name": "Water Mastery",
       "class": "ASSASSIN",
       "height": 10,
       "position": 2,
@@ -6023,6 +6250,7 @@
     },
     {
       "id": "ASSASSIN_AIR_MASTERY",
+      "name": "Air Mastery",
       "class": "ASSASSIN",
       "height": 10,
       "position": 4,
@@ -6047,6 +6275,7 @@
     },
     {
       "id": "ASSASSIN_FIRE_MASTERY",
+      "name": "Fire Mastery",
       "class": "ASSASSIN",
       "height": 11,
       "position": 0,
@@ -6071,6 +6300,7 @@
     },
     {
       "id": "BACKSTAB",
+      "name": "Backstab",
       "class": "ASSASSIN",
       "height": 12,
       "position": -3,
@@ -6106,6 +6336,7 @@
     },
     {
       "id": "FATALITY",
+      "name": "Fatality",
       "class": "ASSASSIN",
       "height": 12,
       "position": 3,
@@ -6137,6 +6368,7 @@
     },
     {
       "id": "VANISH",
+      "name": "Vanish",
       "class": "ASSASSIN",
       "height": 13,
       "position": -2,
@@ -6167,6 +6399,7 @@
     },
     {
       "id": "STICKY_BOMB",
+      "name": "Sticky Bomb",
       "class": "ASSASSIN",
       "height": 13,
       "position": 0,
@@ -6192,6 +6425,7 @@
     },
     {
       "id": "RIGHTING_REFLEX",
+      "name": "Righting Reflex",
       "class": "ASSASSIN",
       "height": 13,
       "position": 2,
@@ -6212,6 +6446,7 @@
     },
     {
       "id": "SURPRISE_STRIKE",
+      "name": "Surprise Strike",
       "class": "ASSASSIN",
       "height": 15,
       "position": -2,
@@ -6238,6 +6473,7 @@
     },
     {
       "id": "MIRROR_IMAGE",
+      "name": "Mirror Image",
       "class": "ASSASSIN",
       "height": 15,
       "position": 0,
@@ -6268,6 +6504,7 @@
     },
     {
       "id": "LACERATE",
+      "name": "Lacerate",
       "class": "ASSASSIN",
       "height": 15,
       "position": 3,
@@ -6301,6 +6538,7 @@
     },
     {
       "id": "SILENT_KILLER",
+      "name": "Silent Killer",
       "class": "ASSASSIN",
       "height": 16,
       "position": -3,
@@ -6322,6 +6560,7 @@
     },
     {
       "id": "SHENANIGANS",
+      "name": "Shenanigans",
       "class": "ASSASSIN",
       "height": 16,
       "position": 1,
@@ -6339,6 +6578,7 @@
     },
     {
       "id": "WALL_OF_SMOKE",
+      "name": "Wall of Smoke",
       "class": "ASSASSIN",
       "height": 16,
       "position": 4,
@@ -6364,6 +6604,7 @@
     },
     {
       "id": "BETTER_SMOKE_BOMB",
+      "name": "Better Smoke Bomb",
       "class": "ASSASSIN",
       "height": 18,
       "position": -4,
@@ -6390,6 +6631,7 @@
     },
     {
       "id": "SHADOW_TRAVEL",
+      "name": "Shadow Travel",
       "class": "ASSASSIN",
       "height": 18,
       "position": -2,
@@ -6412,6 +6654,7 @@
     },
     {
       "id": "CHEAPER_MULTIHIT_1",
+      "name": "Cheaper Multihit",
       "class": "ASSASSIN",
       "height": 18,
       "position": 1,
@@ -6437,6 +6680,7 @@
     },
     {
       "id": "DAGGER_PROFICIENCY_2",
+      "name": "Dagger Proficiency II",
       "class": "ASSASSIN",
       "height": 18,
       "position": 4,
@@ -6460,6 +6704,7 @@
     },
     {
       "id": "LAST_LAUGH",
+      "name": "Last Laugh",
       "class": "ASSASSIN",
       "height": 19,
       "position": 0,
@@ -6484,6 +6729,7 @@
     },
     {
       "id": "CHEAPER_SMOKE_BOMB_1",
+      "name": "Cheaper Smoke Bomb",
       "class": "ASSASSIN",
       "height": 20,
       "position": -4,
@@ -6508,6 +6754,7 @@
     },
     {
       "id": "BLAZING_POWDER",
+      "name": "Blazing Powder",
       "class": "ASSASSIN",
       "height": 20,
       "position": -1,
@@ -6542,6 +6789,7 @@
     },
     {
       "id": "WEIGHTLESS",
+      "name": "Weightless",
       "class": "ASSASSIN",
       "height": 20,
       "position": 3,
@@ -6565,6 +6813,7 @@
     },
     {
       "id": "BLACK_HOLE",
+      "name": "Black Hole",
       "class": "ASSASSIN",
       "height": 21,
       "position": -3,
@@ -6588,6 +6837,7 @@
     },
     {
       "id": "SANDBAGGING",
+      "name": "Sandbagging",
       "class": "ASSASSIN",
       "height": 21,
       "position": 0,
@@ -6612,6 +6862,7 @@
     },
     {
       "id": "HOP",
+      "name": "Hop",
       "class": "ASSASSIN",
       "height": 21,
       "position": 2,
@@ -6635,6 +6886,7 @@
     },
     {
       "id": "DANCING_BLADE",
+      "name": "Dancing Blade",
       "class": "ASSASSIN",
       "height": 21,
       "position": 4,
@@ -6663,6 +6915,7 @@
     },
     {
       "id": "VIOLENT_VORTEX",
+      "name": "Violent Vortex",
       "class": "ASSASSIN",
       "height": 22,
       "position": -4,
@@ -6688,6 +6941,7 @@
     },
     {
       "id": "DELIRIOUS_GAS",
+      "name": "Delirious Gas",
       "class": "ASSASSIN",
       "height": 22,
       "position": -1,
@@ -6715,6 +6969,7 @@
     },
     {
       "id": "MARKED",
+      "name": "Marked",
       "class": "ASSASSIN",
       "height": 23,
       "position": -3,
@@ -6742,6 +6997,7 @@
     },
     {
       "id": "ECHO",
+      "name": "Echo",
       "class": "ASSASSIN",
       "height": 23,
       "position": 0,
@@ -6766,6 +7022,7 @@
     },
     {
       "id": "SHURIKENS",
+      "name": "Shurikens",
       "class": "ASSASSIN",
       "height": 23,
       "position": 2,
@@ -6797,6 +7054,7 @@
     },
     {
       "id": "FAR_REACH",
+      "name": "Far Reach",
       "class": "ASSASSIN",
       "height": 23,
       "position": 4,
@@ -6821,6 +7079,7 @@
     },
     {
       "id": "STRONGER_MULTIHIT",
+      "name": "Stronger Multihit",
       "class": "ASSASSIN",
       "height": 24,
       "position": 1,
@@ -6849,6 +7108,7 @@
     },
     {
       "id": "PSITHURISM",
+      "name": "Psithurism",
       "class": "ASSASSIN",
       "height": 24,
       "position": 3,
@@ -6874,6 +7134,7 @@
     },
     {
       "id": "AMBUSH",
+      "name": "Ambush",
       "class": "ASSASSIN",
       "height": 25,
       "position": -3,
@@ -6897,6 +7158,7 @@
     },
     {
       "id": "CHEAPER_DASH_2",
+      "name": "Cheaper Dash",
       "class": "ASSASSIN",
       "height": 25,
       "position": 0,
@@ -6920,6 +7182,7 @@
     },
     {
       "id": "PARRY",
+      "name": "Parry",
       "class": "ASSASSIN",
       "height": 25,
       "position": 2,
@@ -6945,6 +7208,7 @@
     },
     {
       "id": "CHEAPER_SPIN_ATTACK_2",
+      "name": "Cheaper Spin Attack",
       "class": "ASSASSIN",
       "height": 25,
       "position": 4,
@@ -6968,6 +7232,7 @@
     },
     {
       "id": "DEATH_MAGNET",
+      "name": "Death Magnet",
       "class": "ASSASSIN",
       "height": 27,
       "position": -4,
@@ -6990,6 +7255,7 @@
     },
     {
       "id": "CHEAPER_MULTIHIT_2",
+      "name": "Cheaper Multihit",
       "class": "ASSASSIN",
       "height": 27,
       "position": -2,
@@ -7014,6 +7280,7 @@
     },
     {
       "id": "HOODWINK",
+      "name": "Hoodwink",
       "class": "ASSASSIN",
       "height": 27,
       "position": 0,
@@ -7035,6 +7302,7 @@
     },
     {
       "id": "CHOKE_BOMB",
+      "name": "Choke Bomb",
       "class": "ASSASSIN",
       "height": 27,
       "position": 2,
@@ -7067,6 +7335,7 @@
     },
     {
       "id": "WALL_JUMP",
+      "name": "Wall Jump",
       "class": "ASSASSIN",
       "height": 27,
       "position": 4,
@@ -7091,6 +7360,7 @@
     },
     {
       "id": "FATAL_SPIN",
+      "name": "Fatal Spin",
       "class": "ASSASSIN",
       "height": 28,
       "position": -3,
@@ -7115,6 +7385,7 @@
     },
     {
       "id": "STRONGER_LACERATE",
+      "name": "Stronger Lacerate",
       "class": "ASSASSIN",
       "height": 28,
       "position": 3,
@@ -7141,6 +7412,7 @@
     },
     {
       "id": "STRONGER_VORTEX",
+      "name": "Stronger Vortex",
       "class": "ASSASSIN",
       "height": 29,
       "position": -4,
@@ -7164,6 +7436,7 @@
     },
     {
       "id": "HARVESTER",
+      "name": "Harvester",
       "class": "ASSASSIN",
       "height": 30,
       "position": -3,
@@ -7189,6 +7462,7 @@
     },
     {
       "id": "CHEAPER_SMOKE_BOMB_2",
+      "name": "Cheaper Smoke Bomb",
       "class": "ASSASSIN",
       "height": 30,
       "position": 0,
@@ -7214,6 +7488,7 @@
     },
     {
       "id": "BLADE_FURY",
+      "name": "Blade Fury",
       "class": "ASSASSIN",
       "height": 30,
       "position": 3,
@@ -7236,6 +7511,7 @@
     },
     {
       "id": "MORE_MARKS",
+      "name": "More Marks",
       "class": "ASSASSIN",
       "height": 31,
       "position": -2,
@@ -7258,6 +7534,7 @@
     },
     {
       "id": "STRONGER_CLONE",
+      "name": "Stronger Clone",
       "class": "ASSASSIN",
       "height": 31,
       "position": 1,
@@ -7282,6 +7559,7 @@
     },
     {
       "id": "RICOCHETS",
+      "name": "Ricochets",
       "class": "ASSASSIN",
       "height": 31,
       "position": 4,
@@ -7309,6 +7587,7 @@
     },
     {
       "id": "SATSUJIN",
+      "name": "Satsujin",
       "class": "ASSASSIN",
       "height": 32,
       "position": -3,
@@ -7330,6 +7609,7 @@
     },
     {
       "id": "FORBIDDEN_ART",
+      "name": "Forbidden Art",
       "class": "ASSASSIN",
       "height": 32,
       "position": 0,
@@ -7355,6 +7635,7 @@
     },
     {
       "id": "JASMINE_BLOOM",
+      "name": "Jasmine Bloom",
       "class": "ASSASSIN",
       "height": 32,
       "position": 3,
@@ -7388,6 +7669,7 @@
     },
     {
       "id": "DIVERSION",
+      "name": "Diversion",
       "class": "ASSASSIN",
       "height": 33,
       "position": 1,
@@ -7416,6 +7698,7 @@
     },
     {
       "id": "BETTER_RICOCHETS",
+      "name": "Better Ricochets",
       "class": "ASSASSIN",
       "height": 33,
       "position": 4,
@@ -7437,6 +7720,7 @@
     },
     {
       "id": "DEVOUR",
+      "name": "Devour",
       "class": "ASSASSIN",
       "height": 34,
       "position": -4,
@@ -7458,6 +7742,7 @@
     },
     {
       "id": "BETTER_MARKED",
+      "name": "Better Marked",
       "class": "ASSASSIN",
       "height": 34,
       "position": -2,

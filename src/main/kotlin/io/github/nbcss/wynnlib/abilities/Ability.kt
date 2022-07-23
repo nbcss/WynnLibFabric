@@ -25,7 +25,7 @@ import net.minecraft.util.math.MathHelper
 
 class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, PropertyProvider {
     private val id: String
-    //private val name: String
+    private val name: String?
     private val tier: Tier
     private val character: CharacterClass
     private val archetype: Archetype?
@@ -43,7 +43,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     //private val effect: AbilityEffect
     init {
         id = json["id"].asString
-        //name = json["name"].asString
+        name = if (json.has("name") && !json["name"].isJsonNull) json["name"].asString else null
         character = CharacterClass.valueOf(json["class"].asString.uppercase())
         archetype = if (json.has("archetype") && !json["archetype"].isJsonNull)
             Archetype.fromName(json["archetype"].asString) else null
@@ -82,6 +82,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             }
         }
     }
+
+    fun getName(): String? = name
 
     fun getCharacter(): CharacterClass = character
 

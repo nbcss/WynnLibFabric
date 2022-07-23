@@ -28,7 +28,7 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment):
         tooltip.add(LiteralText.EMPTY)
         addRolledRequirements(equipment, tooltip)
         tooltip.add(LiteralText.EMPTY)
-        if (addRolledIdentifications(equipment, tooltip))
+        if (addRolledIdentifications(equipment, tooltip, equipment.getClassReq()))
             tooltip.add(LiteralText.EMPTY)
         addRolledPowderSlots(equipment, tooltip)
         addItemSuffix(equipment, tooltip, equipment.getRoll())

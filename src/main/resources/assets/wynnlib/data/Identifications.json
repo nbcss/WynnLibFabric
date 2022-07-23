@@ -303,19 +303,7 @@
       "id": "spell_cost_raw_1",
       "apiId": "spellCostRaw1",
       "name": "SPELL_COST_RAW_1",
-      "displayName": "1st Spell Cost",
-      "alias": [
-        "Heal Cost",
-        "Arrow Storm Cost",
-        "Bash Cost",
-        "Spin Attack Cost",
-        "Totem Cost",
-        "Remedy Cost",
-        "Bolt Blizzard Cost",
-        "Holy Blast Cost",
-        "Whirlwind Cost",
-        "Sky Emblem Cost"
-      ],
+      "displayName": "{sp1} Cost",
       "suffix": "",
       "inverted": true
     },
@@ -323,19 +311,7 @@
       "id": "spell_cost_raw_2",
       "apiId": "spellCostRaw2",
       "name": "SPELL_COST_RAW_2",
-      "displayName": "2nd Spell Cost",
-      "alias": [
-        "Teleport Cost",
-        "Escape Cost",
-        "Charge Cost",
-        "Vanish Cost",
-        "Haul Cost",
-        "Blink Cost",
-        "Spider Jump Cost",
-        "Leap Cost",
-        "Shadow Clone Cost",
-        "Soar Cost"
-      ],
+      "displayName": "{sp2} Cost",
       "suffix": "",
       "inverted": true
     },
@@ -343,19 +319,7 @@
       "id": "spell_cost_raw_3",
       "apiId": "spellCostRaw3",
       "name": "SPELL_COST_RAW_3",
-      "displayName": "3rd Spell Cost",
-      "alias": [
-        "Meteor Cost",
-        "Bomb Cost",
-        "Uppercut Cost",
-        "Multi Hit Cost",
-        "Aura Cost",
-        "Dead Star Cost",
-        "Creeper Dart Cost",
-        "Heaven Jolt Cost",
-        "Leopard Punches Cost",
-        "Wind Surge Cost"
-      ],
+      "displayName": "{sp3} Cost",
       "suffix": "",
       "inverted": true
     },
@@ -363,19 +327,7 @@
       "id": "spell_cost_raw_4",
       "apiId": "spellCostRaw4",
       "name": "SPELL_COST_RAW_4",
-      "displayName": "4th Spell Cost",
-      "alias": [
-        "Ice Snake Cost",
-        "Arrow Shield Cost",
-        "War Scream Cost",
-        "Smoke Bomb Cost",
-        "Uproot Cost",
-        "Crystal Reptile Cost",
-        "Dagger Aura Cost",
-        "Cry of the Gods Cost",
-        "Blinding Cloud Cost",
-        "Gale Funnel Cost"
-      ],
+      "displayName": "{sp4} Cost",
       "suffix": "",
       "inverted": true
     },
@@ -383,19 +335,7 @@
       "id": "spell_cost_pct_1",
       "apiId": "spellCostPct1",
       "name": "SPELL_COST_PCT_1",
-      "displayName": "1st Spell Cost",
-      "alias": [
-        "Heal Cost",
-        "Arrow Storm Cost",
-        "Bash Cost",
-        "Spin Attack Cost",
-        "Totem Cost",
-        "Remedy Cost",
-        "Bolt Blizzard Cost",
-        "Holy Blast Cost",
-        "Whirlwind Cost",
-        "Sky Emblem Cost"
-      ],
+      "displayName": "{sp1} Cost",
       "suffix": "%",
       "inverted": true
     },
@@ -403,19 +343,7 @@
       "id": "spell_cost_pct_2",
       "apiId": "spellCostPct2",
       "name": "SPELL_COST_PCT_2",
-      "displayName": "2nd Spell Cost",
-      "alias": [
-        "Teleport Cost",
-        "Escape Cost",
-        "Charge Cost",
-        "Vanish Cost",
-        "Haul Cost",
-        "Blink Cost",
-        "Spider Jump Cost",
-        "Leap Cost",
-        "Shadow Clone Cost",
-        "Soar Cost"
-      ],
+      "displayName": "{sp2} Cost",
       "suffix": "%",
       "inverted": true
     },
@@ -423,19 +351,7 @@
       "id": "spell_cost_pct_3",
       "apiId": "spellCostPct3",
       "name": "SPELL_COST_PCT_3",
-      "displayName": "3rd Spell Cost",
-      "alias": [
-        "Meteor Cost",
-        "Bomb Cost",
-        "Uppercut Cost",
-        "Multi Hit Cost",
-        "Aura Cost",
-        "Dead Star Cost",
-        "Creeper Dart Cost",
-        "Heaven Jolt Cost",
-        "Leopard Punches Cost",
-        "Wind Surge Cost"
-      ],
+      "displayName": "{sp3} Cost",
       "suffix": "%",
       "inverted": true
     },
@@ -443,19 +359,7 @@
       "id": "spell_cost_pct_4",
       "apiId": "spellCostPct4",
       "name": "SPELL_COST_PCT_4",
-      "displayName": "4th Spell Cost",
-      "alias": [
-        "Ice Snake Cost",
-        "Arrow Shield Cost",
-        "War Scream Cost",
-        "Smoke Bomb Cost",
-        "Uproot Cost",
-        "Crystal Reptile Cost",
-        "Dagger Aura Cost",
-        "Cry of the Gods Cost",
-        "Blinding Cloud Cost",
-        "Gale Funnel Cost"
-      ],
+      "displayName": "{sp4} Cost",
       "suffix": "%",
       "inverted": true
     }

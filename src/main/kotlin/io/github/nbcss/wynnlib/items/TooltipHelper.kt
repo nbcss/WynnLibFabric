@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.items
 
+import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.i18n.SuffixTranslation
@@ -81,7 +82,9 @@ fun addRolledRequirements(item: RolledEquipment, tooltip: MutableList<Text>) {
     }
 }
 
-fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): Boolean {
+fun addIdentifications(item: IdentificationHolder,
+                       tooltip: MutableList<Text>,
+                       character: CharacterClass? = null): Boolean {
     val lastSize = tooltip.size
     Identification.getAll().forEach {
         val range = item.getIdentificationRange(it)
@@ -100,8 +103,7 @@ fun addIdentifications(item: IdentificationHolder, tooltip: MutableList<Text>): 
                 text.append(TOOLTIP_TO.formatted(rangeColor))
                 text.append(SuffixTranslation.withSuffix(range.upper(), it.suffix).formatted(nextColor))
             }
-            //val values = LiteralText("${range.start} to ${range.end} ")
-            tooltip.add(text.append(" ").append(it.formatted(Formatting.GRAY)))
+            tooltip.add(text.append(" ").append(it.translate(Formatting.GRAY, character)))
         }
     }
     return tooltip.size > lastSize
@@ -113,7 +115,9 @@ fun addPowderSpecial(item: RolledEquipment, tooltip: MutableList<Text>) {
     }
 }
 
-fun addRolledIdentifications(item: RolledEquipment, tooltip: MutableList<Text>): Boolean {
+fun addRolledIdentifications(item: RolledEquipment,
+                             tooltip: MutableList<Text>,
+                             character: CharacterClass? = null): Boolean {
     val lastSize = tooltip.size
     Identification.getAll().forEach {
         val value = item.getIdentificationValue(it)
@@ -125,7 +129,7 @@ fun addRolledIdentifications(item: RolledEquipment, tooltip: MutableList<Text>):
                 text.append(LiteralText(MutableList(stars){ "*" }.reduce { x, y -> x + y})
                     .formatted(Formatting.DARK_GREEN))
             }
-            tooltip.add(text.append(" ").append(it.formatted(Formatting.GRAY)))
+            tooltip.add(text.append(" ").append(it.translate(Formatting.GRAY, character)))
         }
     }
     return tooltip.size > lastSize
