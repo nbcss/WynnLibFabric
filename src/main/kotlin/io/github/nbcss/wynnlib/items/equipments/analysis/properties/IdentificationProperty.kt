@@ -11,6 +11,7 @@ class IdentificationProperty: AnalysisProperty {
     }
     private val idMap: MutableMap<Identification, Int> = mutableMapOf()
     private val starMap: MutableMap<Identification, Int> = mutableMapOf()
+    private var terminated: Boolean = false //need this flag due to id from the set bonus...
 
     fun getIdentificationValue(id: Identification): Int {
         return idMap[id] ?: 0
@@ -21,9 +22,12 @@ class IdentificationProperty: AnalysisProperty {
     }
 
     override fun set(tooltip: List<Text>, line: Int): Int {
-        if (tooltip[line].siblings.isEmpty())
+        if (terminated || tooltip[line].siblings.isEmpty())
             return 0
         val base = tooltip[line].siblings[0]
+        //stop further read stats if it from set bonus
+        if (base.asString() == "Set Bonus:")
+            terminated = true
         if (base.asString() != "" || base.siblings.size < 2)
             return 0
         val matcher = ID_VALUE_PATTERN.matcher(base.siblings[0].asString().trim())
