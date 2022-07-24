@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.Identification
+import io.github.nbcss.wynnlib.data.IdentificationGroup
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.i18n.SuffixTranslation
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CLASS_REQ
@@ -86,6 +87,7 @@ fun addIdentifications(item: IdentificationHolder,
                        tooltip: MutableList<Text>,
                        character: CharacterClass? = null): Boolean {
     val lastSize = tooltip.size
+    var lastGroup: IdentificationGroup? = null
     Identification.getAll().forEach {
         val range = item.getIdentificationRange(it)
         if (!range.isZero()){
@@ -103,6 +105,9 @@ fun addIdentifications(item: IdentificationHolder,
                 text.append(TOOLTIP_TO.formatted(rangeColor))
                 text.append(SuffixTranslation.withSuffix(range.upper(), it.suffix).formatted(nextColor))
             }
+            if (lastGroup != null && lastGroup != it.group)
+                tooltip.add(LiteralText.EMPTY)
+            lastGroup = it.group
             tooltip.add(text.append(" ").append(it.translate(Formatting.GRAY, character)))
         }
     }
@@ -119,6 +124,7 @@ fun addRolledIdentifications(item: RolledEquipment,
                              tooltip: MutableList<Text>,
                              character: CharacterClass? = null): Boolean {
     val lastSize = tooltip.size
+    var lastGroup: IdentificationGroup? = null
     Identification.getAll().forEach {
         val value = item.getIdentificationValue(it)
         if (value != 0){
@@ -129,6 +135,9 @@ fun addRolledIdentifications(item: RolledEquipment,
                 text.append(LiteralText(MutableList(stars){ "*" }.reduce { x, y -> x + y})
                     .formatted(Formatting.DARK_GREEN))
             }
+            if (lastGroup != null && lastGroup != it.group)
+                tooltip.add(LiteralText.EMPTY)
+            lastGroup = it.group
             tooltip.add(text.append(" ").append(it.translate(Formatting.GRAY, character)))
         }
     }
