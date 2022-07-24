@@ -3,21 +3,27 @@ package io.github.nbcss.wynnlib.data
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
 import java.util.*
-import kotlin.collections.LinkedHashMap
 
-enum class Restriction(private val id: String): Keyed, Translatable {
-    QUEST_ITEM("QUEST ITEM"),
-    UNTRADABLE("UNTRADABLE"),
-    SOULBOUND("SOULBOUND");
+enum class Restriction(private val id: String,
+                       private val displayName: String): Keyed, Translatable {
+    QUEST_ITEM("QUEST ITEM", "Quest Item"),
+    UNTRADABLE("UNTRADABLE", "Untradable Item"),
+    SOULBOUND("SOULBOUND", "Soulbound Item");
 
     companion object {
-        private val VALUE_MAP: MutableMap<String, Restriction> = LinkedHashMap()
-        init {
-            values().forEach { VALUE_MAP[it.id.uppercase(Locale.getDefault())] = it }
-        }
+        private val ID_MAP: Map<String, Restriction> = mapOf(
+            pairs = values().map { it.id.uppercase() to it }.toTypedArray()
+        )
+        private val NAME_MAP: Map<String, Restriction> = mapOf(
+            pairs = values().map { it.displayName to it }.toTypedArray()
+        )
 
         fun fromId(id: String): Restriction? {
-            return VALUE_MAP[id.uppercase(Locale.getDefault())]
+            return ID_MAP[id.uppercase()]
+        }
+
+        fun fromDisplayName(name: String): Restriction? {
+            return NAME_MAP[name]
         }
     }
 
