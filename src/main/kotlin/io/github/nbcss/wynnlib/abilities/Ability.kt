@@ -22,6 +22,11 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
+import kotlin.collections.LinkedHashMap
 
 class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, PropertyProvider {
     private val id: String
@@ -266,6 +271,21 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             return "wynnlib.ability.desc.$key"
         }
         return "wynnlib.ability.name.$key"
+    }
+
+    override fun hashCode(): Int {
+        return getKey().hashCode()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Ability) {
+            return getKey() == other.getKey()
+        }
+        return false
+    }
+
+    override fun toString(): String {
+        return getKey()
     }
 
     enum class Tier(private val level: Int,

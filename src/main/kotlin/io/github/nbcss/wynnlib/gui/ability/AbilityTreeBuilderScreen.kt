@@ -123,6 +123,11 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         tree.getRootAbility()?.let {
             if (it !in activeNodes) paths[it] = listOf(it)
         }
+        //fixme test it out...
+        //AbilityPath.compute(tree, activeNodes, archetypePoints)
+        /*tree.getAbilities().lastOrNull()?.let {
+            AbilityPath.test(tree, activeNodes, archetypePoints, it)
+        }*/
         //update container
         container = EntryContainer(activeNodes)
         setEntryIndex(entryIndex) //for update entry
@@ -269,13 +274,9 @@ class AbilityTreeBuilderScreen(parent: Screen?,
             RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
                 18, 18, 18, 18)
             val tier = entry.getTierText()
-            RenderKit.renderOutlineText(matrices, tier,
+            renderOutlineText(matrices, tier,
                 x2.toFloat() - textRenderer.getWidth(tier) + 1,
                 y2.toFloat() - 7)
-            /*textRenderer.drawWithShadow(matrices, tier,
-                x2.toFloat() - textRenderer.getWidth(tier) + 1,
-                y2.toFloat() - 7, 0xFFFFFF
-            )*/
             textRenderer.drawWithShadow(matrices, entry.getDisplayNameText(),
                 x2.toFloat() + 3,
                 y1.toFloat() + 1, 0
