@@ -14,7 +14,9 @@
     "datafixer.ItemPotionFixAccessor",
     "datafixer.RecipeFixAccessor",
     "render.HotbarBackgroundMixin",
-    "render.ItemBackgroundMixin"
+    "render.ItemBackgroundMixin",
+    "timer.PlayerListUpdateMixin",
+    "timer.TimerHUDMixin"
   ],
   "client": [
     "render.ItemGuiLightingFixMixin"
