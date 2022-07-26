@@ -111,6 +111,21 @@ class AreaOfEffectProperty(ability: Ability,
         }
     }
 
+    class Clear(ability: Ability): AbilityProperty(ability), ModifiableProperty {
+        companion object: Type<Clear> {
+            override fun create(ability: Ability, data: JsonElement): Clear {
+                return Clear(ability)
+            }
+            override fun getKey(): String = "aoe_clear"
+        }
+
+        override fun modify(entry: PropertyEntry) {
+            AreaOfEffectProperty.from(entry)?.let {
+                entry.clearProperty(AreaOfEffectProperty.getKey())
+            }
+        }
+    }
+
     data class AreaOfEffect(private val range: DRange,
                             private val shape: Shape?){
         constructor(data: JsonObject): this(

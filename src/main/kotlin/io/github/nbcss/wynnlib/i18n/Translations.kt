@@ -50,6 +50,7 @@ object Translations {
     val TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_HP: Translatable = from("wynnlib.tooltip.ability.mage_orbs_of_light_hp")
     val TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_LOSS: Translatable = from("wynnlib.tooltip.ability.mage_orbs_of_light_loss")
     val TOOLTIP_ABILITY_MAGE_TIMELOCK_TIP: Translatable = from("wynnlib.tooltip.ability.mage_timelock_absorb")
+    val TOOLTIP_ABILITY_ASSASSIN_BLOOM_TIP: Translatable = from("wynnlib.tooltip.ability.assassin_bloom")
     val TOOLTIP_ABILITY_UNUSABLE: Translatable = from("wynnlib.tooltip.ability.unusable_warning")
     val TOOLTIP_ABILITY_REPLACING: Translatable = from("wynnlib.tooltip.ability.replacing")
     val TOOLTIP_ABILITY_MAX: Translatable = from("wynnlib.tooltip.ability.maximum")
@@ -94,4 +95,5 @@ object Translations {
     val TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT: Translatable = from("wynnlib.gameplay.mage_orbs_of_light")
     val TOOLTIP_ABILITY_ASSASSIN_SMOKE_BOMBS: Translatable = from("wynnlib.gameplay.assassin_smoke_bombs")
     val TOOLTIP_ABILITY_ASSASSIN_CLONES: Translatable = from("wynnlib.gameplay.assassin_clones")
+    val TOOLTIP_ABILITY_ASSASSIN_MARKED: Translatable = from("wynnlib.gameplay.assassin_marked")
 }

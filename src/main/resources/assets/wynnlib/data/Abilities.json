@@ -2,7 +2,7 @@
   "data": [
     {
       "id": "WARRIOR_MAIN_ATTACK",
-      "name": "Main Attack",
+      "name": null,
       "class": "WARRIOR",
       "height": 2,
       "position": 2,
@@ -348,7 +348,11 @@
           "pct": 20
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "EARTH_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "WARRIOR_THUNDER_MASTERY",
@@ -374,7 +378,11 @@
           "pct": 10
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "THUNDER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "WARRIOR_AIR_MASTERY",
@@ -400,7 +408,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "AIR_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "WARRIOR_FIRE_MASTERY",
@@ -424,7 +436,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "FIRE_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "WARRIOR_WATER_MASTERY",
@@ -450,7 +466,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "WATER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "QUADRUPLE_BASH",
@@ -597,7 +617,8 @@
           "neutral": -70,
           "water": 30
         },
-        "range_modifier": 4
+        "range_modifier": 4,
+        "aoe_clear": true
       },
       "metadata": null
     },
@@ -1053,9 +1074,7 @@
           "type": "ALLIES_DAMAGE",
           "modifier": 30
         },
-        "aoe_modifier": {
-          "range": 2
-        }
+        "duration_modifier": 90
       },
       "metadata": null
     },
@@ -1900,7 +1919,7 @@
     },
     {
       "id": "ARCHER_MAIN_ATTACK",
-      "name": "Main Attack",
+      "name": null,
       "class": "ARCHER",
       "height": 2,
       "position": -2,
@@ -2253,7 +2272,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "AIR_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ARCHER_THUNDER_MASTERY",
@@ -2279,7 +2302,11 @@
           "pct": 10
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "THUNDER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ARCHER_FIRE_MASTERY",
@@ -2305,7 +2332,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "FIRE_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ARCHER_EARTH_MASTERY",
@@ -2329,7 +2360,11 @@
           "pct": 20
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "EARTH_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ARCHER_WATER_MASTERY",
@@ -2355,7 +2390,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "WATER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ARROW_RAIN",
@@ -2798,7 +2837,7 @@
     },
     {
       "id": "MORE_FOCUS_1",
-      "name": "More Focus I",
+      "name": "More Focus",
       "class": "ARCHER",
       "height": 18,
       "position": 0,
@@ -3810,7 +3849,7 @@
     },
     {
       "id": "MORE_FOCUS_2",
-      "name": "More Focus II",
+      "name": "More Focus",
       "class": "ARCHER",
       "height": 32,
       "position": 0,
@@ -3924,7 +3963,7 @@
     },
     {
       "id": "MAGE_MAIN_ATTACK",
-      "name": "Main Attack",
+      "name": null,
       "class": "MAGE",
       "height": 2,
       "position": -2,
@@ -4227,7 +4266,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "AIR_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "MAGE_THUNDER_MASTERY",
@@ -4252,7 +4295,11 @@
           "pct": 10
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "THUNDER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "MAGE_FIRE_MASTERY",
@@ -4276,7 +4323,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "FIRE_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "MAGE_EARTH_MASTERY",
@@ -4300,7 +4351,11 @@
           "pct": 20
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "EARTH_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "MAGE_WATER_MASTERY",
@@ -4325,7 +4380,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "WATER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "WIND_SLASH",
@@ -4765,7 +4824,7 @@
     },
     {
       "id": "LARGER_MANA_BANK_1",
-      "name": "Larger Mana Bank I",
+      "name": "Larger Mana Bank",
       "class": "MAGE",
       "height": 18,
       "position": 4,
@@ -5209,7 +5268,7 @@
     },
     {
       "id": "LARGER_MANA_BANK_2",
-      "name": "Larger Mana Bank II",
+      "name": "Larger Mana Bank",
       "class": "MAGE",
       "height": 25,
       "position": 4,
@@ -5234,7 +5293,7 @@
     },
     {
       "id": "MORE_WINDED_1",
-      "name": "More Winded I",
+      "name": "More Winded",
       "class": "MAGE",
       "height": 26,
       "position": -4,
@@ -5530,7 +5589,7 @@
     },
     {
       "id": "MORE_WINDED_2",
-      "name": "More Winded II",
+      "name": "More Winded",
       "class": "MAGE",
       "height": 30,
       "position": -4,
@@ -5600,7 +5659,7 @@
     },
     {
       "id": "LARGER_MANA_BANK_3",
-      "name": "Larger Mana Bank III",
+      "name": "Larger Mana Bank",
       "class": "MAGE",
       "height": 30,
       "position": 3,
@@ -5878,7 +5937,7 @@
     },
     {
       "id": "ASSASSIN_MAIN_ATTACK",
-      "name": "Main Attack",
+      "name": null,
       "class": "ASSASSIN",
       "height": 2,
       "position": 2,
@@ -6002,6 +6061,9 @@
         "damage_modifier": {
           "neutral": -40,
           "hits": 1
+        },
+        "aoe_modifier": {
+          "range": 2
         }
       },
       "metadata": null
@@ -6168,7 +6230,7 @@
           "hits": 8,
           "label": "HIT"
         },
-        "range": 3
+        "range": 4
       },
       "metadata": {
         "type": "SPELL",
@@ -6197,7 +6259,11 @@
           "pct": 20
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "EARTH_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ASSASSIN_THUNDER_MASTERY",
@@ -6221,7 +6287,11 @@
           "pct": 10
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "THUNDER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ASSASSIN_WATER_MASTERY",
@@ -6246,7 +6316,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "WATER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ASSASSIN_AIR_MASTERY",
@@ -6271,7 +6345,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "AIR_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "ASSASSIN_FIRE_MASTERY",
@@ -6296,7 +6374,11 @@
           "pct": 15
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "FIRE_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "BACKSTAB",
@@ -6309,7 +6391,8 @@
       "archetype": "SHADESTEPPER",
       "dependency": "MULTIHIT",
       "blocks": [
-        "STRONGER_MULTIHIT"
+        "STRONGER_MULTIHIT",
+        "FATALITY"
       ],
       "archetype_requirements": {
         "SHADESTEPPER": 2
@@ -6327,7 +6410,8 @@
         "damage": {
           "neutral": 200,
           "earth": 50
-        }
+        },
+        "range": 4
       },
       "metadata": {
         "type": "REPLACE",
@@ -6344,7 +6428,9 @@
       "cost": 2,
       "archetype": null,
       "dependency": "MULTIHIT",
-      "blocks": [],
+      "blocks": [
+        "BACKSTAB"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "ASSASSIN_WATER_MASTERY",
@@ -6390,7 +6476,7 @@
           "type": "SELF_INVISIBLE"
         },
         "duration": 5,
-        "cooldown": 10
+        "cooldown": 5
       },
       "metadata": {
         "type": "EXTEND",
@@ -6524,7 +6610,7 @@
       "properties": {
         "spell": "SPELL_1",
         "damage": {
-          "neutral": 40,
+          "neutral": 50,
           "water": 10,
           "air": 20,
           "hits": 3,
@@ -6988,6 +7074,7 @@
         "extend": {
           "spell": "SPELL_4"
         },
+        "max_marked": 5,
         "cooldown": 0.5
       },
       "metadata": {
@@ -7354,7 +7441,8 @@
       "properties": {
         "upgrade": {
           "ability": "HOP"
-        }
+        },
+        "cooldown_modifier": -1
       },
       "metadata": null
     },
@@ -7417,7 +7505,7 @@
       "height": 29,
       "position": -4,
       "tier": 1,
-      "cost": 2,
+      "cost": 1,
       "archetype": "SHADESTEPPER",
       "dependency": "VIOLENT_VORTEX",
       "blocks": [],
@@ -7504,7 +7592,8 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3"
+          "spell": "SPELL_3",
+          "ability": "MULTIHIT"
         }
       },
       "metadata": null
@@ -7528,7 +7617,8 @@
       "properties": {
         "upgrade": {
           "ability": "MARKED"
-        }
+        },
+        "max_marked_modifier": 2
       },
       "metadata": null
     },
@@ -7657,8 +7747,9 @@
           "earth": 5
         },
         "duration": 5,
-        "aoe": {
-          "range": 2
+        "bloom_aoe": {
+          "range": 2,
+          "max_range": 10
         }
       },
       "metadata": {
@@ -7679,7 +7770,7 @@
       "dependency": "DELIRIOUS_GAS",
       "blocks": [],
       "archetype_requirements": {
-        "TRICKSTER": 12
+        "TRICKSTER": 11
       },
       "predecessors": [
         "FORBIDDEN_ART"
