@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.items.equipments.analysis
 
+import io.github.nbcss.wynnlib.analysis.calculator.QualityCalculator
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.Wearable
@@ -30,8 +31,14 @@ class AnalysisWearable(private val equipment: AnalysisEquipment):
             tooltip.add(LiteralText.EMPTY)
         addRolledRequirements(equipment, tooltip)
         tooltip.add(LiteralText.EMPTY)
-        if (addRolledIdentifications(equipment, tooltip, equipment.getClassReq()))
+        val lastSize = tooltip.size
+        val quality = addRolledIdentifications(equipment, tooltip, equipment.getClassReq())
+        if (tooltip.size > lastSize)
             tooltip.add(LiteralText.EMPTY)
+        if (quality != null)
+            tooltip[0] = LiteralText("")
+                .append(tooltip[0]).append(" ")
+                .append(QualityCalculator.formattingQuality(quality))
         addRolledPowderSlots(equipment, tooltip)
         addItemSuffix(equipment, tooltip, equipment.getRoll())
         addRestriction(equipment, tooltip)

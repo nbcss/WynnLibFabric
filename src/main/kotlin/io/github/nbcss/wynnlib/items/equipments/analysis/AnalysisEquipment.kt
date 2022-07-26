@@ -11,6 +11,7 @@ import io.github.nbcss.wynnlib.items.equipments.regular.RegularArmour
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularWeapon
 import io.github.nbcss.wynnlib.utils.Color
+import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
@@ -161,7 +162,7 @@ class AnalysisEquipment(private val parent: RegularEquipment,
         return Settings.getTierColor(getTier())
     }
 
-    override fun getIdentificationRange(id: Identification): IRange {
+    override fun getIdentificationRange(id: Identification): BaseIRange {
         return parent.getIdentificationRange(id)
     }
 }

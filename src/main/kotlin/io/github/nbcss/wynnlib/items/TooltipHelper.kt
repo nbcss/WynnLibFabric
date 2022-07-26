@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.items
 
+import io.github.nbcss.wynnlib.analysis.calculator.QualityCalculator
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.IdentificationGroup
@@ -17,6 +18,7 @@ import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.colorOf
 import io.github.nbcss.wynnlib.utils.colorOfDark
 import io.github.nbcss.wynnlib.utils.formatNumbers
+import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -122,8 +124,8 @@ fun addPowderSpecial(item: RolledEquipment, tooltip: MutableList<Text>) {
 
 fun addRolledIdentifications(item: RolledEquipment,
                              tooltip: MutableList<Text>,
-                             character: CharacterClass? = null): Boolean {
-    val lastSize = tooltip.size
+                             character: CharacterClass? = null): Float? {
+    val qualities: MutableList<Float> = mutableListOf()
     var lastGroup: IdentificationGroup? = null
     Identification.getAll().forEach {
         val value = item.getIdentificationValue(it)
@@ -138,10 +140,14 @@ fun addRolledIdentifications(item: RolledEquipment,
             if (lastGroup != null && lastGroup != it.group)
                 tooltip.add(LiteralText.EMPTY)
             lastGroup = it.group
-            tooltip.add(text.append(" ").append(it.translate(Formatting.GRAY, character)))
+            text.append(" ").append(it.translate(Formatting.GRAY, character))
+            val range = item.getIdentificationRange(it) as BaseIRange
+            val quality = QualityCalculator.asQuality(value, stars, range)
+            quality.second?.let { q -> qualities.add(q) }
+            tooltip.add(text.append(" ").append(quality.first))
         }
     }
-    return tooltip.size > lastSize
+    return if (qualities.isEmpty()) null else qualities.average().toFloat()
 }
 
 fun addRolledPowderSlots(item: RolledEquipment, tooltip: MutableList<Text>) {

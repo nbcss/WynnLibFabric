@@ -56,7 +56,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
         Identification.getAll().filter{json.has(it.apiId)}.forEach{
             val value = json.get(it.apiId).asInt
             if(value != 0)
-                idMap[it] = BaseIRange(it, value)
+                idMap[it] = BaseIRange(it, identified, value)
         }
         val category = json.get("category").asString
         this.category = if(category.equals("weapon")){
@@ -74,8 +74,8 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun getTier(): Tier = tier
 
-    override fun getIdentificationRange(id: Identification): IRange {
-        return idMap.getOrDefault(id, IRange.ZERO)
+    override fun getIdentificationRange(id: Identification): BaseIRange {
+        return idMap[id] ?: BaseIRange(id, identified, 0)
     }
 
     override fun getType(): EquipmentType {
