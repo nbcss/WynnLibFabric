@@ -11,6 +11,8 @@ class BaseIRange(private val id: Identification,
 
     fun getIdentification(): Identification = id
 
+    fun isIdentified(): Boolean = identified
+
     fun getDistribution() {
         //todo
     }

@@ -21,7 +21,7 @@ interface QualityCalculator {
 
     companion object {
         fun asQuality(value: Int, stars: Int, range: BaseIRange): Pair<Text, Float?> {
-            val calculator = MaxRollCalculator
+            val calculator = EvenSpanCalculator
             val id = range.getIdentification()
             val color = colorOf(if (id.inverted) -range.upper() else range.upper())
             val text = SuffixTranslation.withSuffix(range.upper(), id.suffix).formatted(color)
@@ -38,15 +38,17 @@ interface QualityCalculator {
         fun formattingQuality(quality: Float): Text {
             val text = LiteralText("(%.1f%%)".format(quality * 100))
             if (quality >= 1.0) {
-                text.formatted(Formatting.GOLD)
+                text.formatted(Formatting.GREEN).formatted(Formatting.BOLD)
             }else if(quality >= 0.9) {
                 text.formatted(Formatting.GREEN)
             }else if(quality >= 0.7) {
                 text.formatted(Formatting.DARK_GREEN)
             }else if(quality >= 0.3) {
                 text.formatted(Formatting.YELLOW)
-            }else{
+            }else if(quality >= 0.1) {
                 text.formatted(Formatting.RED)
+            }else{
+                text.formatted(Formatting.DARK_RED)
             }
             return text
         }
