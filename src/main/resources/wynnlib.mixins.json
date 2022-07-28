@@ -16,7 +16,8 @@
     "render.HotbarBackgroundMixin",
     "render.ItemBackgroundMixin",
     "timer.PlayerListUpdateMixin",
-    "timer.TimerHUDMixin"
+    "timer.TimerHUDMixin",
+    "timer.TimeUpdateMixin"
   ],
   "client": [
     "render.ItemGuiLightingFixMixin"

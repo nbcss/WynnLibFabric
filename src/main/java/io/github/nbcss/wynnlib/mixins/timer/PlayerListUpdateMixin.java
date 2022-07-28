@@ -14,6 +14,6 @@ public class PlayerListUpdateMixin {
     @Inject(method = "setFooter", at = @At("HEAD"))
     public void setFooter(@Nullable Text footer, CallbackInfo ci) {
         if(footer != null)
-            TimerManager.INSTANCE.update(footer);
+            TimerManager.INSTANCE.updateFooter(footer);
     }
 }
