@@ -1,36 +1,45 @@
 package io.github.nbcss.wynnlib.timer
 
-import net.minecraft.text.Text
-import java.util.regex.Pattern
-
 object TimerManager {
-    private val timerPattern = Pattern.compile("(§[0-9a-f].) §[0-9a-f](.+?) §[0-9a-f]\\((\\d\\d:\\d\\d)\\)")
     private val timerMap: MutableMap<String, ITimer> = mutableMapOf()
     private var worldTime: Long = 0
 
-    fun updateWorldTime(time: Long) {
-        synchronized(timerMap) {
-            worldTime = time
-            for (timer in timerMap.values) {
-                timer.updateWorldTime(worldTime)
-            }
+    fun registerTimer(timer: ITimer) {
+        synchronized(this) {
+            if (timer.getKey() !in timerMap)
+                timerMap[timer.getKey()] = timer
         }
     }
 
-    fun updateFooter(footer: Text) {
-        if (footer.asString().contains("Status Effects")){
-            for (sibling in footer.siblings) {
-                val matcher = timerPattern.matcher(sibling.asString())
-                while (matcher.find()) {
-                    //println("icon: " + matcher.group(1))
-                    //println("name: " + matcher.group(2))
-                    //println("time: " + matcher.group(3))
+    fun getWorldTime(): Long {
+        return worldTime
+    }
+
+    fun hasTimer(key: String): Boolean {
+        return key in timerMap
+    }
+
+    fun updateWorldTime(time: Long) {
+        synchronized(this) {
+            worldTime = time
+            val keys = timerMap.keys.toList()
+            for (key in keys) {
+                val timer = timerMap[key]!!
+                timer.updateWorldTime(worldTime)
+                if (timer.isExpired()){
+                    timerMap.remove(key)
                 }
             }
         }
     }
 
     fun getSideTimers(): List<SideTimer> {
-        return emptyList() //todo
+        val timers: MutableList<SideTimer> = mutableListOf()
+        synchronized(this) {
+            for (timer in timerMap.values) {
+                timer.asSideTimer()?.let { timers.add(it) }
+            }
+        }
+        return timers
     }
 }

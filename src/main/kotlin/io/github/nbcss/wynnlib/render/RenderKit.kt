@@ -69,6 +69,10 @@ object RenderKit {
         renderOutlineText(matrices, LiteralText(text), x, y, color, outlineColor)
     }
 
+    fun renderDefaultOutlineText(matrices: MatrixStack, text: Text, x: Float, y: Float) {
+        renderOutlineText(matrices, text, x, y)
+    }
+
     fun renderOutlineText(matrices: MatrixStack, text: Text, x: Float, y: Float,
                           color: Color = Color.WHITE,
                           outlineColor: Color = Color.BLACK) {

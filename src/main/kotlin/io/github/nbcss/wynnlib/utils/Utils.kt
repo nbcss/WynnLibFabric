@@ -5,8 +5,10 @@ import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.sound.SoundEvent
-import net.minecraft.sound.SoundEvents
-import net.minecraft.text.*
+import net.minecraft.text.LiteralText
+import net.minecraft.text.StringVisitable
+import net.minecraft.text.Style
+import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import java.util.*
 import java.util.function.Function
@@ -30,6 +32,14 @@ fun removeDecimal(value: Double): String {
 
 fun formatNumbers(num: Int): String {
     return num.toString().replace("(?=(?!\\b)(\\d{3})+$)".toRegex(), ",")
+}
+
+fun formatTimer(time: Long): String {
+    val t = if (time > 0) time / 1000 else 0
+    if (t > 60 * 60 * 24) return "**:**"
+    val min = if (t > 0) t / 60 else 0
+    val sec = if (t > 0) t % 60 else 0
+    return String.format("%02d:%02d", min, sec)
 }
 
 fun colorOf(num: Int): Formatting {
