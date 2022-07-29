@@ -16,7 +16,7 @@ class ConfirmButtonWidget(private val handler: Consumer<ConfirmButtonWidget>,
                           private val screen: TooltipScreen,
                           x: Int, y: Int):
     PressableWidget(x, y, 10, 10, LiteralText.EMPTY) {
-    private val texture: Identifier = Identifier("wynnlib", "textures/gui/exit_button.png")
+    private val texture: Identifier = Identifier("wynnlib", "textures/gui/check_button.png")
     override fun appendNarrations(builder: NarrationMessageBuilder?) {
         appendDefaultNarrations(builder)
     }
