@@ -40,9 +40,6 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
         replaces.mapNotNull {it.createEntry(this)}.forEach { putEntry(it) }
         dummy.mapNotNull {it.createEntry(this)}.forEach { putEntry(it) }
         var keys: List<AbilityMetadata>
-        for (metadata in extending) {
-            println(metadata.ability.getKey())
-        }
         do {
             keys = extending.toList()
             for (meta in keys) {

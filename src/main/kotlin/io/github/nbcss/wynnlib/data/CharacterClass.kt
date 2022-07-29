@@ -16,9 +16,14 @@ enum class CharacterClass(private val displayName: String,
         private val TYPE_MAP: Map<EquipmentType, CharacterClass> = mapOf(
             pairs = values().map { it.getWeapon() to it }.toTypedArray()
         )
+        private val ID_MAP: Map<String, CharacterClass> = mapOf(
+            pairs = values().map { it.name.uppercase() to it }.toTypedArray()
+        )
         private val NAME_MAP: Map<String, CharacterClass> = mapOf(
             pairs = values().map { it.displayName to it }.toTypedArray()
         )
+
+        fun fromId(id: String): CharacterClass? = ID_MAP[id.uppercase()]
 
         fun fromWeaponType(type: EquipmentType): CharacterClass? = TYPE_MAP[type]
 

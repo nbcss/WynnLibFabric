@@ -6,7 +6,6 @@ import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
-import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_UNUSABLE
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -32,7 +31,10 @@ import kotlin.math.max
 import kotlin.math.min
 
 class AbilityTreeBuilderScreen(parent: Screen?,
-                               private val tree: AbilityTree):
+                               private val tree: AbilityTree,
+                               private val maxPoints: Int = MAX_AP,
+                               private val fixedAbilities: Set<Ability> =
+                                   tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet()):
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
         const val MAX_AP = 45
@@ -43,7 +45,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     private val paths: MutableMap<Ability, List<Ability>> = HashMap()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
     private var container: EntryContainer = EntryContainer()
-    private var ap: Int = MAX_AP
+    private var ap: Int = maxPoints
     private var entryIndex = 0
     init {
         tabs.clear()
@@ -52,7 +54,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     fun reset() {
         activeNodes.clear()
-        tree.getMainAttackAbility()?.let { activeNodes.add(it) }
+        activeNodes.addAll(fixedAbilities)
         update()
     }
 
@@ -69,10 +71,10 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         return true
     }
 
-    private fun fixNodes () {
+    private fun fixNodes() {
         //reset current state
         archetypePoints.clear()
-        ap = MAX_AP
+        ap = maxPoints
         //validation
         val validated: MutableSet<Ability> = HashSet()
         val queue: Queue<Ability> = LinkedList()
@@ -105,7 +107,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         //replace active nodes with all validated nodes
         activeNodes.clear()
         activeNodes.addAll(validated)
-        tree.getMainAttackAbility()?.let { activeNodes.add(it) }
+        activeNodes.addAll(fixedAbilities)
     }
 
     private fun update() {
@@ -149,7 +151,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     override fun getAbilityTree(): AbilityTree = tree
 
     override fun getTitle(): Text {
-        return title.copy().append(" [$ap/$MAX_AP]")
+        return title.copy().append(" [$ap/$maxPoints]")
     }
 
     override fun init() {
@@ -161,7 +163,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun onClickNode(ability: Ability, button: Int): Boolean {
         if (button == 0){
-            if (ability.getMetadata()?.getFactory() is MainAttackEntry.Companion){
+            if (ability in fixedAbilities){
                 playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
                 return true
             }
@@ -305,7 +307,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         //render ap points
         run {
             itemRenderer.renderInGuiWithOverrides(ICON, archetypeX, archetypeY)
-            textRenderer.draw(matrices, "$ap/$MAX_AP",
+            textRenderer.draw(matrices, "$ap/$maxPoints",
                 archetypeX.toFloat() + 18, archetypeY.toFloat() + 4, 0)
         }
         //render ability tooltip

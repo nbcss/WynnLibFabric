@@ -13,6 +13,8 @@
     "datafixer.ItemInstanceSpawnEggFixAccessor",
     "datafixer.ItemPotionFixAccessor",
     "datafixer.RecipeFixAccessor",
+    "inventory.AbilityTreeEditorMixin",
+    "inventory.InventoryUpdateMixin",
     "render.HotbarBackgroundMixin",
     "render.ItemBackgroundMixin",
     "timer.PlayerListUpdateMixin",

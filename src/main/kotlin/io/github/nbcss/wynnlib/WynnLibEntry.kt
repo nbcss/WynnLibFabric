@@ -4,7 +4,9 @@ import io.github.nbcss.wynnlib.abilities.AbilityIcon
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
+import io.github.nbcss.wynnlib.events.InventoryUpdateEvent
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
+import io.github.nbcss.wynnlib.readers.AbilityTreeReader
 import io.github.nbcss.wynnlib.registry.*
 import io.github.nbcss.wynnlib.utils.keys.KeysKit
 import io.github.nbcss.wynnlib.utils.keys.ToggleCallback
@@ -39,6 +41,8 @@ object WynnLibEntry: ModInitializer {
                 it.setScreen(EquipmentDictScreen(it.currentScreen))
             }
         })
+        //Register events
+        InventoryUpdateEvent.registerListener(AbilityTreeReader)
     }
 
     private fun registerKey(name: String, key: Int): KeyBinding {

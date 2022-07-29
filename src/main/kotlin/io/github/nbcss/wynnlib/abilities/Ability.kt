@@ -36,6 +36,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     private val archetype: Archetype?
     private val height: Int
     private val position: Int
+    private val page: Int
+    private val slot: Int
     private val cost: Int
     private val dependency: String?
     private val blocks: MutableSet<String> = HashSet()
@@ -55,6 +57,14 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         height = json["height"].asInt
         position = json["position"].asInt
         cost = json["cost"].asInt
+        if (json.has("location") && !json["location"].isJsonNull) {
+            val loc = json["location"].asString.split(",")
+            page = loc[0].toInt()
+            slot = loc[1].toInt() * 9 + loc[2].toInt()
+        }else{
+            page = -1
+            slot = -1
+        }
         dependency = if (json.has("dependency") && !json["dependency"].isJsonNull)
             json["dependency"].asString else null
         blocks.addAll(json["blocks"].asJsonArray.map { e -> e.asString })
@@ -101,6 +111,10 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     fun getHeight(): Int = height
 
     fun getPosition(): Int = position
+
+    fun getPage(): Int = page
+
+    fun getSlot(): Int = slot
 
     fun getAbilityPointCost(): Int = cost
 
