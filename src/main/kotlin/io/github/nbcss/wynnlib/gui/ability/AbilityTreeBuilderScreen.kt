@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_UNUSABLE
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText
@@ -45,7 +46,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     private val paths: MutableMap<Ability, List<Ability>> = HashMap()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
     private var container: EntryContainer = EntryContainer()
-    private var ap: Int = maxPoints
+    private var ap: Int = maxPoints - fixedAbilities.sumOf { it.getAbilityPointCost() }
     private var entryIndex = 0
     init {
         tabs.clear()
@@ -74,7 +75,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     private fun fixNodes() {
         //reset current state
         archetypePoints.clear()
-        ap = maxPoints
+        ap = maxPoints - fixedAbilities.sumOf { it.getAbilityPointCost() }
         //validation
         val validated: MutableSet<Ability> = HashSet()
         val queue: Queue<Ability> = LinkedList()
@@ -316,11 +317,19 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 if (isOverNode(node, mouseX, mouseY)){
                     var tooltip = ability.getTooltip(this)
-                    if (container.isAbilityDisabled(ability)) {
+                    val disabled = container.isAbilityDisabled(ability)
+                    val locked = ability in fixedAbilities
+                    if (disabled || locked) {
                         tooltip = tooltip.toMutableList()
                         tooltip.add(LiteralText.EMPTY)
-                        tooltip.add(Symbol.WARNING.asText().append(" ")
-                            .append(TOOLTIP_ABILITY_UNUSABLE.formatted(Formatting.RED)))
+                        if (locked) {
+                            tooltip.add(Symbol.WARNING.asText().append(" ")
+                                .append(TOOLTIP_ABILITY_LOCKED.formatted(Formatting.RED)))
+                        }
+                        if(disabled) {
+                            tooltip.add(Symbol.WARNING.asText().append(" ")
+                                .append(TOOLTIP_ABILITY_UNUSABLE.formatted(Formatting.RED)))
+                        }
                     }
                     drawTooltip(matrices, tooltip, mouseX, mouseY + 20)
                     break

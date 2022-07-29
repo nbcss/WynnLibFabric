@@ -52,6 +52,7 @@ object Translations {
     val TOOLTIP_ABILITY_MAGE_TIMELOCK_TIP: Translatable = from("wynnlib.tooltip.ability.mage_timelock_absorb")
     val TOOLTIP_ABILITY_ASSASSIN_BLOOM_TIP: Translatable = from("wynnlib.tooltip.ability.assassin_bloom")
     val TOOLTIP_ABILITY_UNUSABLE: Translatable = from("wynnlib.tooltip.ability.unusable_warning")
+    val TOOLTIP_ABILITY_LOCKED: Translatable = from("wynnlib.tooltip.ability.deactivate_disabled")
     val TOOLTIP_ABILITY_REPLACING: Translatable = from("wynnlib.tooltip.ability.replacing")
     val TOOLTIP_ABILITY_MAX: Translatable = from("wynnlib.tooltip.ability.maximum")
     val TOOLTIP_ABILITY_TOTAL_DAMAGE: Translatable = from("wynnlib.tooltip.ability.total_damage")
