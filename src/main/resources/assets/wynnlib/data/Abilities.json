@@ -341,7 +341,7 @@
     {
       "id": "WARRIOR_EARTH_MASTERY",
       "name": "Earth Mastery",
-      "location": "3,1,0",
+      "location": "2,1,0",
       "class": "WARRIOR",
       "height": 10,
       "position": -4,
@@ -370,7 +370,7 @@
     {
       "id": "WARRIOR_THUNDER_MASTERY",
       "name": "Thunder Mastery",
-      "location": "3,1,2",
+      "location": "2,1,2",
       "class": "WARRIOR",
       "height": 10,
       "position": -2,
@@ -401,7 +401,7 @@
     {
       "id": "WARRIOR_AIR_MASTERY",
       "name": "Air Mastery",
-      "location": "3,1,6",
+      "location": "2,1,6",
       "class": "WARRIOR",
       "height": 10,
       "position": 2,
@@ -432,7 +432,7 @@
     {
       "id": "WARRIOR_FIRE_MASTERY",
       "name": "Fire Mastery",
-      "location": "3,1,8",
+      "location": "2,1,8",
       "class": "WARRIOR",
       "height": 10,
       "position": 4,
@@ -461,7 +461,7 @@
     {
       "id": "WARRIOR_WATER_MASTERY",
       "name": "Water Mastery",
-      "location": "3,2,4",
+      "location": "2,2,4",
       "class": "WARRIOR",
       "height": 11,
       "position": 0,
@@ -492,7 +492,7 @@
     {
       "id": "QUADRUPLE_BASH",
       "name": "Quadruple Bash",
-      "location": "3,3,0",
+      "location": "2,3,0",
       "class": "WARRIOR",
       "height": 12,
       "position": -4,
@@ -522,7 +522,7 @@
     {
       "id": "FIREWORKS",
       "name": "Fireworks",
-      "location": "3,3,2",
+      "location": "2,3,2",
       "class": "WARRIOR",
       "height": 12,
       "position": -2,
@@ -550,7 +550,7 @@
     {
       "id": "FLYBY_JAB",
       "name": "Flyby Jab",
-      "location": "3,3,6",
+      "location": "2,3,6",
       "class": "WARRIOR",
       "height": 12,
       "position": 2,
@@ -584,7 +584,7 @@
     {
       "id": "FLAMING_UPPERCUT",
       "name": "Flaming Uppercut",
-      "location": "3,3,8",
+      "location": "2,3,8",
       "class": "WARRIOR",
       "height": 12,
       "position": 4,
@@ -615,7 +615,7 @@
     {
       "id": "HALF_MOON_SWIPE",
       "name": "Half-Moon Swipe",
-      "location": null,
+      "location": "2,4,4",
       "class": "WARRIOR",
       "height": 13,
       "position": 0,
@@ -647,7 +647,7 @@
     {
       "id": "IRON_LUNGS",
       "name": "Iron Lungs",
-      "location": null,
+      "location": "2,4,7",
       "class": "WARRIOR",
       "height": 13,
       "position": 3,
@@ -675,7 +675,7 @@
     {
       "id": "GENERALIST",
       "name": "Generalist",
-      "location": null,
+      "location": "3,1,2",
       "class": "WARRIOR",
       "height": 15,
       "position": -2,
@@ -700,7 +700,7 @@
     {
       "id": "COUNTER",
       "name": "Counter",
-      "location": null,
+      "location": "3,1,4",
       "class": "WARRIOR",
       "height": 15,
       "position": 0,
@@ -728,7 +728,7 @@
     {
       "id": "MANTLE_OF_THE_BOVEMISTS",
       "name": "Mantle of the Bovemists",
-      "location": null,
+      "location": "3,1,7",
       "class": "WARRIOR",
       "height": 15,
       "position": 3,
@@ -759,7 +759,7 @@
     {
       "id": "BAKALS_GRASP",
       "name": "Bak'al's Grasp",
-      "location": null,
+      "location": "3,2,1",
       "class": "WARRIOR",
       "height": 16,
       "position": -3,
@@ -789,7 +789,7 @@
     {
       "id": "SPEAR_PROFICIENCY_2",
       "name": "Spear Proficiency II",
-      "location": null,
+      "location": "3,3,0",
       "class": "WARRIOR",
       "height": 17,
       "position": -4,
@@ -815,7 +815,7 @@
     {
       "id": "CHEAPER_UPPERCUT_1",
       "name": "Cheaper Uppercut",
-      "location": null,
+      "location": "3,3,3",
       "class": "WARRIOR",
       "height": 17,
       "position": -1,
@@ -842,7 +842,7 @@
     {
       "id": "AERODYNAMICS",
       "name": "Aerodynamics",
-      "location": null,
+      "location": "3,3,5",
       "class": "WARRIOR",
       "height": 17,
       "position": 1,
@@ -866,7 +866,7 @@
     {
       "id": "PROVOKE",
       "name": "Provoke",
-      "location": null,
+      "location": "3,3,7",
       "class": "WARRIOR",
       "height": 17,
       "position": 3,
@@ -892,7 +892,7 @@
     {
       "id": "PRECISE_STRIKES",
       "name": "Precise Strikes",
-      "location": null,
+      "location": "3,4,2",
       "class": "WARRIOR",
       "height": 18,
       "position": -2,
@@ -914,7 +914,7 @@
     {
       "id": "AIR_SHOUT",
       "name": "Air Shout",
-      "location": null,
+      "location": "3,4,6",
       "class": "WARRIOR",
       "height": 18,
       "position": 2,
@@ -946,7 +946,7 @@
     {
       "id": "ENRAGED_BLOW",
       "name": "Enraged Blow",
-      "location": null,
+      "location": "4,1,0",
       "class": "WARRIOR",
       "height": 19,
       "position": -4,
@@ -969,7 +969,7 @@
     {
       "id": "FLYING_KICK",
       "name": "Flying Kick",
-      "location": null,
+      "location": "4,1,3",
       "class": "WARRIOR",
       "height": 19,
       "position": -1,
@@ -1003,7 +1003,7 @@
     {
       "id": "STRONGER_MANTLE",
       "name": "Stronger Mantle",
-      "location": null,
+      "location": "4,1,6",
       "class": "WARRIOR",
       "height": 19,
       "position": 2,
@@ -1028,7 +1028,7 @@
     {
       "id": "MANACHISM",
       "name": "Manachism",
-      "location": null,
+      "location": "4,1,8",
       "class": "WARRIOR",
       "height": 19,
       "position": 4,
@@ -1052,7 +1052,7 @@
     {
       "id": "BOILING_BLOOD",
       "name": "Boiling Blood",
-      "location": null,
+      "location": "4,3,0",
       "class": "WARRIOR",
       "height": 21,
       "position": -4,
@@ -1089,7 +1089,7 @@
     {
       "id": "RAGNAROKKR",
       "name": "Ragnarokkr",
-      "location": null,
+      "location": "4,3,2",
       "class": "WARRIOR",
       "height": 21,
       "position": -2,
@@ -1120,7 +1120,7 @@
     {
       "id": "AMBIDEXTROUS",
       "name": "Ambidextrous",
-      "location": null,
+      "location": "4,3,4",
       "class": "WARRIOR",
       "height": 21,
       "position": 0,
@@ -1145,7 +1145,7 @@
     {
       "id": "BURNING_HEART",
       "name": "Burning Heart",
-      "location": null,
+      "location": "4,3,6",
       "class": "WARRIOR",
       "height": 21,
       "position": 2,
@@ -1165,7 +1165,7 @@
     {
       "id": "STRONGER_BASH",
       "name": "Stronger Bash",
-      "location": null,
+      "location": "4,3,8",
       "class": "WARRIOR",
       "height": 21,
       "position": 4,
@@ -1192,7 +1192,7 @@
     {
       "id": "INTOXICATING_BLOOD",
       "name": "Intoxicating Blood",
-      "location": null,
+      "location": "4,4,1",
       "class": "WARRIOR",
       "height": 22,
       "position": -3,
@@ -1218,7 +1218,7 @@
     {
       "id": "COLLIDE",
       "name": "Collide",
-      "location": null,
+      "location": "4,4,5",
       "class": "WARRIOR",
       "height": 22,
       "position": 1,
@@ -1254,7 +1254,7 @@
     {
       "id": "REJUVENATING_SKIN",
       "name": "Rejuvenating Skin",
-      "location": null,
+      "location": "4,4,7",
       "class": "WARRIOR",
       "height": 22,
       "position": 3,
@@ -1276,7 +1276,7 @@
     {
       "id": "COMET",
       "name": "Comet",
-      "location": null,
+      "location": "4,5,2",
       "class": "WARRIOR",
       "height": 23,
       "position": -2,
@@ -1303,7 +1303,7 @@
     {
       "id": "UNCONTAINABLE_CORRUPTION",
       "name": "Uncontainable Corruption",
-      "location": null,
+      "location": "5,1,0",
       "class": "WARRIOR",
       "height": 24,
       "position": -4,
@@ -1328,7 +1328,7 @@
     {
       "id": "RADIANT_DEVOTEE",
       "name": "Radiant Devotee",
-      "location": null,
+      "location": "5,1,2",
       "class": "WARRIOR",
       "height": 24,
       "position": -2,
@@ -1350,7 +1350,7 @@
     {
       "id": "WHIRLWIND_STRIKE",
       "name": "Whirlwind Strike",
-      "location": null,
+      "location": "5,1,4",
       "class": "WARRIOR",
       "height": 24,
       "position": 0,
@@ -1383,7 +1383,7 @@
     {
       "id": "MYTHRIL_SKIN",
       "name": "Mythril Skin",
-      "location": null,
+      "location": "5,1,7",
       "class": "WARRIOR",
       "height": 24,
       "position": 3,
@@ -1406,7 +1406,7 @@
     {
       "id": "ARMOUR_BREAKER",
       "name": "Armour Breaker",
-      "location": null,
+      "location": "5,2,1",
       "class": "WARRIOR",
       "height": 25,
       "position": -3,
@@ -1439,7 +1439,7 @@
     {
       "id": "SHIELD_STRIKE",
       "name": "Shield Strike",
-      "location": null,
+      "location": "5,2,6",
       "class": "WARRIOR",
       "height": 25,
       "position": 2,
@@ -1474,7 +1474,7 @@
     {
       "id": "SPARKLING_HOPE",
       "name": "Sparkling Hope",
-      "location": null,
+      "location": "5,2,8",
       "class": "WARRIOR",
       "height": 25,
       "position": 4,
@@ -1505,7 +1505,7 @@
     {
       "id": "MASSIVE_BASH",
       "name": "Massive Bash",
-      "location": null,
+      "location": "5,3,0",
       "class": "WARRIOR",
       "height": 26,
       "position": -4,
@@ -1531,7 +1531,7 @@
     {
       "id": "TEMPEST",
       "name": "Tempest",
-      "location": null,
+      "location": "5,3,2",
       "class": "WARRIOR",
       "height": 26,
       "position": -2,
@@ -1568,7 +1568,7 @@
     {
       "id": "SPIRIT_OF_THE_RABBIT",
       "name": "Spirit of the Rabbit",
-      "location": null,
+      "location": "5,3,4",
       "class": "WARRIOR",
       "height": 26,
       "position": 0,
@@ -1599,7 +1599,7 @@
     {
       "id": "MASSACRE",
       "name": "Massacre",
-      "location": null,
+      "location": "5,4,1",
       "class": "WARRIOR",
       "height": 27,
       "position": -3,
@@ -1625,7 +1625,7 @@
     {
       "id": "AXE_KICK",
       "name": "Axe Kick",
-      "location": null,
+      "location": "5,4,3",
       "class": "WARRIOR",
       "height": 27,
       "position": -1,
@@ -1654,7 +1654,7 @@
     {
       "id": "RADIANCE",
       "name": "Radiance",
-      "location": null,
+      "location": "5,4,5",
       "class": "WARRIOR",
       "height": 27,
       "position": 1,
@@ -1690,7 +1690,7 @@
     {
       "id": "CHEAPER_BASH_2",
       "name": "Cheaper Bash",
-      "location": null,
+      "location": "5,4,7",
       "class": "WARRIOR",
       "height": 27,
       "position": 3,
@@ -1717,7 +1717,7 @@
     {
       "id": "CHEAPER_WAR_SCREAM",
       "name": "Cheaper War Scream",
-      "location": null,
+      "location": "6,1,0",
       "class": "WARRIOR",
       "height": 28,
       "position": -4,
@@ -1742,7 +1742,7 @@
     {
       "id": "DISCOMBOBULATE",
       "name": "Discombobulate",
-      "location": null,
+      "location": "6,1,2",
       "class": "WARRIOR",
       "height": 28,
       "position": -2,
@@ -1767,7 +1767,7 @@
     {
       "id": "CYCLONE",
       "name": "Cyclone",
-      "location": null,
+      "location": "6,1,4",
       "class": "WARRIOR",
       "height": 28,
       "position": 0,
@@ -1803,7 +1803,7 @@
     {
       "id": "THUNDERCLAP",
       "name": "Thunderclap",
-      "location": null,
+      "location": "6,2,5",
       "class": "WARRIOR",
       "height": 29,
       "position": 1,
@@ -1834,7 +1834,7 @@
     {
       "id": "SECOND_CHANCE",
       "name": "Second Chance",
-      "location": null,
+      "location": "6,2,7",
       "class": "WARRIOR",
       "height": 29,
       "position": 3,
@@ -1861,7 +1861,7 @@
     {
       "id": "BLOOD_PACT",
       "name": "Blood Pact",
-      "location": null,
+      "location": "6,3,0",
       "class": "WARRIOR",
       "height": 30,
       "position": -4,
@@ -1885,7 +1885,7 @@
     {
       "id": "HAEMORRHAGE",
       "name": "Haemorrhage",
-      "location": null,
+      "location": "6,4,2",
       "class": "WARRIOR",
       "height": 31,
       "position": -2,
@@ -1908,7 +1908,7 @@
     {
       "id": "BRINK_OF_MADNESS",
       "name": "Brink of Madness",
-      "location": null,
+      "location": "6,4,4",
       "class": "WARRIOR",
       "height": 31,
       "position": 0,
@@ -1932,7 +1932,7 @@
     {
       "id": "CHEAPER_UPPERCUT_2",
       "name": "Cheaper Uppercut",
-      "location": null,
+      "location": "6,4,6",
       "class": "WARRIOR",
       "height": 31,
       "position": 2,
@@ -1958,7 +1958,7 @@
     {
       "id": "MARTYR",
       "name": "Martyr",
-      "location": null,
+      "location": "6,4,8",
       "class": "WARRIOR",
       "height": 31,
       "position": 4,
@@ -6175,7 +6175,7 @@
     {
       "id": "SPIN_ATTACK",
       "name": "Spin Attack",
-      "location": null,
+      "location": "0,0,4",
       "class": "ASSASSIN",
       "height": 0,
       "position": 0,
@@ -6206,7 +6206,7 @@
     {
       "id": "DAGGER_PROFICIENCY_1",
       "name": "Dagger Proficiency I",
-      "location": null,
+      "location": "0,2,4",
       "class": "ASSASSIN",
       "height": 2,
       "position": 0,
@@ -6233,7 +6233,7 @@
     {
       "id": "CHEAPER_SPIN_ATTACK_1",
       "name": "Cheaper Spin Attack",
-      "location": null,
+      "location": "0,2,2",
       "class": "ASSASSIN",
       "height": 2,
       "position": -2,
@@ -6258,7 +6258,7 @@
     {
       "id": "DOUBLE_SPIN",
       "name": "Double Spin",
-      "location": null,
+      "location": "0,4,4",
       "class": "ASSASSIN",
       "height": 4,
       "position": 0,
@@ -6289,7 +6289,7 @@
     {
       "id": "DASH",
       "name": "Dash",
-      "location": null,
+      "location": "1,1,4",
       "class": "ASSASSIN",
       "height": 6,
       "position": 0,
@@ -6314,7 +6314,7 @@
     {
       "id": "POISONED_BLADE",
       "name": "Poisoned Blade",
-      "location": null,
+      "location": "1,1,2",
       "class": "ASSASSIN",
       "height": 6,
       "position": -2,
@@ -6340,7 +6340,7 @@
     {
       "id": "DOUBLE_SLICE",
       "name": "Double Slice",
-      "location": null,
+      "location": "1,1,6",
       "class": "ASSASSIN",
       "height": 6,
       "position": 2,
@@ -6367,7 +6367,7 @@
     {
       "id": "SMOKE_BOMB",
       "name": "Smoke Bomb",
-      "location": null,
+      "location": "1,3,2",
       "class": "ASSASSIN",
       "height": 8,
       "position": -2,
@@ -6405,7 +6405,7 @@
     {
       "id": "CHEAPER_DASH_1",
       "name": "Cheaper Dash",
-      "location": null,
+      "location": "1,3,4",
       "class": "ASSASSIN",
       "height": 8,
       "position": 0,
@@ -6431,7 +6431,7 @@
     {
       "id": "MULTIHIT",
       "name": "Multihit",
-      "location": null,
+      "location": "1,3,6",
       "class": "ASSASSIN",
       "height": 8,
       "position": 2,
@@ -6464,7 +6464,7 @@
     {
       "id": "ASSASSIN_EARTH_MASTERY",
       "name": "Earth Mastery",
-      "location": null,
+      "location": "2,1,0",
       "class": "ASSASSIN",
       "height": 10,
       "position": -4,
@@ -6493,7 +6493,7 @@
     {
       "id": "ASSASSIN_THUNDER_MASTERY",
       "name": "Thunder Mastery",
-      "location": null,
+      "location": "2,1,2",
       "class": "ASSASSIN",
       "height": 10,
       "position": -2,
@@ -6522,7 +6522,7 @@
     {
       "id": "ASSASSIN_WATER_MASTERY",
       "name": "Water Mastery",
-      "location": null,
+      "location": "2,1,6",
       "class": "ASSASSIN",
       "height": 10,
       "position": 2,
@@ -6552,7 +6552,7 @@
     {
       "id": "ASSASSIN_AIR_MASTERY",
       "name": "Air Mastery",
-      "location": null,
+      "location": "2,1,8",
       "class": "ASSASSIN",
       "height": 10,
       "position": 4,
@@ -6582,7 +6582,7 @@
     {
       "id": "ASSASSIN_FIRE_MASTERY",
       "name": "Fire Mastery",
-      "location": null,
+      "location": "2,2,4",
       "class": "ASSASSIN",
       "height": 11,
       "position": 0,
@@ -6612,7 +6612,7 @@
     {
       "id": "BACKSTAB",
       "name": "Backstab",
-      "location": null,
+      "location": "2,3,1",
       "class": "ASSASSIN",
       "height": 12,
       "position": -3,
@@ -6651,7 +6651,7 @@
     {
       "id": "FATALITY",
       "name": "Fatality",
-      "location": null,
+      "location": "2,3,7",
       "class": "ASSASSIN",
       "height": 12,
       "position": 3,
@@ -6686,7 +6686,7 @@
     {
       "id": "VANISH",
       "name": "Vanish",
-      "location": null,
+      "location": "2,4,2",
       "class": "ASSASSIN",
       "height": 13,
       "position": -2,
@@ -6718,7 +6718,7 @@
     {
       "id": "STICKY_BOMB",
       "name": "Sticky Bomb",
-      "location": null,
+      "location": "2,4,4",
       "class": "ASSASSIN",
       "height": 13,
       "position": 0,
@@ -6745,7 +6745,7 @@
     {
       "id": "RIGHTING_REFLEX",
       "name": "Righting Reflex",
-      "location": null,
+      "location": "2,4,6",
       "class": "ASSASSIN",
       "height": 13,
       "position": 2,
@@ -6767,7 +6767,7 @@
     {
       "id": "SURPRISE_STRIKE",
       "name": "Surprise Strike",
-      "location": null,
+      "location": "3,1,2",
       "class": "ASSASSIN",
       "height": 15,
       "position": -2,
@@ -6795,7 +6795,7 @@
     {
       "id": "MIRROR_IMAGE",
       "name": "Mirror Image",
-      "location": null,
+      "location": "3,1,4",
       "class": "ASSASSIN",
       "height": 15,
       "position": 0,
@@ -6827,7 +6827,7 @@
     {
       "id": "LACERATE",
       "name": "Lacerate",
-      "location": null,
+      "location": "3,1,7",
       "class": "ASSASSIN",
       "height": 15,
       "position": 3,
@@ -6862,7 +6862,7 @@
     {
       "id": "SILENT_KILLER",
       "name": "Silent Killer",
-      "location": null,
+      "location": "3,2,1",
       "class": "ASSASSIN",
       "height": 16,
       "position": -3,
@@ -6885,7 +6885,7 @@
     {
       "id": "SHENANIGANS",
       "name": "Shenanigans",
-      "location": null,
+      "location": "3,2,5",
       "class": "ASSASSIN",
       "height": 16,
       "position": 1,
@@ -6904,7 +6904,7 @@
     {
       "id": "WALL_OF_SMOKE",
       "name": "Wall of Smoke",
-      "location": null,
+      "location": "3,2,8",
       "class": "ASSASSIN",
       "height": 16,
       "position": 4,
@@ -6931,7 +6931,7 @@
     {
       "id": "BETTER_SMOKE_BOMB",
       "name": "Better Smoke Bomb",
-      "location": null,
+      "location": "3,4,0",
       "class": "ASSASSIN",
       "height": 18,
       "position": -4,
@@ -6959,7 +6959,7 @@
     {
       "id": "SHADOW_TRAVEL",
       "name": "Shadow Travel",
-      "location": null,
+      "location": "3,4,2",
       "class": "ASSASSIN",
       "height": 18,
       "position": -2,
@@ -6983,7 +6983,7 @@
     {
       "id": "CHEAPER_MULTIHIT_1",
       "name": "Cheaper Multihit",
-      "location": null,
+      "location": "3,4,5",
       "class": "ASSASSIN",
       "height": 18,
       "position": 1,
@@ -7010,7 +7010,7 @@
     {
       "id": "DAGGER_PROFICIENCY_2",
       "name": "Dagger Proficiency II",
-      "location": null,
+      "location": "3,4,8",
       "class": "ASSASSIN",
       "height": 18,
       "position": 4,
@@ -7035,7 +7035,7 @@
     {
       "id": "LAST_LAUGH",
       "name": "Last Laugh",
-      "location": null,
+      "location": "3,5,4",
       "class": "ASSASSIN",
       "height": 19,
       "position": 0,
@@ -7061,7 +7061,7 @@
     {
       "id": "CHEAPER_SMOKE_BOMB_1",
       "name": "Cheaper Smoke Bomb",
-      "location": null,
+      "location": "4,1,0",
       "class": "ASSASSIN",
       "height": 20,
       "position": -4,
@@ -7087,7 +7087,7 @@
     {
       "id": "BLAZING_POWDER",
       "name": "Blazing Powder",
-      "location": null,
+      "location": "4,1,3",
       "class": "ASSASSIN",
       "height": 20,
       "position": -1,
@@ -7123,7 +7123,7 @@
     {
       "id": "WEIGHTLESS",
       "name": "Weightless",
-      "location": null,
+      "location": "4,1,7",
       "class": "ASSASSIN",
       "height": 20,
       "position": 3,
@@ -7148,7 +7148,7 @@
     {
       "id": "BLACK_HOLE",
       "name": "Black Hole",
-      "location": null,
+      "location": "4,2,1",
       "class": "ASSASSIN",
       "height": 21,
       "position": -3,
@@ -7173,7 +7173,7 @@
     {
       "id": "SANDBAGGING",
       "name": "Sandbagging",
-      "location": null,
+      "location": "4,2,4",
       "class": "ASSASSIN",
       "height": 21,
       "position": 0,
@@ -7199,7 +7199,7 @@
     {
       "id": "HOP",
       "name": "Hop",
-      "location": null,
+      "location": "4,2,6",
       "class": "ASSASSIN",
       "height": 21,
       "position": 2,
@@ -7224,7 +7224,7 @@
     {
       "id": "DANCING_BLADE",
       "name": "Dancing Blade",
-      "location": null,
+      "location": "4,2,8",
       "class": "ASSASSIN",
       "height": 21,
       "position": 4,
@@ -7254,7 +7254,7 @@
     {
       "id": "VIOLENT_VORTEX",
       "name": "Violent Vortex",
-      "location": null,
+      "location": "4,3,0",
       "class": "ASSASSIN",
       "height": 22,
       "position": -4,
@@ -7281,7 +7281,7 @@
     {
       "id": "DELIRIOUS_GAS",
       "name": "Delirious Gas",
-      "location": null,
+      "location": "4,3,3",
       "class": "ASSASSIN",
       "height": 22,
       "position": -1,
@@ -7310,7 +7310,7 @@
     {
       "id": "MARKED",
       "name": "Marked",
-      "location": null,
+      "location": "4,4,1",
       "class": "ASSASSIN",
       "height": 23,
       "position": -3,
@@ -7340,7 +7340,7 @@
     {
       "id": "ECHO",
       "name": "Echo",
-      "location": null,
+      "location": "4,4,4",
       "class": "ASSASSIN",
       "height": 23,
       "position": 0,
@@ -7366,7 +7366,7 @@
     {
       "id": "SHURIKENS",
       "name": "Shurikens",
-      "location": null,
+      "location": "4,4,6",
       "class": "ASSASSIN",
       "height": 23,
       "position": 2,
@@ -7399,7 +7399,7 @@
     {
       "id": "FAR_REACH",
       "name": "Far Reach",
-      "location": null,
+      "location": "4,4,8",
       "class": "ASSASSIN",
       "height": 23,
       "position": 4,
@@ -7425,7 +7425,7 @@
     {
       "id": "STRONGER_MULTIHIT",
       "name": "Stronger Multihit",
-      "location": null,
+      "location": "4,5,5",
       "class": "ASSASSIN",
       "height": 24,
       "position": 1,
@@ -7455,7 +7455,7 @@
     {
       "id": "PSITHURISM",
       "name": "Psithurism",
-      "location": null,
+      "location": "4,5,7",
       "class": "ASSASSIN",
       "height": 24,
       "position": 3,
@@ -7482,7 +7482,7 @@
     {
       "id": "AMBUSH",
       "name": "Ambush",
-      "location": null,
+      "location": "5,1,1",
       "class": "ASSASSIN",
       "height": 25,
       "position": -3,
@@ -7507,7 +7507,7 @@
     {
       "id": "CHEAPER_DASH_2",
       "name": "Cheaper Dash",
-      "location": null,
+      "location": "5,1,4",
       "class": "ASSASSIN",
       "height": 25,
       "position": 0,
@@ -7532,7 +7532,7 @@
     {
       "id": "PARRY",
       "name": "Parry",
-      "location": null,
+      "location": "5,1,6",
       "class": "ASSASSIN",
       "height": 25,
       "position": 2,
@@ -7559,7 +7559,7 @@
     {
       "id": "CHEAPER_SPIN_ATTACK_2",
       "name": "Cheaper Spin Attack",
-      "location": null,
+      "location": "5,1,8",
       "class": "ASSASSIN",
       "height": 25,
       "position": 4,
@@ -7584,7 +7584,7 @@
     {
       "id": "DEATH_MAGNET",
       "name": "Death Magnet",
-      "location": null,
+      "location": "5,3,0",
       "class": "ASSASSIN",
       "height": 27,
       "position": -4,
@@ -7608,7 +7608,7 @@
     {
       "id": "CHEAPER_MULTIHIT_2",
       "name": "Cheaper Multihit",
-      "location": null,
+      "location": "5,3,2",
       "class": "ASSASSIN",
       "height": 27,
       "position": -2,
@@ -7634,7 +7634,7 @@
     {
       "id": "HOODWINK",
       "name": "Hoodwink",
-      "location": null,
+      "location": "5,3,4",
       "class": "ASSASSIN",
       "height": 27,
       "position": 0,
@@ -7657,7 +7657,7 @@
     {
       "id": "CHOKE_BOMB",
       "name": "Choke Bomb",
-      "location": null,
+      "location": "5,3,6",
       "class": "ASSASSIN",
       "height": 27,
       "position": 2,
@@ -7691,7 +7691,7 @@
     {
       "id": "WALL_JUMP",
       "name": "Wall Jump",
-      "location": null,
+      "location": "5,3,8",
       "class": "ASSASSIN",
       "height": 27,
       "position": 4,
@@ -7718,7 +7718,7 @@
     {
       "id": "FATAL_SPIN",
       "name": "Fatal Spin",
-      "location": null,
+      "location": "5,4,1",
       "class": "ASSASSIN",
       "height": 28,
       "position": -3,
@@ -7744,7 +7744,7 @@
     {
       "id": "STRONGER_LACERATE",
       "name": "Stronger Lacerate",
-      "location": null,
+      "location": "5,4,7",
       "class": "ASSASSIN",
       "height": 28,
       "position": 3,
@@ -7772,7 +7772,7 @@
     {
       "id": "STRONGER_VORTEX",
       "name": "Stronger Vortex",
-      "location": null,
+      "location": "5,5,0",
       "class": "ASSASSIN",
       "height": 29,
       "position": -4,
@@ -7797,7 +7797,7 @@
     {
       "id": "HARVESTER",
       "name": "Harvester",
-      "location": null,
+      "location": "6,1,1",
       "class": "ASSASSIN",
       "height": 30,
       "position": -3,
@@ -7824,7 +7824,7 @@
     {
       "id": "CHEAPER_SMOKE_BOMB_2",
       "name": "Cheaper Smoke Bomb",
-      "location": null,
+      "location": "6,1,4",
       "class": "ASSASSIN",
       "height": 30,
       "position": 0,
@@ -7851,7 +7851,7 @@
     {
       "id": "BLADE_FURY",
       "name": "Blade Fury",
-      "location": null,
+      "location": "6,1,7",
       "class": "ASSASSIN",
       "height": 30,
       "position": 3,
@@ -7876,7 +7876,7 @@
     {
       "id": "MORE_MARKS",
       "name": "More Marks",
-      "location": null,
+      "location": "6,2,2",
       "class": "ASSASSIN",
       "height": 31,
       "position": -2,
@@ -7900,8 +7900,8 @@
     },
     {
       "id": "STRONGER_CLONE",
-      "name": "Stronger Clone",
-      "location": null,
+      "name": "Stronger Clones",
+      "location": "6,2,5",
       "class": "ASSASSIN",
       "height": 31,
       "position": 1,
@@ -7927,7 +7927,7 @@
     {
       "id": "RICOCHETS",
       "name": "Ricochets",
-      "location": null,
+      "location": "6,2,8",
       "class": "ASSASSIN",
       "height": 31,
       "position": 4,
@@ -7956,7 +7956,7 @@
     {
       "id": "SATSUJIN",
       "name": "Satsujin",
-      "location": null,
+      "location": "6,3,1",
       "class": "ASSASSIN",
       "height": 32,
       "position": -3,
@@ -7979,7 +7979,7 @@
     {
       "id": "FORBIDDEN_ART",
       "name": "Forbidden Art",
-      "location": null,
+      "location": "6,3,4",
       "class": "ASSASSIN",
       "height": 32,
       "position": 0,
@@ -8006,7 +8006,7 @@
     {
       "id": "JASMINE_BLOOM",
       "name": "Jasmine Bloom",
-      "location": null,
+      "location": "6,3,7",
       "class": "ASSASSIN",
       "height": 32,
       "position": 3,
@@ -8042,7 +8042,7 @@
     {
       "id": "DIVERSION",
       "name": "Diversion",
-      "location": null,
+      "location": "6,4,5",
       "class": "ASSASSIN",
       "height": 33,
       "position": 1,
@@ -8072,7 +8072,7 @@
     {
       "id": "BETTER_RICOCHETS",
       "name": "Better Ricochets",
-      "location": null,
+      "location": "6,4,8",
       "class": "ASSASSIN",
       "height": 33,
       "position": 4,
@@ -8095,7 +8095,7 @@
     {
       "id": "DEVOUR",
       "name": "Devour",
-      "location": null,
+      "location": "6,5,0",
       "class": "ASSASSIN",
       "height": 34,
       "position": -4,
@@ -8118,7 +8118,7 @@
     {
       "id": "BETTER_MARKED",
       "name": "Better Marked",
-      "location": null,
+      "location": "6,5,2",
       "class": "ASSASSIN",
       "height": 34,
       "position": -2,

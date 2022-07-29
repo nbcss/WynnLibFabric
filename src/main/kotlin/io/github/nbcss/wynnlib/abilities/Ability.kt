@@ -62,8 +62,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             page = loc[0].toInt()
             slot = loc[1].toInt() * 9 + loc[2].toInt()
         }else{
-            page = -1
-            slot = -1
+            page = 0
+            slot = 0
         }
         dependency = if (json.has("dependency") && !json["dependency"].isJsonNull)
             json["dependency"].asString else null

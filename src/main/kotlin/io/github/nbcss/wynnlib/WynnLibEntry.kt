@@ -6,10 +6,8 @@ import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.events.InventoryUpdateEvent
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
-import io.github.nbcss.wynnlib.readers.AbilityTreeReader
+import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
 import io.github.nbcss.wynnlib.registry.*
-import io.github.nbcss.wynnlib.utils.keys.KeysKit
-import io.github.nbcss.wynnlib.utils.keys.ToggleCallback
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -42,7 +40,7 @@ object WynnLibEntry: ModInitializer {
             }
         })
         //Register events
-        InventoryUpdateEvent.registerListener(AbilityTreeReader)
+        InventoryUpdateEvent.registerListener(AbilityTreeHandler)
     }
 
     private fun registerKey(name: String, key: Int): KeyBinding {

@@ -31,10 +31,10 @@ import kotlin.collections.HashSet
 import kotlin.math.max
 import kotlin.math.min
 
-class AbilityTreeBuilderScreen(parent: Screen?,
-                               private val tree: AbilityTree,
-                               private val maxPoints: Int = MAX_AP,
-                               private val fixedAbilities: Set<Ability> =
+open class AbilityTreeBuilderScreen(parent: Screen?,
+                                    private val tree: AbilityTree,
+                                    private val maxPoints: Int = MAX_AP,
+                                    private val fixedAbilities: Set<Ability> =
                                    tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet()):
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
@@ -43,10 +43,11 @@ class AbilityTreeBuilderScreen(parent: Screen?,
         const val MAX_ENTRY_ITEM = 8
     }
     private val activeNodes: MutableSet<Ability> = HashSet()
+    private val orderList: MutableList<Ability> = mutableListOf()
     private val paths: MutableMap<Ability, List<Ability>> = HashMap()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
     private var container: EntryContainer = EntryContainer()
-    private var ap: Int = maxPoints - fixedAbilities.sumOf { it.getAbilityPointCost() }
+    private var ap: Int = maxPoints
     private var entryIndex = 0
     init {
         tabs.clear()
@@ -56,8 +57,17 @@ class AbilityTreeBuilderScreen(parent: Screen?,
     fun reset() {
         activeNodes.clear()
         activeNodes.addAll(fixedAbilities)
+        ap = maxPoints
+        for (ability in fixedAbilities) {
+            ap -= ability.getAbilityPointCost()
+            ability.getArchetype()?.let {
+                archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
+            }
+        }
         update()
     }
+
+    fun getActivateOrders(): List<Ability> = orderList
 
     private fun canUnlock(ability: Ability, nodes: Collection<Ability>): Boolean {
         if (ap < ability.getAbilityPointCost())
@@ -74,8 +84,10 @@ class AbilityTreeBuilderScreen(parent: Screen?,
 
     private fun fixNodes() {
         //reset current state
+        orderList.clear()
         archetypePoints.clear()
-        ap = maxPoints - fixedAbilities.sumOf { it.getAbilityPointCost() }
+        ap = maxPoints
+        //put fixed abilities first
         //validation
         val validated: MutableSet<Ability> = HashSet()
         val queue: Queue<Ability> = LinkedList()
@@ -95,6 +107,9 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                     ap -= ability.getAbilityPointCost()
                     ability.getArchetype()?.let {
                         archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
+                    }
+                    if (ability !in fixedAbilities) {
+                        orderList.add(ability)
                     }
                     ability.getSuccessors().forEach { queue.add(it) }
                 }else{
@@ -185,6 +200,7 @@ class AbilityTreeBuilderScreen(parent: Screen?,
                                 archetypePoints[arch] = 1 + (archetypePoints[arch] ?: 0)
                             }
                         }
+                        fixNodes()
                         update()
                     }else{
                         playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
