@@ -9,30 +9,30 @@ import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.data.Identification
 
 class IDModifierProperty(ability: Ability,
-                         pairs: List<Pair<Identification, Int>>):
+                         pairs: List<Pair<String, Int>>):
     AbilityProperty(ability), SetupProperty {
     companion object: Type<IDModifierProperty> {
         override fun create(ability: Ability, data: JsonElement): IDModifierProperty {
             val json = data.asJsonObject
-            val values: MutableList<Pair<Identification, Int>> = mutableListOf()
+            val values: MutableList<Pair<String, Int>> = mutableListOf()
             for (entry in json.entrySet()) {
-                Identification.fromName(entry.key)?.let {
-                    val value = entry.value.asInt
-                    if (value != 0)
-                        values.add(it to value)
-                }
+                val value = entry.value.asInt
+                if (value != 0)
+                    values.add(entry.key to value)
             }
             return IDModifierProperty(ability, values)
         }
         override fun getKey(): String = "id_modifier"
     }
-    private val modifiers: Map<Identification, Int> = mapOf(pairs = pairs.toTypedArray())
+    private val modifiers: Map<String, Int> = mapOf(pairs = pairs.toTypedArray())
 
-    fun getModifiers(): Map<Identification, Int> = modifiers
+    fun getModifiers(): Map<Identification, Int> = mapOf(pairs = modifiers.mapNotNull {
+        Identification.fromName(it.key)?.to(it.value)
+    }.toTypedArray())
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         for (entry in modifiers.entries) {
-            container.putPlaceholder("id_modifier.${entry.key.name}", entry.value.toString())
+            container.putPlaceholder("id_modifier.${entry.key}", entry.value.toString())
         }
     }
 

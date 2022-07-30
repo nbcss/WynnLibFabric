@@ -25,7 +25,7 @@ object WynnLibEntry: ModInitializer {
         AbilityIcon.reload()
         //Load data
         AbilityRegistry.load()
-        Identification.load()
+        Identification.load() //id have to load after ability, because spell id need ability name from abilities...
         MajorId.load()
         PowderSpecial.load()
         PowderRegistry.load()
