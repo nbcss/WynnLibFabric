@@ -180,10 +180,7 @@
       "properties": {
         "resistant_bonus": 5,
         "id_convertor": {
-          "source": {
-            "HEALTHREGEN": 1,
-            "HEALTHREGENRAW": 1
-          },
+          "source": 1,
           "target": "HEALTHBONUS",
           "rate": 10,
           "max": 100
@@ -216,10 +213,7 @@
       "properties": {
         "raw_damage_bonus": 5,
         "id_convertor": {
-          "source": {
-            "DAMAGEBONUS": 1,
-            "DAMAGEBONUSRAW": 1
-          },
+          "source": 1,
           "target": "SPEED",
           "rate": 2,
           "max": 20
@@ -1190,9 +1184,7 @@
       ],
       "properties": {
         "id_convertor": {
-          "source": {
-            "HEALTHBONUS": 100
-          },
+          "source": 100,
           "target": "FIREDAMAGEBONUS",
           "rate": 2,
           "max": 100
@@ -3116,7 +3108,7 @@
     {
       "id": "TRAVELER",
       "name": "Traveler",
-      "location": null,
+      "location": "4,1,2",
       "class": "ARCHER",
       "height": 20,
       "position": -2,
@@ -3136,7 +3128,7 @@
     {
       "id": "TWAINS_ARC",
       "name": "Twain's Arc",
-      "location": null,
+      "location": "4,1,4",
       "class": "ARCHER",
       "height": 20,
       "position": 0,
@@ -3167,7 +3159,7 @@
     {
       "id": "BOUNCING_BOMB",
       "name": "Bouncing Bomb",
-      "location": null,
+      "location": "4,1,7",
       "class": "ARCHER",
       "height": 20,
       "position": 3,
@@ -3190,7 +3182,7 @@
     {
       "id": "FIERCE_STOMP",
       "name": "Fierce Stomp",
-      "location": null,
+      "location": "4,2,1",
       "class": "ARCHER",
       "height": 21,
       "position": -3,
@@ -3224,7 +3216,7 @@
     {
       "id": "SCORCHED_EARTH",
       "name": "Scorched Earth",
-      "location": null,
+      "location": "4,2,5",
       "class": "ARCHER",
       "height": 21,
       "position": 1,
@@ -3256,7 +3248,7 @@
     {
       "id": "MORE_TRAPS",
       "name": "More Traps",
-      "location": null,
+      "location": "4,2,8",
       "class": "ARCHER",
       "height": 21,
       "position": 4,
@@ -3280,7 +3272,7 @@
     {
       "id": "LEAP",
       "name": "Leap",
-      "location": null,
+      "location": "4,4,0",
       "class": "ARCHER",
       "height": 23,
       "position": -4,
@@ -3307,7 +3299,7 @@
     {
       "id": "HOMING_SHOTS",
       "name": "Homing Shots",
-      "location": null,
+      "location": "4,4,2",
       "class": "ARCHER",
       "height": 23,
       "position": -2,
@@ -3334,7 +3326,7 @@
     {
       "id": "SHOCKING_BOMB",
       "name": "Shocking Bomb",
-      "location": null,
+      "location": "4,4,4",
       "class": "ARCHER",
       "height": 23,
       "position": 0,
@@ -3363,7 +3355,7 @@
     {
       "id": "BETTER_ARROW_SHIELD",
       "name": "Better Arrow Shield",
-      "location": null,
+      "location": "4,4,6",
       "class": "ARCHER",
       "height": 23,
       "position": 2,
@@ -3396,7 +3388,7 @@
     {
       "id": "MANA_TRAP",
       "name": "Mana Trap",
-      "location": null,
+      "location": "4,4,8",
       "class": "ARCHER",
       "height": 23,
       "position": 4,
@@ -3432,7 +3424,7 @@
     {
       "id": "BETTER_LEAP",
       "name": "Better Leap",
-      "location": null,
+      "location": "4,5,1",
       "class": "ARCHER",
       "height": 24,
       "position": -3,
@@ -3457,7 +3449,7 @@
     {
       "id": "ESCAPE_ARTIST",
       "name": "Escape Artist",
-      "location": null,
+      "location": "5,1,0",
       "class": "ARCHER",
       "height": 25,
       "position": -4,
@@ -3492,7 +3484,7 @@
     {
       "id": "BETTER_GUARDIAN_ANGELS",
       "name": "Better Guardian Angels",
-      "location": null,
+      "location": "5,1,2",
       "class": "ARCHER",
       "height": 25,
       "position": -2,
@@ -3520,7 +3512,7 @@
     {
       "id": "INITIATOR",
       "name": "Initiator",
-      "location": null,
+      "location": "5,1,5",
       "class": "ARCHER",
       "height": 25,
       "position": 1,
@@ -3551,7 +3543,7 @@
     {
       "id": "CHEAPER_ARROW_STORM_2",
       "name": "Cheaper Arrow Storm",
-      "location": null,
+      "location": "5,1,8",
       "class": "ARCHER",
       "height": 25,
       "position": 4,
@@ -3577,7 +3569,7 @@
     {
       "id": "CALL_OF_THE_HOUND",
       "name": "Call of the Hound",
-      "location": null,
+      "location": "5,2,7",
       "class": "ARCHER",
       "height": 26,
       "position": 3,
@@ -3609,7 +3601,7 @@
     {
       "id": "ARROW_HURRICANE",
       "name": "Arrow Hurricane",
-      "location": null,
+      "location": "5,3,0",
       "class": "ARCHER",
       "height": 27,
       "position": -4,
@@ -3639,7 +3631,7 @@
     {
       "id": "PRECISE_SHOT",
       "name": "Precise Shot",
-      "location": null,
+      "location": "5,3,2",
       "class": "ARCHER",
       "height": 27,
       "position": -2,
@@ -3662,7 +3654,7 @@
     {
       "id": "CHEAPER_ARROW_SHIELD_1",
       "name": "Cheaper Arrow Shield",
-      "location": null,
+      "location": "5,3,4",
       "class": "ARCHER",
       "height": 27,
       "position": 0,
@@ -3688,7 +3680,7 @@
     {
       "id": "ROCKET_JUMP",
       "name": "Rocket Jump",
-      "location": null,
+      "location": "5,3,6",
       "class": "ARCHER",
       "height": 27,
       "position": 2,
@@ -3712,7 +3704,7 @@
     {
       "id": "SHRAPNEL_BOMB",
       "name": "Shrapnel Bomb",
-      "location": null,
+      "location": "5,4,1",
       "class": "ARCHER",
       "height": 28,
       "position": -3,
@@ -3747,7 +3739,7 @@
     {
       "id": "DECIMATOR",
       "name": "Decimator",
-      "location": null,
+      "location": "5,4,5",
       "class": "ARCHER",
       "height": 28,
       "position": 1,
@@ -3772,7 +3764,7 @@
     {
       "id": "CHEAPER_ESCAPE_2",
       "name": "Cheaper Escape",
-      "location": null,
+      "location": "5,4,7",
       "class": "ARCHER",
       "height": 28,
       "position": 3,
@@ -3798,7 +3790,7 @@
     {
       "id": "STRONGER_HOOK",
       "name": "Stronger Hook",
-      "location": null,
+      "location": "5,5,8",
       "class": "ARCHER",
       "height": 29,
       "position": 4,
@@ -3825,7 +3817,7 @@
     {
       "id": "GEYSER_STOMP",
       "name": "Geyser Stomp",
-      "location": null,
+      "location": "6,1,1",
       "class": "ARCHER",
       "height": 30,
       "position": -3,
@@ -3855,7 +3847,7 @@
     {
       "id": "CREPUSCULAR_RAY",
       "name": "Crepuscular Ray",
-      "location": null,
+      "location": "6,1,4",
       "class": "ARCHER",
       "height": 30,
       "position": 0,
@@ -3889,7 +3881,7 @@
     {
       "id": "GRAPE_BOMB",
       "name": "Grape Bomb",
-      "location": null,
+      "location": "6,1,7",
       "class": "ARCHER",
       "height": 30,
       "position": 3,
@@ -3925,7 +3917,7 @@
     {
       "id": "ELUSIVE",
       "name": "Elusive",
-      "location": null,
+      "location": "6,2,0",
       "class": "ARCHER",
       "height": 31,
       "position": -4,
@@ -3949,7 +3941,7 @@
     {
       "id": "TANGLED_TRAPS",
       "name": "Tangled Traps",
-      "location": null,
+      "location": "6,2,6",
       "class": "ARCHER",
       "height": 31,
       "position": 2,
@@ -3980,7 +3972,7 @@
     {
       "id": "STRONGER_PATIENT_HUNTER",
       "name": "Stronger Patient Hunter",
-      "location": null,
+      "location": "6,2,8",
       "class": "ARCHER",
       "height": 31,
       "position": 4,
@@ -4003,7 +3995,7 @@
     {
       "id": "SNOW_STORM",
       "name": "Snow Storm",
-      "location": null,
+      "location": "6,3,2",
       "class": "ARCHER",
       "height": 32,
       "position": -2,
@@ -4033,7 +4025,7 @@
     {
       "id": "MORE_FOCUS_2",
       "name": "More Focus",
-      "location": null,
+      "location": "6,3,4",
       "class": "ARCHER",
       "height": 32,
       "position": 0,
@@ -4059,7 +4051,7 @@
     {
       "id": "ALL_SEEING_PANOPTES",
       "name": "All-Seeing Panoptes",
-      "location": null,
+      "location": "6,4,1",
       "class": "ARCHER",
       "height": 33,
       "position": -3,
@@ -4091,7 +4083,7 @@
     {
       "id": "CHEAPER_ARROW_BOMB_2",
       "name": "Cheaper Arrow Bomb",
-      "location": null,
+      "location": "6,4,5",
       "class": "ARCHER",
       "height": 33,
       "position": 1,
@@ -4117,7 +4109,7 @@
     {
       "id": "MINEFIELD",
       "name": "Minefield",
-      "location": null,
+      "location": "6,4,7",
       "class": "ARCHER",
       "height": 33,
       "position": 3,
@@ -4175,7 +4167,7 @@
     {
       "id": "METEOR",
       "name": "Meteor",
-      "location": null,
+      "location": "0,0,4",
       "class": "MAGE",
       "height": 0,
       "position": 0,
@@ -4207,7 +4199,7 @@
     {
       "id": "WAND_PROFICIENCY_1",
       "name": "Wand Proficiency I",
-      "location": null,
+      "location": "0,2,4",
       "class": "MAGE",
       "height": 2,
       "position": 0,
@@ -4232,7 +4224,7 @@
     {
       "id": "CHEAPER_METEOR_1",
       "name": "Cheaper Meteor",
-      "location": null,
+      "location": "0,2,6",
       "class": "MAGE",
       "height": 2,
       "position": 2,
@@ -4257,7 +4249,7 @@
     {
       "id": "SHOOTING_STAR",
       "name": "Shooting Star",
-      "location": null,
+      "location": "0,4,4",
       "class": "MAGE",
       "height": 4,
       "position": 0,
@@ -4281,7 +4273,7 @@
     {
       "id": "WAND_PROFICIENCY_2",
       "name": "Wand Proficiency II",
-      "location": null,
+      "location": "1,1,2",
       "class": "MAGE",
       "height": 6,
       "position": -2,
@@ -4308,7 +4300,7 @@
     {
       "id": "TELEPORT",
       "name": "Teleport",
-      "location": null,
+      "location": "1,1,4",
       "class": "MAGE",
       "height": 6,
       "position": 0,
@@ -4334,7 +4326,7 @@
     {
       "id": "WISDOM",
       "name": "Wisdom",
-      "location": null,
+      "location": "1,1,6",
       "class": "MAGE",
       "height": 6,
       "position": 2,
@@ -4355,7 +4347,7 @@
     {
       "id": "HEAL",
       "name": "Heal",
-      "location": null,
+      "location": "1,3,2",
       "class": "MAGE",
       "height": 8,
       "position": -2,
@@ -4383,7 +4375,7 @@
     {
       "id": "CHEAPER_TELEPORT_1",
       "name": "Cheaper Teleport",
-      "location": null,
+      "location": "1,3,4",
       "class": "MAGE",
       "height": 8,
       "position": 0,
@@ -4409,7 +4401,7 @@
     {
       "id": "ICE_SNAKE",
       "name": "Ice Snake",
-      "location": null,
+      "location": "1,3,6",
       "class": "MAGE",
       "height": 8,
       "position": 2,
@@ -4445,7 +4437,7 @@
     {
       "id": "MAGE_AIR_MASTERY",
       "name": "Air Mastery",
-      "location": null,
+      "location": "2,1,0",
       "class": "MAGE",
       "height": 10,
       "position": -4,
@@ -4474,7 +4466,7 @@
     {
       "id": "MAGE_THUNDER_MASTERY",
       "name": "Thunder Mastery",
-      "location": null,
+      "location": "2,1,2",
       "class": "MAGE",
       "height": 10,
       "position": -2,
@@ -4504,7 +4496,7 @@
     {
       "id": "MAGE_FIRE_MASTERY",
       "name": "Fire Mastery",
-      "location": null,
+      "location": "2,1,6",
       "class": "MAGE",
       "height": 10,
       "position": 2,
@@ -4533,7 +4525,7 @@
     {
       "id": "MAGE_EARTH_MASTERY",
       "name": "Earth Mastery",
-      "location": null,
+      "location": "2,1,8",
       "class": "MAGE",
       "height": 10,
       "position": 4,
@@ -4562,7 +4554,7 @@
     {
       "id": "MAGE_WATER_MASTERY",
       "name": "Water Mastery",
-      "location": null,
+      "location": "2,2,4",
       "class": "MAGE",
       "height": 11,
       "position": 0,
@@ -4592,7 +4584,7 @@
     {
       "id": "WIND_SLASH",
       "name": "Wind Slash",
-      "location": null,
+      "location": "2,3,0",
       "class": "MAGE",
       "height": 12,
       "position": -4,
@@ -4623,7 +4615,7 @@
     {
       "id": "THUNDERSTORM",
       "name": "Thunderstorm",
-      "location": null,
+      "location": "2,3,2",
       "class": "MAGE",
       "height": 12,
       "position": -2,
@@ -4660,7 +4652,7 @@
     {
       "id": "BURNING_SIGIL",
       "name": "Burning Sigil",
-      "location": null,
+      "location": "2,3,7",
       "class": "MAGE",
       "height": 12,
       "position": 3,
@@ -4696,7 +4688,7 @@
     {
       "id": "SUNSHOWER",
       "name": "Sunshower",
-      "location": null,
+      "location": "2,4,4",
       "class": "MAGE",
       "height": 13,
       "position": 0,
@@ -4729,7 +4721,7 @@
     {
       "id": "STRONGER_METEOR",
       "name": "Stronger Meteor",
-      "location": null,
+      "location": "2,4,8",
       "class": "MAGE",
       "height": 13,
       "position": 4,
@@ -4762,7 +4754,7 @@
     {
       "id": "WINDSWEEPER",
       "name": "Windsweeper",
-      "location": null,
+      "location": "3,1,1",
       "class": "MAGE",
       "height": 15,
       "position": -3,
@@ -4798,7 +4790,7 @@
     {
       "id": "OPHANIM",
       "name": "Ophanim",
-      "location": null,
+      "location": "3,1,4",
       "class": "MAGE",
       "height": 15,
       "position": 0,
@@ -4840,7 +4832,7 @@
     {
       "id": "ARCANE_TRANSFER",
       "name": "Arcane Transfer",
-      "location": null,
+      "location": "3,1,7",
       "class": "MAGE",
       "height": 15,
       "position": 3,
@@ -4871,7 +4863,7 @@
     {
       "id": "CHEAPER_HEAL_1",
       "name": "Cheaper Heal",
-      "location": null,
+      "location": "3,3,1",
       "class": "MAGE",
       "height": 17,
       "position": -3,
@@ -4898,7 +4890,7 @@
     {
       "id": "PURIFICATION",
       "name": "Purification",
-      "location": null,
+      "location": "3,3,4",
       "class": "MAGE",
       "height": 17,
       "position": 0,
@@ -4928,7 +4920,7 @@
     {
       "id": "SENTIENT_SNAKE",
       "name": "Sentient Snake",
-      "location": null,
+      "location": "3,3,6",
       "class": "MAGE",
       "height": 17,
       "position": 2,
@@ -4952,7 +4944,7 @@
     {
       "id": "EYE_PIERCER",
       "name": "Eye Piercer",
-      "location": null,
+      "location": "3,4,0",
       "class": "MAGE",
       "height": 18,
       "position": -4,
@@ -4983,7 +4975,7 @@
     {
       "id": "BREATHLESS",
       "name": "Breathless",
-      "location": null,
+      "location": "3,4,2",
       "class": "MAGE",
       "height": 18,
       "position": -2,
@@ -5015,7 +5007,7 @@
     {
       "id": "LARGER_HEAL",
       "name": "Larger Heal",
-      "location": null,
+      "location": "3,4,5",
       "class": "MAGE",
       "height": 18,
       "position": 1,
@@ -5042,7 +5034,7 @@
     {
       "id": "LARGER_MANA_BANK_1",
       "name": "Larger Mana Bank",
-      "location": null,
+      "location": "3,4,8",
       "class": "MAGE",
       "height": 18,
       "position": 4,
@@ -5067,7 +5059,7 @@
     {
       "id": "CHEAPER_ICE_SNAKE_1",
       "name": "Cheaper Ice Snake",
-      "location": null,
+      "location": "4,1,0",
       "class": "MAGE",
       "height": 20,
       "position": -4,
@@ -5093,7 +5085,7 @@
     {
       "id": "FORTITUDE",
       "name": "Fortitude",
-      "location": null,
+      "location": "4,1,2",
       "class": "MAGE",
       "height": 20,
       "position": -2,
@@ -5128,7 +5120,7 @@
     {
       "id": "CHEAPER_TELEPORT_2",
       "name": "Cheaper Teleport",
-      "location": null,
+      "location": "4,1,4",
       "class": "MAGE",
       "height": 20,
       "position": 0,
@@ -5154,7 +5146,7 @@
     {
       "id": "PYROKINESIS",
       "name": "Pyrokinesis",
-      "location": null,
+      "location": "4,1,7",
       "class": "MAGE",
       "height": 20,
       "position": 3,
@@ -5190,7 +5182,7 @@
     {
       "id": "BLINK",
       "name": "Blink",
-      "location": null,
+      "location": "4,2,1",
       "class": "MAGE",
       "height": 21,
       "position": -3,
@@ -5216,7 +5208,7 @@
     {
       "id": "HEALTHIER_OPHANIM_1",
       "name": "Healthier Ophanim I",
-      "location": null,
+      "location": "4,3,3",
       "class": "MAGE",
       "height": 22,
       "position": -1,
@@ -5246,7 +5238,7 @@
     {
       "id": "SNAKE_NEST",
       "name": "Snake Nest",
-      "location": null,
+      "location": "4,3,5",
       "class": "MAGE",
       "height": 22,
       "position": 1,
@@ -5274,7 +5266,7 @@
     {
       "id": "SEANCE",
       "name": "Seance",
-      "location": null,
+      "location": "4,3,7",
       "class": "MAGE",
       "height": 22,
       "position": 3,
@@ -5294,7 +5286,7 @@
     {
       "id": "TRANSONIC_WARP",
       "name": "Transonic Warp",
-      "location": null,
+      "location": "4,4,0",
       "class": "MAGE",
       "height": 23,
       "position": -4,
@@ -5329,7 +5321,7 @@
     {
       "id": "FLUID_HEALING",
       "name": "Fluid Healing",
-      "location": null,
+      "location": "4,4,2",
       "class": "MAGE",
       "height": 23,
       "position": -2,
@@ -5354,7 +5346,7 @@
     {
       "id": "ORPHIONS_PULSE",
       "name": "Orphion's Pulse",
-      "location": null,
+      "location": "4,4,4",
       "class": "MAGE",
       "height": 23,
       "position": 0,
@@ -5385,7 +5377,7 @@
     {
       "id": "ARCANE_RESTORATION",
       "name": "Arcane Restoration",
-      "location": null,
+      "location": "4,4,6",
       "class": "MAGE",
       "height": 23,
       "position": 2,
@@ -5410,7 +5402,7 @@
     {
       "id": "DIFFUSION",
       "name": "Diffusion",
-      "location": null,
+      "location": "5,1,1",
       "class": "MAGE",
       "height": 25,
       "position": -3,
@@ -5437,7 +5429,7 @@
     {
       "id": "LIGHTWEAVER",
       "name": "Lightweaver",
-      "location": null,
+      "location": "5,1,4",
       "class": "MAGE",
       "height": 25,
       "position": 0,
@@ -5472,7 +5464,7 @@
     {
       "id": "ARCANE_SPEED",
       "name": "Arcane Speed",
-      "location": null,
+      "location": "5,1,6",
       "class": "MAGE",
       "height": 25,
       "position": 2,
@@ -5502,7 +5494,7 @@
     {
       "id": "LARGER_MANA_BANK_2",
       "name": "Larger Mana Bank",
-      "location": null,
+      "location": "5,1,8",
       "class": "MAGE",
       "height": 25,
       "position": 4,
@@ -5528,7 +5520,7 @@
     {
       "id": "MORE_WINDED_1",
       "name": "More Winded",
-      "location": null,
+      "location": "5,2,0",
       "class": "MAGE",
       "height": 26,
       "position": -4,
@@ -5552,7 +5544,7 @@
     {
       "id": "PSYCHOKINESIS",
       "name": "Psychokinesis",
-      "location": null,
+      "location": "5,2,7",
       "class": "MAGE",
       "height": 26,
       "position": 3,
@@ -5579,7 +5571,7 @@
     {
       "id": "CHEAPER_ICE_SNAKE_2",
       "name": "Cheaper Ice Snake",
-      "location": null,
+      "location": "5,3,1",
       "class": "MAGE",
       "height": 27,
       "position": -3,
@@ -5605,7 +5597,7 @@
     {
       "id": "EXPLOSIVE_ENTRANCE",
       "name": "Explosive Entrance",
-      "location": null,
+      "location": "5,3,3",
       "class": "MAGE",
       "height": 27,
       "position": -1,
@@ -5640,7 +5632,7 @@
     {
       "id": "CHEAPER_METEOR_2",
       "name": "Cheaper Meteor",
-      "location": null,
+      "location": "5,3,5",
       "class": "MAGE",
       "height": 27,
       "position": 1,
@@ -5667,7 +5659,7 @@
     {
       "id": "CHAOS_EXPLOSION",
       "name": "Chaos Explosion",
-      "location": null,
+      "location": "5,3,8",
       "class": "MAGE",
       "height": 27,
       "position": 4,
@@ -5696,7 +5688,7 @@
     {
       "id": "TIME_DILATION",
       "name": "Time Dilation",
-      "location": null,
+      "location": "5,4,0",
       "class": "MAGE",
       "height": 28,
       "position": -4,
@@ -5727,7 +5719,7 @@
     {
       "id": "GUST",
       "name": "Gust",
-      "location": null,
+      "location": "5,4,2",
       "class": "MAGE",
       "height": 28,
       "position": -2,
@@ -5759,7 +5751,7 @@
     {
       "id": "BETTER_OPHANIM",
       "name": "Better Ophanim",
-      "location": null,
+      "location": "5,4,4",
       "class": "MAGE",
       "height": 28,
       "position": 0,
@@ -5787,7 +5779,7 @@
     {
       "id": "ARCTIC_SNAKE",
       "name": "Arctic Snake",
-      "location": null,
+      "location": "5,4,7",
       "class": "MAGE",
       "height": 28,
       "position": 3,
@@ -5811,7 +5803,7 @@
     {
       "id": "ARCANE_POWER",
       "name": "Arcane Power",
-      "location": null,
+      "location": "5,5,6",
       "class": "MAGE",
       "height": 29,
       "position": 2,
@@ -5835,7 +5827,7 @@
     {
       "id": "MORE_WINDED_2",
       "name": "More Winded",
-      "location": null,
+      "location": "6,1,0",
       "class": "MAGE",
       "height": 30,
       "position": -4,
@@ -5860,7 +5852,7 @@
     {
       "id": "DYNAMIC_FAITH",
       "name": "Dynamic Faith",
-      "location": null,
+      "location": "6,1,2",
       "class": "MAGE",
       "height": 30,
       "position": -2,
@@ -5880,7 +5872,7 @@
     {
       "id": "HEALTHIER_OPHANIM_2",
       "name": "Healthier Ophanim II",
-      "location": null,
+      "location": "6,1,4",
       "class": "MAGE",
       "height": 30,
       "position": 0,
@@ -5908,7 +5900,7 @@
     {
       "id": "LARGER_MANA_BANK_3",
       "name": "Larger Mana Bank",
-      "location": null,
+      "location": "6,1,7",
       "class": "MAGE",
       "height": 30,
       "position": 3,
@@ -5933,7 +5925,7 @@
     {
       "id": "DEVITALIZE",
       "name": "Devitalize",
-      "location": null,
+      "location": "6,2,1",
       "class": "MAGE",
       "height": 31,
       "position": -3,
@@ -5959,7 +5951,7 @@
     {
       "id": "DIVINATION",
       "name": "Divination",
-      "location": null,
+      "location": "6,2,3",
       "class": "MAGE",
       "height": 31,
       "position": -1,
@@ -5994,7 +5986,7 @@
     {
       "id": "SUNFLARE",
       "name": "Sunflare",
-      "location": null,
+      "location": "6,2,5",
       "class": "MAGE",
       "height": 31,
       "position": 1,
@@ -6030,7 +6022,7 @@
     {
       "id": "ARCANE_OVERFLOW",
       "name": "Arcane Overflow",
-      "location": null,
+      "location": "6,3,7",
       "class": "MAGE",
       "height": 32,
       "position": 3,
@@ -6056,7 +6048,7 @@
     {
       "id": "TIMELOCK",
       "name": "Timelock",
-      "location": null,
+      "location": "6,4,0",
       "class": "MAGE",
       "height": 33,
       "position": -4,
@@ -6093,7 +6085,7 @@
     {
       "id": "CHEAPER_HEAL_2",
       "name": "Cheaper Heal",
-      "location": null,
+      "location": "6,4,2",
       "class": "MAGE",
       "height": 33,
       "position": -2,
@@ -6120,7 +6112,7 @@
     {
       "id": "MANASTORM",
       "name": "Manastorm",
-      "location": null,
+      "location": "6,4,5",
       "class": "MAGE",
       "height": 33,
       "position": 1,
@@ -6149,7 +6141,7 @@
     {
       "id": "MEMORY_RECOLLECTION",
       "name": "Memory Recollection",
-      "location": null,
+      "location": "6,4,8",
       "class": "MAGE",
       "height": 33,
       "position": 4,
@@ -6172,7 +6164,7 @@
     {
       "id": "BETTER_LIGHTWEAVER",
       "name": "Better Lightweaver",
-      "location": null,
+      "location": "6,5,4",
       "class": "MAGE",
       "height": 34,
       "position": 0,
@@ -8184,5 +8176,5 @@
       "metadata": null
     }
   ],
-  "version": "0.1.12"
+  "version": "0.1.11"
 }
