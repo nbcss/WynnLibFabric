@@ -13,6 +13,7 @@ import io.github.nbcss.wynnlib.abilities.properties.assassin.SmokeBombProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
 import io.github.nbcss.wynnlib.abilities.properties.mage.*
+import io.github.nbcss.wynnlib.abilities.properties.warrior.MantleResistanceProperty
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.text.Text
 
@@ -21,7 +22,7 @@ abstract class AbilityProperty(private val ability: Ability) {
     companion object {
         private val typeMap: Map<String, Type<out AbilityProperty>> = mapOf(
             pairs = listOf(
-                //EntryProperty,
+                ValuesProperty,
                 UpgradeProperty,
                 ModifyProperty,
                 ExtendProperty,
@@ -40,6 +41,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 BonusEffectProperty,
                 IDModifierProperty,
                 IDConvertorProperty,
+                ChanceProperty,
                 ManaCostProperty,
                 ManaCostModifierProperty,
                 DamageProperty,
@@ -86,6 +88,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MaxMarkedProperty,
                 MaxMarkedProperty.Modifier,
                 BloomAoEProperty,
+                MantleResistanceProperty,
             ).map { it.getKey() to it }.toTypedArray()
         )
 

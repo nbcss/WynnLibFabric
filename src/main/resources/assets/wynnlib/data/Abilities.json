@@ -361,7 +361,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "HEAVY_IMPACT"
+        "icon": "HEAVY_IMPACT",
+        "upgradable": false
       }
     },
     {
@@ -604,7 +605,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "FLYBY_JAB"
+        "icon": "FLYBY_JAB",
+        "upgradable": false
       }
     },
     {
@@ -635,7 +637,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "FLAMING_UPPERCUT"
+        "icon": "FLAMING_UPPERCUT",
+        "upgradable": false
       }
     },
     {
@@ -716,7 +719,12 @@
       "predecessors": [
         "COUNTER"
       ],
-      "properties": {},
+      "properties": {
+        "values": {
+          "1": 3,
+          "2": 5
+        }
+      },
       "metadata": {
         "type": "NEW",
         "icon": "GENERALIST",
@@ -744,7 +752,8 @@
           "neutral": 60,
           "air": 20,
           "thunder": 20
-        }
+        },
+        "chance": 30
       },
       "metadata": {
         "type": "NEW",
@@ -773,6 +782,7 @@
         "extend": {
           "spell": "SPELL_4"
         },
+        "mantle_resistance": 70,
         "duration": 30,
         "cooldown": 20,
         "charges": 3
@@ -911,7 +921,10 @@
           "spell": "SPELL_4"
         },
         "spell": "SPELL_4",
-        "mana_modifier": -5
+        "mana_modifier": -5,
+        "values": {
+          "1": 5
+        }
       },
       "metadata": null
     },
@@ -935,7 +948,10 @@
       "properties": {
         "critical_damage": 30
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "upgradable": false
+      }
     },
     {
       "id": "AIR_SHOUT",
@@ -966,7 +982,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "AIR_SHOUT"
+        "icon": "AIR_SHOUT",
+        "upgradable": false
       }
     },
     {
@@ -1023,7 +1040,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "FLYING_KICK"
+        "icon": "FLYING_KICK",
+        "upgradable": false
       }
     },
     {
@@ -1075,7 +1093,8 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "MANACHISM"
+        "icon": "MANACHISM",
+        "upgradable": false
       }
     },
     {
@@ -1112,7 +1131,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BOILING_BLOOD"
+        "icon": "BOILING_BLOOD",
+        "upgradable": false
       }
     },
     {
@@ -1167,7 +1187,8 @@
       "properties": {
         "upgrade": {
           "ability": "COUNTER"
-        }
+        },
+        "chance_modifier": 30
       },
       "metadata": null
     },
@@ -1200,7 +1221,8 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "ID_CONVERTOR"
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
       }
     },
     {
@@ -1289,7 +1311,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "COLLIDE"
+        "icon": "COLLIDE",
+        "upgradable": false
       }
     },
     {
@@ -1311,8 +1334,17 @@
         "BURNING_HEART",
         "STRONGER_BASH"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "values": {
+          "1": 30,
+          "2": 30
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "REJUVENATING_SKIN",
+        "upgradable": false
+      }
     },
     {
       "id": "COMET",
@@ -1385,8 +1417,21 @@
         "UNCONTAINABLE_CORRUPTION",
         "WHIRLWIND_STRIKE"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "id_convertor": {
+          "source": {
+            "REFLECTION": 4
+          },
+          "target": "MANAREGEN",
+          "rate": 1,
+          "max": 10
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "WHIRLWIND_STRIKE",
@@ -1513,7 +1558,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "SHIELD_STRIKE"
+        "icon": "SHIELD_STRIKE",
+        "upgradable": false
       }
     },
     {
@@ -1533,6 +1579,9 @@
         "MYTHRIL_SKIN"
       ],
       "properties": {
+        "values": {
+          "1": 5
+        },
         "damage": {
           "neutral": 10,
           "thunder": 5
@@ -1544,7 +1593,8 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "SPARKLING_HOPE"
+        "icon": "SPARKLING_HOPE",
+        "upgradable": false
       }
     },
     {
@@ -1607,7 +1657,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "TEMPEST"
+        "icon": "TEMPEST",
+        "upgradable": false
       }
     },
     {
@@ -1842,7 +1893,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "CYCLONE"
+        "icon": "CYCLONE",
+        "upgradable": false
       }
     },
     {
@@ -1895,6 +1947,10 @@
         "CHEAPER_BASH_2"
       ],
       "properties": {
+        "values": {
+          "1": 30,
+          "2": 10
+        },
         "cooldown": 600
       },
       "metadata": {
@@ -1921,7 +1977,11 @@
       "predecessors": [
         "CHEAPER_WAR_SCREAM"
       ],
-      "properties": {},
+      "properties": {
+        "values": {
+          "1": 0.6
+        }
+      },
       "metadata": {
         "type": "NEW",
         "icon": "BLOOD_PACT"
@@ -1946,6 +2006,9 @@
       "properties": {
         "upgrade": {
           "ability": "BLOOD_PACT"
+        },
+        "values": {
+          "1": 0.3
         }
       },
       "metadata": null
