@@ -54,7 +54,7 @@ class MaxTrapProperty(ability: Ability,
         fun getTrapModifier(): Int = modifier
 
         override fun writePlaceholder(container: PlaceholderContainer) {
-            container.putPlaceholder(MaxTrapProperty.getKey(), getTrapModifier().toString())
+            container.putPlaceholder(getKey(), getTrapModifier().toString())
         }
 
         override fun modify(entry: PropertyEntry) {

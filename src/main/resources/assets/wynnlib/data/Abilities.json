@@ -2621,7 +2621,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "ARROW_RAIN"
+        "icon": "ARROW_RAIN",
+        "upgradable": false
       }
     },
     {
@@ -2822,7 +2823,8 @@
       "properties": {},
       "metadata": {
         "type": "NEW",
-        "icon": "FRENZY"
+        "icon": "FRENZY",
+        "upgradable": false
       }
     },
     {
@@ -2880,6 +2882,9 @@
         "PHANTOM_RAY"
       ],
       "properties": {
+        "values": {
+          "1": 5
+        },
         "focus_damage_bonus": 40,
         "max_focus": 3
       },
@@ -3193,8 +3198,21 @@
         "REFINED_GUNPOWDER",
         "TWAINS_ARC"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "id_convertor": {
+          "source": {
+            "SPEED": 1
+          },
+          "target": "SPELLDAMAGERAW",
+          "rate": 1,
+          "max": 100
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "TWAINS_ARC",
@@ -3216,6 +3234,9 @@
         "MORE_FOCUS_1"
       ],
       "properties": {
+        "values": {
+          "1": 2
+        },
         "damage": {
           "neutral": 200
         },
@@ -3484,7 +3505,10 @@
         },
         "spell": "SPELL_3",
         "mana_modifier": 10,
-        "range": 16
+        "range": 16,
+        "values": {
+          "1": 2.85
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -3538,7 +3562,8 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_2"
+          "spell": "SPELL_2",
+          "ability": "ESCAPE"
         },
         "damage": {
           "neutral": 20,
@@ -3549,7 +3574,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "ESCAPE_ARTIST"
+        "icon": "ESCAPE_ARTIST",
+        "upgradable": false
       }
     },
     {
@@ -3720,7 +3746,10 @@
       "properties": {
         "critical_damage": 30
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "upgradable": false
+      }
     },
     {
       "id": "CHEAPER_ARROW_SHIELD_1",
@@ -3804,7 +3833,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "SHRAPNEL_BOMB"
+        "icon": "SHRAPNEL_BOMB",
+        "upgradable": false
       }
     },
     {

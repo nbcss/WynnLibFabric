@@ -54,7 +54,7 @@ class MaxFocusProperty(ability: Ability,
         fun getFocusModifier(): Int = modifier
 
         override fun writePlaceholder(container: PlaceholderContainer) {
-            container.putPlaceholder(MaxFocusProperty.getKey(), getFocusModifier().toString())
+            container.putPlaceholder(getKey(), getFocusModifier().toString())
         }
 
         override fun modify(entry: PropertyEntry) {

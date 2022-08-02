@@ -42,6 +42,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 IDModifierProperty,
                 IDConvertorProperty,
                 ChanceProperty,
+                ChanceProperty.Modifier,
                 ManaCostProperty,
                 ManaCostModifierProperty,
                 DamageProperty,

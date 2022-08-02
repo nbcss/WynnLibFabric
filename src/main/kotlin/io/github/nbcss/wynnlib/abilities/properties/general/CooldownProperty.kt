@@ -52,6 +52,7 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
 
         override fun writePlaceholder(container: PlaceholderContainer) {
             container.putPlaceholder(getKey(), removeDecimal(modifier))
+            container.putPlaceholder("-${getKey()}", removeDecimal(-modifier))
         }
 
         override fun modify(entry: PropertyEntry) {

@@ -51,6 +51,10 @@ class ChanceProperty(ability: Ability, private val chance: Double):
 
         fun getModifier(): Double = modifier
 
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder(getKey(), removeDecimal(modifier))
+        }
+
         override fun modify(entry: PropertyEntry) {
             ChanceProperty.from(entry)?.let {
                 val value = it.getChance() + getModifier()
