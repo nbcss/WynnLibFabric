@@ -76,6 +76,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MaxTrapProperty.Modifier,
                 MaxFocusProperty,
                 MaxFocusProperty.Modifier,
+                PatientHunterProperty,
+                PatientHunterProperty.Modifier,
                 MageManaBankProperty,
                 MageManaBankProperty.Modifier,
                 MageOphanimProperty,

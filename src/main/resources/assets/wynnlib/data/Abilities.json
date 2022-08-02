@@ -3120,11 +3120,18 @@
         "MORE_SHIELDS"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "ability": "BASALTIC_TRAP"
+        },
+        "patient_hunter": {
+          "sec_boost": 20,
+          "max_boost": 80
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "PATIENT_HUNTER"
+      }
     },
     {
       "id": "STORMY_FEET",
@@ -4088,7 +4095,10 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "BASALTIC_TRAP"
+          "ability": "PATIENT_HUNTER"
+        },
+        "patient_hunter_modifier": {
+          "max_boost": 80
         }
       },
       "metadata": null
@@ -4442,8 +4452,23 @@
       "predecessors": [
         "TELEPORT"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "raw_damage_bonus": 5,
+        "id_convertor": {
+          "source": {
+            "SPELLDAMAGE": 2,
+            "SPELLDAMAGERAW": 2
+          },
+          "target": "MANAREGEN",
+          "rate": 1,
+          "max": 5
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "HEAL",
@@ -4466,7 +4491,10 @@
         "spell": "SPELL_1",
         "mana_cost": 35,
         "total_heal": 10,
-        "range": 5
+        "range": 5,
+        "values": {
+          "1": 30
+        }
       },
       "metadata": {
         "type": "SPELL",
@@ -5815,7 +5843,11 @@
           "shape": "CIRCLE"
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "TIME_DILATION",
+        "upgradable": false
+      }
     },
     {
       "id": "GUST",
