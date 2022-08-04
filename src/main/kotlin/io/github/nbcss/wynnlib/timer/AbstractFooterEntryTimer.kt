@@ -3,7 +3,7 @@ package io.github.nbcss.wynnlib.timer
 import kotlin.math.abs
 import kotlin.math.max
 
-abstract class AbstractFooterEntryTimer(protected val entry: FooterEntry,
+abstract class AbstractFooterEntryTimer(protected val entry: StatusEntry,
                                         startTime: Long): ITimer {
     private var expired: Boolean = false
     private var currentTime: Long = startTime
@@ -15,7 +15,7 @@ abstract class AbstractFooterEntryTimer(protected val entry: FooterEntry,
 
     override fun updateWorldTime(time: Long) {
         currentTime = time
-        val currentEntry = FooterEntry.getFooterEntry(getKey())
+        val currentEntry = StatusEntry.getStatusEntry(getKey())
         if (currentEntry == null) {
             expired = true
         } else {
@@ -30,7 +30,7 @@ abstract class AbstractFooterEntryTimer(protected val entry: FooterEntry,
 
     override fun isExpired(): Boolean = expired
 
-    open fun updateEntry(currentEntry: FooterEntry) {
+    open fun updateEntry(currentEntry: StatusEntry) {
         val currentTime = TimerManager.getWorldTime()
         if (currentEntry.duration != null) {
             val upperTime = toEndTime(currentTime, currentEntry.duration + 1)

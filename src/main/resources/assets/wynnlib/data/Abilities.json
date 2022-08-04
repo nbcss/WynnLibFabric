@@ -633,6 +633,7 @@
         "damage": {
           "fire": 50
         },
+        "damage_interval": 0.6,
         "duration": 3
       },
       "metadata": {
@@ -779,6 +780,7 @@
         "IRON_LUNGS"
       ],
       "properties": {
+        "status_name": "Shield",
         "extend": {
           "spell": "SPELL_4"
         },
@@ -812,6 +814,7 @@
         "FIREWORKS"
       ],
       "properties": {
+        "status_name": "Corrupted",
         "extend": {
           "spell": "SPELL_4"
         },
@@ -1089,6 +1092,10 @@
         "PROVOKE"
       ],
       "properties": {
+        "values": {
+          "1": 5,
+          "2": 10
+        },
         "cooldown": 1
       },
       "metadata": {
@@ -1768,6 +1775,7 @@
         "CHEAPER_BASH_2"
       ],
       "properties": {
+        "status_name": "Radiance",
         "extend": {
           "spell": "SPELL_1"
         },
@@ -2423,6 +2431,7 @@
         "ARROW_STORM"
       ],
       "properties": {
+        "status_name": "Windy Feet",
         "extend": {
           "spell": "SPELL_2"
         },
@@ -2724,6 +2733,7 @@
           "neutral": 30,
           "fire": 20
         },
+        "damage_interval": 0.4,
         "duration": 6,
         "aoe": {
           "range": 0.8,
@@ -2762,6 +2772,7 @@
           "neutral": 40,
           "earth": 20
         },
+        "damage_interval": 0.4,
         "effect": {
           "type": "ENEMIES_SLOWNESS",
           "modifier": 40
@@ -3389,6 +3400,7 @@
         "HOMING_SHOTS"
       ],
       "properties": {
+        "status_name": "Leap",
         "cooldown": 2
       },
       "metadata": {
@@ -4070,7 +4082,8 @@
         "damage": {
           "neutral": 20,
           "air": 20
-        }
+        },
+        "damage_interval": 0.2
       },
       "metadata": {
         "type": "EXTEND",
@@ -4776,7 +4789,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "THUNDERSTORM"
+        "icon": "THUNDERSTORM",
+        "upgradable": false
       }
     },
     {
@@ -4845,7 +4859,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "SUNSHOWER"
+        "icon": "SUNSHOWER",
+        "upgradable": false
       }
     },
     {
@@ -4869,10 +4884,7 @@
       "properties": {
         "upgrade": {
           "spell": "SPELL_3",
-          "ability": "METEOR",
-          "extends": [
-            "THUNDERSTORM"
-          ]
+          "ability": "METEOR"
         },
         "damage_modifier": {
           "neutral": 30,
@@ -6882,6 +6894,7 @@
         "STICKY_BOMB"
       ],
       "properties": {
+        "status_name": "Vanish",
         "extend": {
           "spell": "SPELL_2"
         },
@@ -6994,6 +7007,7 @@
         "STICKY_BOMB"
       ],
       "properties": {
+        "status_name": "Mirror Image",
         "extend": {
           "ability": "VANISH"
         },
@@ -7369,6 +7383,7 @@
         "HOP"
       ],
       "properties": {
+        "status_name": "Sandbagging",
         "cooldown": 1
       },
       "metadata": {
@@ -7395,6 +7410,7 @@
         "SANDBAGGING"
       ],
       "properties": {
+        "status_name": "Hop",
         "cooldown": 2
       },
       "metadata": {
@@ -7478,6 +7494,7 @@
         "SANDBAGGING"
       ],
       "properties": {
+        "status_name": "Delirious Gas",
         "extend": {
           "spell": "SPELL_4"
         },
@@ -7729,6 +7746,7 @@
         "CHEAPER_SPIN_ATTACK_2"
       ],
       "properties": {
+        "status_name": "Parry",
         "cooldown": 3
       },
       "metadata": {
@@ -8239,6 +8257,7 @@
         "FORBIDDEN_ART"
       ],
       "properties": {
+        "status_name": "Diversion",
         "extend": {
           "ability": "DELIRIOUS_GAS"
         },

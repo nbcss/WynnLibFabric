@@ -4,9 +4,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import kotlin.math.abs
-import kotlin.math.max
 
-class EffectTimer(entry: FooterEntry,
+class EffectTimer(entry: StatusEntry,
                   startTime: Long):
     AbstractFooterEntryTimer(entry, startTime), SideTimer {
     private var maxDuration: Double? = entry.duration?.toDouble()
@@ -22,7 +21,7 @@ class EffectTimer(entry: FooterEntry,
         return super.getDuration()
     }
 
-    override fun updateEntry(currentEntry: FooterEntry) {
+    override fun updateEntry(currentEntry: StatusEntry) {
         val currentTime = TimerManager.getWorldTime()
         if (currentEntry.duration != null) {
             val upperTime = toEndTime(currentTime, currentEntry.duration + 1)

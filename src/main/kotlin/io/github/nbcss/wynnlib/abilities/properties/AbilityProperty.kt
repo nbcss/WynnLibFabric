@@ -23,6 +23,7 @@ abstract class AbilityProperty(private val ability: Ability) {
         private val typeMap: Map<String, Type<out AbilityProperty>> = mapOf(
             pairs = listOf(
                 ValuesProperty,
+                StatusReferenceProperty,
                 UpgradeProperty,
                 ModifyProperty,
                 ExtendProperty,

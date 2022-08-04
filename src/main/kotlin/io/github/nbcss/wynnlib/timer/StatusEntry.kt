@@ -3,18 +3,18 @@ package io.github.nbcss.wynnlib.timer
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-data class FooterEntry(val icon: String,
-                  val name: String,
-                  val duration: Int?) {
+data class StatusEntry(val icon: String,
+                       val name: String,
+                       val duration: Int?) {
     companion object {
         //��f��b?��7 Windy Feet ��8(01:26)
         private val timerPattern = Pattern.compile(
             "(§[0-9a-f].) ?§[0-9a-f] ?(.+?) §[0-9a-f]\\((\\d\\d:\\d\\d|\\*\\*:\\*\\*)\\)")
-        private val entries: MutableMap<String, FooterEntry> = mutableMapOf()
+        private val entries: MutableMap<String, StatusEntry> = mutableMapOf()
 
-        fun updateFooter(footer: Text?) {
+        fun updateStatus(footer: Text?) {
             if (footer != null && footer.asString().contains("Status Effects")){
-                val list: MutableList<FooterEntry> = mutableListOf()
+                val list: MutableList<StatusEntry> = mutableListOf()
                 for (sibling in footer.siblings) {
                     val matcher = timerPattern.matcher(sibling.asString())
                     while (matcher.find()) {
@@ -26,7 +26,7 @@ data class FooterEntry(val icon: String,
                         }else{
                             time[0].toInt() * 60 + time[1].toInt()
                         }
-                        list.add(FooterEntry(icon, name, duration))
+                        list.add(StatusEntry(icon, name, duration))
                     }
                 }
                 synchronized(this) {
@@ -44,7 +44,7 @@ data class FooterEntry(val icon: String,
             }
         }
 
-        fun getFooterEntry(name: String): FooterEntry? {
+        fun getStatusEntry(name: String): StatusEntry? {
             return entries[name]
         }
     }

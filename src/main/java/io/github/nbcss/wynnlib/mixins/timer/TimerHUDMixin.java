@@ -84,7 +84,7 @@ public abstract class TimerHUDMixin {
             Double maxDuration = timer.getFullDuration();
             if(duration != null && maxDuration != null) {
                 double pct = MathHelper.clamp(duration / maxDuration, 0.0, 1.0);
-                Color color = Color.Companion.getORANGE();
+                Color color = Color.Companion.getAQUA();
                 if (!timer.isCooldown()) {
                     color = new Color(MathHelper.hsvToRgb((float) (pct / 3.0), 1.0F, 1.0F));
                 }

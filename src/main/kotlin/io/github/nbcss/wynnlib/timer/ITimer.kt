@@ -13,7 +13,7 @@ interface ITimer: Keyed {
 
     companion object {
 
-        fun fromEntry(entry: FooterEntry): ITimer {
+        fun fromEntry(entry: StatusEntry): ITimer {
             AbilityTimer.matches(entry, TimerManager.getWorldTime())?.let { return it }
             return EffectTimer(entry, TimerManager.getWorldTime())
         }
