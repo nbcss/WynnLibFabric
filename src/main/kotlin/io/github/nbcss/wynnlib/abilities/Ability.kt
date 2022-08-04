@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
+import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
@@ -189,6 +190,16 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         if (propertyTooltip.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
             tooltip.addAll(propertyTooltip)
+        }
+        if (metadata?.getFactory() is ReplaceSpellEntry.Companion) {
+            BoundSpellProperty.from(this)?.let {
+                tree.getSpellAbility(it.getSpell())?.let { spell ->
+                    tooltip.add(Symbol.REPLACE.asText().append(" ")
+                        .append(Translations.TOOLTIP_ABILITY_REPLACING.formatted(Formatting.GRAY))
+                        .append(LiteralText(": ").formatted(Formatting.GRAY))
+                        .append(spell.formatted(Formatting.WHITE)))
+                }
+            }
         }
         //Add blocking abilities
         val incompatibles = getBlockAbilities()
