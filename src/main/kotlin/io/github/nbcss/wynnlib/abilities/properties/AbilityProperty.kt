@@ -38,6 +38,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DamageBonusProperty,
                 DamageBonusProperty.Raw,
                 DamageBonusProperty.PerFocus,
+                DamageIntervalProperty,
+                DamageIntervalProperty.Modifier,
                 BonusEffectProperty,
                 IDModifierProperty,
                 IDConvertorProperty,
@@ -106,7 +108,7 @@ abstract class AbilityProperty(private val ability: Ability) {
 
     fun getAbility(): Ability = ability
 
-    open fun getTooltip(): List<Text> = emptyList()
+    open fun getTooltip(provider: PropertyProvider = getAbility()): List<Text> = emptyList()
 
     interface Type<T: AbilityProperty>: Keyed {
         fun create(ability: Ability, data: JsonElement): T?

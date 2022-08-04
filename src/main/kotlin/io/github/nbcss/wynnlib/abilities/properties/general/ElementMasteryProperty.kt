@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
@@ -32,7 +33,7 @@ class ElementMasteryProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val element = booster.getElement()
         val tooltip: MutableList<Text> = ArrayList()
         if(!booster.getRawBooster().isZero()){

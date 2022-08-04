@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -33,7 +34,7 @@ class ChanceProperty(ability: Ability, private val chance: Double):
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         return listOf(Symbol.CHANCE.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_CHANCE.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText("${removeDecimal(chance)}%").formatted(Formatting.WHITE)))
@@ -62,7 +63,7 @@ class ChanceProperty(ability: Ability, private val chance: Double):
             }
         }
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             val color = if (modifier <= 0) Formatting.RED else Formatting.GREEN
             val text = (if (modifier > 0) "+" else "") + removeDecimal(modifier) + "%"
             return listOf(Symbol.CHANCE.asText().append(" ")

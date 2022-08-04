@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.mage
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
@@ -40,7 +41,7 @@ class TimelockProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val value = TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, signed(duration))
         //TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, max)
         return listOf(Symbol.DURATION.asText().append(" ")

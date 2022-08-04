@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -30,7 +31,7 @@ open class DamageBonusProperty(ability: Ability,
 
     fun getDamageBonusRate(): Double = getDamageBonus() / 100.0
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val color = if (bonus < 0) Formatting.RED else Formatting.WHITE
         val value = LiteralText(signed(bonus) + getSuffix()).formatted(color)
         getDamageBonusLabel()?.let {

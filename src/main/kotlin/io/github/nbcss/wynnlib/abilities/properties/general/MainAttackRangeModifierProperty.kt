@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -30,7 +31,7 @@ class MainAttackRangeModifierProperty(ability: Ability, data: JsonElement):
         }
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val value = (if(modifier <= 1) Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS)
             .formatted(Formatting.WHITE, null, (if (modifier > 0) "+" else "") + removeDecimal(modifier))
         return listOf(Symbol.RANGE.asText().append(" ")

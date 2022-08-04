@@ -75,7 +75,7 @@ abstract class PropertyEntry(private val ability: Ability,
     }
 
     fun getPropertiesTooltip(): List<Text> {
-        return properties.values.map { it.getTooltip() }.flatten()
+        return properties.values.map { it.getTooltip(this) }.flatten()
     }
 
     fun getAbilityDescriptionTooltip(ability: Ability): List<Text> {

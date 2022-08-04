@@ -1122,6 +1122,7 @@
           "neutral": 25,
           "fire": 5
         },
+        "damage_interval": 0.4,
         "effect": {
           "type": "ENEMIES_SLOWNESS",
           "modifier": 20
@@ -6503,7 +6504,16 @@
         "upgrade": {
           "ability": "MAIN_ATTACK"
         },
-        "main_range_modifier": 1
+        "main_range_modifier": 1,
+        "id_convertor": {
+          "source": {
+            "DAMAGEBONUS": 2,
+            "DAMAGEBONUSRAW": 2
+          },
+          "target": "POISON",
+          "rate": 5,
+          "max": 50
+        }
       },
       "metadata": null
     },
@@ -6559,6 +6569,7 @@
           "air": 5,
           "earth": 5
         },
+        "damage_interval": 0.5,
         "smoke_bombs": 1,
         "range": 10,
         "duration": 5,

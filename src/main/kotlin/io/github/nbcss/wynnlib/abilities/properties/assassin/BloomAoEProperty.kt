@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.assassin
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
@@ -33,7 +34,7 @@ class BloomAoEProperty(ability: Ability,
     }
 
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val suffix = if(range <= 1)
             Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS
         return listOf(Symbol.AOE.asText().append(" ")

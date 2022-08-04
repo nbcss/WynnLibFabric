@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -34,7 +35,7 @@ class DurationProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val value = Translations.TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, removeDecimal(duration))
         return listOf(Symbol.DURATION.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_DURATION.formatted(Formatting.GRAY).append(": "))
@@ -63,7 +64,7 @@ class DurationProperty(ability: Ability,
             }
         }
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             val color = if(modifier < 0) Formatting.RED else Formatting.GREEN
             val value = Translations.TOOLTIP_SUFFIX_S.formatted(color, null,
                 (if(modifier > 0) "+" else "") + removeDecimal(modifier))

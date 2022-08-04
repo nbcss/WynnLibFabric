@@ -48,6 +48,8 @@ object Translations {
     val TOOLTIP_ABILITY_CHANCE: Translatable = from("wynnlib.tooltip.ability.chance")
     val TOOLTIP_ABILITY_COOLDOWN: Translatable = from("wynnlib.tooltip.ability.cooldown")
     val TOOLTIP_ABILITY_HITS: Translatable = from("wynnlib.tooltip.ability.hits")
+    val TOOLTIP_ABILITY_DAMAGE_INTERVAL: Translatable = from("wynnlib.tooltip.ability.damage_interval")
+    val TOOLTIP_ABILITY_INTERVAL_HITS: Translatable = from("wynnlib.tooltip.ability.damage_interval_hits")
     val TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_HP: Translatable = from("wynnlib.tooltip.ability.mage_orbs_of_light_hp")
     val TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_LOSS: Translatable = from("wynnlib.tooltip.ability.mage_orbs_of_light_loss")
     val TOOLTIP_ABILITY_MAGE_TIMELOCK_TIP: Translatable = from("wynnlib.tooltip.ability.mage_timelock_absorb")

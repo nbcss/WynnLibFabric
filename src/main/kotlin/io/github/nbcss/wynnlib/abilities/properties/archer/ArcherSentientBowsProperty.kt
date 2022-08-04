@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.archer
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -35,7 +36,7 @@ class ArcherSentientBowsProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         return listOf(Symbol.ALTER_HITS.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText(bows.toString()).formatted(Formatting.WHITE)))
@@ -63,7 +64,7 @@ class ArcherSentientBowsProperty(ability: Ability,
             }
         }
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             return listOf(Symbol.ALTER_HITS.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_ARCHER_SENTIENT_BOWS.formatted(Formatting.GRAY).append(": "))
                 .append(LiteralText(signed(modifier)).formatted(colorOf(modifier))))

@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
@@ -46,7 +47,7 @@ class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
         container.putPlaceholder(HITS_KEY, damage.getHits().toString())
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         if(!damage.isZero()){
             val color = if (damage.getTotalDamage() < 0) Formatting.RED else Formatting.WHITE

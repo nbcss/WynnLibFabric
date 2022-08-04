@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.assassin
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -35,7 +36,7 @@ class MaxMarkedProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val marked = Translations.TOOLTIP_ABILITY_ASSASSIN_MARKED.translate().string
         return listOf(Symbol.CHARGE.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${marked}): "))
@@ -64,7 +65,7 @@ class MaxMarkedProperty(ability: Ability,
             }
         }
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             val value = Translations.TOOLTIP_ABILITY_ASSASSIN_MARKED.translate().string
             return listOf(Symbol.CHARGE.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${value}): "))
