@@ -7,8 +7,9 @@ data class FooterEntry(val icon: String,
                   val name: String,
                   val duration: Int?) {
     companion object {
+        //��f��b?��7 Windy Feet ��8(01:26)
         private val timerPattern = Pattern.compile(
-            "(§[0-9a-f].) §[0-9a-f](.+?) §[0-9a-f]\\((\\d\\d:\\d\\d|\\*\\*:\\*\\*)\\)")
+            "(§[0-9a-f].) ?§[0-9a-f] ?(.+?) §[0-9a-f]\\((\\d\\d:\\d\\d|\\*\\*:\\*\\*)\\)")
         private val entries: MutableMap<String, FooterEntry> = mutableMapOf()
 
         fun updateFooter(footer: Text?) {

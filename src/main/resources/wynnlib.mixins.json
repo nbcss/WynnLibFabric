@@ -18,6 +18,7 @@
     "render.HotbarBackgroundMixin",
     "render.ItemBackgroundMixin",
     "timer.PlayerListUpdateMixin",
+    "timer.ResetLevelMixin",
     "timer.TimerHUDMixin",
     "timer.TimeUpdateMixin"
   ],

@@ -33,11 +33,33 @@ object TimerManager {
         }
     }
 
+    fun onEvent(event: ITimer.ClearEvent) {
+        synchronized(this) {
+            val keys = timerMap.keys.toList()
+            for (key in keys) {
+                val timer = timerMap[key]!!
+                if (timer.onClear(event)){
+                    timerMap.remove(key)
+                }
+            }
+        }
+    }
+
     fun getSideTimers(): List<SideTimer> {
         val timers: MutableList<SideTimer> = mutableListOf()
         synchronized(this) {
             for (timer in timerMap.values) {
                 timer.asSideTimer()?.let { timers.add(it) }
+            }
+        }
+        return timers
+    }
+
+    fun getIconTimers(): List<IconTimer> {
+        val timers: MutableList<IconTimer> = mutableListOf()
+        synchronized(this) {
+            for (timer in timerMap.values) {
+                timer.asIconTimer()?.let { timers.add(it) }
             }
         }
         return timers

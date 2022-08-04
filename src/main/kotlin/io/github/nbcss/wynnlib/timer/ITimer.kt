@@ -8,11 +8,18 @@ interface ITimer: Keyed {
     fun getDuration(): Double?
     fun getFullDuration(): Double?
     fun asSideTimer(): SideTimer? = null
+    fun asIconTimer(): IconTimer? = null
+    fun onClear(event: ClearEvent): Boolean = true
 
     companion object {
 
         fun fromEntry(entry: FooterEntry): ITimer {
+            AbilityTimer.matches(entry, TimerManager.getWorldTime())?.let { return it }
             return EffectTimer(entry, TimerManager.getWorldTime())
         }
+    }
+
+    enum class ClearEvent {
+        LEVEL_RESET
     }
 }
