@@ -32,8 +32,8 @@ data class FooterEntry(val icon: String,
                 synchronized(this) {
                     entries.clear()
                     for (entry in list) {
-                        entries[entry.name] = entry
                         val timer = ITimer.fromEntry(entry)
+                        entries[timer.getKey()] = entry
                         TimerManager.registerTimer(timer)
                     }
                 }

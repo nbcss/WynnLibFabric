@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.mixins.timer;
 
+import io.github.nbcss.wynnlib.Settings;
 import io.github.nbcss.wynnlib.render.RenderKit;
 import io.github.nbcss.wynnlib.timer.IconTimer;
 import io.github.nbcss.wynnlib.timer.SideTimer;
@@ -75,7 +76,7 @@ public abstract class TimerHUDMixin {
         List<IconTimer> timers = TimerManager.INSTANCE.getIconTimers();
         //unit = 28 per timer
         int posX = client.getWindow().getScaledWidth() / 2 - timers.size() * 14;
-        int posY = client.getWindow().getScaledHeight() / 2 + 8;
+        int posY = client.getWindow().getScaledHeight() - 108;
         for (IconTimer timer : timers) {
             RenderKit.INSTANCE.renderTexture(matrices, background, posX + 3, posY,
                     0, 256 - 22, 22, 22);

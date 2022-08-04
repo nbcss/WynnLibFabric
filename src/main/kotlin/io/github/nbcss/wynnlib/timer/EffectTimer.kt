@@ -3,39 +3,40 @@ package io.github.nbcss.wynnlib.timer
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import kotlin.math.abs
 import kotlin.math.max
 
-class EffectTimer(private val entry: FooterEntry,
-                  startTime: Long): SideTimer {
-    private var expired: Boolean = false
-    private var currentTime: Long = startTime
-    private val endTime: Long = startTime + (entry.duration?.plus(1)?.times(20) ?: 0).toLong()
+class EffectTimer(entry: FooterEntry,
+                  startTime: Long):
+    AbstractFooterEntryTimer(entry, startTime), SideTimer {
+    private var maxDuration: Double? = entry.duration?.toDouble()
 
     override fun getDisplayText(): Text {
         return LiteralText(entry.icon).append(" ")
             .append(LiteralText(entry.name).formatted(Formatting.GRAY))
     }
 
-    override fun isExpired(): Boolean = expired
-
-    override fun updateWorldTime(time: Long) {
-        currentTime = time
-        if (currentTime > endTime)
-            expired = true
-    }
-
     override fun getDuration(): Double? {
-        if (entry.duration == null)
+        if (maxDuration == null)
             return null
-        val time = (endTime - currentTime) / 20.0
-        return max(0.0, time)
+        return super.getDuration()
     }
 
-    override fun getFullDuration(): Double? {
-        return entry.duration?.toDouble()
+    override fun updateEntry(currentEntry: FooterEntry) {
+        val currentTime = TimerManager.getWorldTime()
+        if (currentEntry.duration != null) {
+            val upperTime = toEndTime(currentTime, currentEntry.duration + 1)
+            val lowerTime = toEndTime(currentTime, currentEntry.duration)
+            if (abs(lowerTime - endTime) >= 20 && abs(upperTime - endTime) >= 20) {
+                maxDuration = entry.duration?.toDouble()
+                endTime = upperTime
+            }
+        }
     }
 
-    override fun getKey(): String = entry.name
+    override fun getFullDuration(): Double? = maxDuration
+
+    override fun getKey(): String = entry.icon + "@" + entry.name
 
     override fun asSideTimer(): SideTimer = this
 }
