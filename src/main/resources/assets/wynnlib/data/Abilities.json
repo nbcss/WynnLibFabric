@@ -5048,6 +5048,7 @@
         "SENTIENT_SNAKE"
       ],
       "properties": {
+        "status_name": "Purification",
         "extend": {
           "spell": "SPELL_1"
         },
@@ -5242,6 +5243,7 @@
         "CHEAPER_TELEPORT_2"
       ],
       "properties": {
+        "status_name": "Fortitude",
         "extend": {
           "spell": "SPELL_1",
           "ability": "HEAL"
@@ -5621,6 +5623,7 @@
         "LARGER_MANA_BANK_2"
       ],
       "properties": {
+        "status_name": "Arcane Speed",
         "extend": {
           "spell": "SPELL_1"
         },

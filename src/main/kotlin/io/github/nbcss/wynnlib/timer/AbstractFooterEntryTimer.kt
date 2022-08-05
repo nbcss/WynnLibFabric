@@ -35,9 +35,14 @@ abstract class AbstractFooterEntryTimer(protected val entry: StatusEntry,
         if (currentEntry.duration != null) {
             val upperTime = toEndTime(currentTime, currentEntry.duration + 1)
             val lowerTime = toEndTime(currentTime, currentEntry.duration)
-            if (abs(lowerTime - endTime) >= 20 && abs(upperTime - endTime) >= 20) {
+            if (endTime - upperTime >= 10) {
                 endTime = upperTime
+            }else if(lowerTime - endTime >= 10) {
+                endTime = lowerTime
             }
+            /*if (abs(lowerTime - endTime) >= 20 && abs(upperTime - endTime) >= 20) {
+                endTime = upperTime
+            }*/
         }
     }
 }
