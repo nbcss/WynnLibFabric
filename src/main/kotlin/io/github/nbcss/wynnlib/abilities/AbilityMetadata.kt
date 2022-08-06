@@ -13,7 +13,7 @@ class AbilityMetadata(val ability: Ability,
         private const val TYPE_KEY: String = "type"
         private const val UPGRADABLE_KEY: String = "upgradable"
     }
-    private val icon: AbilityIcon = AbilityIcon.fromName(if (data.has(ICON_KEY)) data[ICON_KEY].asString else null)
+    private val icon: IconTexture = IconTexture.fromName(if (data.has(ICON_KEY)) data[ICON_KEY].asString else null)
     private val upgradeable: Boolean = if (data.has(UPGRADABLE_KEY)) data[UPGRADABLE_KEY].asBoolean else true
     private val factory: PropertyEntry.Factory = PropertyEntry.getFactory(
         if (data.has(TYPE_KEY)) data[TYPE_KEY].asString else null)

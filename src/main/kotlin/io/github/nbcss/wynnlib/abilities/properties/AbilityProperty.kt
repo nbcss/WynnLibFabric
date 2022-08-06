@@ -13,6 +13,8 @@ import io.github.nbcss.wynnlib.abilities.properties.assassin.SmokeBombProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
 import io.github.nbcss.wynnlib.abilities.properties.mage.*
+import io.github.nbcss.wynnlib.abilities.properties.warrior.CorruptedProperty
+import io.github.nbcss.wynnlib.abilities.properties.warrior.EnragedBlowProperty
 import io.github.nbcss.wynnlib.abilities.properties.warrior.MantleResistanceProperty
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.text.Text
@@ -95,6 +97,9 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MaxMarkedProperty.Modifier,
                 BloomAoEProperty,
                 MantleResistanceProperty,
+                CorruptedProperty,
+                CorruptedProperty.Modifier,
+                EnragedBlowProperty,
             ).map { it.getKey() to it }.toTypedArray()
         )
 

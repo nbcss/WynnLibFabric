@@ -14,6 +14,9 @@ interface ITimer: Keyed {
     companion object {
 
         fun fromEntry(entry: StatusEntry): ITimer {
+            //ixme comment out it
+            //println(StringEscapeUtils.escapeJava(entry.icon))
+            //"§a➡"
             AbilityTimer.matches(entry, TimerManager.getWorldTime())?.let { return it }
             return EffectTimer(entry, TimerManager.getWorldTime())
         }

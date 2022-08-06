@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.timer
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import net.minecraft.util.Identifier
+import org.apache.commons.lang3.StringEscapeUtils
 
 class AbilityTimer(private val key: String,
                    private val ability: Ability,

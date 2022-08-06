@@ -818,6 +818,12 @@
         "extend": {
           "spell": "SPELL_4"
         },
+        "corrupted": {
+          "rate": 2,
+          "damage_boost": 4,
+          "max_boost": 120
+        },
+        "duration": 120,
         "cooldown": 15
       },
       "metadata": {
@@ -1006,11 +1012,20 @@
         "SPEAR_PROFICIENCY_2"
       ],
       "properties": {
-        "upgrade": {
+        "extend": {
           "ability": "BAKALS_GRASP"
+        },
+        "enraged_blow": {
+          "rate": 1,
+          "damage_boost": 3,
+          "max_boost": 300
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "ENRAGED_BLOW",
+        "upgradable": false
+      }
     },
     {
       "id": "FLYING_KICK",
@@ -1282,6 +1297,9 @@
       "properties": {
         "upgrade": {
           "ability": "BAKALS_GRASP"
+        },
+        "values": {
+          "1": 2
         }
       },
       "metadata": null
@@ -1401,6 +1419,12 @@
       "properties": {
         "upgrade": {
           "ability": "BAKALS_GRASP"
+        },
+        "values": {
+          "1": 2
+        },
+        "corrupted_modifier": {
+          "damage_boost": 1
         },
         "cooldown_modifier": -5
       },
@@ -1956,6 +1980,7 @@
         "CHEAPER_BASH_2"
       ],
       "properties": {
+        "status_name": "Second Chance",
         "values": {
           "1": 30,
           "2": 10

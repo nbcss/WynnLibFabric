@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib
 
-import io.github.nbcss.wynnlib.abilities.AbilityIcon
+import io.github.nbcss.wynnlib.abilities.IconTexture
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
@@ -22,7 +22,7 @@ object WynnLibEntry: ModInitializer {
 
     override fun onInitialize() {
         //Reload icons
-        AbilityIcon.reload()
+        IconTexture.reload()
         //Load data
         AbilityRegistry.load()
         Identification.load() //id have to load after ability, because spell id need ability name from abilities...
