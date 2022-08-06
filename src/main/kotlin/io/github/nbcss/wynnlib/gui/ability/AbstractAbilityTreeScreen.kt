@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.tooltip.TooltipComponent
 import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
@@ -50,6 +51,50 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     abstract fun renderViewer(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float)
 
     abstract fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float)
+
+    fun renderAbilityTooltip(matrices: MatrixStack,
+                             mouseX: Int,
+                             mouseY: Int,
+                             ability: Ability,
+                             tooltip: MutableList<Text> = ability.getTooltip().toMutableList()) {
+        var icon: Identifier? = null
+        val metadata = ability.getMetadata()
+        if (metadata != null && tooltip.size >= 2) {
+            icon = metadata.getTexture()
+            tooltip[0] = LiteralText("     ").append(tooltip[0])
+            tooltip[1] = LiteralText("     ").append(tooltip[1])
+        }
+        drawTooltip(matrices, tooltip, mouseX, mouseY + 20)
+        if (icon != null) {
+            var i = 0
+            var j = if (tooltip.size == 1) -2 else 0
+
+            val components = tooltip.map { TooltipComponent.of(it.asOrderedText()) }
+            for (tooltipComponent in components) {
+                val k = tooltipComponent.getWidth(textRenderer)
+                if (k > i) {
+                    i = k
+                }
+                j += tooltipComponent.height
+            }
+
+            var x = mouseX + 12
+            var y = mouseY + 8
+
+            if (x + i > width) {
+                x -= 28 + i
+            }
+
+            if (y + j + 6 > height) {
+                y = height - j - 6
+            }
+
+            RenderSystem.disableDepthTest()
+            RenderKit.renderTexture(matrices, icon, x, y,
+                0, 0, 18, 18, 18, 18)
+            RenderSystem.enableDepthTest()
+        }
+    }
 
     fun isOverViewer(mouseX: Int, mouseY: Int): Boolean {
         return mouseX >= viewerX && mouseX < viewerX + VIEW_WIDTH && mouseY >= viewerY && mouseY < viewerY + VIEW_HEIGHT

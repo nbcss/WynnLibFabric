@@ -332,11 +332,10 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 if (isOverNode(node, mouseX, mouseY)){
-                    var tooltip = ability.getTooltip(this)
+                    val tooltip = ability.getTooltip(this).toMutableList()
                     val disabled = container.isAbilityDisabled(ability)
                     val locked = ability in fixedAbilities
                     if (disabled || locked) {
-                        tooltip = tooltip.toMutableList()
                         tooltip.add(LiteralText.EMPTY)
                         if (locked) {
                             tooltip.add(Symbol.WARNING.asText().append(" ")
@@ -347,7 +346,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                                 .append(TOOLTIP_ABILITY_UNUSABLE.formatted(Formatting.RED)))
                         }
                     }
-                    drawTooltip(matrices, tooltip, mouseX, mouseY + 20)
+                    //drawTooltip(matrices, tooltip, mouseX, mouseY + 20)
+                    renderAbilityTooltip(matrices, mouseX, mouseY, ability, tooltip)
                     break
                 }
             }

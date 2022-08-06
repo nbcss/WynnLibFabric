@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.gui.ability
 
+import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.data.CharacterClass
@@ -7,16 +8,14 @@ import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
-import io.github.nbcss.wynnlib.render.RenderKit.renderTextureWithColor
-import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.tooltip.TooltipComponent
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
-import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
 
@@ -141,7 +140,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 if (isOverNode(node, mouseX, mouseY)){
-                    drawTooltip(matrices, ability.getTooltip(), mouseX, mouseY + 20)
+                    renderAbilityTooltip(matrices, mouseX, mouseY, ability)
                     break
                 }
             }
