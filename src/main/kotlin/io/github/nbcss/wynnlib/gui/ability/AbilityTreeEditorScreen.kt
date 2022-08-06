@@ -3,7 +3,6 @@ package io.github.nbcss.wynnlib.gui.ability
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.gui.widgets.ConfirmButtonWidget
-import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_CLICK_TO_UNLOCK
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_EMPTY_LIST
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_NEW_ABILITIES
