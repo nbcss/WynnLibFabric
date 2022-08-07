@@ -6,6 +6,7 @@
       "icon": "\u00a7a\u2741",
       "name": "$% Resistance",
       "texture": "WAR_SCREAM",
+      "text": "RESISTANCE_BONUS",
       "properties": {}
     },
     {
@@ -14,6 +15,7 @@
       "icon": "\u00a7a\u2694",
       "name": "$% Strength",
       "texture": null,
+      "text": "STRENGTH_BONUS",
       "properties": {}
     },
     {
@@ -22,6 +24,7 @@
       "icon": "\u00a7a\u2748",
       "name": "$% Radiant",
       "texture": "RADIANCE",
+      "text": "RADIANCE_BONUS",
       "properties": {}
     },
     {
@@ -30,6 +33,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Radiance",
       "texture": "RADIANCE",
+      "text": null,
       "properties": {}
     },
     {
@@ -38,6 +42,7 @@
       "icon": "\u00a7b\u2764",
       "name": "Corrupted",
       "texture": "BAKALS_GRASP",
+      "text": null,
       "properties": {}
     },
     {
@@ -46,6 +51,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Corrupted",
       "texture": "BAKALS_GRASP",
+      "text": null,
       "properties": {}
     },
     {
@@ -54,6 +60,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Boiling Blood",
       "texture": "BOILING_BLOOD",
+      "text": null,
       "properties": {}
     },
     {
@@ -62,6 +69,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Shield",
       "texture": "MANTLE_OF_THE_BOVEMISTS",
+      "text": null,
       "properties": {}
     },
     {
@@ -70,6 +78,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Second Chance",
       "texture": "SECOND_CHANCE",
+      "text": null,
       "properties": {}
     },
     {
@@ -78,6 +87,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Bryophyte Roots",
       "texture": "BRYOPHYTE_ROOTS",
+      "text": null,
       "properties": {}
     },
     {
@@ -86,6 +96,7 @@
       "icon": "\u00a7b\u2764",
       "name": "Windy Feet",
       "texture": "WINDY_FEET",
+      "text": null,
       "properties": {}
     },
     {
@@ -94,6 +105,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Leap",
       "texture": "LEAP",
+      "text": null,
       "properties": {}
     },
     {
@@ -102,6 +114,7 @@
       "icon": "\u00a7b\u27b2",
       "name": "$% Frenzy",
       "texture": "FRENZY",
+      "text": "FRENZY_SPEED",
       "properties": {
         "max": 160,
         "format": "%s%%"
@@ -113,6 +126,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Arcane Speed",
       "texture": "ARCANE_SPEED",
+      "text": null,
       "properties": {}
     },
     {
@@ -121,6 +135,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Purification",
       "texture": "PURIFICATION",
+      "text": null,
       "properties": {}
     },
     {
@@ -129,6 +144,7 @@
       "icon": "\u00a7a\u2694",
       "name": "Fortitude",
       "texture": "FORTITUDE",
+      "text": null,
       "properties": {}
     },
     {
@@ -137,6 +153,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Fortitude",
       "texture": "FORTITUDE",
+      "text": null,
       "properties": {}
     },
     {
@@ -145,6 +162,7 @@
       "icon": "\u00a7a\u2741",
       "name": "Sunflare",
       "texture": "SUNFLARE",
+      "text": null,
       "properties": {}
     },
     {
@@ -153,6 +171,7 @@
       "icon": "\u00a7a\u27a1",
       "name": "$% Time Dilated",
       "texture": "TIME_DILATION",
+      "text": null,
       "properties": {
         "max": 300,
         "format": "%s%%"
@@ -164,6 +183,7 @@
       "icon": "\u00a7a\u231a",
       "name": "$ Timelocked",
       "texture": "TIMELOCK",
+      "text": null,
       "properties": {}
     },
     {
@@ -172,6 +192,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Vanish",
       "texture": "VANISH",
+      "text": null,
       "properties": {}
     },
     {
@@ -180,6 +201,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Mirror Image",
       "texture": "MIRROR_IMAGE",
+      "text": null,
       "properties": {}
     },
     {
@@ -188,6 +210,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Sandbagging",
       "texture": "SANDBAGGING",
+      "text": null,
       "properties": {}
     },
     {
@@ -196,6 +219,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Hop",
       "texture": "HOP",
+      "text": null,
       "properties": {}
     },
     {
@@ -204,6 +228,7 @@
       "icon": "\u00a7a\u2694",
       "name": "Delirious Gas",
       "texture": "DELIRIOUS_GAS",
+      "text": null,
       "properties": {}
     },
     {
@@ -212,6 +237,7 @@
       "icon": "\u00a7d\u2764",
       "name": "Luring",
       "texture": "LURING",
+      "text": null,
       "properties": {}
     },
     {
@@ -220,6 +246,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Parry",
       "texture": "PARRY",
+      "text": null,
       "properties": {}
     },
     {
@@ -228,6 +255,7 @@
       "icon": "\u00a76\u2764",
       "name": "$ Extra Health",
       "texture": "EXTRA_HEALTH",
+      "text": "DIVERSION_HEALTH",
       "properties": {
         "format": "6{%s}"
       }
@@ -238,6 +266,7 @@
       "icon": "\u00a78\u2b24",
       "name": "Diversion",
       "texture": "DIVERSION",
+      "text": null,
       "properties": {}
     }
   ],

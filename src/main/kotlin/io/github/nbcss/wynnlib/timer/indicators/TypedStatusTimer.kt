@@ -61,7 +61,7 @@ class TypedStatusTimer(private val type: StatusType,
                 name = name.replaceFirst(value, "$")
             }
             StatusType.fromDisplay(entry.icon, name)?.let {
-                return TypedStatusTimer(it, values, entry, worldTime)
+                return it.createTimer(entry, values, worldTime)
             }
             return null
         }

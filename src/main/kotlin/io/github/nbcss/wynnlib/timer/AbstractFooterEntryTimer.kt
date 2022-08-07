@@ -23,6 +23,8 @@ abstract class AbstractFooterEntryTimer(protected val entry: StatusEntry,
     }
 
     override fun getDuration(): Double? {
+        if (endTime <= 0L)
+            return null
         val time = (endTime - currentTime) / 20.0
         return max(0.0, time)
     }

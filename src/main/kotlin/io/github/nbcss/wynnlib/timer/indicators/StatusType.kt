@@ -3,20 +3,33 @@ package io.github.nbcss.wynnlib.timer.indicators
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.IconTexture
+import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.registry.Registry
+import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.timer.IconIndicator
 import io.github.nbcss.wynnlib.timer.SideIndicator
 import io.github.nbcss.wynnlib.timer.StatusEntry
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.formatTimer
 import net.minecraft.client.font.TextRenderer
 import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
+import net.minecraft.text.TranslatableText
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
+import net.minecraft.util.Language
 import kotlin.math.roundToInt
 
 abstract class StatusType(data: JsonObject): Keyed {
     private val id: String = data["id"].asString
     private val icon: String = data["icon"].asString
     private val name: String = data["name"].asString
+    private val text: Translatable? = if (!data["text"].isJsonNull) {
+        Translatable.from("wynnlib.indicator.${data["text"].asString.lowercase()}")
+    }else{
+        null
+    }
     private val texture: Identifier? = if (!data["texture"].isJsonNull) {
         IconTexture.fromName(data["texture"].asString).getTexture()
     } else {
@@ -29,12 +42,38 @@ abstract class StatusType(data: JsonObject): Keyed {
                             icon: Identifier,
                             posX: Int, posY: Int)
 
+    fun renderText(matrices: MatrixStack,
+                   timer: TypedStatusTimer,
+                   displayText: Text,
+                   posX: Int, posY: Int) {
+        val text = LiteralText("")
+        val duration: Double? = timer.getDuration()
+        if (duration != null) {
+            var color = Formatting.GREEN
+            if (duration < 10) {
+                color = Formatting.RED
+            } else if (duration < 30) {
+                color = Formatting.GOLD
+            }
+            text.append(LiteralText(formatTimer((duration * 1000).toLong())).formatted(color))
+                .append(" ")
+        }
+        text.append(displayText)
+        RenderKit.renderDefaultOutlineText(matrices, text, posX.toFloat(), posY.toFloat())
+    }
+
     open fun createTimer(entry: StatusEntry, values: List<Int>, worldTime: Long): TypedStatusTimer {
         return TypedStatusTimer(this, values, entry, worldTime)
     }
 
     fun asSideIndicator(timer: TypedStatusTimer): SideIndicator? {
-        return null //todo
+        return if (text != null) object : SideIndicator {
+            override fun render(matrices: MatrixStack, textRenderer: TextRenderer, posX: Int, posY: Int) {
+                val args: Array<Any> = timer.getValues().map { it.toString() }.toTypedArray()
+                val displayText = text.formatted(Formatting.GRAY, label = null, args = args)
+                renderText(matrices, timer, displayText, posX, posY)
+            }
+        } else null
     }
 
     fun asIconIndicator(timer: TypedStatusTimer): IconIndicator? {
