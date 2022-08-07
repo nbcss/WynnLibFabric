@@ -22,10 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get Branch & Version
-        run: |
-          echo "BRANCH=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          echo "MOD_VERSION=`cat ./gradle.properties | grep 'modVersion' | awk -F '=' '{print $2}'`" >> &GITHUB_ENV
+      - name: Get Branch
+        run: echo "BRANCH=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Get Version
+        run: echo "MOD_VERSION=`cat ./gradle.properties | grep 'modVersion' | awk -F '=' '{print $2}'`" >> &GITHUB_ENV
 
       - name: Setup JAVA
         uses: actions/setup-java@v3
