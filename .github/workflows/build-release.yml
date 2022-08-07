@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-release:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,16 +33,18 @@ jobs:
       - name: Build Jar
         run: ./gradlew build
 
+      - name: Rename Files
+        run: mv build/libs/wynnlib-${{ env.MOD_VERSION }}.jar build/libs/[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar
+
       - name: Upload build jar
         uses: actions/upload-artifact@v3
         with:
-          name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.zip"
-          path: build/libs/
+          name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar"
+          path: build/libs/[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar
 
       - name: Publish
-        uses: svenstaro/upload-release-action@v2
+        uses: irongut/EditRelease@v1.2.0
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: build/libs/wynnlib-${{ env.MOD_VERSION }}.jar
-          asset_name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: "build/libs/[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar"
           tag: ${{ github.ref }}
