@@ -20,7 +20,7 @@ jobs:
 
       - name: Get Version
         run: |
-          modVersion = grep 'modVersion' ./gradle.properties | awk -F ' = ' '{print $2}'`" >> &GITHUB_ENV
+          modVersion = grep 'modVersion' ./gradle.properties | awk -F ' = ' '{print $2}'
           echo "MOD_VERSION=$modVersion" >> $GITHUB_ENV
 
       - name: Setup JAVA
