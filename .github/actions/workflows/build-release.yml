@@ -1,0 +1,46 @@
+name: build-release
+on:
+  push:
+    branches-ignore:
+      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        default: 'test-latest'
+        description: "Tag to release"
+        required: true
+        type: string
+
+
+
+jobs:
+  gralde:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+      runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup JAVA
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: jar
+
+      - name: Set ENV
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Upload build jar
+        uses: actions/upload-artifact@v3
+        with:
+          name: WynnLibFabric-${{ env.RELEASE_VERSION }}.jar
+          path: build/libs/
