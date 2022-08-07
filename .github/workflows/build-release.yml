@@ -36,5 +36,5 @@ jobs:
       - name: Upload build jar
         uses: actions/upload-artifact@v3
         with:
-          name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar"
+          name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.zip"
           path: build/libs/
