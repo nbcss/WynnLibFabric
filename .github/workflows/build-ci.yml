@@ -34,10 +34,13 @@ jobs:
       - name: Build Jar
         run: ./gradlew build
 
+      - name: Get Short SHA
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+
       - name: Rename Files
         run: |
-          mv ./build/libs/wynnlib-${MOD_VERSION}.jar ./build/libs/[CI][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-${{ github.sha::8 }}.jar
-          mv ./build/libs/wynnlib-${MOD_VERSION}-sources.jar ./build/libs/[CI][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-${{ github.sha::8 }}-sources.jar
+          mv ./build/libs/wynnlib-${MOD_VERSION}.jar ./build/libs/[CI][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-${SHORT_SHA::8}.jar
+          mv ./build/libs/wynnlib-${MOD_VERSION}-sources.jar ./build/libs/[CI][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-${SHORT_SHA::8}-sources.jar
 
       - name: Upload build jar
         uses: actions/upload-artifact@v3
