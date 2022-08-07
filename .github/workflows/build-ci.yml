@@ -45,5 +45,5 @@ jobs:
       - name: Upload build jar
         uses: actions/upload-artifact@v3
         with:
-          name: "[CI][${{ env.BRANCH }}]WynnLibFabric-${SHORT_SHA}.zip"
+          name: "[CI-${{ env.SHORT_SHA }}][${{ env.BRANCH }}]WynnLibFabric.zip"
           path: build/libs/
