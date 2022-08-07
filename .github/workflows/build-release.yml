@@ -19,9 +19,7 @@ jobs:
         run: echo "BRANCH=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Get Version
-        run: |
-          modVersion = grep 'modVersion' ./gradle.properties | awk -F ' = ' '{print $2}'
-          echo "MOD_VERSION=$modVersion" >> $GITHUB_ENV
+        run: echo "MOD_VERSION=`grep 'modVersion' ./gradle.properties | awk -F ' = ' '{print $2}'`" >> $GITHUB_ENV
 
       - name: Setup JAVA
         uses: actions/setup-java@v3
