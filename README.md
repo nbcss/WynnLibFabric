@@ -31,4 +31,9 @@ Planned New Features:
 The current main development branch is 1.18,
 please work on this branch to add new features.
 In addition, please join the Discord channel TmW4mB8 
-and say what features you are trying to add before doing it. 
+and say what features you are trying to add before doing it.
+
+# License
+This mod is licensed under the [AGPL-v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) license.
+
+All assets in the mod belong to their contributer and are licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) license.
