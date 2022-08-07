@@ -39,11 +39,11 @@ jobs:
 
       - name: Rename Files
         run: |
-          mv ./build/libs/wynnlib-${MOD_VERSION}.jar ./build/libs/[CI][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-${SHORT_SHA::8}.jar
-          mv ./build/libs/wynnlib-${MOD_VERSION}-sources.jar ./build/libs/[CI][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-${SHORT_SHA::8}-sources.jar
+          mv ./build/libs/wynnlib-${MOD_VERSION}.jar ./build/libs/[CI-${SHORT_SHA}][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}.jar
+          mv ./build/libs/wynnlib-${MOD_VERSION}-sources.jar ./build/libs/[CI-${SHORT_SHA}][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-sources.jar
 
       - name: Upload build jar
         uses: actions/upload-artifact@v3
         with:
-          name: "[CI][${{ env.BRANCH }}]WynnLibFabric-${{ github.sha }}.zip"
+          name: "[CI][${{ env.BRANCH }}]WynnLibFabric-${SHORT_SHA}.zip"
           path: build/libs/
