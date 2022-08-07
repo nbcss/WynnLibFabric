@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.mage
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
@@ -36,6 +37,12 @@ class MageOphanimProperty(ability: Ability,
     }
 
     fun getLightOfOrb(): LightOfOrb = lightOfOrb
+
+    override fun writePlaceholder(container: PlaceholderContainer) {
+        container.putPlaceholder("ophanim.count", "${lightOfOrb.count}")
+        container.putPlaceholder("ophanim.health", "${lightOfOrb.health}")
+        container.putPlaceholder("ophanim.loss", "${lightOfOrb.healthLose}")
+    }
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)

@@ -109,6 +109,15 @@
       "properties": {}
     },
     {
+      "id": "CONCENTRATION_EFFECT",
+      "type": "TEMP_EFFECT",
+      "icon": "\u00a7b\u2764",
+      "name": "Concentration",
+      "texture": "TWAINS_ARC",
+      "text": null,
+      "properties": {}
+    },
+    {
       "id": "FRENZY_EFFECT",
       "type": "VALUE",
       "icon": "\u00a7b\u27b2",
@@ -119,6 +128,24 @@
         "max": 160,
         "format": "%s%%"
       }
+    },
+    {
+      "id": "MANA_BANK_EFFECT",
+      "type": "VALUE",
+      "icon": "\u00a7b\u273a",
+      "name": "$ Stored Mana",
+      "texture": null,
+      "text": "STORED_MANA",
+      "properties": {}
+    },
+    {
+      "id": "BURNING_SIGIL_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Burning Sigil",
+      "texture": "BURNING_SIGIL",
+      "text": null,
+      "properties": {}
     },
     {
       "id": "ARCANE_SPEED_COOLDOWN",
@@ -266,6 +293,15 @@
       "icon": "\u00a78\u2b24",
       "name": "Diversion",
       "texture": "DIVERSION",
+      "text": null,
+      "properties": {}
+    },
+    {
+      "id": "MARTYR_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2617",
+      "name": "Invincible",
+      "texture": "MARTYR",
       "text": null,
       "properties": {}
     }

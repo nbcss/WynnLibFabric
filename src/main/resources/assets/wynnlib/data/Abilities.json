@@ -4849,11 +4849,13 @@
           "range": 7,
           "shape": "CIRCLE"
         },
-        "duration": 5
+        "duration": 5,
+        "cooldown": 8
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BURNING_SIGIL"
+        "icon": "BURNING_SIGIL",
+        "upgradable": false
       }
     },
     {
@@ -5278,7 +5280,11 @@
           "modifier": 60
         },
         "duration": 5,
-        "cooldown": 15
+        "cooldown": 15,
+        "values": {
+          "1": 120,
+          "2": 10
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -5341,6 +5347,9 @@
         "aoe": {
           "range": 4,
           "shape": "CIRCLE"
+        },
+        "values": {
+          "1": 30
         }
       },
       "metadata": {
@@ -5425,6 +5434,9 @@
       "properties": {
         "upgrade": {
           "spell": "SPELL_4"
+        },
+        "values": {
+          "1": 3
         },
         "damage_modifier": {
           "hits": 2

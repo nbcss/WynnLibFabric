@@ -206,6 +206,7 @@
   "wynnlib.indicator.radiance_bonus": "a{+%s%%} Radiant",
   "wynnlib.indicator.frenzy_speed": "a{+%s%%} Frenzy",
   "wynnlib.indicator.diversion_health": "a{+%s} 6{❤} Extra Health",
+  "wynnlib.indicator.stored_mana": "f{%s} b{✺} Stored Mana",
   "wynnlib.powder.earth_1": "\u2724 Earth Powder I",
   "wynnlib.powder.earth_2": "\u2724 Earth Powder II",
   "wynnlib.powder.earth_3": "\u2724 Earth Powder III",

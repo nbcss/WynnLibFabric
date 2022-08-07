@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.mage
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
@@ -27,6 +28,10 @@ class MageManaBankProperty(ability: Ability,
 
     fun getManaBankSize(): Int = size
 
+    override fun writePlaceholder(container: PlaceholderContainer) {
+        container.putPlaceholder(getKey(), size.toString())
+    }
+
     override fun setup(entry: PropertyEntry) {
         entry.clearProperty(ManaCostProperty.getKey())
         entry.setProperty(getKey(), this)
@@ -49,6 +54,10 @@ class MageManaBankProperty(ability: Ability,
         }
 
         fun getManaModifier(): Int = modifier
+
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder(getKey(), modifier.toString())
+        }
 
         override fun modify(entry: PropertyEntry) {
             MageManaBankProperty.from(entry)?.let {
