@@ -53,7 +53,7 @@
   "FOCUS": "focus.png",
   "BASALTIC_TRAP": "basaltic_trap.png",
   "GRAPPLING_HOOK": "grappling_hook.png",
-  "PATIENT_HUNTER": "",
+  "PATIENT_HUNTER": "patient_hunter.png",
   "TWAINS_ARC": "twains_arc.png",
   "FIERCE_STOMP": "fierce_stomp.png",
   "LEAP": "leap.png",
@@ -64,7 +64,7 @@
   "SHRAPNEL_BOMB": "shrapnel_bomb.png",
   "CREPUSCULAR_RAY": "crepuscular_ray.png",
   "GRAPE_BOMB": "grape_bomb.png",
-  "ELUSIVE": "",
+  "ELUSIVE": "elusive.png",
   "TANGLED_TRAPS": "tangled_traps.png",
   "SNOW_STORM": "snow_storm.png",
   "MAGE_MAIN_ATTACK": "mage_main_attack.png",
@@ -120,6 +120,6 @@
   "RICOCHETS": "ricochets.png",
   "JASMINE_BLOOM": "jasmine_bloom.png",
   "DIVERSION": "diversion.png",
-  "LURING": "",
-  "EXTRA_HEALTH": ""
+  "LURING": "lure.png",
+  "EXTRA_HEALTH": "diversion_health.png"
 }
