@@ -35,13 +35,19 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Build Jar
-        run: ./gradlew build && ./gradlew jar
+        run: ./gradlew build
 
-      - name: Set ENV
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Get Branch & Version
+        run: | 
+          echo "BRANCH=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          export modVersion = cat gradle.properties | grep 'modVersion' | awk -F '=' '{print $2}'
+          echo "MOD_VERSION=${modVersion}" >> &GITHUB_ENV
+
+      - name: Get Version
+        run: echo "cat gradle.properties | grep 'modVersion' | awk -F '=' '{print $2}'"
 
       - name: Upload build jar
         uses: actions/upload-artifact@v3
         with:
-          name: WynnLibFabric-${{ env.RELEASE_VERSION }}
+          name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar"
           path: build/libs/
