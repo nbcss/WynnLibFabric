@@ -15,7 +15,7 @@ interface ITimer: Keyed {
     companion object {
 
         fun fromEntry(entry: StatusEntry): ITimer {
-            //println(StringEscapeUtils.escapeJava(entry.icon))
+            //println(StringEscapeUtils.escapeJava(entry.icon) + " ${entry.name}")
             val worldTime = TimerManager.getWorldTime()
             TypedStatusTimer.fromStatus(entry, worldTime)?.let { return it }
             return SimpleTimer(entry, worldTime)

@@ -958,6 +958,7 @@
       },
       "metadata": {
         "type": "NEW",
+        "icon": "CRITICAL_DAMAGE",
         "upgradable": false
       }
     },
@@ -3789,6 +3790,7 @@
       },
       "metadata": {
         "type": "NEW",
+        "icon": "CRITICAL_DAMAGE",
         "upgradable": false
       }
     },
@@ -4842,10 +4844,12 @@
           "neutral": 15,
           "fire": 25
         },
+        "damage_interval": 0.4,
         "aoe": {
           "range": 7,
           "shape": "CIRCLE"
-        }
+        },
+        "duration": 5
       },
       "metadata": {
         "type": "EXTEND",
@@ -5729,7 +5733,8 @@
         "upgrade": {
           "spell": "SPELL_3",
           "ability": "METEOR"
-        }
+        },
+        "range_modifier": 20
       },
       "metadata": null
     },
