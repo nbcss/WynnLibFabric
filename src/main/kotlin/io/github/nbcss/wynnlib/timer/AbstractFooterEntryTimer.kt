@@ -1,6 +1,5 @@
 package io.github.nbcss.wynnlib.timer
 
-import kotlin.math.abs
 import kotlin.math.max
 
 abstract class AbstractFooterEntryTimer(protected val entry: StatusEntry,

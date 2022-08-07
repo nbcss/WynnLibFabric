@@ -45,21 +45,21 @@ object TimerManager {
         }
     }
 
-    fun getSideTimers(): List<SideTimer> {
-        val timers: MutableList<SideTimer> = mutableListOf()
+    fun getSideTimers(): List<SideIndicator> {
+        val timers: MutableList<SideIndicator> = mutableListOf()
         synchronized(this) {
             for (timer in timerMap.values) {
-                timer.asSideTimer()?.let { timers.add(it) }
+                timer.asSideIndicator()?.let { timers.add(it) }
             }
         }
         return timers
     }
 
-    fun getIconTimers(): List<IconTimer> {
-        val timers: MutableList<IconTimer> = mutableListOf()
+    fun getIconTimers(): List<IconIndicator> {
+        val timers: MutableList<IconIndicator> = mutableListOf()
         synchronized(this) {
             for (timer in timerMap.values) {
-                timer.asIconTimer()?.let { timers.add(it) }
+                timer.asIconIndicator()?.let { timers.add(it) }
             }
         }
         return timers

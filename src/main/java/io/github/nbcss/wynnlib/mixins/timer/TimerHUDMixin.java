@@ -1,23 +1,13 @@
 package io.github.nbcss.wynnlib.mixins.timer;
 
-import io.github.nbcss.wynnlib.Settings;
-import io.github.nbcss.wynnlib.render.RenderKit;
-import io.github.nbcss.wynnlib.timer.IconTimer;
-import io.github.nbcss.wynnlib.timer.SideTimer;
+import io.github.nbcss.wynnlib.timer.IconIndicator;
+import io.github.nbcss.wynnlib.timer.SideIndicator;
 import io.github.nbcss.wynnlib.timer.TimerManager;
-import io.github.nbcss.wynnlib.utils.AlphaColor;
-import io.github.nbcss.wynnlib.utils.Color;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -28,11 +18,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 
 import static io.github.nbcss.wynnlib.utils.UtilsKt.formatTimer;
-import static io.github.nbcss.wynnlib.utils.UtilsKt.round;
 
 @Mixin(InGameHud.class)
 public abstract class TimerHUDMixin {
-    private final Identifier background = new Identifier("wynnlib", "textures/hud/timer_background.png");
     @Final
     @Shadow
     private MinecraftClient client;
@@ -50,35 +38,23 @@ public abstract class TimerHUDMixin {
     }
 
     private void renderSideTimers(MatrixStack matrices) {
-        List<SideTimer> timers = TimerManager.INSTANCE.getSideTimers();
+        List<SideIndicator> timers = TimerManager.INSTANCE.getSideTimers();
         int posX = 3;
         int posY = (client.getWindow().getScaledHeight() - 11 * timers.size()) / 2;
-        for (SideTimer timer : timers) {
-            LiteralText text = new LiteralText("");
-            Double duration = timer.getDuration();
-            if (duration != null){
-                Formatting color = Formatting.GREEN;
-                if (duration < 10) {
-                    color = Formatting.RED;
-                }else if(duration < 30) {
-                    color = Formatting.GOLD;
-                }
-                text.append(new LiteralText(formatTimer((long) (duration * 1000))).formatted(color))
-                        .append(" ");
-            }
-            text.append(timer.getDisplayText());
-            RenderKit.INSTANCE.renderDefaultOutlineText(matrices, text, (float) posX, (float) posY);
+        for (SideIndicator timer : timers) {
+            timer.render(matrices, getTextRenderer(), posX, posY);
             posY += 11;
         }
     }
 
     private void renderIconTimers(MatrixStack matrices) {
-        List<IconTimer> timers = TimerManager.INSTANCE.getIconTimers();
+        List<IconIndicator> timers = TimerManager.INSTANCE.getIconTimers();
         //unit = 28 per timer
         int posX = client.getWindow().getScaledWidth() / 2 - timers.size() * 14;
         int posY = client.getWindow().getScaledHeight() - 108;
-        for (IconTimer timer : timers) {
-            RenderKit.INSTANCE.renderTexture(matrices, background, posX + 3, posY,
+        for (IconIndicator timer : timers) {
+            timer.render(matrices, getTextRenderer(), posX, posY);
+            /*RenderKit.INSTANCE.renderTexture(matrices, background, posX + 3, posY,
                     0, 256 - 22, 22, 22);
             Double duration = timer.getDuration();
             Double maxDuration = timer.getFullDuration();
@@ -101,7 +77,7 @@ public abstract class TimerHUDMixin {
                 RenderKit.INSTANCE.renderDefaultOutlineText(matrices, text, textX, textY);
             }
             RenderKit.INSTANCE.renderTexture(matrices, timer.getIcon(), posX + 5, posY + 2,
-                    0, 0, 18, 18, 18, 18);
+                    0, 0, 18, 18, 18, 18);*/
             posX += 28;
         }
     }

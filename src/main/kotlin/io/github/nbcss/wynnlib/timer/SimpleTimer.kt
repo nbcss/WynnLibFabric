@@ -1,16 +1,19 @@
 package io.github.nbcss.wynnlib.timer
 
+import io.github.nbcss.wynnlib.render.RenderKit.renderDefaultOutlineText
+import io.github.nbcss.wynnlib.utils.formatTimer
+import net.minecraft.client.font.TextRenderer
+import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-import kotlin.math.abs
 
-class EffectTimer(entry: StatusEntry,
+class SimpleTimer(entry: StatusEntry,
                   startTime: Long):
-    AbstractFooterEntryTimer(entry, startTime), SideTimer {
+    AbstractFooterEntryTimer(entry, startTime), SideIndicator {
     private var maxDuration: Double? = entry.duration?.toDouble()
 
-    override fun getDisplayText(): Text {
+    fun getDisplayText(): Text {
         return LiteralText(entry.icon).append(" ")
             .append(LiteralText(entry.name).formatted(Formatting.GRAY))
     }
@@ -40,5 +43,22 @@ class EffectTimer(entry: StatusEntry,
 
     override fun getKey(): String = entry.icon + "@" + entry.name
 
-    override fun asSideTimer(): SideTimer = this
+    override fun asSideIndicator(): SideIndicator = this
+
+    override fun render(matrices: MatrixStack, textRenderer: TextRenderer, posX: Int, posY: Int) {
+        val text = LiteralText("")
+        val duration: Double? = getDuration()
+        if (duration != null) {
+            var color = Formatting.GREEN
+            if (duration < 10) {
+                color = Formatting.RED
+            } else if (duration < 30) {
+                color = Formatting.GOLD
+            }
+            text.append(LiteralText(formatTimer((duration * 1000).toLong())).formatted(color))
+                .append(" ")
+        }
+        text.append(getDisplayText())
+        renderDefaultOutlineText(matrices, text, posX.toFloat(), posY.toFloat())
+    }
 }

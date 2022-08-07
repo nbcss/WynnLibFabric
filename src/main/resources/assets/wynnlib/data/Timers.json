@@ -1,0 +1,208 @@
+{
+  "data": [
+    {
+      "id": "WAR_SCREAM_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2741",
+      "name": "$% Resistance",
+      "texture": "WAR_SCREAM"
+    },
+    {
+      "id": "RAGNAROKKR_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2694",
+      "name": "$% Strength",
+      "texture": null
+    },
+    {
+      "id": "RADIANCE_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2748",
+      "name": "$% Radiant",
+      "texture": "RADIANCE"
+    },
+    {
+      "id": "RADIANCE_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Radiance",
+      "texture": "RADIANCE"
+    },
+    {
+      "id": "CORRUPTED_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7b\u2764",
+      "name": "Corrupted",
+      "texture": "BAKALS_GRASP"
+    },
+    {
+      "id": "CORRUPTED_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Corrupted",
+      "texture": "BAKALS_GRASP"
+    },
+    {
+      "id": "BOILING_BLOOD_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Boiling Blood",
+      "texture": "BOILING_BLOOD"
+    },
+    {
+      "id": "SHIELD_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Shield",
+      "texture": "MANTLE_OF_THE_BOVEMISTS"
+    },
+    {
+      "id": "SECOND_CHANCE_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Second Chance",
+      "texture": "SECOND_CHANCE"
+    },
+    {
+      "id": "BRYOPHYTE_ROOTS_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Bryophyte Roots",
+      "texture": "BRYOPHYTE_ROOTS"
+    },
+    {
+      "id": "WINDY_FEET_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7b\u2764",
+      "name": "Windy Feet",
+      "texture": "WINDY_FEET"
+    },
+    {
+      "id": "LEAP_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Leap",
+      "texture": "LEAP"
+    },
+    {
+      "id": "FRENZY_EFFECT",
+      "type": "VALUE",
+      "icon": "\u00a7b\u27b2",
+      "name": "$% Frenzy",
+      "texture": "FRENZY"
+    },
+    {
+      "id": "ARCANE_SPEED_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Arcane Speed",
+      "texture": "ARCANE_SPEED"
+    },
+    {
+      "id": "PURIFICATION_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Purification",
+      "texture": "PURIFICATION"
+    },
+    {
+      "id": "FORTITUDE_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2694",
+      "name": "Fortitude",
+      "texture": "FORTITUDE"
+    },
+    {
+      "id": "FORTITUDE_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Fortitude",
+      "texture": "FORTITUDE"
+    },
+    {
+      "id": "SUNFLARE_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2741",
+      "name": "Sunflare",
+      "texture": "SUNFLARE"
+    },
+    {
+      "id": "TIME_DILATION_EFFECT",
+      "type": "VALUE",
+      "icon": "\u00a7a\u27a1",
+      "name": "$% Time Dilated",
+      "texture": "TIME_DILATION"
+    },
+    {
+      "id": "TIMELOCK_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u231a",
+      "name": "$ Timelocked",
+      "texture": "TIMELOCK"
+    },
+    {
+      "id": "VANISH_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Vanish",
+      "texture": "VANISH"
+    },
+    {
+      "id": "MIRROR_IMAGE_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Mirror Image",
+      "texture": "MIRROR_IMAGE"
+    },
+    {
+      "id": "SANDBAGGING_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Sandbagging",
+      "texture": "SANDBAGGING"
+    },
+    {
+      "id": "HOP_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Hop",
+      "texture": "HOP"
+    },
+    {
+      "id": "DELIRIOUS_GAS_EFFECT",
+      "type": "TEMP_EFFECT",
+      "icon": "\u00a7a\u2694",
+      "name": "Delirious Gas",
+      "texture": "DELIRIOUS_GAS"
+    },
+    {
+      "id": "LURING_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7d\u2764",
+      "name": "Luring",
+      "texture": "LURING"
+    },
+    {
+      "id": "PARRY_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Parry",
+      "texture": "PARRY"
+    },
+    {
+      "id": "DIVERSION_EFFECT",
+      "type": "VALUE",
+      "icon": "\u00a76\u2764",
+      "name": "$ Extra Health",
+      "texture": "EXTRA_HEALTH"
+    },
+    {
+      "id": "DIVERSION_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Diversion",
+      "texture": "DIVERSION"
+    }
+  ],
+  "version": "0.1.0"
+}

@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.timer
 
+import io.github.nbcss.wynnlib.timer.indicators.TypedStatusTimer
 import io.github.nbcss.wynnlib.utils.Keyed
 
 interface ITimer: Keyed {
@@ -7,18 +8,17 @@ interface ITimer: Keyed {
     fun updateWorldTime(time: Long)
     fun getDuration(): Double?
     fun getFullDuration(): Double?
-    fun asSideTimer(): SideTimer? = null
-    fun asIconTimer(): IconTimer? = null
+    fun asSideIndicator(): SideIndicator? = null
+    fun asIconIndicator(): IconIndicator? = null
     fun onClear(event: ClearEvent): Boolean = true
 
     companion object {
 
         fun fromEntry(entry: StatusEntry): ITimer {
-            //ixme comment out it
             //println(StringEscapeUtils.escapeJava(entry.icon))
-            //"§a➡"
-            AbilityTimer.matches(entry, TimerManager.getWorldTime())?.let { return it }
-            return EffectTimer(entry, TimerManager.getWorldTime())
+            val worldTime = TimerManager.getWorldTime()
+            TypedStatusTimer.fromStatus(entry, worldTime)?.let { return it }
+            return SimpleTimer(entry, worldTime)
         }
     }
 

@@ -117,5 +117,6 @@
   "RICOCHETS": "ricochets.png",
   "JASMINE_BLOOM": "jasmine_bloom.png",
   "DIVERSION": "diversion.png",
-  "LURING": ""
+  "LURING": "",
+  "EXTRA_HEALTH": ""
 }
