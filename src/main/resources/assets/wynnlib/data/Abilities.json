@@ -20,7 +20,8 @@
         "main_attack_range": 4
       },
       "metadata": {
-        "type": "MAIN_ATTACK"
+        "type": "MAIN_ATTACK",
+        "icon": "WARRIOR_MAIN_ATTACK"
       }
     },
     {
