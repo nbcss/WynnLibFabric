@@ -38,3 +38,11 @@ jobs:
         with:
           name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.zip"
           path: build/libs/
+
+      - name: Publish
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: build/libs/wynnlib-${{ env.MOD_VERSION }}.jar
+          asset_name: "[${{ env.BRANCH }}]WynnLibFabric-${{ env.MOD_VERSION }}.jar"
+          tag: ${{ github.ref }}
