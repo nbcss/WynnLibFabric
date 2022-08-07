@@ -4,8 +4,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
 import net.minecraft.util.Formatting
 
-enum class Symbol(private val icon: String,
-                  private val formatting: Formatting) {
+enum class Symbol(val icon: String,
+                  val formatting: Formatting) {
     MANA("✺", Formatting.AQUA),
     HEART("❤", Formatting.RED),
     MAX("▲", Formatting.GRAY),
@@ -15,12 +15,14 @@ enum class Symbol(private val icon: String,
     AOE("☀", Formatting.DARK_AQUA),
     DURATION("⌛", Formatting.LIGHT_PURPLE),
     EFFECT("\uD83D\uDEE1", Formatting.YELLOW),
+    CHANCE("％", Formatting.DARK_GREEN),
     DAMAGE("⚔", Formatting.RED),
-    COOLDOWN("⌛", Formatting.GOLD),
+    COOLDOWN("⌛", Formatting.AQUA),
+    DAMAGE_INTERVAL("⌛", Formatting.RED),
     CHARGE("⚡", Formatting.GREEN),
     HITS("☄", Formatting.YELLOW),
     ALTER_HITS("☄", Formatting.GREEN),
-    ADD("✚", Formatting.LIGHT_PURPLE),
+    REPLACE("✚", Formatting.LIGHT_PURPLE),
     WARNING("⚠", Formatting.DARK_RED);
 
     fun asText(): MutableText {

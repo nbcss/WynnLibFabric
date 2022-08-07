@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -33,7 +34,7 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
         container.putPlaceholder(getKey(), removeDecimal(cooldown))
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         return listOf(Symbol.COOLDOWN.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_COOLDOWN.formatted(Formatting.GRAY).append(": "))
             .append(Translations.TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, removeDecimal(cooldown))))
@@ -52,6 +53,7 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
 
         override fun writePlaceholder(container: PlaceholderContainer) {
             container.putPlaceholder(getKey(), removeDecimal(modifier))
+            container.putPlaceholder("-${getKey()}", removeDecimal(-modifier))
         }
 
         override fun modify(entry: PropertyEntry) {
@@ -61,7 +63,7 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
             }
         }
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             val color = if (modifier < 0) Formatting.GREEN else Formatting.RED
             val value = Translations.TOOLTIP_SUFFIX_S.formatted(color, null,
                 (if (modifier > 0) "+" else "") + removeDecimal(modifier))

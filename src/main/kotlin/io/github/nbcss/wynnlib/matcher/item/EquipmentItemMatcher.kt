@@ -11,7 +11,12 @@ object EquipmentItemMatcher: ItemMatcher {
             return null
         val name = item.name.asString()
         if (name.length > 2 && name.startsWith("§")){
-            return RegularEquipmentRegistry.get(name.substring(2))
+            RegularEquipmentRegistry.fromName(name.substring(2))?.let { eq ->
+                if (tooltip.asSequence()
+                        .filter { it.siblings.isNotEmpty() }
+                        .map { it.siblings[0] }
+                        .any { it.asString().contains(eq.getTier().displayName) }) return eq
+            }
         }
         return null
     }

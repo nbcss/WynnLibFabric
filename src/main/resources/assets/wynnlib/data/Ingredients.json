@@ -99,8 +99,8 @@
 					"maximum": 55
 				},
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -141,8 +141,8 @@
 					"maximum": 13
 				},
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -695,13 +695,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"SPELLDAMAGE": {
 					"minimum": -22,
 					"maximum": -16
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -805,6 +805,49 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 1,
+			"level": 33,
+			"skills": [
+				"ARMOURING",
+				"ALCHEMISM"
+			],
+			"identifications": {
+				"INTELLIGENCEPOINTS": {
+					"minimum": 2,
+					"maximum": 3
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 15,
+					"maximum": 20
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -40,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -70,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Illicit Yarrow",
+			"sprite": {
+				"id": 38,
+				"damage": 1
 			}
 		},
 		{
@@ -914,9 +957,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": 0,
@@ -1026,6 +1067,61 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 2,
+			"level": 63,
+			"skills": [
+				"WEAPONSMITHING",
+				"WOODWORKING"
+			],
+			"identifications": {
+				"DEFENSEPOINTS": {
+					"minimum": -7,
+					"maximum": -6
+				},
+				"INTELLIGENCEPOINTS": {
+					"minimum": 4,
+					"maximum": 5
+				},
+				"STRENGTHPOINTS": {
+					"minimum": 4,
+					"maximum": 5
+				},
+				"DEXTERITYPOINTS": {
+					"minimum": 4,
+					"maximum": 5
+				},
+				"AGILITYPOINTS": {
+					"minimum": -7,
+					"maximum": -6
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -78,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Strange Trinket",
+			"sprite": {
+				"id": 419,
+				"damage": 0
 			}
 		},
 		{
@@ -1438,6 +1534,48 @@
 			}
 		},
 		{
+			"tier": 2,
+			"level": 36,
+			"skills": [
+				"COOKING"
+			],
+			"identifications": {
+				"DAMAGEBONUS": {
+					"minimum": -6,
+					"maximum": -4
+				},
+				"SPELLDAMAGE": {
+					"minimum": -6,
+					"maximum": -4
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": 0,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 200,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Contraband Miracle Berry",
+			"sprite": {
+				"id": 434,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Bloated Artery",
 			"tier": 2,
 			"level": 55,
@@ -1495,13 +1633,13 @@
 				"damage": 3
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"MANASTEAL": {
 					"minimum": 0,
-					"maximum": 1
+					"maximum": 5
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -2388,6 +2526,49 @@
 			}
 		},
 		{
+			"tier": 1,
+			"level": 33,
+			"skills": [
+				"JEWELING",
+				"ALCHEMISM"
+			],
+			"identifications": {
+				"THUNDERDEFENSE": {
+					"minimum": 2,
+					"maximum": 4
+				},
+				"THUNDERDAMAGEBONUS": {
+					"minimum": 2,
+					"maximum": 4
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -40,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -10,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Illicit Tingflower",
+			"sprite": {
+				"id": 175,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Organic Explosive",
 			"tier": 2,
 			"level": 77,
@@ -2650,21 +2831,21 @@
 				"damage": 0
 			},
 			"identifications": {
-				"ATTACKSPEED": {
-					"minimum": -1,
-					"maximum": -1
-				},
 				"EARTHDAMAGEBONUS": {
 					"minimum": -22,
 					"maximum": -18
+				},
+				"ATTACKSPEED": {
+					"minimum": -1,
+					"maximum": -1
 				},
 				"SPELLDAMAGE": {
 					"minimum": 10,
 					"maximum": 12
 				},
 				"MANASTEAL": {
-					"minimum": 2,
-					"maximum": 2
+					"minimum": 10,
+					"maximum": 10
 				}
 			},
 			"itemOnlyIDs": {
@@ -2980,13 +3161,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"DEXTERITYPOINTS": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 17,
 					"maximum": 20
+				},
+				"DEXTERITYPOINTS": {
+					"minimum": 1,
+					"maximum": 1
 				}
 			},
 			"itemOnlyIDs": {
@@ -3343,13 +3524,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"REFLECTION": {
 					"minimum": 2,
 					"maximum": 4
+				},
+				"MANASTEAL": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -3361,7 +3542,7 @@
 				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
-				"duration": -120,
+				"duration": 0,
 				"charges": 0
 			},
 			"ingredientPositionModifiers": {
@@ -3853,6 +4034,52 @@
 			"skin": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTZkY2M4ZjM3YWM5OWQ5NTFlY2JjNWRmNWU4NTgyMTMzZjVmMjMwN2U3NjlhZjZiNmNmZmY0MjgyMTgwNjcifX19"
 		},
 		{
+			"tier": 1,
+			"level": 65,
+			"skills": [
+				"JEWELING"
+			],
+			"identifications": {
+				"EARTHDAMAGEBONUS": {
+					"minimum": 3,
+					"maximum": 4
+				},
+				"FIREDEFENSE": {
+					"minimum": -6,
+					"maximum": -5
+				},
+				"STRENGTHPOINTS": {
+					"minimum": 2,
+					"maximum": 2
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -56,
+				"strengthRequirement": 8,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Faebloom Petal",
+			"sprite": {
+				"id": 360,
+				"damage": 0
+			}
+		},
+		{
 			"name": "River Clay",
 			"tier": 0,
 			"level": 23,
@@ -3912,13 +4139,13 @@
 					"minimum": 30,
 					"maximum": 36
 				},
-				"AIRDAMAGEBONUS": {
-					"minimum": 10,
-					"maximum": 14
-				},
 				"SPEED": {
 					"minimum": 6,
 					"maximum": 8
+				},
+				"AIRDAMAGEBONUS": {
+					"minimum": 10,
+					"maximum": 14
 				}
 			},
 			"itemOnlyIDs": {
@@ -4042,13 +4269,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"AIRDAMAGEBONUS": {
-					"minimum": 8,
-					"maximum": 16
-				},
 				"AIRDEFENSE": {
 					"minimum": 10,
 					"maximum": 18
+				},
+				"AIRDAMAGEBONUS": {
+					"minimum": 8,
+					"maximum": 16
 				}
 			},
 			"itemOnlyIDs": {
@@ -4057,7 +4284,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 15
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -130,
@@ -4439,13 +4666,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"LIFESTEAL": {
 					"minimum": 10,
 					"maximum": 15
+				},
+				"MANASTEAL": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -5022,6 +5249,52 @@
 			}
 		},
 		{
+			"tier": 1,
+			"level": 41,
+			"skills": [
+				"WEAPONSMITHING"
+			],
+			"identifications": {
+				"HEALTHBONUS": {
+					"minimum": -100,
+					"maximum": -80
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": 16,
+					"maximum": 20
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 16,
+					"maximum": 20
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -50,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Ice Fishing Hook",
+			"sprite": {
+				"id": 318,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Decaying Skin",
 			"tier": 0,
 			"level": 22,
@@ -5333,8 +5606,8 @@
 					"maximum": 15
 				},
 				"MANAREGEN": {
-					"minimum": -1,
-					"maximum": -1
+					"minimum": -5,
+					"maximum": -5
 				},
 				"AIRDAMAGEBONUS": {
 					"minimum": 10,
@@ -5435,6 +5708,10 @@
 				"damage": 3
 			},
 			"identifications": {
+				"HEALTHBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 6,
 					"maximum": 8
@@ -5442,10 +5719,6 @@
 				"SPELLDAMAGERAW": {
 					"minimum": 4,
 					"maximum": 6
-				},
-				"HEALTHBONUS": {
-					"minimum": 5,
-					"maximum": 7
 				}
 			},
 			"itemOnlyIDs": {
@@ -5522,13 +5795,13 @@
 				"damage": 3
 			},
 			"identifications": {
-				"SPELLDAMAGERAW": {
-					"minimum": 35,
-					"maximum": 40
-				},
 				"THUNDERDEFENSE": {
 					"minimum": -4,
 					"maximum": -2
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 35,
+					"maximum": 40
 				}
 			},
 			"itemOnlyIDs": {
@@ -5844,6 +6117,49 @@
 			}
 		},
 		{
+			"tier": 1,
+			"level": 33,
+			"skills": [
+				"WEAPONSMITHING",
+				"ALCHEMISM"
+			],
+			"identifications": {
+				"AGILITYPOINTS": {
+					"minimum": 2,
+					"maximum": 3
+				},
+				"AIRDAMAGEBONUS": {
+					"minimum": 4,
+					"maximum": 6
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -40,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -70,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Illicit Whitethorn",
+			"sprite": {
+				"id": 38,
+				"damage": 3
+			}
+		},
+		{
 			"name": "Burning Soul",
 			"tier": 1,
 			"level": 85,
@@ -6073,7 +6389,7 @@
 			"identifications": {
 				"MANASTEAL": {
 					"minimum": 0,
-					"maximum": 1
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -6620,8 +6936,8 @@
 					"maximum": 10
 				},
 				"MANASTEAL": {
-					"minimum": -1,
-					"maximum": -1
+					"minimum": -5,
+					"maximum": -5
 				},
 				"FIREDAMAGEBONUS": {
 					"minimum": 10,
@@ -7971,6 +8287,10 @@
 				"damage": 0
 			},
 			"identifications": {
+				"INTELLIGENCEPOINTS": {
+					"minimum": 1,
+					"maximum": 3
+				},
 				"SPELLDAMAGERAW": {
 					"minimum": 12,
 					"maximum": 16
@@ -7978,10 +8298,6 @@
 				"SPEED": {
 					"minimum": -7,
 					"maximum": -6
-				},
-				"INTELLIGENCEPOINTS": {
-					"minimum": 1,
-					"maximum": 3
 				}
 			},
 			"itemOnlyIDs": {
@@ -8657,16 +8973,16 @@
 			},
 			"identifications": {
 				"INTELLIGENCEPOINTS": {
-					"minimum": -10,
-					"maximum": -6
+					"minimum": -6,
+					"maximum": -4
 				},
 				"SPELLDAMAGE": {
-					"minimum": 6,
-					"maximum": 10
+					"minimum": 4,
+					"maximum": 6
 				}
 			},
 			"itemOnlyIDs": {
-				"durabilityModifier": -85,
+				"durabilityModifier": -103,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
@@ -8684,6 +9000,52 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 1,
+			"level": 41,
+			"skills": [
+				"COOKING"
+			],
+			"identifications": {
+				"WATERDAMAGEBONUS": {
+					"minimum": 3,
+					"maximum": 5
+				},
+				"SPEED": {
+					"minimum": 3,
+					"maximum": 5
+				},
+				"AIRDAMAGEBONUS": {
+					"minimum": 3,
+					"maximum": 5
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": 0,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -250,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Ice Fishing Bait",
+			"sprite": {
+				"id": 349,
+				"damage": 0
 			}
 		},
 		{
@@ -8746,13 +9108,13 @@
 				"damage": 15
 			},
 			"identifications": {
+				"MANASTEAL": {
+					"minimum": 5,
+					"maximum": 5
+				},
 				"AGILITYPOINTS": {
 					"minimum": 8,
 					"maximum": 10
-				},
-				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
 				}
 			},
 			"itemOnlyIDs": {
@@ -8955,10 +9317,6 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"SPELLDAMAGE": {
 					"minimum": 10,
 					"maximum": 13
@@ -8966,6 +9324,10 @@
 				"SPELLDAMAGERAW": {
 					"minimum": 70,
 					"maximum": 80
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -9055,6 +9417,10 @@
 				"damage": 0
 			},
 			"identifications": {
+				"HEALTHBONUS": {
+					"minimum": -450,
+					"maximum": -400
+				},
 				"AGILITYPOINTS": {
 					"minimum": 6,
 					"maximum": 8
@@ -9062,10 +9428,6 @@
 				"SPEED": {
 					"minimum": 12,
 					"maximum": 14
-				},
-				"HEALTHBONUS": {
-					"minimum": -450,
-					"maximum": -400
 				}
 			},
 			"itemOnlyIDs": {
@@ -9074,7 +9436,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 10
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -160,
@@ -9226,8 +9588,8 @@
 					"maximum": 3
 				},
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				},
 				"THUNDERDAMAGEBONUS": {
 					"minimum": 6,
@@ -9271,8 +9633,8 @@
 					"maximum": -100
 				},
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				},
 				"THUNDERDAMAGEBONUS": {
 					"minimum": 10,
@@ -9874,6 +10236,10 @@
 				"damage": 0
 			},
 			"identifications": {
+				"DEFENSEPOINTS": {
+					"minimum": -4,
+					"maximum": -3
+				},
 				"EXPLODING": {
 					"minimum": 8,
 					"maximum": 13
@@ -9881,10 +10247,6 @@
 				"DAMAGEBONUSRAW": {
 					"minimum": 14,
 					"maximum": 22
-				},
-				"DEFENSEPOINTS": {
-					"minimum": -4,
-					"maximum": -3
 				}
 			},
 			"itemOnlyIDs": {
@@ -10076,13 +10438,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"DAMAGEBONUSRAW": {
-					"minimum": 22,
-					"maximum": 30
-				},
 				"EARTHDAMAGEBONUS": {
 					"minimum": 1,
 					"maximum": 3
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": 22,
+					"maximum": 30
 				}
 			},
 			"itemOnlyIDs": {
@@ -10418,13 +10780,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"THUNDERDAMAGEBONUS": {
-					"minimum": 3,
-					"maximum": 4
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 2,
 					"maximum": 3
+				},
+				"THUNDERDAMAGEBONUS": {
+					"minimum": 3,
+					"maximum": 4
 				}
 			},
 			"itemOnlyIDs": {
@@ -10786,6 +11148,49 @@
 			"skin": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTU1YjhhMzdhMjc1NzE3NWY3M2RjZjliZjI1ZWI5ZDI0NDFjODU4OWVhMTEzMWI2NDE3YWEzNDVjMGUzZmM0NyJ9fX0\u003d"
 		},
 		{
+			"tier": 1,
+			"level": 33,
+			"skills": [
+				"TAILORING",
+				"ALCHEMISM"
+			],
+			"identifications": {
+				"POISON": {
+					"minimum": 20,
+					"maximum": 25
+				},
+				"LIFESTEAL": {
+					"minimum": 12,
+					"maximum": 18
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -40,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -70,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Illicit Hemlock",
+			"sprite": {
+				"id": 175,
+				"damage": 3
+			}
+		},
+		{
 			"name": "Goblin Trinket",
 			"tier": 1,
 			"level": 42,
@@ -11096,9 +11501,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -120,
@@ -11112,6 +11515,53 @@
 				"touching": 0,
 				"notTouching": 0
 			}
+		},
+		{
+			"tier": 3,
+			"level": 68,
+			"skills": [
+				"ALCHEMISM"
+			],
+			"identifications": {
+				"LIFESTEAL": {
+					"minimum": 150,
+					"maximum": 165
+				},
+				"MANASTEAL": {
+					"minimum": -7,
+					"maximum": -5
+				},
+				"MANAREGEN": {
+					"minimum": -3,
+					"maximum": -2
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": 0,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -230,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Devourer\u0027s Maw",
+			"sprite": {
+				"id": 397,
+				"damage": 3
+			},
+			"skin": "eyJ0aW1lc3RhbXAiOjE1NDI1NzIyODUwNzQsInByb2ZpbGVJZCI6IjQ5ODU2NTcwYWUwODRlYWY5OTg4MDQwY2VhZGI5ZGQxIiwicHJvZmlsZU5hbWUiOiJTbmVycCIsInNpZ25hdHVyZVJlcXVpcmVkIjp0cnVlLCJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWQ1MDZlZjk4YTI4NDg2MjgyZjJkOTRiMGQwYWUyOTg4MGUzYTJkNGI5NjUxNDhmZDY1MzJmZGQ1M2ZhYjFhMCJ9fX0\u003d"
 		},
 		{
 			"name": "Pig\u0027s Skull",
@@ -11447,20 +11897,20 @@
 				"damage": 0
 			},
 			"identifications": {
-				"DAMAGEBONUSRAW": {
-					"minimum": 48,
-					"maximum": 60
-				},
 				"WATERDAMAGEBONUS": {
 					"minimum": 8,
 					"maximum": 15
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": 48,
+					"maximum": 60
 				}
 			},
 			"itemOnlyIDs": {
 				"durabilityModifier": 0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
-				"intelligenceRequirement": 5,
+				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
 				"agilityRequirement": 0
 			},
@@ -12323,13 +12773,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"XPBONUS": {
 					"minimum": -10,
 					"maximum": -8
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -12372,8 +12822,8 @@
 					"maximum": 12
 				},
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -12575,8 +13025,8 @@
 			},
 			"identifications": {
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -12787,9 +13237,7 @@
 				"dexterityRequirement": 5,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": 0,
@@ -13173,8 +13621,8 @@
 			},
 			"identifications": {
 				"MANASTEAL": {
-					"minimum": 2,
-					"maximum": 2
+					"minimum": 10,
+					"maximum": 10
 				}
 			},
 			"itemOnlyIDs": {
@@ -13412,6 +13860,48 @@
 			}
 		},
 		{
+			"tier": 0,
+			"level": 61,
+			"skills": [
+				"ARMOURING"
+			],
+			"identifications": {
+				"HEALTHBONUS": {
+					"minimum": 140,
+					"maximum": 160
+				},
+				"FIREDEFENSE": {
+					"minimum": 3,
+					"maximum": 4
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -39,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 4,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Looted Alloy",
+			"sprite": {
+				"id": 265,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Fish Scales",
 			"tier": 0,
 			"level": 75,
@@ -13590,17 +14080,17 @@
 				"damage": 0
 			},
 			"identifications": {
-				"SPEED": {
-					"minimum": 16,
-					"maximum": 20
-				},
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"HEALTHBONUS": {
 					"minimum": -750,
 					"maximum": -650
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
+				},
+				"SPEED": {
+					"minimum": 16,
+					"maximum": 20
 				}
 			},
 			"itemOnlyIDs": {
@@ -14101,9 +14591,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": 0,
@@ -14224,13 +14712,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"WATERDEFENSE": {
 					"minimum": 8,
 					"maximum": 10
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -14791,8 +15279,8 @@
 			},
 			"identifications": {
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -15203,8 +15691,8 @@
 					"maximum": 70
 				},
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -15450,17 +15938,17 @@
 				"damage": 0
 			},
 			"identifications": {
-				"SPELLDAMAGE": {
-					"minimum": -20,
-					"maximum": -20
-				},
 				"WATERDAMAGEBONUS": {
 					"minimum": 25,
 					"maximum": 25
 				},
+				"SPELLDAMAGE": {
+					"minimum": -20,
+					"maximum": -20
+				},
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -15952,13 +16440,13 @@
 				"damage": 5
 			},
 			"identifications": {
-				"DAMAGEBONUSRAW": {
-					"minimum": 20,
-					"maximum": 25
-				},
 				"HEALTHBONUS": {
 					"minimum": -150,
 					"maximum": -120
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": 20,
+					"maximum": 25
 				}
 			},
 			"itemOnlyIDs": {
@@ -16055,7 +16543,7 @@
 			},
 			"itemOnlyIDs": {
 				"durabilityModifier": 0,
-				"strengthRequirement": 5,
+				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
@@ -16321,6 +16809,60 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 2,
+			"level": 36,
+			"skills": [
+				"SCRIBING"
+			],
+			"identifications": {
+				"EARTHDAMAGEBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				},
+				"WATERDAMAGEBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				},
+				"THUNDERDAMAGEBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				},
+				"FIREDAMAGEBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				},
+				"AIRDAMAGEBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": 0,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -110,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Contraband Ink Sac",
+			"sprite": {
+				"id": 351,
+				"damage": 0
 			}
 		},
 		{
@@ -16746,13 +17288,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"SPELLDAMAGE": {
 					"minimum": -12,
 					"maximum": -12
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -16988,6 +17530,49 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 0,
+			"level": 63,
+			"skills": [
+				"TAILORING",
+				"ARMOURING"
+			],
+			"identifications": {
+				"FIREDEFENSE": {
+					"minimum": 3,
+					"maximum": 6
+				},
+				"STRENGTHPOINTS": {
+					"minimum": 1,
+					"maximum": 3
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -40,
+				"strengthRequirement": 5,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 5,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Yale Leather",
+			"sprite": {
+				"id": 334,
+				"damage": 0
 			}
 		},
 		{
@@ -17228,8 +17813,8 @@
 			},
 			"identifications": {
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				},
 				"SPELLDAMAGERAW": {
 					"minimum": 8,
@@ -17273,13 +17858,13 @@
 					"minimum": 3,
 					"maximum": 3
 				},
-				"FIREDAMAGEBONUS": {
-					"minimum": 4,
-					"maximum": 6
-				},
 				"SPELLDAMAGERAW": {
 					"minimum": 15,
 					"maximum": 18
+				},
+				"FIREDAMAGEBONUS": {
+					"minimum": 4,
+					"maximum": 6
 				}
 			},
 			"itemOnlyIDs": {
@@ -17288,9 +17873,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -310,
@@ -17354,6 +17937,49 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 1,
+			"level": 61,
+			"skills": [
+				"ARMOURING",
+				"TAILORING"
+			],
+			"identifications": {
+				"DAMAGEBONUSRAW": {
+					"minimum": 45,
+					"maximum": 45
+				},
+				"LOOTBONUS": {
+					"minimum": 4,
+					"maximum": 5
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -54,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 6,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Pilfered Silver",
+			"sprite": {
+				"id": 265,
+				"damage": 0
 			}
 		},
 		{
@@ -17537,8 +18163,8 @@
 			},
 			"identifications": {
 				"MANAREGEN": {
-					"minimum": 2,
-					"maximum": 2
+					"minimum": 10,
+					"maximum": 10
 				}
 			},
 			"itemOnlyIDs": {
@@ -17775,13 +18401,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"THUNDERDAMAGEBONUS": {
-					"minimum": 7,
-					"maximum": 11
-				},
 				"SPELLDAMAGERAW": {
 					"minimum": 8,
 					"maximum": 14
+				},
+				"THUNDERDAMAGEBONUS": {
+					"minimum": 7,
+					"maximum": 11
 				}
 			},
 			"itemOnlyIDs": {
@@ -18061,6 +18687,53 @@
 			}
 		},
 		{
+			"tier": 1,
+			"level": 41,
+			"skills": [
+				"ARMOURING",
+				"TAILORING"
+			],
+			"identifications": {
+				"HEALTHBONUS": {
+					"minimum": 50,
+					"maximum": 75
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": 10,
+					"maximum": 15
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 10,
+					"maximum": 15
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -50,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Ice Fishing Net",
+			"sprite": {
+				"id": 30,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Lively Apple",
 			"tier": 1,
 			"level": 15,
@@ -18325,8 +18998,8 @@
 			},
 			"identifications": {
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				},
 				"FIREDAMAGEBONUS": {
 					"minimum": 8,
@@ -18576,13 +19249,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": -1,
-					"maximum": -1
-				},
 				"SPELLDAMAGE": {
 					"minimum": 11,
 					"maximum": 13
+				},
+				"MANAREGEN": {
+					"minimum": -5,
+					"maximum": -5
 				}
 			},
 			"itemOnlyIDs": {
@@ -18649,6 +19322,49 @@
 			}
 		},
 		{
+			"tier": 1,
+			"level": 33,
+			"skills": [
+				"WOODWORKING",
+				"ALCHEMISM"
+			],
+			"identifications": {
+				"HEALTHBONUS": {
+					"minimum": 40,
+					"maximum": 45
+				},
+				"HEALTHREGEN": {
+					"minimum": 4,
+					"maximum": 5
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -40,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -70,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Illicit Quince",
+			"sprite": {
+				"id": 38,
+				"damage": 4
+			}
+		},
+		{
 			"name": "Zombie Eye",
 			"tier": 0,
 			"level": 54,
@@ -18663,13 +19379,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"STRENGTHPOINTS": {
-					"minimum": 1,
-					"maximum": 2
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 8,
 					"maximum": 15
+				},
+				"STRENGTHPOINTS": {
+					"minimum": 1,
+					"maximum": 2
 				}
 			},
 			"itemOnlyIDs": {
@@ -18691,6 +19407,52 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 1,
+			"level": 41,
+			"skills": [
+				"WOODWORKING"
+			],
+			"identifications": {
+				"HEALTHBONUS": {
+					"minimum": 80,
+					"maximum": 100
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": -20,
+					"maximum": -16
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": -20,
+					"maximum": -16
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -50,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Ice Fishing Twine",
+			"sprite": {
+				"id": 287,
+				"damage": 0
 			}
 		},
 		{
@@ -19019,13 +19781,13 @@
 					"minimum": 1,
 					"maximum": 1
 				},
-				"FIREDAMAGEBONUS": {
-					"minimum": 3,
-					"maximum": 3
-				},
 				"SPELLDAMAGERAW": {
 					"minimum": 12,
 					"maximum": 15
+				},
+				"FIREDAMAGEBONUS": {
+					"minimum": 3,
+					"maximum": 3
 				}
 			},
 			"itemOnlyIDs": {
@@ -19034,9 +19796,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 8,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -60,
@@ -19826,13 +20586,13 @@
 				"damage": 2
 			},
 			"identifications": {
-				"SPEED": {
-					"minimum": 3,
-					"maximum": 4
-				},
 				"SPELLDAMAGERAW": {
 					"minimum": 5,
 					"maximum": 8
+				},
+				"SPEED": {
+					"minimum": 3,
+					"maximum": 4
 				}
 			},
 			"itemOnlyIDs": {
@@ -19841,9 +20601,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": 0,
@@ -20036,8 +20794,8 @@
 					"maximum": 6
 				},
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -21185,13 +21943,13 @@
 				"damage": 4
 			},
 			"identifications": {
-				"SPELLDAMAGERAW": {
-					"minimum": 40,
-					"maximum": 40
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 32,
 					"maximum": 32
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 40,
+					"maximum": 40
 				}
 			},
 			"itemOnlyIDs": {
@@ -22269,15 +23027,7 @@
 				"damage": 0
 			},
 			"identifications": {
-				"FIREDEFENSE": {
-					"minimum": 15,
-					"maximum": 20
-				},
 				"WATERDEFENSE": {
-					"minimum": 15,
-					"maximum": 20
-				},
-				"AIRDEFENSE": {
 					"minimum": 15,
 					"maximum": 20
 				},
@@ -22285,13 +23035,21 @@
 					"minimum": 15,
 					"maximum": 20
 				},
+				"FIREDEFENSE": {
+					"minimum": 15,
+					"maximum": 20
+				},
 				"EARTHDEFENSE": {
 					"minimum": 15,
 					"maximum": 20
 				},
+				"AIRDEFENSE": {
+					"minimum": 15,
+					"maximum": 20
+				},
 				"MANAREGEN": {
-					"minimum": -1,
-					"maximum": -1
+					"minimum": -5,
+					"maximum": -5
 				}
 			},
 			"itemOnlyIDs": {
@@ -22366,8 +23124,8 @@
 			},
 			"identifications": {
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -22534,17 +23292,17 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
-				},
-				"MANASTEAL": {
-					"minimum": -1,
-					"maximum": -1
-				},
 				"WATERDAMAGEBONUS": {
 					"minimum": 5,
 					"maximum": 10
+				},
+				"MANASTEAL": {
+					"minimum": -5,
+					"maximum": -5
+				},
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -22796,8 +23554,8 @@
 			},
 			"identifications": {
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				},
 				"SPEED": {
 					"minimum": 8,
@@ -22922,8 +23680,8 @@
 			},
 			"identifications": {
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -22960,13 +23718,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"SPELLDAMAGERAW": {
-					"minimum": 25,
-					"maximum": 35
-				},
 				"XPBONUS": {
 					"minimum": 6,
 					"maximum": 8
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 25,
+					"maximum": 35
 				}
 			},
 			"itemOnlyIDs": {
@@ -22975,9 +23733,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": 0,
@@ -23004,13 +23760,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"DEXTERITYPOINTS": {
-					"minimum": 4,
-					"maximum": 6
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 90,
 					"maximum": 120
+				},
+				"DEXTERITYPOINTS": {
+					"minimum": 4,
+					"maximum": 6
 				}
 			},
 			"itemOnlyIDs": {
@@ -23225,8 +23981,8 @@
 					"maximum": -775
 				},
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -23312,8 +24068,8 @@
 					"maximum": -240
 				},
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				},
 				"SPELLDAMAGERAW": {
 					"minimum": -40,
@@ -23698,6 +24454,66 @@
 			"skin": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWFlMzg1NWY5NTJjZDRhMDNjMTQ4YTk0NmUzZjgxMmE1OTU1YWQzNWNiY2I1MjYyN2VhNGFjZDQ3ZDMwODEifX19"
 		},
 		{
+			"tier": 3,
+			"level": 67,
+			"skills": [
+				"ARMOURING",
+				"WEAPONSMITHING",
+				"WOODWORKING"
+			],
+			"identifications": {
+				"EARTHDAMAGEBONUS": {
+					"minimum": -10,
+					"maximum": -8
+				},
+				"WATERDAMAGEBONUS": {
+					"minimum": -10,
+					"maximum": -8
+				},
+				"MANASTEAL": {
+					"minimum": 6,
+					"maximum": 8
+				},
+				"STRENGTHPOINTS": {
+					"minimum": 6,
+					"maximum": 8
+				},
+				"THUNDERDAMAGEBONUS": {
+					"minimum": -10,
+					"maximum": -8
+				},
+				"AIRDAMAGEBONUS": {
+					"minimum": -10,
+					"maximum": -8
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -122,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Ignited Faebloom",
+			"sprite": {
+				"id": 377,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Zhight Herbal Mix",
 			"tier": 0,
 			"level": 55,
@@ -23754,13 +24570,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"ATTACKSPEED": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": -100,
 					"maximum": -100
+				},
+				"ATTACKSPEED": {
+					"minimum": 1,
+					"maximum": 1
 				},
 				"SPEED": {
 					"minimum": 5,
@@ -23961,6 +24777,48 @@
 			}
 		},
 		{
+			"tier": 0,
+			"level": 62,
+			"skills": [
+				"TAILORING"
+			],
+			"identifications": {
+				"DAMAGEBONUS": {
+					"minimum": 2,
+					"maximum": 3
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": 12,
+					"maximum": 16
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -39,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 4,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Feline Claws",
+			"sprite": {
+				"id": 318,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Portal Emanation",
 			"tier": 2,
 			"level": 29,
@@ -23980,8 +24838,8 @@
 					"maximum": -6
 				},
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -24077,13 +24935,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"STRENGTHPOINTS": {
-					"minimum": 3,
-					"maximum": 4
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 8,
 					"maximum": 9
+				},
+				"STRENGTHPOINTS": {
+					"minimum": 3,
+					"maximum": 4
 				}
 			},
 			"itemOnlyIDs": {
@@ -24092,9 +24950,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -400,
@@ -24348,8 +25204,8 @@
 					"maximum": 110
 				},
 				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -24519,8 +25375,8 @@
 					"maximum": -3
 				},
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -24529,9 +25385,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -590,
@@ -24805,13 +25659,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"SPEED": {
-					"minimum": 4,
-					"maximum": 6
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 8,
 					"maximum": 10
+				},
+				"SPEED": {
+					"minimum": 4,
+					"maximum": 6
 				}
 			},
 			"itemOnlyIDs": {
@@ -25016,6 +25870,10 @@
 				"DAMAGEBONUS": {
 					"minimum": 10,
 					"maximum": 15
+				},
+				"LIFESTEAL": {
+					"minimum": -50,
+					"maximum": -45
 				}
 			},
 			"itemOnlyIDs": {
@@ -25172,20 +26030,20 @@
 				"damage": 0
 			},
 			"identifications": {
-				"INTELLIGENCEPOINTS": {
-					"minimum": 4,
-					"maximum": 7
-				},
 				"WATERDEFENSE": {
 					"minimum": 7,
 					"maximum": 10
+				},
+				"INTELLIGENCEPOINTS": {
+					"minimum": 4,
+					"maximum": 7
 				}
 			},
 			"itemOnlyIDs": {
 				"durabilityModifier": 0,
 				"strengthRequirement": 0,
 				"dexterityRequirement": 0,
-				"intelligenceRequirement": 10,
+				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
 				"agilityRequirement": 0
 			},
@@ -25200,6 +26058,49 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 1,
+			"level": 64,
+			"skills": [
+				"ALCHEMISM",
+				"SCRIBING"
+			],
+			"identifications": {
+				"SPELLDAMAGE": {
+					"minimum": 6,
+					"maximum": 8
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 25,
+					"maximum": 35
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": 0,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -100,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Essence of Dusk",
+			"sprite": {
+				"id": 263,
+				"damage": 1
 			}
 		},
 		{
@@ -25643,7 +26544,7 @@
 			"identifications": {
 				"MANAREGEN": {
 					"minimum": 0,
-					"maximum": 1
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -25720,6 +26621,10 @@
 				"damage": 0
 			},
 			"identifications": {
+				"INTELLIGENCEPOINTS": {
+					"minimum": -4,
+					"maximum": -3
+				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 12,
 					"maximum": 16
@@ -25727,10 +26632,6 @@
 				"SPEED": {
 					"minimum": 4,
 					"maximum": 6
-				},
-				"INTELLIGENCEPOINTS": {
-					"minimum": -4,
-					"maximum": -3
 				}
 			},
 			"itemOnlyIDs": {
@@ -26239,7 +27140,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 4
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -48,
@@ -26252,6 +27153,60 @@
 				"under": 0,
 				"touching": 0,
 				"notTouching": 0
+			}
+		},
+		{
+			"tier": 2,
+			"level": 36,
+			"skills": [
+				"ALCHEMISM"
+			],
+			"identifications": {
+				"DEFENSEPOINTS": {
+					"minimum": 2,
+					"maximum": 4
+				},
+				"INTELLIGENCEPOINTS": {
+					"minimum": 2,
+					"maximum": 4
+				},
+				"STRENGTHPOINTS": {
+					"minimum": 2,
+					"maximum": 4
+				},
+				"DEXTERITYPOINTS": {
+					"minimum": 2,
+					"maximum": 4
+				},
+				"AGILITYPOINTS": {
+					"minimum": 2,
+					"maximum": 4
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": 0,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -110,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Contraband Absinthe",
+			"sprite": {
+				"id": 437,
+				"damage": 0
 			}
 		},
 		{
@@ -26719,18 +27674,6 @@
 				"damage": 3
 			},
 			"identifications": {
-				"DAMAGEBONUSRAW": {
-					"minimum": 14,
-					"maximum": 20
-				},
-				"SPELLDAMAGERAW": {
-					"minimum": 18,
-					"maximum": 25
-				},
-				"REFLECTION": {
-					"minimum": 4,
-					"maximum": 5
-				},
 				"HEALTHBONUS": {
 					"minimum": 200,
 					"maximum": 230
@@ -26738,6 +27681,18 @@
 				"THORNS": {
 					"minimum": 4,
 					"maximum": 5
+				},
+				"DAMAGEBONUSRAW": {
+					"minimum": 14,
+					"maximum": 20
+				},
+				"REFLECTION": {
+					"minimum": 4,
+					"maximum": 5
+				},
+				"SPELLDAMAGERAW": {
+					"minimum": 18,
+					"maximum": 25
 				}
 			},
 			"itemOnlyIDs": {
@@ -26861,6 +27816,49 @@
 			"skin": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjYyODNlN2E4OGQzMjcxOTMwNGEzN2VkZTBjNmE4YzVkYzlkOWNmOWIwMGExNzljZjkwNGU4Y2U4MjEzMTIifX19"
 		},
 		{
+			"tier": 1,
+			"level": 62,
+			"skills": [
+				"WOODWORKING",
+				"SCRIBING"
+			],
+			"identifications": {
+				"EARTHDAMAGEBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				},
+				"WATERDAMAGEBONUS": {
+					"minimum": 5,
+					"maximum": 7
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -55,
+				"strengthRequirement": 6,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 6,
+				"defenceRequirement": 0,
+				"agilityRequirement": 0
+			},
+			"consumableOnlyIDs": {
+				"duration": -100,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Terramarine Dust",
+			"sprite": {
+				"id": 351,
+				"damage": 4
+			}
+		},
+		{
 			"name": "Magicule Sample",
 			"tier": 1,
 			"level": 75,
@@ -26876,13 +27874,13 @@
 					"minimum": 4,
 					"maximum": 4
 				},
-				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
-				},
 				"SPELLDAMAGE": {
 					"minimum": -7,
 					"maximum": -5
+				},
+				"MANASTEAL": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -26891,9 +27889,7 @@
 				"dexterityRequirement": 0,
 				"intelligenceRequirement": 0,
 				"defenceRequirement": 0,
-				"agilityRequirement": 0,
-				"attackSpeedModifier": 0,
-				"powderSlotModifier": 0
+				"agilityRequirement": 0
 			},
 			"consumableOnlyIDs": {
 				"duration": -115,
@@ -27395,17 +28391,17 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": -1,
-					"maximum": -1
+				"DAMAGEBONUS": {
+					"minimum": 6,
+					"maximum": 14
 				},
 				"SPELLDAMAGE": {
 					"minimum": 8,
 					"maximum": 12
 				},
-				"DAMAGEBONUS": {
-					"minimum": 6,
-					"maximum": 14
+				"MANAREGEN": {
+					"minimum": -5,
+					"maximum": -5
 				}
 			},
 			"itemOnlyIDs": {
@@ -27564,13 +28560,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"SPEED": {
-					"minimum": -5,
-					"maximum": -3
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 7,
 					"maximum": 13
+				},
+				"SPEED": {
+					"minimum": -5,
+					"maximum": -3
 				}
 			},
 			"itemOnlyIDs": {
@@ -27652,8 +28648,8 @@
 			},
 			"identifications": {
 				"MANAREGEN": {
-					"minimum": 2,
-					"maximum": 2
+					"minimum": 10,
+					"maximum": 10
 				}
 			},
 			"itemOnlyIDs": {
@@ -27816,6 +28812,53 @@
 			}
 		},
 		{
+			"tier": 2,
+			"level": 64,
+			"skills": [
+				"TAILORING",
+				"WOODWORKING"
+			],
+			"identifications": {
+				"DAMAGEBONUS": {
+					"minimum": 6,
+					"maximum": 8
+				},
+				"SPELLDAMAGE": {
+					"minimum": 6,
+					"maximum": 8
+				},
+				"AGILITYPOINTS": {
+					"minimum": 5,
+					"maximum": 7
+				}
+			},
+			"itemOnlyIDs": {
+				"durabilityModifier": -79,
+				"strengthRequirement": 0,
+				"dexterityRequirement": 0,
+				"intelligenceRequirement": 0,
+				"defenceRequirement": 0,
+				"agilityRequirement": 15
+			},
+			"consumableOnlyIDs": {
+				"duration": 0,
+				"charges": 0
+			},
+			"ingredientPositionModifiers": {
+				"left": 0,
+				"right": 0,
+				"above": 0,
+				"under": 0,
+				"touching": 0,
+				"notTouching": 0
+			},
+			"name": "Windswept Roots",
+			"sprite": {
+				"id": 32,
+				"damage": 0
+			}
+		},
+		{
 			"name": "Worn Memorabilia",
 			"tier": 0,
 			"level": 16,
@@ -27909,8 +28952,8 @@
 			},
 			"identifications": {
 				"MANASTEAL": {
-					"minimum": 1,
-					"maximum": 1
+					"minimum": 5,
+					"maximum": 5
 				},
 				"SPELLDAMAGERAW": {
 					"minimum": 45,
@@ -28123,17 +29166,17 @@
 				"damage": 0
 			},
 			"identifications": {
-				"MANAREGEN": {
-					"minimum": 1,
-					"maximum": 1
+				"HEALTHREGENRAW": {
+					"minimum": 24,
+					"maximum": 42
 				},
 				"HEALTHREGEN": {
 					"minimum": 10,
 					"maximum": 14
 				},
-				"HEALTHREGENRAW": {
-					"minimum": 24,
-					"maximum": 42
+				"MANAREGEN": {
+					"minimum": 5,
+					"maximum": 5
 				}
 			},
 			"itemOnlyIDs": {
@@ -28792,13 +29835,13 @@
 				"damage": 0
 			},
 			"identifications": {
-				"SPELLDAMAGE": {
-					"minimum": 8,
-					"maximum": 10
-				},
 				"DAMAGEBONUSRAW": {
 					"minimum": 30,
 					"maximum": 35
+				},
+				"SPELLDAMAGE": {
+					"minimum": 8,
+					"maximum": 10
 				}
 			},
 			"itemOnlyIDs": {
@@ -29167,8 +30210,8 @@
 					"maximum": 28
 				},
 				"MANAREGEN": {
-					"minimum": -2,
-					"maximum": -2
+					"minimum": -10,
+					"maximum": -10
 				}
 			},
 			"itemOnlyIDs": {
@@ -29614,5 +30657,5 @@
 			}
 		}
 	],
-	"version": "1.20.4.1"
+	"version": "2.0.0.0"
 }

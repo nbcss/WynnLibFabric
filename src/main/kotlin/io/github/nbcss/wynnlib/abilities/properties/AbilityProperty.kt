@@ -6,9 +6,16 @@ import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.archer.*
+import io.github.nbcss.wynnlib.abilities.properties.assassin.AssassinClonesProperty
+import io.github.nbcss.wynnlib.abilities.properties.assassin.BloomAoEProperty
+import io.github.nbcss.wynnlib.abilities.properties.assassin.MaxMarkedProperty
+import io.github.nbcss.wynnlib.abilities.properties.assassin.SmokeBombProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
 import io.github.nbcss.wynnlib.abilities.properties.mage.*
+import io.github.nbcss.wynnlib.abilities.properties.warrior.CorruptedProperty
+import io.github.nbcss.wynnlib.abilities.properties.warrior.EnragedBlowProperty
+import io.github.nbcss.wynnlib.abilities.properties.warrior.MantleResistanceProperty
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.text.Text
 
@@ -17,7 +24,7 @@ abstract class AbilityProperty(private val ability: Ability) {
     companion object {
         private val typeMap: Map<String, Type<out AbilityProperty>> = mapOf(
             pairs = listOf(
-                //EntryProperty,
+                ValuesProperty,
                 UpgradeProperty,
                 ModifyProperty,
                 ExtendProperty,
@@ -33,12 +40,19 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DamageBonusProperty,
                 DamageBonusProperty.Raw,
                 DamageBonusProperty.PerFocus,
+                DamageIntervalProperty,
+                DamageIntervalProperty.Modifier,
                 BonusEffectProperty,
+                IDModifierProperty,
+                IDConvertorProperty,
+                ChanceProperty,
+                ChanceProperty.Modifier,
                 ManaCostProperty,
                 ManaCostModifierProperty,
                 DamageProperty,
                 DamageModifierProperty,
                 TeleportSuccessionProperty,
+                TimelockProperty,
                 MainAttackDamageProperty,
                 MainAttackDamageModifierProperty,
                 MainAttackRangeProperty,
@@ -55,6 +69,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DurationProperty.Modifier,
                 AreaOfEffectProperty,
                 AreaOfEffectProperty.Modifier,
+                AreaOfEffectProperty.Clear,
                 ChargeProperty,
                 ChargeProperty.Modifier,
                 ArcherStreamProperty,
@@ -65,12 +80,25 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MaxTrapProperty.Modifier,
                 MaxFocusProperty,
                 MaxFocusProperty.Modifier,
+                PatientHunterProperty,
+                PatientHunterProperty.Modifier,
                 MageManaBankProperty,
                 MageManaBankProperty.Modifier,
                 MageOphanimProperty,
                 MageOphanimProperty.Modifier,
                 MaxWindedProperty,
                 MaxWindedProperty.Modifier,
+                SmokeBombProperty,
+                SmokeBombProperty.Modifier,
+                AssassinClonesProperty,
+                AssassinClonesProperty.Modifier,
+                MaxMarkedProperty,
+                MaxMarkedProperty.Modifier,
+                BloomAoEProperty,
+                MantleResistanceProperty,
+                CorruptedProperty,
+                CorruptedProperty.Modifier,
+                EnragedBlowProperty,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
@@ -81,11 +109,11 @@ abstract class AbilityProperty(private val ability: Ability) {
 
     open fun writePlaceholder(container: PlaceholderContainer) = Unit
 
-    open fun updateEntries(container: EntryContainer) = Unit
+    open fun updateEntries(container: EntryContainer): Boolean = true
 
     fun getAbility(): Ability = ability
 
-    open fun getTooltip(): List<Text> = emptyList()
+    open fun getTooltip(provider: PropertyProvider = getAbility()): List<Text> = emptyList()
 
     interface Type<T: AbilityProperty>: Keyed {
         fun create(ability: Ability, data: JsonElement): T?

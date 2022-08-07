@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -49,7 +50,7 @@ class AreaOfEffectProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val range = aoe.getRange()
         checkZero(aoe)?.let { return it }
         val suffix = if(range.upper() <= 1)
@@ -89,7 +90,7 @@ class AreaOfEffectProperty(ability: Ability,
             }
         }
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             val range = modifier.getRange()
             checkZero(modifier)?.let { return it }
             val suffix = if(range.upper() <= 1)
@@ -108,6 +109,21 @@ class AreaOfEffectProperty(ability: Ability,
                     .append(LiteralText(")").formatted(Formatting.GRAY))
             }
             return listOf(text)
+        }
+    }
+
+    class Clear(ability: Ability): AbilityProperty(ability), ModifiableProperty {
+        companion object: Type<Clear> {
+            override fun create(ability: Ability, data: JsonElement): Clear {
+                return Clear(ability)
+            }
+            override fun getKey(): String = "aoe_clear"
+        }
+
+        override fun modify(entry: PropertyEntry) {
+            AreaOfEffectProperty.from(entry)?.let {
+                entry.clearProperty(AreaOfEffectProperty.getKey())
+            }
         }
     }
 

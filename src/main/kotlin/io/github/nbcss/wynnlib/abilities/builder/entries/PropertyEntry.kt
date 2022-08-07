@@ -4,16 +4,14 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
-import io.github.nbcss.wynnlib.abilities.properties.info.UpgradeProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SHIFT_UPGRADE
 import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.KeysKit
+import io.github.nbcss.wynnlib.utils.keys.KeysKit
 import io.github.nbcss.wynnlib.utils.formattingLines
 import io.github.nbcss.wynnlib.utils.replaceProperty
-import net.minecraft.client.MinecraftClient
-import net.minecraft.client.util.InputUtil
+import io.github.nbcss.wynnlib.utils.tierOf
 import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
@@ -77,7 +75,7 @@ abstract class PropertyEntry(private val ability: Ability,
     }
 
     fun getPropertiesTooltip(): List<Text> {
-        return properties.values.map { it.getTooltip() }.flatten()
+        return properties.values.map { it.getTooltip(this) }.flatten()
     }
 
     fun getAbilityDescriptionTooltip(ability: Ability): List<Text> {
@@ -149,19 +147,7 @@ abstract class PropertyEntry(private val ability: Ability,
 
     fun getTierText(): String {
         return if (upgradable){
-            when (getTier()){
-                1 -> "I"
-                2 -> "II"
-                3 -> "III"
-                4 -> "IV"
-                5 -> "V"
-                6 -> "VI"
-                7 -> "VII"
-                8 -> "VIII"
-                9 -> "IX"
-                10 -> "X"
-                else -> "✰"
-            }
+            tierOf(getTier())
         }else{
             ""
         }

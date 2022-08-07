@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -28,7 +29,7 @@ class RangeProperty(ability: Ability, private val range: Double):
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val value = (if(range <= 1) Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS)
             .formatted(Formatting.WHITE, null, removeDecimal(range))
         return listOf(Symbol.RANGE.asText().append(" ")
@@ -36,15 +37,15 @@ class RangeProperty(ability: Ability, private val range: Double):
             .append(value))
     }
 
-    class Modifier(ability: Ability, data: JsonElement):
+    class Modifier(ability: Ability,
+                   private val modifier: Double):
         AbilityProperty(ability), ModifiableProperty {
         companion object: Type<Modifier> {
             override fun create(ability: Ability, data: JsonElement): Modifier {
-                return Modifier(ability, data)
+                return Modifier(ability, data.asDouble)
             }
             override fun getKey(): String = "range_modifier"
         }
-        private val modifier: Double = data.asDouble
 
         fun getRangeModifier(): Double = modifier
 
@@ -55,7 +56,7 @@ class RangeProperty(ability: Ability, private val range: Double):
             }
         }
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             val color = if (modifier <= 0) Formatting.RED else Formatting.GREEN
             val value = (if(modifier <= 1) Translations.TOOLTIP_SUFFIX_BLOCK else Translations.TOOLTIP_SUFFIX_BLOCKS)
                 .formatted(color, null, (if (modifier > 0) "+" else "") + removeDecimal(modifier))

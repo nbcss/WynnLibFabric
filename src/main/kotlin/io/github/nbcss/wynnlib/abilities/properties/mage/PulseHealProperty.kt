@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.abilities.properties.mage
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -36,7 +37,7 @@ class PulseHealProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         return listOf(Symbol.HEART.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_PULSE_HEAL.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText("$heal%").formatted(Formatting.WHITE))

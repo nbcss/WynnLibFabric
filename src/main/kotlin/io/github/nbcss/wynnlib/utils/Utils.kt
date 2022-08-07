@@ -1,12 +1,21 @@
 package io.github.nbcss.wynnlib.utils
 
+import com.google.common.collect.Lists
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.item.ItemStack
+import net.minecraft.network.packet.c2s.play.ClickSlotC2SPacket
+import net.minecraft.screen.slot.Slot
+import net.minecraft.screen.slot.SlotActionType
 import net.minecraft.sound.SoundEvent
-import net.minecraft.sound.SoundEvents
-import net.minecraft.text.*
+import net.minecraft.text.LiteralText
+import net.minecraft.text.StringVisitable
+import net.minecraft.text.Style
+import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import java.util.*
 import java.util.function.Function
@@ -30,6 +39,18 @@ fun removeDecimal(value: Double): String {
 
 fun formatNumbers(num: Int): String {
     return num.toString().replace("(?=(?!\\b)(\\d{3})+$)".toRegex(), ",")
+}
+
+fun clearFormatting(text: String): String {
+    return text.replace(Regex("§[0-9a-fklmnor]"), "")
+}
+
+fun formatTimer(time: Long): String {
+    val t = if (time > 0) time / 1000 else 0
+    if (t > 60 * 60 * 24) return "**:**"
+    val min = if (t > 0) t / 60 else 0
+    val sec = if (t > 0) t % 60 else 0
+    return String.format("%02d:%02d", min, sec)
 }
 
 fun colorOf(num: Int): Formatting {
@@ -70,6 +91,23 @@ fun asColor(text: String): Int {
         return -1
     }
     return color
+}
+
+fun tierOf(tier: Int): String {
+    if (tier <= 0) return ""
+    return when (tier){
+        1 -> "I"
+        2 -> "II"
+        3 -> "III"
+        4 -> "IV"
+        5 -> "V"
+        6 -> "VI"
+        7 -> "VII"
+        8 -> "VIII"
+        9 -> "IX"
+        10 -> "X"
+        else -> "✰"
+    }
 }
 
 fun formattingLines(text: String, prefix: String, length: Int = 200): List<Text> {
@@ -145,6 +183,27 @@ fun parseStyle(text: String, style: String): String {
         i++
     }
     return buffer.toString()
+}
+
+fun clickSlot(slotId: Int, button: Int, actionType: SlotActionType) {
+    val handler = MinecraftClient.getInstance().player!!.currentScreenHandler
+    val int2ObjectMap: Int2ObjectMap<ItemStack?> = Int2ObjectOpenHashMap()
+    val defaultedList = handler.slots
+    val i = defaultedList.size
+    val list: MutableList<ItemStack> = Lists.newArrayListWithCapacity(i)
+    for (slot in defaultedList) {
+        list.add(slot.stack.copy())
+    }
+    for (j in 0 until i) {
+        val itemStack2 = defaultedList[j].stack
+        if (!ItemStack.areEqual(list[j], itemStack2)) {
+            int2ObjectMap[j] = itemStack2.copy()
+        }
+    }
+    val packet = ClickSlotC2SPacket(handler.syncId, handler.revision,
+        slotId, button, actionType,
+        handler.cursorStack.copy(), int2ObjectMap)
+    MinecraftClient.getInstance().networkHandler!!.sendPacket(packet)
 }
 
 fun <K, V> getKey(map: Map<K, V>, target: V): K? {

@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.mage
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
@@ -40,7 +41,7 @@ class MageOphanimProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-    override fun getTooltip(): List<Text> {
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(Symbol.ALTER_HITS.asText().append(" ")
             .append(TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT.formatted(Formatting.GRAY).append(": "))
@@ -72,7 +73,7 @@ class MageOphanimProperty(ability: Ability,
 
         fun getModifier(): LightOfOrb = modifier
 
-        override fun getTooltip(): List<Text> {
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
             val tooltip: MutableList<Text> = ArrayList()
             if (modifier.count != 0){
                 tooltip.add(Symbol.ALTER_HITS.asText().append(" ")

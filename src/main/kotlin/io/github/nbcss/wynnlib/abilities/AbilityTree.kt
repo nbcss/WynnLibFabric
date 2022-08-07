@@ -12,6 +12,7 @@ import kotlin.math.max
 class AbilityTree(val character: CharacterClass) {
     private val archetypes: List<Archetype> = Archetype.values().filter { it.getCharacter() == character }.toList()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
+    private val costMap: MutableMap<Pair<Ability, Ability>, Int> = mutableMapOf()
     private val posMap: MutableMap<Pos, Ability> = HashMap()
     private val abilities: MutableSet<Ability> = HashSet()
     private val spellMap: MutableMap<SpellSlot, Ability> = EnumMap(SpellSlot::class.java)
@@ -43,6 +44,19 @@ class AbilityTree(val character: CharacterClass) {
         return mainAttack
     }
 
+    /**
+     * Get total (minimum) cost from given ability x (assume active) to another ability y.
+     * The cost will NOT consider the requirements/dependency.
+     * If the node x cannot lead to node y, the method will return null.
+     *
+     * @param from source node x, assuming it is active (it's the cost will not count)
+     * @param to the destination node y.
+     * @return minimum cost from x to y, or null if x cannot arrive y.
+     */
+    fun getMinimumCost(from: Ability, to: Ability): Int? {
+        return costMap[from to to]
+    }
+
     fun setAbilities(abilities: Collection<Ability>) {
         this.abilities.clear()
         this.archetypePoints.clear()
@@ -71,5 +85,23 @@ class AbilityTree(val character: CharacterClass) {
             }
             this.height = max(this.height, it.getHeight())
         }
+        this.costMap.clear()
+        this.abilities.forEach { from ->
+            costMap[from to from] = 0
+            val queue: Queue<Pair<Ability, Int>> = PriorityQueue(compareBy{ it.second })
+            queue.add(from to from.getAbilityPointCost())
+            while (queue.isNotEmpty()) {
+                val pair = queue.remove()
+                val node = pair.first
+                for (successor in node.getSuccessors()) {
+                    val nextCost = successor.getAbilityPointCost() + costMap[from to node]!!
+                    if (costMap[from to successor] == null || nextCost < costMap[from to successor]!!){
+                        costMap[from to successor] = nextCost
+                        queue.add(successor to nextCost)
+                    }
+                }
+            }
+        }
+        //edges(this)
     }
 }

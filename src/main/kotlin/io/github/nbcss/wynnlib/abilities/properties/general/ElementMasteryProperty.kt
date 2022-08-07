@@ -3,7 +3,10 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
+import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
@@ -11,21 +14,26 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class ElementMasteryProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
+class ElementMasteryProperty(ability: Ability,
+                             private val booster: Booster):
+    AbilityProperty(ability), SetupProperty {
     companion object: Type<ElementMasteryProperty> {
         private const val ELEMENT_KEY: String = "element"
         private const val RAW_KEY: String = "raw"
         private const val PCT_KEY: String = "pct"
         override fun create(ability: Ability, data: JsonElement): ElementMasteryProperty {
-            return ElementMasteryProperty(ability, data)
+            return ElementMasteryProperty(ability, Booster(data.asJsonObject))
         }
         override fun getKey(): String = "element_mastery"
     }
-    private val booster: Booster = Booster(data.asJsonObject)
 
     fun getElementBooster(): Booster = booster
 
-    override fun getTooltip(): List<Text> {
+    override fun setup(entry: PropertyEntry) {
+        entry.setProperty(getKey(), this)
+    }
+
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
         val element = booster.getElement()
         val tooltip: MutableList<Text> = ArrayList()
         if(!booster.getRawBooster().isZero()){

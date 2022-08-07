@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 
 class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     private val entries: MutableMap<String, PropertyEntry>
+    private val disabled: MutableSet<Ability> = mutableSetOf()
     init {
         entries = LinkedHashMap()
         val spells: MutableSet<AbilityMetadata> = HashSet()
@@ -49,8 +50,12 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
                 }
             }
         }while (extending.isNotEmpty() && extending.size < keys.size)
-        //we can warn something if extending is still not empty here?
-        abilities.forEach { it.updateEntries(this) }
+        disabled.addAll(extending.map { it.ability })
+        for (ability in abilities) {
+            if (!ability.updateEntries(this)) {
+                disabled.add(ability)
+            }
+        }
     }
 
     fun putEntry(entry: PropertyEntry) {
@@ -64,6 +69,10 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
 
     fun getEntries(): List<PropertyEntry> {
         return entries.values.toList()
+    }
+
+    fun isAbilityDisabled(ability: Ability): Boolean {
+        return ability in disabled
     }
 
     fun getSize(): Int = entries.size

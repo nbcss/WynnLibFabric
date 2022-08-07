@@ -11,6 +11,7 @@ import kotlin.collections.HashSet
 object AbilityRegistry: Registry<Ability>() {
     private const val RESOURCE = "assets/wynnlib/data/Abilities.json"
     private val treeMap: MutableMap<CharacterClass, AbilityTree> = EnumMap(CharacterClass::class.java)
+    private val nameMap: MutableMap<String, MutableSet<Ability>> = mutableMapOf()
     init {
         CharacterClass.values().forEach { treeMap[it] = AbilityTree(it) }
     }
@@ -24,7 +25,20 @@ object AbilityRegistry: Registry<Ability>() {
         null
     }
 
+    override fun put(item: Ability) {
+        super.put(item)
+        item.getName()?.let { name ->
+            var items = nameMap[name]
+            if (items == null){
+                items = mutableSetOf()
+                nameMap[name] = items
+            }
+            items.add(item)
+        }
+    }
+
     override fun reload(array: JsonArray){
+        nameMap.clear()
         super.reload(array)
         //keep a cache map from character to all its ability
         val map: MutableMap<CharacterClass, MutableSet<Ability>> = EnumMap(CharacterClass::class.java)
@@ -35,4 +49,8 @@ object AbilityRegistry: Registry<Ability>() {
     }
 
     fun fromCharacter(character: CharacterClass): AbilityTree = treeMap[character]!!
+
+    fun fromDisplayName(name: String): Collection<Ability> {
+        return nameMap[name] ?: emptySet()
+    }
 }

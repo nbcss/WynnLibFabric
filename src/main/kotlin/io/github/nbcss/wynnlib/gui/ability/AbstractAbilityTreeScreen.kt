@@ -3,22 +3,21 @@ package io.github.nbcss.wynnlib.gui.ability
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
+import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
-import io.github.nbcss.wynnlib.utils.AlphaColor
-import io.github.nbcss.wynnlib.utils.Color
-import io.github.nbcss.wynnlib.utils.ItemFactory
-import io.github.nbcss.wynnlib.utils.Pos
-import net.minecraft.client.MinecraftClient
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.sound.PositionedSoundInstance
+import net.minecraft.client.gui.tooltip.TooltipComponent
 import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
@@ -52,6 +51,50 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     abstract fun renderViewer(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float)
 
     abstract fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float)
+
+    fun renderAbilityTooltip(matrices: MatrixStack,
+                             mouseX: Int,
+                             mouseY: Int,
+                             ability: Ability,
+                             tooltip: MutableList<Text> = ability.getTooltip().toMutableList()) {
+        var icon: Identifier? = null
+        val metadata = ability.getMetadata()
+        if (metadata != null && tooltip.size >= 2) {
+            icon = metadata.getTexture()
+            tooltip[0] = LiteralText("     ").append(tooltip[0])
+            tooltip[1] = LiteralText("     ").append(tooltip[1])
+        }
+        drawTooltip(matrices, tooltip, mouseX, mouseY + 20)
+        if (icon != null) {
+            var i = 0
+            var j = if (tooltip.size == 1) -2 else 0
+
+            val components = tooltip.map { TooltipComponent.of(it.asOrderedText()) }
+            for (tooltipComponent in components) {
+                val k = tooltipComponent.getWidth(textRenderer)
+                if (k > i) {
+                    i = k
+                }
+                j += tooltipComponent.height
+            }
+
+            var x = mouseX + 12
+            var y = mouseY + 8
+
+            if (x + i > width) {
+                x -= 28 + i
+            }
+
+            if (y + j + 6 > height) {
+                y = height - j - 6
+            }
+
+            RenderSystem.disableDepthTest()
+            RenderKit.renderTexture(matrices, icon, x, y,
+                0, 0, 18, 18, 18, 18)
+            RenderSystem.enableDepthTest()
+        }
+    }
 
     fun isOverViewer(mouseX: Int, mouseY: Int): Boolean {
         return mouseX >= viewerX && mouseX < viewerX + VIEW_WIDTH && mouseY >= viewerY && mouseY < viewerY + VIEW_HEIGHT
@@ -106,6 +149,18 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
         }
     }
 
+    fun renderArchetypeIcon(matrices: MatrixStack, archetype: Archetype, x: Int, y: Int) {
+        val icon = archetype.getTexture()
+        val iconText = LiteralText(archetype.getIconText())
+            .formatted(Formatting.BOLD).formatted(archetype.getFormatting())
+        itemRenderer.renderInGuiWithOverrides(icon, x, y)
+        //itemRenderer.renderGuiItemOverlay(textRenderer, icon, archetypeX, archetypeY, iconText)
+        matrices.push()
+        matrices.translate(0.0, 0.0, 200.0)
+        RenderKit.renderOutlineText(matrices, iconText, x.toFloat() + 10, y.toFloat() + 9)
+        matrices.pop()
+    }
+
     fun toScreenPosition(height: Int, position: Int): Pos {
         return toScreenPosition(height, position, renderScrollPos)
     }
@@ -144,11 +199,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     open fun onClickNode(ability: Ability, button: Int): Boolean {
         val dependency = ability.getAbilityDependency()
         if (button == 1 && dependency != null) {
-            MinecraftClient.getInstance().soundManager.play(
-                PositionedSoundInstance.master(
-                    SoundEvents.ENTITY_ITEM_PICKUP,
-                    1.0f
-                ))
+            playSound(SoundEvents.ENTITY_ITEM_PICKUP)
             val currPos = toScreenPosition(dependency.getHeight(), dependency.getPosition())
             val diff = (height / 2) - currPos.y
             val scale = client!!.window.scaleFactor
@@ -157,6 +208,8 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
             InputUtil.setCursorParameters(client!!.window.handle, 212993,
                 endPos.x.toDouble() * scale, endPos.y.toDouble() * scale)
             return true
+        }else{
+            playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
         }
         return false
     }

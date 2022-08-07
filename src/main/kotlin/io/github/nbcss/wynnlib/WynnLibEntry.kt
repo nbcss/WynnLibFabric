@@ -1,9 +1,14 @@
 package io.github.nbcss.wynnlib
 
+import io.github.nbcss.wynnlib.abilities.IconTexture
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId
+import io.github.nbcss.wynnlib.data.PowderSpecial
+import io.github.nbcss.wynnlib.events.InventoryUpdateEvent
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
+import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
 import io.github.nbcss.wynnlib.registry.*
+import io.github.nbcss.wynnlib.timer.indicators.StatusType
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -17,28 +22,32 @@ object WynnLibEntry: ModInitializer {
     private const val MOD_ID = "wynnlib"
 
     override fun onInitialize() {
-        //Reload id metadata
-        Identification.load()
+        //Reload icons
+        IconTexture.reload()
+        //Load data
+        AbilityRegistry.load()
+        Identification.load() //id have to load after ability, because spell id need ability name from abilities...
+        StatusType.load()
         MajorId.load()
-        //Load database
+        PowderSpecial.load()
         PowderRegistry.load()
         RegularEquipmentRegistry.load()
         IngredientRegistry.load()
-        AbilityRegistry.load()
         MaterialRegistry.load()
         //Register keybindings
-        val openHandbook = KeyBindingHelper.registerKeyBinding(
-            KeyBinding(
-                "wynnlib.key.handbook",
-                InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_H,
-                "wynnlib.category.keys"
-            )
-        )
+        val openHandbook = registerKey("wynnlib.key.handbook", GLFW.GLFW_KEY_H)
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
             while (openHandbook.wasPressed()) {
                 it.setScreen(EquipmentDictScreen(it.currentScreen))
             }
         })
+        //Register events
+        InventoryUpdateEvent.registerListener(AbilityTreeHandler)
+    }
+
+    private fun registerKey(name: String, key: Int): KeyBinding {
+        return KeyBindingHelper.registerKeyBinding(
+            KeyBinding(name, InputUtil.Type.KEYSYM, key, "wynnlib.category.keys")
+        )
     }
 }

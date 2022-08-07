@@ -3,11 +3,12 @@ package io.github.nbcss.wynnlib.items.equipments.regular
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.items.Equipment
-import io.github.nbcss.wynnlib.items.equipments.EquipmentContainer
+import io.github.nbcss.wynnlib.items.equipments.Equipment
+import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.utils.Color
+import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
@@ -26,7 +27,7 @@ class RegularEquipment(json: JsonObject) : Equipment {
     private val tier: Tier
     private val level: Int
     private val powderSlots: Int
-    private val container: EquipmentContainer?
+    private val category: EquipmentCategory?
     private val identified: Boolean
     private val majorIds: Array<MajorId>
     init {
@@ -55,34 +56,36 @@ class RegularEquipment(json: JsonObject) : Equipment {
         Identification.getAll().filter{json.has(it.apiId)}.forEach{
             val value = json.get(it.apiId).asInt
             if(value != 0)
-                idMap[it] = BaseIRange(it, value)
+                idMap[it] = BaseIRange(it, identified, value)
         }
         val category = json.get("category").asString
-        container = if(category.equals("weapon")){
+        this.category = if(category.equals("weapon")){
             RegularWeapon(this, json)
         }else if(category.equals("armor")){
             RegularArmour(this, json)
         }else if(category.equals("accessory")){
             RegularAccessory(this, json)
         }else{
-            null //hmm it should not happen right?
+            null //hmm it should not happen right? ok it can happen if wynn updates...
         }
     }
 
+    fun getCategory(): EquipmentCategory? = category
+
     override fun getTier(): Tier = tier
 
-    override fun getIdentification(id: Identification): IRange {
-        return idMap.getOrDefault(id, IRange.ZERO)
+    override fun getIdentificationRange(id: Identification): BaseIRange {
+        return idMap[id] ?: BaseIRange(id, identified, 0)
     }
 
     override fun getType(): EquipmentType {
-        return container!!.getType()
+        return category?.getType() ?: EquipmentType.INVALID
     }
 
     override fun getLevel(): IRange = SimpleIRange(level, level)
 
     override fun getClassReq(): CharacterClass? {
-        return if(container is Weapon) CharacterClass.fromWeaponType(getType()) else classReq
+        return if(category is Weapon) CharacterClass.fromWeaponType(getType()) else classReq
     }
 
     override fun getQuestReq(): String? = questReq
@@ -96,16 +99,16 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun getDisplayName(): String = displayName
 
     override fun getDisplayText(): Text {
-        return LiteralText(displayName).formatted(tier.formatting)
+        return LiteralText(displayName).formatted(getTier().formatting)
     }
 
-    override fun getIcon(): ItemStack = container!!.getIcon()
+    override fun getIcon(): ItemStack = category?.getIcon() ?: ERROR_ITEM
 
     override fun getRarityColor(): Color {
-        return Settings.getTierColor(tier)
+        return Settings.getTierColor(getTier())
     }
 
-    override fun getTooltip(): List<Text> = container!!.getTooltip()
+    override fun getTooltip(): List<Text> = category?.getTooltip() ?: listOf(getDisplayText())
 
     override fun getPowderSlot(): Int = powderSlots
 
@@ -114,10 +117,10 @@ class RegularEquipment(json: JsonObject) : Equipment {
     override fun isIdentifiable(): Boolean = getTier().canIdentify() && !identified && idMap.isNotEmpty()
 
     override fun asWeapon(): Weapon? {
-        return if(container is Weapon) container else null
+        return if(category is Weapon) category else null
     }
 
     override fun asWearable(): Wearable? {
-        return if(container is Wearable) container else null
+        return if(category is Wearable) category else null
     }
 }

@@ -6,6 +6,7 @@
       "name": "STRENGTHPOINTS",
       "displayName": "Strength",
       "suffix": "",
+      "group": "SKILL_POINT_BONUS",
       "constant": true
     },
     {
@@ -14,6 +15,7 @@
       "name": "DEXTERITYPOINTS",
       "displayName": "Dexterity",
       "suffix": "",
+      "group": "SKILL_POINT_BONUS",
       "constant": true
     },
     {
@@ -22,6 +24,7 @@
       "name": "INTELLIGENCEPOINTS",
       "displayName": "Intelligence",
       "suffix": "",
+      "group": "SKILL_POINT_BONUS",
       "constant": true
     },
     {
@@ -30,6 +33,7 @@
       "name": "DEFENSEPOINTS",
       "displayName": "Defence",
       "suffix": "",
+      "group": "SKILL_POINT_BONUS",
       "constant": true
     },
     {
@@ -38,6 +42,7 @@
       "name": "AGILITYPOINTS",
       "displayName": "Agility",
       "suffix": "",
+      "group": "SKILL_POINT_BONUS",
       "constant": true
     },
     {
@@ -45,418 +50,367 @@
       "apiId": "attackSpeedBonus",
       "name": "ATTACKSPEED",
       "displayName": "Attack Speed",
-      "suffix": " tier"
+      "suffix": " tier",
+      "group": "COMBAT"
     },
     {
       "id": "mana_regen",
       "apiId": "manaRegen",
       "name": "MANAREGEN",
       "displayName": "Mana Regen",
-      "suffix": "/5s"
+      "suffix": "/5s",
+      "group": "COMBAT"
     },
     {
       "id": "mana_steal",
       "apiId": "manaSteal",
       "name": "MANASTEAL",
       "displayName": "Mana Steal",
-      "suffix": "/3s"
+      "suffix": "/3s",
+      "group": "COMBAT"
     },
     {
       "id": "poison",
       "apiId": "poison",
       "name": "POISON",
       "displayName": "Poison",
-      "suffix": "/3s"
+      "suffix": "/3s",
+      "group": "COMBAT"
     },
     {
       "id": "exploding",
       "apiId": "exploding",
       "name": "EXPLODING",
       "displayName": "Exploding",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "COMBAT"
     },
     {
       "id": "damage_bonus",
       "apiId": "damageBonus",
       "name": "DAMAGEBONUS",
       "displayName": "Main Attack Damage",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "COMBAT"
     },
     {
       "id": "damage_bonus_raw",
       "apiId": "damageBonusRaw",
       "name": "DAMAGEBONUSRAW",
       "displayName": "Main Attack Damage",
-      "suffix": ""
+      "suffix": "",
+      "group": "COMBAT"
     },
     {
       "id": "spell_damage",
       "apiId": "spellDamage",
       "name": "SPELLDAMAGE",
       "displayName": "Spell Damage",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "COMBAT"
     },
     {
       "id": "spell_damage_raw",
       "apiId": "spellDamageRaw",
       "name": "SPELLDAMAGERAW",
       "displayName": "Spell Damage",
-      "suffix": ""
+      "suffix": "",
+      "group": "COMBAT"
     },
     {
       "id": "rainbow_spell_damage_raw",
       "apiId": "rainbowSpellDamageRaw",
       "name": "RAINBOWSPELLDAMAGERAW",
       "displayName": "Rainbow Spell Damage",
-      "suffix": ""
+      "suffix": "",
+      "group": "COMBAT"
     },
     {
       "id": "health_bonus",
       "apiId": "healthBonus",
       "name": "HEALTHBONUS",
       "displayName": "Health",
-      "suffix": ""
+      "suffix": "",
+      "group": "SURVIVABILITY"
     },
     {
       "id": "health_regen_raw",
       "apiId": "healthRegenRaw",
       "name": "HEALTHREGENRAW",
       "displayName": "Health Regen",
-      "suffix": ""
+      "suffix": "",
+      "group": "SURVIVABILITY"
     },
     {
       "id": "health_regen",
       "apiId": "healthRegen",
       "name": "HEALTHREGEN",
       "displayName": "Health Regen",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "SURVIVABILITY"
     },
     {
       "id": "life_steal",
       "apiId": "lifeSteal",
       "name": "LIFESTEAL",
       "displayName": "Life Steal",
-      "suffix": "/3s"
+      "suffix": "/3s",
+      "group": "SURVIVABILITY"
     },
     {
       "id": "thorns",
       "apiId": "thorns",
       "name": "THORNS",
       "displayName": "Thorns",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "SURVIVABILITY"
     },
     {
       "id": "reflection",
       "apiId": "reflection",
       "name": "REFLECTION",
       "displayName": "Reflection",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "SURVIVABILITY"
     },
     {
       "id": "bonus_fire_damage",
       "apiId": "bonusFireDamage",
       "name": "FIREDAMAGEBONUS",
       "displayName": "Fire Damage",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
       "id": "bonus_water_damage",
       "apiId": "bonusWaterDamage",
       "name": "WATERDAMAGEBONUS",
       "displayName": "Water Damage",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
       "id": "bonus_air_damage",
       "apiId": "bonusAirDamage",
       "name": "AIRDAMAGEBONUS",
       "displayName": "Air Damage",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
       "id": "bonus_thunder_damage",
       "apiId": "bonusThunderDamage",
       "name": "THUNDERDAMAGEBONUS",
       "displayName": "Thunder Damage",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
       "id": "bonus_earth_damage",
       "apiId": "bonusEarthDamage",
       "name": "EARTHDAMAGEBONUS",
       "displayName": "Earth Damage",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
       "id": "bonus_fire_defense",
       "apiId": "bonusFireDefense",
       "name": "FIREDEFENSE",
       "displayName": "Fire Defence",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DEFENCE_BONUS"
     },
     {
       "id": "bonus_water_defense",
       "apiId": "bonusWaterDefense",
       "name": "WATERDEFENSE",
       "displayName": "Water Defence",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DEFENCE_BONUS"
     },
     {
       "id": "bonus_air_defense",
       "apiId": "bonusAirDefense",
       "name": "AIRDEFENSE",
       "displayName": "Air Defence",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DEFENCE_BONUS"
     },
     {
       "id": "bonus_thunder_defense",
       "apiId": "bonusThunderDefense",
       "name": "THUNDERDEFENSE",
       "displayName": "Thunder Defence",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DEFENCE_BONUS"
     },
     {
       "id": "bonus_earth_defense",
       "apiId": "bonusEarthDefense",
       "name": "EARTHDEFENSE",
       "displayName": "Earth Defence",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "ELEMENT_DEFENCE_BONUS"
     },
     {
       "id": "speed",
       "apiId": "speed",
       "name": "SPEED",
       "displayName": "Walk Speed",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MANEUVERABILITY"
     },
     {
       "id": "jump_height",
       "apiId": "jumpHeight",
       "name": "JUMP_HEIGHT",
       "displayName": "Jump Height",
-      "suffix": ""
+      "suffix": "",
+      "group": "MANEUVERABILITY"
     },
     {
       "id": "sprint",
       "apiId": "sprint",
       "name": "STAMINA",
       "displayName": "Sprint",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MANEUVERABILITY"
     },
     {
       "id": "sprint_regen",
       "apiId": "sprintRegen",
       "name": "STAMINA_REGEN",
       "displayName": "Sprint Regen",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MANEUVERABILITY"
     },
     {
       "id": "xp_bonus",
       "apiId": "xpBonus",
       "name": "XPBONUS",
       "displayName": "XP Bonus",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MISC"
     },
     {
       "id": "loot_bonus",
       "apiId": "lootBonus",
       "name": "LOOTBONUS",
       "displayName": "Loot Bonus",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MISC"
     },
     {
       "id": "loot_quality",
       "apiId": "lootQuality",
       "name": "LOOT_QUALITY",
       "displayName": "Loot Quality",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MISC"
     },
     {
       "id": "gather_xp_bonus",
       "apiId": "gatherXpBonus",
       "name": "GATHER_XP_BONUS",
       "displayName": "Gather XP Bonus",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MISC"
     },
     {
       "id": "gather_speed",
       "apiId": "gatherSpeed",
       "name": "GATHER_SPEED",
       "displayName": "Gather Speed",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MISC"
     },
     {
       "id": "stealing",
       "apiId": "emeraldStealing",
       "name": "EMERALDSTEALING",
       "displayName": "Stealing",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MISC"
     },
     {
       "id": "soul_points_regen",
       "apiId": "soulPoints",
       "name": "SOULPOINTS",
       "displayName": "Soul Point Regen",
-      "suffix": "%"
+      "suffix": "%",
+      "group": "MISC"
     },
     {
       "id": "spell_cost_raw_1",
       "apiId": "spellCostRaw1",
       "name": "SPELL_COST_RAW_1",
-      "displayName": "1st Spell Cost",
-      "alias": [
-        "Heal Cost",
-        "Arrow Storm Cost",
-        "Bash Cost",
-        "Spin Attack Cost",
-        "Totem Cost",
-        "Remedy Cost",
-        "Bolt Blizzard Cost",
-        "Holy Blast Cost",
-        "Whirlwind Cost",
-        "Sky Emblem Cost"
-      ],
+      "displayName": "{sp1} Cost",
       "suffix": "",
+      "group": "SPELL_COST",
       "inverted": true
     },
     {
       "id": "spell_cost_raw_2",
       "apiId": "spellCostRaw2",
       "name": "SPELL_COST_RAW_2",
-      "displayName": "2nd Spell Cost",
-      "alias": [
-        "Teleport Cost",
-        "Escape Cost",
-        "Charge Cost",
-        "Vanish Cost",
-        "Haul Cost",
-        "Blink Cost",
-        "Spider Jump Cost",
-        "Leap Cost",
-        "Shadow Clone Cost",
-        "Soar Cost"
-      ],
+      "displayName": "{sp2} Cost",
       "suffix": "",
+      "group": "SPELL_COST",
       "inverted": true
     },
     {
       "id": "spell_cost_raw_3",
       "apiId": "spellCostRaw3",
       "name": "SPELL_COST_RAW_3",
-      "displayName": "3rd Spell Cost",
-      "alias": [
-        "Meteor Cost",
-        "Bomb Cost",
-        "Uppercut Cost",
-        "Multi Hit Cost",
-        "Aura Cost",
-        "Dead Star Cost",
-        "Creeper Dart Cost",
-        "Heaven Jolt Cost",
-        "Leopard Punches Cost",
-        "Wind Surge Cost"
-      ],
+      "displayName": "{sp3} Cost",
       "suffix": "",
+      "group": "SPELL_COST",
       "inverted": true
     },
     {
       "id": "spell_cost_raw_4",
       "apiId": "spellCostRaw4",
       "name": "SPELL_COST_RAW_4",
-      "displayName": "4th Spell Cost",
-      "alias": [
-        "Ice Snake Cost",
-        "Arrow Shield Cost",
-        "War Scream Cost",
-        "Smoke Bomb Cost",
-        "Uproot Cost",
-        "Crystal Reptile Cost",
-        "Dagger Aura Cost",
-        "Cry of the Gods Cost",
-        "Blinding Cloud Cost",
-        "Gale Funnel Cost"
-      ],
+      "displayName": "{sp4} Cost",
       "suffix": "",
+      "group": "SPELL_COST",
       "inverted": true
     },
     {
       "id": "spell_cost_pct_1",
       "apiId": "spellCostPct1",
       "name": "SPELL_COST_PCT_1",
-      "displayName": "1st Spell Cost",
-      "alias": [
-        "Heal Cost",
-        "Arrow Storm Cost",
-        "Bash Cost",
-        "Spin Attack Cost",
-        "Totem Cost",
-        "Remedy Cost",
-        "Bolt Blizzard Cost",
-        "Holy Blast Cost",
-        "Whirlwind Cost",
-        "Sky Emblem Cost"
-      ],
+      "displayName": "{sp1} Cost",
       "suffix": "%",
+      "group": "SPELL_COST",
       "inverted": true
     },
     {
       "id": "spell_cost_pct_2",
       "apiId": "spellCostPct2",
       "name": "SPELL_COST_PCT_2",
-      "displayName": "2nd Spell Cost",
-      "alias": [
-        "Teleport Cost",
-        "Escape Cost",
-        "Charge Cost",
-        "Vanish Cost",
-        "Haul Cost",
-        "Blink Cost",
-        "Spider Jump Cost",
-        "Leap Cost",
-        "Shadow Clone Cost",
-        "Soar Cost"
-      ],
+      "displayName": "{sp2} Cost",
       "suffix": "%",
+      "group": "SPELL_COST",
       "inverted": true
     },
     {
       "id": "spell_cost_pct_3",
       "apiId": "spellCostPct3",
       "name": "SPELL_COST_PCT_3",
-      "displayName": "3rd Spell Cost",
-      "alias": [
-        "Meteor Cost",
-        "Bomb Cost",
-        "Uppercut Cost",
-        "Multi Hit Cost",
-        "Aura Cost",
-        "Dead Star Cost",
-        "Creeper Dart Cost",
-        "Heaven Jolt Cost",
-        "Leopard Punches Cost",
-        "Wind Surge Cost"
-      ],
+      "displayName": "{sp3} Cost",
       "suffix": "%",
+      "group": "SPELL_COST",
       "inverted": true
     },
     {
       "id": "spell_cost_pct_4",
       "apiId": "spellCostPct4",
       "name": "SPELL_COST_PCT_4",
-      "displayName": "4th Spell Cost",
-      "alias": [
-        "Ice Snake Cost",
-        "Arrow Shield Cost",
-        "War Scream Cost",
-        "Smoke Bomb Cost",
-        "Uproot Cost",
-        "Crystal Reptile Cost",
-        "Dagger Aura Cost",
-        "Cry of the Gods Cost",
-        "Blinding Cloud Cost",
-        "Gale Funnel Cost"
-      ],
+      "displayName": "{sp4} Cost",
       "suffix": "%",
+      "group": "SPELL_COST",
       "inverted": true
     }
   ],

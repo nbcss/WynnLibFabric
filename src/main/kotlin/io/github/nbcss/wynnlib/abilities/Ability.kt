@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
+import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
@@ -22,15 +23,21 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
+import kotlin.collections.LinkedHashMap
 
 class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, PropertyProvider {
     private val id: String
-    //private val name: String
+    private val name: String?
     private val tier: Tier
     private val character: CharacterClass
     private val archetype: Archetype?
     private val height: Int
     private val position: Int
+    private val page: Int
+    private val slot: Int
     private val cost: Int
     private val dependency: String?
     private val blocks: MutableSet<String> = HashSet()
@@ -43,13 +50,21 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     //private val effect: AbilityEffect
     init {
         id = json["id"].asString
-        //name = json["name"].asString
+        name = if (json.has("name") && !json["name"].isJsonNull) json["name"].asString else null
         character = CharacterClass.valueOf(json["class"].asString.uppercase())
         archetype = if (json.has("archetype") && !json["archetype"].isJsonNull)
             Archetype.fromName(json["archetype"].asString) else null
         height = json["height"].asInt
         position = json["position"].asInt
         cost = json["cost"].asInt
+        if (json.has("location") && !json["location"].isJsonNull) {
+            val loc = json["location"].asString.split(",")
+            page = loc[0].toInt()
+            slot = loc[1].toInt() * 9 + loc[2].toInt()
+        }else{
+            page = 0
+            slot = 0
+        }
         dependency = if (json.has("dependency") && !json["dependency"].isJsonNull)
             json["dependency"].asString else null
         blocks.addAll(json["blocks"].asJsonArray.map { e -> e.asString })
@@ -83,6 +98,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         }
     }
 
+    fun getName(): String? = name
+
     fun getCharacter(): CharacterClass = character
 
     fun isMainAttack(): Boolean = metadata?.getFactory() is MainAttackEntry.Companion
@@ -95,6 +112,10 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
 
     fun getPosition(): Int = position
 
+    fun getPage(): Int = page
+
+    fun getSlot(): Int = slot
+
     fun getAbilityPointCost(): Int = cost
 
     fun getMetadata(): AbilityMetadata? = metadata
@@ -102,7 +123,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     fun getPredecessors(): List<Ability> = predecessors.mapNotNull { x -> AbilityRegistry.get(x) }
 
     fun getSuccessors(): List<Ability> {
-        if (successors != null) {
+        if (successors == null) {
             successors = AbilityRegistry.fromCharacter(character)
                 .getAbilities().filter { this in it.getPredecessors() }
         }
@@ -169,6 +190,16 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         if (propertyTooltip.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
             tooltip.addAll(propertyTooltip)
+        }
+        if (metadata?.getFactory() is ReplaceSpellEntry.Companion) {
+            BoundSpellProperty.from(this)?.let {
+                tree.getSpellAbility(it.getSpell())?.let { spell ->
+                    tooltip.add(Symbol.REPLACE.asText().append(" ")
+                        .append(Translations.TOOLTIP_ABILITY_REPLACING.formatted(Formatting.GRAY))
+                        .append(LiteralText(": ").formatted(Formatting.GRAY))
+                        .append(spell.formatted(Formatting.WHITE)))
+                }
+            }
         }
         //Add blocking abilities
         val incompatibles = getBlockAbilities()
@@ -244,8 +275,14 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         return tooltip
     }
 
-    fun updateEntries(container: EntryContainer) {
-        properties.values.forEach { it.updateEntries(container) }
+    fun updateEntries(container: EntryContainer): Boolean {
+        var flag = true
+        for (property in properties.values) {
+            if(!property.updateEntries(container)){
+                flag = false
+            }
+        }
+        return flag
     }
 
     fun getAbilityTree(): AbilityTree = AbilityRegistry.fromCharacter(character)
@@ -258,6 +295,21 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
             return "wynnlib.ability.desc.$key"
         }
         return "wynnlib.ability.name.$key"
+    }
+
+    override fun hashCode(): Int {
+        return getKey().hashCode()
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Ability) {
+            return getKey() == other.getKey()
+        }
+        return false
+    }
+
+    override fun toString(): String {
+        return getKey()
     }
 
     enum class Tier(private val level: Int,
