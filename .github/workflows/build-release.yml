@@ -40,7 +40,7 @@ jobs:
       - name: Get Branch & Version
         run: | 
           echo "BRANCH=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-          export modVersion = cat gradle.properties | grep 'modVersion' | awk -F '=' '{print $2}'
+          modVersion = cat ./gradle.properties | grep 'modVersion' | awk -F '=' '{print $2}'
           echo "MOD_VERSION=${modVersion}" >> &GITHUB_ENV
 
       - name: Get Version
