@@ -5,6 +5,7 @@ on:
       - master
     tags:
       - 'v*'
+
   workflow_dispatch:
     inputs:
       tag:
@@ -12,7 +13,6 @@ on:
         description: "Tag to release"
         required: true
         type: string
-
 
 
 jobs:
@@ -33,8 +33,9 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
-        with:
-          arguments: jar
+
+      - name: Build Jar
+        run: ./gradlew build && ./gradlew jar
 
       - name: Set ENV
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
@@ -42,5 +43,5 @@ jobs:
       - name: Upload build jar
         uses: actions/upload-artifact@v3
         with:
-          name: WynnLibFabric-${{ env.RELEASE_VERSION }}.jar
+          name: WynnLibFabric-${{ env.RELEASE_VERSION }}
           path: build/libs/
