@@ -1,0 +1,49 @@
+name: CI
+on:
+  push:
+    branches-ignore:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get Branch
+        run: echo "BRANCH=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Get Version
+        run: echo "MOD_VERSION=`grep 'modVersion' ./gradle.properties | awk -F ' = ' '{print $2}'`" >> $GITHUB_ENV
+
+      - name: Setup JAVA
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Run chmod to make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Build Jar
+        run: ./gradlew build
+
+      - name: Get Short SHA
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+
+      - name: Rename Files
+        run: |
+          mv ./build/libs/wynnlib-${MOD_VERSION}.jar ./build/libs/[CI-${SHORT_SHA}][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}.jar
+          mv ./build/libs/wynnlib-${MOD_VERSION}-sources.jar ./build/libs/[CI-${SHORT_SHA}][${{ env.BRANCH }}]WynnLibFabric-${MOD_VERSION}-sources.jar
+
+      - name: Upload build jar
+        uses: actions/upload-artifact@v3
+        with:
+          name: "[CI-${{ env.SHORT_SHA }}][${{ env.BRANCH }}]WynnLibFabric.zip"
+          path: build/libs/
