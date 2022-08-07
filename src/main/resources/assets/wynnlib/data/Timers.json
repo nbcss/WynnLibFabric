@@ -5,203 +5,240 @@
       "type": "EFFECT",
       "icon": "\u00a7a\u2741",
       "name": "$% Resistance",
-      "texture": "WAR_SCREAM"
+      "texture": "WAR_SCREAM",
+      "properties": {}
     },
     {
       "id": "RAGNAROKKR_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7a\u2694",
       "name": "$% Strength",
-      "texture": null
+      "texture": null,
+      "properties": {}
     },
     {
       "id": "RADIANCE_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7a\u2748",
       "name": "$% Radiant",
-      "texture": "RADIANCE"
+      "texture": "RADIANCE",
+      "properties": {}
     },
     {
       "id": "RADIANCE_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Radiance",
-      "texture": "RADIANCE"
+      "texture": "RADIANCE",
+      "properties": {}
     },
     {
       "id": "CORRUPTED_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7b\u2764",
       "name": "Corrupted",
-      "texture": "BAKALS_GRASP"
+      "texture": "BAKALS_GRASP",
+      "properties": {}
     },
     {
       "id": "CORRUPTED_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Corrupted",
-      "texture": "BAKALS_GRASP"
+      "texture": "BAKALS_GRASP",
+      "properties": {}
     },
     {
       "id": "BOILING_BLOOD_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Boiling Blood",
-      "texture": "BOILING_BLOOD"
+      "texture": "BOILING_BLOOD",
+      "properties": {}
     },
     {
       "id": "SHIELD_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Shield",
-      "texture": "MANTLE_OF_THE_BOVEMISTS"
+      "texture": "MANTLE_OF_THE_BOVEMISTS",
+      "properties": {}
     },
     {
       "id": "SECOND_CHANCE_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Second Chance",
-      "texture": "SECOND_CHANCE"
+      "texture": "SECOND_CHANCE",
+      "properties": {}
     },
     {
       "id": "BRYOPHYTE_ROOTS_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Bryophyte Roots",
-      "texture": "BRYOPHYTE_ROOTS"
+      "texture": "BRYOPHYTE_ROOTS",
+      "properties": {}
     },
     {
       "id": "WINDY_FEET_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7b\u2764",
       "name": "Windy Feet",
-      "texture": "WINDY_FEET"
+      "texture": "WINDY_FEET",
+      "properties": {}
     },
     {
       "id": "LEAP_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Leap",
-      "texture": "LEAP"
+      "texture": "LEAP",
+      "properties": {}
     },
     {
       "id": "FRENZY_EFFECT",
       "type": "VALUE",
       "icon": "\u00a7b\u27b2",
       "name": "$% Frenzy",
-      "texture": "FRENZY"
+      "texture": "FRENZY",
+      "properties": {
+        "max": 160,
+        "format": "%s%%"
+      }
     },
     {
       "id": "ARCANE_SPEED_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Arcane Speed",
-      "texture": "ARCANE_SPEED"
+      "texture": "ARCANE_SPEED",
+      "properties": {}
     },
     {
       "id": "PURIFICATION_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Purification",
-      "texture": "PURIFICATION"
+      "texture": "PURIFICATION",
+      "properties": {}
     },
     {
       "id": "FORTITUDE_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7a\u2694",
       "name": "Fortitude",
-      "texture": "FORTITUDE"
+      "texture": "FORTITUDE",
+      "properties": {}
     },
     {
       "id": "FORTITUDE_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Fortitude",
-      "texture": "FORTITUDE"
+      "texture": "FORTITUDE",
+      "properties": {}
     },
     {
       "id": "SUNFLARE_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7a\u2741",
       "name": "Sunflare",
-      "texture": "SUNFLARE"
+      "texture": "SUNFLARE",
+      "properties": {}
     },
     {
       "id": "TIME_DILATION_EFFECT",
       "type": "VALUE",
       "icon": "\u00a7a\u27a1",
       "name": "$% Time Dilated",
-      "texture": "TIME_DILATION"
+      "texture": "TIME_DILATION",
+      "properties": {
+        "max": 300,
+        "format": "%s%%"
+      }
     },
     {
       "id": "TIMELOCK_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7a\u231a",
       "name": "$ Timelocked",
-      "texture": "TIMELOCK"
+      "texture": "TIMELOCK",
+      "properties": {}
     },
     {
       "id": "VANISH_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Vanish",
-      "texture": "VANISH"
+      "texture": "VANISH",
+      "properties": {}
     },
     {
       "id": "MIRROR_IMAGE_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Mirror Image",
-      "texture": "MIRROR_IMAGE"
+      "texture": "MIRROR_IMAGE",
+      "properties": {}
     },
     {
       "id": "SANDBAGGING_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Sandbagging",
-      "texture": "SANDBAGGING"
+      "texture": "SANDBAGGING",
+      "properties": {}
     },
     {
       "id": "HOP_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Hop",
-      "texture": "HOP"
+      "texture": "HOP",
+      "properties": {}
     },
     {
       "id": "DELIRIOUS_GAS_EFFECT",
       "type": "TEMP_EFFECT",
       "icon": "\u00a7a\u2694",
       "name": "Delirious Gas",
-      "texture": "DELIRIOUS_GAS"
+      "texture": "DELIRIOUS_GAS",
+      "properties": {}
     },
     {
       "id": "LURING_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7d\u2764",
       "name": "Luring",
-      "texture": "LURING"
+      "texture": "LURING",
+      "properties": {}
     },
     {
       "id": "PARRY_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Parry",
-      "texture": "PARRY"
+      "texture": "PARRY",
+      "properties": {}
     },
     {
       "id": "DIVERSION_EFFECT",
       "type": "VALUE",
       "icon": "\u00a76\u2764",
       "name": "$ Extra Health",
-      "texture": "EXTRA_HEALTH"
+      "texture": "EXTRA_HEALTH",
+      "properties": {
+        "format": "6{%s}"
+      }
     },
     {
       "id": "DIVERSION_COOLDOWN",
       "type": "COOLDOWN",
       "icon": "\u00a78\u2b24",
       "name": "Diversion",
-      "texture": "DIVERSION"
+      "texture": "DIVERSION",
+      "properties": {}
     }
   ],
   "version": "0.1.0"

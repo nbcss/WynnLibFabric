@@ -780,7 +780,6 @@
         "IRON_LUNGS"
       ],
       "properties": {
-        "status_name": "Shield",
         "extend": {
           "spell": "SPELL_4"
         },
@@ -814,7 +813,6 @@
         "FIREWORKS"
       ],
       "properties": {
-        "status_name": "Corrupted",
         "extend": {
           "spell": "SPELL_4"
         },
@@ -1799,7 +1797,6 @@
         "CHEAPER_BASH_2"
       ],
       "properties": {
-        "status_name": "Radiance",
         "extend": {
           "spell": "SPELL_1"
         },
@@ -1980,7 +1977,6 @@
         "CHEAPER_BASH_2"
       ],
       "properties": {
-        "status_name": "Second Chance",
         "values": {
           "1": 30,
           "2": 10
@@ -2456,7 +2452,6 @@
         "ARROW_STORM"
       ],
       "properties": {
-        "status_name": "Windy Feet",
         "extend": {
           "spell": "SPELL_2"
         },
@@ -2803,6 +2798,7 @@
           "modifier": 40
         },
         "duration": 5,
+        "cooldown": 1,
         "aoe": {
           "range": 2,
           "shape": "CIRCLE"
@@ -3425,7 +3421,6 @@
         "HOMING_SHOTS"
       ],
       "properties": {
-        "status_name": "Leap",
         "cooldown": 2
       },
       "metadata": {
@@ -4077,12 +4072,15 @@
         "GEYSER_STOMP"
       ],
       "properties": {
-        "upgrade": {
-          "spell": "SPELL_1",
-          "ability": "ARROW_STORM"
+        "values": {
+          "1": 8
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "ELUSIVE",
+        "upgradable": false
+      }
     },
     {
       "id": "TANGLED_TRAPS",
@@ -4492,7 +4490,6 @@
         "TELEPORT"
       ],
       "properties": {
-        "raw_damage_bonus": 5,
         "id_convertor": {
           "source": {
             "SPELLDAMAGE": 2,
@@ -5073,7 +5070,6 @@
         "SENTIENT_SNAKE"
       ],
       "properties": {
-        "status_name": "Purification",
         "extend": {
           "spell": "SPELL_1"
         },
@@ -5268,7 +5264,6 @@
         "CHEAPER_TELEPORT_2"
       ],
       "properties": {
-        "status_name": "Fortitude",
         "extend": {
           "spell": "SPELL_1",
           "ability": "HEAL"
@@ -5648,7 +5643,6 @@
         "LARGER_MANA_BANK_2"
       ],
       "properties": {
-        "status_name": "Arcane Speed",
         "extend": {
           "spell": "SPELL_1"
         },
@@ -6922,7 +6916,6 @@
         "STICKY_BOMB"
       ],
       "properties": {
-        "status_name": "Vanish",
         "extend": {
           "spell": "SPELL_2"
         },
@@ -7035,7 +7028,6 @@
         "STICKY_BOMB"
       ],
       "properties": {
-        "status_name": "Mirror Image",
         "extend": {
           "ability": "VANISH"
         },
@@ -7411,7 +7403,6 @@
         "HOP"
       ],
       "properties": {
-        "status_name": "Sandbagging",
         "cooldown": 1
       },
       "metadata": {
@@ -7438,7 +7429,6 @@
         "SANDBAGGING"
       ],
       "properties": {
-        "status_name": "Hop",
         "cooldown": 2
       },
       "metadata": {
@@ -7522,7 +7512,6 @@
         "SANDBAGGING"
       ],
       "properties": {
-        "status_name": "Delirious Gas",
         "extend": {
           "spell": "SPELL_4"
         },
@@ -7774,7 +7763,6 @@
         "CHEAPER_SPIN_ATTACK_2"
       ],
       "properties": {
-        "status_name": "Parry",
         "cooldown": 3
       },
       "metadata": {
@@ -8285,7 +8273,6 @@
         "FORBIDDEN_ART"
       ],
       "properties": {
-        "status_name": "Diversion",
         "extend": {
           "ability": "DELIRIOUS_GAS"
         },
