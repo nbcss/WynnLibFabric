@@ -20,7 +20,7 @@ class ReplaceSpellEntry(parent: PropertyEntry,
                             upgradable: Boolean): PropertyEntry? {
             val property = BoundSpellProperty.from(ability)
             if (property != null){
-                val current = container.getEntry(property.getSpell().name)
+                val current = container.getSlotEntry(property.getSpell().name)
                 if (current != null){
                     return ReplaceSpellEntry(current, property.getSpell(), ability, texture, upgradable)
                 }

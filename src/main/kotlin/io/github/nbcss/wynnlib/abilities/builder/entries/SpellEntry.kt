@@ -55,7 +55,7 @@ open class SpellEntry(private val spell: SpellSlot,
         return ManaCostProperty.from(this)?.getManaCost() ?: 0
     }
 
-    override fun getKey(): String {
+    override fun getSlotKey(): String {
         return spell.name
     }
 

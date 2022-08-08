@@ -137,6 +137,8 @@ abstract class PropertyEntry(private val ability: Ability,
 
     override fun getKey(): String = ability.getKey()
 
+    open fun getSlotKey(): String? = null
+
     open fun getSideText(): Text = LiteralText.EMPTY
 
     fun getTexture(): Identifier = icon

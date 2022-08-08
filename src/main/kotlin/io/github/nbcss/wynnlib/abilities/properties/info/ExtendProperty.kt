@@ -5,6 +5,8 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.ValidatorProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 
 class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
@@ -17,35 +19,36 @@ class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
         private const val ABILITY_KEY = "ability"
         private const val DEPENDENCY_KEY = "depend"
     }
-    private val spell: SpellSlot?
+    private val spell: String?
     private val name: String?
     private val dependencies: List<String>
     init {
         val json = data.asJsonObject
-        spell = if (json.has(SPELL_KEY)) SpellSlot.fromName(json[SPELL_KEY].asString) else null
+        spell = if (json.has(SPELL_KEY)) json[SPELL_KEY].asString else null
         name = if (json.has(ABILITY_KEY)) json[ABILITY_KEY].asString else null
         dependencies = if (json.has(DEPENDENCY_KEY))
             json[DEPENDENCY_KEY].asJsonArray.map { it.asString } else emptyList()
     }
 
+    private fun validateEntry(container: EntryContainer): Boolean {
+        for (property in getAbility().getProperties()) {
+            if (property is ValidatorProperty){
+                if (!property.validate(container))
+                    return false
+            }
+        }
+        return true
+    }
+
     fun getParent(container: EntryContainer): PropertyEntry? {
         //at least one dependency need presents
-        println("${getAbility()} $dependencies")
-        for (x in dependencies)
-            println("$x of: " + container.getEntry(x))
-        if (dependencies.isNotEmpty() && dependencies.all { container.getEntry(it) == null }) {
+        if (!validateEntry(container)) {
             return null
-        }
-        println("${getAbility()} checkpoint")
-        if (spell != null){
-            val entry = container.getEntry(spell.name)
-            if (entry != null && name != null && entry.getAbility().getKey() != name) {
-                return null
-            }
-            return entry
         }
         if (name != null){
             return container.getEntry(name)
+        }else if (spell != null){
+            return container.getSlotEntry(spell)
         }
         return null
     }

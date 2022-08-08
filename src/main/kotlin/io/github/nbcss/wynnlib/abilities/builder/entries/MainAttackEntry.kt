@@ -21,7 +21,7 @@ class MainAttackEntry(ability: Ability,
         override fun getKey(): String = "MAIN_ATTACK"
     }
 
-    override fun getKey(): String {
+    override fun getSlotKey(): String {
         return MainAttackEntry.getKey()
     }
 

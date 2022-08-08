@@ -74,7 +74,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": 5,
         "main_range_modifier": 1
@@ -849,7 +849,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": 5,
         "main_range_modifier": 1
@@ -1406,7 +1406,7 @@
       "class": "WARRIOR",
       "height": 24,
       "position": -4,
-      "tier": 2,
+      "tier": 1,
       "cost": 1,
       "archetype": null,
       "dependency": "BAKALS_GRASP",
@@ -2202,7 +2202,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": 5,
         "main_range_modifier": 6
@@ -2308,7 +2308,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": -30,
         "main_attack_hits_modifier": 1
@@ -2335,7 +2335,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_range_modifier": 10
       },
@@ -2678,7 +2678,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARROW_STORM"
         },
         "damage_modifier": {
@@ -2831,7 +2830,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": -20,
         "main_attack_hits_modifier": 1
@@ -2988,7 +2987,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARROW_STORM"
         },
         "damage_modifier": {
@@ -3451,7 +3449,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_range_clear": true
       },
@@ -3506,7 +3504,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_4",
           "ability": "ARROW_SHIELD"
         },
         "damage_modifier": {
@@ -3639,7 +3636,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_4",
           "ability": "GUARDIAN_ANGELS"
         },
         "damage_modifier": {
@@ -3760,7 +3756,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARROW_STORM"
         },
         "archer_stream_modifier": 2
@@ -3899,7 +3894,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "PHANTOM_RAY"
         }
       },
@@ -3951,7 +3945,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_2",
           "ability": "GRAPPLING_HOOK"
         },
         "range_modifier": 4
@@ -4014,6 +4007,11 @@
           "neutral": 20,
           "water": 5,
           "label": "ARROW"
+        },
+        "damage_interval": 0.05,
+        "values": {
+          "1": 5,
+          "2": 20
         }
       },
       "metadata": {
@@ -4219,7 +4217,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_4",
           "ability": "GUARDIAN_ANGELS"
         },
         "damage_modifier": {
@@ -4365,7 +4362,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": 5,
         "main_range_modifier": 2
@@ -4415,7 +4412,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "METEOR"
         }
       },
@@ -4441,7 +4437,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": 5,
         "main_range_modifier": 2
@@ -4912,7 +4908,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "METEOR"
         },
         "damage_modifier": {
@@ -5050,7 +5045,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         },
         "spell": "SPELL_1",
@@ -5195,7 +5189,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         },
         "range_modifier": 2
@@ -5220,7 +5213,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         },
         "mana_bank_modifier": 30
@@ -5403,7 +5395,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "OPHANIM"
         },
         "ophanim_modifier": {
@@ -5536,7 +5527,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         }
       },
@@ -5563,7 +5553,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         },
         "pulse_heal": {
@@ -5712,7 +5701,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         },
         "mana_bank_modifier": 30
@@ -5764,7 +5752,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "METEOR"
         },
         "range_modifier": 20
@@ -5975,7 +5962,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "OPHANIM"
         },
         "ophanim_modifier": {
@@ -6026,7 +6012,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         }
       },
@@ -6109,7 +6094,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "OPHANIM"
         },
         "ophanim_modifier": {
@@ -6136,7 +6120,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         },
         "mana_bank_modifier": 30
@@ -6188,7 +6171,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "OPHANIM"
         },
         "damage_modifier": {
@@ -6260,7 +6242,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
         }
       },
@@ -6325,7 +6306,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         },
         "spell": "SPELL_1",
@@ -6485,7 +6465,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": 5,
         "id_modifier": {
@@ -6537,7 +6517,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "SPIN_ATTACK"
         },
         "damage_modifier": {
@@ -6595,7 +6574,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_range_modifier": 1,
         "id_convertor": {
@@ -6630,7 +6609,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_damage_modifier": -40,
         "main_attack_hits_modifier": 1
@@ -7032,10 +7011,15 @@
       "predecessors": [
         "FATALITY"
       ],
-      "properties": {},
+      "properties": {
+        "values": {
+          "1": 5
+        }
+      },
       "metadata": {
         "type": "NEW",
-        "icon": "RIGHTING_REFLEX"
+        "icon": "RIGHTING_REFLEX",
+        "upgradable": false
       }
     },
     {
@@ -7300,7 +7284,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MAIN_ATTACK"
+          "spell": "MAIN_ATTACK"
         },
         "main_range_modifier": 1
       },
@@ -7689,7 +7673,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "MULTIHIT"
         },
         "range_modifier": 2
@@ -7717,7 +7700,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "MULTIHIT"
         },
         "damage_modifier": {
@@ -8034,7 +8016,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_1",
           "ability": "LACERATE"
         },
         "damage_modifier": {
@@ -8141,7 +8122,6 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_3",
           "ability": "MULTIHIT"
         }
       },
