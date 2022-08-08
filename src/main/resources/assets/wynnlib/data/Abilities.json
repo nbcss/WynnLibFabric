@@ -5461,8 +5461,21 @@
         "PYROKINESIS",
         "SNAKE_NEST"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "id_convertor": {
+          "source": {
+            "LIFESTEAL": 5
+          },
+          "target": "SPELLDAMAGE",
+          "rate": 1,
+          "max": 50
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "TRANSONIC_WARP",
@@ -5485,7 +5498,11 @@
       ],
       "properties": {
         "extend": {
-          "ability": "WIND_SLASH"
+          "spell": "SPELL_2",
+          "depend": [
+            "WIND_SLASH",
+            "EXPLOSIVE_ENTRANCE"
+          ]
         },
         "damage": {
           "neutral": 20,
@@ -5496,7 +5513,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "TRANSONIC_WARP"
+        "icon": "TRANSONIC_WARP",
+        "upgradable": false
       }
     },
     {
@@ -5663,6 +5681,9 @@
         "extend": {
           "spell": "SPELL_1"
         },
+        "values": {
+          "1": 80
+        },
         "duration": 3,
         "cooldown": 8
       },
@@ -5808,7 +5829,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "EXPLOSIVE_ENTRANCE"
+        "icon": "EXPLOSIVE_ENTRANCE",
+        "upgradable": false
       }
     },
     {
@@ -6052,8 +6074,21 @@
         "MORE_WINDED_2",
         "HEALTHIER_OPHANIM_2"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "id_convertor": {
+          "source": {
+            "STAMINA": 2
+          },
+          "target": "THUNDERDAMAGEBONUS",
+          "rate": 1,
+          "max": 100
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "HEALTHIER_OPHANIM_2",
@@ -6260,6 +6295,9 @@
           "duration": 1,
           "max": 5,
           "per_winded": 5
+        },
+        "values": {
+          "1": 30
         }
       },
       "metadata": {
@@ -6343,6 +6381,9 @@
       "properties": {
         "upgrade": {
           "ability": "CHAOS_EXPLOSION"
+        },
+        "values": {
+          "1": 2
         }
       },
       "metadata": null

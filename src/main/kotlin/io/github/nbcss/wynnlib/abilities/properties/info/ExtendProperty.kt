@@ -15,17 +15,28 @@ class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
         override fun getKey(): String = "extend"
         private const val SPELL_KEY = "spell"
         private const val ABILITY_KEY = "ability"
+        private const val DEPENDENCY_KEY = "depend"
     }
     private val spell: SpellSlot?
     private val name: String?
-
+    private val dependencies: List<String>
     init {
         val json = data.asJsonObject
         spell = if (json.has(SPELL_KEY)) SpellSlot.fromName(json[SPELL_KEY].asString) else null
         name = if (json.has(ABILITY_KEY)) json[ABILITY_KEY].asString else null
+        dependencies = if (json.has(DEPENDENCY_KEY))
+            json[DEPENDENCY_KEY].asJsonArray.map { it.asString } else emptyList()
     }
 
     fun getParent(container: EntryContainer): PropertyEntry? {
+        //at least one dependency need presents
+        println("${getAbility()} $dependencies")
+        for (x in dependencies)
+            println("$x of: " + container.getEntry(x))
+        if (dependencies.isNotEmpty() && dependencies.all { container.getEntry(it) == null }) {
+            return null
+        }
+        println("${getAbility()} checkpoint")
         if (spell != null){
             val entry = container.getEntry(spell.name)
             if (entry != null && name != null && entry.getAbility().getKey() != name) {

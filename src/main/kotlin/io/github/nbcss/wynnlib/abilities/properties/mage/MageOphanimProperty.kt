@@ -80,6 +80,13 @@ class MageOphanimProperty(ability: Ability,
 
         fun getModifier(): LightOfOrb = modifier
 
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder("ophanim_modifier.count", "${modifier.count}")
+            container.putPlaceholder("ophanim_modifier.health", "${modifier.health}")
+            container.putPlaceholder("ophanim_modifier.loss", "${modifier.healthLose}")
+            container.putPlaceholder("-ophanim_modifier.loss", "${-modifier.healthLose}")
+        }
+
         override fun getTooltip(provider: PropertyProvider): List<Text> {
             val tooltip: MutableList<Text> = ArrayList()
             if (modifier.count != 0){
