@@ -9,10 +9,11 @@ import net.minecraft.text.MutableText
 import net.minecraft.util.Identifier
 
 class ReplaceSpellEntry(parent: PropertyEntry,
+                        container: EntryContainer,
                         spell: SpellSlot,
                         root: Ability,
                         icon: Identifier,
-                        upgradable: Boolean): SpellEntry(spell, root, icon, upgradable) {
+                        upgradable: Boolean): SpellEntry(spell, container, root, icon, upgradable) {
     companion object: Factory {
         override fun create(container: EntryContainer,
                             ability: Ability,
@@ -22,7 +23,7 @@ class ReplaceSpellEntry(parent: PropertyEntry,
             if (property != null){
                 val current = container.getSlotEntry(property.getSpell().name)
                 if (current != null){
-                    return ReplaceSpellEntry(current, property.getSpell(), ability, texture, upgradable)
+                    return ReplaceSpellEntry(current, container, property.getSpell(), ability, texture, upgradable)
                 }
             }
             return null

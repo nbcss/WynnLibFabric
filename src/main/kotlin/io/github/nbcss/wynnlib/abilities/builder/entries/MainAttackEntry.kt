@@ -8,14 +8,15 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
-class MainAttackEntry(ability: Ability,
-                      icon: Identifier): PropertyEntry(ability, icon, true) {
+class MainAttackEntry(container: EntryContainer,
+                      ability: Ability,
+                      icon: Identifier): PropertyEntry(container, ability, icon, true) {
     companion object: Factory {
         override fun create(container: EntryContainer,
                             ability: Ability,
                             texture: Identifier,
                             upgradable: Boolean): PropertyEntry {
-            return MainAttackEntry(ability, texture)
+            return MainAttackEntry(container, ability, texture)
         }
 
         override fun getKey(): String = "MAIN_ATTACK"

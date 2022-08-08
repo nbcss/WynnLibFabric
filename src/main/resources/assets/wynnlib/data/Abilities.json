@@ -4946,7 +4946,10 @@
           "label": "WINDED"
         },
         "max_winded": 5,
-        "cooldown": 0.5
+        "cooldown": 0.5,
+        "winded_booster": [
+          "ICE_SNAKE"
+        ]
       },
       "metadata": {
         "type": "EXTEND",
@@ -5162,11 +5165,17 @@
           "neutral": 15,
           "earth": 10,
           "label": "WINDED"
-        }
+        },
+        "winded_booster": [
+          "METEOR",
+          "THUNDERSTORM",
+          "OPHANIM"
+        ]
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BREATHLESS"
+        "icon": "BREATHLESS",
+        "upgradable": false
       }
     },
     {
@@ -5489,18 +5498,18 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_2",
-          "depend": [
-            "WIND_SLASH",
-            "EXPLOSIVE_ENTRANCE"
-          ]
+          "spell": "SPELL_2"
         },
         "damage": {
           "neutral": 20,
           "thunder": 5,
           "air": 5,
           "label": "WINDED"
-        }
+        },
+        "winded_booster": [
+          "WIND_SLASH",
+          "EXPLOSIVE_ENTRANCE"
+        ]
       },
       "metadata": {
         "type": "EXTEND",

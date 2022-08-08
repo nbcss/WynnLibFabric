@@ -45,6 +45,7 @@ object Translations {
     val TOOLTIP_ABILITY_MIN_ARCHETYPE: Translatable = from("wynnlib.tooltip.ability.archetype_req")
     val TOOLTIP_ABILITY_MANA_COST: Translatable = from("wynnlib.tooltip.ability.mana_cost")
     val TOOLTIP_ABILITY_RANGE: Translatable = from("wynnlib.tooltip.ability.range")
+    val TOOLTIP_ABILITY_WINDED_BOOSTERS: Translatable = from("wynnlib.tooltip.ability.winded_boosts")
     val TOOLTIP_ABILITY_CHANCE: Translatable = from("wynnlib.tooltip.ability.chance")
     val TOOLTIP_ABILITY_COOLDOWN: Translatable = from("wynnlib.tooltip.ability.cooldown")
     val TOOLTIP_ABILITY_HITS: Translatable = from("wynnlib.tooltip.ability.hits")

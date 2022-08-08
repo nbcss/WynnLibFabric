@@ -51,8 +51,6 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
             }
         }while (extending.isNotEmpty() && extending.size < keys.size)
         disabled.addAll(extending.map { it.ability })
-        println(entries)
-        println(slotEntries)
         for (ability in abilities) {
             if (!ability.updateEntries(this)) {
                 disabled.add(ability)

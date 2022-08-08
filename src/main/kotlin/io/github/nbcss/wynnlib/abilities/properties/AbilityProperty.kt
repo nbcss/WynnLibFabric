@@ -86,6 +86,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MageManaBankProperty.Modifier,
                 MageOphanimProperty,
                 MageOphanimProperty.Modifier,
+                WindedBoosterProperty,
                 MaxWindedProperty,
                 MaxWindedProperty.Modifier,
                 SmokeBombProperty,

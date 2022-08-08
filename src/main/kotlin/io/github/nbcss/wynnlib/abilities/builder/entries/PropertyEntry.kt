@@ -18,7 +18,8 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
-abstract class PropertyEntry(private val ability: Ability,
+abstract class PropertyEntry(private val container: EntryContainer,
+                             private val ability: Ability,
                              private val icon: Identifier,
                              private val upgradable: Boolean): Keyed, PropertyProvider {
     companion object {
@@ -58,6 +59,8 @@ abstract class PropertyEntry(private val ability: Ability,
         }
     }
 
+    fun getContainer(): EntryContainer = container
+
     fun getUpgrades(): List<Ability> {
         return upgrades
     }
@@ -79,7 +82,6 @@ abstract class PropertyEntry(private val ability: Ability,
     }
 
     fun getAbilityDescriptionTooltip(ability: Ability): List<Text> {
-        //fixme replace with own placeholder
         val desc = replaceProperty(replaceProperty(ability.translate("desc").string, '$')
         { ability.getPlaceholder(it) }, '@') {
             val name = if (it.startsWith(".")) "wynnlib.ability.name${it.lowercase()}" else it

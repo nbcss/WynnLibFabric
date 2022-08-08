@@ -12,9 +12,10 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 
 open class SpellEntry(private val spell: SpellSlot,
+                      container: EntryContainer,
                       root: Ability,
                       icon: Identifier,
-                      upgradable: Boolean): PropertyEntry(root, icon, upgradable) {
+                      upgradable: Boolean): PropertyEntry(container, root, icon, upgradable) {
     companion object: Factory {
         override fun create(container: EntryContainer,
                             ability: Ability,
@@ -22,7 +23,7 @@ open class SpellEntry(private val spell: SpellSlot,
                             upgradable: Boolean): PropertyEntry? {
             val property = BoundSpellProperty.from(ability)
             return if (property != null){
-                SpellEntry(property.getSpell(), ability, texture, upgradable)
+                SpellEntry(property.getSpell(), container, ability, texture, upgradable)
             }else{
                 null
             }
