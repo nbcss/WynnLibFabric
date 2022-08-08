@@ -6,27 +6,33 @@ As an open-source project, the contribution is welcome.
 
 Feel free to use the mod as a data library of your own mod. 
 
-Planned Improvements: 
+# Install Guide
+The mod require Fabric 1.18 to run, and currently will not support Forge. 
+In addition, the following dependency mods have to be installed as well: 
+- Fabric API: https://www.curseforge.com/minecraft/mc-mods/fabric-api
+- Fabric Language Kotlin: https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin
+
+Put the jar files of all dependency mod and this mod into mods folder, and start the game.
+
+# TODO LIST
+- [x] Item Dictionary (Equipment, Ingredient, Material, Powder)
+- [x] Dictionary item name filter
+- [x] Ability Tree Viewer/Builder
+- [x] Ability Tree Editor
+- [x] Ability Indicator (Timer)
+- [x] Item Analysis (Partially works)
+- [ ] Advance Search Panel
+- [ ] Crafter
+- [ ] Configuration Page
+
+
+Planned Improvements:
 - Handbook UI rework
 - Data structure rework
 
-Planned New Features: 
+Planned New Features:
 - Translatable language support
 - New Wynncraft 2.0 content support (e.g. ability tree)
-
-# TODO LIST
-- [x] Equipment Dictionary
-- [x] Ingredient Dictionary
-- [x] Material Dictionary
-- [x] Handbook Tab-switching
-- [x] Dictionary item name filter
-- [x] Ability Tree Viewer
-- [ ] Advance Search Panel
-- [ ] Localization
-- [ ] Crafter
-- [ ] Configuration Page
-- [ ] Item Background Color
-- [ ] Ability Display Effect Item
 # Development Guide
 The current main development branch is 1.18,
 please work on this branch to add new features.
