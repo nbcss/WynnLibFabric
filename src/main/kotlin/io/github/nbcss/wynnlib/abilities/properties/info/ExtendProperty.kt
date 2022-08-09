@@ -17,17 +17,13 @@ class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
         override fun getKey(): String = "extend"
         private const val SPELL_KEY = "spell"
         private const val ABILITY_KEY = "ability"
-        private const val DEPENDENCY_KEY = "depend"
     }
     private val spell: String?
     private val name: String?
-    private val dependencies: List<String>
     init {
         val json = data.asJsonObject
         spell = if (json.has(SPELL_KEY)) json[SPELL_KEY].asString else null
         name = if (json.has(ABILITY_KEY)) json[ABILITY_KEY].asString else null
-        dependencies = if (json.has(DEPENDENCY_KEY))
-            json[DEPENDENCY_KEY].asJsonArray.map { it.asString } else emptyList()
     }
 
     private fun validateEntry(container: EntryContainer): Boolean {
