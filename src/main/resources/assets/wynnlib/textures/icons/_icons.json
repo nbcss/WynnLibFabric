@@ -121,6 +121,11 @@
   "RICOCHETS": "ricochets.png",
   "JASMINE_BLOOM": "jasmine_bloom.png",
   "DIVERSION": "diversion.png",
+  "SHAMAN_MAIN_ATTACK": "",
+  "TOTEM": "",
+  "HAUL": "",
+  "UPROOT": "",
+  "AURA": "",
   "LURING": "lure.png",
   "EXTRA_HEALTH": "diversion_health.png"
 }

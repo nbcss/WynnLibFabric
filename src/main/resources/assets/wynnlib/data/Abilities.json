@@ -8415,7 +8415,11 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "properties": {},
+      "properties": {
+        "main_attack_damage": 100,
+        "main_attack_hits": 3,
+        "main_attack_range": 15
+      },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "SHAMAN_MAIN_ATTACK"
@@ -8435,8 +8439,14 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "spell": "SPELL_1",
+        "mana_cost": 35
+      },
+      "metadata": {
+        "type": "SPELL",
+        "icon": "TOTEM"
+      }
     },
     {
       "id": "RELIK_PROFICIENCY_1",
@@ -8503,8 +8513,14 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "spell": "SPELL_2",
+        "mana_cost": 15
+      },
+      "metadata": {
+        "type": "SPELL",
+        "icon": "HAUL"
+      }
     },
     {
       "id": "DISTANT_GRASP",
@@ -8554,8 +8570,14 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "spell": "SPELL_4",
+        "mana_cost": 30
+      },
+      "metadata": {
+        "type": "SPELL",
+        "icon": "UPROOT"
+      }
     },
     {
       "id": "CHEAPER_HAUL_1",
@@ -8588,8 +8610,14 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "spell": "SPELL_3",
+        "mana_cost": 40
+      },
+      "metadata": {
+        "type": "SPELL",
+        "icon": "AURA"
+      }
     },
     {
       "id": "SHAMAN_EARTH_MASTERY",
@@ -9040,7 +9068,7 @@
       "class": "SHAMAN",
       "height": 20,
       "position": 4,
-      "tier": 1,
+      "tier": 2,
       "cost": 0,
       "archetype": null,
       "dependency": null,
