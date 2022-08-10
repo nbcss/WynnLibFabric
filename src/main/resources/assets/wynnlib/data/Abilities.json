@@ -8418,7 +8418,7 @@
       "properties": {
         "main_attack_damage": 100,
         "main_attack_hits": 3,
-        "main_attack_range": 15
+        "main_attack_range": 32
       },
       "metadata": {
         "type": "MAIN_ATTACK",
@@ -8441,7 +8441,17 @@
       "predecessors": [],
       "properties": {
         "spell": "SPELL_1",
-        "mana_cost": 35
+        "mana_cost": 35,
+        "damage": {
+          "neutral": 5,
+          "air": 5
+        },
+        "damage_interval": 0.4,
+        "duration": 30,
+        "aoe": {
+          "range": 8,
+          "shape": "CIRCLE"
+        }
       },
       "metadata": {
         "type": "SPELL",
@@ -8461,7 +8471,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "TOTEM"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8478,7 +8490,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "RELIK_PROFICIENCY_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8495,7 +8509,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "RELIK_PROFICIENCY_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8512,7 +8528,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "TOTEMIC_SMASH"
+      ],
       "properties": {
         "spell": "SPELL_2",
         "mana_cost": 15
@@ -8535,7 +8553,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HAUL"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8552,7 +8572,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HAUL"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8569,10 +8591,23 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DISTANT_GRASP",
+        "CHEAPER_HAUL_1"
+      ],
       "properties": {
         "spell": "SPELL_4",
-        "mana_cost": 30
+        "mana_cost": 30,
+        "damage": {
+          "neutral": 80,
+          "earth": 30,
+          "thunder": 20
+        },
+        "range": 18,
+        "aoe": {
+          "range": 5,
+          "shape": "CIRCLE"
+        }
       },
       "metadata": {
         "type": "SPELL",
@@ -8592,7 +8627,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "UPROOT",
+        "AURA"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8609,10 +8647,18 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HAND_OF_THE_SHAMAN",
+        "CHEAPER_HAUL_1"
+      ],
       "properties": {
         "spell": "SPELL_3",
-        "mana_cost": 40
+        "mana_cost": 40,
+        "damage": {
+          "neutral": 150,
+          "water": 30
+        },
+        "range": 16
       },
       "metadata": {
         "type": "SPELL",
@@ -8632,7 +8678,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "UPROOT",
+        "SHAMAN_AIR_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8649,7 +8698,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "UPROOT",
+        "CHEAPER_HAUL_1",
+        "SHAMAN_THUNDER_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8666,7 +8719,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "AURA",
+        "CHEAPER_HAUL_1",
+        "SHAMAN_AIR_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8683,7 +8740,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "AURA"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8700,7 +8759,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHAMAN_EARTH_MASTERY",
+        "SHAMAN_AIR_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8717,7 +8779,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHAMAN_AIR_MASTERY",
+        "SHAMAN_THUNDER_MASTERY",
+        "CHEAPER_HAUL_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8734,7 +8800,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHAMAN_THUNDER_MASTERY",
+        "FLAMING_TONGUE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8751,7 +8820,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHOCKING_AURA",
+        "SHAMAN_FIRE_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8768,7 +8840,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "NATURES_JOLT"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8785,7 +8859,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHAMAN_WATER_MASTERY"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8802,7 +8878,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "OVERSEER"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8819,7 +8897,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "RAIN_DANCE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8836,7 +8916,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SHOCKING_AURA",
+        "FLAMING_TONGUE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8853,7 +8936,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "PUPPET_MASTER"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8870,7 +8955,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MASK_OF_THE_LUNATIC",
+        "REBOUND"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8887,7 +8975,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "SACRIFICIAL_SHRINE",
+        "CHEAPER_UPROOT_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8904,7 +8995,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MORE_PUPPETS_1",
+        "CHEAPER_AURA_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8921,7 +9015,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "STAGNATION",
+        "CHEAPER_UPROOT_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8938,7 +9035,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_UPROOT_1",
+        "REBOUND"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8955,7 +9055,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "REBOUND"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8972,7 +9074,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "STAGNATION",
+        "CHEAPER_AURA_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -8989,7 +9094,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_UPROOT_1",
+        "MORE_BLOOD_POOL_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9006,7 +9114,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "REBOUND",
+        "HYMN_OF_HATE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9023,7 +9134,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "EXPLODING_PUPPETS"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9040,7 +9153,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "EXPLODING_PUPPETS"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9057,7 +9172,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "HYMN_OF_HATE",
+        "MORE_BLOOD_POOL_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9074,7 +9192,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MORE_BLOOD_POOL_1"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9091,7 +9211,9 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "MASK_OF_THE_FANATIC"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9108,7 +9230,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "BULLWHIP",
+        "CHEAPER_TOTEM_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9125,7 +9250,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DOUBLE_TOTEM",
+        "MORE_PUPPETS_2",
+        "STORM_DANCE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9142,7 +9271,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_TOTEM_2",
+        "MASK_OF_THE_FANATIC",
+        "BLOOD_MOON"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9159,7 +9292,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "VENGEFUL_SPIRIT",
+        "STORM_DANCE"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9176,7 +9312,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "STORM_DANCE",
+        "BLOOD_MOON"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9193,7 +9332,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "DOUBLE_TOTEM",
+        "CHEAPER_TOTEM_2",
+        "SEEKING_TOTEM"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9210,7 +9353,11 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_TOTEM_2",
+        "STORM_DANCE",
+        "CHEAPER_AURA_2"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9227,7 +9374,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "STORM_DANCE",
+        "BLOOD_MOON"
+      ],
       "properties": {},
       "metadata": null
     },
@@ -9244,7 +9394,10 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
-      "predecessors": [],
+      "predecessors": [
+        "CHEAPER_AURA_2",
+        "SEEKING_TOTEM"
+      ],
       "properties": {},
       "metadata": null
     },
