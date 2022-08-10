@@ -44,7 +44,7 @@ class ExtendProperty(ability: Ability, data: JsonElement): AbilityProperty(abili
         if (name != null){
             return container.getEntry(name)
         }else if (spell != null){
-            return container.getSlotEntry(spell)
+            return container.getSlotEntry(spell).firstOrNull()
         }
         return null
     }

@@ -3,10 +3,12 @@ package io.github.nbcss.wynnlib.abilities.properties.info
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
 
 open class ModifyProperty(ability: Ability, data: JsonElement): AbilityProperty(ability) {
     companion object: Type<ModifyProperty> {
@@ -29,13 +31,30 @@ open class ModifyProperty(ability: Ability, data: JsonElement): AbilityProperty(
         extends = if(json.has(EXTEND_KEY)) json[EXTEND_KEY].asJsonArray.map { it.asString } else emptyList()
     }
 
+    fun getModifyAbility(): String? = name
+
+    fun getModifySpell(): String? = spell
+
+    fun getUpgradingAbility(): Ability? {
+        if (name != null){
+            return AbilityRegistry.get(name)
+        }else if(spell == MainAttackEntry.getKey()) {
+            return AbilityRegistry.fromCharacter(getAbility().getCharacter()).getMainAttackAbility()
+        }else if(spell != null) {
+            SpellSlot.fromName(spell)?.let { spellSlot ->
+                return AbilityRegistry.fromCharacter(getAbility().getCharacter()).getSpellAbility(spellSlot)
+            }
+        }
+        return null
+    }
+
     fun getModifyEntries(container: EntryContainer): List<PropertyEntry> {
         val entries: MutableList<PropertyEntry> = mutableListOf()
         if (name != null){
             container.getEntry(name)?.let { entries.add(it) }
         }else if (spell != null){
-            container.getSlotEntry(spell)?.let { entries.add(it) }
-        }else if (entries.isNotEmpty()){
+            container.getSlotEntry(spell).forEach{ entries.add(it) }
+        }else if (extends.isNotEmpty()){
             extends.mapNotNull { container.getEntry(it) }.forEach { entries.add(it) }
         }
         return entries

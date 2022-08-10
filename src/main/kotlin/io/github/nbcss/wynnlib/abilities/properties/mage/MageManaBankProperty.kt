@@ -33,7 +33,6 @@ class MageManaBankProperty(ability: Ability,
     }
 
     override fun setup(entry: PropertyEntry) {
-        entry.clearProperty(ManaCostProperty.getKey())
         entry.setProperty(getKey(), this)
     }
 

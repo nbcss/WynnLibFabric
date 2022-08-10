@@ -2710,7 +2710,12 @@
         "FIRE_CREEP"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "replacing": {
+          "ability": "ARROW_STORM",
+          "properties": [
+            "mana_cost"
+          ]
+        },
         "upgrade": {
           "spell": "SPELL_1"
         },
@@ -2881,7 +2886,12 @@
         "FRENZY"
       ],
       "properties": {
-        "spell": "SPELL_4",
+        "replacing": {
+          "ability": "ARROW_SHIELD",
+          "properties": [
+            "mana_cost"
+          ]
+        },
         "damage": {
           "neutral": 30,
           "air": 10,
@@ -3048,7 +3058,12 @@
         "MORE_SHIELDS"
       ],
       "properties": {
-        "spell": "SPELL_2",
+        "replacing": {
+          "ability": "ESCAPE",
+          "properties": [
+            "mana_cost"
+          ]
+        },
         "range": 26
       },
       "metadata": {
@@ -3696,7 +3711,6 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -5
       },
       "metadata": null
@@ -3810,7 +3824,6 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
-        "spell": "SPELL_4",
         "mana_modifier": -5
       },
       "metadata": null
@@ -4389,7 +4402,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -10
       },
       "metadata": null
@@ -4557,7 +4569,6 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "spell": "SPELL_2",
         "mana_modifier": -5
       },
       "metadata": null
@@ -4975,7 +4986,6 @@
         "SUNSHOWER"
       ],
       "properties": {
-        "spell": "SPELL_3",
         "upgrade": {
           "spell": "SPELL_3"
         },
@@ -4991,7 +5001,13 @@
           "health": 200,
           "loss": 20
         },
-        "range": 22
+        "range": 22,
+        "replacing": {
+          "ability": "METEOR",
+          "properties": [
+            "mana_cost"
+          ]
+        }
       },
       "metadata": {
         "type": "REPLACE",
@@ -5021,8 +5037,10 @@
         "BURNING_SIGIL"
       ],
       "properties": {
-        "spell": "SPELL_1",
-        "mana_bank": 60
+        "mana_bank": 60,
+        "replacing": {
+          "ability": "HEAL"
+        }
       },
       "metadata": {
         "type": "REPLACE",
@@ -5050,7 +5068,6 @@
         "upgrade": {
           "ability": "HEAL"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -5
       },
       "metadata": null
@@ -5249,7 +5266,6 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
-        "spell": "SPELL_4",
         "mana_modifier": -5
       },
       "metadata": null
@@ -5314,7 +5330,6 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "spell": "SPELL_2",
         "mana_modifier": -5
       },
       "metadata": null
@@ -5788,7 +5803,6 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
-        "spell": "SPELL_4",
         "mana_modifier": -5
       },
       "metadata": null
@@ -5851,7 +5865,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -5
       },
       "metadata": null
@@ -6317,7 +6330,6 @@
         "upgrade": {
           "ability": "HEAL"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -5
       },
       "metadata": null
@@ -6894,7 +6906,12 @@
         "ASSASSIN_THUNDER_MASTERY"
       ],
       "properties": {
-        "spell": "SPELL_3",
+        "replacing": {
+          "ability": "MULTIHIT",
+          "properties": [
+            "mana_cost"
+          ]
+        },
         "upgrade": {
           "spell": "SPELL_3"
         },
@@ -7112,7 +7129,12 @@
         "FATALITY"
       ],
       "properties": {
-        "spell": "SPELL_1",
+        "replacing": {
+          "ability": "SPIN_ATTACK",
+          "properties": [
+            "mana_cost"
+          ]
+        },
         "damage": {
           "neutral": 50,
           "water": 10,
@@ -8693,8 +8715,18 @@
         "UPROOT",
         "SHAMAN_AIR_MASTERY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "element_mastery": {
+          "element": "EARTH",
+          "raw": "2-4",
+          "pct": 20
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "EARTH_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "SHAMAN_AIR_MASTERY",
@@ -8714,8 +8746,18 @@
         "CHEAPER_HAUL_1",
         "SHAMAN_THUNDER_MASTERY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "element_mastery": {
+          "element": "AIR",
+          "raw": "3-4",
+          "pct": 15
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "AIR_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "SHAMAN_THUNDER_MASTERY",
@@ -8735,8 +8777,18 @@
         "CHEAPER_HAUL_1",
         "SHAMAN_AIR_MASTERY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "element_mastery": {
+          "element": "THUNDER",
+          "raw": "1-8",
+          "pct": 10
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "THUNDER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "SHAMAN_FIRE_MASTERY",
@@ -8754,8 +8806,18 @@
       "predecessors": [
         "AURA"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "element_mastery": {
+          "element": "FIRE",
+          "raw": "3-5",
+          "pct": 15
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "FIRE_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "NATURES_JOLT",
@@ -8795,8 +8857,18 @@
         "SHAMAN_THUNDER_MASTERY",
         "CHEAPER_HAUL_1"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "element_mastery": {
+          "element": "WATER",
+          "raw": "2-4",
+          "pct": 15
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "WATER_MASTERY",
+        "upgradable": false
+      }
     },
     {
       "id": "SHOCKING_AURA",
@@ -8911,8 +8983,18 @@
       "predecessors": [
         "RAIN_DANCE"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "replacing": {
+          "ability": "UPROOT",
+          "properties": [
+            "mana_cost"
+          ]
+        }
+      },
+      "metadata": {
+        "type": "REPLACE",
+        "icon": "MASK_OF_THE_LUNATIC"
+      }
     },
     {
       "id": "SACRIFICIAL_SHRINE",
@@ -9187,8 +9269,18 @@
         "HYMN_OF_HATE",
         "MORE_BLOOD_POOL_1"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "replacing": {
+          "ability": "UPROOT",
+          "properties": [
+            "mana_cost"
+          ]
+        }
+      },
+      "metadata": {
+        "type": "REPLACE",
+        "icon": "MASK_OF_THE_FANATIC"
+      }
     },
     {
       "id": "VENGEFUL_SPIRIT",
@@ -9469,8 +9561,18 @@
         "CRIMSON_EFFIGY",
         "SHAMAN_FLUID_HEALING"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "replacing": {
+          "ability": "UPROOT",
+          "properties": [
+            "mana_cost"
+          ]
+        }
+      },
+      "metadata": {
+        "type": "REPLACE",
+        "icon": "MASK_OF_THE_COWARD"
+      }
     },
     {
       "id": "SHAMAN_FLUID_HEALING",

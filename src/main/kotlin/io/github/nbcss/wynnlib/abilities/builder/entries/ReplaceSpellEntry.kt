@@ -2,13 +2,15 @@ package io.github.nbcss.wynnlib.abilities.builder.entries
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
-import io.github.nbcss.wynnlib.abilities.properties.general.ManaCostProperty
+import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
+import io.github.nbcss.wynnlib.abilities.properties.info.ReplaceAbilityProperty
 import io.github.nbcss.wynnlib.data.SpellSlot
 import net.minecraft.text.MutableText
 import net.minecraft.util.Identifier
 
-class ReplaceSpellEntry(parent: PropertyEntry,
+class ReplaceSpellEntry(private val removing: Ability,
+                        properties: List<AbilityProperty.Type<out AbilityProperty>>,
                         container: EntryContainer,
                         spell: SpellSlot,
                         root: Ability,
@@ -19,11 +21,17 @@ class ReplaceSpellEntry(parent: PropertyEntry,
                             ability: Ability,
                             texture: Identifier,
                             upgradable: Boolean): PropertyEntry? {
-            val property = BoundSpellProperty.from(ability)
-            if (property != null){
-                val current = container.getSlotEntry(property.getSpell().name)
-                if (current != null){
-                    return ReplaceSpellEntry(current, container, property.getSpell(), ability, texture, upgradable)
+            ReplaceAbilityProperty.from(ability)?.let {
+                it.getReplaceAbility()?.let { parent ->
+                    BoundSpellProperty.from(parent)?.let { spell ->
+                        if (container.getSlotEntry(spell.getSpell().name).isEmpty()) {
+                            return null
+                        }
+                        val properties = it.getKeepProperties()
+                        return ReplaceSpellEntry(parent,
+                            properties, container, spell.getSpell(),
+                            ability, texture, upgradable)
+                    }
                 }
             }
             return null
@@ -31,11 +39,18 @@ class ReplaceSpellEntry(parent: PropertyEntry,
         override fun getKey(): String = "REPLACE"
     }
     init {
-        //Copy replace mana cost
-        ManaCostProperty.from(parent)?.let {
-            val cost = it.getManaCost()
-            setProperty(ManaCostProperty.getKey(), ManaCostProperty(root, cost))
+        for (type in properties) {
+            val property = type.from(removing)
+            if (property != null) {
+                property.copy(root)?.let {
+                    setProperty(type.getKey(), it)
+                }
+            }
         }
+    }
+
+    fun getRemovingAbility(): Ability {
+        return removing
     }
 
     override fun getDisplayNameText(): MutableText {

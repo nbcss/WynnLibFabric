@@ -23,6 +23,10 @@ class ManaCostProperty(ability: Ability,
 
     fun getManaCost(): Int = cost
 
+    override fun copy(other: Ability): ManaCostProperty {
+        return ManaCostProperty(other, cost)
+    }
+
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)
     }

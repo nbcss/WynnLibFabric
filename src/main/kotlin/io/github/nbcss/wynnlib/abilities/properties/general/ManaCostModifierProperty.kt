@@ -6,9 +6,8 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
-import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
+import io.github.nbcss.wynnlib.abilities.properties.info.UpgradeProperty
 import io.github.nbcss.wynnlib.i18n.Translations
-import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
@@ -39,12 +38,9 @@ class ManaCostModifierProperty(ability: Ability, data: JsonElement):
         val text = Symbol.MANA.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_MANA_COST.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText(signed(modifier)).formatted(formatting))
-        BoundSpellProperty.from(provider)?.let {
-            val tree = AbilityRegistry.fromCharacter(getAbility().getCharacter())
-            tree.getSpellAbility(it.getSpell())?.let { spell ->
-                text.append(LiteralText(" (").formatted(Formatting.GRAY)
-                    .append(spell.formatted(Formatting.GRAY)).append(")"))
-            }
+        UpgradeProperty.from(provider)?.let { return@let it.getUpgradingAbility() }?.let {
+            text.append(LiteralText(" (").formatted(Formatting.GRAY)
+                .append(it.formatted(Formatting.GRAY)).append(")"))
         }
         return listOf(text)
     }

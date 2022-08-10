@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 
 class EntryContainer(abilities: Collection<Ability> = emptyList()) {
     private val entries: MutableMap<String, PropertyEntry> = linkedMapOf()
-    private val slotEntries: MutableMap<String, PropertyEntry> = linkedMapOf()
+    private val slotEntries: MutableMap<String, MutableSet<PropertyEntry>> = linkedMapOf()
     private val disabled: MutableSet<Ability> = mutableSetOf()
     init {
         val spells: MutableSet<AbilityMetadata> = HashSet()
@@ -62,16 +62,30 @@ class EntryContainer(abilities: Collection<Ability> = emptyList()) {
         //println("put " + entry.getAbility().getKey())
         entry.getSlotKey()?.let {
             //remove last entry (replace)
-            slotEntries[it]?.let { lastEntry ->
-                entries.remove(lastEntry.getKey())
+            var set = slotEntries[it]
+            if (set == null) {
+                set = mutableSetOf()
+                slotEntries[it] = set
             }
-            slotEntries[it] = entry
+            set.add(entry)
+            if (entry is ReplaceSpellEntry) {
+                removeAbility(entry.getRemovingAbility())
+            }
         }
         entries[entry.getKey()] = entry
     }
 
-    fun getSlotEntry(key: String): PropertyEntry? {
-        return slotEntries[key]
+    fun getSlotEntry(key: String): Set<PropertyEntry> {
+        return slotEntries[key] ?: emptySet()
+    }
+
+    private fun removeAbility(ability: Ability) {
+        entries.remove(ability.getKey())
+        BoundSpellProperty.from(ability)?.let {
+            slotEntries[it.getSpell().name]?.let { entrySet ->
+                entrySet.removeIf{e -> e.getAbility() == ability}
+            }
+        }
     }
 
     fun getEntry(key: String): PropertyEntry? {

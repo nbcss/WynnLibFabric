@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
+import io.github.nbcss.wynnlib.abilities.properties.info.UpgradeProperty
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -58,9 +59,21 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
                              ability: Ability,
                              tooltip: MutableList<Text> = ability.getTooltip().toMutableList()) {
         var icon: Identifier? = null
+        var overlay: String? = null
         val metadata = ability.getMetadata()
-        if (metadata != null && tooltip.size >= 2) {
-            icon = metadata.getTexture()
+        if (tooltip.size >= 2) {
+            if(metadata != null) {
+                icon = metadata.getTexture()
+            }else{
+                UpgradeProperty.from(ability)?.let { property ->
+                    property.getUpgradingAbility()?.let {
+                        icon = it.getMetadata()?.getTexture()
+                        overlay = "★"
+                    }
+                }
+            }
+        }
+        if (icon != null){
             tooltip[0] = LiteralText("     ").append(tooltip[0])
             tooltip[1] = LiteralText("     ").append(tooltip[1])
         }
@@ -90,8 +103,15 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
             }
 
             RenderSystem.disableDepthTest()
-            RenderKit.renderTexture(matrices, icon, x, y,
+            RenderKit.renderTexture(matrices, icon!!, x, y,
                 0, 0, 18, 18, 18, 18)
+            if (overlay != null) {
+                matrices.push()
+                matrices.translate(0.0, 0.0, 500.0)
+                RenderKit.renderOutlineText(matrices, LiteralText(overlay),
+                    (x + 10).toFloat(), (y + 10).toFloat(), Color.ORANGE, Color.YELLOW)
+                matrices.pop()
+            }
             RenderSystem.enableDepthTest()
         }
     }

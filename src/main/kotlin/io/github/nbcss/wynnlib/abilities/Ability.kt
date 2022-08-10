@@ -90,9 +90,12 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         }
         if (json.has("properties")){
             json["properties"].asJsonObject.entrySet().forEach {
-                AbilityProperty.fromData(this, it.key, it.value)?.let { property ->
+                val property = AbilityProperty.fromData(this, it.key, it.value)
+                if (property != null) {
                     properties[it.key] = property
                     property.writePlaceholder(this)
+                }else{
+                    println("[Warning] Cannot read ability property ${it.key}")
                 }
             }
         }
@@ -190,16 +193,6 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         if (propertyTooltip.isNotEmpty()){
             tooltip.add(LiteralText.EMPTY)
             tooltip.addAll(propertyTooltip)
-        }
-        if (metadata?.getFactory() is ReplaceSpellEntry.Companion) {
-            BoundSpellProperty.from(this)?.let {
-                tree.getSpellAbility(it.getSpell())?.let { spell ->
-                    tooltip.add(Symbol.REPLACE.asText().append(" ")
-                        .append(Translations.TOOLTIP_ABILITY_REPLACING.formatted(Formatting.GRAY))
-                        .append(LiteralText(": ").formatted(Formatting.GRAY))
-                        .append(spell.formatted(Formatting.WHITE)))
-                }
-            }
         }
         //Add blocking abilities
         val incompatibles = getBlockAbilities()

@@ -28,6 +28,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 UpgradeProperty,
                 ModifyProperty,
                 ExtendProperty,
+                ReplaceAbilityProperty,
                 BoundSpellProperty,
                 TotalHealProperty,
                 PulseHealProperty,
@@ -103,14 +104,20 @@ abstract class AbilityProperty(private val ability: Ability) {
             ).map { it.getKey() to it }.toTypedArray()
         )
 
+        fun getType(key: String): Type<out AbilityProperty>? {
+            return typeMap[key.lowercase()]
+        }
+
         fun fromData(ability: Ability, key: String, data: JsonElement): AbilityProperty? {
-            return (typeMap[key.lowercase()] ?: return null).create(ability, data)
+            return (getType(key) ?: return null).create(ability, data)
         }
     }
 
     open fun writePlaceholder(container: PlaceholderContainer) = Unit
 
     open fun updateEntries(container: EntryContainer): Boolean = true
+
+    open fun copy(other: Ability): AbilityProperty? = null
 
     fun getAbility(): Ability = ability
 
