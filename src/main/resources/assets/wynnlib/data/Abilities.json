@@ -101,7 +101,6 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -10
       },
       "metadata": null
@@ -289,7 +288,6 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "spell": "SPELL_2",
         "mana_modifier": -5
       },
       "metadata": null
@@ -878,7 +876,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -5
       },
       "metadata": null
@@ -1179,7 +1176,6 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
-        "spell": "SPELL_4",
         "mana_modifier": 10,
         "effect": {
           "type": "ALLIES_DAMAGE",
@@ -1837,7 +1833,6 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -5
       },
       "metadata": null
@@ -1862,7 +1857,6 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
-        "spell": "SPELL_4",
         "mana_modifier": -5
       },
       "metadata": null
@@ -2090,7 +2084,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -5
       },
       "metadata": null
@@ -2229,7 +2222,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -10
       },
       "metadata": null
@@ -2396,7 +2388,6 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "spell": "SPELL_2",
         "mana_modifier": -5
       },
       "metadata": null
@@ -2710,12 +2701,6 @@
         "FIRE_CREEP"
       ],
       "properties": {
-        "replacing": {
-          "ability": "ARROW_STORM",
-          "properties": [
-            "mana_cost"
-          ]
-        },
         "upgrade": {
           "spell": "SPELL_1"
         },
@@ -2726,7 +2711,13 @@
           "hits": 10,
           "label": "HIT"
         },
-        "range": 16
+        "range": 16,
+        "replacing": {
+          "ability": "ARROW_STORM",
+          "properties": [
+            "mana_cost"
+          ]
+        }
       },
       "metadata": {
         "type": "REPLACE",
@@ -2886,12 +2877,6 @@
         "FRENZY"
       ],
       "properties": {
-        "replacing": {
-          "ability": "ARROW_SHIELD",
-          "properties": [
-            "mana_cost"
-          ]
-        },
         "damage": {
           "neutral": 30,
           "air": 10,
@@ -2900,7 +2885,13 @@
         },
         "sentient_bows": 2,
         "range": 5,
-        "duration": 60
+        "duration": 60,
+        "replacing": {
+          "ability": "ARROW_SHIELD",
+          "properties": [
+            "mana_cost"
+          ]
+        }
       },
       "metadata": {
         "type": "REPLACE",
@@ -3032,7 +3023,6 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -5
       },
       "metadata": null
@@ -3058,13 +3048,13 @@
         "MORE_SHIELDS"
       ],
       "properties": {
+        "range": 26,
         "replacing": {
           "ability": "ESCAPE",
           "properties": [
             "mana_cost"
           ]
-        },
-        "range": 26
+        }
       },
       "metadata": {
         "type": "REPLACE",
@@ -3557,7 +3547,6 @@
         "modify": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": 10,
         "range": 16,
         "values": {
@@ -3933,7 +3922,6 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "spell": "SPELL_2",
         "mana_modifier": -5
       },
       "metadata": null
@@ -4262,7 +4250,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -5
       },
       "metadata": null
@@ -6515,7 +6502,6 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -10
       },
       "metadata": null
@@ -6697,7 +6683,6 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "spell": "SPELL_2",
         "mana_modifier": -5
       },
       "metadata": null
@@ -6906,12 +6891,6 @@
         "ASSASSIN_THUNDER_MASTERY"
       ],
       "properties": {
-        "replacing": {
-          "ability": "MULTIHIT",
-          "properties": [
-            "mana_cost"
-          ]
-        },
         "upgrade": {
           "spell": "SPELL_3"
         },
@@ -6920,7 +6899,13 @@
           "neutral": 200,
           "earth": 50
         },
-        "range": 4
+        "range": 4,
+        "replacing": {
+          "ability": "MULTIHIT",
+          "properties": [
+            "mana_cost"
+          ]
+        }
       },
       "metadata": {
         "type": "REPLACE",
@@ -7129,18 +7114,18 @@
         "FATALITY"
       ],
       "properties": {
-        "replacing": {
-          "ability": "SPIN_ATTACK",
-          "properties": [
-            "mana_cost"
-          ]
-        },
         "damage": {
           "neutral": 50,
           "water": 10,
           "air": 20,
           "hits": 3,
           "label": "STRIKE"
+        },
+        "replacing": {
+          "ability": "SPIN_ATTACK",
+          "properties": [
+            "mana_cost"
+          ]
         }
       },
       "metadata": {
@@ -7291,7 +7276,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -5
       },
       "metadata": null
@@ -7368,7 +7352,6 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
-        "spell": "SPELL_4",
         "mana_modifier": -5
       },
       "metadata": null
@@ -7811,7 +7794,6 @@
         "upgrade": {
           "spell": "SPELL_2"
         },
-        "spell": "SPELL_2",
         "mana_modifier": -5
       },
       "metadata": null
@@ -7863,7 +7845,6 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
-        "spell": "SPELL_1",
         "mana_modifier": -5
       },
       "metadata": null
@@ -7913,7 +7894,6 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "spell": "SPELL_3",
         "mana_modifier": -5
       },
       "metadata": null
@@ -8129,7 +8109,6 @@
         "upgrade": {
           "spell": "SPELL_4"
         },
-        "spell": "SPELL_4",
         "mana_modifier": -5
       },
       "metadata": null
@@ -8664,7 +8643,12 @@
         "UPROOT",
         "AURA"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
