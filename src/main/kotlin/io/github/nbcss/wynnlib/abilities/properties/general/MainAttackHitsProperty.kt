@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
@@ -51,6 +52,10 @@ class MainAttackHitsProperty(ability: Ability,
         }
 
         fun getModifier(): Int = modifier
+
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder(getKey(), modifier.toString())
+        }
 
         override fun modify(entry: PropertyEntry) {
             MainAttackHitsProperty.from(entry)?.let {
