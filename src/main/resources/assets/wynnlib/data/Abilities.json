@@ -8499,7 +8499,12 @@
       "predecessors": [
         "RELIK_PROFICIENCY_1"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
+        "mana_modifier": -10
+      },
       "metadata": null
     },
     {
@@ -8518,8 +8523,23 @@
       "predecessors": [
         "RELIK_PROFICIENCY_1"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "TOTEM"
+        },
+        "damage": {
+          "neutral": 100,
+          "fire": 30
+        },
+        "aoe": {
+          "range": 3.5,
+          "shape": "CIRCLE"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "TOTEMIC_SMASH"
+      }
     },
     {
       "id": "HAUL",
@@ -8564,7 +8584,11 @@
       "predecessors": [
         "HAUL"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "MAIN_ATTACK"
+        }
+      },
       "metadata": null
     },
     {
@@ -8824,8 +8848,23 @@
         "SHAMAN_EARTH_MASTERY",
         "SHAMAN_AIR_MASTERY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "HAUL"
+        },
+        "damage": {
+          "neutral": 90,
+          "earth": 30
+        },
+        "aoe": {
+          "range": 3.5,
+          "shape": "CIRCLE"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "NATURES_JOLT"
+      }
     },
     {
       "id": "SHAMAN_WATER_MASTERY",
@@ -8875,7 +8914,14 @@
         "SHAMAN_THUNDER_MASTERY",
         "FLAMING_TONGUE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "AURA"
+        },
+        "damage_modifier": {
+          "thunder": 20
+        }
+      },
       "metadata": null
     },
     {
@@ -8895,7 +8941,17 @@
         "SHOCKING_AURA",
         "SHAMAN_FIRE_MASTERY"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "UPROOT"
+        },
+        "damage_modifier": {
+          "neutral": -50,
+          "hits": 2,
+          "label": "HIT"
+        },
+        "element_convert": "FIRE"
+      },
       "metadata": null
     },
     {
@@ -8914,7 +8970,12 @@
       "predecessors": [
         "NATURES_JOLT"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "UPROOT"
+        },
+        "range_modifier": 6
+      },
       "metadata": null
     },
     {
@@ -8933,8 +8994,25 @@
       "predecessors": [
         "SHAMAN_WATER_MASTERY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "TOTEM"
+        },
+        "damage": {
+          "neutral": 30,
+          "water": 30
+        },
+        "damage_interval": 0.4,
+        "duration": 6,
+        "aoe": {
+          "range": 2,
+          "shape": "LINE"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "RAIN_DANCE"
+      }
     },
     {
       "id": "PUPPET_MASTER",
@@ -9337,7 +9415,19 @@
         "BULLWHIP",
         "CHEAPER_TOTEM_2"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "TOTEM"
+        },
+        "ability_damage_modifiers": {
+          "TOTEM": {
+            "neutral": -3
+          },
+          "AURA": {
+            "neutral": -60
+          }
+        }
+      },
       "metadata": null
     },
     {
@@ -9652,7 +9742,9 @@
       "cost": 2,
       "archetype": null,
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "SACRIFICIAL_SHRINE"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "CRIMSON_EFFIGY",
@@ -9785,7 +9877,19 @@
         "MORE_EFFIGIES",
         "INVIGORATING_WAVE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "TOTEM"
+        },
+        "ability_damage_modifiers": {
+          "TOTEM": {
+            "neutral": -2
+          },
+          "AURA": {
+            "neutral": -40
+          }
+        }
+      },
       "metadata": null
     },
     {

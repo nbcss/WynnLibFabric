@@ -30,7 +30,7 @@ class PulseHealProperty(ability: Ability,
     fun getPulseHeal(): Int = heal
 
     override fun writePlaceholder(container: PlaceholderContainer) {
-        container.putPlaceholder("trigger", trigger.toString())
+        container.putPlaceholder("pulse_heal.trigger", trigger.toString())
     }
 
     override fun modify(entry: PropertyEntry) {

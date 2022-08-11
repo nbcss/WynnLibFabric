@@ -18,20 +18,8 @@ import net.minecraft.util.Formatting
 class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
     AbilityProperty(ability), SetupProperty {
     companion object: Type<DamageProperty> {
-        private const val HITS_KEY: String = "hits"
-        private const val DAMAGE_LABEL_KEY: String = "label"
-        private const val NEUTRAL_DAMAGE_KEY: String = "neutral"
         override fun create(ability: Ability, data: JsonElement): DamageProperty {
-            val json = data.asJsonObject
-            val hits = if (json.has(HITS_KEY)) json[HITS_KEY].asInt else 1
-            val label = if (json.has(DAMAGE_LABEL_KEY))
-                DamageMultiplier.Label.fromName(json[DAMAGE_LABEL_KEY].asString) else null
-            val neutral = if (json.has(NEUTRAL_DAMAGE_KEY)) json[NEUTRAL_DAMAGE_KEY].asInt else 0
-            val elementalDamage = mapOf(pairs = Element.values().map {
-                val key = it.getKey().lowercase()
-                it to if (json.has(key)) json[key].asInt else 0
-            }.toTypedArray())
-            val damage = DamageMultiplier(hits, label,neutral, elementalDamage)
+            val damage = DamageMultiplier.fromJson(data.asJsonObject)
             return DamageProperty(ability, damage)
         }
         override fun getKey(): String = "damage"
@@ -44,7 +32,7 @@ class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
     }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
-        container.putPlaceholder(HITS_KEY, damage.getHits().toString())
+        container.putPlaceholder("hits", damage.getHits().toString())
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {

@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
@@ -15,30 +16,19 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class DamageModifierProperty(ability: Ability, data: JsonElement):
+class DamageModifierProperty(ability: Ability,
+                             private val modifier: DamageMultiplier):
     AbilityProperty(ability), ModifiableProperty {
     companion object: Type<DamageModifierProperty> {
-        private const val HITS_KEY: String = "hits"
-        private const val DAMAGE_LABEL_KEY: String = "label"
-        private const val NEUTRAL_DAMAGE_KEY: String = "neutral"
         override fun create(ability: Ability, data: JsonElement): DamageModifierProperty {
-            return DamageModifierProperty(ability, data)
+            val modifier = DamageMultiplier.fromJson(data.asJsonObject, 0)
+            return DamageModifierProperty(ability, modifier)
         }
         override fun getKey(): String = "damage_modifier"
     }
-    private val modifier: DamageMultiplier
-    init {
-        val json = data.asJsonObject
-        val hits = if (json.has(HITS_KEY)) json[HITS_KEY].asInt else 0
-        val label = if (json.has(DAMAGE_LABEL_KEY))
-            DamageMultiplier.Label.fromName(json[DAMAGE_LABEL_KEY].asString) else null
-        val neutral = if (json.has(NEUTRAL_DAMAGE_KEY)) json[NEUTRAL_DAMAGE_KEY].asInt else 0
-        val elementalDamage = mapOf(pairs = Element.values().map {
-            val key = it.getKey().lowercase()
-            it to if (json.has(key)) json[key].asInt else 0
-        }.toTypedArray())
-        modifier = DamageMultiplier(hits, label,neutral, elementalDamage)
-        ability.putPlaceholder(HITS_KEY, hits.toString())
+
+    override fun writePlaceholder(container: PlaceholderContainer) {
+        container.putPlaceholder("hits", modifier.getHits().toString())
     }
 
     fun getDamageModifier(): DamageMultiplier = modifier

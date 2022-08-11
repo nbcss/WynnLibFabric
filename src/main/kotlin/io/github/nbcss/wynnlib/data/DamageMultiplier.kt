@@ -1,11 +1,28 @@
 package io.github.nbcss.wynnlib.data
 
+import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.abilities.properties.general.DamageModifierProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
 
 data class DamageMultiplier(private val hits: Int,
                             private val damageLabel: Label?,
                             private val neutralDamage: Int,
                             private val elementalDamage: Map<Element, Int>) {
+    companion object {
+        private const val HITS_KEY: String = "hits"
+        private const val DAMAGE_LABEL_KEY: String = "label"
+        private const val NEUTRAL_DAMAGE_KEY: String = "neutral"
+        fun fromJson(data: JsonObject, defaultHits: Int = 1): DamageMultiplier {
+            val hits = if (data.has(HITS_KEY)) data[HITS_KEY].asInt else defaultHits
+            val label = if (data.has(DAMAGE_LABEL_KEY)) Label.fromName(data[DAMAGE_LABEL_KEY].asString) else null
+            val neutral = if (data.has(NEUTRAL_DAMAGE_KEY)) data[NEUTRAL_DAMAGE_KEY].asInt else 0
+            val elementalDamage = mapOf(pairs = Element.values().map {
+                val key = it.getKey().lowercase()
+                it to if (data.has(key)) data[key].asInt else 0
+            }.toTypedArray())
+            return DamageMultiplier(hits, label,neutral, elementalDamage)
+        }
+    }
 
     fun getHits(): Int = hits
 
