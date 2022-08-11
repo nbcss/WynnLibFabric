@@ -8557,7 +8557,9 @@
       "cost": 1,
       "archetype": "SUMMONER",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "HAND_OF_THE_SHAMAN"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "HAUL"
@@ -8576,7 +8578,9 @@
       "cost": 1,
       "archetype": "ACOLYTE",
       "dependency": null,
-      "blocks": [],
+      "blocks": [
+        "DISTANT_GRASP"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "HAUL"
@@ -8813,7 +8817,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "HAUL",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -8864,7 +8868,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -8884,7 +8888,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -8904,7 +8908,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -8942,9 +8946,11 @@
       "tier": 4,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "TOTEM",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SUMMONER": 3
+      },
       "predecessors": [
         "OVERSEER"
       ],
@@ -8961,9 +8967,11 @@
       "tier": 4,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RITUALIST": 2
+      },
       "predecessors": [
         "RAIN_DANCE"
       ],
@@ -8990,9 +8998,13 @@
       "tier": 4,
       "cost": 2,
       "archetype": "ACOLYTE",
-      "dependency": null,
-      "blocks": [],
-      "archetype_requirements": {},
+      "dependency": "TOTEM",
+      "blocks": [
+        "REGENERATION"
+      ],
+      "archetype_requirements": {
+        "ACOLYTE": 3
+      },
       "predecessors": [
         "SHOCKING_AURA",
         "FLAMING_TONGUE"
@@ -9010,7 +9022,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "PUPPET_MASTER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9049,7 +9061,7 @@
       "tier": 3,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9069,7 +9081,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "NATURES_JOLT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9109,7 +9121,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TOTEM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9129,7 +9141,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "HAUL",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9148,7 +9160,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "PUPPET_MASTER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9168,7 +9180,7 @@
       "tier": 3,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "MASK_OF_THE_LUNATIC",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9188,7 +9200,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "SACRIFICIAL_SHRINE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9208,7 +9220,7 @@
       "tier": 3,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9227,7 +9239,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "MORE_PUPPETS_1",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9248,7 +9260,9 @@
       "archetype": "RITUALIST",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RITUALIST": 3
+      },
       "predecessors": [
         "HYMN_OF_HATE",
         "MORE_BLOOD_POOL_1"
@@ -9295,7 +9309,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "MASK_OF_THE_LUNATIC",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9314,9 +9328,11 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SUMMONER": 2
+      },
       "predecessors": [
         "BULLWHIP",
         "CHEAPER_TOTEM_2"
@@ -9355,7 +9371,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9437,7 +9453,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "MASK_OF_THE_FANATIC",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9460,7 +9476,9 @@
       "archetype": "ACOLYTE",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACOLYTE": 7
+      },
       "predecessors": [
         "STORM_DANCE",
         "BLOOD_MOON"
@@ -9478,7 +9496,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TOTEM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9498,9 +9516,11 @@
       "tier": 1,
       "cost": 1,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "MASQUERADE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RITUALIST": 6
+      },
       "predecessors": [
         "SEEKING_TOTEM"
       ],
@@ -9517,9 +9537,11 @@
       "tier": 4,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SUMMONER": 8
+      },
       "predecessors": [
         "CHEAPER_AURA_2",
         "MASK_OF_THE_COWARD"
@@ -9539,7 +9561,9 @@
       "archetype": "RITUALIST",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RITUALIST": 7
+      },
       "predecessors": [
         "SEEKING_TOTEM",
         "CRIMSON_EFFIGY",
@@ -9568,7 +9592,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "SACRIFICIAL_SHRINE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9588,7 +9612,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "SACRIFICIAL_SHRINE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9608,7 +9632,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9647,9 +9671,11 @@
       "tier": 2,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "MASK_OF_THE_COWARD",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RITUALIST": 7
+      },
       "predecessors": [
         "MASK_OF_THE_COWARD",
         "SHAMAN_FLUID_HEALING"
@@ -9667,9 +9693,11 @@
       "tier": 3,
       "cost": 2,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "SACRIFICIAL_SHRINE",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACOLYTE": 10
+      },
       "predecessors": [
         "SHAMAN_FLUID_HEALING",
         "MORE_BLOOD_POOL_2"
@@ -9687,9 +9715,11 @@
       "tier": 1,
       "cost": 1,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "CRIMSON_EFFIGY",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SUMMONER": 8
+      },
       "predecessors": [
         "MADDENING_ROOTS"
       ],
@@ -9706,9 +9736,11 @@
       "tier": 3,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "MASK_OF_THE_FANATIC",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RITUALIST": 10
+      },
       "predecessors": [
         "CHANT_OF_THE_COWARD",
         "STRONGER_TETHER"
@@ -9726,7 +9758,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "TWISTED_TETHER",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9746,7 +9778,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "DOUBLE_TOTEM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9766,9 +9798,11 @@
       "tier": 3,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SUMMONER": 3
+      },
       "predecessors": [
         "MORE_EFFIGIES",
         "MENGDU"
@@ -9806,7 +9840,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "MASK_OF_THE_COWARD",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9825,7 +9859,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "SACRIFICIAL_SHRINE",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9844,9 +9878,11 @@
       "tier": 4,
       "cost": 2,
       "archetype": "SUMMONER",
-      "dependency": null,
+      "dependency": "PUPPET_MASTER",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "SUMMONER": 12
+      },
       "predecessors": [
         "TRIPLE_TOTEM",
         "INVIGORATING_WAVE"
@@ -9864,9 +9900,11 @@
       "tier": 4,
       "cost": 2,
       "archetype": "ACOLYTE",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "ACOLYTE": 13
+      },
       "predecessors": [
         "MORE_BLOOD_POOL_3"
       ],
@@ -9903,9 +9941,11 @@
       "tier": 4,
       "cost": 2,
       "archetype": "RITUALIST",
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "RITUALIST": 12
+      },
       "predecessors": [
         "FROG_DANCE",
         "CHEAPER_UPROOT_2"
