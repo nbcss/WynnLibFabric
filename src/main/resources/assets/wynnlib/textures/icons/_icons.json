@@ -129,9 +129,11 @@
   "AURA": "",
   "NATURES_JOLT": "",
   "RAIN_DANCE": "",
+  "PUPPET_MASTER": "",
   "MASK_OF_THE_LUNATIC": "",
   "MASK_OF_THE_FANATIC": "",
   "MASK_OF_THE_COWARD": "",
+  "MASK_OF_THE_AWAKENED": "",
   "LURING": "lure.png",
   "EXTRA_HEALTH": "diversion_health.png"
 }

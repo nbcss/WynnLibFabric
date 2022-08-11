@@ -316,9 +316,8 @@
           "neutral": 50,
           "fire": 50
         },
-        "effect": {
-          "type": "ALLIES_RESISTANCE",
-          "modifier": 10
+        "effects": {
+          "ALLIES_RESISTANCE": 10
         },
         "duration": 30,
         "aoe": {
@@ -1142,9 +1141,8 @@
           "fire": 5
         },
         "damage_interval": 0.4,
-        "effect": {
-          "type": "ENEMIES_SLOWNESS",
-          "modifier": 20
+        "effects": {
+          "ENEMIES_SLOWNESS": 20
         },
         "duration": 3,
         "cooldown": 3
@@ -1177,9 +1175,8 @@
           "spell": "SPELL_4"
         },
         "mana_modifier": 10,
-        "effect": {
-          "type": "ALLIES_DAMAGE",
-          "modifier": 30
+        "effects": {
+          "ALLIES_DAMAGE": 30
         },
         "duration_modifier": 90
       },
@@ -1542,9 +1539,8 @@
         "extend": {
           "spell": "SPELL_3"
         },
-        "effect": {
-          "type": "ENEMIES_RESISTANCE",
-          "modifier": -30
+        "effects": {
+          "ENEMIES_RESISTANCE": -30
         },
         "duration": 8
       },
@@ -1798,9 +1794,8 @@
         "extend": {
           "spell": "SPELL_1"
         },
-        "effect": {
-          "type": "ALLIES_ID_EFFECTIVENESS",
-          "modifier": 20
+        "effects": {
+          "ALLIES_ID_EFFECTIVENESS": 20
         },
         "duration": 8,
         "cooldown": 15
@@ -2105,8 +2100,8 @@
         "SECOND_CHANCE"
       ],
       "properties": {
-        "effect": {
-          "type": "ALLIES_INVINCIBLE"
+        "effects": {
+          "ALLIES_INVINCIBLE": 0
         },
         "duration": 3,
         "aoe": {
@@ -2448,9 +2443,8 @@
         "extend": {
           "spell": "SPELL_2"
         },
-        "effect": {
-          "type": "ALLIES_WALK_SPEED",
-          "modifier": 20
+        "effects": {
+          "ALLIES_WALK_SPEED": 20
         },
         "duration": 120,
         "aoe": {
@@ -2790,9 +2784,8 @@
           "earth": 20
         },
         "damage_interval": 0.4,
-        "effect": {
-          "type": "ENEMIES_SLOWNESS",
-          "modifier": 40
+        "effects": {
+          "ENEMIES_SLOWNESS": 40
         },
         "duration": 5,
         "cooldown": 1,
@@ -3191,9 +3184,8 @@
         "upgrade": {
           "ability": "WINDY_FEET"
         },
-        "effect": {
-          "type": "ALLIES_WALK_SPEED",
-          "modifier": 20
+        "effects": {
+          "ALLIES_WALK_SPEED": 20
         },
         "duration_modifier": 60
       },
@@ -4160,9 +4152,8 @@
         "MORE_FOCUS_2"
       ],
       "properties": {
-        "effect": {
-          "type": "ENEMIES_SLOWNESS",
-          "modifier": 30
+        "effects": {
+          "ENEMIES_SLOWNESS": 30
         },
         "range": 2.5
       },
@@ -4585,9 +4576,8 @@
           "water": 30
         },
         "range": 18,
-        "effect": {
-          "type": "ENEMIES_SLOWNESS",
-          "modifier": 40
+        "effects": {
+          "ENEMIES_SLOWNESS": 40
         },
         "duration": 3
       },
@@ -5133,8 +5123,8 @@
         "extend": {
           "spell": "SPELL_2"
         },
-        "effect": {
-          "type": "ENEMIES_BLINDNESS"
+        "effects": {
+          "ENEMIES_BLINDNESS": 0
         },
         "duration": 1
       },
@@ -5279,9 +5269,8 @@
           "spell": "SPELL_1",
           "ability": "HEAL"
         },
-        "effect": {
-          "type": "ALLIES_DAMAGE",
-          "modifier": 60
+        "effects": {
+          "ALLIES_DAMAGE": 60
         },
         "duration": 5,
         "cooldown": 15,
@@ -5539,7 +5528,8 @@
       "properties": {
         "upgrade": {
           "ability": "HEAL"
-        }
+        },
+        "fluid_heal": 0.3
       },
       "metadata": null
     },
@@ -5652,6 +5642,11 @@
         "damage": {
           "neutral": 30,
           "fire": 20
+        },
+        "lightweaver": {
+          "heal": 50,
+          "time_limit": 10,
+          "max": 3
         },
         "duration": 20
       },
@@ -5878,6 +5873,10 @@
         "extend": {
           "spell": "SPELL_1",
           "ability": "ARCANE_TRANSFER"
+        },
+        "values": {
+          "1": 120,
+          "2": 3
         }
       },
       "metadata": {
@@ -5904,8 +5903,7 @@
         "CHEAPER_ICE_SNAKE_2"
       ],
       "properties": {
-        "grow_effect": {
-          "type": "ALLIES_WALK_SPEED",
+        "time_dilation": {
           "modifier": 10,
           "max": 300
         },
@@ -5948,6 +5946,9 @@
         },
         "damage": {
           "label": "WINDED"
+        },
+        "values": {
+          "1": 1
         }
       },
       "metadata": null
@@ -6157,6 +6158,9 @@
       "properties": {
         "upgrade": {
           "ability": "WINDSWEEPER"
+        },
+        "values": {
+          "1": -2
         }
       },
       "metadata": null
@@ -6219,9 +6223,8 @@
           "ability": "HEAL"
         },
         "range": 12,
-        "effect": {
-          "type": "ALLIES_RESISTANCE",
-          "modifier": 100
+        "effects": {
+          "ALLIES_RESISTANCE": 100
         },
         "duration": 5
       },
@@ -6396,6 +6399,9 @@
       "properties": {
         "upgrade": {
           "ability": "LIGHTWEAVER"
+        },
+        "lightweaver_modifier": {
+          "max": 2
         }
       },
       "metadata": null
@@ -6968,8 +6974,8 @@
         "extend": {
           "spell": "SPELL_2"
         },
-        "effect": {
-          "type": "SELF_INVISIBLE"
+        "effects": {
+          "SELF_INVISIBLE": 0
         },
         "duration": 5,
         "cooldown": 5
@@ -7382,8 +7388,8 @@
         "damage": {
           "fire": 20
         },
-        "effect": {
-          "type": "ENEMIES_BLINDNESS"
+        "effects": {
+          "ENEMIES_BLINDNESS": 0
         },
         "duration": 1
       },
@@ -7943,9 +7949,8 @@
         "extend": {
           "spell": "SPELL_4"
         },
-        "effect": {
-          "type": "ENEMIES_SLOWNESS",
-          "modifier": 40
+        "effects": {
+          "ENEMIES_SLOWNESS": 40
         },
         "duration": 1
       },
@@ -9032,8 +9037,23 @@
       "predecessors": [
         "OVERSEER"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "TOTEM"
+        },
+        "damage": {
+          "neutral": 10,
+          "air": 10,
+          "earth": 10
+        },
+        "damage_interval": 0.5,
+        "duration": 30,
+        "range": 16
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "PUPPET_MASTER"
+      }
     },
     {
       "id": "MASK_OF_THE_LUNATIC",
@@ -9054,6 +9074,13 @@
         "RAIN_DANCE"
       ],
       "properties": {
+        "spell_cost_modifier": {
+          "SPELL_3": -30
+        },
+        "effects": {
+          "SELF_DAMAGE": 50,
+          "SELF_WALK_SPEED": -35
+        },
         "replacing": {
           "ability": "UPROOT",
           "properties": [
@@ -9126,7 +9153,12 @@
         "MASK_OF_THE_LUNATIC",
         "REBOUND"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -9186,7 +9218,12 @@
         "STAGNATION",
         "CHEAPER_UPROOT_1"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -9206,7 +9243,14 @@
         "CHEAPER_UPROOT_1",
         "REBOUND"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "TOTEM"
+        },
+        "aoe_modifier": {
+          "range": 4
+        }
+      },
       "metadata": null
     },
     {
@@ -9346,6 +9390,13 @@
         "MORE_BLOOD_POOL_1"
       ],
       "properties": {
+        "spell_cost_modifier": {
+          "SPELL_1": -70
+        },
+        "effects": {
+          "SELF_RESISTANCE": 50,
+          "SELF_DAMAGE": -20
+        },
         "replacing": {
           "ability": "UPROOT",
           "properties": [
@@ -9448,7 +9499,12 @@
         "MORE_PUPPETS_2",
         "STORM_DANCE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_1"
+        },
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -9509,7 +9565,12 @@
         "STORM_DANCE",
         "BLOOD_MOON"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_2"
+        },
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -9530,7 +9591,12 @@
         "CHEAPER_TOTEM_2",
         "SEEKING_TOTEM"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_3"
+        },
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -9593,7 +9659,14 @@
         "CHEAPER_AURA_2",
         "SEEKING_TOTEM"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "TOTEM"
+        },
+        "damage_modifier": {
+          "neutral": 4
+        }
+      },
       "metadata": null
     },
     {
@@ -9660,6 +9733,13 @@
         "SHAMAN_FLUID_HEALING"
       ],
       "properties": {
+        "spell_cost_modifier": {
+          "SPELL_2": -50
+        },
+        "effects": {
+          "SELF_WALK_SPEED": 60,
+          "SELF_RESISTANCE": -20
+        },
         "replacing": {
           "ability": "UPROOT",
           "properties": [
@@ -9689,7 +9769,9 @@
         "TWISTED_TETHER",
         "MASK_OF_THE_COWARD"
       ],
-      "properties": {},
+      "properties": {
+        "fluid_heal": 0.3
+      },
       "metadata": null
     },
     {
@@ -10032,7 +10114,12 @@
         "SHEPHERD",
         "MASK_OF_THE_AWAKENED"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "spell": "SPELL_4"
+        },
+        "mana_modifier": -5
+      },
       "metadata": null
     },
     {
@@ -10054,8 +10141,24 @@
         "FROG_DANCE",
         "CHEAPER_UPROOT_2"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "spell_cost_modifier": {
+          "SPELL_1": -70,
+          "SPELL_2": -50,
+          "SPELL_3": -30
+        },
+        "effects": {
+          "SELF_DAMAGE": 30,
+          "SELF_RESISTANCE": 30,
+          "SELF_WALK_SPEED": 25
+        },
+        "duration": 20
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "MASK_OF_THE_AWAKENED",
+        "upgradable": false
+      }
     }
   ],
   "version": "0.1.12"

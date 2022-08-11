@@ -17,19 +17,25 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 open class BonusEffectProperty(ability: Ability,
-                               private val bonuses: Map<EffectType, EffectBonus>):
+                               private val bonuses: Map<EffectType, Int?>):
     AbilityProperty(ability), SetupProperty, ModifiableProperty {
     companion object: Type<BonusEffectProperty> {
-        private const val TYPE_KEY: String = "type"
-        private const val MODIFIER_KEY: String = "modifier"
         override fun create(ability: Ability, data: JsonElement): BonusEffectProperty {
-            val bonus = EffectBonus(data.asJsonObject)
-            return BonusEffectProperty(ability, mapOf(bonus.getEffectType() to bonus))
+            //val bonus = EffectBonus(data.asJsonObject)
+            val json = data.asJsonObject
+            val bonuses: MutableMap<EffectType, Int?> = linkedMapOf()
+            for (entry in json.entrySet()) {
+                val type = EffectType.fromName(entry.key)
+                if (type != null) {
+                    bonuses[type] = entry.value.asInt
+                }
+            }
+            return BonusEffectProperty(ability, bonuses)
         }
-        override fun getKey(): String = "effect"
+        override fun getKey(): String = "effects"
     }
 
-    fun getEffectBonus(type: EffectType): EffectBonus? = bonuses[type]
+    fun getEffectBonus(type: EffectType): Int? = bonuses[type]
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)
@@ -37,78 +43,74 @@ open class BonusEffectProperty(ability: Ability,
 
     override fun modify(entry: PropertyEntry) {
         from(entry)?.let {
-            val bonuses: MutableMap<EffectType, EffectBonus> = mutableMapOf()
+            val bonuses: MutableMap<EffectType, Int?> = mutableMapOf()
             for (effectType in EffectType.values()) {
-                val self = getEffectBonus(effectType)
-                val other = it.getEffectBonus(effectType)
-                if (self != null && other != null){
-                    bonuses[effectType] = other.upgrade(self)
-                }else if(self != null){
-                    bonuses[effectType] = self
-                }else if(other != null){
-                    bonuses[effectType] = other
+                val modifier = getEffectBonus(effectType)
+                val base = it.getEffectBonus(effectType)
+                if (modifier != null && base != null){
+                    bonuses[effectType] = upgrade(base, modifier)
+                }else if(modifier != null){
+                    bonuses[effectType] = modifier
+                }else if(base != null){
+                    bonuses[effectType] = base
                 }
             }
             entry.setProperty(getKey(), BonusEffectProperty(it.getAbility(), bonuses))
         }
     }
 
-    open fun getBonusText(bonus: EffectBonus): List<Text> {
-        val modifier = bonus.getEffectModifier()
+    private fun upgrade(base: Int?, modifier: Int?): Int? {
+        if (base == null)
+            return modifier
+        if (modifier == null)
+            return base
+        if (base != 0 && modifier != 0)
+            return base + modifier
+        return 0
+    }
+
+    open fun getBonusText(bonus: Pair<EffectType, Int?>): List<Text>? {
+        val modifier = bonus.second ?: return null
         val text = Symbol.EFFECT.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_EFFECT.formatted(Formatting.GRAY).append(": "))
-        if (modifier != null){
-            text.append(LiteralText("${signed(modifier)}% ").formatted(Formatting.WHITE))
-                .append(bonus.getEffectType().formatted(Formatting.GRAY))
+        if (modifier != 0){
+            val color = if (bonus.first.isPositiveEffect() == modifier > 0) {
+                Formatting.WHITE
+            }else{
+                Formatting.RED
+            }
+            text.append(LiteralText("${signed(modifier)}% ").formatted(color))
+                .append(bonus.first.formatted(Formatting.GRAY))
         }else{
-            text.append(bonus.getEffectType().formatted(Formatting.WHITE))
+            text.append(bonus.first.formatted(Formatting.WHITE))
         }
         return listOf(text)
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
-        return bonuses.values.map { getBonusText(it) }.flatten()
+        return bonuses.entries.mapNotNull { getBonusText(it.key to it.value) }.flatten()
     }
 
-    data class EffectBonus(private val type: EffectType,
-                           private val modifier: Int?){
-        constructor(json: JsonObject): this(
-            if (json.has(TYPE_KEY)) EffectType.fromName(json[TYPE_KEY].asString)
-                ?: EffectType.ENEMIES_SLOWNESS else EffectType.ENEMIES_SLOWNESS,
-            if (json.has(MODIFIER_KEY)) json[MODIFIER_KEY].asInt else null
-        )
-
-        fun getEffectType(): EffectType = type
-
-        fun getEffectModifier(): Int? = modifier
-
-        fun upgrade(modifier: EffectBonus): EffectBonus {
-            if (modifier.type != this.type)
-                return this     //invalid modify (different type)
-            val booster = if (modifier.modifier == null || this.modifier == null){
-                null
-            }else{
-                this.modifier + modifier.modifier
-            }
-            return EffectBonus(this.type, booster)
-        }
-    }
-
-    enum class EffectType: Translatable {
-        ALLIES_RESISTANCE,
-        ALLIES_DAMAGE,
-        ALLIES_WALK_SPEED,
-        ALLIES_ID_EFFECTIVENESS,
-        ALLIES_INVINCIBLE,
-        SELF_INVISIBLE,
-        ENEMIES_RESISTANCE,
-        ENEMIES_BLINDNESS,
-        ENEMIES_SLOWNESS;
+    enum class EffectType(private val positive: Boolean): Translatable {
+        ALLIES_RESISTANCE(true),
+        ALLIES_DAMAGE(true),
+        ALLIES_WALK_SPEED(true),
+        ALLIES_ID_EFFECTIVENESS(true),
+        ALLIES_INVINCIBLE(true),
+        SELF_INVISIBLE(true),
+        SELF_RESISTANCE(true),
+        SELF_DAMAGE(true),
+        SELF_WALK_SPEED(true),
+        ENEMIES_RESISTANCE(false),
+        ENEMIES_BLINDNESS(true),
+        ENEMIES_SLOWNESS(true);
         companion object {
             private val VALUE_MAP: Map<String, EffectType> = mapOf(
                 pairs = values().map { it.name.uppercase() to it }.toTypedArray())
             fun fromName(name: String): EffectType? = VALUE_MAP[name.uppercase()]
         }
+
+        fun isPositiveEffect(): Boolean = positive
 
         override fun getTranslationKey(label: String?): String {
             return "wynnlib.tooltip.ability.effect.${name.lowercase()}"
