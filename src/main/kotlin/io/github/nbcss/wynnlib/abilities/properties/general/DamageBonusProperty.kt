@@ -85,4 +85,33 @@ open class DamageBonusProperty(ability: Ability,
             entry.setProperty(getKey(), this)
         }
     }
+
+    class PerMarked(ability: Ability, bonus: Int):
+        DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty {
+        companion object: Type<PerMarked> {
+            override fun create(ability: Ability, data: JsonElement): PerMarked {
+                return PerMarked(ability, data.asInt)
+            }
+            override fun getKey(): String = "marked_damage_bonus"
+        }
+
+        override fun getSuffix(): String = "%"
+
+        override fun getDamageBonusLabel(): Text? {
+            return LiteralText(" (").formatted(Formatting.DARK_GRAY)
+                .append(Translations.TOOLTIP_ABILITY_BONUS_DAMAGE_MARKED.formatted(Formatting.DARK_GRAY))
+                .append(LiteralText(")").formatted(Formatting.DARK_GRAY))
+        }
+
+        override fun modify(entry: PropertyEntry) {
+            PerMarked.from(entry)?.let {
+                val upgrade = it.getDamageBonus() + getDamageBonus()
+                entry.setProperty(getKey(), PerMarked(it.getAbility(), upgrade))
+            }
+        }
+
+        override fun setup(entry: PropertyEntry) {
+            entry.setProperty(getKey(), this)
+        }
+    }
 }

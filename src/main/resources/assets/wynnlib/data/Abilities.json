@@ -7607,6 +7607,7 @@
         "extend": {
           "spell": "SPELL_4"
         },
+        "marked_damage_bonus": 10,
         "max_marked": 5,
         "cooldown": 0.5
       },
@@ -7924,8 +7925,16 @@
         "CHEAPER_MULTIHIT_2",
         "CHOKE_BOMB"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "values": {
+          "1": 30
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "HOODWINK",
+        "upgradable": false
+      }
     },
     {
       "id": "CHOKE_BOMB",
@@ -8403,7 +8412,8 @@
       "properties": {
         "upgrade": {
           "ability": "MARKED"
-        }
+        },
+        "marked_damage_bonus": 5
       },
       "metadata": null
     },
@@ -8452,6 +8462,7 @@
           "neutral": 5,
           "air": 5
         },
+        "max_totem": 1,
         "damage_interval": 0.4,
         "duration": 30,
         "aoe": {
@@ -9046,6 +9057,7 @@
           "air": 10,
           "earth": 10
         },
+        "max_puppet": 2,
         "damage_interval": 0.5,
         "duration": 30,
         "range": 16
@@ -9114,8 +9126,14 @@
         "SHOCKING_AURA",
         "FLAMING_TONGUE"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "blood_pool": 30,
+        "total_heal": 10
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "SACRIFICIAL_SHRINE"
+      }
     },
     {
       "id": "MORE_PUPPETS_1",
@@ -9133,7 +9151,15 @@
       "predecessors": [
         "PUPPET_MASTER"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "PUPPET_MASTER"
+        },
+        "max_puppet_modifier": 1,
+        "damage_modifier": {
+          "air": -5
+        }
+      },
       "metadata": null
     },
     {
@@ -9178,7 +9204,14 @@
         "SACRIFICIAL_SHRINE",
         "CHEAPER_UPROOT_1"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "AURA"
+        },
+        "damage_modifier": {
+          "hits": 1
+        }
+      },
       "metadata": null
     },
     {
@@ -9198,8 +9231,19 @@
         "MORE_PUPPETS_1",
         "CHEAPER_AURA_1"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "NATURES_JOLT"
+        },
+        "effects": {
+          "ENEMIES_SLOWNESS": 30
+        },
+        "duration": 3
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "STAGNATION"
+      }
     },
     {
       "id": "CHEAPER_AURA_1",
@@ -9269,7 +9313,11 @@
       "predecessors": [
         "REBOUND"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "HAUL"
+        }
+      },
       "metadata": null
     },
     {
@@ -9289,8 +9337,26 @@
         "STAGNATION",
         "CHEAPER_AURA_1"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "PUPPET_MASTER"
+        },
+        "damage": {
+          "neutral": 100,
+          "fire": 100
+        },
+        "aoe": {
+          "range": 3,
+          "shape": "CIRCLE"
+        },
+        "values": {
+          "1": 3
+        }
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "EXPLODING_PUPPETS"
+      }
     },
     {
       "id": "HYMN_OF_HATE",
@@ -9309,7 +9375,11 @@
         "CHEAPER_UPROOT_1",
         "MORE_BLOOD_POOL_1"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MASK_OF_THE_LUNATIC"
+        }
+      },
       "metadata": null
     },
     {
@@ -9329,7 +9399,12 @@
         "REBOUND",
         "HYMN_OF_HATE"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "SACRIFICIAL_SHRINE"
+        },
+        "blood_pool_modifier": 30
+      },
       "metadata": null
     },
     {
@@ -9348,8 +9423,19 @@
       "predecessors": [
         "EXPLODING_PUPPETS"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "UPROOT"
+        },
+        "effects": {
+          "SUMMONS_DAMAGE": 20
+        },
+        "duration": 10
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "BULLWHIP"
+      }
     },
     {
       "id": "MORE_PUPPETS_2",
@@ -9367,7 +9453,15 @@
       "predecessors": [
         "EXPLODING_PUPPETS"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "PUPPET_MASTER"
+        },
+        "max_puppet_modifier": 2,
+        "damage_modifier": {
+          "earth": -5
+        }
+      },
       "metadata": null
     },
     {
@@ -9425,7 +9519,11 @@
       "predecessors": [
         "MORE_BLOOD_POOL_1"
       ],
-      "properties": {},
+      "properties": {
+        "effects": {
+          "ALLIES_DAMAGE": 20
+        }
+      },
       "metadata": null
     },
     {
@@ -9470,6 +9568,7 @@
         "upgrade": {
           "ability": "TOTEM"
         },
+        "max_totem_modifier": 1,
         "ability_damage_modifiers": {
           "TOTEM": {
             "neutral": -3
@@ -9525,7 +9624,14 @@
         "MASK_OF_THE_FANATIC",
         "BLOOD_MOON"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "AURA"
+        },
+        "damage_modifier": {
+          "air": 30
+        }
+      },
       "metadata": null
     },
     {
@@ -9791,7 +9897,12 @@
         "TWISTED_TETHER",
         "SHAMAN_FLUID_HEALING"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "SACRIFICIAL_SHRINE"
+        },
+        "blood_pool_modifier": 30
+      },
       "metadata": null
     },
     {
@@ -9963,6 +10074,7 @@
         "upgrade": {
           "ability": "TOTEM"
         },
+        "max_totem_modifier": 1,
         "ability_damage_modifiers": {
           "TOTEM": {
             "neutral": -2
@@ -10051,7 +10163,12 @@
       "predecessors": [
         "STRONGER_TETHER"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "SACRIFICIAL_SHRINE"
+        },
+        "blood_pool_modifier": 30
+      },
       "metadata": null
     },
     {

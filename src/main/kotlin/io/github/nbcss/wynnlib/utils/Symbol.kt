@@ -8,6 +8,7 @@ enum class Symbol(val icon: String,
                   val formatting: Formatting) {
     MANA("✺", Formatting.AQUA),
     HEART("❤", Formatting.RED),
+    DARK_HEART("❤", Formatting.DARK_RED),
     MAX("▲", Formatting.GRAY),
     TICK("✔", Formatting.GREEN),
     CROSS("✖", Formatting.RED),

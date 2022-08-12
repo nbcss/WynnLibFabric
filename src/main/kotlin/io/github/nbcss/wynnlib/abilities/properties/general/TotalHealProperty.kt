@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.abilities.properties.mage
+package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_TOTAL_HEAL_SUFFIX
 import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -29,8 +30,10 @@ class TotalHealProperty(ability: Ability,
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
+        val suffix = LiteralText(" (").formatted(Formatting.DARK_GRAY)
+            .append(TOOLTIP_ABILITY_TOTAL_HEAL_SUFFIX.formatted(Formatting.DARK_GRAY)).append(")")
         return listOf(Symbol.HEART.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_TOTAL_HEAL.formatted(Formatting.GRAY).append(": "))
-            .append(LiteralText("$heal%").formatted(Formatting.WHITE)))
+            .append(LiteralText("$heal%").formatted(Formatting.WHITE)).append(suffix))
     }
 }

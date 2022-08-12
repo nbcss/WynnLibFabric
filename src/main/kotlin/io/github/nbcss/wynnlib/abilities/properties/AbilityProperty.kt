@@ -13,6 +13,9 @@ import io.github.nbcss.wynnlib.abilities.properties.assassin.SmokeBombProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
 import io.github.nbcss.wynnlib.abilities.properties.mage.*
+import io.github.nbcss.wynnlib.abilities.properties.shaman.MaxPuppetProperty
+import io.github.nbcss.wynnlib.abilities.properties.shaman.MaxTotemProperty
+import io.github.nbcss.wynnlib.abilities.properties.shaman.ShamanBloodPoolProperty
 import io.github.nbcss.wynnlib.abilities.properties.warrior.CorruptedProperty
 import io.github.nbcss.wynnlib.abilities.properties.warrior.EnragedBlowProperty
 import io.github.nbcss.wynnlib.abilities.properties.warrior.MantleResistanceProperty
@@ -41,6 +44,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DamageBonusProperty,
                 DamageBonusProperty.Raw,
                 DamageBonusProperty.PerFocus,
+                DamageBonusProperty.PerMarked,
                 DamageIntervalProperty,
                 DamageIntervalProperty.Modifier,
                 BonusEffectProperty,
@@ -106,6 +110,12 @@ abstract class AbilityProperty(private val ability: Ability) {
                 CorruptedProperty,
                 CorruptedProperty.Modifier,
                 EnragedBlowProperty,
+                MaxTotemProperty,
+                MaxTotemProperty.Modifier,
+                MaxPuppetProperty,
+                MaxPuppetProperty.Modifier,
+                ShamanBloodPoolProperty,
+                ShamanBloodPoolProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
