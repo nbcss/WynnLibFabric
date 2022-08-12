@@ -5015,6 +5015,7 @@
       ],
       "properties": {
         "mana_bank": 60,
+        "mana_storing": 5,
         "replacing": {
           "ability": "HEAL"
         }
@@ -5584,7 +5585,11 @@
         "upgrade": {
           "ability": "PYROKINESIS"
         },
-        "duration": 4
+        "duration": 4,
+        "values": {
+          "1": 1,
+          "2": 1
+        }
       },
       "metadata": null
     },
@@ -6023,7 +6028,8 @@
       "properties": {
         "upgrade": {
           "ability": "ARCANE_TRANSFER"
-        }
+        },
+        "mana_storing_modifier": 2
       },
       "metadata": null
     },
@@ -6219,14 +6225,17 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         },
         "range": 12,
         "effects": {
           "ALLIES_RESISTANCE": 100
         },
-        "duration": 5
+        "duration": 5,
+        "values": {
+          "1": 400,
+          "2": 10
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -6345,7 +6354,11 @@
         "CHEAPER_HEAL_2"
       ],
       "properties": {
-        "duration": 5
+        "duration": 5,
+        "values": {
+          "1": 100,
+          "2": 10
+        }
       },
       "metadata": {
         "type": "NEW",
@@ -7060,7 +7073,8 @@
       "properties": {
         "extend": {
           "ability": "VANISH"
-        }
+        },
+        "surprise_strike_bonus": 60
       },
       "metadata": {
         "type": "EXTEND",
@@ -7777,7 +7791,8 @@
       "properties": {
         "upgrade": {
           "ability": "SURPRISE_STRIKE"
-        }
+        },
+        "surprise_strike_bonus": 40
       },
       "metadata": null
     },

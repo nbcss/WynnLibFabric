@@ -81,6 +81,8 @@ open class DamageBonusProperty(ability: Ability,
             }
         }
 
+        override fun inUpgrade(): Boolean = false
+
         override fun setup(entry: PropertyEntry) {
             entry.setProperty(getKey(), this)
         }
@@ -109,6 +111,8 @@ open class DamageBonusProperty(ability: Ability,
                 entry.setProperty(getKey(), PerMarked(it.getAbility(), upgrade))
             }
         }
+
+        override fun inUpgrade(): Boolean = false
 
         override fun setup(entry: PropertyEntry) {
             entry.setProperty(getKey(), this)

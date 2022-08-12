@@ -44,6 +44,8 @@ class SurpriseStrikeProperty(ability: Ability, bonus: Int):
         }
     }
 
+    override fun inUpgrade(): Boolean = false
+
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)
     }

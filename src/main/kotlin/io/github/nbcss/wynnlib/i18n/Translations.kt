@@ -101,6 +101,7 @@ object Translations {
     val TOOLTIP_ABILITY_ARCHER_FOCUS: Translatable = from("wynnlib.gameplay.archer_focus")
     val TOOLTIP_ABILITY_MAGE_WINDED: Translatable = from("wynnlib.gameplay.mage_winded")
     val TOOLTIP_ABILITY_MAGE_MANA_BANK: Translatable = from("wynnlib.gameplay.mage_mana_bank")
+    val TOOLTIP_ABILITY_MAGE_MANA_STORE: Translatable = from("wynnlib.tooltip.ability.mage_mana_store")
     val TOOLTIP_ABILITY_MAGE_BLINKS: Translatable = from("wynnlib.gameplay.mage_teleport_blinks")
     val TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT: Translatable = from("wynnlib.gameplay.mage_orbs_of_light")
     val TOOLTIP_ABILITY_ASSASSIN_SMOKE_BOMBS: Translatable = from("wynnlib.gameplay.assassin_smoke_bombs")

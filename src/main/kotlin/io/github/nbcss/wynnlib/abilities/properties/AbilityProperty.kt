@@ -94,6 +94,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MageOphanimProperty.Modifier,
                 MageLightweaverProperty,
                 MageLightweaverProperty.Modifier,
+                MageManaStoreProperty,
+                MageManaStoreProperty.Modifier,
                 WindedBoosterProperty,
                 MaxWindedProperty,
                 MaxWindedProperty.Modifier,

@@ -107,7 +107,7 @@ abstract class PropertyEntry(private val container: EntryContainer,
                         tooltip.add(LiteralText("- ").formatted(Formatting.BLACK).append(text))
                     }
                     upgrade.getProperties()
-                        .filter { it is SetupProperty }
+                        .filter { it is SetupProperty && it.inUpgrade() }
                         .map { it.getTooltip() }
                         .flatten()
                         .forEach {

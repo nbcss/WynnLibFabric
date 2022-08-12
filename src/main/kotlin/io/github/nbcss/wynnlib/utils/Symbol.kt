@@ -7,6 +7,7 @@ import net.minecraft.util.Formatting
 enum class Symbol(val icon: String,
                   val formatting: Formatting) {
     MANA("✺", Formatting.AQUA),
+    DARK_MANA("✺", Formatting.DARK_AQUA),
     HEART("❤", Formatting.RED),
     DARK_HEART("❤", Formatting.DARK_RED),
     MAX("▲", Formatting.GRAY),
