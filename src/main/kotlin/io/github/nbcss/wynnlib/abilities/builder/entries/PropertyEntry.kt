@@ -4,6 +4,7 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SHIFT_UPGRADE
@@ -93,20 +94,27 @@ abstract class PropertyEntry(private val container: EntryContainer,
     fun getUpgradeTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
         if (upgradable && upgrades.isNotEmpty()){
-            tooltip.add(Translations.TOOLTIP_ABILITY_UPGRADE.formatted(Formatting.GRAY).append(":"))
+            tooltip.add(Translations.TOOLTIP_ABILITY_UPGRADE.formatted(Formatting.AQUA).append(":"))
             upgrades.sortedWith { x, y ->
                 val tier = x.getTier().compareTo(y.getTier())
                 return@sortedWith if (tier != 0) tier else
                     x.translate().string.compareTo(y.translate().string)
             }.forEach { upgrade ->
                 if (KeysKit.isShiftDown()){
-                    tooltip.add(LiteralText("+ ").formatted(Formatting.AQUA)
+                    tooltip.add(LiteralText("+ ").formatted(Formatting.DARK_AQUA)
                         .append(upgrade.formatted(upgrade.getTier().getFormatting())))
                     for (text in getAbilityDescriptionTooltip(upgrade)) {
                         tooltip.add(LiteralText("- ").formatted(Formatting.BLACK).append(text))
                     }
+                    upgrade.getProperties()
+                        .filter { it is SetupProperty }
+                        .map { it.getTooltip() }
+                        .flatten()
+                        .forEach {
+                            tooltip.add(LiteralText("- ").formatted(Formatting.DARK_GRAY).append(it))
+                        }
                 }else{
-                    tooltip.add(LiteralText("- ").formatted(Formatting.DARK_GRAY)
+                    tooltip.add(LiteralText("- ").formatted(Formatting.DARK_AQUA)
                         .append(upgrade.formatted(upgrade.getTier().getFormatting())))
                 }
             }
