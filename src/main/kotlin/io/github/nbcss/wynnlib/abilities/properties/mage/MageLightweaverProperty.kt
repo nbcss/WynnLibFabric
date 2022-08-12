@@ -3,10 +3,19 @@ package io.github.nbcss.wynnlib.abilities.properties.mage
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
+import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
+import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.utils.Symbol
+import io.github.nbcss.wynnlib.utils.colorOf
+import io.github.nbcss.wynnlib.utils.removeDecimal
+import io.github.nbcss.wynnlib.utils.signed
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 
 class MageLightweaverProperty(ability: Ability,
                               private val orbs: LightweaverOrb):
@@ -30,10 +39,17 @@ class MageLightweaverProperty(ability: Ability,
     fun getOrbs(): LightweaverOrb = orbs
 
     override fun writePlaceholder(container: PlaceholderContainer) {
-        container.putPlaceholder("lightweaver.heal", orbs.heal.toString())
-        container.putPlaceholder("lightweaver.time_limit", orbs.time.toString())
-        container.putPlaceholder("lightweaver.duration", orbs.duration.toString())
+        container.putPlaceholder("lightweaver.heal", removeDecimal(orbs.heal))
+        container.putPlaceholder("lightweaver.time_limit", removeDecimal(orbs.time))
+        container.putPlaceholder("lightweaver.duration", removeDecimal(orbs.duration))
         container.putPlaceholder("lightweaver.max", orbs.maxOrbs.toString())
+    }
+
+    override fun getTooltip(provider: PropertyProvider): List<Text> {
+        val name = Translations.TOOLTIP_ABILITY_MAGE_LIGHTWEAVER_ORBS.translate().string
+        return listOf(Symbol.ALTER_HITS.asText().append(" ")
+            .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${name}): "))
+            .append(LiteralText("${getOrbs().maxOrbs}").formatted(Formatting.WHITE)))
     }
 
     override fun setup(entry: PropertyEntry) {
@@ -58,9 +74,9 @@ class MageLightweaverProperty(ability: Ability,
         fun getModifier(): LightweaverOrb = modifier
 
         override fun writePlaceholder(container: PlaceholderContainer) {
-            container.putPlaceholder("lightweaver_modifier.heal", modifier.heal.toString())
-            container.putPlaceholder("lightweaver_modifier.time_limit", modifier.time.toString())
-            container.putPlaceholder("lightweaver_modifier.duration", modifier.duration.toString())
+            container.putPlaceholder("lightweaver_modifier.heal", removeDecimal(modifier.heal))
+            container.putPlaceholder("lightweaver_modifier.time_limit", removeDecimal(modifier.time))
+            container.putPlaceholder("lightweaver_modifier.duration", removeDecimal(modifier.duration))
             container.putPlaceholder("lightweaver_modifier.max", modifier.maxOrbs.toString())
         }
 
@@ -69,6 +85,13 @@ class MageLightweaverProperty(ability: Ability,
                 val upgrade = it.getOrbs().upgrade(getModifier())
                 entry.setProperty(MageLightweaverProperty.getKey(), MageLightweaverProperty(it.getAbility(), upgrade))
             }
+        }
+
+        override fun getTooltip(provider: PropertyProvider): List<Text> {
+            val name = Translations.TOOLTIP_ABILITY_MAGE_LIGHTWEAVER_ORBS.translate().string
+            return listOf(Symbol.ALTER_HITS.asText().append(" ")
+                .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${name}): "))
+                .append(LiteralText(signed(modifier.maxOrbs)).formatted(colorOf(modifier.maxOrbs))))
         }
     }
 

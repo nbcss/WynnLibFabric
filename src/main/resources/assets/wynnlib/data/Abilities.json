@@ -7192,8 +7192,21 @@
       "predecessors": [
         "MIRROR_IMAGE"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "id_convertor": {
+          "source": {
+            "EMERALDSTEALING": 2
+          },
+          "target": "MANASTEAL",
+          "rate": 1,
+          "max": 8
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "WALL_OF_SMOKE",
@@ -7213,7 +7226,7 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_4"
+          "ability": "SMOKE_BOMB"
         },
         "damage_modifier": {
           "neutral": -20
@@ -7241,7 +7254,7 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_4"
+          "ability": "SMOKE_BOMB"
         },
         "range_modifier": 10,
         "aoe_modifier": {
@@ -7270,6 +7283,9 @@
       "properties": {
         "upgrade": {
           "ability": "VANISH"
+        },
+        "values": {
+          "1": 100
         }
       },
       "metadata": null
@@ -7321,6 +7337,7 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
+        "raw_damage_bonus": 5,
         "main_range_modifier": 1
       },
       "metadata": null
@@ -7409,7 +7426,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BLAZING_POWDER"
+        "icon": "BLAZING_POWDER",
+        "upgradable": false
       }
     },
     {
@@ -7431,10 +7449,16 @@
         "CHEAPER_MULTIHIT_1",
         "DAGGER_PROFICIENCY_2"
       ],
-      "properties": {},
+      "properties": {
+        "values": {
+          "1": 0.7,
+          "2": 1.25
+        }
+      },
       "metadata": {
         "type": "NEW",
-        "icon": "WEIGHTLESS"
+        "icon": "WEIGHTLESS",
+        "upgradable": false
       }
     },
     {
@@ -7456,7 +7480,7 @@
       ],
       "properties": {
         "upgrade": {
-          "spell": "SPELL_4"
+          "ability": "SMOKE_BOMB"
         },
         "range": 6
       },
@@ -7480,6 +7504,10 @@
         "HOP"
       ],
       "properties": {
+        "values": {
+          "1": 5,
+          "2": 2
+        },
         "cooldown": 1
       },
       "metadata": {
@@ -7531,7 +7559,7 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_2"
+          "ability": "DASH"
         },
         "damage": {
           "neutral": 80,
@@ -7590,7 +7618,7 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_4"
+          "ability": "SMOKE_BOMB"
         },
         "duration": 20
       },
@@ -7619,11 +7647,14 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_4"
+          "ability": "SMOKE_BOMB"
         },
         "marked_damage_bonus": 10,
         "max_marked": 5,
-        "cooldown": 0.5
+        "cooldown": 0.5,
+        "values": {
+          "1": 1
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -7675,14 +7706,15 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_2"
+          "ability": "DASH"
         },
         "damage": {
           "neutral": 90,
           "fire": 10,
           "hits": 3,
           "label": "SHURIKEN"
-        }
+        },
+        "shurikens_bounce": 0
       },
       "metadata": {
         "type": "EXTEND",
@@ -8236,15 +8268,13 @@
         "BLADE_FURY"
       ],
       "properties": {
-        "extend": {
+        "upgrade": {
           "ability": "SHURIKENS"
         },
+        "shurikens_bounce_modifier": 1,
         "range": 12
       },
-      "metadata": {
-        "type": "EXTEND",
-        "icon": "RICOCHETS"
-      }
+      "metadata": null
     },
     {
       "id": "SATSUJIN",
@@ -8265,7 +8295,11 @@
         "HARVESTER"
       ],
       "properties": {
-        "cooldown": 30
+        "cooldown": 30,
+        "values": {
+          "1": 3,
+          "2": 70
+        }
       },
       "metadata": null
     },
@@ -8380,8 +8414,9 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "RICOCHETS"
-        }
+          "ability": "SHURIKENS"
+        },
+        "shurikens_bounce_modifier": 1
       },
       "metadata": null
     },
@@ -9535,11 +9570,17 @@
         "MORE_BLOOD_POOL_1"
       ],
       "properties": {
+        "extend": {
+          "ability": "TOTEM"
+        },
         "effects": {
           "ALLIES_DAMAGE": 20
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "VENGEFUL_SPIRIT"
+      }
     },
     {
       "id": "MASQUERADE",
@@ -9558,7 +9599,10 @@
         "MASK_OF_THE_FANATIC"
       ],
       "properties": {},
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "MASQUERADE"
+      }
     },
     {
       "id": "DOUBLE_TOTEM",
@@ -9666,8 +9710,21 @@
         "VENGEFUL_SPIRIT",
         "STORM_DANCE"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "id_convertor": {
+          "source": {
+            "SOULPOINTS": 1
+          },
+          "target": "LIFESTEAL",
+          "rate": 5,
+          "max": 1000
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "CHEAPER_HAUL_2",
@@ -9808,7 +9865,11 @@
       "predecessors": [
         "SEEKING_TOTEM"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MASQUERADE"
+        }
+      },
       "metadata": null
     },
     {
@@ -9891,6 +9952,9 @@
         "MASK_OF_THE_COWARD"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "SACRIFICIAL_SHRINE"
+        },
         "fluid_heal": 0.3
       },
       "metadata": null
@@ -10045,8 +10109,24 @@
         "CHANT_OF_THE_COWARD",
         "STRONGER_TETHER"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "MASK_OF_THE_FANATIC"
+        },
+        "effects": {
+          "ALLIES_RESISTANCE": 80
+        },
+        "aoe": {
+          "range": 8,
+          "shape": "CIRCLE"
+        },
+        "duration": 3,
+        "cooldown": 8
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "CHANT_OF_THE_FANATIC"
+      }
     },
     {
       "id": "STRONGER_TETHER",
@@ -10140,8 +10220,21 @@
         "CHANT_OF_THE_FANATIC",
         "INVIGORATING_WAVE"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "id_convertor": {
+          "source": {
+            "THORNS": 1
+          },
+          "target": "WATERDAMAGEBONUS",
+          "rate": 1,
+          "max": 100
+        }
+      },
+      "metadata": {
+        "type": "NEW",
+        "icon": "ID_CONVERTOR",
+        "upgradable": false
+      }
     },
     {
       "id": "FROG_DANCE",

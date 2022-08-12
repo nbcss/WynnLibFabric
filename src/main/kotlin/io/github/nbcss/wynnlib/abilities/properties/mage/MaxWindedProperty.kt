@@ -55,7 +55,7 @@ class MaxWindedProperty(ability: Ability,
         fun getWindedModifier(): Int = modifier
 
         override fun writePlaceholder(container: PlaceholderContainer) {
-            container.putPlaceholder(MaxWindedProperty.getKey(), getWindedModifier().toString())
+            container.putPlaceholder(getKey(), getWindedModifier().toString())
         }
 
         override fun modify(entry: PropertyEntry) {

@@ -119,7 +119,6 @@
   "HOODWINK": "",
   "CHOKE_BOMB": "choke_bomb.png",
   "HARVESTER": "harvester.png",
-  "RICOCHETS": "ricochets.png",
   "JASMINE_BLOOM": "jasmine_bloom.png",
   "DIVERSION": "diversion.png",
   "SHAMAN_MAIN_ATTACK": "",
@@ -137,8 +136,12 @@
   "EXPLODING_PUPPETS": "",
   "BULLWHIP": "",
   "MASK_OF_THE_FANATIC": "",
+  "VENGEFUL_SPIRIT": "",
+  "MASQUERADE": "",
   "MASK_OF_THE_COWARD": "",
+  "CHANT_OF_THE_FANATIC": "",
   "MASK_OF_THE_AWAKENED": "",
+  "RICOCHETS": "ricochets.png",
   "LURING": "lure.png",
   "EXTRA_HEALTH": "diversion_health.png"
 }

@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.general
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
@@ -48,6 +49,10 @@ open class DamageBonusProperty(ability: Ability,
                 return Raw(ability, data.asInt)
             }
             override fun getKey(): String = "raw_damage_bonus"
+        }
+
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder(getKey(), bonus.toString())
         }
 
         override fun getDamageBonusLabel(): Text? {
@@ -98,6 +103,10 @@ open class DamageBonusProperty(ability: Ability,
         }
 
         override fun getSuffix(): String = "%"
+
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder(getKey(), bonus.toString())
+        }
 
         override fun getDamageBonusLabel(): Text? {
             return LiteralText(" (").formatted(Formatting.DARK_GRAY)

@@ -103,6 +103,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 SmokeBombProperty.Modifier,
                 AssassinClonesProperty,
                 AssassinClonesProperty.Modifier,
+                ShurikensBounceProperty,
+                ShurikensBounceProperty.Modifier,
                 MaxMarkedProperty,
                 MaxMarkedProperty.Modifier,
                 BloomAoEProperty,

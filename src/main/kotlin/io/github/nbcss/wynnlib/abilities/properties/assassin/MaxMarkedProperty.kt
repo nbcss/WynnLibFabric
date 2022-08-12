@@ -55,7 +55,7 @@ class MaxMarkedProperty(ability: Ability,
         fun getModifier(): Int = modifier
 
         override fun writePlaceholder(container: PlaceholderContainer) {
-            container.putPlaceholder(MaxMarkedProperty.getKey(), getModifier().toString())
+            container.putPlaceholder(getKey(), getModifier().toString())
         }
 
         override fun modify(entry: PropertyEntry) {

@@ -42,25 +42,26 @@ class AssassinClonesProperty(ability: Ability,
             .append(LiteralText(clones.toString()).formatted(Formatting.WHITE)))
     }
 
-    class Modifier(ability: Ability, data: JsonElement):
+    class Modifier(ability: Ability,
+                   private val modifier: Int):
         AbilityProperty(ability), ModifiableProperty {
         companion object: Type<Modifier> {
             override fun create(ability: Ability, data: JsonElement): Modifier {
-                return Modifier(ability, data)
+                return Modifier(ability, data.asInt)
             }
             override fun getKey(): String = "clones_modifier"
         }
-        private val modifier: Int = data.asInt
-        init {
-            ability.putPlaceholder(getKey(), modifier.toString())
+
+        override fun writePlaceholder(container: PlaceholderContainer) {
+            container.putPlaceholder(getKey(), modifier.toString())
         }
 
         fun getModifier(): Int = modifier
 
         override fun modify(entry: PropertyEntry) {
             AssassinClonesProperty.from(entry)?.let {
-                val bombs = it.getClones() + getModifier()
-                entry.setProperty(AssassinClonesProperty.getKey(), AssassinClonesProperty(it.getAbility(), bombs))
+                val value = it.getClones() + getModifier()
+                entry.setProperty(AssassinClonesProperty.getKey(), AssassinClonesProperty(it.getAbility(), value))
             }
         }
 
