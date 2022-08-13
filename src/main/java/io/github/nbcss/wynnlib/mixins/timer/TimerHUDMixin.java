@@ -33,7 +33,7 @@ public abstract class TimerHUDMixin {
     public void render(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
         if (!this.client.options.hudHidden) {
             renderSideTimers(matrices);
-            renderIconTimers(matrices);
+            renderIconTimers(matrices, tickDelta);
         }
     }
 
@@ -47,13 +47,13 @@ public abstract class TimerHUDMixin {
         }
     }
 
-    private void renderIconTimers(MatrixStack matrices) {
+    private void renderIconTimers(MatrixStack matrices, float delta) {
         List<IconIndicator> timers = TimerManager.INSTANCE.getIconTimers();
         //unit = 28 per timer
         int posX = client.getWindow().getScaledWidth() / 2 - timers.size() * 14;
         int posY = client.getWindow().getScaledHeight() - 108;
         for (IconIndicator timer : timers) {
-            timer.render(matrices, getTextRenderer(), posX, posY);
+            timer.render(matrices, getTextRenderer(), posX, posY, delta);
             /*RenderKit.INSTANCE.renderTexture(matrices, background, posX + 3, posY,
                     0, 256 - 22, 22, 22);
             Double duration = timer.getDuration();

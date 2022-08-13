@@ -22,12 +22,15 @@ class EffectIndicator(data: JsonObject): StatusType(data) {
         override fun getKey(): String = "EFFECT"
     }
 
-    override fun renderIcon(matrices: MatrixStack,
-                            textRenderer: TextRenderer,
-                            timer: TypedStatusTimer,
-                            icon: Identifier,
-                            posX: Int,
-                            posY: Int) {
+    override fun renderIcon(
+        matrices: MatrixStack,
+        textRenderer: TextRenderer,
+        timer: TypedStatusTimer,
+        icon: Identifier,
+        posX: Int,
+        posY: Int,
+        delta: Float
+    ) {
         renderTexture(
             matrices, ICON_BACKGROUND, posX + 3, posY, 0, 256 - 22, 22, 22
         )

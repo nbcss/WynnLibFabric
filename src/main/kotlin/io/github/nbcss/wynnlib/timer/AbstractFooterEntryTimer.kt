@@ -8,6 +8,8 @@ abstract class AbstractFooterEntryTimer(protected val entry: StatusEntry,
     private var currentTime: Long = startTime
     protected var endTime: Long = if (entry.duration != null) toEndTime(startTime, entry.duration + 1) else 0
 
+    fun getSyncTime(): Long = currentTime
+
     protected fun toEndTime(time: Long, duration: Int): Long {
         return time + duration.times(20).minus(1).toLong()
     }

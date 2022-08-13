@@ -10,9 +10,13 @@ import net.minecraft.text.LiteralText
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.max
 
 class ValuesIndicator(data: JsonObject): StatusType(data) {
     companion object: Factory {
+        private const val INTERPOLATE_TICKS = 8
         override fun create(data: JsonObject): StatusType {
             return ValuesIndicator(data)
         }
@@ -36,19 +40,37 @@ class ValuesIndicator(data: JsonObject): StatusType(data) {
         }
     }
 
-    override fun renderIcon(matrices: MatrixStack,
-                            textRenderer: TextRenderer,
-                            timer: TypedStatusTimer,
-                            icon: Identifier,
-                            posX: Int,
-                            posY: Int) {
+    private fun getInterpolatedValue(value: Int,
+                                     lastValue: Int,
+                                     currentTime: Long,
+                                     updateTime: Long,
+                                     delta: Float): Double {
+        if (currentTime - updateTime >= INTERPOLATE_TICKS) {
+            return value.toDouble()
+        }
+        val factor = max(0.0f, ((currentTime - updateTime).toFloat() + delta) / INTERPOLATE_TICKS)
+        val smoother = 1.0 - (cos(factor * PI) + 1) / 2
+        return lastValue + (smoother * (value - lastValue))
+    }
+
+    override fun renderIcon(
+        matrices: MatrixStack,
+        textRenderer: TextRenderer,
+        timer: TypedStatusTimer,
+        icon: Identifier,
+        posX: Int,
+        posY: Int,
+        delta: Float
+    ) {
         RenderKit.renderTexture(
             matrices, ICON_BACKGROUND, posX + 3, posY, 0, 256 - 22, 22, 22
         )
         //render value text
         val values = timer.getValues()
         if (values.isNotEmpty()) {
-            val rate: Double = values[0].toDouble() / (cap ?: timer.getMaxValues()[0])
+            val interValue = getInterpolatedValue(values[0], timer.getLastValues()[0],
+                timer.getSyncTime(), timer.getLastUpdateTime(), delta)
+            val rate: Double = interValue / (cap ?: timer.getMaxValues()[0])
             val pct = MathHelper.clamp(rate, 0.0, 1.0)
             val color = Color(MathHelper.hsvToRgb((pct / 3.0).toFloat(), 1.0f, 1.0f))
             val uv = pctToUv(pct)

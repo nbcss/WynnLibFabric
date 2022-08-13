@@ -11,7 +11,9 @@ class TypedStatusTimer(private val type: StatusType,
     AbstractFooterEntryTimer(entry, startTime) {
     private val maxDuration: Double? = entry.duration?.plus(1)?.toDouble()
     private var currentValues: List<Int> = values.toMutableList()
+    private var lastValues: List<Int> = values.toMutableList()
     private var maxValues: List<Int> = values.toMutableList()
+    private var lastUpdated: Long = startTime
 
     fun getValues(): List<Int> = currentValues
 
@@ -33,9 +35,17 @@ class TypedStatusTimer(private val type: StatusType,
             }
             index += 1
         }
-        currentValues = nextValues
+        if (currentValues != nextValues) {
+            lastValues = currentValues
+            currentValues = nextValues
+            lastUpdated = getSyncTime()
+        }
         maxValues = nextMaxValues
     }
+
+    fun getLastUpdateTime(): Long = lastUpdated
+
+    fun getLastValues(): List<Int> = lastValues
 
     override fun getKey(): String = type.getKey()
 

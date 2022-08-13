@@ -15,10 +15,8 @@ import net.minecraft.client.font.TextRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
-import net.minecraft.text.TranslatableText
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
-import net.minecraft.util.Language
 import kotlin.math.roundToInt
 
 abstract class StatusType(data: JsonObject): Keyed {
@@ -36,11 +34,13 @@ abstract class StatusType(data: JsonObject): Keyed {
         null
     }
 
-    abstract fun renderIcon(matrices: MatrixStack,
-                            textRenderer: TextRenderer,
-                            timer: TypedStatusTimer,
-                            icon: Identifier,
-                            posX: Int, posY: Int)
+    abstract fun renderIcon(
+        matrices: MatrixStack,
+        textRenderer: TextRenderer,
+        timer: TypedStatusTimer,
+        icon: Identifier,
+        posX: Int, posY: Int, delta: Float
+    )
 
     fun renderText(matrices: MatrixStack,
                    timer: TypedStatusTimer,
@@ -78,8 +78,8 @@ abstract class StatusType(data: JsonObject): Keyed {
 
     fun asIconIndicator(timer: TypedStatusTimer): IconIndicator? {
         return if (texture != null) object : IconIndicator {
-            override fun render(matrices: MatrixStack, textRenderer: TextRenderer, posX: Int, posY: Int) {
-                renderIcon(matrices, textRenderer, timer, texture, posX, posY)
+            override fun render(matrices: MatrixStack, textRenderer: TextRenderer, posX: Int, posY: Int, delta: Float) {
+                renderIcon(matrices, textRenderer, timer, texture, posX, posY, delta)
             }
         } else null
     }
