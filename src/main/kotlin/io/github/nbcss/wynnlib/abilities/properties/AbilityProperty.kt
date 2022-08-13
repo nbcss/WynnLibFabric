@@ -61,6 +61,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 FluidHealProperty,
                 MainAttackDamageProperty,
                 MainAttackDamageModifierProperty,
+                MainAttackDamageRawProperty,
                 MainAttackRangeProperty,
                 MainAttackRangeProperty.Modifier,
                 MainAttackRangeProperty.Clear,

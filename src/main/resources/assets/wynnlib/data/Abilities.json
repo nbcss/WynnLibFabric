@@ -214,7 +214,10 @@
         "CHARGE"
       ],
       "properties": {
-        "raw_damage_bonus": 5,
+        "upgrade": {
+          "spell": "MAIN_ATTACK"
+        },
+        "main_attack_damage_raw": 5,
         "id_convertor": {
           "source": {
             "DAMAGEBONUS": 1,
@@ -225,11 +228,7 @@
           "max": 20
         }
       },
-      "metadata": {
-        "type": "NEW",
-        "icon": "ID_CONVERTOR",
-        "upgradable": false
-      }
+      "metadata": null
     },
     {
       "id": "UPPERCUT",
@@ -7344,7 +7343,7 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "raw_damage_bonus": 5,
+        "main_attack_damage_raw": 5,
         "main_range_modifier": 1
       },
       "metadata": null
