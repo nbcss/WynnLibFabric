@@ -1906,6 +1906,7 @@
           "air": 10,
           "fire": 5
         },
+        "damage_interval": 0.5,
         "duration": 20,
         "aoe": {
           "range": 4,
@@ -2843,7 +2844,13 @@
         "NIMBLE_STRING",
         "TRIPLE_SHOTS"
       ],
-      "properties": {},
+      "properties": {
+        "values": {
+          "1": 6,
+          "2": 160,
+          "3": 40
+        }
+      },
       "metadata": {
         "type": "NEW",
         "icon": "FRENZY",
@@ -9795,7 +9802,11 @@
         "STORM_DANCE",
         "CHEAPER_AURA_2"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "MASK_OF_THE_FANATIC"
+        }
+      },
       "metadata": null
     },
     {
@@ -9817,8 +9828,21 @@
         "STORM_DANCE",
         "BLOOD_MOON"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "SACRIFICIAL_SHRINE"
+        },
+        "damage": {
+          "neutral": 15,
+          "air": 10
+        },
+        "range": 24,
+        "duration": 5
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "TWISTED_TETHER"
+      }
     },
     {
       "id": "STRONGER_TOTEM",
@@ -9891,8 +9915,20 @@
         "CHEAPER_AURA_2",
         "MASK_OF_THE_COWARD"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "UPROOT"
+        },
+        "damage": {
+          "neutral": 50,
+          "water": 50
+        },
+        "duration": 60
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "CRIMSON_EFFIGY"
+      }
     },
     {
       "id": "MASK_OF_THE_COWARD",
@@ -10000,8 +10036,18 @@
       "predecessors": [
         "CRIMSON_EFFIGY"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "UPROOT"
+        },
+        "effects": {
+          "ENEMIES_SLOWNESS": 40
+        },
+        "duration": 3
+      },
+      "metadata": {
+        "type": "EXTEND.icon"
+      }
     },
     {
       "id": "REGENERATION",
@@ -10022,8 +10068,15 @@
         "CRIMSON_EFFIGY",
         "MASK_OF_THE_COWARD"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "TOTEM"
+        },
+        "total_heal": 1
+      },
+      "metadata": {
+        "type": "EXTEND.icon"
+      }
     },
     {
       "id": "CHANT_OF_THE_COWARD",
@@ -10044,8 +10097,21 @@
         "MASK_OF_THE_COWARD",
         "SHAMAN_FLUID_HEALING"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "MASK_OF_THE_COWARD"
+        },
+        "damage": {
+          "neutral": 200
+        },
+        "aoe": {
+          "range": 8,
+          "shape": "CIRCLE"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND.icon"
+      }
     },
     {
       "id": "BLOOD_RITE",
@@ -10066,7 +10132,11 @@
         "SHAMAN_FLUID_HEALING",
         "MORE_BLOOD_POOL_2"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "SACRIFICIAL_SHRINE"
+        }
+      },
       "metadata": null
     },
     {
@@ -10087,7 +10157,11 @@
       "predecessors": [
         "MADDENING_ROOTS"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "CRIMSON_EFFIGY"
+        }
+      },
       "metadata": null
     },
     {
@@ -10145,7 +10219,14 @@
         "BLOOD_RITE",
         "CHANT_OF_THE_FANATIC"
       ],
-      "properties": {},
+      "properties": {
+        "upgrade": {
+          "ability": "TWISTED_TETHER"
+        },
+        "damage_modifier": {
+          "neutral": 10
+        }
+      },
       "metadata": null
     },
     {
@@ -10200,8 +10281,19 @@
         "MORE_EFFIGIES",
         "MENGDU"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "AURA"
+        },
+        "effects": {
+          "SUMMONS_ATTACK_SPEED": 100
+        },
+        "duration": 3
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "INVIGORATING_WAVE"
+      }
     },
     {
       "id": "MENGDU",
@@ -10252,8 +10344,24 @@
       "predecessors": [
         "CHANT_OF_THE_FANATIC"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "MASK_OF_THE_COWARD"
+        },
+        "damage": {
+          "neutral": 90,
+          "water": 30,
+          "hits": 3
+        },
+        "aoe": {
+          "range": "3.aoe.shape"
+        }
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "FROG_DANCE",
+        "upgradable": false
+      }
     },
     {
       "id": "MORE_BLOOD_POOL_3",
@@ -10298,8 +10406,23 @@
         "TRIPLE_TOTEM",
         "INVIGORATING_WAVE"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "PUPPET_MASTER"
+        },
+        "modify": {
+          "ability": "PUPPET_MASTER"
+        },
+        "damage_modifier": {
+          "neutral": -5
+        },
+        "duration": 20
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "SHEPHERD",
+        "upgradable": false
+      }
     },
     {
       "id": "BLOOD_SORROW",
@@ -10319,8 +10442,22 @@
       "predecessors": [
         "MORE_BLOOD_POOL_3"
       ],
-      "properties": {},
-      "metadata": null
+      "properties": {
+        "extend": {
+          "ability": "UPROOT"
+        },
+        "damage": {
+          "neutral": 50,
+          "water": 15
+        },
+        "damage_interval": 0.2,
+        "duration": 5,
+        "range": 24
+      },
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "BLOOD_SORROW"
+      }
     },
     {
       "id": "CHEAPER_UPROOT_2",

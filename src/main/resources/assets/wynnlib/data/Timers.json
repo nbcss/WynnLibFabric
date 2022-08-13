@@ -210,7 +210,7 @@
       "icon": "\u00a7a\u231a",
       "name": "$ Timelocked",
       "texture": "TIMELOCK",
-      "text": null,
+      "text": "TIMELOCKED",
       "properties": {}
     },
     {
@@ -277,12 +277,12 @@
       "properties": {}
     },
     {
-      "id": "DIVERSION_EFFECT",
+      "id": "EXTRA_HP_EFFECT",
       "type": "VALUE",
       "icon": "\u00a76\u2764",
       "name": "$ Extra Health",
       "texture": "EXTRA_HEALTH",
-      "text": "DIVERSION_HEALTH",
+      "text": "EXTRA_HEALTH",
       "properties": {
         "format": "6{%s}"
       }
@@ -304,6 +304,54 @@
       "texture": "MARTYR",
       "text": null,
       "properties": {}
+    },
+    {
+      "id": "VENGEFUL_SPIRIT_EFFECT",
+      "type": "TEMP_EFFECT",
+      "icon": "\u00a7a\u2694",
+      "name": "Vengeful Spirit",
+      "texture": "VENGEFUL_SPIRIT",
+      "text": null,
+      "properties": {}
+    },
+    {
+      "id": "CHANT_OF_THE_FANATIC_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Chant of the Fanatic",
+      "texture": "CHANT_OF_THE_FANATIC",
+      "text": null,
+      "properties": {}
+    },
+    {
+      "id": "CHANT_OF_THE_FANATIC_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2741",
+      "name": "Chant of the Fanatic",
+      "texture": "CHANT_OF_THE_FANATIC",
+      "text": null,
+      "properties": {}
+    },
+    {
+      "id": "MASK_OF_THE_AWAKENED_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u265a",
+      "name": "Mask of the Awakened",
+      "texture": "MASK_OF_THE_AWAKENED",
+      "text": null,
+      "properties": {}
+    },
+    {
+      "id": "SHEPHERD_EFFECT",
+      "type": "VALUE",
+      "icon": "\u00a7a\u2698",
+      "name": "+$ Extra Puppet",
+      "texture": "SHEPHERD",
+      "text": "SHEPHERD_PUPPETS",
+      "properties": {
+        "max": 10,
+        "format": "a{+%s}"
+      }
     }
   ],
   "version": "0.1.0"

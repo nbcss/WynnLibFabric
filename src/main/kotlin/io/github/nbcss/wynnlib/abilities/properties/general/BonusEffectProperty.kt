@@ -102,6 +102,7 @@ open class BonusEffectProperty(ability: Ability,
         SELF_DAMAGE(true),
         SELF_WALK_SPEED(true),
         SUMMONS_DAMAGE(true),
+        SUMMONS_ATTACK_SPEED(true),
         ENEMIES_RESISTANCE(false),
         ENEMIES_BLINDNESS(true),
         ENEMIES_SLOWNESS(true);
