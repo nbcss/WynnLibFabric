@@ -7,7 +7,6 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
-import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.signed
