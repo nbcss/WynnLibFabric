@@ -10045,7 +10045,8 @@
         "duration": 3
       },
       "metadata": {
-        "type": "EXTEND.icon"
+        "type": "EXTEND",
+        "icon": "MADDENING_ROOTS"
       }
     },
     {
@@ -10074,7 +10075,8 @@
         "total_heal": 1
       },
       "metadata": {
-        "type": "EXTEND.icon"
+        "type": "EXTEND",
+        "icon": "REGENERATION"
       }
     },
     {
@@ -10109,7 +10111,8 @@
         }
       },
       "metadata": {
-        "type": "EXTEND.icon"
+        "type": "EXTEND",
+        "icon": "CHANT_OF_THE_COWARD"
       }
     },
     {
@@ -10198,7 +10201,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "CHANT_OF_THE_FANATIC"
+        "icon": "CHANT_OF_THE_FANATIC",
+        "upgradable": false
       }
     },
     {
@@ -10291,7 +10295,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "INVIGORATING_WAVE"
+        "icon": "INVIGORATING_WAVE",
+        "upgradable": false
       }
     },
     {
@@ -10455,7 +10460,8 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BLOOD_SORROW"
+        "icon": "BLOOD_SORROW",
+        "upgradable": false
       }
     },
     {
