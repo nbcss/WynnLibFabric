@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.abilities.properties.general.ManaCostProperty
 import io.github.nbcss.wynnlib.i18n.Translations
@@ -18,7 +19,8 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class MageManaBankProperty(ability: Ability,
-                           private val size: Int): AbilityProperty(ability), SetupProperty {
+                           private val size: Int):
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<MageManaBankProperty> {
         override fun create(ability: Ability, data: JsonElement): MageManaBankProperty {
             return MageManaBankProperty(ability, data.asInt)
@@ -27,6 +29,12 @@ class MageManaBankProperty(ability: Ability,
     }
 
     fun getManaBankSize(): Int = size
+
+    override fun getOverviewTip(): Text? {
+        return Symbol.DARK_MANA.asText().append(" ").append(
+            LiteralText("${getManaBankSize()}").formatted(Formatting.WHITE)
+        )
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder(getKey(), size.toString())
@@ -38,7 +46,7 @@ class MageManaBankProperty(ability: Ability,
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
         val bank = Translations.TOOLTIP_ABILITY_MAGE_MANA_BANK.translate().string
-        return listOf(Symbol.MANA.asText().append(" ")
+        return listOf(Symbol.DARK_MANA.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${bank}): "))
             .append(LiteralText(getManaBankSize().toString()).formatted(Formatting.WHITE)))
     }
@@ -67,7 +75,7 @@ class MageManaBankProperty(ability: Ability,
 
         override fun getTooltip(provider: PropertyProvider): List<Text> {
             val bank = Translations.TOOLTIP_ABILITY_MAGE_MANA_BANK.translate().string
-            return listOf(Symbol.MANA.asText().append(" ")
+            return listOf(Symbol.DARK_MANA.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${bank}): "))
                 .append(LiteralText(signed(modifier)).formatted(colorOf(modifier))))
         }

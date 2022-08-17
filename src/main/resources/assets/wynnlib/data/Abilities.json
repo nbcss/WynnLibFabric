@@ -21,7 +21,11 @@
       },
       "metadata": {
         "type": "MAIN_ATTACK",
-        "icon": "WARRIOR_MAIN_ATTACK"
+        "icon": "WARRIOR_MAIN_ATTACK",
+        "overview": [
+          "main_attack_range",
+          "main_attack_damage"
+        ]
       }
     },
     {
@@ -53,7 +57,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "BASH"
+        "icon": "BASH",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -156,7 +164,10 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "CHARGE"
+        "icon": "CHARGE",
+        "overview": [
+          "mana_cost"
+        ]
       }
     },
     {
@@ -263,7 +274,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "UPPERCUT"
+        "icon": "UPPERCUT",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -326,7 +341,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "WAR_SCREAM"
+        "icon": "WAR_SCREAM",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -603,7 +622,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "FLYBY_JAB",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -636,7 +658,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "FLAMING_UPPERCUT",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -755,7 +780,10 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "COUNTER"
+        "icon": "COUNTER",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -787,7 +815,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "MANTLE_OF_THE_BOVEMISTS"
+        "icon": "MANTLE_OF_THE_BOVEMISTS",
+        "overview": [
+          "charges"
+        ]
       }
     },
     {
@@ -987,7 +1018,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "AIR_SHOUT",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -1054,7 +1088,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "FLYING_KICK",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -1149,7 +1186,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "BOILING_BLOOD",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -1330,7 +1370,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "COLLIDE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -1582,7 +1625,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "SHIELD_STRIKE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -1617,7 +1663,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "SPARKLING_HOPE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -1681,7 +1730,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "TEMPEST",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -1915,7 +1967,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "CYCLONE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -2136,7 +2191,11 @@
       },
       "metadata": {
         "type": "MAIN_ATTACK",
-        "icon": "ARCHER_MAIN_ATTACK"
+        "icon": "ARCHER_MAIN_ATTACK",
+        "overview": [
+          "main_attack_range",
+          "main_attack_damage"
+        ]
       }
     },
     {
@@ -2169,7 +2228,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "ARROW_BOMB"
+        "icon": "ARROW_BOMB",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -2272,7 +2335,10 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "ESCAPE"
+        "icon": "ESCAPE",
+        "overview": [
+          "mana_cost"
+        ]
       }
     },
     {
@@ -2359,7 +2425,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "ARROW_STORM"
+        "icon": "ARROW_STORM",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -2420,7 +2490,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "ARROW_SHIELD"
+        "icon": "ARROW_SHIELD",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -2454,7 +2528,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "WINDY_FEET"
+        "icon": "WINDY_FEET",
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -2639,7 +2716,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "ARROW_RAIN",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -2715,7 +2795,11 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "PHANTOM_RAY"
+        "icon": "PHANTOM_RAY",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -2753,7 +2837,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "FIRE_CREEP"
+        "icon": "FIRE_CREEP",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -2797,7 +2884,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "BRYOPHYTE_ROOTS",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -2894,7 +2984,11 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "GUARDIAN_ANGELS"
+        "icon": "GUARDIAN_ANGELS",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -2963,7 +3057,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BASALTIC_TRAP"
+        "icon": "BASALTIC_TRAP",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -3057,7 +3154,11 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "GRAPPLING_HOOK"
+        "icon": "GRAPPLING_HOOK",
+        "overview": [
+          "mana_cost",
+          "range"
+        ]
       }
     },
     {
@@ -3288,7 +3389,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "TWAINS_ARC",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -3345,7 +3449,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "FIERCE_STOMP"
+        "icon": "FIERCE_STOMP",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -3616,7 +3723,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "ESCAPE_ARTIST",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -3731,7 +3841,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "CALL_OF_THE_HOUND",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -3872,7 +3985,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "SHRAPNEL_BOMB",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4016,7 +4132,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "CREPUSCULAR_RAY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4052,7 +4171,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "GRAPE_BOMB",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4111,7 +4233,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "TANGLED_TRAPS",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4306,7 +4431,11 @@
       },
       "metadata": {
         "type": "MAIN_ATTACK",
-        "icon": "MAGE_MAIN_ATTACK"
+        "icon": "MAGE_MAIN_ATTACK",
+        "overview": [
+          "main_attack_range",
+          "main_attack_damage"
+        ]
       }
     },
     {
@@ -4338,7 +4467,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "METEOR"
+        "icon": "METEOR",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -4463,7 +4596,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "TELEPORT"
+        "icon": "TELEPORT",
+        "overview": [
+          "mana_cost",
+          "range"
+        ]
       }
     },
     {
@@ -4529,7 +4666,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "HEAL"
+        "icon": "HEAL",
+        "overview": [
+          "mana_cost",
+          "total_heal"
+        ]
       }
     },
     {
@@ -4589,7 +4730,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "ICE_SNAKE"
+        "icon": "ICE_SNAKE",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -4767,7 +4912,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "WIND_SLASH"
+        "icon": "WIND_SLASH",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4805,7 +4953,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "THUNDERSTORM",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4845,7 +4996,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "BURNING_SIGIL",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4879,7 +5033,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "SUNSHOWER",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4947,7 +5104,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "WINDSWEEPER"
+        "icon": "WINDSWEEPER",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -4994,7 +5154,11 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "OPHANIM"
+        "icon": "OPHANIM",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -5028,7 +5192,10 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "ARCANE_TRANSFER"
+        "icon": "ARCANE_TRANSFER",
+        "overview": [
+          "mana_bank"
+        ]
       }
     },
     {
@@ -5176,7 +5343,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "BREATHLESS",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -5353,7 +5523,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "PYROKINESIS"
+        "icon": "PYROKINESIS",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -5512,7 +5685,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "TRANSONIC_WARP",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -5663,7 +5839,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "LIGHTWEAVER"
+        "icon": "LIGHTWEAVER",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -5833,7 +6012,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "EXPLOSIVE_ENTRANCE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -6246,7 +6428,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "SUNFLARE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -6446,7 +6631,11 @@
       },
       "metadata": {
         "type": "MAIN_ATTACK",
-        "icon": "ASSASSIN_MAIN_ATTACK"
+        "icon": "ASSASSIN_MAIN_ATTACK",
+        "overview": [
+          "main_attack_range",
+          "main_attack_damage"
+        ]
       }
     },
     {
@@ -6477,7 +6666,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "SPIN_ATTACK"
+        "icon": "SPIN_ATTACK",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -6583,7 +6776,10 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "DASH"
+        "icon": "DASH",
+        "overview": [
+          "mana_cost"
+        ]
       }
     },
     {
@@ -6684,7 +6880,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "SMOKE_BOMB"
+        "icon": "SMOKE_BOMB",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -6742,7 +6942,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "MULTIHIT"
+        "icon": "MULTIHIT",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -6934,7 +7138,11 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "BACKSTAB"
+        "icon": "BACKSTAB",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -6969,7 +7177,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "FATALITY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -7001,7 +7212,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "VANISH"
+        "icon": "VANISH",
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -7147,6 +7361,10 @@
           "hits": 3,
           "label": "STRIKE"
         },
+        "aoe": {
+          "range": 3,
+          "shape": "CIRCLE"
+        },
         "replacing": {
           "ability": "SPIN_ATTACK",
           "properties": [
@@ -7156,7 +7374,11 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "LACERATE"
+        "icon": "LACERATE",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -7433,7 +7655,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "BLAZING_POWDER",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -7574,7 +7799,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "DANCING_BLADE"
+        "icon": "DANCING_BLADE",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -7724,7 +7952,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "SHURIKENS"
+        "icon": "SHURIKENS",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -8369,7 +8600,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "JASMINE_BLOOM",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -8494,7 +8728,11 @@
       },
       "metadata": {
         "type": "MAIN_ATTACK",
-        "icon": "SHAMAN_MAIN_ATTACK"
+        "icon": "SHAMAN_MAIN_ATTACK",
+        "overview": [
+          "main_attack_range",
+          "main_attack_damage"
+        ]
       }
     },
     {
@@ -8528,7 +8766,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "TOTEM"
+        "icon": "TOTEM",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -8610,7 +8852,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "TOTEMIC_SMASH"
+        "icon": "TOTEMIC_SMASH",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -8635,7 +8880,10 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "HAUL"
+        "icon": "HAUL",
+        "overview": [
+          "mana_cost"
+        ]
       }
     },
     {
@@ -8723,7 +8971,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "UPROOT"
+        "icon": "UPROOT",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -8779,7 +9031,11 @@
       },
       "metadata": {
         "type": "SPELL",
-        "icon": "AURA"
+        "icon": "AURA",
+        "overview": [
+          "mana_cost",
+          "damage"
+        ]
       }
     },
     {
@@ -8935,7 +9191,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "NATURES_JOLT"
+        "icon": "NATURES_JOLT",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -9083,7 +9342,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "RAIN_DANCE"
+        "icon": "RAIN_DANCE",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -9120,7 +9382,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "PUPPET_MASTER"
+        "icon": "PUPPET_MASTER",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -9158,7 +9423,10 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "MASK_OF_THE_LUNATIC"
+        "icon": "MASK_OF_THE_LUNATIC",
+        "overview": [
+          "mana_cost"
+        ]
       }
     },
     {
@@ -9188,7 +9456,10 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "SACRIFICIAL_SHRINE"
+        "icon": "SACRIFICIAL_SHRINE",
+        "overview": [
+          "total_heal"
+        ]
       }
     },
     {
@@ -9411,7 +9682,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "EXPLODING_PUPPETS"
+        "icon": "EXPLODING_PUPPETS",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -9556,7 +9830,10 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "MASK_OF_THE_FANATIC"
+        "icon": "MASK_OF_THE_FANATIC",
+        "overview": [
+          "mana_cost"
+        ]
       }
     },
     {
@@ -9840,7 +10117,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "TWISTED_TETHER"
+        "icon": "TWISTED_TETHER",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -9926,7 +10206,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "CRIMSON_EFFIGY"
+        "icon": "CRIMSON_EFFIGY",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -9966,7 +10249,10 @@
       },
       "metadata": {
         "type": "REPLACE",
-        "icon": "MASK_OF_THE_COWARD"
+        "icon": "MASK_OF_THE_COWARD",
+        "overview": [
+          "mana_cost"
+        ]
       }
     },
     {
@@ -10112,7 +10398,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "CHANT_OF_THE_COWARD"
+        "icon": "CHANT_OF_THE_COWARD",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -10296,7 +10585,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "INVIGORATING_WAVE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -10364,7 +10656,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "FROG_DANCE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -10461,7 +10756,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "BLOOD_SORROW",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {

@@ -6,16 +6,18 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.removeDecimal
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class MainAttackRangeProperty(ability: Ability,
                               private val range: Double):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<MainAttackRangeProperty> {
         override fun create(ability: Ability, data: JsonElement): MainAttackRangeProperty {
             return MainAttackRangeProperty(ability, data.asDouble)
@@ -24,6 +26,12 @@ class MainAttackRangeProperty(ability: Ability,
     }
 
     fun getMainAttackRange(): Double = range
+
+    override fun getOverviewTip(): Text {
+        return Symbol.RANGE.asText().append(" ").append(
+            LiteralText(removeDecimal(range)).formatted(Formatting.WHITE)
+        )
+    }
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)

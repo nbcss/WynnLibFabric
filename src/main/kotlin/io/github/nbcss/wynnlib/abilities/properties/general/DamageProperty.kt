@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.data.DamageMultiplier
 import io.github.nbcss.wynnlib.data.Element
@@ -16,7 +17,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<DamageProperty> {
         override fun create(ability: Ability, data: JsonElement): DamageProperty {
             val damage = DamageMultiplier.fromJson(data.asJsonObject)
@@ -26,6 +27,16 @@ class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
     }
 
     fun getDamage(): DamageMultiplier = damage
+
+    override fun getOverviewTip(): Text {
+        val text = Symbol.DAMAGE.asText().append(" ").append(
+            LiteralText("${damage.getTotalDamage()}%").formatted(Formatting.WHITE)
+        )
+        if (damage.getHits() > 1) {
+            text.append(LiteralText("x${damage.getHits()}").formatted(Formatting.YELLOW))
+        }
+        return text
+    }
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)

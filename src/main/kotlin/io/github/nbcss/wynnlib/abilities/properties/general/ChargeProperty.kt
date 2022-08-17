@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -17,7 +18,7 @@ import net.minecraft.util.Formatting
 
 class ChargeProperty(ability: Ability,
                      private val charges: Int):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<ChargeProperty> {
         override fun create(ability: Ability, data: JsonElement): ChargeProperty {
             return ChargeProperty(ability, data.asInt)
@@ -26,6 +27,11 @@ class ChargeProperty(ability: Ability,
     }
 
     fun getCharges(): Int = charges
+
+    override fun getOverviewTip(): Text? {
+        return Symbol.CHARGE.asText().append(" ")
+            .append(LiteralText(charges.toString()).formatted(Formatting.WHITE))
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder(getKey(), charges.toString())

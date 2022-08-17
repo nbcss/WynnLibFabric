@@ -37,7 +37,7 @@ class MageManaStoreProperty(ability: Ability,
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
-        return listOf(Symbol.DARK_MANA.asText().append(" ")
+        return listOf(Symbol.MANA.asText().append(" ")
             .append(TOOLTIP_ABILITY_MAGE_MANA_STORE.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText("+$store").formatted(Formatting.WHITE)))
     }
@@ -65,7 +65,7 @@ class MageManaStoreProperty(ability: Ability,
         }
 
         override fun getTooltip(provider: PropertyProvider): List<Text> {
-            return listOf(Symbol.DARK_MANA.asText().append(" ")
+            return listOf(Symbol.MANA.asText().append(" ")
                 .append(TOOLTIP_ABILITY_MAGE_MANA_STORE.formatted(Formatting.GRAY).append(": "))
                 .append(LiteralText(signed(modifier)).formatted(colorOf(modifier))))
         }

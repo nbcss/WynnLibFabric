@@ -37,6 +37,10 @@ open class BonusEffectProperty(ability: Ability,
 
     fun getEffectBonus(type: EffectType): Int? = bonuses[type]
 
+    override fun inUpgrade(): Boolean {
+        return false
+    }
+
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)
     }

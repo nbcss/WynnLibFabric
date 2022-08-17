@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_TOTAL_HEAL_SUFFIX
@@ -15,7 +16,7 @@ import net.minecraft.util.Formatting
 
 class TotalHealProperty(ability: Ability,
                         private val heal: Int):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<TotalHealProperty> {
         override fun create(ability: Ability, data: JsonElement): TotalHealProperty {
             return TotalHealProperty(ability, data.asInt)
@@ -24,6 +25,12 @@ class TotalHealProperty(ability: Ability,
     }
 
     fun getTotalHeal(): Int = heal
+
+    override fun getOverviewTip(): Text {
+        return Symbol.HEART.asText().append(" ").append(
+            LiteralText("$heal%").formatted(Formatting.WHITE)
+        )
+    }
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)

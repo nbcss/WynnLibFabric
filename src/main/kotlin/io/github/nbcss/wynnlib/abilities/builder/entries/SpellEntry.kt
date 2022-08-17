@@ -59,14 +59,4 @@ open class SpellEntry(private val spell: SpellSlot,
     override fun getSlotKey(): String {
         return spell.name
     }
-
-    override fun getSideText(): Text {
-        ManaCostProperty.from(this)?.let {
-            return Symbol.MANA.asText().append(" ").append(
-                LiteralText("${it.getManaCost()}")
-                    .formatted(Formatting.WHITE)
-            )
-        }
-        return super.getSideText()
-    }
 }

@@ -7,8 +7,10 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SUFFIX_S
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.removeDecimal
 import io.github.nbcss.wynnlib.utils.round
@@ -17,7 +19,7 @@ import net.minecraft.util.Formatting
 
 class DurationProperty(ability: Ability,
                        private val duration: Double):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<DurationProperty> {
         override fun create(ability: Ability, data: JsonElement): DurationProperty {
             return DurationProperty(ability, data.asDouble)
@@ -26,6 +28,12 @@ class DurationProperty(ability: Ability,
     }
 
     fun getDuration(): Double = duration
+
+    override fun getOverviewTip(): Text {
+        return Symbol.DURATION.asText().append(" ").append(
+            TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, removeDecimal(duration))
+        )
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder(getKey(), removeDecimal(duration))
@@ -36,7 +44,7 @@ class DurationProperty(ability: Ability,
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
-        val value = Translations.TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, removeDecimal(duration))
+        val value = TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, removeDecimal(duration))
         return listOf(Symbol.DURATION.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_DURATION.formatted(Formatting.GRAY).append(": "))
             .append(value))
@@ -66,7 +74,7 @@ class DurationProperty(ability: Ability,
 
         override fun getTooltip(provider: PropertyProvider): List<Text> {
             val color = if(modifier < 0) Formatting.RED else Formatting.GREEN
-            val value = Translations.TOOLTIP_SUFFIX_S.formatted(color, null,
+            val value = TOOLTIP_SUFFIX_S.formatted(color, null,
                 (if(modifier > 0) "+" else "") + removeDecimal(modifier))
             return listOf(Symbol.DURATION.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_DURATION.formatted(Formatting.GRAY).append(": "))

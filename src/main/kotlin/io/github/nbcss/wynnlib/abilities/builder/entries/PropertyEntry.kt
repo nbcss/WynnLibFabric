@@ -4,6 +4,7 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
@@ -149,7 +150,24 @@ abstract class PropertyEntry(private val container: EntryContainer,
 
     open fun getSlotKey(): String? = null
 
-    open fun getSideText(): Text = LiteralText.EMPTY
+    open fun getSideText(): Text {
+        val text = LiteralText("")
+        var noEmpty = false
+        ability.getMetadata()?.getOverviewProperties()?.forEach {
+            val property = it.from(this)
+            if (property is OverviewProvider) {
+                val tip = property.getOverviewTip()
+                if (tip != null) {
+                    if (noEmpty) {
+                        text.append(LiteralText(" ").formatted(Formatting.GRAY))
+                    }
+                    text.append(property.getOverviewTip())
+                    noEmpty = true
+                }
+            }
+        }
+        return text
+    }
 
     fun getTexture(): Identifier = icon
 
