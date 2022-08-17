@@ -848,7 +848,7 @@
   "wynnlib.ability.name.cheaper_multihit_1": "Cheaper Multihit",
   "wynnlib.ability.desc.cheaper_multihit_1": "Reduce the Mana cost of n{@{.multihit}}.",
   "wynnlib.ability.name.dagger_proficiency_2": "Dagger Proficiency II",
-  "wynnlib.ability.desc.dagger_proficiency_2": "Increase your n{@{.assassin_main_attack}}'s range and add f{+5} raw damage to all attacks.",
+  "wynnlib.ability.desc.dagger_proficiency_2": "Increase your n{@{.assassin_main_attack}}'s range and add f{+${main_attack_damage_raw}} raw damage to all attacks.",
   "wynnlib.ability.name.last_laugh": "Last Laugh",
   "wynnlib.ability.desc.last_laugh": "When losing a b{Clone}, it will cast n{@{.spin_attack}} before dying.",
   "wynnlib.ability.name.cheaper_smoke_bomb_1": "Cheaper Smoke Bomb",
