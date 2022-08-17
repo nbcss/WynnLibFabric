@@ -42,7 +42,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 DamageBonusProperty.Raw,
                 DamageBonusProperty.PerFocus,
                 DamageBonusProperty.PerMarked,
-                SurpriseStrikeProperty,
+                AbilityDamageBonusProperty,
                 DamageIntervalProperty,
                 DamageIntervalProperty.Modifier,
                 BonusEffectProperty,

@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.abilities.properties.assassin
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
+import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
@@ -27,6 +28,11 @@ class BloomAoEProperty(ability: Ability,
             return BloomAoEProperty(ability, range, maxRange)
         }
         override fun getKey(): String = "bloom_aoe"
+    }
+
+    override fun writePlaceholder(container: PlaceholderContainer) {
+        container.putPlaceholder("bloom_aoe.range", removeDecimal(range))
+        container.putPlaceholder("bloom_aoe.max_range", removeDecimal(maxRange))
     }
 
     override fun setup(entry: PropertyEntry) {

@@ -33,6 +33,8 @@ open class DamageBonusProperty(ability: Ability,
     fun getDamageBonusRate(): Double = getDamageBonus() / 100.0
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
+        if (bonus == 0)
+            return emptyList()
         val color = if (bonus < 0) Formatting.RED else Formatting.WHITE
         val value = LiteralText(signed(bonus) + getSuffix()).formatted(color)
         getDamageBonusLabel()?.let {

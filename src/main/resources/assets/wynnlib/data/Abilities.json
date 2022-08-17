@@ -7294,7 +7294,10 @@
         "extend": {
           "ability": "VANISH"
         },
-        "surprise_strike_bonus": 60
+        "ability_damage_bonus": {
+          "ability": "SURPRISE_STRIKE",
+          "bonus": 60
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -7326,7 +7329,11 @@
           "ability": "VANISH"
         },
         "clones": 3,
-        "cooldown": 20
+        "cooldown": 20,
+        "ability_damage_bonus": {
+          "ability": "MIRROR_IMAGE",
+          "bonus": 0
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -7800,6 +7807,7 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "DANCING_BLADE",
+        "upgradable": false,
         "overview": [
           "damage"
         ]
@@ -7825,6 +7833,10 @@
         "aoe": {
           "range": 6,
           "shape": "CIRCLE"
+        },
+        "values": {
+          "1": 2,
+          "2": 20
         }
       },
       "metadata": {
@@ -7854,11 +7866,16 @@
         "extend": {
           "ability": "SMOKE_BOMB"
         },
+        "ability_damage_bonus": {
+          "ability": "DELIRIOUS_GAS",
+          "bonus": 40
+        },
         "duration": 20
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "DELIRIOUS_GAS"
+        "icon": "DELIRIOUS_GAS",
+        "upgradable": false
       }
     },
     {
@@ -7917,6 +7934,10 @@
       "properties": {
         "upgrade": {
           "ability": "MIRROR_IMAGE"
+        },
+        "ability_damage_bonus": {
+          "ability": "MIRROR_IMAGE",
+          "bonus": -60
         }
       },
       "metadata": null
@@ -8037,7 +8058,11 @@
           "JUMP_HEIGHT": 1
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "PSITHURISM",
+        "upgradable": false
+      }
     },
     {
       "id": "AMBUSH",
@@ -8061,7 +8086,10 @@
         "upgrade": {
           "ability": "SURPRISE_STRIKE"
         },
-        "surprise_strike_bonus": 40
+        "ability_damage_bonus": {
+          "ability": "SURPRISE_STRIKE",
+          "bonus": 40
+        }
       },
       "metadata": null
     },
@@ -8108,7 +8136,10 @@
         "CHEAPER_SPIN_ATTACK_2"
       ],
       "properties": {
-        "cooldown": 3
+        "cooldown": 3,
+        "values": {
+          "1": 1.5
+        }
       },
       "metadata": {
         "type": "NEW",
@@ -8354,6 +8385,10 @@
       "properties": {
         "upgrade": {
           "ability": "VIOLENT_VORTEX"
+        },
+        "values": {
+          "1": 3,
+          "2": 60
         }
       },
       "metadata": null
@@ -8378,6 +8413,9 @@
       "properties": {
         "extend": {
           "ability": "MARKED"
+        },
+        "values": {
+          "1": 5
         }
       },
       "metadata": {
@@ -8431,6 +8469,10 @@
       "properties": {
         "upgrade": {
           "ability": "MULTIHIT"
+        },
+        "damage_modifier": {
+          "thunder": 10,
+          "label": "HIT"
         }
       },
       "metadata": null
@@ -8482,6 +8524,10 @@
       "properties": {
         "upgrade": {
           "ability": "MIRROR_IMAGE"
+        },
+        "ability_damage_bonus": {
+          "ability": "MIRROR_IMAGE",
+          "bonus": 20
         }
       },
       "metadata": null
@@ -8538,7 +8584,11 @@
           "2": 70
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "NEW",
+        "icon": "SATSUJIN",
+        "upgradable": false
+      }
     },
     {
       "id": "FORBIDDEN_ART",
@@ -8591,10 +8641,14 @@
           "water": 15,
           "earth": 5
         },
+        "damage_interval": 0.4,
         "duration": 5,
         "bloom_aoe": {
           "range": 2,
           "max_range": 10
+        },
+        "values": {
+          "1": 40
         }
       },
       "metadata": {
@@ -8628,7 +8682,11 @@
         "extend": {
           "ability": "DELIRIOUS_GAS"
         },
-        "cooldown": 3
+        "cooldown": 3,
+        "values": {
+          "1": 40,
+          "2": 4
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -8679,6 +8737,9 @@
       "properties": {
         "upgrade": {
           "ability": "HARVESTER"
+        },
+        "values": {
+          "1": 5
         }
       },
       "metadata": null
@@ -8853,6 +8914,7 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "TOTEMIC_SMASH",
+        "upgradable": false,
         "overview": [
           "damage"
         ]
@@ -8907,6 +8969,9 @@
       "properties": {
         "upgrade": {
           "spell": "MAIN_ATTACK"
+        },
+        "values": {
+          "1": 33
         }
       },
       "metadata": null
@@ -9643,7 +9708,8 @@
       "properties": {
         "upgrade": {
           "ability": "HAUL"
-        }
+        },
+        "range": 47
       },
       "metadata": null
     },
@@ -10081,7 +10147,8 @@
       "properties": {
         "upgrade": {
           "ability": "MASK_OF_THE_FANATIC"
-        }
+        },
+        "range": 30
       },
       "metadata": null
     },
