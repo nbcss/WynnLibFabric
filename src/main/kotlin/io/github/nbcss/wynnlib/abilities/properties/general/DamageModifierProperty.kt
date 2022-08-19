@@ -16,8 +16,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class DamageModifierProperty(ability: Ability,
-                             private val modifier: DamageMultiplier):
+open class DamageModifierProperty(ability: Ability,
+                                  private val modifier: DamageMultiplier):
     AbilityProperty(ability), ModifiableProperty {
     companion object: Type<DamageModifierProperty> {
         override fun create(ability: Ability, data: JsonElement): DamageModifierProperty {

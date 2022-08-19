@@ -50,7 +50,7 @@ data class DamageMultiplier(private val hits: Int,
         val elementalDamage = mapOf(pairs = Element.values().map {
             it to (this.getElementalDamage(it) + damage.getElementalDamage(it))
         }.toTypedArray())
-        return DamageMultiplier(hits, label, neutral, elementalDamage)
+        return DamageMultiplier(hits, label ?: this.damageLabel, neutral, elementalDamage)
     }
 
     enum class Label: Translatable {
@@ -62,6 +62,7 @@ data class DamageMultiplier(private val hits: Int,
         HIT,
         SHRAPNEL,
         STRIKE,
+        TETHER,
         SHURIKEN,
         WINDED;
         companion object {

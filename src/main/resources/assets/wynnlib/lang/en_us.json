@@ -160,6 +160,7 @@
   "wynnlib.tooltip.ability.damage_label.mantle_lost": "per mantle lost",
   "wynnlib.tooltip.ability.damage_label.ripple": "per ripple",
   "wynnlib.tooltip.ability.damage_label.arrow": "per arrow",
+  "wynnlib.tooltip.ability.damage_label.tether": "per %s%% health",
   "wynnlib.tooltip.ability.damage_label.hit": "per hit",
   "wynnlib.tooltip.ability.damage_label.shrapnel": "per shrapnel",
   "wynnlib.tooltip.ability.damage_label.strike": "per strike",

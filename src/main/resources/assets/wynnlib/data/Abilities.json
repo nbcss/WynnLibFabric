@@ -10175,9 +10175,15 @@
         "extend": {
           "ability": "SACRIFICIAL_SHRINE"
         },
-        "damage": {
-          "neutral": 15,
-          "air": 10
+        "tether": {
+          "damage": {
+            "neutral": 15,
+            "air": 10,
+            "label": "TETHER"
+          },
+          "cost": 1,
+          "health_lose": 2,
+          "max_lose": 10
         },
         "range": 24,
         "duration": 5
@@ -10582,7 +10588,7 @@
         "upgrade": {
           "ability": "TWISTED_TETHER"
         },
-        "damage_modifier": {
+        "tether_damage_modifier": {
           "neutral": 10
         }
       },

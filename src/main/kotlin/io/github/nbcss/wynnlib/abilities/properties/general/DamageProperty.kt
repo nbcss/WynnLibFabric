@@ -16,7 +16,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
+open class DamageProperty(ability: Ability,
+                          private val damage: DamageMultiplier):
     AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<DamageProperty> {
         override fun create(ability: Ability, data: JsonElement): DamageProperty {
@@ -27,6 +28,14 @@ class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
     }
 
     fun getDamage(): DamageMultiplier = damage
+
+    open fun getDamageSuffix(): Text? {
+        damage.getDamageLabel()?.let {
+            return LiteralText(" (").formatted(Formatting.DARK_GRAY)
+                .append(it.formatted(Formatting.DARK_GRAY)).append(")")
+        }
+        return null
+    }
 
     override fun getOverviewTip(): Text {
         val text = Symbol.DAMAGE.asText().append(" ").append(
@@ -53,10 +62,8 @@ class DamageProperty(ability: Ability, private val damage: DamageMultiplier):
             val total = Symbol.DAMAGE.asText().append(" ")
                 .append(Translations.TOOLTIP_ABILITY_TOTAL_DAMAGE.formatted(Formatting.GRAY).append(": "))
                 .append(LiteralText("${damage.getTotalDamage()}%").formatted(color))
-            damage.getDamageLabel()?.let {
-                total.append(LiteralText(" (").formatted(Formatting.DARK_GRAY))
-                    .append(it.formatted(Formatting.DARK_GRAY))
-                    .append(LiteralText(")").formatted(Formatting.DARK_GRAY))
+            getDamageSuffix()?.let {
+                total.append(it)
             }
             tooltip.add(total)
             //add neutral damage

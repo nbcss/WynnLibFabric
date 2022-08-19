@@ -13,6 +13,7 @@ import io.github.nbcss.wynnlib.abilities.properties.mage.*
 import io.github.nbcss.wynnlib.abilities.properties.shaman.MaxPuppetProperty
 import io.github.nbcss.wynnlib.abilities.properties.shaman.MaxTotemProperty
 import io.github.nbcss.wynnlib.abilities.properties.shaman.ShamanBloodPoolProperty
+import io.github.nbcss.wynnlib.abilities.properties.shaman.TetherProperty
 import io.github.nbcss.wynnlib.abilities.properties.warrior.CorruptedProperty
 import io.github.nbcss.wynnlib.abilities.properties.warrior.EnragedBlowProperty
 import io.github.nbcss.wynnlib.abilities.properties.warrior.MantleResistanceProperty
@@ -119,6 +120,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MaxPuppetProperty.Modifier,
                 ShamanBloodPoolProperty,
                 ShamanBloodPoolProperty.Modifier,
+                TetherProperty,
+                TetherProperty.Modifier,
             ).map { it.getKey() to it }.toTypedArray()
         )
 
