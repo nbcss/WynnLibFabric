@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items.equipments.analysis.properties
+package io.github.nbcss.wynnlib.analysis.properties
 
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.text.Text

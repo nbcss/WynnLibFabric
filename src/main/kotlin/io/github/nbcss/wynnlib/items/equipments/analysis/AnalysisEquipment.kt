@@ -6,10 +6,12 @@ import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
-import io.github.nbcss.wynnlib.items.equipments.analysis.properties.*
-import io.github.nbcss.wynnlib.items.equipments.regular.RegularArmour
+import io.github.nbcss.wynnlib.analysis.properties.*
+import io.github.nbcss.wynnlib.analysis.properties.equipment.PowderProperty
+import io.github.nbcss.wynnlib.analysis.properties.equipment.RequirementProperty
+import io.github.nbcss.wynnlib.analysis.properties.equipment.RestrictionProperty
+import io.github.nbcss.wynnlib.analysis.properties.equipment.SuffixProperty
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
-import io.github.nbcss.wynnlib.items.equipments.regular.RegularWeapon
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.IRange

@@ -1,5 +1,6 @@
-package io.github.nbcss.wynnlib.items.equipments.analysis.properties
+package io.github.nbcss.wynnlib.analysis.properties.equipment
 
+import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.utils.Symbol

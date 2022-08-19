@@ -4,7 +4,7 @@ import io.github.nbcss.wynnlib.analysis.calculator.QualityCalculator
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.Wearable
-import io.github.nbcss.wynnlib.items.equipments.analysis.properties.AnalysisProperty
+import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.text.LiteralText
