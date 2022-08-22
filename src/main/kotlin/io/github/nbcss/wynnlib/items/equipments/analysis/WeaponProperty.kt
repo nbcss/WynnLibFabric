@@ -12,13 +12,13 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-class AnalysisWeapon(private val equipment: AnalysisEquipment):
+class WeaponProperty(private val equipment: AnalysisEquipment):
     Weapon, TooltipProvider, AnalysisProperty {
     companion object {
         private val DAMAGE_PATTERN = Pattern.compile("Neutral Damage: (\\d+)-(\\d+)")
         private val ELEM_DAMAGE_PATTERN = Pattern.compile(" Damage: (\\d+)-(\\d+)")
     }
-    private var attackSpeed: AttackSpeed = AttackSpeed.NORMAL
+    private var attackSpeed: AttackSpeed? = null
     private var damage: IRange = IRange.ZERO
     private val elemDamage: MutableMap<Element, IRange> = mutableMapOf()
     override fun getTooltip(): List<Text> {
@@ -52,14 +52,14 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment):
     }
 
     override fun getAttackSpeed(): AttackSpeed {
-        return attackSpeed
+        return attackSpeed ?: AttackSpeed.NORMAL
     }
 
     override fun set(tooltip: List<Text>, line: Int): Int {
         if (tooltip[line].siblings.isEmpty())
             return 0
         val base = tooltip[line].siblings[0]
-        if (line == 1 && base.siblings.isEmpty()) {
+        if (attackSpeed == null && base.siblings.isEmpty()) {
             AttackSpeed.fromDisplayName(base.asString())?.let {
                 attackSpeed = it
                 return 1
@@ -86,8 +86,6 @@ class AnalysisWeapon(private val equipment: AnalysisEquipment):
                 }
             }
         }
-        //println(text)
-        //println(text.siblings.size)
         return 0
     }
 

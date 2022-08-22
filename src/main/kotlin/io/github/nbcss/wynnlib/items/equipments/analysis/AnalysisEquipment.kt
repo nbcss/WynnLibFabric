@@ -7,10 +7,7 @@ import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.analysis.properties.*
-import io.github.nbcss.wynnlib.analysis.properties.equipment.PowderProperty
-import io.github.nbcss.wynnlib.analysis.properties.equipment.RequirementProperty
-import io.github.nbcss.wynnlib.analysis.properties.equipment.RestrictionProperty
-import io.github.nbcss.wynnlib.analysis.properties.equipment.SuffixProperty
+import io.github.nbcss.wynnlib.analysis.properties.equipment.*
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
@@ -37,9 +34,9 @@ class AnalysisEquipment(private val parent: RegularEquipment,
     init {
         val category = parent.getCategory()
         if (category is Weapon) {
-            propertyMap["CATEGORY"] = AnalysisWeapon(this)
+            propertyMap["CATEGORY"] = WeaponProperty(this)
         }else if (category is Wearable) {
-            propertyMap["CATEGORY"] = AnalysisWearable(this)
+            propertyMap["CATEGORY"] = WearableProperty(this)
         }
         val tooltip: List<Text> = stack.getTooltip(MinecraftClient.getInstance().player, TooltipContext.Default.NORMAL)
         var line = 0

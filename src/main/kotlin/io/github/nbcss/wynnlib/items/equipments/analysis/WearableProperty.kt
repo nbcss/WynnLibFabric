@@ -11,7 +11,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-class AnalysisWearable(private val equipment: AnalysisEquipment):
+class WearableProperty(private val equipment: AnalysisEquipment):
     Wearable, TooltipProvider, AnalysisProperty {
     companion object {
         private val HEALTH_PATTERN = Pattern.compile(" Health: (\\+\\d+|-\\d+)")

@@ -10,14 +10,16 @@ class EquipmentTransformer(stack: ItemStack,
                            equipment: RegularEquipment): TooltipTransformer {
     private val item = AnalysisEquipment(equipment, stack)
 
-    companion object: TooltipTransformer.Factory() {
-        override fun create(stack: ItemStack, item: BaseItem): TooltipTransformer? {
+    companion object: Factory {
+        const val KEY = "EQUIPMENT"
+
+        override fun create(stack: ItemStack, item: TransformableItem): TooltipTransformer? {
             if (item is RegularEquipment) {
-                //val tooltip = stack.getTooltip(client.player, TooltipContext.Default.NORMAL)
                 return EquipmentTransformer(stack, item)
             }
             return null
         }
+        override fun getKey(): String = KEY
     }
 
     override fun getTooltip(): List<Text> {

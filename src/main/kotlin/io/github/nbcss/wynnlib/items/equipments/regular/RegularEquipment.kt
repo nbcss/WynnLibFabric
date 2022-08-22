@@ -2,6 +2,8 @@ package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
+import io.github.nbcss.wynnlib.analysis.EquipmentTransformer
+import io.github.nbcss.wynnlib.analysis.TransformableItem
 import io.github.nbcss.wynnlib.data.*
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
@@ -16,7 +18,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
-class RegularEquipment(json: JsonObject) : Equipment {
+class RegularEquipment(json: JsonObject) : Equipment, TransformableItem {
     private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String
@@ -122,5 +124,9 @@ class RegularEquipment(json: JsonObject) : Equipment {
 
     override fun asWearable(): Wearable? {
         return if(category is Wearable) category else null
+    }
+
+    override fun getTransformKey(): String {
+        return EquipmentTransformer.KEY
     }
 }
