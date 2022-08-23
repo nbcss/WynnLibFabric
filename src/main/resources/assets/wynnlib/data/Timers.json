@@ -349,7 +349,7 @@
       "texture": "SHEPHERD",
       "text": "SHEPHERD_PUPPETS",
       "properties": {
-        "max": 10,
+        "max": 8,
         "format": "a{+%s}"
       }
     }
