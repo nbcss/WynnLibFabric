@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items.equipments.analysis
+package io.github.nbcss.wynnlib.analysis.properties.equipment
 
 import io.github.nbcss.wynnlib.analysis.calculator.QualityCalculator.Companion.formattingQuality
 import io.github.nbcss.wynnlib.data.AttackSpeed
@@ -6,13 +6,14 @@ import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
+import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-class WeaponProperty(private val equipment: AnalysisEquipment):
+class WeaponProperty(private val equipment: RolledEquipment):
     Weapon, TooltipProvider, AnalysisProperty {
     companion object {
         private val DAMAGE_PATTERN = Pattern.compile("Neutral Damage: (\\d+)-(\\d+)")

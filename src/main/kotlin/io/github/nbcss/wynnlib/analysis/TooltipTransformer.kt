@@ -1,39 +1,14 @@
 package io.github.nbcss.wynnlib.analysis
 
-import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
+import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.utils.Keyed
-import net.minecraft.client.MinecraftClient
-import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
-import net.minecraft.text.Text
 import java.util.*
 
-abstract class TooltipTransformer(protected val stack: ItemStack) {
-    protected val propertyMap: MutableMap<String, AnalysisProperty> = mutableMapOf()
-    private val tooltipProperties: MutableList<AnalysisProperty> = mutableListOf()
+interface TooltipTransformer: TooltipProvider {
 
-    fun getTooltip(): List<Text> {
-        return tooltipProperties.map { it.getTooltip() }.flatten()
-    }
-
-    fun init() {
-        val tooltip: List<Text> = stack.getTooltip(MinecraftClient.getInstance().player,
-            TooltipContext.Default.NORMAL)
-        var line = 0
-        outer@ while (line < tooltip.size) {
-            for (property in propertyMap.values) {
-                val inc = property.set(tooltip, line)
-                if (inc > 0) {
-                    line += inc
-                    //todo
-                    continue@outer
-                }
-            }
-
-            line += 1
-        }
-    }
+    fun init()
 
     companion object {
         private val transformerCacheMap: MutableMap<String, TooltipTransformer?> = WeakHashMap()

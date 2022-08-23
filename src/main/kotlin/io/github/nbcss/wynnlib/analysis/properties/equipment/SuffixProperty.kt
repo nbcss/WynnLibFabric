@@ -7,6 +7,7 @@ import java.util.regex.Pattern
 
 class SuffixProperty: AnalysisProperty {
     companion object {
+        private val PATTERN = Pattern.compile("(.+) Item( \\[(\\d+)])?")
         const val KEY = "SUFFIX"
     }
     private var tier: Tier? = null
@@ -22,8 +23,7 @@ class SuffixProperty: AnalysisProperty {
         val base = tooltip[line].siblings[0]
         if(base.asString() == "")
             return 0
-        val pattern = Pattern.compile("(.+) Item( \\[(\\d+)])?")
-        val matcher = pattern.matcher(base.asString())
+        val matcher = PATTERN.matcher(base.asString())
         if (matcher.find()){
             Tier.fromId(matcher.group(1))?.let {
                 tier = it

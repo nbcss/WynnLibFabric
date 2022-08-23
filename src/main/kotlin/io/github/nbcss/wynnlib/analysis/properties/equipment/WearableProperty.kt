@@ -1,17 +1,18 @@
-package io.github.nbcss.wynnlib.items.equipments.analysis
+package io.github.nbcss.wynnlib.analysis.properties.equipment
 
 import io.github.nbcss.wynnlib.analysis.calculator.QualityCalculator
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
+import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import java.util.regex.Pattern
 
-class WearableProperty(private val equipment: AnalysisEquipment):
+class WearableProperty(private val equipment: RolledEquipment):
     Wearable, TooltipProvider, AnalysisProperty {
     companion object {
         private val HEALTH_PATTERN = Pattern.compile(" Health: (\\+\\d+|-\\d+)")

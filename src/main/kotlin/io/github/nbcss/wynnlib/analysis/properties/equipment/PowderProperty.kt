@@ -37,6 +37,7 @@ class PowderProperty: AnalysisProperty {
                     powders.add(it)
                 }
             }
+
             return 1
         }
         return 0
