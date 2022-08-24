@@ -227,6 +227,7 @@
   "wynnlib.indicator.stored_mana": "f{%s} b{\u273a} Stored Mana",
   "wynnlib.indicator.shadow_travel": "a{\u27b2} Shadow Travel",
   "wynnlib.indicator.guardian": "a{\u2617} Guardian",
+  "wynnlib.indicator.savior_sacrifice": "a{☀} Savior's Sacrifice",
   "wynnlib.indicator.courage": "a{+%s%%} c{\u2739} Courage",
   "wynnlib.indicator.rage": "a{+%s%%} 2{✤} Rage",
   "wynnlib.indicator.concentration": "a{+%s%%} b{❉} Concentration",

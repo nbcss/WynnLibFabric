@@ -439,6 +439,15 @@
         "max": 100,
         "format": "%s%%"
       }
+    },
+    {
+      "id": "SAVIOR_SACRIFICE_EFFECT",
+      "type": "TEMP_EFFECT",
+      "icon": "\u00a7a\u2600",
+      "name": "Savior's Sacrifice",
+      "texture": null,
+      "text": "SAVIOR_SACRIFICE",
+      "properties": {}
     }
   ],
   "version": "0.1.0"
