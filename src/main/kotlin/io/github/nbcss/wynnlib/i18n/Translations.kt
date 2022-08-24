@@ -91,6 +91,7 @@ object Translations {
     val TOOLTIP_POWDER_SPEC_DAMAGE_BOOST: Translatable = from("wynnlib.powder_spec.tooltip.damage_boost")
     val TOOLTIP_POWDER_SPEC_RADIUS: Translatable = from("wynnlib.powder_spec.tooltip.radius")
     val TOOLTIP_POWDER_SPEC_CHAINS: Translatable = from("wynnlib.powder_spec.tooltip.chains")
+    val TOOLTIP_POWDER_SPEC_HP_LOST_MIN: Translatable = from("wynnlib.powder_spec.tooltip.min_lost_health")
     val TOOLTIP_POWDER_SPEC_KNOCKBACK: Translatable = from("wynnlib.powder_spec.tooltip.knockback")
     val SUFFIX_POWDER_SPEC_SEC: Translatable = from("wynnlib.powder_spec.suffix.seconds")
     val SUFFIX_POWDER_SPEC_BLOCKS: Translatable = from("wynnlib.powder_spec.suffix.blocks")

@@ -2,38 +2,42 @@ package io.github.nbcss.wynnlib.analysis.properties.equipment
 
 import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
 import io.github.nbcss.wynnlib.data.PowderSpecial
+import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.tierOf
 import net.minecraft.text.Text
+import org.apache.commons.lang3.StringEscapeUtils
 import java.util.regex.Pattern
 
 class PowderSpecialProperty: AnalysisProperty {
     companion object {
-        private val SPEC_NAME_PATTERN = Pattern.compile(" {3}(.+)")
+        private val SPEC_NAME_PATTERN = Pattern.compile("\u00C0\u00C0[✤✦❉✹❋] (.+)")
         private val DURATION_PATTERN = Pattern.compile("Duration: (\\d+\\.?\\d*)")
         private val DAMAGE_PATTERN = Pattern.compile("Damage: (\\+?\\d+\\.?\\d*)")
-        private val BOOST_PATTERN = Pattern.compile("Damage Boost: \\+(\\d+\\.?\\d*)")
+        private val BOOST_PATTERN = Pattern.compile("Bonus Damage: \\+(\\d+\\.?\\d*)")
         private val RADIUS_PATTERN = Pattern.compile("Radius: (\\d+\\.?\\d*)")
         private val CHAINS_PATTERN = Pattern.compile("Chains: (\\d+\\.?\\d*)")
-        private val KNOCKBACK_PATTERN = Pattern.compile("Knockback: (\\d+\\.?\\d*)")
+        private val HEALTH_LOST_PATTERN = Pattern.compile("Min\\. Lost Health: (\\d+\\.?\\d*)")
+        //private val KNOCKBACK_PATTERN = Pattern.compile("Knockback: (\\d+\\.?\\d*)")
         private val FACTORY_MAP: Map<String, SpecFactory> = mapOf(
-            pairs = listOf(
-                QuakeSpec,
-                RageSpec,
-                ChainLightningSpec,
-                KillStreakSpec,
-                CourageSpec,
-                EnduranceSpec,
-                CurseSpec,
-                ConcentrationSpec,
-                WindPrisonSpec,
-                DodgeSpec,
-            ).map { it.name to it }.toTypedArray()
+            pairs = (1..5).map { listOf(
+                QuakeSpec(it),
+                RageSpec(it),
+                ChainLightningSpec(it),
+                KillStreakSpec(it),
+                CourageSpec(it),
+                EnduranceSpec(it),
+                CurseSpec(it),
+                ConcentrationSpec(it),
+                WindPrisonSpec(it),
+                DodgeSpec(it),
+            ) }.flatten().map { it.getKey() to it }.toTypedArray()
         )
 
         private fun toDataString(text: Text): String? {
             if (text.siblings.isEmpty())
                 return null
             val base = text.siblings[0]
-            if (base.siblings.size != 2)
+            if (base.siblings.size < 2)
                 return null
             return base.siblings[1].asString()
         }
@@ -70,129 +74,131 @@ class PowderSpecialProperty: AnalysisProperty {
 
     override fun getKey(): String = KEY
 
-    interface SpecFactory {
-        val name: String
-        fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int>
+    abstract class SpecFactory(val tier: Int): Keyed {
+        abstract val name: String
+        abstract fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int>
+        override fun getKey(): String = name.replace("$", tierOf(tier))
     }
 
-    object QuakeSpec : SpecFactory {
-        override val name: String = "Quake"
+    class QuakeSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Quake $"
         override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
             if (line + 2 > tooltip.size)
                 return null to 0
-            val radius = readValue(tooltip[line], RADIUS_PATTERN)
-            val damage = readValue(tooltip[line + 1], DAMAGE_PATTERN)
-            val spec = PowderSpecial.Quake(radius, damage.toInt(), 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
+            val damage = readValue(tooltip[line], DAMAGE_PATTERN)
+            val radius = readValue(tooltip[line + 1], RADIUS_PATTERN)
+            val spec = PowderSpecial.Quake(radius, damage.toInt(), tier)
+            return spec to 2
         }
     }
 
-    object RageSpec : SpecFactory {
-        override val name: String = "Rage [% ❤ Missing]"
+    class RageSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Rage $ [Health Missing]"
         override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
             if (line + 1 > tooltip.size)
                 return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
-            val spec = PowderSpecial.Rage(damage, 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 1
+            val healthLost = readValue(tooltip[line + 1], HEALTH_LOST_PATTERN)
+            val spec = PowderSpecial.Rage(damage, healthLost, tier)
+            return spec to 2
         }
     }
 
-    object ChainLightningSpec : SpecFactory {
-        override val name: String = "Chain Lightning"
-        override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
-            if (line + 2 > tooltip.size)
-                return null to 0
-            val chains = readValue(tooltip[line], CHAINS_PATTERN)
-            val damage = readValue(tooltip[line + 1], DAMAGE_PATTERN)
-            val spec = PowderSpecial.ChainLightning(chains.toInt(), damage.toInt(), 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
-        }
-    }
-
-    object KillStreakSpec : SpecFactory {
-        override val name: String = "Kill Streak [Mob Killed]"
+    class ChainLightningSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Chain Lightning $"
         override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
             if (line + 2 > tooltip.size)
                 return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
-            val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            val spec = PowderSpecial.KillStreak(damage, duration, 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
+            val chains = readValue(tooltip[line + 1], CHAINS_PATTERN)
+            val spec = PowderSpecial.ChainLightning(chains.toInt(), damage.toInt(), tier)
+            return spec to 2
         }
     }
 
-    object CourageSpec : SpecFactory {
-        override val name: String = "Courage"
+    class KillStreakSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Kill Streak $ [Mob Killed]"
+        override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
+            if (line + 2 > tooltip.size)
+                return null to 0
+            val damage = readValue(tooltip[line], BOOST_PATTERN)
+            val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
+            val spec = PowderSpecial.KillStreak(damage, duration, tier)
+            return spec to 2
+        }
+    }
+
+    class CourageSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Courage $"
         override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
             if (line + 3 > tooltip.size)
                 return null to 0
-            val duration = readValue(tooltip[line], DURATION_PATTERN)
-            val damage = readValue(tooltip[line + 1], DAMAGE_PATTERN)
-            val boost = readValue(tooltip[line + 2], BOOST_PATTERN)
-            val spec = PowderSpecial.Courage(duration, damage, boost, 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 3
-        }
-    }
-
-    object EnduranceSpec : SpecFactory {
-        override val name: String = "Endurance [Hit Taken]"
-        override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
-            if (line + 2 > tooltip.size)
-                return null to 0
             val damage = readValue(tooltip[line], DAMAGE_PATTERN)
-            val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            val spec = PowderSpecial.Endurance(damage, duration, 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
-        }
-    }
-
-    object CurseSpec : SpecFactory {
-        override val name: String = "Curse"
-        override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
-            if (line + 2 > tooltip.size)
-                return null to 0
-            val duration = readValue(tooltip[line], DURATION_PATTERN)
             val boost = readValue(tooltip[line + 1], BOOST_PATTERN)
-            val spec = PowderSpecial.Curse(duration, boost, 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
+            val duration = readValue(tooltip[line + 2], DURATION_PATTERN)
+            val spec = PowderSpecial.Courage(duration, damage, boost, tier)
+            return spec to 3
         }
     }
 
-    object ConcentrationSpec : SpecFactory {
-        override val name: String = "Concentration [Mana Used]"
+    class EnduranceSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Endurance $ [Hit Taken]"
         override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
             if (line + 2 > tooltip.size)
                 return null to 0
-            val damage = readValue(tooltip[line], DAMAGE_PATTERN)
+            val damage = readValue(tooltip[line], BOOST_PATTERN)
             val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            val spec = PowderSpecial.Concentration(damage, duration, 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
+            val spec = PowderSpecial.Endurance(damage, duration, tier)
+            return spec to 2
         }
     }
 
-    object WindPrisonSpec : SpecFactory {
-        override val name: String = "Wind Prison"
+    class CurseSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Curse $"
+        override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
+            if (line + 2 > tooltip.size)
+                return null to 0
+            val boost = readValue(tooltip[line], BOOST_PATTERN)
+            val radius = readValue(tooltip[line + 1], RADIUS_PATTERN)
+            val duration = readValue(tooltip[line + 2], DURATION_PATTERN)
+            val spec = PowderSpecial.Curse(duration, boost, radius, tier)
+            return spec to 3
+        }
+    }
+
+    class ConcentrationSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Concentration $ [Mana Used]"
+        override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
+            if (line + 2 > tooltip.size)
+                return null to 0
+            val damage = readValue(tooltip[line], BOOST_PATTERN)
+            val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
+            val spec = PowderSpecial.Concentration(damage, duration, tier)
+            return spec to 2
+        }
+    }
+
+    class WindPrisonSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Wind Prison $"
         override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
             if (line + 3 > tooltip.size)
                 return null to 0
-            val duration = readValue(tooltip[line], DURATION_PATTERN)
-            val boost = readValue(tooltip[line + 1], BOOST_PATTERN)
-            val knockback = readValue(tooltip[line + 2], KNOCKBACK_PATTERN)
-            val spec = PowderSpecial.WindPrison(duration, boost, knockback.toInt(), 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 3
+            val boost = readValue(tooltip[line], BOOST_PATTERN)
+            val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
+            val spec = PowderSpecial.WindPrison(duration, boost, tier)
+            return spec to 2
         }
     }
 
-    object DodgeSpec : SpecFactory {
-        override val name: String = "Dodge [Near Mobs]"
+    class DodgeSpec(tier: Int) : SpecFactory(tier) {
+        override val name: String = "Dodge $ [Near Mobs]"
         override fun read(tooltip: List<Text>, line: Int): Pair<PowderSpecial?, Int> {
             if (line + 2 > tooltip.size)
                 return null to 0
-            val damage = readValue(tooltip[line], DAMAGE_PATTERN)
+            val damage = readValue(tooltip[line], BOOST_PATTERN)
             val duration = readValue(tooltip[line + 1], DURATION_PATTERN)
-            val spec = PowderSpecial.Dodge(damage, duration, 0)
-            return (PowderSpecial.fromPropertyKey(spec.getPropertyKey()) ?: spec) to 2
+            val spec = PowderSpecial.Dodge(damage, duration, tier)
+            return spec to 2
         }
     }
 }

@@ -60,7 +60,7 @@ class TypedStatusTimer(private val type: StatusType,
     }
 
     companion object {
-        private val numberPattern = Pattern.compile("(\\d+(\\.\\d+)?)")
+        private val numberPattern = Pattern.compile("(\\d+\\.?\\d*)")
         fun fromStatus(entry: StatusEntry, worldTime: Long): ITimer? {
             val matcher = numberPattern.matcher(entry.name)
             val values: MutableList<Double> = mutableListOf()
