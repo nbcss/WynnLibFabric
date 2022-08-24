@@ -5,19 +5,19 @@ import java.util.regex.Pattern
 import kotlin.math.max
 
 class TypedStatusTimer(private val type: StatusType,
-                       values: List<Int>,
+                       values: List<Double>,
                        entry: StatusEntry,
                        startTime: Long):
     AbstractFooterEntryTimer(entry, startTime) {
     private val maxDuration: Double? = entry.duration?.plus(1)?.toDouble()
-    private var currentValues: List<Int> = values.toMutableList()
-    private var lastValues: List<Int> = values.toMutableList()
-    private var maxValues: List<Int> = values.toMutableList()
+    private var currentValues: List<Double> = values.toMutableList()
+    private var lastValues: List<Double> = values.toMutableList()
+    private var maxValues: List<Double> = values.toMutableList()
     private var lastUpdated: Long = startTime
 
-    fun getValues(): List<Int> = currentValues
+    fun getValues(): List<Double> = currentValues
 
-    fun getMaxValues(): List<Int> = maxValues
+    fun getMaxValues(): List<Double> = maxValues
 
     override fun updateEntry(currentEntry: StatusEntry) {
         super.updateEntry(currentEntry)
@@ -25,10 +25,10 @@ class TypedStatusTimer(private val type: StatusType,
             return //don't need to update if it doesn't have value
         val matcher = numberPattern.matcher(currentEntry.name)
         var index = 0
-        val nextValues: MutableList<Int> = mutableListOf()
-        val nextMaxValues: MutableList<Int> = mutableListOf()
+        val nextValues: MutableList<Double> = mutableListOf()
+        val nextMaxValues: MutableList<Double> = mutableListOf()
         while (matcher.find()) {
-            val value = matcher.group(1).toInt()
+            val value = matcher.group(1).toDouble()
             nextValues.add(value)
             if (index < maxValues.size) {
                 nextMaxValues.add(max(maxValues[index], value))
@@ -45,7 +45,7 @@ class TypedStatusTimer(private val type: StatusType,
 
     fun getLastUpdateTime(): Long = lastUpdated
 
-    fun getLastValues(): List<Int> = lastValues
+    fun getLastValues(): List<Double> = lastValues
 
     override fun getKey(): String = type.getKey()
 
@@ -60,14 +60,14 @@ class TypedStatusTimer(private val type: StatusType,
     }
 
     companion object {
-        private val numberPattern = Pattern.compile("(\\d+)")
+        private val numberPattern = Pattern.compile("(\\d+(\\.\\d+)?)")
         fun fromStatus(entry: StatusEntry, worldTime: Long): ITimer? {
             val matcher = numberPattern.matcher(entry.name)
-            val values: MutableList<Int> = mutableListOf()
+            val values: MutableList<Double> = mutableListOf()
             var name = entry.name
             while (matcher.find()) {
                 val value = matcher.group(1)
-                values.add(value.toInt())
+                values.add(value.toDouble())
                 name = name.replaceFirst(value, "$")
             }
             StatusType.fromDisplay(entry.icon, name)?.let {

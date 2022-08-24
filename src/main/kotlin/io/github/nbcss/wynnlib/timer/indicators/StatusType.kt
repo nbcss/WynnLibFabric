@@ -62,7 +62,7 @@ abstract class StatusType(data: JsonObject): Keyed {
         RenderKit.renderDefaultOutlineText(matrices, text, posX.toFloat(), posY.toFloat())
     }
 
-    open fun createTimer(entry: StatusEntry, values: List<Int>, worldTime: Long): TypedStatusTimer {
+    open fun createTimer(entry: StatusEntry, values: List<Double>, worldTime: Long): TypedStatusTimer {
         return TypedStatusTimer(this, values, entry, worldTime)
     }
 

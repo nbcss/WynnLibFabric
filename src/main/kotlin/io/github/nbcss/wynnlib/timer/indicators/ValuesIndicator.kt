@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.parseStyle
+import io.github.nbcss.wynnlib.utils.removeDecimal
 import net.minecraft.client.font.TextRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
@@ -13,6 +14,7 @@ import net.minecraft.util.math.MathHelper
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.max
+import kotlin.math.roundToInt
 
 class ValuesIndicator(data: JsonObject): StatusType(data) {
     companion object: Factory {
@@ -22,31 +24,31 @@ class ValuesIndicator(data: JsonObject): StatusType(data) {
         }
         override fun getKey(): String = "VALUE"
     }
-    private val cap: Int?
+    private val cap: Double?
     private val format: String
     init {
         val properties = data["properties"].asJsonObject
-        cap = if (properties.has("max")) properties["max"].asInt else null
+        cap = if (properties.has("max")) properties["max"].asDouble else null
         format = if (properties.has("format")) properties["format"].asString else "%s"
     }
 
-    private fun formatValue(value: Int): String {
+    private fun formatValue(value: Double): String {
         return if (value >= 10000) {
-            "${value / 1000}K"
+            "${(value / 1000).roundToInt()}K"
         }else if (value >= 1000) {
             String.format("%.1fK", value / 1000.0)
         }else{
-            "$value"
+            removeDecimal(value)
         }
     }
 
-    private fun getInterpolatedValue(value: Int,
-                                     lastValue: Int,
+    private fun getInterpolatedValue(value: Double,
+                                     lastValue: Double,
                                      currentTime: Long,
                                      updateTime: Long,
                                      delta: Float): Double {
         if (currentTime - updateTime >= INTERPOLATE_TICKS) {
-            return value.toDouble()
+            return value
         }
         val factor = max(0.0f, ((currentTime - updateTime).toFloat() + delta) / INTERPOLATE_TICKS)
         val smoother = 1.0 - (cos(factor * PI) + 1) / 2
