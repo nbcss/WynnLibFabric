@@ -11,6 +11,7 @@ import io.github.nbcss.wynnlib.timer.SideIndicator
 import io.github.nbcss.wynnlib.timer.StatusEntry
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.formatTimer
+import io.github.nbcss.wynnlib.utils.removeDecimal
 import net.minecraft.client.font.TextRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
@@ -69,7 +70,7 @@ abstract class StatusType(data: JsonObject): Keyed {
     fun asSideIndicator(timer: TypedStatusTimer): SideIndicator? {
         return if (text != null) object : SideIndicator {
             override fun render(matrices: MatrixStack, textRenderer: TextRenderer, posX: Int, posY: Int) {
-                val args: Array<Any> = timer.getValues().map { it.toString() }.toTypedArray()
+                val args: Array<Any> = timer.getValues().map { removeDecimal(it) }.toTypedArray()
                 val displayText = text.formatted(Formatting.GRAY, label = null, args = args)
                 renderText(matrices, timer, displayText, posX, posY)
             }

@@ -155,6 +155,10 @@
   "RICOCHETS": "ricochets.png",
   "LURING": "lure.png",
   "EXTRA_HEALTH": "diversion_health.png",
-  "RAGE": "",
-  "COURAGE": ""
+  "COURAGE": "fire_mastery.png",
+  "RAGE": "earth_mastery.png",
+  "CONCENTRATION": "water_mastery.png",
+  "DODGE": "air_mastery.png",
+  "KILL_STREAK": "thunder_mastery.png",
+  "ENDURANCE": "fire_mastery.png"
 }
