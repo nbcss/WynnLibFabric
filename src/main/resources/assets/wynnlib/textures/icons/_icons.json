@@ -120,6 +120,7 @@
   "HOODWINK": "hoodwink.png",
   "CHOKE_BOMB": "choke_bomb.png",
   "HARVESTER": "harvester.png",
+  "SATSUJIN": "",
   "JASMINE_BLOOM": "jasmine_bloom.png",
   "DIVERSION": "diversion.png",
   "SHAMAN_MAIN_ATTACK": "shaman_main.png",
@@ -153,5 +154,7 @@
   "MASK_OF_THE_AWAKENED": "awakened_mask.png",
   "RICOCHETS": "ricochets.png",
   "LURING": "lure.png",
-  "EXTRA_HEALTH": "diversion_health.png"
+  "EXTRA_HEALTH": "diversion_health.png",
+  "RAGE": "",
+  "COURAGE": ""
 }

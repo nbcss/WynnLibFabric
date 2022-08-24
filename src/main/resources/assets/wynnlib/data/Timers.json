@@ -250,6 +250,15 @@
       "properties": {}
     },
     {
+      "id": "SHADOW_TRAVEL_EFFECT",
+      "type": "TEMP_EFFECT",
+      "icon": "\u00a7a\u27b2",
+      "name": "Shadow Travel",
+      "texture": null,
+      "text": "SHADOW_TRAVEL",
+      "properties": {}
+    },
+    {
       "id": "DELIRIOUS_GAS_EFFECT",
       "type": "TEMP_EFFECT",
       "icon": "\u00a7a\u2694",
@@ -352,6 +361,36 @@
         "max": 8,
         "format": "a{+%s}"
       }
+    },
+    {
+      "id": "GUARDIAN_EFFECT",
+      "type": "TEMP_EFFECT",
+      "icon": "\u00a7a\u2617",
+      "name": "Guardian",
+      "texture": null,
+      "text": "GUARDIAN",
+      "properties": {}
+    },
+    {
+      "id": "RAGE_EFFECT",
+      "type": "VALUE",
+      "icon": "\u00a7a\u2724",
+      "name": "$% Rage",
+      "texture": "RAGE",
+      "text": "RAGE",
+      "properties": {
+        "max": 300,
+        "format": "%s%%"
+      }
+    },
+    {
+      "id": "COURAGE_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2739",
+      "name": "$% Courage",
+      "texture": "COURAGE",
+      "text": "COURAGE",
+      "properties": {}
     }
   ],
   "version": "0.1.0"

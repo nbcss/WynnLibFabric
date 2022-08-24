@@ -378,7 +378,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "HEAVY_IMPACT",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -8191,6 +8194,9 @@
         "CHEAPER_MULTIHIT_2"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "VANISH"
+        },
         "range": 16
       },
       "metadata": null
@@ -8331,8 +8337,14 @@
         "CHEAPER_MULTIHIT_2"
       ],
       "properties": {
+        "upgrade": {
+          "ability": "SPIN_ATTACK"
+        },
         "aoe_modifier": {
           "range": 1
+        },
+        "values": {
+          "1": 1
         }
       },
       "metadata": null

@@ -29,7 +29,7 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
         private val factoryMap: Map<String, Factory<out PowderSpecial>> = mapOf(
             pairs = listOf(
                 Quake, Rage,                //earth
-                ChainLightning, KillStreak,  //thunder
+                ChainLightning, KillStreak, //thunder
                 Courage, Endurance,         //fire
                 Curse, Concentration,       //water
                 WindPrison, Dodge,          //air
@@ -44,7 +44,7 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
         }
 
         override fun put(item: PowderSpecial) {
-            PROPERTY_MAP[item.getPropertyKey()] = item
+            PROPERTY_MAP[item.getTier().toString()] = item
             super.put(item)
         }
 
@@ -57,9 +57,11 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
     fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = mutableListOf()
         val color = getType().getElement().color
-        val title = getType().formatted(color)
+        val title = LiteralText(getType().getElement().icon).formatted(color)
+            .append(" ").append(getType().formatted(color))
+        //val title = getType().formatted(color)
         if (getTier() > 0) {
-            title.append(LiteralText(" [${tierOf(getTier())}]").formatted(Formatting.DARK_GRAY))
+            title.append(" [${tierOf(getTier())}]")
         }
         tooltip.add(title)
         for (text in getPropertyTooltip()) {
@@ -93,11 +95,11 @@ abstract class PowderSpecial(private val tier: Int): Keyed {
 
         override fun getPropertyTooltip(): List<Text> {
             val tooltip: MutableList<Text> = mutableListOf()
+            tooltip.add(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: ${damage}%")
+                .formatted(Formatting.GRAY).append(LiteralText("✤").formatted(Formatting.DARK_GREEN)))
             tooltip.add((LiteralText("${TOOLTIP_POWDER_SPEC_RADIUS.translate().string}: ")
                 .formatted(Formatting.GRAY))
                 .append(SUFFIX_POWDER_SPEC_BLOCKS.formatted(Formatting.GRAY, label = null, radius)))
-            tooltip.add(LiteralText("${TOOLTIP_POWDER_SPEC_DAMAGE.translate().string}: ${damage}% ✤")
-                .formatted(Formatting.GRAY))
             return tooltip
         }
 
