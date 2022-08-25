@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -65,7 +66,7 @@ open class DamageBonusProperty(ability: Ability,
     }
 
     class PerFocus(ability: Ability, bonus: Int):
-        DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty {
+        DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty, OverviewProvider {
         companion object: Type<PerFocus> {
             override fun create(ability: Ability, data: JsonElement): PerFocus {
                 return PerFocus(ability, data.asInt)
@@ -74,6 +75,12 @@ open class DamageBonusProperty(ability: Ability,
         }
 
         override fun getSuffix(): String = "%"
+
+        override fun getOverviewTip(): Text {
+            return Symbol.DAMAGE.asText().append(" ").append(
+                LiteralText("+$bonus%").formatted(Formatting.WHITE)
+            )
+        }
 
         override fun getDamageBonusLabel(): Text? {
             return LiteralText(" (").formatted(Formatting.DARK_GRAY)

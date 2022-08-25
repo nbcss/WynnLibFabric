@@ -410,7 +410,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "EARTH_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -441,7 +444,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "THUNDER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -472,7 +478,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "AIR_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -501,7 +510,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "FIRE_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -532,7 +544,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "WATER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -2313,7 +2328,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "HEART_SHATTER"
+        "icon": "HEART_SHATTER",
+        "overview": [
+          "damage"
+        ]
       }
     },
     {
@@ -2563,7 +2581,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "AIR_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -2594,7 +2615,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "THUNDER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -2625,7 +2649,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "FIRE_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -2654,7 +2681,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "EARTH_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -2685,7 +2715,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "WATER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -2842,7 +2875,8 @@
         "type": "EXTEND",
         "icon": "FIRE_CREEP",
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -3021,7 +3055,11 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "FOCUS"
+        "icon": "FOCUS",
+        "overview": [
+          "focus_damage_bonus",
+          "max_focus"
+        ]
       }
     },
     {
@@ -3394,7 +3432,8 @@
         "icon": "TWAINS_ARC",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "range"
         ]
       }
     },
@@ -3538,7 +3577,10 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "LEAP"
+        "icon": "LEAP",
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -4294,7 +4336,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "SNOW_STORM",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "range"
+        ]
       }
     },
     {
@@ -4766,7 +4811,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "AIR_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -4796,7 +4844,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "THUNDER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -4825,7 +4876,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "FIRE_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -4854,7 +4908,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "EARTH_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -4884,7 +4941,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "WATER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -6978,7 +7038,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "EARTH_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -7007,7 +7070,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "THUNDER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -7037,7 +7103,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "WATER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -7067,7 +7136,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "AIR_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -7097,7 +7169,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "FIRE_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -7779,7 +7854,10 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "HOP"
+        "icon": "HOP",
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -9142,7 +9220,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "EARTH_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -9173,7 +9254,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "AIR_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -9204,7 +9288,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "THUNDER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -9233,7 +9320,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "FIRE_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -9302,7 +9392,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "WATER_MASTERY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "element_mastery"
+        ]
       }
     },
     {
@@ -9425,7 +9518,8 @@
         "icon": "RAIN_DANCE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -9469,7 +9563,8 @@
         "type": "EXTEND",
         "icon": "PUPPET_MASTER",
         "overview": [
-          "damage"
+          "damage",
+          "max_puppet"
         ]
       }
     },
@@ -9655,7 +9750,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "STAGNATION",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -10303,13 +10401,15 @@
           "neutral": 50,
           "water": 50
         },
-        "duration": 60
+        "duration": 60,
+        "max_effigy": 1
       },
       "metadata": {
         "type": "EXTEND",
         "icon": "CRIMSON_EFFIGY",
         "overview": [
-          "damage"
+          "damage",
+          "max_effigy"
         ]
       }
     },
@@ -10433,7 +10533,11 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "MADDENING_ROOTS"
+        "icon": "MADDENING_ROOTS",
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -10500,6 +10604,7 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "CHANT_OF_THE_COWARD",
+        "upgradable": false,
         "overview": [
           "damage"
         ]
@@ -10527,6 +10632,10 @@
       "properties": {
         "upgrade": {
           "ability": "SACRIFICIAL_SHRINE"
+        },
+        "values": {
+          "1": 25,
+          "2": 10
         }
       },
       "metadata": null
@@ -10552,7 +10661,8 @@
       "properties": {
         "upgrade": {
           "ability": "CRIMSON_EFFIGY"
-        }
+        },
+        "max_effigy_modifier": 1
       },
       "metadata": null
     },
@@ -10592,7 +10702,11 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "CHANT_OF_THE_FANATIC",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration",
+          "cooldown"
+        ]
       }
     },
     {
@@ -10681,7 +10795,10 @@
         "effects": {
           "SUMMONS_ATTACK_SPEED": 100
         },
-        "duration": 3
+        "duration": 3,
+        "values": {
+          "1": 3
+        }
       },
       "metadata": {
         "type": "EXTEND",
@@ -10816,12 +10933,19 @@
         "damage_modifier": {
           "neutral": -5
         },
-        "duration": 15
+        "duration": 15,
+        "shepherd": {
+          "inc": 1,
+          "max": 8
+        }
       },
       "metadata": {
         "type": "EXTEND",
         "icon": "SHEPHERD",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -10918,7 +11042,10 @@
           "SELF_RESISTANCE": 30,
           "SELF_WALK_SPEED": 25
         },
-        "duration": 20
+        "duration": 20,
+        "values": {
+          "1": 200
+        }
       },
       "metadata": {
         "type": "NEW",

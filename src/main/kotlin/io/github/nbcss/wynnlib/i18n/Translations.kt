@@ -112,5 +112,6 @@ object Translations {
     val TOOLTIP_ABILITY_ASSASSIN_MARKED: Translatable = from("wynnlib.gameplay.assassin_marked")
     val TOOLTIP_ABILITY_SHAMAN_TOTEM: Translatable = from("wynnlib.gameplay.shaman_totem")
     val TOOLTIP_ABILITY_SHAMAN_PUPPET: Translatable = from("wynnlib.gameplay.shaman_puppet")
+    val TOOLTIP_ABILITY_SHAMAN_EFFIGY: Translatable = from("wynnlib.gameplay.shaman_effigy")
     val TOOLTIP_ABILITY_SHAMAN_BLOOD_POOL: Translatable = from("wynnlib.gameplay.shaman_blood_pool")
 }

@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.utils.range.IRange
@@ -16,7 +17,7 @@ import net.minecraft.util.Formatting
 
 class ElementMasteryProperty(ability: Ability,
                              private val booster: Booster):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<ElementMasteryProperty> {
         private const val ELEMENT_KEY: String = "element"
         private const val RAW_KEY: String = "raw"
@@ -28,6 +29,27 @@ class ElementMasteryProperty(ability: Ability,
     }
 
     fun getElementBooster(): Booster = booster
+
+    override fun getOverviewTip(): Text {
+        val text = LiteralText("")
+        var space = false
+        if(!booster.getRawBooster().isZero()){
+            text.append(LiteralText(booster.getElement().icon).formatted(booster.getElement().color).append(" "))
+            var value = "+${booster.getRawBooster().lower()}"
+            if(!booster.getRawBooster().isConstant()){
+                value = "$value-${booster.getRawBooster().upper()}"
+            }
+            text.append(LiteralText(value).formatted(Formatting.WHITE))
+            space = true
+        }
+        if(booster.getPctBooster() != 0){
+            if (space)
+                text.append(" ")
+            text.append(LiteralText(booster.getElement().icon).formatted(booster.getElement().color).append(" "))
+            text.append(LiteralText("+${booster.getPctBooster()}%").formatted(Formatting.WHITE))
+        }
+        return text
+    }
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)

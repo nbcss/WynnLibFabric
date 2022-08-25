@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -16,7 +17,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class CooldownProperty(ability: Ability, private val cooldown: Double):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<CooldownProperty> {
         override fun create(ability: Ability, data: JsonElement): CooldownProperty {
             return CooldownProperty(ability, data.asDouble)
@@ -25,6 +26,12 @@ class CooldownProperty(ability: Ability, private val cooldown: Double):
     }
 
     fun getCooldown(): Double = cooldown
+
+    override fun getOverviewTip(): Text {
+        return Symbol.COOLDOWN.asText().append(" ").append(
+            Translations.TOOLTIP_SUFFIX_S.formatted(Formatting.WHITE, null, removeDecimal(cooldown))
+        )
+    }
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)

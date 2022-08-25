@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.abilities.properties.archer
+package io.github.nbcss.wynnlib.abilities.properties.shaman
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
@@ -12,31 +12,32 @@ import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.colorOf
+import io.github.nbcss.wynnlib.utils.removeDecimal
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class MaxFocusProperty(ability: Ability,
-                       private val maxFocus: Int):
+class MaxEffigyProperty(ability: Ability,
+                        private val maxLimit: Int):
     AbilityProperty(ability), SetupProperty, OverviewProvider {
-    companion object: Type<MaxFocusProperty> {
-        override fun create(ability: Ability, data: JsonElement): MaxFocusProperty {
-            return MaxFocusProperty(ability, data.asInt)
+    companion object: Type<MaxEffigyProperty> {
+        override fun create(ability: Ability, data: JsonElement): MaxEffigyProperty {
+            return MaxEffigyProperty(ability, data.asInt)
         }
-        override fun getKey(): String = "max_focus"
+        override fun getKey(): String = "max_effigy"
     }
 
-    fun getMaxFocus(): Int = maxFocus
+    fun getMaxLimit(): Int = maxLimit
 
     override fun getOverviewTip(): Text {
         return Symbol.CHARGE.asText().append(" ").append(
-            LiteralText("$maxFocus").formatted(Formatting.WHITE)
+            LiteralText("$maxLimit").formatted(Formatting.WHITE)
         )
     }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
-        container.putPlaceholder(getKey(), getMaxFocus().toString())
+        container.putPlaceholder(getKey(), getMaxLimit().toString())
     }
 
     override fun setup(entry: PropertyEntry) {
@@ -44,10 +45,10 @@ class MaxFocusProperty(ability: Ability,
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
-        val focus = Translations.TOOLTIP_ABILITY_ARCHER_FOCUS.translate().string
-        return listOf(Symbol.CHARGE.asText().append(" ")
-            .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${focus}): "))
-            .append(LiteralText(getMaxFocus().toString()).formatted(Formatting.WHITE)))
+        val name = Translations.TOOLTIP_ABILITY_SHAMAN_EFFIGY.translate().string
+        return listOf(Symbol.ALTER_HITS.asText().append(" ")
+            .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${name}): "))
+            .append(LiteralText(getMaxLimit().toString()).formatted(Formatting.WHITE)))
     }
 
     class Modifier(ability: Ability, private val modifier: Int):
@@ -56,26 +57,26 @@ class MaxFocusProperty(ability: Ability,
             override fun create(ability: Ability, data: JsonElement): Modifier {
                 return Modifier(ability, data.asInt)
             }
-            override fun getKey(): String = "max_focus_modifier"
+            override fun getKey(): String = "max_effigy_modifier"
         }
 
-        fun getFocusModifier(): Int = modifier
+        fun getModifier(): Int = modifier
 
         override fun writePlaceholder(container: PlaceholderContainer) {
-            container.putPlaceholder(getKey(), getFocusModifier().toString())
+            container.putPlaceholder(getKey(), getModifier().toString())
         }
 
         override fun modify(entry: PropertyEntry) {
-            MaxFocusProperty.from(entry)?.let {
-                val focus = it.getMaxFocus() + getFocusModifier()
-                entry.setProperty(MaxFocusProperty.getKey(), MaxFocusProperty(it.getAbility(), focus))
+            MaxEffigyProperty.from(entry)?.let {
+                val limit = it.getMaxLimit() + getModifier()
+                entry.setProperty(MaxEffigyProperty.getKey(), MaxEffigyProperty(it.getAbility(), limit))
             }
         }
 
         override fun getTooltip(provider: PropertyProvider): List<Text> {
-            val focus = Translations.TOOLTIP_ABILITY_ARCHER_FOCUS.translate().string
-            return listOf(Symbol.CHARGE.asText().append(" ")
-                .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${focus}): "))
+            val name = Translations.TOOLTIP_ABILITY_SHAMAN_EFFIGY.translate().string
+            return listOf(Symbol.ALTER_HITS.asText().append(" ")
+                .append(Translations.TOOLTIP_ABILITY_MAX.formatted(Formatting.GRAY).append(" (${name}): "))
                 .append(LiteralText(signed(modifier)).formatted(colorOf(modifier))))
         }
     }

@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -18,7 +19,7 @@ import net.minecraft.util.Formatting
 
 class MaxPuppetProperty(ability: Ability,
                         private val maxLimit: Int):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<MaxPuppetProperty> {
         override fun create(ability: Ability, data: JsonElement): MaxPuppetProperty {
             return MaxPuppetProperty(ability, data.asInt)
@@ -27,6 +28,12 @@ class MaxPuppetProperty(ability: Ability,
     }
 
     fun getMaxLimit(): Int = maxLimit
+
+    override fun getOverviewTip(): Text {
+        return Symbol.CHARGE.asText().append(" ").append(
+            LiteralText("$maxLimit").formatted(Formatting.WHITE)
+        )
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder(getKey(), getMaxLimit().toString())
