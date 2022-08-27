@@ -34,7 +34,7 @@ data class StatusEntry(val icon: String,
                     for (entry in list) {
                         val timer = ITimer.fromEntry(entry)
                         entries[timer.getKey()] = entry
-                        TimerManager.registerTimer(timer)
+                        IndicatorManager.registerTimer(timer)
                     }
                 }
             }else{

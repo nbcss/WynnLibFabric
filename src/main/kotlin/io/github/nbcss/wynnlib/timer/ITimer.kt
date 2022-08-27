@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.timer
 
-import io.github.nbcss.wynnlib.timer.indicators.TypedStatusTimer
+import io.github.nbcss.wynnlib.timer.status.TypedStatusTimer
 import io.github.nbcss.wynnlib.utils.Keyed
 
 interface ITimer: Keyed {
@@ -16,7 +16,7 @@ interface ITimer: Keyed {
 
         fun fromEntry(entry: StatusEntry): ITimer {
             //println(StringEscapeUtils.escapeJava(entry.icon) + " ${entry.name}")
-            val worldTime = TimerManager.getWorldTime()
+            val worldTime = IndicatorManager.getWorldTime()
             TypedStatusTimer.fromStatus(entry, worldTime)?.let { return it }
             return SimpleTimer(entry, worldTime)
         }

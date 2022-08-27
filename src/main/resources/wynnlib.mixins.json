@@ -20,7 +20,9 @@
     "timer.PlayerListUpdateMixin",
     "timer.ResetLevelMixin",
     "timer.TimerHUDMixin",
-    "timer.TimeUpdateMixin"
+    "timer.TimeUpdateMixin",
+    "world.ArmourStandEntityMixin",
+    "world.ArmourStandUpdateMixin"
   ],
   "client": [
     "render.ItemGuiLightingFixMixin"

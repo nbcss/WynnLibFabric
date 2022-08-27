@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.timer
 
-object TimerManager {
+object IndicatorManager {
     private val timerMap: MutableMap<String, ITimer> = mutableMapOf()
     private var worldTime: Long = 0
 
@@ -19,7 +19,7 @@ object TimerManager {
         return key in timerMap
     }
 
-    fun updateWorldTime(time: Long) {
+    fun update(time: Long) {
         synchronized(this) {
             worldTime = time
             val keys = timerMap.keys.toList()

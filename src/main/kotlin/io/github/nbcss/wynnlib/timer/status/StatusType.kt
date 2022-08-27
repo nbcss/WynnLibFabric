@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.timer.indicators
+package io.github.nbcss.wynnlib.timer.status
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject

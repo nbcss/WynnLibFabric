@@ -4,11 +4,12 @@ import io.github.nbcss.wynnlib.abilities.IconTexture
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
+import io.github.nbcss.wynnlib.events.EventRegistry
 import io.github.nbcss.wynnlib.events.InventoryUpdateEvent
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
 import io.github.nbcss.wynnlib.registry.*
-import io.github.nbcss.wynnlib.timer.indicators.StatusType
+import io.github.nbcss.wynnlib.timer.status.StatusType
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -42,7 +43,7 @@ object WynnLibEntry: ModInitializer {
             }
         })
         //Register events
-        InventoryUpdateEvent.registerListener(AbilityTreeHandler)
+        EventRegistry.registerEvents()
     }
 
     private fun registerKey(name: String, key: Int): KeyBinding {

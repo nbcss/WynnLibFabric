@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.mixins.timer;
 
 import io.github.nbcss.wynnlib.timer.IconIndicator;
 import io.github.nbcss.wynnlib.timer.SideIndicator;
-import io.github.nbcss.wynnlib.timer.TimerManager;
+import io.github.nbcss.wynnlib.timer.IndicatorManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -16,8 +16,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
-
-import static io.github.nbcss.wynnlib.utils.UtilsKt.formatTimer;
 
 @Mixin(InGameHud.class)
 public abstract class TimerHUDMixin {
@@ -38,7 +36,7 @@ public abstract class TimerHUDMixin {
     }
 
     private void renderSideTimers(MatrixStack matrices) {
-        List<SideIndicator> timers = TimerManager.INSTANCE.getSideTimers();
+        List<SideIndicator> timers = IndicatorManager.INSTANCE.getSideTimers();
         int posX = 3;
         int posY = (client.getWindow().getScaledHeight() - 11 * timers.size()) / 2;
         for (SideIndicator timer : timers) {
@@ -48,7 +46,7 @@ public abstract class TimerHUDMixin {
     }
 
     private void renderIconTimers(MatrixStack matrices, float delta) {
-        List<IconIndicator> timers = TimerManager.INSTANCE.getIconTimers();
+        List<IconIndicator> timers = IndicatorManager.INSTANCE.getIconTimers();
         //unit = 28 per timer
         int posX = client.getWindow().getScaledWidth() / 2 - timers.size() * 14;
         int posY = client.getWindow().getScaledHeight() - 108;

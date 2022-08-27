@@ -21,6 +21,7 @@ Put the jar files of all dependency mod and this mod into mods folder, and start
 - [x] Ability Tree Editor
 - [x] Ability Indicator (Timer)
 - [x] Item Analysis (Partially works)
+- [ ] Custom Indicators
 - [ ] Advance Search Panel
 - [ ] Crafter
 - [ ] Configuration Page
