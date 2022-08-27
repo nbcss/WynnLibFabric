@@ -1,12 +1,15 @@
 package io.github.nbcss.wynnlib.timer.custom
 
 import io.github.nbcss.wynnlib.abilities.IconTexture
+import io.github.nbcss.wynnlib.abilities.properties.general.DurationProperty
 import io.github.nbcss.wynnlib.events.ArmourStandUpdateEvent
 import io.github.nbcss.wynnlib.events.EventHandler
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.timer.ITimer
 import io.github.nbcss.wynnlib.timer.IconIndicator
 import io.github.nbcss.wynnlib.timer.IndicatorManager
+import io.github.nbcss.wynnlib.timer.TimeTracker
 import io.github.nbcss.wynnlib.timer.status.StatusType
 import io.github.nbcss.wynnlib.utils.Color
 import net.minecraft.client.MinecraftClient
@@ -23,16 +26,14 @@ import kotlin.math.roundToInt
 
 class HoundTimerIndicator(private val entity: ArmorStandEntity,
                           startTime: Long): ITimer, IconIndicator {
-    private var currentTime: Long = startTime
-    private var endTime: Long = startTime + toEndTime(startTime, 59)
-
-    protected fun toEndTime(time: Long, duration: Int): Long {
-        return time + duration.times(20).minus(1).toLong()
-    }
+    private val duration: Double = AbilityRegistry.get("CALL_OF_THE_HOUND")
+        ?.let{ DurationProperty.from(it) }?.getDuration() ?: 60.0
+    private val timeTracker: TimeTracker = TimeTracker(startTime, duration.toInt())
 
     companion object: EventHandler<ArmourStandUpdateEvent> {
         private val HOUND_PATTERN = Pattern.compile("§b(.+)'s?§7 Hound")
         private val TIMER_PATTERN = Pattern.compile("§7(\\d+)s")
+        private val client = MinecraftClient.getInstance()
         override fun handle(event: ArmourStandUpdateEvent) {
             event.entity.customName?.let { name ->
                 val matcher = HOUND_PATTERN.matcher(name.asString())
@@ -47,36 +48,29 @@ class HoundTimerIndicator(private val entity: ArmorStandEntity,
     }
 
     override fun isExpired(): Boolean {
-        return MinecraftClient.getInstance().world!!.getEntityById(entity.id) == null
+        return client.world!!.getEntityById(entity.id) == null
     }
 
     override fun updateWorldTime(time: Long) {
-        currentTime = time
-        val timer = MinecraftClient.getInstance().world!!.getEntityById(entity.id + 1)
+        timeTracker.setWorldTime(time)
+        val timer = client.world!!.getEntityById(entity.id + 1)
         if (timer != null) {
             timer.customName?.let { name ->
                 val matcher = TIMER_PATTERN.matcher(name.asString())
                 if (matcher.find()) {
-                    val duration = matcher.group(1).toInt()
-                    val upperTime = toEndTime(currentTime, duration + 1)
-                    val lowerTime = toEndTime(currentTime, duration)
-                    if (endTime - upperTime >= 10) {
-                        endTime = upperTime
-                    }else if(lowerTime - endTime >= 10) {
-                        endTime = lowerTime
-                    }
+                    val duration = max(0, matcher.group(1).toInt() - 1)
+                    timeTracker.updateRemainTime(duration)
                 }
             }
         }
     }
 
     override fun getDuration(): Double {
-        val time = (endTime - currentTime) / 20.0
-        return max(0.0, time)
+        return timeTracker.getDuration()
     }
 
     override fun getFullDuration(): Double {
-        return 60.0
+        return duration
     }
 
     override fun getKey(): String {

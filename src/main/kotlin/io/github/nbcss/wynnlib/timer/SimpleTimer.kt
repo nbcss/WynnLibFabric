@@ -25,16 +25,9 @@ class SimpleTimer(entry: StatusEntry,
     }
 
     override fun updateEntry(currentEntry: StatusEntry) {
-        val currentTime = IndicatorManager.getWorldTime()
         if (currentEntry.duration != null) {
-            val upperTime = toEndTime(currentTime, currentEntry.duration + 1)
-            val lowerTime = toEndTime(currentTime, currentEntry.duration)
-            if (endTime - upperTime >= 10) {
-                maxDuration = entry.duration?.toDouble()
-                endTime = upperTime
-            }else if(lowerTime - endTime >= 10) {
-                maxDuration = entry.duration?.toDouble()
-                endTime = lowerTime
+            if (timeTracker.updateRemainTime(currentEntry.duration)){
+                maxDuration = entry.duration?.toDouble()?.plus(1)
             }
         }
     }
