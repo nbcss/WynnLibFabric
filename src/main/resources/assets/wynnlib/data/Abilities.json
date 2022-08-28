@@ -9359,6 +9359,7 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "NATURES_JOLT",
+        "upgradable": false,
         "overview": [
           "damage"
         ]
@@ -9892,11 +9893,15 @@
         "MORE_BLOOD_POOL_1"
       ],
       "properties": {
-        "upgrade": {
-          "ability": "MASK_OF_THE_LUNATIC"
+        "extend": {
+          "ability": "AURA"
         }
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "HYMN_OF_HATE",
+        "upgradable": false
+      }
     },
     {
       "id": "MORE_BLOOD_POOL_1",
@@ -10072,7 +10077,12 @@
       "predecessors": [
         "MASK_OF_THE_FANATIC"
       ],
-      "properties": {},
+      "properties": {
+        "values": {
+          "1": 2,
+          "2": 30
+        }
+      },
       "metadata": {
         "type": "NEW",
         "icon": "MASQUERADE"
@@ -10271,7 +10281,7 @@
       ],
       "properties": {
         "upgrade": {
-          "ability": "MASK_OF_THE_FANATIC"
+          "ability": "TOTEM"
         },
         "range": 30
       },
@@ -10370,6 +10380,10 @@
       "properties": {
         "upgrade": {
           "ability": "MASQUERADE"
+        },
+        "values": {
+          "1": -1,
+          "2": 10
         }
       },
       "metadata": null
