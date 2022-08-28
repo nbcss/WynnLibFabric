@@ -1,8 +1,10 @@
 package io.github.nbcss.wynnlib.mixins.render;
 
+import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent;
 import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
 import io.github.nbcss.wynnlib.render.RenderKit;
 import io.github.nbcss.wynnlib.utils.Color;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.item.ItemRenderer;
@@ -36,10 +38,30 @@ public class ItemBackgroundMixin extends Screen {
         drawColorSlot(stack, x, y);
     }
 
+    @Redirect(method = "drawItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;renderGuiItemOverlay(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V"))
+    public void drawItemInvoke(ItemRenderer instance, TextRenderer renderer, ItemStack stack, int x, int y, String countLabel) {
+        if (drawOverrides(renderer, stack, x, y))
+            return;
+        instance.renderGuiItemOverlay(renderer, stack, x, y, countLabel);
+    }
+
     @Redirect(method = "drawSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;renderInGuiWithOverrides(Lnet/minecraft/entity/LivingEntity;Lnet/minecraft/item/ItemStack;III)V"))
     public void redirect(ItemRenderer instance, LivingEntity entity, ItemStack stack, int x, int y, int seed){
         drawColorSlot(stack, x, y);
         instance.renderInGuiWithOverrides(entity, stack, x, y, seed);
+    }
+
+    @Redirect(method = "drawSlot", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;renderGuiItemOverlay(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V"))
+    public void redirect(ItemRenderer instance, TextRenderer renderer, ItemStack stack, int x, int y, String countLabel){
+        if (drawOverrides(renderer, stack, x, y))
+            return;
+        instance.renderGuiItemOverlay(renderer, stack, x, y, countLabel);
+    }
+
+    private boolean drawOverrides(TextRenderer renderer, ItemStack stack, int x, int y) {
+        RenderItemOverrideEvent event = new RenderItemOverrideEvent(renderer, stack, x, y);
+        RenderItemOverrideEvent.Companion.handleEvent(event);
+        return event.getCancelled();
     }
 
     private void drawColorSlot(ItemStack stack, int x, int y) {
