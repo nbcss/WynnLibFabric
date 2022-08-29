@@ -5476,7 +5476,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": "LIGHT_BENDER",
-      "dependency": "HEALER",
+      "dependency": "HEAL",
       "blocks": [
         "ARCANE_TRANSFER"
       ],
@@ -5553,7 +5553,9 @@
       "archetype": "LIGHT_BENDER",
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "LIGHT_BENDER": 2
+      },
       "predecessors": [
         "CHEAPER_ICE_SNAKE_1",
         "CHEAPER_TELEPORT_2"
@@ -5940,11 +5942,10 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         },
         "damage": {
-          "neutral": 30,
+          "neutral": 40,
           "fire": 20
         },
         "lightweaver": {
@@ -6307,12 +6308,22 @@
         "CHAOS_EXPLOSION"
       ],
       "properties": {
-        "upgrade": {
-          "spell": "SPELL_4"
+        "extend": {
+          "ability": "ICE_SNAKE"
         },
-        "duration": 2
+        "effects": {
+          "ENEMIES_SLOWNESS": 100
+        },
+        "duration": 1
       },
-      "metadata": null
+      "metadata": {
+        "type": "EXTEND",
+        "icon": "ARCTIC_SNAKE",
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
+      }
     },
     {
       "id": "ARCANE_POWER",
@@ -6564,7 +6575,7 @@
       "dependency": "ARCANE_TRANSFER",
       "blocks": [],
       "archetype_requirements": {
-        "ARCANIST": 11
+        "ARCANIST": 12
       },
       "predecessors": [
         "LARGER_MANA_BANK_3"

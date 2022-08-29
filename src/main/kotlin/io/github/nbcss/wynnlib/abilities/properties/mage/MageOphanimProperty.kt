@@ -56,7 +56,7 @@ class MageOphanimProperty(ability: Ability,
         tooltip.add(Symbol.HEART.asText().append(" ")
             .append(TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_HP.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText(lightOfOrb.health.toString()).formatted(Formatting.WHITE)))
-        tooltip.add(Symbol.HEART.asText().append(" ")
+        tooltip.add(Symbol.DARK_HEART.asText().append(" ")
             .append(TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_LOSS.formatted(Formatting.GRAY).append(": "))
             .append(LiteralText("${lightOfOrb.healthLose}%").formatted(Formatting.WHITE))
             .append(LiteralText(" (${DamageMultiplier.Label.ATTACK.translate().string})")
