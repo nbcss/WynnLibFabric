@@ -5,8 +5,11 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
+import io.github.nbcss.wynnlib.utils.Symbol
+import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -14,7 +17,7 @@ import net.minecraft.util.Formatting
 class AbilityDamageBonusProperty(ability: Ability,
                                  bonus: Int,
                                  private val target: String?):
-    DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty {
+    DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty, OverviewProvider {
     companion object: Type<AbilityDamageBonusProperty> {
         override fun create(ability: Ability, data: JsonElement): AbilityDamageBonusProperty {
             val json = data.asJsonObject
@@ -25,6 +28,12 @@ class AbilityDamageBonusProperty(ability: Ability,
         override fun getKey(): String = "ability_damage_bonus"
         private const val TARGET_KEY = "ability"
         private const val BONUS_KEY = "bonus"
+    }
+
+    override fun getOverviewTip(): Text {
+        return Symbol.DAMAGE.asText().append(" ").append(
+            LiteralText("${signed(bonus)}%").formatted(Formatting.WHITE)
+        )
     }
 
     override fun writePlaceholder(container: PlaceholderContainer) {

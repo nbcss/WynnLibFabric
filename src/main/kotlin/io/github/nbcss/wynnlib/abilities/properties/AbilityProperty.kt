@@ -109,6 +109,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 ShurikensBounceProperty.Modifier,
                 MaxMarkedProperty,
                 MaxMarkedProperty.Modifier,
+                SatsujinProperty,
                 BloomAoEProperty,
                 MantleResistanceProperty,
                 CorruptedProperty,

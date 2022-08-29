@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -18,7 +19,7 @@ import net.minecraft.util.Formatting
 
 class ShurikensBounceProperty(ability: Ability,
                               private val bounce: Int):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<ShurikensBounceProperty> {
         override fun create(ability: Ability, data: JsonElement): ShurikensBounceProperty {
             return ShurikensBounceProperty(ability, data.asInt)
@@ -27,6 +28,14 @@ class ShurikensBounceProperty(ability: Ability,
     }
 
     fun getBounces(): Int = bounce
+
+    override fun getOverviewTip(): Text? {
+        if (bounce <= 0)
+            return null
+        return Symbol.ALTER_HITS.asText().append(" ").append(
+            LiteralText("$bounce").formatted(Formatting.WHITE)
+        )
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder(getKey(), bounce.toString())

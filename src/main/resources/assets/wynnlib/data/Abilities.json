@@ -7101,12 +7101,12 @@
         "spell": "SPELL_3",
         "mana_cost": 45,
         "damage": {
-          "neutral": 25,
+          "neutral": 30,
           "water": 10,
           "hits": 8,
           "label": "HIT"
         },
-        "range": 4
+        "range": 3
       },
       "metadata": {
         "type": "SPELL",
@@ -7397,7 +7397,8 @@
         "type": "EXTEND",
         "icon": "VANISH",
         "overview": [
-          "duration"
+          "duration",
+          "cooldown"
         ]
       }
     },
@@ -7484,7 +7485,10 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "SURPRISE_STRIKE"
+        "icon": "SURPRISE_STRIKE",
+        "overview": [
+          "ability_damage_bonus"
+        ]
       }
     },
     {
@@ -7512,15 +7516,24 @@
           "ability": "VANISH"
         },
         "clones": 3,
+        "duration": 60,
         "cooldown": 20,
         "ability_damage_bonus": {
           "ability": "MIRROR_IMAGE",
           "bonus": 0
+        },
+        "values": {
+          "1": 80,
+          "2": 1
         }
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "MIRROR_IMAGE"
+        "icon": "MIRROR_IMAGE",
+        "overview": [
+          "clones",
+          "cooldown"
+        ]
       }
     },
     {
@@ -7545,7 +7558,7 @@
       ],
       "properties": {
         "damage": {
-          "neutral": 50,
+          "neutral": 60,
           "water": 10,
           "air": 20,
           "hits": 3,
@@ -7847,7 +7860,8 @@
         "icon": "BLAZING_POWDER",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -7934,7 +7948,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "SANDBAGGING",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -8017,7 +8034,7 @@
       ],
       "properties": {
         "aoe": {
-          "range": 6,
+          "range": 8,
           "shape": "CIRCLE"
         },
         "values": {
@@ -8061,7 +8078,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "DELIRIOUS_GAS",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -8086,16 +8106,20 @@
         "extend": {
           "ability": "SMOKE_BOMB"
         },
-        "marked_damage_bonus": 10,
-        "max_marked": 5,
-        "cooldown": 0.5,
+        "marked_damage_bonus": 8,
+        "max_marked": 4,
+        "cooldown": 0.4,
         "values": {
           "1": 1
         }
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "MARKED"
+        "icon": "MARKED",
+        "overview": [
+          "marked_damage_bonus",
+          "max_marked"
+        ]
       }
     },
     {
@@ -8161,7 +8185,8 @@
         "type": "EXTEND",
         "icon": "SHURIKENS",
         "overview": [
-          "damage"
+          "damage",
+          "shurikens_bounce"
         ]
       }
     },
@@ -8200,7 +8225,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "MULTIHIT",
       "blocks": [
         "BACKSTAB"
       ],
@@ -8330,7 +8355,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "PARRY",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -8343,7 +8371,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "SPIN_ATTACK",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -8394,7 +8422,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "MULTIHIT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -8470,7 +8498,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "CHOKE_BOMB",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -8582,8 +8613,8 @@
           "ability": "VIOLENT_VORTEX"
         },
         "values": {
-          "1": 3,
-          "2": 60
+          "1": 3.5,
+          "2": 40
         }
       },
       "metadata": null
@@ -8773,6 +8804,9 @@
         "HARVESTER"
       ],
       "properties": {
+        "satsujin": {
+          "damage_bonus": 150
+        },
         "cooldown": 30,
         "values": {
           "1": 3,
@@ -8782,7 +8816,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "SATSUJIN",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -8836,7 +8873,7 @@
           "water": 15,
           "earth": 5
         },
-        "damage_interval": 0.4,
+        "damage_interval": 0.3,
         "duration": 5,
         "bloom_aoe": {
           "range": 2,
@@ -8851,7 +8888,8 @@
         "icon": "JASMINE_BLOOM",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -8880,13 +8918,16 @@
         "cooldown": 3,
         "values": {
           "1": 40,
-          "2": 4
+          "2": 10
         }
       },
       "metadata": {
         "type": "EXTEND",
         "icon": "DIVERSION",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -8959,7 +9000,7 @@
         "upgrade": {
           "ability": "MARKED"
         },
-        "marked_damage_bonus": 5
+        "marked_damage_bonus": 4
       },
       "metadata": null
     },

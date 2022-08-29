@@ -103,7 +103,7 @@ open class DamageBonusProperty(ability: Ability,
     }
 
     class PerMarked(ability: Ability, bonus: Int):
-        DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty {
+        DamageBonusProperty(ability, bonus), SetupProperty, ModifiableProperty, OverviewProvider {
         companion object: Type<PerMarked> {
             override fun create(ability: Ability, data: JsonElement): PerMarked {
                 return PerMarked(ability, data.asInt)
@@ -112,6 +112,12 @@ open class DamageBonusProperty(ability: Ability,
         }
 
         override fun getSuffix(): String = "%"
+
+        override fun getOverviewTip(): Text {
+            return Symbol.DAMAGE.asText().append(" ").append(
+                LiteralText("+$bonus%").formatted(Formatting.WHITE)
+            )
+        }
 
         override fun writePlaceholder(container: PlaceholderContainer) {
             container.putPlaceholder(getKey(), bonus.toString())

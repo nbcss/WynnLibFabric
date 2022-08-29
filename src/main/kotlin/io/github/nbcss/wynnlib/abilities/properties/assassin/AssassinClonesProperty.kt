@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -18,7 +19,7 @@ import net.minecraft.util.Formatting
 
 class AssassinClonesProperty(ability: Ability,
                              private val clones: Int):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<AssassinClonesProperty> {
         override fun create(ability: Ability, data: JsonElement): AssassinClonesProperty {
             return AssassinClonesProperty(ability, data.asInt)
@@ -27,6 +28,12 @@ class AssassinClonesProperty(ability: Ability,
     }
 
     fun getClones(): Int = clones
+
+    override fun getOverviewTip(): Text {
+        return Symbol.CHARGE.asText().append(" ").append(
+            LiteralText("$clones").formatted(Formatting.WHITE)
+        )
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder(getKey(), clones.toString())
