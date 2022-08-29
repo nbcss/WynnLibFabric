@@ -36,7 +36,6 @@ class EnragedBlowProperty(ability: Ability,
         entry.setProperty(getKey(), this)
     }
 
-
     data class Info(val convertRate: Double,
                     val damageBonus: Double,
                     val damageBonusMax: Double)

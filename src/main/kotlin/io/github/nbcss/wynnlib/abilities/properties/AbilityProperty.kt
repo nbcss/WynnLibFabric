@@ -5,15 +5,13 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.properties.warrior.*
 import io.github.nbcss.wynnlib.abilities.properties.archer.*
 import io.github.nbcss.wynnlib.abilities.properties.assassin.*
 import io.github.nbcss.wynnlib.abilities.properties.general.*
 import io.github.nbcss.wynnlib.abilities.properties.info.*
 import io.github.nbcss.wynnlib.abilities.properties.mage.*
 import io.github.nbcss.wynnlib.abilities.properties.shaman.*
-import io.github.nbcss.wynnlib.abilities.properties.warrior.CorruptedProperty
-import io.github.nbcss.wynnlib.abilities.properties.warrior.EnragedBlowProperty
-import io.github.nbcss.wynnlib.abilities.properties.warrior.MantleResistanceProperty
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.text.Text
 
@@ -77,6 +75,10 @@ abstract class AbilityProperty(private val ability: Ability) {
                 AreaOfEffectProperty.Clear,
                 ChargeProperty,
                 ChargeProperty.Modifier,
+                MassiveBashProperty,
+                MassacreProperty,
+                DiscombobulateProperty,
+                BrinkMadnessProperty,
                 ArcherStreamProperty,
                 ArcherStreamProperty.Modifier,
                 ArcherSentientBowsProperty,

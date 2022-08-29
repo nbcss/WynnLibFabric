@@ -4,7 +4,6 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
-import io.github.nbcss.wynnlib.abilities.builder.entries.ReplaceSpellEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
@@ -23,10 +22,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
+import java.util.function.Supplier
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
-import kotlin.collections.LinkedHashMap
 
 class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, PropertyProvider {
     private val id: String
@@ -40,11 +37,11 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     private val slot: Int
     private val cost: Int
     private val dependency: String?
-    private val blocks: MutableSet<String> = HashSet()
-    private val predecessors: MutableSet<String> = HashSet()
-    private val archetypeReq: MutableMap<Archetype, Int> = LinkedHashMap()
-    private val placeholderMap: MutableMap<String, String> = HashMap()
-    private val properties: MutableMap<String, AbilityProperty> = LinkedHashMap()
+    private val blocks: MutableSet<String> = mutableSetOf()
+    private val predecessors: MutableSet<String> = mutableSetOf()
+    private val archetypeReq: MutableMap<Archetype, Int> = linkedMapOf()
+    private val placeholderMap: MutableMap<String, Supplier<String>> = mutableMapOf()
+    private val properties: MutableMap<String, AbilityProperty> = linkedMapOf()
     private val metadata: AbilityMetadata?
     private var successors: List<Ability>? = null
     //private val effect: AbilityEffect
@@ -156,10 +153,10 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     }
 
     override fun getPlaceholder(key: String): String {
-        return placeholderMap.getOrDefault(key, key)
+        return placeholderMap[key]?.get() ?: key
     }
 
-    override fun putPlaceholder(key: String, value: String) {
+    override fun putPlaceholder(key: String, value: Supplier<String>) {
         placeholderMap[key] = value
     }
 

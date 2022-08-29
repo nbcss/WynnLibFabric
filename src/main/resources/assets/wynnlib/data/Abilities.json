@@ -262,9 +262,9 @@
         "spell": "SPELL_3",
         "mana_cost": 45,
         "damage": {
-          "neutral": 150,
-          "earth": 50,
-          "thunder": 50
+          "neutral": 200,
+          "earth": 40,
+          "thunder": 40
         },
         "aoe": {
           "range": "1-3",
@@ -331,7 +331,7 @@
           "fire": 50
         },
         "effects": {
-          "ALLIES_RESISTANCE": 10
+          "ALLIES_RESISTANCE": 20
         },
         "duration": 30,
         "aoe": {
@@ -678,7 +678,8 @@
         "icon": "FLAMING_UPPERCUT",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -709,7 +710,7 @@
           "neutral": -70,
           "water": 30
         },
-        "range_modifier": 4,
+        "range_modifier": 3,
         "aoe_clear": true
       },
       "metadata": null
@@ -800,7 +801,8 @@
         "type": "NEW",
         "icon": "COUNTER",
         "overview": [
-          "damage"
+          "damage",
+          "chance"
         ]
       }
     },
@@ -835,7 +837,8 @@
         "type": "EXTEND",
         "icon": "MANTLE_OF_THE_BOVEMISTS",
         "overview": [
-          "charges"
+          "charges",
+          "cooldown"
         ]
       }
     },
@@ -872,7 +875,11 @@
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "BAKALS_GRASP"
+        "icon": "BAKALS_GRASP",
+        "overview": [
+          "duration",
+          "cooldown"
+        ]
       }
     },
     {
@@ -1003,7 +1010,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "CRITICAL_DAMAGE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "critical_damage"
+        ]
       }
     },
     {
@@ -1064,8 +1074,8 @@
         },
         "enraged_blow": {
           "rate": 1,
-          "damage_boost": 3,
-          "max_boost": 300
+          "damage_boost": 2.2,
+          "max_boost": 220
         }
       },
       "metadata": {
@@ -1166,7 +1176,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "MANACHISM",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -1206,7 +1219,8 @@
         "icon": "BOILING_BLOOD",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -1349,7 +1363,7 @@
           "ability": "BAKALS_GRASP"
         },
         "values": {
-          "1": 2
+          "1": 5
         }
       },
       "metadata": null
@@ -1547,7 +1561,7 @@
         "aoe_modifier": {
           "shape": "CIRCLE"
         },
-        "range_modifier": 2
+        "range_modifier": 1
       },
       "metadata": null
     },
@@ -1602,12 +1616,18 @@
         "effects": {
           "ENEMIES_RESISTANCE": -30
         },
-        "duration": 8
+        "duration": 8,
+        "values": {
+          "1": 30
+        }
       },
       "metadata": {
         "type": "EXTEND",
         "icon": "ARMOUR_BREAKER",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -1670,8 +1690,8 @@
           "1": 5
         },
         "damage": {
-          "neutral": 10,
-          "thunder": 5
+          "neutral": 20,
+          "thunder": 10
         },
         "aoe": {
           "range": 6,
@@ -1709,6 +1729,11 @@
       "properties": {
         "upgrade": {
           "spell": "SPELL_1"
+        },
+        "massive_bash": {
+          "rate": 3,
+          "range_boost": 1,
+          "max_boost": 10
         }
       },
       "metadata": null
@@ -1741,7 +1766,7 @@
           "hits": 3
         },
         "aoe": {
-          "range": 16,
+          "range": 12,
           "shape": "CIRCLE"
         }
       },
@@ -1807,6 +1832,10 @@
       "properties": {
         "upgrade": {
           "ability": "BAKALS_GRASP"
+        },
+        "massacre": {
+          "attack_speed": "SLOW",
+          "rate": 4
         }
       },
       "metadata": null
@@ -1872,7 +1901,11 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "RADIANCE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration",
+          "cooldown"
+        ]
       }
     },
     {
@@ -1943,7 +1976,13 @@
       "predecessors": [
         "CYCLONE"
       ],
-      "properties": {},
+      "properties": {
+        "discombobulate": {
+          "rate": 3,
+          "max": 80,
+          "decay": 5
+        }
+      },
       "metadata": {
         "type": "NEW",
         "icon": "DISCOMBOBULATE",
@@ -1987,7 +2026,8 @@
         "icon": "CYCLONE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -2050,7 +2090,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "SECOND_CHANCE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -2062,7 +2105,7 @@
       "position": -4,
       "tier": 4,
       "cost": 2,
-      "archetype": null,
+      "archetype": "FALLEN",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
@@ -2124,7 +2167,12 @@
         "BLOOD_PACT",
         "CHEAPER_UPPERCUT_2"
       ],
-      "properties": {},
+      "properties": {
+        "brink_madness": {
+          "resistance": 40,
+          "health": 25
+        }
+      },
       "metadata": {
         "type": "NEW",
         "icon": "BRINK_OF_MADNESS",
@@ -2185,7 +2233,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "MARTYR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -3945,7 +3996,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "CRITICAL_DAMAGE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "critical_damage"
+        ]
       }
     },
     {

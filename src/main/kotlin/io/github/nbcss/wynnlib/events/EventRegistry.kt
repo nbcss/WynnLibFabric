@@ -10,6 +10,7 @@ object EventRegistry {
      */
     fun registerEvents() {
         InventoryUpdateEvent.registerListener(AbilityTreeHandler)
+        //InventoryUpdateEvent.registerListener(XX)
         ArmourStandUpdateEvent.registerListener(HoundTimerIndicator)
         RenderItemOverrideEvent.registerListener(DurabilityRender)
     }

@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -16,7 +17,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class ChanceProperty(ability: Ability, private val chance: Double):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<ChanceProperty> {
         override fun create(ability: Ability, data: JsonElement): ChanceProperty {
             return ChanceProperty(ability, data.asDouble)
@@ -25,6 +26,11 @@ class ChanceProperty(ability: Ability, private val chance: Double):
     }
 
     fun getChance(): Double = chance
+
+    override fun getOverviewTip(): Text? {
+        return Symbol.CHANCE.asText().append(" ")
+            .append(LiteralText("${removeDecimal(chance)}%").formatted(Formatting.WHITE))
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder(getKey(), removeDecimal(chance))
