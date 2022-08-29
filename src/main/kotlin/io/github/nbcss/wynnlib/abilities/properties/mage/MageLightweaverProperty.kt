@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -19,7 +20,7 @@ import net.minecraft.util.Formatting
 
 class MageLightweaverProperty(ability: Ability,
                               private val orbs: LightweaverOrb):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<MageLightweaverProperty> {
         private const val HEAL_KEY = "heal"
         private const val TIME_KEY = "time_limit"
@@ -43,6 +44,12 @@ class MageLightweaverProperty(ability: Ability,
         container.putPlaceholder("lightweaver.time_limit", removeDecimal(orbs.time))
         container.putPlaceholder("lightweaver.duration", removeDecimal(orbs.duration))
         container.putPlaceholder("lightweaver.max", orbs.maxOrbs.toString())
+    }
+
+    override fun getOverviewTip(): Text {
+        return Symbol.ALTER_HITS.asText().append(" ").append(
+            LiteralText("${getOrbs().maxOrbs}").formatted(Formatting.WHITE)
+        )
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {

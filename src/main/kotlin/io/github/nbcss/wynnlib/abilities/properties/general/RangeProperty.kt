@@ -16,10 +16,16 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class RangeProperty(ability: Ability, private val range: Double):
+open class RangeProperty(ability: Ability,
+                         private val range: Double,
+                         private val variant: Boolean = false):
     AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<RangeProperty> {
         override fun create(ability: Ability, data: JsonElement): RangeProperty {
+            val string = data.asString
+            if (string.startsWith("~")){
+                return RangeProperty(ability, string.substring(1).toDouble(), true)
+            }
             return RangeProperty(ability, data.asDouble)
         }
         override fun getKey(): String = "range"
@@ -27,10 +33,15 @@ class RangeProperty(ability: Ability, private val range: Double):
 
     fun getRange(): Double = range
 
+    fun modify(modifier: Double): RangeProperty {
+        return RangeProperty(getAbility(), round(range + modifier), variant)
+    }
+
     override fun getOverviewTip(): Text {
-        return Symbol.RANGE.asText().append(" ").append(
-            LiteralText(removeDecimal(getRange())).formatted(Formatting.WHITE)
-        )
+        val text = Symbol.RANGE.asText().append(" ")
+        if (variant)
+            text.append("±")
+        return text.append(LiteralText(removeDecimal(getRange())).formatted(Formatting.WHITE))
     }
 
     override fun setup(entry: PropertyEntry) {
@@ -42,7 +53,7 @@ class RangeProperty(ability: Ability, private val range: Double):
             .formatted(Formatting.WHITE, null, removeDecimal(range))
         return listOf(Symbol.RANGE.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_RANGE.formatted(Formatting.GRAY).append(": "))
-            .append(value))
+            .append(LiteralText(if (variant) "±" else "").formatted(Formatting.WHITE)).append(value))
     }
 
     class Modifier(ability: Ability,
@@ -59,8 +70,7 @@ class RangeProperty(ability: Ability, private val range: Double):
 
         override fun modify(entry: PropertyEntry) {
             RangeProperty.from(entry)?.let {
-                val range = round(it.getRange() + modifier)
-                entry.setProperty(RangeProperty.getKey(), RangeProperty(it.getAbility(), range))
+                entry.setProperty(RangeProperty.getKey(), it.modify(modifier))
             }
         }
 

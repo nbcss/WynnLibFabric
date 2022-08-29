@@ -83,6 +83,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 ArcherStreamProperty.Modifier,
                 ArcherSentientBowsProperty,
                 ArcherSentientBowsProperty.Modifier,
+                DecimatorProperty,
                 MaxTrapProperty,
                 MaxTrapProperty.Modifier,
                 MaxFocusProperty,

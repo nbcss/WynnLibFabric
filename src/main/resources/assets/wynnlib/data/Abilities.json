@@ -2256,7 +2256,7 @@
       "properties": {
         "main_attack_damage": 100,
         "main_attack_hits": 1,
-        "main_attack_range": 16
+        "main_attack_range": "~16"
       },
       "metadata": {
         "type": "MAIN_ATTACK",
@@ -2289,7 +2289,7 @@
           "neutral": 160,
           "fire": 20
         },
-        "range": 26,
+        "range": "~26",
         "aoe": {
           "range": 4.5,
           "shape": "CIRCLE"
@@ -2403,7 +2403,7 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "mana_cost": 25
+        "mana_cost": 20
       },
       "metadata": {
         "type": "SPELL",
@@ -2492,8 +2492,8 @@
           "hits": 8,
           "label": "ARROW"
         },
-        "archer_stream": 2,
-        "range": 16
+        "archer_stream": 1,
+        "range": "~16"
       },
       "metadata": {
         "type": "SPELL",
@@ -2794,9 +2794,9 @@
           "spell": "SPELL_4"
         },
         "damage": {
-          "neutral": 120,
-          "air": 80,
-          "hits": 200,
+          "neutral": 80,
+          "air": 60,
+          "hits": 150,
           "label": "ARROW"
         }
       },
@@ -2833,7 +2833,7 @@
           "ability": "ARROW_STORM"
         },
         "damage_modifier": {
-          "neutral": -15,
+          "neutral": -10,
           "hits": 6,
           "label": "ARROW"
         }
@@ -2865,7 +2865,7 @@
         "upgrade": {
           "spell": "SPELL_1"
         },
-        "mana_modifier": -10,
+        "mana_modifier": -5,
         "damage": {
           "neutral": 25,
           "water": 5,
@@ -2974,7 +2974,8 @@
         "icon": "BRYOPHYTE_ROOTS",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -3151,7 +3152,8 @@
         "type": "EXTEND",
         "icon": "BASALTIC_TRAP",
         "overview": [
-          "damage"
+          "damage",
+          "max_trap"
         ]
       }
     },
@@ -3165,7 +3167,7 @@
       "tier": 2,
       "cost": 2,
       "archetype": null,
-      "dependency": null,
+      "dependency": "ARROW_STORM",
       "blocks": [
         "PHANTOM_RAY"
       ],
@@ -3699,7 +3701,7 @@
       "position": 2,
       "tier": 1,
       "cost": 1,
-      "archetype": "SHARPSHOOTER",
+      "archetype": null,
       "dependency": "ARROW_SHIELD",
       "blocks": [],
       "archetype_requirements": {},
@@ -3757,7 +3759,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "MANA_TRAP",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "range"
+        ]
       }
     },
     {
@@ -3875,6 +3880,14 @@
       "properties": {
         "extend": {
           "ability": "FOCUS"
+        },
+        "ability_damage_bonus": {
+          "ability": "INITIATOR",
+          "bonus": 50
+        },
+        "values": {
+          "1": 5,
+          "2": 1
         }
       },
       "metadata": {
@@ -3939,7 +3952,8 @@
         "icon": "CALL_OF_THE_HOUND",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -3981,7 +3995,7 @@
       "position": -2,
       "tier": 1,
       "cost": 1,
-      "archetype": null,
+      "archetype": "SHARPSHOOTER",
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {},
@@ -4110,6 +4124,10 @@
       "properties": {
         "upgrade": {
           "ability": "PHANTOM_RAY"
+        },
+        "decimator": {
+          "damage_boost": 10,
+          "max_boost": 70
         }
       },
       "metadata": null
@@ -4225,7 +4243,8 @@
         "damage_interval": 0.05,
         "values": {
           "1": 5,
-          "2": 20
+          "2": 20,
+          "3": 1
         }
       },
       "metadata": {
@@ -4294,7 +4313,7 @@
       ],
       "properties": {
         "values": {
-          "1": 8
+          "1": 5
         }
       },
       "metadata": {
@@ -5030,6 +5049,7 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "WIND_SLASH",
+        "upgradable": false,
         "overview": [
           "damage"
         ]
@@ -5115,7 +5135,8 @@
         "icon": "BURNING_SIGIL",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -5223,7 +5244,8 @@
         "type": "EXTEND",
         "icon": "WINDSWEEPER",
         "overview": [
-          "damage"
+          "damage",
+          "max_winded"
         ]
       }
     },
@@ -5367,7 +5389,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "PURIFICATION",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "cooldown"
+        ]
       }
     },
     {
@@ -5422,7 +5447,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "EYE_PIERCER",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -5578,7 +5606,11 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "FORTITUDE",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration",
+          "cooldown"
+        ]
       }
     },
     {
@@ -5959,7 +5991,8 @@
         "type": "EXTEND",
         "icon": "LIGHTWEAVER",
         "overview": [
-          "damage"
+          "damage",
+          "lightweaver"
         ]
       }
     },
@@ -5993,7 +6026,11 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "ARCANE_SPEED",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration",
+          "cooldown"
+        ]
       }
     },
     {
@@ -6624,7 +6661,10 @@
       "metadata": {
         "type": "EXTEND",
         "icon": "TIMELOCK",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "range"
+        ]
       }
     },
     {

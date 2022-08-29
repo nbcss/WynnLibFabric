@@ -16,10 +16,15 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class MainAttackRangeProperty(ability: Ability,
-                              private val range: Double):
+                              private val range: Double,
+                              private val variant: Boolean = false):
     AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<MainAttackRangeProperty> {
         override fun create(ability: Ability, data: JsonElement): MainAttackRangeProperty {
+            val string = data.asString
+            if (string.startsWith("~")){
+                return MainAttackRangeProperty(ability, string.substring(1).toDouble(), true)
+            }
             return MainAttackRangeProperty(ability, data.asDouble)
         }
         override fun getKey(): String = "main_attack_range"
@@ -29,7 +34,7 @@ class MainAttackRangeProperty(ability: Ability,
 
     override fun getOverviewTip(): Text {
         return Symbol.RANGE.asText().append(" ").append(
-            LiteralText(removeDecimal(range)).formatted(Formatting.WHITE)
+            LiteralText((if (variant) "±" else "") + removeDecimal(range)).formatted(Formatting.WHITE)
         )
     }
 
@@ -42,7 +47,7 @@ class MainAttackRangeProperty(ability: Ability,
             .formatted(Formatting.WHITE, null, removeDecimal(range))
         return listOf(Symbol.RANGE.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_MAIN_ATTACK_RANGE.formatted(Formatting.GRAY).append(": "))
-            .append(value))
+            .append(LiteralText(if (variant) "±" else "").formatted(Formatting.WHITE)).append(value))
     }
 
     class Modifier(ability: Ability, data: JsonElement):
@@ -60,7 +65,8 @@ class MainAttackRangeProperty(ability: Ability,
         override fun modify(entry: PropertyEntry) {
             MainAttackRangeProperty.from(entry)?.let {
                 val range = it.getMainAttackRange() + getMainAttackRangeModifier()
-                entry.setProperty(MainAttackRangeProperty.getKey(), MainAttackRangeProperty(it.getAbility(), range))
+                val property = MainAttackRangeProperty(it.getAbility(), range, it.variant)
+                entry.setProperty(MainAttackRangeProperty.getKey(), property)
             }
         }
 
