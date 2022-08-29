@@ -18,7 +18,6 @@ object DurabilityRender: EventHandler<RenderItemOverrideEvent> {
         if (event.item.isEmpty)
             return
         val tooltip = event.item.getTooltip(client.player, TooltipContext.Default.NORMAL)
-        tooltip.reverse()
         val durability = tooltip.asSequence().filter { it.asString() == "" && it.siblings.isNotEmpty() }
             .map { it.siblings[0] }.filter { it.asString() == "" && it.siblings.size >= 2 }
             .filter { it.siblings[0].asString().contains("Crafted ") }
