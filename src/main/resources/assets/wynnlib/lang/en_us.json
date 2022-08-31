@@ -987,7 +987,7 @@
   "wynnlib.ability.name.flaming_tongue": "Flaming Tongue",
   "wynnlib.ability.desc.flaming_tongue": "n{@{.uproot}} will not explode or knockback enemies, but will deal its damage f{${values.1}} times. All elemental conversions become c{\u2739} Fire.",
   "wynnlib.ability.name.overseer": "Overseer",
-  "wynnlib.ability.desc.overseer": "Increase n{@{.uproot}}'s range and hitting your n{@{}} with n{@{.uproot}} will reset its duration.",
+  "wynnlib.ability.desc.overseer": "Increase n{@{.uproot}}'s range and hitting your n{@{wynnlib.gameplay.shaman_totem}} with n{@{.uproot}} will reset its duration.",
   "wynnlib.ability.name.rain_dance": "Rain Dance",
   "wynnlib.ability.desc.rain_dance": "While mid-air, your n{@{wynnlib.gameplay.shaman_totem}} will leave a streak of rain that damages enemies under it every f{${damage_interval}s}.",
   "wynnlib.ability.name.puppet_master": "Puppet Master",
