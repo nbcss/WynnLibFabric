@@ -16,6 +16,7 @@ interface ItemMatcher {
         private val itemCacheMap: MutableMap<String, BaseItem?> = WeakHashMap()
         private val itemMatchers: List<ItemMatcher> = listOf(
             EquipmentItemMatcher,
+            IngredientMatcher,
         )
 
         fun toItem(item: ItemStack): BaseItem? {
