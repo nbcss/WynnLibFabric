@@ -6,14 +6,20 @@ import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.PlaceholderContainer
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
+import io.github.nbcss.wynnlib.data.Identification
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
+import net.minecraft.text.LiteralText
+import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 
 class IDConvertorProperty(ability: Ability,
                           pairs: List<Pair<String, Int>>,
                           private val targetId: String?,
                           private val convertRate: Int,
                           private val maxValue: Int):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<IDConvertorProperty> {
         private const val SOURCE_KEY = "source"
         private const val TARGET_KEY = "target"
@@ -44,6 +50,17 @@ class IDConvertorProperty(ability: Ability,
         }
         container.putPlaceholder("id_convertor.max", maxValue.toString())
         container.putPlaceholder("id_convertor.rate", convertRate.toString())
+    }
+
+    override fun getOverviewTip(): Text? {
+        //println(targetId)
+        if (targetId != null) {
+            Identification.fromName(targetId)?.let {
+                return LiteralText("+ ").formatted(Formatting.GREEN)
+                    .append(it.translate(Formatting.GRAY))
+            }
+        }
+        return null
     }
 
     override fun setup(entry: PropertyEntry) {

@@ -15,16 +15,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": 4
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "WARRIOR_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -84,7 +85,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 1
       },
       "metadata": null
@@ -203,7 +206,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "TOUGHER_SKIN",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -380,7 +386,8 @@
         "icon": "HEAVY_IMPACT",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -642,7 +649,8 @@
         "icon": "FLYBY_JAB",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -903,7 +911,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 1
       },
       "metadata": null
@@ -1309,7 +1319,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -1404,7 +1417,8 @@
         "icon": "COLLIDE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -1529,7 +1543,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -1665,7 +1682,8 @@
         "icon": "SHIELD_STRIKE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -1703,7 +1721,8 @@
         "icon": "SPARKLING_HOPE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -1775,7 +1794,8 @@
         "icon": "TEMPEST",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -2235,7 +2255,8 @@
         "icon": "MARTYR",
         "upgradable": false,
         "overview": [
-          "duration"
+          "duration",
+          "aoe"
         ]
       }
     },
@@ -2254,16 +2275,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": "~16"
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "ARCHER_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -2324,7 +2346,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 6
       },
       "metadata": null
@@ -2435,8 +2459,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": -30,
-        "main_attack_hits_modifier": 1
+        "main_attack_modifier": {
+          "damage": -30,
+          "hits": 1
+        }
       },
       "metadata": null
     },
@@ -2602,7 +2628,8 @@
         "type": "EXTEND",
         "icon": "WINDY_FEET",
         "overview": [
-          "duration"
+          "duration",
+          "aoe"
         ]
       }
     },
@@ -3000,8 +3027,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": -20,
-        "main_attack_hits_modifier": 1
+        "main_attack_modifier": {
+          "damage": -20,
+          "hits": 1
+        }
       },
       "metadata": null
     },
@@ -3449,7 +3478,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -3546,7 +3578,8 @@
         "type": "EXTEND",
         "icon": "FIERCE_STOMP",
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -4291,7 +4324,8 @@
         "icon": "GRAPE_BOMB",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -4546,16 +4580,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": 13
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "MAGE_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -4615,7 +4650,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 2
       },
       "metadata": null
@@ -4689,7 +4726,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 2
       },
       "metadata": null
@@ -4756,7 +4795,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -5092,7 +5134,8 @@
         "icon": "THUNDERSTORM",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -5166,6 +5209,10 @@
         "damage": {
           "neutral": 70,
           "water": 30
+        },
+        "aoe": {
+          "range": 5,
+          "shape": "CIRCLE"
         }
       },
       "metadata": {
@@ -5173,7 +5220,8 @@
         "icon": "SUNSHOWER",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -5676,7 +5724,8 @@
         "type": "EXTEND",
         "icon": "PYROKINESIS",
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -5796,7 +5845,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -6169,7 +6221,8 @@
         "icon": "EXPLOSIVE_ENTRANCE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -6441,7 +6494,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -6595,7 +6651,8 @@
         "icon": "SUNFLARE",
         "upgradable": false,
         "overview": [
-          "duration"
+          "duration",
+          "range"
         ]
       }
     },
@@ -6793,16 +6850,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": 3
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "ASSASSIN_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -6861,7 +6919,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "id_modifier": {
           "SPEED": 5
         }
@@ -7007,8 +7067,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": -40,
-        "main_attack_hits_modifier": 1
+        "main_attack_modifier": {
+          "damage": -40,
+          "hits": 1
+        }
       },
       "metadata": null
     },
@@ -7636,7 +7698,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -8044,7 +8109,10 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "VIOLENT_VORTEX"
+        "icon": "VIOLENT_VORTEX",
+        "overview": [
+          "aoe"
+        ]
       }
     },
     {
@@ -9019,16 +9087,18 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 3,
+        "main_attack": {
+          "damage": 100,
+          "hits": 3
+        },
         "main_attack_range": 32
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "SHAMAN_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -9090,7 +9160,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5
+        "main_attack_modifier": {
+          "damage": 5
+        }
       },
       "metadata": null
     },
@@ -9235,8 +9307,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 66,
-        "main_attack_hits_modifier": 2
+        "main_attack_modifier": {
+          "damage": 66,
+          "hits": 2
+        }
       },
       "metadata": null
     },
@@ -11027,7 +11101,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
