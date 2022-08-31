@@ -9104,7 +9104,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TOTEM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9152,7 +9152,8 @@
         "icon": "TOTEMIC_SMASH",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -9289,7 +9290,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "HAUL",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9507,7 +9508,8 @@
         "icon": "NATURES_JOLT",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -9693,7 +9695,7 @@
           "ability": "TOTEM"
         },
         "damage": {
-          "neutral": 10,
+          "neutral": 5,
           "air": 10,
           "earth": 10
         },
@@ -9778,13 +9780,22 @@
         "FLAMING_TONGUE"
       ],
       "properties": {
+        "sacrificial_shrine": {
+          "cost": 15,
+          "damage_boost": 50
+        },
         "blood_pool": 30,
-        "total_heal": 10
+        "blood_transfer": {
+          "rate": 2,
+          "interval": 0.4
+        },
+        "total_heal": 15
       },
       "metadata": {
         "type": "NEW",
         "icon": "SACRIFICIAL_SHRINE",
         "overview": [
+          "blood_pool",
           "total_heal"
         ]
       }
@@ -9826,7 +9837,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9913,7 +9924,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -10017,7 +10028,8 @@
         "icon": "EXPLODING_PUPPETS",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -10041,7 +10053,8 @@
       "properties": {
         "extend": {
           "ability": "AURA"
-        }
+        },
+        "hymn_of_hate": -50
       },
       "metadata": {
         "type": "EXTEND",
@@ -10156,7 +10169,7 @@
       ],
       "properties": {
         "spell_cost_modifier": {
-          "SPELL_1": -70
+          "SPELL_1": -65
         },
         "effects": {
           "SELF_RESISTANCE": 50,
@@ -10279,7 +10292,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TOTEM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -10353,7 +10366,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -10366,7 +10382,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "HAUL",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -10391,7 +10407,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -10528,7 +10544,7 @@
           "ability": "MASQUERADE"
         },
         "values": {
-          "1": -1,
+          "1": 1,
           "2": 10
         }
       },
@@ -10558,8 +10574,8 @@
           "ability": "UPROOT"
         },
         "damage": {
-          "neutral": 50,
-          "water": 50
+          "neutral": 40,
+          "water": 40
         },
         "duration": 60,
         "max_effigy": 1
@@ -10598,7 +10614,7 @@
           "SPELL_2": -50
         },
         "effects": {
-          "SELF_WALK_SPEED": 60,
+          "SELF_WALK_SPEED": 80,
           "SELF_RESISTANCE": -20
         },
         "replacing": {
@@ -10723,11 +10739,18 @@
         "extend": {
           "ability": "TOTEM"
         },
-        "total_heal": 1
+        "regeneration": {
+          "heal": 0.5,
+          "interval": 0.4
+        }
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "REGENERATION"
+        "icon": "REGENERATION",
+        "upgradable": false,
+        "overview": [
+          "regeneration"
+        ]
       }
     },
     {
@@ -10766,7 +10789,8 @@
         "icon": "CHANT_OF_THE_COWARD",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -10783,7 +10807,7 @@
       "dependency": "SACRIFICIAL_SHRINE",
       "blocks": [],
       "archetype_requirements": {
-        "ACOLYTE": 10
+        "ACOLYTE": 9
       },
       "predecessors": [
         "SHAMAN_FLUID_HEALING",
@@ -10822,7 +10846,11 @@
         "upgrade": {
           "ability": "CRIMSON_EFFIGY"
         },
-        "max_effigy_modifier": 1
+        "max_effigy_modifier": 1,
+        "damage_modifier": {
+          "neutral": -10,
+          "water": -10
+        }
       },
       "metadata": null
     },
@@ -10953,7 +10981,7 @@
           "ability": "AURA"
         },
         "effects": {
-          "SUMMONS_ATTACK_SPEED": 100
+          "SUMMONS_ATTACK_SPEED": 50
         },
         "duration": 3,
         "values": {
@@ -10993,7 +11021,7 @@
           },
           "target": "WATERDAMAGEBONUS",
           "rate": 1,
-          "max": 100
+          "max": 40
         }
       },
       "metadata": {
@@ -11028,7 +11056,8 @@
           "hits": 3
         },
         "aoe": {
-          "range": "3.aoe.shape"
+          "range": 3,
+          "shape": "CIRCLE"
         }
       },
       "metadata": {
@@ -11036,7 +11065,8 @@
         "icon": "FROG_DANCE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -11087,12 +11117,6 @@
         "extend": {
           "ability": "PUPPET_MASTER"
         },
-        "modify": {
-          "ability": "PUPPET_MASTER"
-        },
-        "damage_modifier": {
-          "neutral": -5
-        },
         "duration": 15,
         "shepherd": {
           "inc": 1,
@@ -11136,14 +11160,20 @@
         },
         "damage_interval": 0.2,
         "duration": 4,
-        "range": 24
+        "range": 24,
+        "values": {
+          "1": 70,
+          "2": 3,
+          "3": 10
+        }
       },
       "metadata": {
         "type": "EXTEND",
         "icon": "BLOOD_SORROW",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -11157,7 +11187,7 @@
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -11193,14 +11223,14 @@
       ],
       "properties": {
         "spell_cost_modifier": {
-          "SPELL_1": -70,
+          "SPELL_1": -65,
           "SPELL_2": -50,
           "SPELL_3": -30
         },
         "effects": {
           "SELF_DAMAGE": 30,
           "SELF_RESISTANCE": 30,
-          "SELF_WALK_SPEED": 25
+          "SELF_WALK_SPEED": 45
         },
         "duration": 20,
         "values": {
@@ -11210,7 +11240,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "MASK_OF_THE_AWAKENED",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     }
   ],

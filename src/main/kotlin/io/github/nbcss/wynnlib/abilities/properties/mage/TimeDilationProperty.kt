@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.abilities.properties.general
+package io.github.nbcss.wynnlib.abilities.properties.mage
 
 import com.google.gson.JsonElement
 import io.github.nbcss.wynnlib.abilities.Ability
@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
+import io.github.nbcss.wynnlib.abilities.properties.general.BonusEffectProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_MAX
 import io.github.nbcss.wynnlib.utils.Symbol

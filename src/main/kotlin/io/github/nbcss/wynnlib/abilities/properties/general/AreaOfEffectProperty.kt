@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
@@ -21,7 +22,7 @@ import net.minecraft.util.Formatting
 
 class AreaOfEffectProperty(ability: Ability,
                            private val aoe: AreaOfEffect):
-    AbilityProperty(ability), SetupProperty {
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<AreaOfEffectProperty> {
         private const val RANGE_KEY: String = "range"
         private const val SHAPE_KEY: String = "shape"
@@ -48,6 +49,17 @@ class AreaOfEffectProperty(ability: Ability,
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)
+    }
+
+    override fun getOverviewTip(): Text? {
+        val range = aoe.getRange()
+        if (range.isZero())
+            return null
+        var value = removeDecimal(range.lower())
+        if(!range.isConstant()){
+            value = "$value-${removeDecimal(range.upper())}"
+        }
+        return Symbol.AOE.asText().append(" ").append(LiteralText(value).formatted(Formatting.WHITE))
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {
