@@ -113,6 +113,8 @@ object Translations {
     val TOOLTIP_ABILITY_ASSASSIN_SMOKE_BOMBS: Translatable = from("wynnlib.gameplay.assassin_smoke_bombs")
     val TOOLTIP_ABILITY_ASSASSIN_CLONES: Translatable = from("wynnlib.gameplay.assassin_clones")
     val TOOLTIP_ABILITY_ASSASSIN_MARKED: Translatable = from("wynnlib.gameplay.assassin_marked")
+    val TOOLTIP_ABILITY_SHAMAN_BEAMS: Translatable = from("wynnlib.gameplay.shaman_main_attack_beam")
+    val TOOLTIP_ABILITY_SHAMAN_BEAMS_DAMAGE: Translatable = from("wynnlib.gameplay.shaman_damage_per_beam")
     val TOOLTIP_ABILITY_SHAMAN_TOTEM: Translatable = from("wynnlib.gameplay.shaman_totem")
     val TOOLTIP_ABILITY_SHAMAN_PUPPET: Translatable = from("wynnlib.gameplay.shaman_puppet")
     val TOOLTIP_ABILITY_SHAMAN_EFFIGY: Translatable = from("wynnlib.gameplay.shaman_effigy")

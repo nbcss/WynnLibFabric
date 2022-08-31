@@ -124,6 +124,8 @@ abstract class AbilityProperty(private val ability: Ability) {
                 MaxEffigyProperty,
                 MaxEffigyProperty.Modifier,
                 ShepherdProperty,
+                ShamanBeamProperty,
+                ShamanBeamProperty.Modifier,
                 ShamanBloodPoolProperty,
                 ShamanBloodPoolProperty.Modifier,
                 TetherProperty,

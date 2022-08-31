@@ -9088,9 +9088,9 @@
       "predecessors": [],
       "properties": {
         "main_attack": {
-          "damage": 100,
-          "hits": 3
+          "damage": 100
         },
+        "shaman_beams": 3,
         "main_attack_range": 32
       },
       "metadata": {
@@ -9098,6 +9098,7 @@
         "icon": "SHAMAN_MAIN_ATTACK",
         "overview": [
           "main_attack",
+          "shaman_beams",
           "main_attack_range"
         ]
       }
@@ -9308,9 +9309,9 @@
           "spell": "MAIN_ATTACK"
         },
         "main_attack_modifier": {
-          "damage": 66,
-          "hits": 2
-        }
+          "damage": 66
+        },
+        "shaman_beams_modifier": 2
       },
       "metadata": null
     },
