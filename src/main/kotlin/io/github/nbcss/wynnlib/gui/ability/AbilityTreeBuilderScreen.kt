@@ -157,7 +157,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     private fun isInEntries(mouseX: Double, mouseY: Double): Boolean {
-        val x1 = windowX - PANE_WIDTH + 6
+        val x1 = windowX - 141
         val x2 = windowX - 6
         val y1 = windowY + 44
         val y2 = windowY + 204
@@ -172,7 +172,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun init() {
         super.init()
-        windowX = PANE_WIDTH + (width - windowWidth - PANE_WIDTH) / 2
+        windowX = 147 + (width - windowWidth - 147) / 2
         viewerX = windowX + 7
         exitButton!!.x = windowX + 230
     }
@@ -214,12 +214,12 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
-        val pane = Identifier("wynnlib", "textures/gui/extend_pane.png")
-        RenderKit.renderTexture(matrices, pane, windowX - PANE_WIDTH, windowY + 28, 0, 0, PANE_WIDTH, 210)
+        val pane = Identifier("wynnlib", "textures/gui/ability_overview.png")
+        RenderKit.renderTexture(matrices, pane, windowX - 146, windowY + 28, 0, 0, 147, 182)
         textRenderer.draw(
             matrices, Translations.TOOLTIP_ABILITY_OVERVIEW.translate(),
-            (windowX - PANE_WIDTH + 6).toFloat(),
-            (windowY + 34).toFloat(), 0
+            (windowX - 147 + 6).toFloat(),
+            (windowY + 34).toFloat(), Color.WHITE.getColorCode()
         )
     }
 
@@ -278,33 +278,31 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
-        //render extra pane content
         val entries = container.getEntries()
         for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
             val entry = entries[entryIndex + i]
-            val x1 = windowX - PANE_WIDTH + 6
+            val x1 = windowX - 140
             val x2 = x1 + 18
-            val y1 = windowY + 44 + i * 20
+            val y1 = windowY + 45 + i * 20
             val y2 = y1 + 18
-            val xRight = windowX - 4
             RenderSystem.enableDepthTest()
-            DrawableHelper.fill(matrices, x1 - 1, y1 - 1, xRight, y2 + 1,
-                Color.DARK_GRAY.toSolidColor().getColorCode())
             RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
                 18, 18, 18, 18)
             val tier = entry.getTierText()
             renderOutlineText(matrices, tier,
                 x2.toFloat() - textRenderer.getWidth(tier) + 1,
                 y2.toFloat() - 7)
-            textRenderer.drawWithShadow(matrices, entry.getDisplayNameText(),
-                x2.toFloat() + 3,
+            textRenderer.draw(matrices, entry.getDisplayNameText(),
+                x2.toFloat() + 5,
                 y1.toFloat() + 1, 0
             )
-            textRenderer.drawWithShadow(matrices, entry.getSideText(),
-                x2.toFloat() + 3,
+            textRenderer.draw(matrices, entry.getSideText(),
+                x2.toFloat() + 5,
                 y1.toFloat() + 10, 0xFFFFFF
             )
-            if (mouseY in y1..y2 && mouseX >= x1 && mouseX < xRight){
+            if (mouseY >= y1 - 1 && mouseY <= y2 && mouseX >= x1 - 1 && mouseX < x1 + 122){
+                DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 122, y2 + 1,
+                    Color.WHITE.toAlphaColor(0x22).getColorCode())
                 drawTooltip(matrices, entry.getTooltip(), mouseX, mouseY)
             }
         }

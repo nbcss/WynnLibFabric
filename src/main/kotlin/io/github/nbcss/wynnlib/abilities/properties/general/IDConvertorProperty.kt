@@ -56,7 +56,7 @@ class IDConvertorProperty(ability: Ability,
         //println(targetId)
         if (targetId != null) {
             Identification.fromName(targetId)?.let {
-                return LiteralText("+ ").formatted(Formatting.GREEN)
+                return LiteralText("+").formatted(Formatting.GREEN)
                     .append(it.translate(Formatting.GRAY))
             }
         }
