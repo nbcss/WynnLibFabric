@@ -216,17 +216,21 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
         }
     }
 
+    fun focusOnAbility(ability: Ability) {
+        val currPos = toScreenPosition(ability.getHeight(), ability.getPosition())
+        val diff = (height / 2) - currPos.y
+        val scale = client!!.window.scaleFactor
+        setScroll(scroll - diff)
+        val endPos = toScreenPosition(ability.getHeight(), ability.getPosition(), scroll)
+        InputUtil.setCursorParameters(client!!.window.handle, 212993,
+            endPos.x.toDouble() * scale, endPos.y.toDouble() * scale)
+    }
+
     open fun onClickNode(ability: Ability, button: Int): Boolean {
         val dependency = ability.getAbilityDependency()
         if (button == 1 && dependency != null) {
             playSound(SoundEvents.ENTITY_ITEM_PICKUP)
-            val currPos = toScreenPosition(dependency.getHeight(), dependency.getPosition())
-            val diff = (height / 2) - currPos.y
-            val scale = client!!.window.scaleFactor
-            setScroll(scroll - diff)
-            val endPos = toScreenPosition(dependency.getHeight(), dependency.getPosition(), scroll)
-            InputUtil.setCursorParameters(client!!.window.handle, 212993,
-                endPos.x.toDouble() * scale, endPos.y.toDouble() * scale)
+            focusOnAbility(dependency)
             return true
         }else{
             playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)

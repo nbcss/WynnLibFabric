@@ -38,8 +38,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                                    tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet()):
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
+        private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
         const val MAX_AP = 45
-        const val PANE_WIDTH = 150
         const val MAX_ENTRY_ITEM = 8
     }
     private val activeNodes: MutableSet<Ability> = HashSet()
@@ -214,13 +214,31 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
-        val pane = Identifier("wynnlib", "textures/gui/ability_overview.png")
-        RenderKit.renderTexture(matrices, pane, windowX - 146, windowY + 28, 0, 0, 147, 182)
+        RenderKit.renderTexture(matrices, OVERVIEW_PANE, windowX - 146,
+            windowY + 28, 0, 0, 147, 182)
         textRenderer.draw(
             matrices, Translations.TOOLTIP_ABILITY_OVERVIEW.translate(),
             (windowX - 147 + 6).toFloat(),
             (windowY + 34).toFloat(), Color.WHITE.getColorCode()
         )
+    }
+
+    override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (isInEntries(mouseX, mouseY)) {
+            val entries = container.getEntries()
+            for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
+                val entry = entries[entryIndex + i]
+                val x1 = windowX - 140
+                val y1 = windowY + 45 + i * 20
+                val y2 = y1 + 18
+                if (mouseY >= y1 - 1 && mouseY <= y2 && mouseX >= x1 - 1 && mouseX < x1 + 122){
+                    playSound(SoundEvents.ENTITY_ITEM_PICKUP)
+                    focusOnAbility(entry.getAbility())
+                    return true
+                }
+            }
+        }
+        return super.mouseClicked(mouseX, mouseY, button)
     }
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
@@ -278,34 +296,6 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
-        val entries = container.getEntries()
-        for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
-            val entry = entries[entryIndex + i]
-            val x1 = windowX - 140
-            val x2 = x1 + 18
-            val y1 = windowY + 45 + i * 20
-            val y2 = y1 + 18
-            RenderSystem.enableDepthTest()
-            RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
-                18, 18, 18, 18)
-            val tier = entry.getTierText()
-            renderOutlineText(matrices, tier,
-                x2.toFloat() - textRenderer.getWidth(tier) + 1,
-                y2.toFloat() - 7)
-            textRenderer.draw(matrices, entry.getDisplayNameText(),
-                x2.toFloat() + 5,
-                y1.toFloat() + 1, 0
-            )
-            textRenderer.draw(matrices, entry.getSideText(),
-                x2.toFloat() + 5,
-                y1.toFloat() + 10, 0xFFFFFF
-            )
-            if (mouseY >= y1 - 1 && mouseY <= y2 && mouseX >= x1 - 1 && mouseX < x1 + 122){
-                DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 122, y2 + 1,
-                    Color.WHITE.toAlphaColor(0x22).getColorCode())
-                drawTooltip(matrices, entry.getTooltip(), mouseX, mouseY)
-            }
-        }
         //========****=========
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 143
@@ -348,6 +338,36 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                     renderAbilityTooltip(matrices, mouseX, mouseY, ability, tooltip)
                     break
                 }
+            }
+        }
+        val entries = container.getEntries()
+        for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
+            val entry = entries[entryIndex + i]
+            val x1 = windowX - 140
+            val x2 = x1 + 18
+            val y1 = windowY + 45 + i * 20
+            val y2 = y1 + 18
+            RenderSystem.enableDepthTest()
+            RenderKit.renderTexture(matrices, entry.getTexture(), x1, y1, 0, 0,
+                18, 18, 18, 18)
+            val tier = entry.getTierText()
+            renderOutlineText(matrices, tier,
+                x2.toFloat() - textRenderer.getWidth(tier) + 1,
+                y2.toFloat() - 7)
+            textRenderer.draw(matrices, entry.getDisplayNameText(),
+                x2.toFloat() + 5,
+                y1.toFloat() + 1, 0
+            )
+            textRenderer.draw(matrices, entry.getSideText(),
+                x2.toFloat() + 5,
+                y1.toFloat() + 10, 0xFFFFFF
+            )
+            if (mouseY >= y1 - 1 && mouseY <= y2 && mouseX >= x1 - 1 && mouseX < x1 + 122){
+                DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 122, y2 + 1,
+                    Color.WHITE.toAlphaColor(0x22).getColorCode())
+                matrices.push()
+                drawTooltip(matrices, entry.getTooltip(), mouseX, mouseY)
+                matrices.pop()
             }
         }
     }
