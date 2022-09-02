@@ -6,6 +6,8 @@ import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.gui.HandbookTabScreen
+import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
@@ -20,6 +22,7 @@ import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -33,7 +36,6 @@ import kotlin.collections.HashSet
 import kotlin.math.floor
 import kotlin.math.max
 import kotlin.math.min
-import kotlin.math.roundToInt
 
 open class AbilityTreeBuilderScreen(parent: Screen?,
                                     private val tree: AbilityTree,
@@ -58,7 +60,19 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private var overviewSlider: VerticalSliderWidget? = null
     init {
         tabs.clear()
+        tabs.add(object : TabFactory {
+            override fun getTabIcon(): ItemStack = ICON
+            override fun getTabTitle(): Text = TITLE
+            override fun createScreen(parent: Screen?): HandbookTabScreen = copy()
+            override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeBuilderScreen
+        })
         reset()
+    }
+
+    fun getFixedAbilities(): Set<Ability> = fixedAbilities
+
+    open fun copy(): AbilityTreeBuilderScreen {
+        return AbilityTreeBuilderScreen(parent, tree)
     }
 
     fun reset() {
@@ -75,6 +89,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     fun getActivateOrders(): List<Ability> = orderList
+
+    fun getMaxPoints(): Int = maxPoints
 
     private fun canUnlock(ability: Ability, nodes: Collection<Ability>): Boolean {
         if (ap < ability.getAbilityPointCost())

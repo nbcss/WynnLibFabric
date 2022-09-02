@@ -1,6 +1,5 @@
 package io.github.nbcss.wynnlib.gui.ability
 
-import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.data.CharacterClass
@@ -10,11 +9,9 @@ import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.gui.tooltip.TooltipComponent
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
-import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 

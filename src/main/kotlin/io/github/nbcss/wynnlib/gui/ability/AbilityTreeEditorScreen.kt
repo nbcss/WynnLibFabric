@@ -20,6 +20,10 @@ class AbilityTreeEditorScreen(parent: Screen?,
                               fixedAbilities: Set<Ability>):
     AbilityTreeBuilderScreen(parent, tree, maxPoints, fixedAbilities) {
 
+    override fun copy(): AbilityTreeBuilderScreen {
+        return AbilityTreeEditorScreen(parent, getAbilityTree(), getMaxPoints(), getFixedAbilities())
+    }
+
     override fun init() {
         super.init()
         val x = windowX + 217
