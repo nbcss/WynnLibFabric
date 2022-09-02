@@ -6,11 +6,13 @@ import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_UNUSABLE
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText
+import io.github.nbcss.wynnlib.render.TextureData
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.Pos
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -28,8 +30,10 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 import kotlin.collections.HashSet
+import kotlin.math.floor
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.roundToInt
 
 open class AbilityTreeBuilderScreen(parent: Screen?,
                                     private val tree: AbilityTree,
@@ -39,6 +43,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
         private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
+        private val SLIDER_TEXTURE = TextureData(OVERVIEW_PANE, 148, 0)
+        private const val SLIDER_LENGTH = 40;
         const val MAX_AP = 45
         const val MAX_ENTRY_ITEM = 8
     }
@@ -49,6 +55,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private var container: EntryContainer = EntryContainer()
     private var ap: Int = maxPoints
     private var entryIndex = 0
+    private var overviewSlider: VerticalSliderWidget? = null
     init {
         tabs.clear()
         reset()
@@ -149,6 +156,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         //update container
         container = EntryContainer(activeNodes)
         setEntryIndex(entryIndex) //for update entry
+        updateSlider()
     }
 
     private fun setEntryIndex(index: Int) {
@@ -156,9 +164,17 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         entryIndex = MathHelper.clamp(index, 0, maxIndex)
     }
 
+    private fun updateSlider() {
+        overviewSlider?.setSlider(if (container.getSize() > MAX_ENTRY_ITEM) {
+            entryIndex / (container.getSize() - MAX_ENTRY_ITEM).toDouble()
+        }else{
+            0.0
+        })
+    }
+
     private fun isInEntries(mouseX: Double, mouseY: Double): Boolean {
-        val x1 = windowX - 141
-        val x2 = windowX - 6
+        val x1 = windowX - 142
+        val x2 = windowX - 4
         val y1 = windowY + 44
         val y2 = windowY + 204
         return mouseX >= x1 && mouseX < x2 && mouseY >= y1 && mouseY < y2
@@ -172,9 +188,16 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun init() {
         super.init()
-        windowX = 147 + (width - windowWidth - 147) / 2
+        windowX = 148 + (width - windowWidth - 148) / 2
         viewerX = windowX + 7
         exitButton!!.x = windowX + 230
+        overviewSlider = VerticalSliderWidget(windowX - 17, windowY + 45,
+            12, 158, SLIDER_LENGTH, SLIDER_TEXTURE) {
+            val size = container.getSize() - MAX_ENTRY_ITEM + 1
+            if (size > 0) {
+                setEntryIndex(floor(size * it).toInt())
+            }
+        }
     }
 
     override fun onClickNode(ability: Ability, button: Int): Boolean {
@@ -214,8 +237,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
-        RenderKit.renderTexture(matrices, OVERVIEW_PANE, windowX - 146,
-            windowY + 28, 0, 0, 147, 182)
+        RenderKit.renderTexture(matrices, OVERVIEW_PANE, windowX - 147,
+            windowY + 28, 0, 0, 148, 187)
         textRenderer.draw(
             matrices, Translations.TOOLTIP_ABILITY_OVERVIEW.translate(),
             (windowX - 147 + 6).toFloat(),
@@ -223,12 +246,29 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         )
     }
 
+    override fun mouseReleased(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (overviewSlider?.mouseReleased(mouseX, mouseY, button) == true){
+            return true
+        }
+        return super.mouseReleased(mouseX, mouseY, button)
+    }
+
+    override fun mouseDragged(mouseX: Double, mouseY: Double, button: Int, deltaX: Double, deltaY: Double): Boolean {
+        if (overviewSlider?.mouseDragged(mouseX, mouseY, button, 0.0, 0.0) == true) {
+            return true
+        }
+        return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
+    }
+
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         if (isInEntries(mouseX, mouseY)) {
+            if (overviewSlider?.mouseClicked(mouseX, mouseY, button) == true){
+                return true
+            }
             val entries = container.getEntries()
             for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
                 val entry = entries[entryIndex + i]
-                val x1 = windowX - 140
+                val x1 = windowX - 141
                 val y1 = windowY + 45 + i * 20
                 val y2 = y1 + 18
                 if (mouseY >= y1 - 1 && mouseY <= y2 && mouseX >= x1 - 1 && mouseX < x1 + 122){
@@ -243,8 +283,9 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
         //println("${mouseX}, ${mouseY}, $amount")
-        if(isInEntries(mouseX, mouseY)){
+        if(overviewSlider?.isDragging() != true && isInEntries(mouseX, mouseY)){
             setEntryIndex(entryIndex - amount.toInt())
+            updateSlider()
             return true
         }
         return super.mouseScrolled(mouseX, mouseY, amount)
@@ -296,7 +337,6 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
-        //========****=========
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 143
         //render archetype values
@@ -340,10 +380,13 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                 }
             }
         }
+        //Render overview pane
         val entries = container.getEntries()
+        overviewSlider?.visible = entries.size > MAX_ENTRY_ITEM
+        overviewSlider?.render(matrices, mouseX, mouseY, delta)
         for (i in (0 until min(MAX_ENTRY_ITEM, entries.size))){
             val entry = entries[entryIndex + i]
-            val x1 = windowX - 140
+            val x1 = windowX - 141
             val x2 = x1 + 18
             val y1 = windowY + 45 + i * 20
             val y2 = y1 + 18

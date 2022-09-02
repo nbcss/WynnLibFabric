@@ -186,7 +186,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     }
 
     private fun toScreenPosition(height: Int, position: Int, scrollPos: Int): Pos {
-        val posX = windowX + 9 + GRID_SIZE / 2 + (position + 4) * GRID_SIZE
+        val posX = windowX + 10 + GRID_SIZE / 2 + (position + 4) * GRID_SIZE
         val posY = windowY + 47 + GRID_SIZE / 2 + height * GRID_SIZE - scrollPos
         return Pos(posX, posY)
     }
@@ -269,6 +269,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
         renderViewer(matrices!!, mouseX, mouseY, delta)
         RenderSystem.disableScissor()
         renderExtra(matrices, mouseX, mouseY, delta)
+        //DrawableHelper.fill(matrices, mouseX, mouseY, mouseX + 45, mouseY + 175, 0xFFFFFFF)
     }
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
