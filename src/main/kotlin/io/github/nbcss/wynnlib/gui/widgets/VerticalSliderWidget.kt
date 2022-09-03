@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
+import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder
@@ -35,6 +36,7 @@ class VerticalSliderWidget(x: Int,
 
     override fun render(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         if (this.visible) {
+            RenderSystem.enableDepthTest()
             RenderKit.renderTexture(matrices,
                 texture.texture,
                 x, getSliderY(),

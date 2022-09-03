@@ -254,7 +254,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
         RenderKit.renderTexture(matrices, OVERVIEW_PANE, windowX - 147,
-            windowY + 28, 0, 0, 148, 187)
+            windowY + 28, 0, 0, 148, 182)
         textRenderer.draw(
             matrices, Translations.TOOLTIP_ABILITY_OVERVIEW.translate(),
             (windowX - 147 + 6).toFloat(),
