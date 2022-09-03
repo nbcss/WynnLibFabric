@@ -8,6 +8,7 @@ import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
+import io.github.nbcss.wynnlib.gui.widgets.RollingTextWidget
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
@@ -58,6 +59,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private var ap: Int = maxPoints
     private var entryIndex = 0
     private var overviewSlider: VerticalSliderWidget? = null
+    private val entryNames: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
+    private val entryValues: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     init {
         tabs.clear()
         tabs.add(object : TabFactory {
@@ -178,6 +181,11 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private fun setEntryIndex(index: Int) {
         val maxIndex = max(0, container.getSize() - MAX_ENTRY_ITEM)
         entryIndex = MathHelper.clamp(index, 0, maxIndex)
+        for (i in (0 until MAX_ENTRY_ITEM)){
+            val entry = if (i + entryIndex < container.getSize()) container.getEntries()[i + entryIndex] else null
+            entryNames[i]?.setText(entry?.getDisplayNameText())
+            entryValues[i]?.setText(entry?.getSideText())
+        }
     }
 
     private fun updateSlider() {
@@ -213,6 +221,16 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             if (size > 0) {
                 setEntryIndex(floor(size * it).toInt())
             }
+        }
+        updateSlider()
+        for (i in (0 until MAX_ENTRY_ITEM)){
+            val entry = if (i + entryIndex < container.getSize()) container.getEntries()[i + entryIndex] else null
+            val posX = windowX - 118
+            val posY = windowY + 46 + i * 20
+            val name = entry?.getDisplayNameText()
+            val info = entry?.getSideText()
+            entryNames[i] = RollingTextWidget(posX, posY, 95, name)
+            entryValues[i] = RollingTextWidget(posX, posY + 9, 95, info)
         }
     }
 
@@ -413,14 +431,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             renderOutlineText(matrices, tier,
                 x2.toFloat() - textRenderer.getWidth(tier) + 1,
                 y2.toFloat() - 7)
-            textRenderer.draw(matrices, entry.getDisplayNameText(),
-                x2.toFloat() + 5,
-                y1.toFloat() + 1, 0
-            )
-            textRenderer.draw(matrices, entry.getSideText(),
-                x2.toFloat() + 5,
-                y1.toFloat() + 10, 0xFFFFFF
-            )
+            entryNames[i]?.render(matrices)
+            entryValues[i]?.render(matrices)
             if (mouseY >= y1 - 1 && mouseY <= y2 && mouseX >= x1 - 1 && mouseX < x1 + 122){
                 DrawableHelper.fill(matrices, x1 - 1, y1 - 1, x1 + 122, y2 + 1,
                     Color.WHITE.toAlphaColor(0x22).getColorCode())
