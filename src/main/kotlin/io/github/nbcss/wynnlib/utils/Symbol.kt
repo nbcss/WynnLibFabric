@@ -24,7 +24,7 @@ enum class Symbol(val icon: String,
     CHARGE("⚡", Formatting.GREEN),
     HITS("☄", Formatting.YELLOW),
     ALTER_HITS("☄", Formatting.GREEN),
-    REPLACE("✚", Formatting.LIGHT_PURPLE),
+    REPLACE("↑", Formatting.DARK_GREEN),
     WARNING("⚠", Formatting.DARK_RED);
 
     fun asText(): MutableText {

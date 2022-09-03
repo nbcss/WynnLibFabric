@@ -12,6 +12,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import kotlin.math.min
 
 object RenderKit {
     private val textRender = MinecraftClient.getInstance().textRenderer
@@ -40,6 +41,25 @@ object RenderKit {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
         RenderSystem.setShaderTexture(0, texture)
         DrawableHelper.drawTexture(matrices, x, y, u.toFloat(), v.toFloat(), width, height, texWidth, texHeight)
+    }
+
+    fun renderAnimatedTexture(matrices: MatrixStack,
+                              texture: Identifier,
+                              x: Int,
+                              y: Int,
+                              width: Int,
+                              height: Int,
+                              frames: Int,
+                              intervalTime: Long = 50,
+                              slackTime: Long = 0) {
+        val duration = frames * intervalTime + slackTime
+        val time = System.currentTimeMillis() % duration
+        val index = min((time / intervalTime).toInt(), frames - 1)
+        val v = (index * height).toFloat()
+        RenderSystem.setShader { GameRenderer.getPositionTexShader() }
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
+        RenderSystem.setShaderTexture(0, texture)
+        DrawableHelper.drawTexture(matrices, x, y, 0.0f, v, width, height, width, frames * height)
     }
 
     fun renderTextureWithColor(matrices: MatrixStack,

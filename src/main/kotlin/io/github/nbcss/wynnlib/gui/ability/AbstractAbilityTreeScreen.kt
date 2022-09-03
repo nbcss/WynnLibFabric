@@ -11,6 +11,7 @@ import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.screen.ingame.FurnaceScreen
 import net.minecraft.client.gui.tooltip.TooltipComponent
 import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
@@ -29,6 +30,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     companion object {
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#83")
         val TEXTURE = Identifier("wynnlib", "textures/gui/ability_tree_viewer.png")
+        val UPGRADE_TEXTURE = Identifier("wynnlib", "textures/gui/upgrade_frames.png")
         val TITLE: Text = Translations.UI_ABILITY_TREE.translate()
         const val GRID_SIZE: Int = 24
         const val VIEW_WIDTH = 232
@@ -59,7 +61,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
                              ability: Ability,
                              tooltip: MutableList<Text> = ability.getTooltip().toMutableList()) {
         var icon: Identifier? = null
-        var overlay: String? = null
+        var upgrade = false
         val metadata = ability.getMetadata()
         if (tooltip.size >= 2) {
             if(metadata != null) {
@@ -68,7 +70,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
                 UpgradeProperty.from(ability)?.let { property ->
                     property.getUpgradingAbility()?.let {
                         icon = it.getMetadata()?.getTexture()
-                        overlay = "★"
+                        upgrade = true
                     }
                 }
             }
@@ -101,16 +103,13 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
             if (y + j + 6 > height) {
                 y = height - j - 6
             }
-
             RenderSystem.disableDepthTest()
             RenderKit.renderTexture(matrices, icon!!, x, y,
                 0, 0, 18, 18, 18, 18)
-            if (overlay != null) {
-                matrices.push()
-                matrices.translate(0.0, 0.0, 500.0)
-                RenderKit.renderOutlineText(matrices, LiteralText(overlay),
-                    (x + 10).toFloat(), (y + 10).toFloat(), Color.ORANGE, Color.YELLOW)
-                matrices.pop()
+            if (upgrade) {
+                RenderSystem.enableBlend()
+                RenderKit.renderAnimatedTexture(matrices, UPGRADE_TEXTURE,
+                    x, y, 18, 18, 20, 50, 300)
             }
             RenderSystem.enableDepthTest()
         }
