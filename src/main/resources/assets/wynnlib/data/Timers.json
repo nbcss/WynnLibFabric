@@ -193,6 +193,15 @@
       "properties": {}
     },
     {
+      "id": "SUNFLARE_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Sunflare",
+      "texture": "SUNFLARE",
+      "text": null,
+      "properties": {}
+    },
+    {
       "id": "TIME_DILATION_EFFECT",
       "type": "VALUE",
       "icon": "\u00a7a\u27a1",

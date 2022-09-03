@@ -846,6 +846,7 @@
         "icon": "MANTLE_OF_THE_BOVEMISTS",
         "overview": [
           "charges",
+          "duration",
           "cooldown"
         ]
       }
@@ -2821,9 +2822,9 @@
           "spell": "SPELL_4"
         },
         "damage": {
-          "neutral": 80,
-          "air": 60,
-          "hits": 150,
+          "neutral": 100,
+          "air": 50,
+          "hits": 200,
           "label": "ARROW"
         }
       },
@@ -3848,8 +3849,8 @@
           "ability": "ESCAPE"
         },
         "damage": {
-          "neutral": 20,
-          "thunder": 10,
+          "neutral": 70,
+          "thunder": 30,
           "hits": 120,
           "label": "ARROW"
         }
@@ -4269,8 +4270,8 @@
           "spell": "SPELL_1"
         },
         "damage": {
-          "neutral": 20,
-          "water": 5,
+          "neutral": 25,
+          "water": 10,
           "label": "ARROW"
         },
         "damage_interval": 0.05,
@@ -4821,7 +4822,7 @@
       "properties": {
         "spell": "SPELL_1",
         "mana_cost": 35,
-        "total_heal": 10,
+        "total_heal": 15,
         "range": 5,
         "values": {
           "1": 30
@@ -5120,10 +5121,11 @@
           "ability": "METEOR"
         },
         "damage": {
-          "neutral": 30,
-          "thunder": 15,
-          "hits": 3
+          "neutral": 25,
+          "thunder": 10,
+          "hits": 4
         },
+        "damage_interval": 0.2,
         "aoe": {
           "range": 2,
           "shape": "CIRCLE"
@@ -5523,8 +5525,8 @@
           "spell": "SPELL_3"
         },
         "damage": {
-          "neutral": 15,
-          "earth": 10,
+          "neutral": 10,
+          "earth": 8,
           "label": "WINDED"
         },
         "winded_booster": [
@@ -5943,7 +5945,7 @@
           "ability": "HEAL"
         },
         "pulse_heal": {
-          "heal": 15,
+          "heal": 20,
           "trigger": 2
         }
       },
@@ -6029,14 +6031,15 @@
           "ability": "HEAL"
         },
         "damage": {
-          "neutral": 40,
-          "fire": 20
+          "neutral": 70,
+          "fire": 30
         },
         "lightweaver": {
           "heal": 50,
           "time_limit": 10,
           "max": 3
         },
+        "range": 7,
         "duration": 20
       },
       "metadata": {
@@ -6641,8 +6644,9 @@
           "ALLIES_RESISTANCE": 100
         },
         "duration": 5,
+        "cooldown": 20,
         "values": {
-          "1": 400,
+          "1": 300,
           "2": 10
         }
       },
@@ -10896,7 +10900,7 @@
           "ability": "SACRIFICIAL_SHRINE"
         },
         "values": {
-          "1": 25,
+          "1": 35,
           "2": 10
         }
       },
