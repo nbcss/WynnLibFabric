@@ -6655,8 +6655,9 @@
         "icon": "SUNFLARE",
         "upgradable": false,
         "overview": [
+          "range",
           "duration",
-          "range"
+          "cooldown"
         ]
       }
     },
@@ -11332,5 +11333,5 @@
       }
     }
   ],
-  "version": "0.1.12"
+  "version": "0.2.0"
 }
