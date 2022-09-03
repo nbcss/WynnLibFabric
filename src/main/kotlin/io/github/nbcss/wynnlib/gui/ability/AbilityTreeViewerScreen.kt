@@ -51,7 +51,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
 
     override fun init() {
         super.init()
-        viewer = ViewerWindow(viewerX, viewerY)
+        viewer = ViewerWindow(viewerX, viewerY, viewerX + 223, viewerY)
     }
 
     override fun getViewer(): ATreeScrollWidget? = viewer
@@ -108,7 +108,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
         }
     }
 
-    inner class ViewerWindow(x: Int, y: Int) : ATreeScrollWidget(this@AbilityTreeViewerScreen, x, y) {
+    inner class ViewerWindow(x: Int, y: Int, sliderX: Int, sliderY: Int) :
+        ATreeScrollWidget(this@AbilityTreeViewerScreen, x, y, sliderX, sliderY) {
         override fun getAbilityTree(): AbilityTree = tree
 
         override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {

@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.gui.TooltipScreen
+import io.github.nbcss.wynnlib.gui.ability.AbilityTreeBuilderScreen
 import io.github.nbcss.wynnlib.gui.ability.AbstractAbilityTreeScreen
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
@@ -20,15 +21,21 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
 
-abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int) :
+abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int,
+                                 sliderX: Int, sliderY: Int) :
     ScrollPaneWidget(BACKGROUND, screen, x, y, WIDTH, HEIGHT) {
     companion object {
         private val BACKGROUND: TextureData = TextureData(
             Identifier("wynnlib", "textures/gui/ability_tree_scroll.png"),
             0, 0, 256, 512)
+        private val SLIDER_TEXTURE = TextureData(
+            Identifier("wynnlib", "textures/gui/ability_tree_scroll.png"))
         private const val WIDTH = 222
         private const val HEIGHT = 138
         private const val NODE_SIZE = 24
+    }
+    private val slider = VerticalSliderWidget(sliderX, sliderY, 9, HEIGHT, 40, SLIDER_TEXTURE) {
+        setScrollPosition(getMaxPosition() * it)
     }
 
     abstract fun getAbilityTree(): AbilityTree
@@ -127,6 +134,8 @@ abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int) :
         val posY = y + 1 + NODE_SIZE / 2 + height * NODE_SIZE - scrollPos
         return IntPos(posX, posY.roundToInt())
     }
+
+    override fun getSlider(): VerticalSliderWidget = slider
 
     override fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean {
         for (ability in getAbilityTree().getAbilities()) {

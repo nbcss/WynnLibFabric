@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.render.TextureData
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
@@ -28,6 +29,9 @@ import kotlin.math.min
 
 abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
     companion object {
+        val SLIDER: TextureData = TextureData(
+            Identifier("wynnlib", "textures/gui/ability_tree_scroll.png"),
+            0, 0, 9, 40)
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#83")
         val TEXTURE = Identifier("wynnlib", "textures/gui/ability_tree_viewer.png")
         val UPGRADE_TEXTURE = Identifier("wynnlib", "textures/gui/upgrade_frames.png")

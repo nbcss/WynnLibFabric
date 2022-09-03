@@ -57,7 +57,11 @@ abstract class ScrollPaneWidget(private val background: TextureData,
             background.height)
     }
 
-    private fun getMaxPosition(): Double {
+    private fun updateSlider() {
+        getSlider()?.setSlider(position / getMaxPosition())
+    }
+
+    fun getMaxPosition(): Double {
         return max(0, getContentHeight() - height).toDouble()
     }
 
@@ -78,11 +82,16 @@ abstract class ScrollPaneWidget(private val background: TextureData,
     fun reset() {
         this.scrolling = null
         this.position = 0.0
+        updateSlider()
     }
 
     override fun render(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         scrolling = scrolling?.update()
-        scrolling?.let { position = MathHelper.clamp(it.getCurrentPosition(), 0.0, getMaxPosition()) }
+        scrolling?.let {
+            position = MathHelper.clamp(it.getCurrentPosition(), 0.0, getMaxPosition())
+            updateSlider()
+        }
+        getSlider()?.render(matrices, mouseX, mouseY, delta)
         val bottom = y + height
         val scale = client.window.scaleFactor
         val position = getScrollPosition()
@@ -101,9 +110,10 @@ abstract class ScrollPaneWidget(private val background: TextureData,
     }
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
-        if (isMouseOver(mouseX, mouseY)){
+        if (isMouseOver(mouseX, mouseY) && dragging == null){
             val pos = scrolling?.to ?: position
             setScrollPosition(pos - amount.toInt() * scrollUnit, scrollDelay)
+            updateSlider()
             return true
         }
         return super.mouseScrolled(mouseX, mouseY, amount)
@@ -113,19 +123,23 @@ abstract class ScrollPaneWidget(private val background: TextureData,
         if (isMouseOver(mouseX, mouseY)) {
             if (onContentClick(mouseX, mouseY, button))
                 return true
-            if (button == 0) {
+            if (button == 0 && scrolling == null) {
                 dragging = position to mouseY
                 return true
             }
         }
+        if (getSlider()?.mouseClicked(mouseX, mouseY, button) == true)
+            return true
         return super.mouseClicked(mouseX, mouseY, button)
     }
 
     override fun mouseDragged(mouseX: Double, mouseY: Double, button: Int, deltaX: Double, deltaY: Double): Boolean {
         dragging?.let {
             setScrollPosition(it.first + (it.second - mouseY))
-            //TODO Callback
+            updateSlider()
         }
+        if (getSlider()?.mouseDragged(mouseX, mouseY, button, deltaX, deltaY) == true)
+            return true
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }
 
@@ -138,6 +152,8 @@ abstract class ScrollPaneWidget(private val background: TextureData,
             dragging = null
             return true
         }
+        if (getSlider()?.mouseReleased(mouseX, mouseY, button) == true)
+            return true
         return super.mouseReleased(mouseX, mouseY, button)
     }
 

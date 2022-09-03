@@ -10,7 +10,7 @@ import net.minecraft.util.math.MathHelper
 import java.util.function.Consumer
 import kotlin.math.roundToInt
 
-class VerticalSliderWidget(x: Int,
+open class VerticalSliderWidget(x: Int,
                            y: Int,
                            width: Int,
                            height: Int,

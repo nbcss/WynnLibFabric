@@ -48,7 +48,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     companion object {
         private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
         private val SLIDER_TEXTURE = TextureData(OVERVIEW_PANE, 148, 0)
-        private const val SLIDER_LENGTH = 40;
+        private const val SLIDER_LENGTH = 40
         const val MAX_AP = 45
         const val MAX_ENTRY_ITEM = 8
     }
@@ -218,8 +218,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         super.init()
         windowX = 148 + (width - windowWidth - 148) / 2
         viewerX = windowX + 7
-        viewer = BuilderWindow(viewerX, viewerY)
         exitButton!!.x = windowX + 230
+        viewer = BuilderWindow(viewerX, viewerY, viewerX + 223, viewerY)
         overviewSlider = VerticalSliderWidget(windowX - 17, windowY + 45,
             12, 158, SLIDER_LENGTH, SLIDER_TEXTURE) {
             val size = container.getSize() - MAX_ENTRY_ITEM + 1
@@ -349,7 +349,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun hasAbility(ability: Ability): Boolean = ability in activeNodes
 
-    inner class BuilderWindow(x: Int, y: Int) : ATreeScrollWidget(this@AbilityTreeBuilderScreen, x, y) {
+    inner class BuilderWindow(x: Int, y: Int, sliderX: Int, sliderY: Int) :
+        ATreeScrollWidget(this@AbilityTreeBuilderScreen, x, y, sliderX, sliderY) {
         override fun getAbilityTree(): AbilityTree = tree
 
         override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
