@@ -123,7 +123,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         //slide bar
         val x1 = windowX + 227
         val x2 = windowX + 239
-        DrawableHelper.fill(matrices, x1, barTop, x2, barBottom, Color.DARK_GRAY.toSolidColor().getColorCode())
+        DrawableHelper.fill(matrices, x1, barTop, x2, barBottom, Color.DARK_GRAY.solid().code())
         //ButtonWidget
         slots.forEach{it.render(matrices, mouseX, mouseY, delta)}
     }

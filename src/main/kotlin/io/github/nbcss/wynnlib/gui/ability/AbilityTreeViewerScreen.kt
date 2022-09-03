@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
+import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.playSound
@@ -27,6 +28,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
         }
     }
     private var tree: AbilityTree = AbilityRegistry.fromCharacter(CharacterClass.WARRIOR)
+    private var viewer: ViewerWindow? = null
 
     private fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
         val posX = windowX + 242
@@ -46,6 +48,13 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
         val posY = windowY + 44 + index * 28
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }
+
+    override fun init() {
+        super.init()
+        viewer = ViewerWindow(viewerX, viewerY)
+    }
+
+    override fun getViewer(): ATreeScrollWidget? = viewer
 
     override fun getAbilityTree(): AbilityTree = tree
 
@@ -78,45 +87,10 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
             .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
                 this.tree = AbilityRegistry.fromCharacter(it)
                 playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
-                resetScroll()
+                getViewer()?.reset()
                 return true
             }
         return super.mouseClicked(mouseX, mouseY, button)
-    }
-
-    override fun onClickNode(ability: Ability, button: Int): Boolean {
-        return super.onClickNode(ability, 1)
-    }
-
-    override fun renderViewer(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
-        //render node background
-        //render inactive edges (basic)
-        val inactive = tree.getAbilities().filter {
-            !isOverViewer(mouseX, mouseY) || !isOverNode(
-                toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
-        }
-        renderEdges(inactive, matrices, LOCKED_OUTER_COLOR, false)
-        renderEdges(inactive, matrices, LOCKED_INNER_COLOR, true)
-        //render active edges
-        val active = tree.getAbilities().filter {
-            isOverViewer(mouseX, mouseY) && isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
-        }
-        renderEdges(active, matrices, ACTIVE_OUTER_COLOR, false)
-        renderEdges(active, matrices, ACTIVE_INNER_COLOR, true)
-        //render icons
-        val locked = HashSet(active.map { it.getBlockAbilities() }.flatten())
-        tree.getAbilities().forEach {
-            val node = toScreenPosition(it.getHeight(), it.getPosition())
-            renderArchetypeOutline(matrices, it, node.x, node.y)
-            val item = if (it in locked){
-                it.getTier().getLockedTexture()
-            }else if (isOverViewer(mouseX, mouseY) && isOverNode(node, mouseX, mouseY)){
-                it.getTier().getActiveTexture()
-            }else{
-                it.getTier().getUnlockedTexture()
-            }
-            itemRenderer.renderInGuiWithOverrides(item, node.x - 8, node.y - 8)
-        }
     }
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
@@ -132,8 +106,54 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
             }
             archetypeX += 60
         }
-        //render ability tooltip
-        if (isOverViewer(mouseX, mouseY)){
+    }
+
+    inner class ViewerWindow(x: Int, y: Int) : ATreeScrollWidget(this@AbilityTreeViewerScreen, x, y) {
+        override fun getAbilityTree(): AbilityTree = tree
+
+        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+            //render node background
+            //render inactive edges (basic)
+            val inactive = tree.getAbilities().filter {
+                !isMouseOver(mouseX.toDouble(), mouseY.toDouble()) || !isOverNode(
+                    toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
+            }
+            renderEdges(inactive, matrices, LOCKED_OUTER_COLOR, false)
+            renderEdges(inactive, matrices, LOCKED_INNER_COLOR, true)
+            //render active edges
+            val active = tree.getAbilities().filter {
+                isMouseOver(mouseX.toDouble(), mouseY.toDouble()) &&
+                        isOverNode(toScreenPosition(it.getHeight(), it.getPosition()), mouseX, mouseY)
+            }
+            renderEdges(active, matrices, ACTIVE_OUTER_COLOR, false)
+            renderEdges(active, matrices, ACTIVE_INNER_COLOR, true)
+            //render icons
+            val locked = HashSet(active.map { it.getBlockAbilities() }.flatten())
+            tree.getAbilities().forEach {
+                val node = toScreenPosition(it.getHeight(), it.getPosition())
+                renderArchetypeOutline(matrices, it, node.x, node.y)
+                val item = if (it in locked){
+                    it.getTier().getLockedTexture()
+                }else if (isMouseOver(mouseX.toDouble(), mouseY.toDouble()) && isOverNode(node, mouseX, mouseY)){
+                    it.getTier().getActiveTexture()
+                }else{
+                    it.getTier().getUnlockedTexture()
+                }
+                itemRenderer.renderInGuiWithOverrides(item, node.x - 8, node.y - 8)
+            }
+        }
+
+        override fun onClickNode(ability: Ability, button: Int): Boolean {
+            return super.onClickNode(ability, 1)
+        }
+
+        override fun renderContentsPost(
+            matrices: MatrixStack,
+            mouseX: Int,
+            mouseY: Int,
+            position: Double,
+            delta: Float) {
+            //render ability tooltip
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 if (isOverNode(node, mouseX, mouseY)){

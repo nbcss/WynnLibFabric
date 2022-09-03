@@ -92,7 +92,7 @@ class HoundTimerIndicator(private val entity: ArmorStandEntity,
         val color = Color(MathHelper.hsvToRgb((pct / 3.0).toFloat(), 1.0f, 1.0f))
         val uv = StatusType.pctToUv(pct)
         RenderKit.renderTextureWithColor(
-            matrices, StatusType.ICON_BACKGROUND, color.toSolidColor(),
+            matrices, StatusType.ICON_BACKGROUND, color.solid(),
             posX + 3, posY, uv.first, uv.second, 22, 22, 256, 256
         )
         var time = duration.roundToInt().toString() + "s"

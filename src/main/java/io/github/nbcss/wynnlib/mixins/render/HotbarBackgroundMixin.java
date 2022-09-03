@@ -68,7 +68,7 @@ public class HotbarBackgroundMixin {
                 Color color = ColorMatcher.Companion.toRarityColor(stack);
                 if(color != null){
                     RenderSystem.disableDepthTest();
-                    DrawableHelper.fill(matrices, x, y, x + 16, y + 16, color.toAlphaColor(0xCC).getColorCode());
+                    DrawableHelper.fill(matrices, x, y, x + 16, y + 16, color.withAlpha(0xCC).code());
                 }
             }
         }

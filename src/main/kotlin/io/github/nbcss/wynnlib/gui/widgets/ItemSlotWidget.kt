@@ -32,7 +32,7 @@ class ItemSlotWidget<T: BaseItem>(x: Int, y: Int,
             return
         matrices!!.push()
         RenderSystem.enableDepthTest()
-        val color = item!!.getRarityColor().toAlphaColor(if (isHovered) 0xDD else 0x75).getColorCode()
+        val color = item!!.getRarityColor().withAlpha(if (isHovered) 0xDD else 0x75).code()
         DrawableHelper.fill(matrices, x, y, x + size, y + size, color)
         val itemX: Int = x + width / 2 - 8
         val itemY: Int = y + height / 2 - 8

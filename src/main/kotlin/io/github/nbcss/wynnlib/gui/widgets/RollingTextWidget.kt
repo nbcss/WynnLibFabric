@@ -26,7 +26,7 @@ class RollingTextWidget(val x: Int,
     fun render(matrices: MatrixStack) {
         text?.let {
             val length = client.textRenderer.getWidth(text)
-            val color = Color.WHITE.toSolidColor().getColorCode()
+            val color = Color.WHITE.solid().code()
             val bottom = y + client.textRenderer.fontHeight
             val scale = client.window.scaleFactor
             var textX = x.toFloat()

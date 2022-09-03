@@ -5,7 +5,6 @@ import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.tierOf
 import net.minecraft.text.Text
-import org.apache.commons.lang3.StringEscapeUtils
 import java.util.regex.Pattern
 
 class PowderSpecialProperty: AnalysisProperty {

@@ -27,6 +27,25 @@ object RenderKit {
         renderTexture(matrices, texture, x, y, u, v, width, height, 256, 256)
     }
 
+    fun renderTexture(matrices: MatrixStack,
+                      texture: Identifier,
+                      x: Double,
+                      y: Double,
+                      u: Int,
+                      v: Int,
+                      width: Int,
+                      height: Int,
+                      texWidth: Int,
+                      texHeight: Int) {
+        RenderSystem.setShader { GameRenderer.getPositionTexShader() }
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
+        RenderSystem.setShaderTexture(0, texture)
+        matrices.push()
+        matrices.translate(x, y, 0.0)
+        DrawableHelper.drawTexture(matrices, 0, 0, u.toFloat(), v.toFloat(), width, height, texWidth, texHeight)
+        matrices.pop()
+    }
+
     fun renderTexture(matrices: MatrixStack?,
                       texture: Identifier,
                       x: Int,
@@ -98,7 +117,7 @@ object RenderKit {
                           outlineColor: Color = Color.BLACK) {
         val immediate = VertexConsumerProvider.immediate(Tessellator.getInstance().buffer)
         textRender.drawWithOutline(text.asOrderedText(), x, y,
-            color.getColorCode(), outlineColor.getColorCode(),
+            color.code(), outlineColor.code(),
             matrices.peek().positionMatrix, immediate, 15728880)
         immediate.draw()
     }
