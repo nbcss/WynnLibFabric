@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_POINTS
 import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.readers.AbilityTreeUnlocker
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.screen.ingame.HandledScreen
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -27,7 +28,7 @@ class AbilityTreeEditorScreen(parent: Screen?,
     override fun init() {
         super.init()
         val x = windowX + 217
-        val y = windowY + 32
+        val y = windowY + 31
         addDrawableChild(ConfirmButtonWidget({ confirm() }, object : TooltipProvider {
             override fun getTooltip(): List<Text> {
                 return getConfirmTooltip()
@@ -63,5 +64,13 @@ class AbilityTreeEditorScreen(parent: Screen?,
             client!!.setScreen(parent)
             AbilityTreeUnlocker.activeNodes(getAbilityTree().character, orders)
         }
+    }
+
+    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        if (keyCode == 256 && shouldCloseOnEsc()) {
+            parent?.close()
+            return true
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers)
     }
 }
