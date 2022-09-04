@@ -15,9 +15,10 @@ import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(title),
+abstract class HandbookTabScreen(val parent: Screen?,
+                                 title: Text?) : Screen(title),
     TooltipScreen, ExitButtonWidget.ExitHandler {
-    private val texture = Identifier("wynnlib", "textures/gui/handbook_tab.png")
+    private val background = Identifier("wynnlib", "textures/gui/handbook_tab.png")
     companion object {
         const val TAB_SIZE: Int = 7
     }
@@ -48,7 +49,7 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         windowX = (width - windowWidth) / 2
         windowY = (height - windowHeight) / 2
         val closeX = windowX + 230
-        val closeY = windowY + 32
+        val closeY = windowY + 31
         exitButton = addDrawableChild(ExitButtonWidget(this, closeX, closeY))
     }
 
@@ -66,27 +67,31 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
             .forEach { drawTab(matrices!!, tabs[tabIndex + it], it, mouseX, mouseY) }
     }
 
+    open fun drawBackgroundTexture(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        RenderKit.renderTexture(
+            matrices, background, windowX, windowY + 28, 0, 0,
+            backgroundWidth, 182
+        )
+    }
+
     open fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         renderBackground(matrices)
         drawBackgroundPre(matrices, mouseX, mouseY, delta)
         //render background
-        RenderKit.renderTexture(
-            matrices, texture, windowX, windowY, 0, 0,
-            backgroundWidth, backgroundHeight
-        )
+        drawBackgroundTexture(matrices, mouseX, mouseY, delta)
         //render selected tab (normally should only have up to one tab)
         drawBackgroundPost(matrices, mouseX, mouseY, delta)
         textRenderer.draw(
             matrices, getTitle().asOrderedText(),
             (windowX + 6).toFloat(),
-            (windowY + 34).toFloat(), 0
+            (windowY + 33).toFloat(), 0
         )
     }
 
     private fun drawTab(matrices: MatrixStack, tab: TabFactory, tabIndex: Int, mouseX: Int, mouseY: Int) {
         val posX = windowX + 25 + tabIndex * 28
         val u = if (tab.isInstance(this)) 0 else 28
-        RenderKit.renderTexture(matrices, texture, posX, windowY, u, 210, 28, 32)
+        RenderKit.renderTexture(matrices, background, posX, windowY, u, 182, 28, 32)
         itemRenderer.renderInGuiWithOverrides(tab.getTabIcon(), posX + 6, windowY + 9)
         itemRenderer.renderGuiItemOverlay(textRenderer, tab.getTabIcon(), posX + 6, windowY + 9)
         if(isOverTab(tabIndex, mouseX, mouseY)){

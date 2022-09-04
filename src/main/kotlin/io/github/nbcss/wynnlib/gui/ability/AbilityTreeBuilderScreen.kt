@@ -297,7 +297,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         var archetypeX = viewerX + 2
-        val archetypeY = viewerY + 143
+        val archetypeY = viewerY + 144
         //render archetype values
         tree.getArchetypes().forEach {
             renderArchetypeIcon(matrices, it, archetypeX, archetypeY)
@@ -433,7 +433,9 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             return super.onClickNode(ability, button)
         }
 
-        override fun renderContentsPost(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+        override fun renderContentsPost(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
+            if (!isMouseOver(mouseX.toDouble(), mouseY.toDouble()))
+                return
             //render ability tooltip
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())

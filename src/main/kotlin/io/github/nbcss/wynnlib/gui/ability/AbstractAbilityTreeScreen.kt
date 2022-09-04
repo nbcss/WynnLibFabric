@@ -11,29 +11,22 @@ import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
 import io.github.nbcss.wynnlib.utils.*
-import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.tooltip.TooltipComponent
-import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
-import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
-import net.minecraft.util.math.MathHelper
-import kotlin.math.abs
-import kotlin.math.max
-import kotlin.math.min
 
 abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
     companion object {
         val SLIDER: TextureData = TextureData(
             Identifier("wynnlib", "textures/gui/ability_tree_scroll.png"),
             0, 0, 9, 40)
+        val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#83")
-        val TEXTURE = Identifier("wynnlib", "textures/gui/ability_tree_viewer.png")
         val UPGRADE_TEXTURE = Identifier("wynnlib", "textures/gui/upgrade_frames.png")
         val TITLE: Text = Translations.UI_ABILITY_TREE.translate()
         val ACTIVE_OUTER_COLOR: AlphaColor = Color(0x37ACB5).solid()
@@ -127,17 +120,25 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     override fun init() {
         super.init()
         viewerX = windowX + 7
-        viewerY = windowY + 45
+        viewerY = windowY + 44
     }
 
-    override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
-        RenderKit.renderTexture(matrices, TEXTURE, windowX + 4, windowY + 42, 0, 0, 238, 144)
+    override fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        super.drawBackgroundPre(matrices, mouseX, mouseY, delta)
+        getViewer()?.render(matrices, mouseX, mouseY, delta)
+    }
+
+    override fun drawBackgroundTexture(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        RenderSystem.enableBlend()
+        RenderKit.renderTexture(
+            matrices, TEXTURE, windowX, windowY + 28, 0, 0,
+            backgroundWidth, 182
+        )
     }
 
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        getViewer()?.render(matrices, mouseX, mouseY, delta)
         renderExtra(matrices!!, mouseX, mouseY, delta)
+        getViewer()?.renderContentsPost(matrices, mouseX, mouseY, delta)
     }
 
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {

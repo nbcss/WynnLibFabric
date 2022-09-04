@@ -4,7 +4,6 @@ import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.gui.TooltipScreen
-import io.github.nbcss.wynnlib.gui.ability.AbilityTreeBuilderScreen
 import io.github.nbcss.wynnlib.gui.ability.AbstractAbilityTreeScreen
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
@@ -16,6 +15,7 @@ import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.MathHelper
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -23,18 +23,18 @@ import kotlin.math.roundToInt
 
 abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int,
                                  sliderX: Int, sliderY: Int) :
-    ScrollPaneWidget(BACKGROUND, screen, x, y, WIDTH, HEIGHT) {
+    ScrollPaneWidget(SCROLL, screen, x, y, WIDTH, HEIGHT) {
     companion object {
-        private val BACKGROUND: TextureData = TextureData(
+        private val SCROLL: TextureData = TextureData(
             Identifier("wynnlib", "textures/gui/ability_tree_scroll.png"),
-            0, 0, 256, 512)
-        private val SLIDER_TEXTURE = TextureData(
-            Identifier("wynnlib", "textures/gui/ability_tree_scroll.png"))
+            0, 0, 222, 384)
+        private val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
+        private val SLIDER_TEXTURE = TextureData(TEXTURE, 246, 0)
         private const val WIDTH = 222
         private const val HEIGHT = 138
         private const val NODE_SIZE = 24
     }
-    private val slider = VerticalSliderWidget(sliderX, sliderY, 9, HEIGHT, 40, SLIDER_TEXTURE) {
+    private val slider = VerticalSliderWidget(sliderX, sliderY, 9, HEIGHT, 30, SLIDER_TEXTURE) {
         setScrollPosition(getMaxPosition() * it)
     }
 
@@ -53,7 +53,7 @@ abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int,
         val diff = y + (height / 2) - currPos.y
         val scale = client.window.scaleFactor
         val cursor = getScrollPosition()
-        val pos = max(0.0, cursor - diff)
+        val pos = MathHelper.clamp(cursor - diff, 0.0, getMaxPosition())
         setScrollPosition(pos, scrollDelay)
         val endPos = toInnerPoint(ability.getHeight(), ability.getPosition(), pos)
         InputUtil.setCursorParameters(client.window.handle, 212993,
@@ -122,8 +122,8 @@ abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int,
                 val itemY = y - 15
                 val u = 32 + 30 * (ability.getTier().getLevel() - 1)
                 RenderKit.renderTextureWithColor(
-                    matrices, AbstractAbilityTreeScreen.TEXTURE, color.withAlpha(165), itemX, itemY,
-                    u, 144, 30, 30, 256, 256
+                    matrices, TEXTURE, color.withAlpha(165), itemX, itemY,
+                    u, 182, 30, 30, 256, 256
                 )
             }
         }

@@ -31,7 +31,7 @@ abstract class ScrollPaneWidget(private val background: TextureData,
 
     abstract fun getContentHeight(): Int
 
-    open fun renderContentsPost(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float){
+    open fun renderContentsPost(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float){
 
     }
 
@@ -91,7 +91,6 @@ abstract class ScrollPaneWidget(private val background: TextureData,
             position = MathHelper.clamp(it.getCurrentPosition(), 0.0, getMaxPosition())
             updateSlider()
         }
-        getSlider()?.render(matrices, mouseX, mouseY, delta)
         val bottom = y + height
         val scale = client.window.scaleFactor
         val position = getScrollPosition()
@@ -100,9 +99,10 @@ abstract class ScrollPaneWidget(private val background: TextureData,
         renderBackground(matrices, position)
         renderContents(matrices!!, mouseX, mouseY, position, delta)
         RenderSystem.disableScissor()
-        if (isMouseOver(mouseX.toDouble(), mouseY.toDouble())) {
-            renderContentsPost(matrices, mouseX, mouseY, position, delta)
-        }
+        matrices.push()
+        matrices.translate(0.0, 0.0, 200.0)
+        getSlider()?.render(matrices, mouseX, mouseY, delta)
+        matrices.pop()
     }
 
     override fun isMouseOver(mouseX: Double, mouseY: Double): Boolean {

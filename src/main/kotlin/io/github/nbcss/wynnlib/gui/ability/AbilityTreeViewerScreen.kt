@@ -18,7 +18,6 @@ import net.minecraft.util.Identifier
 
 
 class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(parent) {
-    private val texture = Identifier("wynnlib", "textures/gui/ability_tree_viewer.png")
     companion object {
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON
@@ -33,8 +32,8 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
     private fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
         val posX = windowX + 242
         val posY = windowY + 44 + index * 28
-        val v = if (tree.character.ordinal == index) 172 else 144
-        RenderKit.renderTexture(matrices, texture, posX, posY, 0, v, 32, 28)
+        val v = if (tree.character.ordinal == index) 210 else 182
+        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, v, 32, 28)
         val character = CharacterClass.values()[index]
         val icon = character.getWeapon().getIcon()
         itemRenderer.renderInGuiWithOverrides(icon, posX + 7, posY + 6)
@@ -95,7 +94,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         var archetypeX = viewerX + 2
-        val archetypeY = viewerY + 143
+        val archetypeY = viewerY + 144
         //render archetype values
         tree.getArchetypes().forEach {
             renderArchetypeIcon(matrices, it, archetypeX, archetypeY)
@@ -148,12 +147,9 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
             return super.onClickNode(ability, 1)
         }
 
-        override fun renderContentsPost(
-            matrices: MatrixStack,
-            mouseX: Int,
-            mouseY: Int,
-            position: Double,
-            delta: Float) {
+        override fun renderContentsPost(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
+            if (!isMouseOver(mouseX.toDouble(), mouseY.toDouble()))
+                return
             //render ability tooltip
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
