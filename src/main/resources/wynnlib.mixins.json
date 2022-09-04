@@ -16,6 +16,7 @@
     "inventory.AbilityTreeEditorMixin",
     "inventory.InventoryUpdateMixin",
     "render.HotbarBackgroundMixin",
+    "render.InventoryRenderMixin",
     "render.ItemBackgroundMixin",
     "timer.PlayerListUpdateMixin",
     "timer.ResetLevelMixin",
