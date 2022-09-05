@@ -3979,6 +3979,7 @@
         "damage": {
           "neutral": 40
         },
+        "damage_interval": 0.3,
         "duration": 60
       },
       "metadata": {
@@ -10660,6 +10661,7 @@
           "neutral": 40,
           "water": 40
         },
+        "attack_interval": 0.25,
         "duration": 60,
         "max_effigy": 1
       },
