@@ -2,18 +2,24 @@ package io.github.nbcss.wynnlib.items
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
+import io.github.nbcss.wynnlib.data.CraftedType
 import io.github.nbcss.wynnlib.data.Profession
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CRAFTING_MAT
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_GATHERING_LV_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_MATERIAL_RECIPES
+import io.github.nbcss.wynnlib.registry.RecipeRegistry
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.range.IRange
+import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import kotlin.math.max
+import kotlin.math.min
 
 class Material(json: JsonObject) : Keyed, BaseItem {
     private val id: String = json["id"].asString
@@ -62,10 +68,19 @@ class Material(json: JsonObject) : Keyed, BaseItem {
             .append(LiteralText("$level").formatted(Formatting.WHITE)))
         tooltip.add(LiteralText.EMPTY)
         tooltip.add(TOOLTIP_MATERIAL_RECIPES.translate().formatted(Formatting.GRAY))
-        val prefix = LiteralText(" - ")
-        //todo add recipe list
-        tooltip.add(prefix.copy().formatted(Formatting.DARK_GRAY)
-            .append(LiteralText("???").formatted(Formatting.WHITE)))
+        val recipes: MutableMap<CraftedType, IRange> = linkedMapOf()
+        RecipeRegistry.fromMaterial(this).forEach {
+            val level = recipes[it.getType()] ?: it.getLevel()
+            val lower = min(level.lower(), it.getLevel().lower())
+            val upper = max(level.upper(), it.getLevel().upper())
+            recipes[it.getType()] = SimpleIRange(lower, upper)
+        }
+        recipes.forEach { (type, level) ->
+            tooltip.add(LiteralText(" - ").formatted(Formatting.DARK_GRAY)
+                .append(type.getProfession().getIconText()).append(" ")
+                .append(type.formatted(Formatting.WHITE))
+                .append(LiteralText(" [${level.lower()}-${level.upper()}]").formatted(Formatting.DARK_GRAY)))
+        }
         return tooltip
     }
 

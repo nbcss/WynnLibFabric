@@ -220,7 +220,7 @@ enum class EquipmentType(private val id: String,
     override fun getKey(): String = name
 
     override fun getTranslationKey(label: String?): String {
-        return "wynnlib.item_type.${getKey().lowercase(Locale.getDefault())}"
+        return "wynnlib.item_type.${getKey().lowercase()}"
     }
 
     open fun asCraftedType(): CraftedType? {

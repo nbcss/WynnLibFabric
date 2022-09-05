@@ -16,13 +16,20 @@ class Recipe(json: JsonObject): Keyed, BaseItem {
     private val type: CraftedType
     private val profession: Profession
     private val level: IRange
+    private val materials: Map<String, Int>
     init {
         val minLv = json["level"].asJsonObject["minimum"].asInt
         val maxLv = json["level"].asJsonObject["maximum"].asInt
         level = SimpleIRange(min(minLv, maxLv), max(minLv, maxLv))
         profession = Profession.fromName(json["skill"].asString) ?: Profession.ARMOURING
         type = CraftedType.fromId(json["type"].asString) ?: CraftedType.BOOTS //LOL
+        materials = linkedMapOf(
+            pairs = json["materials"].asJsonArray.map { it.asJsonObject }
+                .map { it["item"].asString to it["amount"].asInt }.toTypedArray()
+        )
     }
+
+    fun getMaterials(): List<Pair<String, Int>> = materials.entries.map { it.key to it.value }
 
     fun getType(): CraftedType = type
 
