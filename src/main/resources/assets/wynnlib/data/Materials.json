@@ -1,677 +1,2597 @@
 {
 	"data": [
-	  {
-	    "name": "Refined Copper Ingot", 
-		"displayName": "Copper Ingot",
-		"texture": "minecraft:diamond_axe#45", 
-		"type": "ingot",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Granite Ingot", 
-		"displayName": "Granite Ingot",
-		"texture": "minecraft:diamond_axe#46", 
-		"type": "ingot",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Gold Ingot", 
-		"displayName": "Gold Ingot",
-		"texture": "minecraft:diamond_axe#47", 
-		"type": "ingot",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Sandstone Ingot", 
-		"displayName": "Sandstone Ingot",
-		"texture": "minecraft:diamond_axe#48", 
-		"type": "ingot",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Iron Ingot", 
-		"displayName": "Iron Ingot",
-		"texture": "minecraft:diamond_axe#49", 
-		"type": "ingot",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Silver Ingot", 
-		"displayName": "Silver Ingot",
-		"texture": "minecraft:diamond_axe#50", 
-		"type": "ingot",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Cobalt Ingot", 
-		"displayName": "Cobalt Ingot",
-		"texture": "minecraft:diamond_axe#51", 
-		"type": "ingot",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Kanderstone Ingot", 
-		"displayName": "Kanderstone Ingot",
-		"texture": "minecraft:diamond_axe#52", 
-		"type": "ingot",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Diamond Ingot", 
-		"displayName": "Diamond Ingot",
-		"texture": "minecraft:diamond_axe#53", 
-		"type": "ingot",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Molten Ingot", 
-		"displayName": "Molten Ingot",
-		"texture": "minecraft:diamond_axe#54", 
-		"type": "ingot",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Voidstone Ingot", 
-		"displayName": "Voidstone Ingot",
-		"texture": "minecraft:diamond_axe#55", 
-		"type": "ingot",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic Ingot", 
-		"displayName": "Dernic Ingot",
-		"texture": "minecraft:diamond_axe#56", 
-		"type": "ingot",
-		"level": 110
-	  }, 
-	  {
-	    "name": "Refined Copper Gem", 
-		"displayName": "Copper Gem",
-		"texture": "minecraft:diamond_axe#57", 
-		"type": "gem",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Granite Gem", 
-		"displayName": "Granite Gem",
-		"texture": "minecraft:diamond_axe#58", 
-		"type": "gem",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Gold Gem", 
-		"displayName": "Gold Gem", 
-		"texture": "minecraft:diamond_axe#59", 
-		"type": "gem",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Sandstone Gem", 
-		"displayName": "Sandstone Gem", 
-		"texture": "minecraft:diamond_axe#68", 
-		"type": "gem",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Iron Gem", 
-		"displayName": "Iron Gem", 
-		"texture": "minecraft:diamond_axe#60", 
-		"type": "gem",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Silver Gem", 
-		"displayName": "Silver Gem", 
-		"texture": "minecraft:diamond_axe#61", 
-		"type": "gem",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Cobalt Gem", 
-		"displayName": "Cobalt Gem", 
-		"texture": "minecraft:diamond_axe#62", 
-		"type": "gem",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Kanderstone Gem", 
-		"displayName": "Kanderstone Gem", 
-		"texture": "minecraft:diamond_axe#63", 
-		"type": "gem",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Diamond Gem", 
-		"displayName": "Diamond Gem", 
-		"texture": "minecraft:diamond_axe#64", 
-		"type": "gem",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Molten Gem", 
-		"displayName": "Molten Gem", 
-		"texture": "minecraft:diamond_axe#65", 
-		"type": "gem",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Voidstone Gem", 
-		"displayName": "Voidstone Gem", 
-		"texture": "minecraft:diamond_axe#66", 
-		"type": "gem",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic Gem", 
-		"displayName": "Dernic Gem", 
-		"texture": "minecraft:diamond_axe#67", 
-		"type": "gem",
-		"level": 110
-	  }, 
-	  {
-	    "name": "Refined Oak Wood", 
-		"displayName": "Oak Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwNjI0ODYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kODNmZTQ5MjE0YzZkMzY2NGYzMGUxNjE3YWEzMGJlNWMxNWQ0NWI2NDMxOGE5NjFkOTM0MTBkMmUzYjY0Yzg2In19fQ==", 
-		"type": "wood",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Birch Wood", 
-		"displayName": "Birch Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1OTg1ODksInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mZTAzNWY1Y2M3NWRlMjY2ZDVlNjlmOGE1MDlhZmNjZjRhZjBlYWQ5ZjNlZTg1NmFiMTYzYjkxMTlkYmVjYTIifX19", 
-		"type": "wood",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Willow Wood", 
-		"displayName": "Willow Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxOTM1NTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zM2Q0ODYwMmNhN2Y2MmQ4NGNmOTg4OGE3Mzg2ZDk2ZTRhZmQ0YjA4ZTBkZDFjMWIxMjNiYTY1MTU3MzMxYTFkIn19fQ==", 
-		"type": "wood",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Acacia Wood", 
-		"displayName": "Acacia Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1MzY1OTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jYzdhYjRlZTM2Y2RmMjk0OWI0MmUxNmMyY2Q3NjhmZTkyMWM3MDkyY2Q1ZjVlOTA5NWJlNzQ3M2MyODg2NjA5In19fQ==", 
-		"type": "wood",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Spruce Wood", 
-		"displayName": "Spruce Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxNjA3ODQsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83ZjlkNWJjNjg0MGYyYzY4ZjRlNWEwOWE1MWJiZGE2NTlmNGU3OWYzMmZlNmZhMWQ4NDYwY2UyOGNmMzRhMGU0In19fQ==", 
-		"type": "wood",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Jungle Wood", 
-		"displayName": "Jungle Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5OTcwMDAsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81OGMwZmVlNGNiMWY5MjU2MDA3YzM1YTRhZmIxMGU2NWUxMzE1ZWQwNzA1ODhhMTMzZTUxMTMwNDYzYmY2ZjVmIn19fQ==", 
-		"type": "wood",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Dark Wood", 
-		"displayName": "Dark Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5MzE2MTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9hZDI5N2IxYzJlNDNiZmNhNTExY2IyNzllNWY2MzFmNjIwMWZiMWNmNDBkZTZlYmJmN2RhN2M2MGE1MDZhMzY2In19fQ==", 
-		"type": "wood",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Light Wood", 
-		"displayName": "Light Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwMjk4MzYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xOTZkYThlMDUyOTI1MDJjOTIwNWM1OTlhZDYzOGYwMjIyYWRjZWMwYzA1YThhYTQwZjJmZmMwMDQ5M2ExNDNlIn19fQ==", 
-		"type": "wood",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Pine Wood", 
-		"displayName": "Pine Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwOTUyODgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80NTNlNDFhZjI2OWFjNGU1N2RmYTg2YWM4OGQ2Mjk0YTUyMzU2YTQ5YjY0N2Q1NjU4NjdlODIxN2VjZDJhZmE5In19fQ==", 
-		"type": "wood",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Avo Wood", 
-		"displayName": "Avo Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1NjczNzcsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzFiYTYzZDU2NjA1MTFlNTQxNGQ5MGY3Y2U2Y2VmNjg3NWI2Njg1MDQyOWZlMjQxZjBiZGY1ZTc3ZTlkNjJjIn19fQ==", 
-		"type": "wood",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Sky Wood", 
-		"displayName": "Sky Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxMjgwMTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yZjU3MWNhOWM5MDJhMzZlNDMyN2JkMDcyODVkZjc5NWU5MGQyMTMxNTY2MDE3NjI2NjRjZTBjZDQ4NWJlNzRhIn19fQ==", 
-		"type": "wood",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic Wood", 
-		"displayName": "Dernic Wood", 
-		"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5NjQzMjgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lYTkwNzI2MjJmYmY4YzZmZjA1Yzg5Njk2OGJkMTZiZDkwMzU2MzgzNmFmNjgyZDNiNTQ0ZjA1MzRjM2RhMzg3In19fQ==", 
-		"type": "wood",
-		"level": 110
-	  }, 
-	  {
-	    "name": "Refined Oak Paper", 
-		"displayName": "Oak Paper", 
-		"texture": "minecraft:paper#0", 
-		"type": "paper",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Birch Paper", 
-		"displayName": "Birch Paper", 
-		"texture": "minecraft:paper#0", 
-		"type": "paper",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Willow Paper", 
-		"displayName": "Willow Paper", 
-		"texture": "minecraft:diamond_axe#40", 
-		"type": "paper",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Acacia Paper", 
-		"displayName": "Acacia Paper", 
-		"texture": "minecraft:diamond_axe#40", 
-		"type": "paper",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Spruce Paper", 
-		"displayName": "Spruce Paper", 
-		"texture": "minecraft:diamond_axe#41", 
-		"type": "paper",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Jungle Paper", 
-		"displayName": "Jungle Paper", 
-		"texture": "minecraft:diamond_axe#40", 
-		"type": "paper",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Dark Paper", 
-		"displayName": "Dark Paper", 
-		"texture": "minecraft:diamond_axe#41", 
-		"type": "paper",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Light Paper", 
-		"displayName": "Light Paper", 
-		"texture": "minecraft:paper#0", 
-		"type": "paper",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Pine Paper", 
-		"displayName": "Pine Paper", 
-		"texture": "minecraft:diamond_axe#41", 
-		"type": "paper",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Avo Paper", 
-		"displayName": "Avo Paper", 
-		"texture": "minecraft:diamond_axe#40", 
-		"type": "paper",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Sky Paper", 
-		"displayName": "Sky Paper", 
-		"texture": "minecraft:paper#0", 
-		"type": "paper",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic Paper", 
-		"displayName": "Dernic Paper", 
-		"texture": "minecraft:diamond_axe#41", 
-		"type": "paper",
-		"level": 110
-	  }, 
-	  {
-	    "name": "Refined Wheat String", 
-		"displayName": "Wheat String", 
-		"texture": "minecraft:diamond_axe#13", 
-		"type": "string",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Barley String", 
-		"displayName": "Barley String", 
-		"texture": "minecraft:diamond_axe#13", 
-		"type": "string",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Oat String", 
-		"displayName": "Oat String", 
-		"texture": "minecraft:diamond_axe#11", 
-		"type": "string",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Malt String", 
-		"displayName": "Malt String", 
-		"texture": "minecraft:diamond_axe#13", 
-		"type": "string",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Hops String", 
-		"displayName": "Hops String", 
-		"texture": "minecraft:diamond_axe#11", 
-		"type": "string",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Rye String", 
-		"displayName": "Rye String", 
-		"texture": "minecraft:diamond_axe#13", 
-		"type": "string",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Millet String", 
-		"displayName": "Millet String", 
-		"texture": "minecraft:diamond_axe#13", 
-		"type": "string",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Decay String", 
-		"displayName": "Decay String", 
-		"texture": "minecraft:diamond_axe#12", 
-		"type": "string",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Rice String", 
-		"displayName": "Rice String", 
-		"texture": "minecraft:diamond_axe#13", 
-		"type": "string",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Sorghum String", 
-		"displayName": "Sorghum String", 
-		"texture": "minecraft:diamond_axe#12", 
-		"type": "string",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Hemp String", 
-		"displayName": "Hemp String", 
-		"texture": "minecraft:diamond_axe#11", 
-		"type": "string",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic String", 
-		"displayName": "Dernic String", 
-		"texture": "minecraft:diamond_axe#12", 
-		"type": "string",
-		"level": 110
-	  }, 
-	  {
-	    "name": "Refined Wheat Grains", 
-		"displayName": "Wheat Grains", 
-		"texture": "minecraft:diamond_axe#14", 
-		"type": "grains",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Barley Grains", 
-		"displayName": "Barley Grains", 
-		"texture": "minecraft:diamond_axe#14", 
-		"type": "grains",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Oat Grains", 
-		"displayName": "Oat Grains", 
-		"texture": "minecraft:diamond_axe#15", 
-		"type": "grains",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Malt Grains", 
-		"displayName": "Malt Grains", 
-		"texture": "minecraft:diamond_axe#14", 
-		"type": "grains",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Hops Grains", 
-		"displayName": "Hops Grains", 
-		"texture": "minecraft:diamond_axe#15", 
-		"type": "grains",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Rye Grains", 
-		"displayName": "Rye Grains", 
-		"texture": "minecraft:diamond_axe#14", 
-		"type": "grains",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Millet Grains", 
-		"displayName": "Millet Grains", 
-		"texture": "minecraft:diamond_axe#14", 
-		"type": "grains",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Decay Grains", 
-		"displayName": "Decay Grains", 
-		"texture": "minecraft:diamond_axe#16",
-		"type": "grains",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Rice Grains", 
-		"displayName": "Rice Grains", 
-		"texture": "minecraft:diamond_axe#14", 
-		"type": "grains",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Sorghum Grains", 
-		"displayName": "Sorghum Grains", 
-		"texture": "minecraft:diamond_axe#17", 
-		"type": "grains",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Hemp Grains", 
-		"displayName": "Hemp Grains", 
-		"texture": "minecraft:diamond_axe#15", 
-		"type": "grains",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic Grains", 
-		"displayName": "Dernic Grains", 
-		"texture": "minecraft:diamond_axe#17", 
-		"type": "grains",
-		"level": 110
-	  }, 
-	  {
-	    "name": "Refined Gudgeon Oil", 
-		"displayName": "Gudgeon Oil", 
-		"texture": "minecraft:diamond_axe#35", 
-		"type": "oil",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Trout Oil", 
-		"displayName": "Trout Oil", 
-		"texture": "minecraft:diamond_axe#39", 
-		"type": "oil",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Salmon Oil", 
-		"displayName": "Salmon Oil", 
-		"texture": "minecraft:diamond_axe#36", 
-		"type": "oil",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Carp Oil", 
-		"displayName": "Carp Oil", 
-		"texture": "minecraft:diamond_axe#38", 
-		"type": "oil",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Icefish Oil", 
-		"displayName": "Icefish Oil", 
-		"texture": "minecraft:diamond_axe#39", 
-		"type": "oil",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Piranha Oil", 
-		"displayName": "Piranha Oil", 
-		"texture": "minecraft:diamond_axe#37", 
-		"type": "oil",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Koi Oil", 
-		"displayName": "Koi Oil", 
-		"texture": "minecraft:diamond_axe#36", 
-		"type": "oil",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Gylia Oil", 
-		"displayName": "Gylia Oil", 
-		"texture": "minecraft:diamond_axe#36", 
-		"type": "oil",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Bass Oil", 
-		"displayName": "Bass Oil", 
-		"texture": "minecraft:diamond_axe#39", 
-		"type": "oil",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Molten Oil", 
-		"displayName": "Molten Oil", 
-		"texture": "minecraft:diamond_axe#37", 
-		"type": "oil",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Starfish Oil", 
-		"displayName": "Starfish Oil", 
-		"texture": "minecraft:diamond_axe#38", 
-		"type": "oil",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic Oil", 
-		"displayName": "Dernic Oil", 
-		"texture": "minecraft:diamond_axe#35", 
-		"type": "oil",
-		"level": 110
-	  }, 
-	  {
-	    "name": "Refined Gudgeon Meat", 
-		"displayName": "Gudgeon Meat", 
-		"texture": "minecraft:diamond_axe#31", 
-		"type": "meat",
-		"level": 1
-	  }, 
-	  {
-	    "name": "Refined Trout Meat", 
-		"displayName": "Trout Meat", 
-		"texture": "minecraft:diamond_axe#34", 
-		"type": "meat",
-		"level": 10
-	  }, 
-	  {
-	    "name": "Refined Salmon Meat", 
-		"displayName": "Salmon Meat", 
-		"texture": "minecraft:diamond_axe#32", 
-		"type": "meat",
-		"level": 20
-	  }, 
-	  {
-	    "name": "Refined Carp Meat", 
-		"displayName": "Carp Meat", 
-		"texture": "minecraft:diamond_axe#33", 
-		"type": "meat",
-		"level": 30
-	  }, 
-	  {
-	    "name": "Refined Icefish Meat", 
-		"displayName": "Icefish Meat", 
-		"texture": "minecraft:diamond_axe#34", 
-		"type": "meat",
-		"level": 40
-	  }, 
-	  {
-	    "name": "Refined Piranha Meat", 
-		"displayName": "Piranha Meat", 
-		"texture": "minecraft:diamond_axe#34", 
-		"type": "meat",
-		"level": 50
-	  }, 
-	  {
-	    "name": "Refined Koi Meat", 
-		"displayName": "Koi Meat", 
-		"texture": "minecraft:diamond_axe#31", 
-		"type": "meat",
-		"level": 60
-	  }, 
-	  {
-	    "name": "Refined Gylia Meat", 
-		"displayName": "Gylia Meat", 
-		"texture": "minecraft:diamond_axe#31", 
-		"type": "meat",
-		"level": 70
-	  }, 
-	  {
-	    "name": "Refined Bass Meat", 
-		"displayName": "Bass Meat", 
-		"texture": "minecraft:diamond_axe#30", 
-		"type": "meat",
-		"level": 80
-	  }, 
-	  {
-	    "name": "Refined Molten Meat", 
-		"displayName": "Molten Meat", 
-		"texture": "minecraft:diamond_axe#32", 
-		"type": "meat",
-		"level": 90
-	  }, 
-	  {
-	    "name": "Refined Starfish Meat", 
-		"displayName": "Starfish Meat", 
-		"texture": "minecraft:diamond_axe#33", 
-		"type": "meat",
-		"level": 100
-	  }, 
-	  {
-	    "name": "Refined Dernic Meat", 
-		"displayName": "Dernic Meat", 
-		"texture": "minecraft:diamond_axe#30", 
-		"type": "meat",
-		"level": 110
-	  }
-	], 
-	"version": "1.0.1"
+		{
+			"id": "Refined Copper Ingot 1",
+			"tier": 1,
+			"name": "Refined Copper Ingot",
+			"displayName": "Copper Ingot",
+			"texture": "minecraft:diamond_axe#45",
+			"type": "INGOT",
+			"level": 1
+		},
+		{
+			"id": "Refined Copper Ingot 2",
+			"tier": 2,
+			"name": "Refined Copper Ingot",
+			"displayName": "Copper Ingot",
+			"texture": "minecraft:diamond_axe#45",
+			"type": "INGOT",
+			"level": 1
+		},
+		{
+			"id": "Refined Copper Ingot 3",
+			"tier": 3,
+			"name": "Refined Copper Ingot",
+			"displayName": "Copper Ingot",
+			"texture": "minecraft:diamond_axe#45",
+			"type": "INGOT",
+			"level": 1
+		},
+		{
+			"id": "Refined Granite Ingot 1",
+			"tier": 1,
+			"name": "Refined Granite Ingot",
+			"displayName": "Granite Ingot",
+			"texture": "minecraft:diamond_axe#46",
+			"type": "INGOT",
+			"level": 10
+		},
+		{
+			"id": "Refined Granite Ingot 2",
+			"tier": 2,
+			"name": "Refined Granite Ingot",
+			"displayName": "Granite Ingot",
+			"texture": "minecraft:diamond_axe#46",
+			"type": "INGOT",
+			"level": 10
+		},
+		{
+			"id": "Refined Granite Ingot 3",
+			"tier": 3,
+			"name": "Refined Granite Ingot",
+			"displayName": "Granite Ingot",
+			"texture": "minecraft:diamond_axe#46",
+			"type": "INGOT",
+			"level": 10
+		},
+		{
+			"id": "Refined Gold Ingot 1",
+			"tier": 1,
+			"name": "Refined Gold Ingot",
+			"displayName": "Gold Ingot",
+			"texture": "minecraft:diamond_axe#47",
+			"type": "INGOT",
+			"level": 20
+		},
+		{
+			"id": "Refined Gold Ingot 2",
+			"tier": 2,
+			"name": "Refined Gold Ingot",
+			"displayName": "Gold Ingot",
+			"texture": "minecraft:diamond_axe#47",
+			"type": "INGOT",
+			"level": 20
+		},
+		{
+			"id": "Refined Gold Ingot 3",
+			"tier": 3,
+			"name": "Refined Gold Ingot",
+			"displayName": "Gold Ingot",
+			"texture": "minecraft:diamond_axe#47",
+			"type": "INGOT",
+			"level": 20
+		},
+		{
+			"id": "Refined Sandstone Ingot 1",
+			"tier": 1,
+			"name": "Refined Sandstone Ingot",
+			"displayName": "Sandstone Ingot",
+			"texture": "minecraft:diamond_axe#48",
+			"type": "INGOT",
+			"level": 30
+		},
+		{
+			"id": "Refined Sandstone Ingot 2",
+			"tier": 2,
+			"name": "Refined Sandstone Ingot",
+			"displayName": "Sandstone Ingot",
+			"texture": "minecraft:diamond_axe#48",
+			"type": "INGOT",
+			"level": 30
+		},
+		{
+			"id": "Refined Sandstone Ingot 3",
+			"tier": 3,
+			"name": "Refined Sandstone Ingot",
+			"displayName": "Sandstone Ingot",
+			"texture": "minecraft:diamond_axe#48",
+			"type": "INGOT",
+			"level": 30
+		},
+		{
+			"id": "Refined Iron Ingot 1",
+			"tier": 1,
+			"name": "Refined Iron Ingot",
+			"displayName": "Iron Ingot",
+			"texture": "minecraft:diamond_axe#49",
+			"type": "INGOT",
+			"level": 40
+		},
+		{
+			"id": "Refined Iron Ingot 2",
+			"tier": 2,
+			"name": "Refined Iron Ingot",
+			"displayName": "Iron Ingot",
+			"texture": "minecraft:diamond_axe#49",
+			"type": "INGOT",
+			"level": 40
+		},
+		{
+			"id": "Refined Iron Ingot 3",
+			"tier": 3,
+			"name": "Refined Iron Ingot",
+			"displayName": "Iron Ingot",
+			"texture": "minecraft:diamond_axe#49",
+			"type": "INGOT",
+			"level": 40
+		},
+		{
+			"id": "Refined Silver Ingot 1",
+			"tier": 1,
+			"name": "Refined Silver Ingot",
+			"displayName": "Silver Ingot",
+			"texture": "minecraft:diamond_axe#50",
+			"type": "INGOT",
+			"level": 50
+		},
+		{
+			"id": "Refined Silver Ingot 2",
+			"tier": 2,
+			"name": "Refined Silver Ingot",
+			"displayName": "Silver Ingot",
+			"texture": "minecraft:diamond_axe#50",
+			"type": "INGOT",
+			"level": 50
+		},
+		{
+			"id": "Refined Silver Ingot 3",
+			"tier": 3,
+			"name": "Refined Silver Ingot",
+			"displayName": "Silver Ingot",
+			"texture": "minecraft:diamond_axe#50",
+			"type": "INGOT",
+			"level": 50
+		},
+		{
+			"id": "Refined Cobalt Ingot 1",
+			"tier": 1,
+			"name": "Refined Cobalt Ingot",
+			"displayName": "Cobalt Ingot",
+			"texture": "minecraft:diamond_axe#51",
+			"type": "INGOT",
+			"level": 60
+		},
+		{
+			"id": "Refined Cobalt Ingot 2",
+			"tier": 2,
+			"name": "Refined Cobalt Ingot",
+			"displayName": "Cobalt Ingot",
+			"texture": "minecraft:diamond_axe#51",
+			"type": "INGOT",
+			"level": 60
+		},
+		{
+			"id": "Refined Cobalt Ingot 3",
+			"tier": 3,
+			"name": "Refined Cobalt Ingot",
+			"displayName": "Cobalt Ingot",
+			"texture": "minecraft:diamond_axe#51",
+			"type": "INGOT",
+			"level": 60
+		},
+		{
+			"id": "Refined Kanderstone Ingot 1",
+			"tier": 1,
+			"name": "Refined Kanderstone Ingot",
+			"displayName": "Kanderstone Ingot",
+			"texture": "minecraft:diamond_axe#52",
+			"type": "INGOT",
+			"level": 70
+		},
+		{
+			"id": "Refined Kanderstone Ingot 2",
+			"tier": 2,
+			"name": "Refined Kanderstone Ingot",
+			"displayName": "Kanderstone Ingot",
+			"texture": "minecraft:diamond_axe#52",
+			"type": "INGOT",
+			"level": 70
+		},
+		{
+			"id": "Refined Kanderstone Ingot 3",
+			"tier": 3,
+			"name": "Refined Kanderstone Ingot",
+			"displayName": "Kanderstone Ingot",
+			"texture": "minecraft:diamond_axe#52",
+			"type": "INGOT",
+			"level": 70
+		},
+		{
+			"id": "Refined Diamond Ingot 1",
+			"tier": 1,
+			"name": "Refined Diamond Ingot",
+			"displayName": "Diamond Ingot",
+			"texture": "minecraft:diamond_axe#53",
+			"type": "INGOT",
+			"level": 80
+		},
+		{
+			"id": "Refined Diamond Ingot 2",
+			"tier": 2,
+			"name": "Refined Diamond Ingot",
+			"displayName": "Diamond Ingot",
+			"texture": "minecraft:diamond_axe#53",
+			"type": "INGOT",
+			"level": 80
+		},
+		{
+			"id": "Refined Diamond Ingot 3",
+			"tier": 3,
+			"name": "Refined Diamond Ingot",
+			"displayName": "Diamond Ingot",
+			"texture": "minecraft:diamond_axe#53",
+			"type": "INGOT",
+			"level": 80
+		},
+		{
+			"id": "Refined Molten Ingot 1",
+			"tier": 1,
+			"name": "Refined Molten Ingot",
+			"displayName": "Molten Ingot",
+			"texture": "minecraft:diamond_axe#54",
+			"type": "INGOT",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Ingot 2",
+			"tier": 2,
+			"name": "Refined Molten Ingot",
+			"displayName": "Molten Ingot",
+			"texture": "minecraft:diamond_axe#54",
+			"type": "INGOT",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Ingot 3",
+			"tier": 3,
+			"name": "Refined Molten Ingot",
+			"displayName": "Molten Ingot",
+			"texture": "minecraft:diamond_axe#54",
+			"type": "INGOT",
+			"level": 90
+		},
+		{
+			"id": "Refined Voidstone Ingot 1",
+			"tier": 1,
+			"name": "Refined Voidstone Ingot",
+			"displayName": "Voidstone Ingot",
+			"texture": "minecraft:diamond_axe#55",
+			"type": "INGOT",
+			"level": 100
+		},
+		{
+			"id": "Refined Voidstone Ingot 2",
+			"tier": 2,
+			"name": "Refined Voidstone Ingot",
+			"displayName": "Voidstone Ingot",
+			"texture": "minecraft:diamond_axe#55",
+			"type": "INGOT",
+			"level": 100
+		},
+		{
+			"id": "Refined Voidstone Ingot 3",
+			"tier": 3,
+			"name": "Refined Voidstone Ingot",
+			"displayName": "Voidstone Ingot",
+			"texture": "minecraft:diamond_axe#55",
+			"type": "INGOT",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic Ingot 1",
+			"tier": 1,
+			"name": "Refined Dernic Ingot",
+			"displayName": "Dernic Ingot",
+			"texture": "minecraft:diamond_axe#56",
+			"type": "INGOT",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Ingot 2",
+			"tier": 2,
+			"name": "Refined Dernic Ingot",
+			"displayName": "Dernic Ingot",
+			"texture": "minecraft:diamond_axe#56",
+			"type": "INGOT",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Ingot 3",
+			"tier": 3,
+			"name": "Refined Dernic Ingot",
+			"displayName": "Dernic Ingot",
+			"texture": "minecraft:diamond_axe#56",
+			"type": "INGOT",
+			"level": 110
+		},
+		{
+			"id": "Refined Copper Gem 1",
+			"tier": 1,
+			"name": "Refined Copper Gem",
+			"displayName": "Copper Gem",
+			"texture": "minecraft:diamond_axe#57",
+			"type": "GEM",
+			"level": 1
+		},
+		{
+			"id": "Refined Copper Gem 2",
+			"tier": 2,
+			"name": "Refined Copper Gem",
+			"displayName": "Copper Gem",
+			"texture": "minecraft:diamond_axe#57",
+			"type": "GEM",
+			"level": 1
+		},
+		{
+			"id": "Refined Copper Gem 3",
+			"tier": 3,
+			"name": "Refined Copper Gem",
+			"displayName": "Copper Gem",
+			"texture": "minecraft:diamond_axe#57",
+			"type": "GEM",
+			"level": 1
+		},
+		{
+			"id": "Refined Granite Gem 1",
+			"tier": 1,
+			"name": "Refined Granite Gem",
+			"displayName": "Granite Gem",
+			"texture": "minecraft:diamond_axe#58",
+			"type": "GEM",
+			"level": 10
+		},
+		{
+			"id": "Refined Granite Gem 2",
+			"tier": 2,
+			"name": "Refined Granite Gem",
+			"displayName": "Granite Gem",
+			"texture": "minecraft:diamond_axe#58",
+			"type": "GEM",
+			"level": 10
+		},
+		{
+			"id": "Refined Granite Gem 3",
+			"tier": 3,
+			"name": "Refined Granite Gem",
+			"displayName": "Granite Gem",
+			"texture": "minecraft:diamond_axe#58",
+			"type": "GEM",
+			"level": 10
+		},
+		{
+			"id": "Refined Gold Gem 1",
+			"tier": 1,
+			"name": "Refined Gold Gem",
+			"displayName": "Gold Gem",
+			"texture": "minecraft:diamond_axe#59",
+			"type": "GEM",
+			"level": 20
+		},
+		{
+			"id": "Refined Gold Gem 2",
+			"tier": 2,
+			"name": "Refined Gold Gem",
+			"displayName": "Gold Gem",
+			"texture": "minecraft:diamond_axe#59",
+			"type": "GEM",
+			"level": 20
+		},
+		{
+			"id": "Refined Gold Gem 3",
+			"tier": 3,
+			"name": "Refined Gold Gem",
+			"displayName": "Gold Gem",
+			"texture": "minecraft:diamond_axe#59",
+			"type": "GEM",
+			"level": 20
+		},
+		{
+			"id": "Refined Sandstone Gem 1",
+			"tier": 1,
+			"name": "Refined Sandstone Gem",
+			"displayName": "Sandstone Gem",
+			"texture": "minecraft:diamond_axe#68",
+			"type": "GEM",
+			"level": 30
+		},
+		{
+			"id": "Refined Sandstone Gem 2",
+			"tier": 2,
+			"name": "Refined Sandstone Gem",
+			"displayName": "Sandstone Gem",
+			"texture": "minecraft:diamond_axe#68",
+			"type": "GEM",
+			"level": 30
+		},
+		{
+			"id": "Refined Sandstone Gem 3",
+			"tier": 3,
+			"name": "Refined Sandstone Gem",
+			"displayName": "Sandstone Gem",
+			"texture": "minecraft:diamond_axe#68",
+			"type": "GEM",
+			"level": 30
+		},
+		{
+			"id": "Refined Iron Gem 1",
+			"tier": 1,
+			"name": "Refined Iron Gem",
+			"displayName": "Iron Gem",
+			"texture": "minecraft:diamond_axe#60",
+			"type": "GEM",
+			"level": 40
+		},
+		{
+			"id": "Refined Iron Gem 2",
+			"tier": 2,
+			"name": "Refined Iron Gem",
+			"displayName": "Iron Gem",
+			"texture": "minecraft:diamond_axe#60",
+			"type": "GEM",
+			"level": 40
+		},
+		{
+			"id": "Refined Iron Gem 3",
+			"tier": 3,
+			"name": "Refined Iron Gem",
+			"displayName": "Iron Gem",
+			"texture": "minecraft:diamond_axe#60",
+			"type": "GEM",
+			"level": 40
+		},
+		{
+			"id": "Refined Silver Gem 1",
+			"tier": 1,
+			"name": "Refined Silver Gem",
+			"displayName": "Silver Gem",
+			"texture": "minecraft:diamond_axe#61",
+			"type": "GEM",
+			"level": 50
+		},
+		{
+			"id": "Refined Silver Gem 2",
+			"tier": 2,
+			"name": "Refined Silver Gem",
+			"displayName": "Silver Gem",
+			"texture": "minecraft:diamond_axe#61",
+			"type": "GEM",
+			"level": 50
+		},
+		{
+			"id": "Refined Silver Gem 3",
+			"tier": 3,
+			"name": "Refined Silver Gem",
+			"displayName": "Silver Gem",
+			"texture": "minecraft:diamond_axe#61",
+			"type": "GEM",
+			"level": 50
+		},
+		{
+			"id": "Refined Cobalt Gem 1",
+			"tier": 1,
+			"name": "Refined Cobalt Gem",
+			"displayName": "Cobalt Gem",
+			"texture": "minecraft:diamond_axe#62",
+			"type": "GEM",
+			"level": 60
+		},
+		{
+			"id": "Refined Cobalt Gem 2",
+			"tier": 2,
+			"name": "Refined Cobalt Gem",
+			"displayName": "Cobalt Gem",
+			"texture": "minecraft:diamond_axe#62",
+			"type": "GEM",
+			"level": 60
+		},
+		{
+			"id": "Refined Cobalt Gem 3",
+			"tier": 3,
+			"name": "Refined Cobalt Gem",
+			"displayName": "Cobalt Gem",
+			"texture": "minecraft:diamond_axe#62",
+			"type": "GEM",
+			"level": 60
+		},
+		{
+			"id": "Refined Kanderstone Gem 1",
+			"tier": 1,
+			"name": "Refined Kanderstone Gem",
+			"displayName": "Kanderstone Gem",
+			"texture": "minecraft:diamond_axe#63",
+			"type": "GEM",
+			"level": 70
+		},
+		{
+			"id": "Refined Kanderstone Gem 2",
+			"tier": 2,
+			"name": "Refined Kanderstone Gem",
+			"displayName": "Kanderstone Gem",
+			"texture": "minecraft:diamond_axe#63",
+			"type": "GEM",
+			"level": 70
+		},
+		{
+			"id": "Refined Kanderstone Gem 3",
+			"tier": 3,
+			"name": "Refined Kanderstone Gem",
+			"displayName": "Kanderstone Gem",
+			"texture": "minecraft:diamond_axe#63",
+			"type": "GEM",
+			"level": 70
+		},
+		{
+			"id": "Refined Diamond Gem 1",
+			"tier": 1,
+			"name": "Refined Diamond Gem",
+			"displayName": "Diamond Gem",
+			"texture": "minecraft:diamond_axe#64",
+			"type": "GEM",
+			"level": 80
+		},
+		{
+			"id": "Refined Diamond Gem 2",
+			"tier": 2,
+			"name": "Refined Diamond Gem",
+			"displayName": "Diamond Gem",
+			"texture": "minecraft:diamond_axe#64",
+			"type": "GEM",
+			"level": 80
+		},
+		{
+			"id": "Refined Diamond Gem 3",
+			"tier": 3,
+			"name": "Refined Diamond Gem",
+			"displayName": "Diamond Gem",
+			"texture": "minecraft:diamond_axe#64",
+			"type": "GEM",
+			"level": 80
+		},
+		{
+			"id": "Refined Molten Gem 1",
+			"tier": 1,
+			"name": "Refined Molten Gem",
+			"displayName": "Molten Gem",
+			"texture": "minecraft:diamond_axe#65",
+			"type": "GEM",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Gem 2",
+			"tier": 2,
+			"name": "Refined Molten Gem",
+			"displayName": "Molten Gem",
+			"texture": "minecraft:diamond_axe#65",
+			"type": "GEM",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Gem 3",
+			"tier": 3,
+			"name": "Refined Molten Gem",
+			"displayName": "Molten Gem",
+			"texture": "minecraft:diamond_axe#65",
+			"type": "GEM",
+			"level": 90
+		},
+		{
+			"id": "Refined Voidstone Gem 1",
+			"tier": 1,
+			"name": "Refined Voidstone Gem",
+			"displayName": "Voidstone Gem",
+			"texture": "minecraft:diamond_axe#66",
+			"type": "GEM",
+			"level": 100
+		},
+		{
+			"id": "Refined Voidstone Gem 2",
+			"tier": 2,
+			"name": "Refined Voidstone Gem",
+			"displayName": "Voidstone Gem",
+			"texture": "minecraft:diamond_axe#66",
+			"type": "GEM",
+			"level": 100
+		},
+		{
+			"id": "Refined Voidstone Gem 3",
+			"tier": 3,
+			"name": "Refined Voidstone Gem",
+			"displayName": "Voidstone Gem",
+			"texture": "minecraft:diamond_axe#66",
+			"type": "GEM",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic Gem 1",
+			"tier": 1,
+			"name": "Refined Dernic Gem",
+			"displayName": "Dernic Gem",
+			"texture": "minecraft:diamond_axe#67",
+			"type": "GEM",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Gem 2",
+			"tier": 2,
+			"name": "Refined Dernic Gem",
+			"displayName": "Dernic Gem",
+			"texture": "minecraft:diamond_axe#67",
+			"type": "GEM",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Gem 3",
+			"tier": 3,
+			"name": "Refined Dernic Gem",
+			"displayName": "Dernic Gem",
+			"texture": "minecraft:diamond_axe#67",
+			"type": "GEM",
+			"level": 110
+		},
+		{
+			"id": "Refined Oak Wood 1",
+			"tier": 1,
+			"name": "Refined Oak Wood",
+			"displayName": "Oak Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwNjI0ODYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kODNmZTQ5MjE0YzZkMzY2NGYzMGUxNjE3YWEzMGJlNWMxNWQ0NWI2NDMxOGE5NjFkOTM0MTBkMmUzYjY0Yzg2In19fQ==",
+			"type": "WOOD",
+			"level": 1
+		},
+		{
+			"id": "Refined Oak Wood 2",
+			"tier": 2,
+			"name": "Refined Oak Wood",
+			"displayName": "Oak Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwNjI0ODYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kODNmZTQ5MjE0YzZkMzY2NGYzMGUxNjE3YWEzMGJlNWMxNWQ0NWI2NDMxOGE5NjFkOTM0MTBkMmUzYjY0Yzg2In19fQ==",
+			"type": "WOOD",
+			"level": 1
+		},
+		{
+			"id": "Refined Oak Wood 3",
+			"tier": 3,
+			"name": "Refined Oak Wood",
+			"displayName": "Oak Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwNjI0ODYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kODNmZTQ5MjE0YzZkMzY2NGYzMGUxNjE3YWEzMGJlNWMxNWQ0NWI2NDMxOGE5NjFkOTM0MTBkMmUzYjY0Yzg2In19fQ==",
+			"type": "WOOD",
+			"level": 1
+		},
+		{
+			"id": "Refined Birch Wood 1",
+			"tier": 1,
+			"name": "Refined Birch Wood",
+			"displayName": "Birch Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1OTg1ODksInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mZTAzNWY1Y2M3NWRlMjY2ZDVlNjlmOGE1MDlhZmNjZjRhZjBlYWQ5ZjNlZTg1NmFiMTYzYjkxMTlkYmVjYTIifX19",
+			"type": "WOOD",
+			"level": 10
+		},
+		{
+			"id": "Refined Birch Wood 2",
+			"tier": 2,
+			"name": "Refined Birch Wood",
+			"displayName": "Birch Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1OTg1ODksInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mZTAzNWY1Y2M3NWRlMjY2ZDVlNjlmOGE1MDlhZmNjZjRhZjBlYWQ5ZjNlZTg1NmFiMTYzYjkxMTlkYmVjYTIifX19",
+			"type": "WOOD",
+			"level": 10
+		},
+		{
+			"id": "Refined Birch Wood 3",
+			"tier": 3,
+			"name": "Refined Birch Wood",
+			"displayName": "Birch Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1OTg1ODksInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mZTAzNWY1Y2M3NWRlMjY2ZDVlNjlmOGE1MDlhZmNjZjRhZjBlYWQ5ZjNlZTg1NmFiMTYzYjkxMTlkYmVjYTIifX19",
+			"type": "WOOD",
+			"level": 10
+		},
+		{
+			"id": "Refined Willow Wood 1",
+			"tier": 1,
+			"name": "Refined Willow Wood",
+			"displayName": "Willow Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxOTM1NTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zM2Q0ODYwMmNhN2Y2MmQ4NGNmOTg4OGE3Mzg2ZDk2ZTRhZmQ0YjA4ZTBkZDFjMWIxMjNiYTY1MTU3MzMxYTFkIn19fQ==",
+			"type": "WOOD",
+			"level": 20
+		},
+		{
+			"id": "Refined Willow Wood 2",
+			"tier": 2,
+			"name": "Refined Willow Wood",
+			"displayName": "Willow Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxOTM1NTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zM2Q0ODYwMmNhN2Y2MmQ4NGNmOTg4OGE3Mzg2ZDk2ZTRhZmQ0YjA4ZTBkZDFjMWIxMjNiYTY1MTU3MzMxYTFkIn19fQ==",
+			"type": "WOOD",
+			"level": 20
+		},
+		{
+			"id": "Refined Willow Wood 3",
+			"tier": 3,
+			"name": "Refined Willow Wood",
+			"displayName": "Willow Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxOTM1NTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8zM2Q0ODYwMmNhN2Y2MmQ4NGNmOTg4OGE3Mzg2ZDk2ZTRhZmQ0YjA4ZTBkZDFjMWIxMjNiYTY1MTU3MzMxYTFkIn19fQ==",
+			"type": "WOOD",
+			"level": 20
+		},
+		{
+			"id": "Refined Acacia Wood 1",
+			"tier": 1,
+			"name": "Refined Acacia Wood",
+			"displayName": "Acacia Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1MzY1OTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jYzdhYjRlZTM2Y2RmMjk0OWI0MmUxNmMyY2Q3NjhmZTkyMWM3MDkyY2Q1ZjVlOTA5NWJlNzQ3M2MyODg2NjA5In19fQ==",
+			"type": "WOOD",
+			"level": 30
+		},
+		{
+			"id": "Refined Acacia Wood 2",
+			"tier": 2,
+			"name": "Refined Acacia Wood",
+			"displayName": "Acacia Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1MzY1OTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jYzdhYjRlZTM2Y2RmMjk0OWI0MmUxNmMyY2Q3NjhmZTkyMWM3MDkyY2Q1ZjVlOTA5NWJlNzQ3M2MyODg2NjA5In19fQ==",
+			"type": "WOOD",
+			"level": 30
+		},
+		{
+			"id": "Refined Acacia Wood 3",
+			"tier": 3,
+			"name": "Refined Acacia Wood",
+			"displayName": "Acacia Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1MzY1OTIsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9jYzdhYjRlZTM2Y2RmMjk0OWI0MmUxNmMyY2Q3NjhmZTkyMWM3MDkyY2Q1ZjVlOTA5NWJlNzQ3M2MyODg2NjA5In19fQ==",
+			"type": "WOOD",
+			"level": 30
+		},
+		{
+			"id": "Refined Spruce Wood 1",
+			"tier": 1,
+			"name": "Refined Spruce Wood",
+			"displayName": "Spruce Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxNjA3ODQsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83ZjlkNWJjNjg0MGYyYzY4ZjRlNWEwOWE1MWJiZGE2NTlmNGU3OWYzMmZlNmZhMWQ4NDYwY2UyOGNmMzRhMGU0In19fQ==",
+			"type": "WOOD",
+			"level": 40
+		},
+		{
+			"id": "Refined Spruce Wood 2",
+			"tier": 2,
+			"name": "Refined Spruce Wood",
+			"displayName": "Spruce Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxNjA3ODQsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83ZjlkNWJjNjg0MGYyYzY4ZjRlNWEwOWE1MWJiZGE2NTlmNGU3OWYzMmZlNmZhMWQ4NDYwY2UyOGNmMzRhMGU0In19fQ==",
+			"type": "WOOD",
+			"level": 40
+		},
+		{
+			"id": "Refined Spruce Wood 3",
+			"tier": 3,
+			"name": "Refined Spruce Wood",
+			"displayName": "Spruce Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxNjA3ODQsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS83ZjlkNWJjNjg0MGYyYzY4ZjRlNWEwOWE1MWJiZGE2NTlmNGU3OWYzMmZlNmZhMWQ4NDYwY2UyOGNmMzRhMGU0In19fQ==",
+			"type": "WOOD",
+			"level": 40
+		},
+		{
+			"id": "Refined Jungle Wood 1",
+			"tier": 1,
+			"name": "Refined Jungle Wood",
+			"displayName": "Jungle Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5OTcwMDAsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81OGMwZmVlNGNiMWY5MjU2MDA3YzM1YTRhZmIxMGU2NWUxMzE1ZWQwNzA1ODhhMTMzZTUxMTMwNDYzYmY2ZjVmIn19fQ==",
+			"type": "WOOD",
+			"level": 50
+		},
+		{
+			"id": "Refined Jungle Wood 2",
+			"tier": 2,
+			"name": "Refined Jungle Wood",
+			"displayName": "Jungle Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5OTcwMDAsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81OGMwZmVlNGNiMWY5MjU2MDA3YzM1YTRhZmIxMGU2NWUxMzE1ZWQwNzA1ODhhMTMzZTUxMTMwNDYzYmY2ZjVmIn19fQ==",
+			"type": "WOOD",
+			"level": 50
+		},
+		{
+			"id": "Refined Jungle Wood 3",
+			"tier": 3,
+			"name": "Refined Jungle Wood",
+			"displayName": "Jungle Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5OTcwMDAsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81OGMwZmVlNGNiMWY5MjU2MDA3YzM1YTRhZmIxMGU2NWUxMzE1ZWQwNzA1ODhhMTMzZTUxMTMwNDYzYmY2ZjVmIn19fQ==",
+			"type": "WOOD",
+			"level": 50
+		},
+		{
+			"id": "Refined Dark Wood 1",
+			"tier": 1,
+			"name": "Refined Dark Wood",
+			"displayName": "Dark Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5MzE2MTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9hZDI5N2IxYzJlNDNiZmNhNTExY2IyNzllNWY2MzFmNjIwMWZiMWNmNDBkZTZlYmJmN2RhN2M2MGE1MDZhMzY2In19fQ==",
+			"type": "WOOD",
+			"level": 60
+		},
+		{
+			"id": "Refined Dark Wood 2",
+			"tier": 2,
+			"name": "Refined Dark Wood",
+			"displayName": "Dark Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5MzE2MTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9hZDI5N2IxYzJlNDNiZmNhNTExY2IyNzllNWY2MzFmNjIwMWZiMWNmNDBkZTZlYmJmN2RhN2M2MGE1MDZhMzY2In19fQ==",
+			"type": "WOOD",
+			"level": 60
+		},
+		{
+			"id": "Refined Dark Wood 3",
+			"tier": 3,
+			"name": "Refined Dark Wood",
+			"displayName": "Dark Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5MzE2MTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9hZDI5N2IxYzJlNDNiZmNhNTExY2IyNzllNWY2MzFmNjIwMWZiMWNmNDBkZTZlYmJmN2RhN2M2MGE1MDZhMzY2In19fQ==",
+			"type": "WOOD",
+			"level": 60
+		},
+		{
+			"id": "Refined Light Wood 1",
+			"tier": 1,
+			"name": "Refined Light Wood",
+			"displayName": "Light Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwMjk4MzYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xOTZkYThlMDUyOTI1MDJjOTIwNWM1OTlhZDYzOGYwMjIyYWRjZWMwYzA1YThhYTQwZjJmZmMwMDQ5M2ExNDNlIn19fQ==",
+			"type": "WOOD",
+			"level": 70
+		},
+		{
+			"id": "Refined Light Wood 2",
+			"tier": 2,
+			"name": "Refined Light Wood",
+			"displayName": "Light Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwMjk4MzYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xOTZkYThlMDUyOTI1MDJjOTIwNWM1OTlhZDYzOGYwMjIyYWRjZWMwYzA1YThhYTQwZjJmZmMwMDQ5M2ExNDNlIn19fQ==",
+			"type": "WOOD",
+			"level": 70
+		},
+		{
+			"id": "Refined Light Wood 3",
+			"tier": 3,
+			"name": "Refined Light Wood",
+			"displayName": "Light Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwMjk4MzYsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8xOTZkYThlMDUyOTI1MDJjOTIwNWM1OTlhZDYzOGYwMjIyYWRjZWMwYzA1YThhYTQwZjJmZmMwMDQ5M2ExNDNlIn19fQ==",
+			"type": "WOOD",
+			"level": 70
+		},
+		{
+			"id": "Refined Pine Wood 1",
+			"tier": 1,
+			"name": "Refined Pine Wood",
+			"displayName": "Pine Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwOTUyODgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80NTNlNDFhZjI2OWFjNGU1N2RmYTg2YWM4OGQ2Mjk0YTUyMzU2YTQ5YjY0N2Q1NjU4NjdlODIxN2VjZDJhZmE5In19fQ==",
+			"type": "WOOD",
+			"level": 80
+		},
+		{
+			"id": "Refined Pine Wood 2",
+			"tier": 2,
+			"name": "Refined Pine Wood",
+			"displayName": "Pine Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwOTUyODgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80NTNlNDFhZjI2OWFjNGU1N2RmYTg2YWM4OGQ2Mjk0YTUyMzU2YTQ5YjY0N2Q1NjU4NjdlODIxN2VjZDJhZmE5In19fQ==",
+			"type": "WOOD",
+			"level": 80
+		},
+		{
+			"id": "Refined Pine Wood 3",
+			"tier": 3,
+			"name": "Refined Pine Wood",
+			"displayName": "Pine Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMwOTUyODgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS80NTNlNDFhZjI2OWFjNGU1N2RmYTg2YWM4OGQ2Mjk0YTUyMzU2YTQ5YjY0N2Q1NjU4NjdlODIxN2VjZDJhZmE5In19fQ==",
+			"type": "WOOD",
+			"level": 80
+		},
+		{
+			"id": "Refined Avo Wood 1",
+			"tier": 1,
+			"name": "Refined Avo Wood",
+			"displayName": "Avo Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1NjczNzcsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzFiYTYzZDU2NjA1MTFlNTQxNGQ5MGY3Y2U2Y2VmNjg3NWI2Njg1MDQyOWZlMjQxZjBiZGY1ZTc3ZTlkNjJjIn19fQ==",
+			"type": "WOOD",
+			"level": 90
+		},
+		{
+			"id": "Refined Avo Wood 2",
+			"tier": 2,
+			"name": "Refined Avo Wood",
+			"displayName": "Avo Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1NjczNzcsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzFiYTYzZDU2NjA1MTFlNTQxNGQ5MGY3Y2U2Y2VmNjg3NWI2Njg1MDQyOWZlMjQxZjBiZGY1ZTc3ZTlkNjJjIn19fQ==",
+			"type": "WOOD",
+			"level": 90
+		},
+		{
+			"id": "Refined Avo Wood 3",
+			"tier": 3,
+			"name": "Refined Avo Wood",
+			"displayName": "Avo Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI1NjczNzcsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS84YzFiYTYzZDU2NjA1MTFlNTQxNGQ5MGY3Y2U2Y2VmNjg3NWI2Njg1MDQyOWZlMjQxZjBiZGY1ZTc3ZTlkNjJjIn19fQ==",
+			"type": "WOOD",
+			"level": 90
+		},
+		{
+			"id": "Refined Sky Wood 1",
+			"tier": 1,
+			"name": "Refined Sky Wood",
+			"displayName": "Sky Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxMjgwMTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yZjU3MWNhOWM5MDJhMzZlNDMyN2JkMDcyODVkZjc5NWU5MGQyMTMxNTY2MDE3NjI2NjRjZTBjZDQ4NWJlNzRhIn19fQ==",
+			"type": "WOOD",
+			"level": 100
+		},
+		{
+			"id": "Refined Sky Wood 2",
+			"tier": 2,
+			"name": "Refined Sky Wood",
+			"displayName": "Sky Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxMjgwMTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yZjU3MWNhOWM5MDJhMzZlNDMyN2JkMDcyODVkZjc5NWU5MGQyMTMxNTY2MDE3NjI2NjRjZTBjZDQ4NWJlNzRhIn19fQ==",
+			"type": "WOOD",
+			"level": 100
+		},
+		{
+			"id": "Refined Sky Wood 3",
+			"tier": 3,
+			"name": "Refined Sky Wood",
+			"displayName": "Sky Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDMxMjgwMTgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS8yZjU3MWNhOWM5MDJhMzZlNDMyN2JkMDcyODVkZjc5NWU5MGQyMTMxNTY2MDE3NjI2NjRjZTBjZDQ4NWJlNzRhIn19fQ==",
+			"type": "WOOD",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic Wood 1",
+			"tier": 1,
+			"name": "Refined Dernic Wood",
+			"displayName": "Dernic Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5NjQzMjgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lYTkwNzI2MjJmYmY4YzZmZjA1Yzg5Njk2OGJkMTZiZDkwMzU2MzgzNmFmNjgyZDNiNTQ0ZjA1MzRjM2RhMzg3In19fQ==",
+			"type": "WOOD",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Wood 2",
+			"tier": 2,
+			"name": "Refined Dernic Wood",
+			"displayName": "Dernic Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5NjQzMjgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lYTkwNzI2MjJmYmY4YzZmZjA1Yzg5Njk2OGJkMTZiZDkwMzU2MzgzNmFmNjgyZDNiNTQ0ZjA1MzRjM2RhMzg3In19fQ==",
+			"type": "WOOD",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Wood 3",
+			"tier": 3,
+			"name": "Refined Dernic Wood",
+			"displayName": "Dernic Wood",
+			"skin": "eyJ0aW1lc3RhbXAiOjE1MjgyNDI5NjQzMjgsInByb2ZpbGVJZCI6IjdlZGE1Y2JiODRkMDQzZGI4YjZiYWE3YTc1YTVhZWU4IiwicHJvZmlsZU5hbWUiOiJDcnVua2Fjb2xhIiwic2lnbmF0dXJlUmVxdWlyZWQiOnRydWUsInRleHR1cmVzIjp7IlNLSU4iOnsidXJsIjoiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9lYTkwNzI2MjJmYmY4YzZmZjA1Yzg5Njk2OGJkMTZiZDkwMzU2MzgzNmFmNjgyZDNiNTQ0ZjA1MzRjM2RhMzg3In19fQ==",
+			"type": "WOOD",
+			"level": 110
+		},
+		{
+			"id": "Refined Oak Paper 1",
+			"tier": 1,
+			"name": "Refined Oak Paper",
+			"displayName": "Oak Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 1
+		},
+		{
+			"id": "Refined Oak Paper 2",
+			"tier": 2,
+			"name": "Refined Oak Paper",
+			"displayName": "Oak Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 1
+		},
+		{
+			"id": "Refined Oak Paper 3",
+			"tier": 3,
+			"name": "Refined Oak Paper",
+			"displayName": "Oak Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 1
+		},
+		{
+			"id": "Refined Birch Paper 1",
+			"tier": 1,
+			"name": "Refined Birch Paper",
+			"displayName": "Birch Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 10
+		},
+		{
+			"id": "Refined Birch Paper 2",
+			"tier": 2,
+			"name": "Refined Birch Paper",
+			"displayName": "Birch Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 10
+		},
+		{
+			"id": "Refined Birch Paper 3",
+			"tier": 3,
+			"name": "Refined Birch Paper",
+			"displayName": "Birch Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 10
+		},
+		{
+			"id": "Refined Willow Paper 1",
+			"tier": 1,
+			"name": "Refined Willow Paper",
+			"displayName": "Willow Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 20
+		},
+		{
+			"id": "Refined Willow Paper 2",
+			"tier": 2,
+			"name": "Refined Willow Paper",
+			"displayName": "Willow Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 20
+		},
+		{
+			"id": "Refined Willow Paper 3",
+			"tier": 3,
+			"name": "Refined Willow Paper",
+			"displayName": "Willow Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 20
+		},
+		{
+			"id": "Refined Acacia Paper 1",
+			"tier": 1,
+			"name": "Refined Acacia Paper",
+			"displayName": "Acacia Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 30
+		},
+		{
+			"id": "Refined Acacia Paper 2",
+			"tier": 2,
+			"name": "Refined Acacia Paper",
+			"displayName": "Acacia Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 30
+		},
+		{
+			"id": "Refined Acacia Paper 3",
+			"tier": 3,
+			"name": "Refined Acacia Paper",
+			"displayName": "Acacia Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 30
+		},
+		{
+			"id": "Refined Spruce Paper 1",
+			"tier": 1,
+			"name": "Refined Spruce Paper",
+			"displayName": "Spruce Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 40
+		},
+		{
+			"id": "Refined Spruce Paper 2",
+			"tier": 2,
+			"name": "Refined Spruce Paper",
+			"displayName": "Spruce Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 40
+		},
+		{
+			"id": "Refined Spruce Paper 3",
+			"tier": 3,
+			"name": "Refined Spruce Paper",
+			"displayName": "Spruce Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 40
+		},
+		{
+			"id": "Refined Jungle Paper 1",
+			"tier": 1,
+			"name": "Refined Jungle Paper",
+			"displayName": "Jungle Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 50
+		},
+		{
+			"id": "Refined Jungle Paper 2",
+			"tier": 2,
+			"name": "Refined Jungle Paper",
+			"displayName": "Jungle Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 50
+		},
+		{
+			"id": "Refined Jungle Paper 3",
+			"tier": 3,
+			"name": "Refined Jungle Paper",
+			"displayName": "Jungle Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 50
+		},
+		{
+			"id": "Refined Dark Paper 1",
+			"tier": 1,
+			"name": "Refined Dark Paper",
+			"displayName": "Dark Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 60
+		},
+		{
+			"id": "Refined Dark Paper 2",
+			"tier": 2,
+			"name": "Refined Dark Paper",
+			"displayName": "Dark Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 60
+		},
+		{
+			"id": "Refined Dark Paper 3",
+			"tier": 3,
+			"name": "Refined Dark Paper",
+			"displayName": "Dark Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 60
+		},
+		{
+			"id": "Refined Light Paper 1",
+			"tier": 1,
+			"name": "Refined Light Paper",
+			"displayName": "Light Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 70
+		},
+		{
+			"id": "Refined Light Paper 2",
+			"tier": 2,
+			"name": "Refined Light Paper",
+			"displayName": "Light Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 70
+		},
+		{
+			"id": "Refined Light Paper 3",
+			"tier": 3,
+			"name": "Refined Light Paper",
+			"displayName": "Light Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 70
+		},
+		{
+			"id": "Refined Pine Paper 1",
+			"tier": 1,
+			"name": "Refined Pine Paper",
+			"displayName": "Pine Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 80
+		},
+		{
+			"id": "Refined Pine Paper 2",
+			"tier": 2,
+			"name": "Refined Pine Paper",
+			"displayName": "Pine Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 80
+		},
+		{
+			"id": "Refined Pine Paper 3",
+			"tier": 3,
+			"name": "Refined Pine Paper",
+			"displayName": "Pine Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 80
+		},
+		{
+			"id": "Refined Avo Paper 1",
+			"tier": 1,
+			"name": "Refined Avo Paper",
+			"displayName": "Avo Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 90
+		},
+		{
+			"id": "Refined Avo Paper 2",
+			"tier": 2,
+			"name": "Refined Avo Paper",
+			"displayName": "Avo Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 90
+		},
+		{
+			"id": "Refined Avo Paper 3",
+			"tier": 3,
+			"name": "Refined Avo Paper",
+			"displayName": "Avo Paper",
+			"texture": "minecraft:diamond_axe#40",
+			"type": "PAPER",
+			"level": 90
+		},
+		{
+			"id": "Refined Sky Paper 1",
+			"tier": 1,
+			"name": "Refined Sky Paper",
+			"displayName": "Sky Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 100
+		},
+		{
+			"id": "Refined Sky Paper 2",
+			"tier": 2,
+			"name": "Refined Sky Paper",
+			"displayName": "Sky Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 100
+		},
+		{
+			"id": "Refined Sky Paper 3",
+			"tier": 3,
+			"name": "Refined Sky Paper",
+			"displayName": "Sky Paper",
+			"texture": "minecraft:paper#0",
+			"type": "PAPER",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic Paper 1",
+			"tier": 1,
+			"name": "Refined Dernic Paper",
+			"displayName": "Dernic Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Paper 2",
+			"tier": 2,
+			"name": "Refined Dernic Paper",
+			"displayName": "Dernic Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Paper 3",
+			"tier": 3,
+			"name": "Refined Dernic Paper",
+			"displayName": "Dernic Paper",
+			"texture": "minecraft:diamond_axe#41",
+			"type": "PAPER",
+			"level": 110
+		},
+		{
+			"id": "Refined Wheat String 1",
+			"tier": 1,
+			"name": "Refined Wheat String",
+			"displayName": "Wheat String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 1
+		},
+		{
+			"id": "Refined Wheat String 2",
+			"tier": 2,
+			"name": "Refined Wheat String",
+			"displayName": "Wheat String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 1
+		},
+		{
+			"id": "Refined Wheat String 3",
+			"tier": 3,
+			"name": "Refined Wheat String",
+			"displayName": "Wheat String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 1
+		},
+		{
+			"id": "Refined Barley String 1",
+			"tier": 1,
+			"name": "Refined Barley String",
+			"displayName": "Barley String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 10
+		},
+		{
+			"id": "Refined Barley String 2",
+			"tier": 2,
+			"name": "Refined Barley String",
+			"displayName": "Barley String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 10
+		},
+		{
+			"id": "Refined Barley String 3",
+			"tier": 3,
+			"name": "Refined Barley String",
+			"displayName": "Barley String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 10
+		},
+		{
+			"id": "Refined Oat String 1",
+			"tier": 1,
+			"name": "Refined Oat String",
+			"displayName": "Oat String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 20
+		},
+		{
+			"id": "Refined Oat String 2",
+			"tier": 2,
+			"name": "Refined Oat String",
+			"displayName": "Oat String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 20
+		},
+		{
+			"id": "Refined Oat String 3",
+			"tier": 3,
+			"name": "Refined Oat String",
+			"displayName": "Oat String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 20
+		},
+		{
+			"id": "Refined Malt String 1",
+			"tier": 1,
+			"name": "Refined Malt String",
+			"displayName": "Malt String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 30
+		},
+		{
+			"id": "Refined Malt String 2",
+			"tier": 2,
+			"name": "Refined Malt String",
+			"displayName": "Malt String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 30
+		},
+		{
+			"id": "Refined Malt String 3",
+			"tier": 3,
+			"name": "Refined Malt String",
+			"displayName": "Malt String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 30
+		},
+		{
+			"id": "Refined Hops String 1",
+			"tier": 1,
+			"name": "Refined Hops String",
+			"displayName": "Hops String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 40
+		},
+		{
+			"id": "Refined Hops String 2",
+			"tier": 2,
+			"name": "Refined Hops String",
+			"displayName": "Hops String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 40
+		},
+		{
+			"id": "Refined Hops String 3",
+			"tier": 3,
+			"name": "Refined Hops String",
+			"displayName": "Hops String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 40
+		},
+		{
+			"id": "Refined Rye String 1",
+			"tier": 1,
+			"name": "Refined Rye String",
+			"displayName": "Rye String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 50
+		},
+		{
+			"id": "Refined Rye String 2",
+			"tier": 2,
+			"name": "Refined Rye String",
+			"displayName": "Rye String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 50
+		},
+		{
+			"id": "Refined Rye String 3",
+			"tier": 3,
+			"name": "Refined Rye String",
+			"displayName": "Rye String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 50
+		},
+		{
+			"id": "Refined Millet String 1",
+			"tier": 1,
+			"name": "Refined Millet String",
+			"displayName": "Millet String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 60
+		},
+		{
+			"id": "Refined Millet String 2",
+			"tier": 2,
+			"name": "Refined Millet String",
+			"displayName": "Millet String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 60
+		},
+		{
+			"id": "Refined Millet String 3",
+			"tier": 3,
+			"name": "Refined Millet String",
+			"displayName": "Millet String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 60
+		},
+		{
+			"id": "Refined Decay String 1",
+			"tier": 1,
+			"name": "Refined Decay String",
+			"displayName": "Decay String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 70
+		},
+		{
+			"id": "Refined Decay String 2",
+			"tier": 2,
+			"name": "Refined Decay String",
+			"displayName": "Decay String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 70
+		},
+		{
+			"id": "Refined Decay String 3",
+			"tier": 3,
+			"name": "Refined Decay String",
+			"displayName": "Decay String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 70
+		},
+		{
+			"id": "Refined Rice String 1",
+			"tier": 1,
+			"name": "Refined Rice String",
+			"displayName": "Rice String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 80
+		},
+		{
+			"id": "Refined Rice String 2",
+			"tier": 2,
+			"name": "Refined Rice String",
+			"displayName": "Rice String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 80
+		},
+		{
+			"id": "Refined Rice String 3",
+			"tier": 3,
+			"name": "Refined Rice String",
+			"displayName": "Rice String",
+			"texture": "minecraft:diamond_axe#13",
+			"type": "STRING",
+			"level": 80
+		},
+		{
+			"id": "Refined Sorghum String 1",
+			"tier": 1,
+			"name": "Refined Sorghum String",
+			"displayName": "Sorghum String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 90
+		},
+		{
+			"id": "Refined Sorghum String 2",
+			"tier": 2,
+			"name": "Refined Sorghum String",
+			"displayName": "Sorghum String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 90
+		},
+		{
+			"id": "Refined Sorghum String 3",
+			"tier": 3,
+			"name": "Refined Sorghum String",
+			"displayName": "Sorghum String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 90
+		},
+		{
+			"id": "Refined Hemp String 1",
+			"tier": 1,
+			"name": "Refined Hemp String",
+			"displayName": "Hemp String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 100
+		},
+		{
+			"id": "Refined Hemp String 2",
+			"tier": 2,
+			"name": "Refined Hemp String",
+			"displayName": "Hemp String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 100
+		},
+		{
+			"id": "Refined Hemp String 3",
+			"tier": 3,
+			"name": "Refined Hemp String",
+			"displayName": "Hemp String",
+			"texture": "minecraft:diamond_axe#11",
+			"type": "STRING",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic String 1",
+			"tier": 1,
+			"name": "Refined Dernic String",
+			"displayName": "Dernic String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic String 2",
+			"tier": 2,
+			"name": "Refined Dernic String",
+			"displayName": "Dernic String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic String 3",
+			"tier": 3,
+			"name": "Refined Dernic String",
+			"displayName": "Dernic String",
+			"texture": "minecraft:diamond_axe#12",
+			"type": "STRING",
+			"level": 110
+		},
+		{
+			"id": "Refined Wheat Grains 1",
+			"tier": 1,
+			"name": "Refined Wheat Grains",
+			"displayName": "Wheat Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 1
+		},
+		{
+			"id": "Refined Wheat Grains 2",
+			"tier": 2,
+			"name": "Refined Wheat Grains",
+			"displayName": "Wheat Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 1
+		},
+		{
+			"id": "Refined Wheat Grains 3",
+			"tier": 3,
+			"name": "Refined Wheat Grains",
+			"displayName": "Wheat Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 1
+		},
+		{
+			"id": "Refined Barley Grains 1",
+			"tier": 1,
+			"name": "Refined Barley Grains",
+			"displayName": "Barley Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 10
+		},
+		{
+			"id": "Refined Barley Grains 2",
+			"tier": 2,
+			"name": "Refined Barley Grains",
+			"displayName": "Barley Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 10
+		},
+		{
+			"id": "Refined Barley Grains 3",
+			"tier": 3,
+			"name": "Refined Barley Grains",
+			"displayName": "Barley Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 10
+		},
+		{
+			"id": "Refined Oat Grains 1",
+			"tier": 1,
+			"name": "Refined Oat Grains",
+			"displayName": "Oat Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 20
+		},
+		{
+			"id": "Refined Oat Grains 2",
+			"tier": 2,
+			"name": "Refined Oat Grains",
+			"displayName": "Oat Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 20
+		},
+		{
+			"id": "Refined Oat Grains 3",
+			"tier": 3,
+			"name": "Refined Oat Grains",
+			"displayName": "Oat Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 20
+		},
+		{
+			"id": "Refined Malt Grains 1",
+			"tier": 1,
+			"name": "Refined Malt Grains",
+			"displayName": "Malt Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 30
+		},
+		{
+			"id": "Refined Malt Grains 2",
+			"tier": 2,
+			"name": "Refined Malt Grains",
+			"displayName": "Malt Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 30
+		},
+		{
+			"id": "Refined Malt Grains 3",
+			"tier": 3,
+			"name": "Refined Malt Grains",
+			"displayName": "Malt Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 30
+		},
+		{
+			"id": "Refined Hops Grains 1",
+			"tier": 1,
+			"name": "Refined Hops Grains",
+			"displayName": "Hops Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 40
+		},
+		{
+			"id": "Refined Hops Grains 2",
+			"tier": 2,
+			"name": "Refined Hops Grains",
+			"displayName": "Hops Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 40
+		},
+		{
+			"id": "Refined Hops Grains 3",
+			"tier": 3,
+			"name": "Refined Hops Grains",
+			"displayName": "Hops Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 40
+		},
+		{
+			"id": "Refined Rye Grains 1",
+			"tier": 1,
+			"name": "Refined Rye Grains",
+			"displayName": "Rye Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 50
+		},
+		{
+			"id": "Refined Rye Grains 2",
+			"tier": 2,
+			"name": "Refined Rye Grains",
+			"displayName": "Rye Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 50
+		},
+		{
+			"id": "Refined Rye Grains 3",
+			"tier": 3,
+			"name": "Refined Rye Grains",
+			"displayName": "Rye Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 50
+		},
+		{
+			"id": "Refined Millet Grains 1",
+			"tier": 1,
+			"name": "Refined Millet Grains",
+			"displayName": "Millet Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 60
+		},
+		{
+			"id": "Refined Millet Grains 2",
+			"tier": 2,
+			"name": "Refined Millet Grains",
+			"displayName": "Millet Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 60
+		},
+		{
+			"id": "Refined Millet Grains 3",
+			"tier": 3,
+			"name": "Refined Millet Grains",
+			"displayName": "Millet Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 60
+		},
+		{
+			"id": "Refined Decay Grains 1",
+			"tier": 1,
+			"name": "Refined Decay Grains",
+			"displayName": "Decay Grains",
+			"texture": "minecraft:diamond_axe#16",
+			"type": "GRAINS",
+			"level": 70
+		},
+		{
+			"id": "Refined Decay Grains 2",
+			"tier": 2,
+			"name": "Refined Decay Grains",
+			"displayName": "Decay Grains",
+			"texture": "minecraft:diamond_axe#16",
+			"type": "GRAINS",
+			"level": 70
+		},
+		{
+			"id": "Refined Decay Grains 3",
+			"tier": 3,
+			"name": "Refined Decay Grains",
+			"displayName": "Decay Grains",
+			"texture": "minecraft:diamond_axe#16",
+			"type": "GRAINS",
+			"level": 70
+		},
+		{
+			"id": "Refined Rice Grains 1",
+			"tier": 1,
+			"name": "Refined Rice Grains",
+			"displayName": "Rice Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 80
+		},
+		{
+			"id": "Refined Rice Grains 2",
+			"tier": 2,
+			"name": "Refined Rice Grains",
+			"displayName": "Rice Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 80
+		},
+		{
+			"id": "Refined Rice Grains 3",
+			"tier": 3,
+			"name": "Refined Rice Grains",
+			"displayName": "Rice Grains",
+			"texture": "minecraft:diamond_axe#14",
+			"type": "GRAINS",
+			"level": 80
+		},
+		{
+			"id": "Refined Sorghum Grains 1",
+			"tier": 1,
+			"name": "Refined Sorghum Grains",
+			"displayName": "Sorghum Grains",
+			"texture": "minecraft:diamond_axe#17",
+			"type": "GRAINS",
+			"level": 90
+		},
+		{
+			"id": "Refined Sorghum Grains 2",
+			"tier": 2,
+			"name": "Refined Sorghum Grains",
+			"displayName": "Sorghum Grains",
+			"texture": "minecraft:diamond_axe#17",
+			"type": "GRAINS",
+			"level": 90
+		},
+		{
+			"id": "Refined Sorghum Grains 3",
+			"tier": 3,
+			"name": "Refined Sorghum Grains",
+			"displayName": "Sorghum Grains",
+			"texture": "minecraft:diamond_axe#17",
+			"type": "GRAINS",
+			"level": 90
+		},
+		{
+			"id": "Refined Hemp Grains 1",
+			"tier": 1,
+			"name": "Refined Hemp Grains",
+			"displayName": "Hemp Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 100
+		},
+		{
+			"id": "Refined Hemp Grains 2",
+			"tier": 2,
+			"name": "Refined Hemp Grains",
+			"displayName": "Hemp Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 100
+		},
+		{
+			"id": "Refined Hemp Grains 3",
+			"tier": 3,
+			"name": "Refined Hemp Grains",
+			"displayName": "Hemp Grains",
+			"texture": "minecraft:diamond_axe#15",
+			"type": "GRAINS",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic Grains 1",
+			"tier": 1,
+			"name": "Refined Dernic Grains",
+			"displayName": "Dernic Grains",
+			"texture": "minecraft:diamond_axe#17",
+			"type": "GRAINS",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Grains 2",
+			"tier": 2,
+			"name": "Refined Dernic Grains",
+			"displayName": "Dernic Grains",
+			"texture": "minecraft:diamond_axe#17",
+			"type": "GRAINS",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Grains 3",
+			"tier": 3,
+			"name": "Refined Dernic Grains",
+			"displayName": "Dernic Grains",
+			"texture": "minecraft:diamond_axe#17",
+			"type": "GRAINS",
+			"level": 110
+		},
+		{
+			"id": "Refined Gudgeon Oil 1",
+			"tier": 1,
+			"name": "Refined Gudgeon Oil",
+			"displayName": "Gudgeon Oil",
+			"texture": "minecraft:diamond_axe#35",
+			"type": "OIL",
+			"level": 1
+		},
+		{
+			"id": "Refined Gudgeon Oil 2",
+			"tier": 2,
+			"name": "Refined Gudgeon Oil",
+			"displayName": "Gudgeon Oil",
+			"texture": "minecraft:diamond_axe#35",
+			"type": "OIL",
+			"level": 1
+		},
+		{
+			"id": "Refined Gudgeon Oil 3",
+			"tier": 3,
+			"name": "Refined Gudgeon Oil",
+			"displayName": "Gudgeon Oil",
+			"texture": "minecraft:diamond_axe#35",
+			"type": "OIL",
+			"level": 1
+		},
+		{
+			"id": "Refined Trout Oil 1",
+			"tier": 1,
+			"name": "Refined Trout Oil",
+			"displayName": "Trout Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 10
+		},
+		{
+			"id": "Refined Trout Oil 2",
+			"tier": 2,
+			"name": "Refined Trout Oil",
+			"displayName": "Trout Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 10
+		},
+		{
+			"id": "Refined Trout Oil 3",
+			"tier": 3,
+			"name": "Refined Trout Oil",
+			"displayName": "Trout Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 10
+		},
+		{
+			"id": "Refined Salmon Oil 1",
+			"tier": 1,
+			"name": "Refined Salmon Oil",
+			"displayName": "Salmon Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 20
+		},
+		{
+			"id": "Refined Salmon Oil 2",
+			"tier": 2,
+			"name": "Refined Salmon Oil",
+			"displayName": "Salmon Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 20
+		},
+		{
+			"id": "Refined Salmon Oil 3",
+			"tier": 3,
+			"name": "Refined Salmon Oil",
+			"displayName": "Salmon Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 20
+		},
+		{
+			"id": "Refined Carp Oil 1",
+			"tier": 1,
+			"name": "Refined Carp Oil",
+			"displayName": "Carp Oil",
+			"texture": "minecraft:diamond_axe#38",
+			"type": "OIL",
+			"level": 30
+		},
+		{
+			"id": "Refined Carp Oil 2",
+			"tier": 2,
+			"name": "Refined Carp Oil",
+			"displayName": "Carp Oil",
+			"texture": "minecraft:diamond_axe#38",
+			"type": "OIL",
+			"level": 30
+		},
+		{
+			"id": "Refined Carp Oil 3",
+			"tier": 3,
+			"name": "Refined Carp Oil",
+			"displayName": "Carp Oil",
+			"texture": "minecraft:diamond_axe#38",
+			"type": "OIL",
+			"level": 30
+		},
+		{
+			"id": "Refined Icefish Oil 1",
+			"tier": 1,
+			"name": "Refined Icefish Oil",
+			"displayName": "Icefish Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 40
+		},
+		{
+			"id": "Refined Icefish Oil 2",
+			"tier": 2,
+			"name": "Refined Icefish Oil",
+			"displayName": "Icefish Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 40
+		},
+		{
+			"id": "Refined Icefish Oil 3",
+			"tier": 3,
+			"name": "Refined Icefish Oil",
+			"displayName": "Icefish Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 40
+		},
+		{
+			"id": "Refined Piranha Oil 1",
+			"tier": 1,
+			"name": "Refined Piranha Oil",
+			"displayName": "Piranha Oil",
+			"texture": "minecraft:diamond_axe#37",
+			"type": "OIL",
+			"level": 50
+		},
+		{
+			"id": "Refined Piranha Oil 2",
+			"tier": 2,
+			"name": "Refined Piranha Oil",
+			"displayName": "Piranha Oil",
+			"texture": "minecraft:diamond_axe#37",
+			"type": "OIL",
+			"level": 50
+		},
+		{
+			"id": "Refined Piranha Oil 3",
+			"tier": 3,
+			"name": "Refined Piranha Oil",
+			"displayName": "Piranha Oil",
+			"texture": "minecraft:diamond_axe#37",
+			"type": "OIL",
+			"level": 50
+		},
+		{
+			"id": "Refined Koi Oil 1",
+			"tier": 1,
+			"name": "Refined Koi Oil",
+			"displayName": "Koi Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 60
+		},
+		{
+			"id": "Refined Koi Oil 2",
+			"tier": 2,
+			"name": "Refined Koi Oil",
+			"displayName": "Koi Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 60
+		},
+		{
+			"id": "Refined Koi Oil 3",
+			"tier": 3,
+			"name": "Refined Koi Oil",
+			"displayName": "Koi Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 60
+		},
+		{
+			"id": "Refined Gylia Oil 1",
+			"tier": 1,
+			"name": "Refined Gylia Oil",
+			"displayName": "Gylia Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 70
+		},
+		{
+			"id": "Refined Gylia Oil 2",
+			"tier": 2,
+			"name": "Refined Gylia Oil",
+			"displayName": "Gylia Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 70
+		},
+		{
+			"id": "Refined Gylia Oil 3",
+			"tier": 3,
+			"name": "Refined Gylia Oil",
+			"displayName": "Gylia Oil",
+			"texture": "minecraft:diamond_axe#36",
+			"type": "OIL",
+			"level": 70
+		},
+		{
+			"id": "Refined Bass Oil 1",
+			"tier": 1,
+			"name": "Refined Bass Oil",
+			"displayName": "Bass Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 80
+		},
+		{
+			"id": "Refined Bass Oil 2",
+			"tier": 2,
+			"name": "Refined Bass Oil",
+			"displayName": "Bass Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 80
+		},
+		{
+			"id": "Refined Bass Oil 3",
+			"tier": 3,
+			"name": "Refined Bass Oil",
+			"displayName": "Bass Oil",
+			"texture": "minecraft:diamond_axe#39",
+			"type": "OIL",
+			"level": 80
+		},
+		{
+			"id": "Refined Molten Oil 1",
+			"tier": 1,
+			"name": "Refined Molten Oil",
+			"displayName": "Molten Oil",
+			"texture": "minecraft:diamond_axe#37",
+			"type": "OIL",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Oil 2",
+			"tier": 2,
+			"name": "Refined Molten Oil",
+			"displayName": "Molten Oil",
+			"texture": "minecraft:diamond_axe#37",
+			"type": "OIL",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Oil 3",
+			"tier": 3,
+			"name": "Refined Molten Oil",
+			"displayName": "Molten Oil",
+			"texture": "minecraft:diamond_axe#37",
+			"type": "OIL",
+			"level": 90
+		},
+		{
+			"id": "Refined Starfish Oil 1",
+			"tier": 1,
+			"name": "Refined Starfish Oil",
+			"displayName": "Starfish Oil",
+			"texture": "minecraft:diamond_axe#38",
+			"type": "OIL",
+			"level": 100
+		},
+		{
+			"id": "Refined Starfish Oil 2",
+			"tier": 2,
+			"name": "Refined Starfish Oil",
+			"displayName": "Starfish Oil",
+			"texture": "minecraft:diamond_axe#38",
+			"type": "OIL",
+			"level": 100
+		},
+		{
+			"id": "Refined Starfish Oil 3",
+			"tier": 3,
+			"name": "Refined Starfish Oil",
+			"displayName": "Starfish Oil",
+			"texture": "minecraft:diamond_axe#38",
+			"type": "OIL",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic Oil 1",
+			"tier": 1,
+			"name": "Refined Dernic Oil",
+			"displayName": "Dernic Oil",
+			"texture": "minecraft:diamond_axe#35",
+			"type": "OIL",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Oil 2",
+			"tier": 2,
+			"name": "Refined Dernic Oil",
+			"displayName": "Dernic Oil",
+			"texture": "minecraft:diamond_axe#35",
+			"type": "OIL",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Oil 3",
+			"tier": 3,
+			"name": "Refined Dernic Oil",
+			"displayName": "Dernic Oil",
+			"texture": "minecraft:diamond_axe#35",
+			"type": "OIL",
+			"level": 110
+		},
+		{
+			"id": "Refined Gudgeon Meat 1",
+			"tier": 1,
+			"name": "Refined Gudgeon Meat",
+			"displayName": "Gudgeon Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 1
+		},
+		{
+			"id": "Refined Gudgeon Meat 2",
+			"tier": 2,
+			"name": "Refined Gudgeon Meat",
+			"displayName": "Gudgeon Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 1
+		},
+		{
+			"id": "Refined Gudgeon Meat 3",
+			"tier": 3,
+			"name": "Refined Gudgeon Meat",
+			"displayName": "Gudgeon Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 1
+		},
+		{
+			"id": "Refined Trout Meat 1",
+			"tier": 1,
+			"name": "Refined Trout Meat",
+			"displayName": "Trout Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 10
+		},
+		{
+			"id": "Refined Trout Meat 2",
+			"tier": 2,
+			"name": "Refined Trout Meat",
+			"displayName": "Trout Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 10
+		},
+		{
+			"id": "Refined Trout Meat 3",
+			"tier": 3,
+			"name": "Refined Trout Meat",
+			"displayName": "Trout Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 10
+		},
+		{
+			"id": "Refined Salmon Meat 1",
+			"tier": 1,
+			"name": "Refined Salmon Meat",
+			"displayName": "Salmon Meat",
+			"texture": "minecraft:diamond_axe#32",
+			"type": "MEAT",
+			"level": 20
+		},
+		{
+			"id": "Refined Salmon Meat 2",
+			"tier": 2,
+			"name": "Refined Salmon Meat",
+			"displayName": "Salmon Meat",
+			"texture": "minecraft:diamond_axe#32",
+			"type": "MEAT",
+			"level": 20
+		},
+		{
+			"id": "Refined Salmon Meat 3",
+			"tier": 3,
+			"name": "Refined Salmon Meat",
+			"displayName": "Salmon Meat",
+			"texture": "minecraft:diamond_axe#32",
+			"type": "MEAT",
+			"level": 20
+		},
+		{
+			"id": "Refined Carp Meat 1",
+			"tier": 1,
+			"name": "Refined Carp Meat",
+			"displayName": "Carp Meat",
+			"texture": "minecraft:diamond_axe#33",
+			"type": "MEAT",
+			"level": 30
+		},
+		{
+			"id": "Refined Carp Meat 2",
+			"tier": 2,
+			"name": "Refined Carp Meat",
+			"displayName": "Carp Meat",
+			"texture": "minecraft:diamond_axe#33",
+			"type": "MEAT",
+			"level": 30
+		},
+		{
+			"id": "Refined Carp Meat 3",
+			"tier": 3,
+			"name": "Refined Carp Meat",
+			"displayName": "Carp Meat",
+			"texture": "minecraft:diamond_axe#33",
+			"type": "MEAT",
+			"level": 30
+		},
+		{
+			"id": "Refined Icefish Meat 1",
+			"tier": 1,
+			"name": "Refined Icefish Meat",
+			"displayName": "Icefish Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 40
+		},
+		{
+			"id": "Refined Icefish Meat 2",
+			"tier": 2,
+			"name": "Refined Icefish Meat",
+			"displayName": "Icefish Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 40
+		},
+		{
+			"id": "Refined Icefish Meat 3",
+			"tier": 3,
+			"name": "Refined Icefish Meat",
+			"displayName": "Icefish Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 40
+		},
+		{
+			"id": "Refined Piranha Meat 1",
+			"tier": 1,
+			"name": "Refined Piranha Meat",
+			"displayName": "Piranha Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 50
+		},
+		{
+			"id": "Refined Piranha Meat 2",
+			"tier": 2,
+			"name": "Refined Piranha Meat",
+			"displayName": "Piranha Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 50
+		},
+		{
+			"id": "Refined Piranha Meat 3",
+			"tier": 3,
+			"name": "Refined Piranha Meat",
+			"displayName": "Piranha Meat",
+			"texture": "minecraft:diamond_axe#34",
+			"type": "MEAT",
+			"level": 50
+		},
+		{
+			"id": "Refined Koi Meat 1",
+			"tier": 1,
+			"name": "Refined Koi Meat",
+			"displayName": "Koi Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 60
+		},
+		{
+			"id": "Refined Koi Meat 2",
+			"tier": 2,
+			"name": "Refined Koi Meat",
+			"displayName": "Koi Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 60
+		},
+		{
+			"id": "Refined Koi Meat 3",
+			"tier": 3,
+			"name": "Refined Koi Meat",
+			"displayName": "Koi Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 60
+		},
+		{
+			"id": "Refined Gylia Meat 1",
+			"tier": 1,
+			"name": "Refined Gylia Meat",
+			"displayName": "Gylia Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 70
+		},
+		{
+			"id": "Refined Gylia Meat 2",
+			"tier": 2,
+			"name": "Refined Gylia Meat",
+			"displayName": "Gylia Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 70
+		},
+		{
+			"id": "Refined Gylia Meat 3",
+			"tier": 3,
+			"name": "Refined Gylia Meat",
+			"displayName": "Gylia Meat",
+			"texture": "minecraft:diamond_axe#31",
+			"type": "MEAT",
+			"level": 70
+		},
+		{
+			"id": "Refined Bass Meat 1",
+			"tier": 1,
+			"name": "Refined Bass Meat",
+			"displayName": "Bass Meat",
+			"texture": "minecraft:diamond_axe#30",
+			"type": "MEAT",
+			"level": 80
+		},
+		{
+			"id": "Refined Bass Meat 2",
+			"tier": 2,
+			"name": "Refined Bass Meat",
+			"displayName": "Bass Meat",
+			"texture": "minecraft:diamond_axe#30",
+			"type": "MEAT",
+			"level": 80
+		},
+		{
+			"id": "Refined Bass Meat 3",
+			"tier": 3,
+			"name": "Refined Bass Meat",
+			"displayName": "Bass Meat",
+			"texture": "minecraft:diamond_axe#30",
+			"type": "MEAT",
+			"level": 80
+		},
+		{
+			"id": "Refined Molten Meat 1",
+			"tier": 1,
+			"name": "Refined Molten Meat",
+			"displayName": "Molten Meat",
+			"texture": "minecraft:diamond_axe#32",
+			"type": "MEAT",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Meat 2",
+			"tier": 2,
+			"name": "Refined Molten Meat",
+			"displayName": "Molten Meat",
+			"texture": "minecraft:diamond_axe#32",
+			"type": "MEAT",
+			"level": 90
+		},
+		{
+			"id": "Refined Molten Meat 3",
+			"tier": 3,
+			"name": "Refined Molten Meat",
+			"displayName": "Molten Meat",
+			"texture": "minecraft:diamond_axe#32",
+			"type": "MEAT",
+			"level": 90
+		},
+		{
+			"id": "Refined Starfish Meat 1",
+			"tier": 1,
+			"name": "Refined Starfish Meat",
+			"displayName": "Starfish Meat",
+			"texture": "minecraft:diamond_axe#33",
+			"type": "MEAT",
+			"level": 100
+		},
+		{
+			"id": "Refined Starfish Meat 2",
+			"tier": 2,
+			"name": "Refined Starfish Meat",
+			"displayName": "Starfish Meat",
+			"texture": "minecraft:diamond_axe#33",
+			"type": "MEAT",
+			"level": 100
+		},
+		{
+			"id": "Refined Starfish Meat 3",
+			"tier": 3,
+			"name": "Refined Starfish Meat",
+			"displayName": "Starfish Meat",
+			"texture": "minecraft:diamond_axe#33",
+			"type": "MEAT",
+			"level": 100
+		},
+		{
+			"id": "Refined Dernic Meat 1",
+			"tier": 1,
+			"name": "Refined Dernic Meat",
+			"displayName": "Dernic Meat",
+			"texture": "minecraft:diamond_axe#30",
+			"type": "MEAT",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Meat 2",
+			"tier": 2,
+			"name": "Refined Dernic Meat",
+			"displayName": "Dernic Meat",
+			"texture": "minecraft:diamond_axe#30",
+			"type": "MEAT",
+			"level": 110
+		},
+		{
+			"id": "Refined Dernic Meat 3",
+			"tier": 3,
+			"name": "Refined Dernic Meat",
+			"displayName": "Dernic Meat",
+			"texture": "minecraft:diamond_axe#30",
+			"type": "MEAT",
+			"level": 110
+		}
+	],
+	"version": "1.1.0"
 }

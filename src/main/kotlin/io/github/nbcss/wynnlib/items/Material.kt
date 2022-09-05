@@ -15,25 +15,22 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
-    private val name: String
-    private val displayName: String
-    private val type: Type
-    private val level: Int
-    private val texture: ItemStack
-    init {
-        name = "${json["name"].asString} ${tier.getStars()}"
-        displayName = json["displayName"].asString
-        type = Type.valueOf(json["type"].asString.uppercase())
-        level = json["level"].asInt
-        texture = if (json.has("skin")){
-            ItemFactory.fromSkin(json["skin"].asString)
-        }else if(json.has("texture")){
-            ItemFactory.fromEncoding(json["texture"].asString)
-        }else{
-            ERROR_ITEM
-        }
+class Material(json: JsonObject) : Keyed, BaseItem {
+    private val id: String = json["id"].asString
+    private val name: String = json["name"].asString
+    private val displayName: String = json["displayName"].asString
+    private val tier: Tier = Tier.fromStar(json["tier"].asInt)
+    private val type: Type = Type.fromName(json["type"].asString) ?: Type.INGOT
+    private val level: Int = json["level"].asInt
+    private val texture: ItemStack = if (json.has("skin")){
+        ItemFactory.fromSkin(json["skin"].asString)
+    }else if(json.has("texture")){
+        ItemFactory.fromEncoding(json["texture"].asString)
+    }else{
+        ERROR_ITEM
     }
+
+    fun getName(): String = name
 
     fun getType(): Type = type
 
@@ -51,7 +48,7 @@ class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
 
     override fun getIcon(): ItemStack = texture
 
-    override fun getKey(): String = name
+    override fun getKey(): String = id
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
@@ -78,6 +75,16 @@ class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
         STAR_3("§6 [§e✫✫✫§6]", 1.4);
 
         fun getStars(): Int = ordinal + 1
+
+        companion object {
+            fun fromStar(star: Int): Tier {
+                return when(star){
+                    3 -> STAR_3
+                    2 -> STAR_2
+                    else -> STAR_1
+                }
+            }
+        }
     }
 
     enum class Type(private val profession: Profession) {
@@ -89,6 +96,15 @@ class Material(private val tier: Tier, json: JsonObject) : Keyed, BaseItem {
         GRAINS(Profession.FARMING),
         OIL(Profession.FISHING),
         MEAT(Profession.FISHING);
+        companion object {
+            private val VALUE_MAP: Map<String, Type> = mapOf(
+                pairs = values().map { it.name to it }.toTypedArray()
+            )
+
+            fun fromName(name: String): Type? {
+                return VALUE_MAP[name.uppercase()]
+            }
+        }
 
         fun getProfession(): Profession = profession
     }

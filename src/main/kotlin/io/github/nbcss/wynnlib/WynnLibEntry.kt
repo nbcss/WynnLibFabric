@@ -35,6 +35,7 @@ object WynnLibEntry: ModInitializer {
         RegularEquipmentRegistry.load()
         IngredientRegistry.load()
         MaterialRegistry.load()
+        RecipeRegistry.load()
         //Register keybindings
         val openHandbook = registerKey("wynnlib.key.handbook", GLFW.GLFW_KEY_H)
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
