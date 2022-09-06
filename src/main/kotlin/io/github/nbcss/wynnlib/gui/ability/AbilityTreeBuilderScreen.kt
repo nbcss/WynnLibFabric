@@ -43,7 +43,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                                     private val tree: AbilityTree,
                                     private val maxPoints: Int = MAX_AP,
                                     private val fixedAbilities: Set<Ability> =
-                                   tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet()):
+                                    tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet(),
+                                    private val mutableAbilities: Set<Ability> = emptySet()):
     AbstractAbilityTreeScreen(parent), AbilityBuild {
     companion object {
         private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
@@ -76,15 +77,18 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     fun getFixedAbilities(): Set<Ability> = fixedAbilities
 
-    open fun copy(): AbilityTreeBuilderScreen {
+    fun getMutableAbilities(): Set<Ability> = mutableAbilities
+
+        open fun copy(): AbilityTreeBuilderScreen {
         return AbilityTreeBuilderScreen(parent, tree)
     }
 
     fun reset() {
         activeNodes.clear()
         activeNodes.addAll(fixedAbilities)
+        activeNodes.addAll(mutableAbilities)
         ap = maxPoints
-        for (ability in fixedAbilities) {
+        for (ability in activeNodes) {
             ap -= ability.getAbilityPointCost()
             ability.getArchetype()?.let {
                 archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
@@ -92,6 +96,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         }
         update()
     }
+
+    fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(activeNodes)
 
     fun getActivateOrders(): List<Ability> = orderList
 
@@ -136,7 +142,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                     ability.getArchetype()?.let {
                         archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
                     }
-                    if (ability !in fixedAbilities) {
+                    if (ability !in fixedAbilities && ability !in mutableAbilities) {
                         orderList.add(ability)
                     }
                     ability.getSuccessors().forEach { queue.add(it) }

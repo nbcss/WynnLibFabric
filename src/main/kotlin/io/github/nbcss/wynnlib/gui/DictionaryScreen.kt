@@ -21,14 +21,13 @@ import kotlin.math.max
 
 abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
-        private val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
-        private val SLIDER_TEXTURE = TextureData("textures/gui/dictionary_slots.png", 10, 10)
+        private val TEXTURE = Identifier("wynnlib", "textures/gui/dictionary_ui.png")
+        private val SLIDER_TEXTURE = TextureData(TEXTURE, 10, 10)
         private val FILTER_ICON = ItemFactory.fromEncoding("minecraft:hopper")
         const val SLOT_SIZE = 24
         const val COLUMNS = 9
         const val ROWS = 6
     }
-    private val slotsBackground = Identifier("wynnlib", "textures/gui/dictionary_slots.png")
     protected val items: MutableList<T> = ArrayList()
     private val slots: MutableList<ItemSlotWidget<T>> = ArrayList()
     private var contentSlider: VerticalSliderWidget? = null
@@ -147,10 +146,11 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         }
     }
 
-    override fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        super.drawBackground(matrices, mouseX, mouseY, delta)
-/*        RenderKit.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
-            0, 0, this.backgroundWidth, this.backgroundHeight)*/
+    override fun drawBackgroundTexture(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        RenderKit.renderTexture(
+            matrices, TEXTURE, windowX, windowY + 28, 0, 0,
+            backgroundWidth, 182
+        )
     }
 
     override fun mouseDragged(mouseX: Double, mouseY: Double, button: Int, deltaX: Double, deltaY: Double): Boolean {
