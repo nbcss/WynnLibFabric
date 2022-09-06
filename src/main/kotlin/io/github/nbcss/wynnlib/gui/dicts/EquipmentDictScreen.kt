@@ -31,7 +31,7 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
     override fun init() {
         super.init()
         filter = AdvanceSearchPaneWidget(this,
-            windowX + backgroundWidth, windowY + 28, 120, 182)
+            windowX + backgroundWidth, windowY + 28, 148, 184)
     }
 
     override fun fetchItems(): Collection<Equipment> {

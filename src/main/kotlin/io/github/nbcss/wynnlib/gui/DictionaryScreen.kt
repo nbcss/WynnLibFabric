@@ -22,7 +22,7 @@ import kotlin.math.max
 abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
         private val TEXTURE = Identifier("wynnlib", "textures/gui/dictionary_ui.png")
-        private val SLIDER_TEXTURE = TextureData(TEXTURE, 10, 10)
+        private val SLIDER_TEXTURE = TextureData(TEXTURE, 246, 0)
         private val FILTER_ICON = ItemFactory.fromEncoding("minecraft:hopper")
         const val SLOT_SIZE = 24
         const val COLUMNS = 9
@@ -42,10 +42,10 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     override fun init() {
         super.init()
         if (filterVisible) {
-            windowX = (width - windowWidth - 120) / 2
+            windowX = (width - windowWidth - 148) / 2
             exitButton?.x = windowX + 230
         }
-        searchBox = ItemSearchWidget(textRenderer, windowX + 22, windowY + 191, 120, 12)
+        searchBox = ItemSearchWidget(textRenderer, windowX + 25, windowY + 191, 120, 12)
         searchBox!!.text = lastSearch
         searchBox!!.isFocused = true
         searchBox!!.setChangedListener{
@@ -66,14 +66,14 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         //setup slots
         slots.clear()
         (0 until (ROWS * COLUMNS)).forEach {
-            val x = windowX + 6 + SLOT_SIZE * (it % COLUMNS)
-            val y = windowY + 44 + SLOT_SIZE * (it / COLUMNS)
+            val x = windowX + 9 + SLOT_SIZE * (it % COLUMNS)
+            val y = windowY + 42 + SLOT_SIZE * (it / COLUMNS)
             slots.add(ItemSlotWidget(x, y, SLOT_SIZE, 1, null, this))
         }
         //update items in slots
         updateSlots()
-        contentSlider = VerticalSliderWidget(windowX + backgroundWidth - 19, windowY + 42,
-            12, 147, 40, SLIDER_TEXTURE) {
+        contentSlider = VerticalSliderWidget(windowX + backgroundWidth - 20, windowY + 43,
+            10, 142, 30, SLIDER_TEXTURE) {
             if (lineSize > 0) {
                 setLineIndex(floor(lineSize * it).toInt())
             }
