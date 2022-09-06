@@ -10,11 +10,11 @@ import net.minecraft.util.Identifier
 
 class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<T>,
                                            x: Int,
-                                           y: Int,
-                                           width: Int,
-                                           height: Int): ClickableWidget(x, y, width, height, null) {
+                                           y: Int): ClickableWidget(x, y, WIDTH, HEIGHT, null) {
     companion object {
         private val TEXTURE = Identifier("wynnlib", "textures/gui/search_filters.png")
+        const val WIDTH = 148
+        const val HEIGHT = 184
     }
     private val close: ExitButtonWidget
     init {
