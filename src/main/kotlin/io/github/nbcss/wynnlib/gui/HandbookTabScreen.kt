@@ -44,13 +44,14 @@ abstract class HandbookTabScreen(val parent: Screen?,
 
     override fun init() {
         super.init()
+        clearChildren()
         windowWidth = backgroundWidth
         windowHeight = backgroundHeight
         windowX = (width - windowWidth) / 2
         windowY = (height - windowHeight) / 2
         val closeX = windowX + 230
         val closeY = windowY + 31
-        exitButton = addDrawableChild(ExitButtonWidget(this, closeX, closeY))
+        exitButton = addDrawableChild(ExitButtonWidget(closeX, closeY, this))
     }
 
     open fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {

@@ -1,13 +1,17 @@
 package io.github.nbcss.wynnlib.gui
 
+import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
+import io.github.nbcss.wynnlib.utils.ItemFactory
+import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
@@ -17,7 +21,9 @@ import kotlin.math.max
 
 abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
+        private val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
         private val SLIDER_TEXTURE = TextureData("textures/gui/dictionary_slots.png", 10, 10)
+        private val FILTER_ICON = ItemFactory.fromEncoding("minecraft:hopper")
         const val SLOT_SIZE = 24
         const val COLUMNS = 9
         const val ROWS = 6
@@ -30,11 +36,16 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     private var searchBox: ItemSearchWidget? = null
     private var lineIndex: Int = 0
     private var lineSize: Int = 0
-    private var initialized = false
+    private var filterVisible: Boolean = false
+    private var initialized: Boolean = false
     protected abstract fun fetchItems(): Collection<T>
 
     override fun init() {
         super.init()
+        if (filterVisible) {
+            windowX = (width - windowWidth - 120) / 2
+            exitButton?.x = windowX + 230
+        }
         searchBox = ItemSearchWidget(textRenderer, windowX + 22, windowY + 191, 120, 12)
         searchBox!!.text = lastSearch
         searchBox!!.isFocused = true
@@ -58,12 +69,12 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         (0 until (ROWS * COLUMNS)).forEach {
             val x = windowX + 6 + SLOT_SIZE * (it % COLUMNS)
             val y = windowY + 44 + SLOT_SIZE * (it / COLUMNS)
-            slots.add(ItemSlotWidget(x, y, SLOT_SIZE, 0, null, this))
+            slots.add(ItemSlotWidget(x, y, SLOT_SIZE, 1, null, this))
         }
         //update items in slots
         updateSlots()
-        contentSlider = VerticalSliderWidget(windowX + backgroundWidth - 19, windowY + 33,
-            12, 154, 40, SLIDER_TEXTURE) {
+        contentSlider = VerticalSliderWidget(windowX + backgroundWidth - 19, windowY + 42,
+            12, 147, 40, SLIDER_TEXTURE) {
             if (lineSize > 0) {
                 setLineIndex(floor(lineSize * it).toInt())
             }
@@ -71,10 +82,34 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         updateContentSlider()
     }
 
+    fun isFilterVisible(): Boolean = filterVisible
+
+    fun setFilterVisible(value: Boolean) {
+        filterVisible = value
+        init()
+    }
+
+    fun inFilterTab(mouseX: Int, mouseY: Int): Boolean {
+        if (getSearchPane() == null || filterVisible)
+            return false
+        val posX = windowX + 245
+        val posY = windowY + 44
+        return mouseX >= posX && mouseX < posX + 25 && mouseY >= posY && mouseY < posY + 28
+    }
+
+    open fun getSearchPane(): AdvanceSearchPaneWidget<T>? = null
+
     private fun updateItems() {
         items.clear()
-        items.addAll(fetchItems().filter { searchBox!!.validate(it) })
-        items.sortBy { t -> t.getDisplayName() }
+        val pane = getSearchPane()
+        items.addAll(fetchItems()
+            .filter { searchBox!!.validate(it) }
+            .filter { pane?.filter(it) ?: true })
+        if (pane != null) {
+            items.sortWith { x, y -> pane.compare(x, y) }
+        }else{
+            items.sortBy { t -> t.getDisplayName() }
+        }
     }
 
     private fun updateSlots() {
@@ -95,6 +130,21 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     override fun getTitle(): Text {
         return title.copy().append(LiteralText(" [${items.size}]"))
+    }
+
+    override fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        super.drawBackgroundPre(matrices, mouseX, mouseY, delta)
+        if (!filterVisible){
+            getSearchPane()?.let {
+                val posX = windowX + 242
+                val posY = windowY + 44
+                RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, 182, 32, 28)
+                itemRenderer.renderInGuiWithOverrides(FILTER_ICON, posX + 7, posY + 6)
+                if (inFilterTab(mouseX, mouseY)){
+                    drawTooltip(matrices!!, listOf(LiteralText("Filter")), mouseX, mouseY)
+                }
+            }
+        }
     }
 
     override fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
@@ -142,6 +192,13 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         if (contentSlider?.mouseClicked(mouseX, mouseY, button) == true)
             return true
+        if (filterVisible && getSearchPane()?.mouseClicked(mouseX, mouseY, button) == true)
+            return true
+        if (button == 0 && inFilterTab(mouseX.toInt(), mouseY.toInt())) {
+            playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
+            setFilterVisible(true)
+            return true
+        }
         return super.mouseClicked(mouseX, mouseY, button)
     }
 
@@ -159,6 +216,9 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         contentSlider?.render(matrices, mouseX, mouseY, delta)
         //ButtonWidget
         slots.forEach{it.render(matrices, mouseX, mouseY, delta)}
+        if (filterVisible) {
+            getSearchPane()?.render(matrices, mouseX, mouseY, delta)
+        }
     }
 
     private fun isInPage(mouseX: Double, mouseY: Double): Boolean {
