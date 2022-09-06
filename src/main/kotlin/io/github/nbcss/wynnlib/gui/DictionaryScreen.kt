@@ -2,35 +2,35 @@ package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
+import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit
-import io.github.nbcss.wynnlib.utils.Color
-import net.minecraft.client.gui.DrawableHelper
+import io.github.nbcss.wynnlib.render.TextureData
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
+import kotlin.math.floor
 import kotlin.math.max
-import kotlin.math.roundToInt
 
 abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : HandbookTabScreen(parent, title) {
     companion object {
+        private val SLIDER_TEXTURE = TextureData("textures/gui/dictionary_slots.png", 10, 10)
+        const val SLOT_SIZE = 24
         const val COLUMNS = 9
         const val ROWS = 6
     }
     private val slotsBackground = Identifier("wynnlib", "textures/gui/dictionary_slots.png")
     protected val items: MutableList<T> = ArrayList()
     private val slots: MutableList<ItemSlotWidget<T>> = ArrayList()
+    private var contentSlider: VerticalSliderWidget? = null
     private var lastSearch: String = ""
     private var searchBox: ItemSearchWidget? = null
     private var lineIndex: Int = 0
     private var lineSize: Int = 0
-    private var sliderLength: Double = 1.0
     private var initialized = false
-    private var barTop: Int = 0
-    private var barBottom: Int = 1
     protected abstract fun fetchItems(): Collection<T>
 
     override fun init() {
@@ -38,7 +38,12 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         searchBox = ItemSearchWidget(textRenderer, windowX + 22, windowY + 191, 120, 12)
         searchBox!!.text = lastSearch
         searchBox!!.isFocused = true
-        searchBox!!.setChangedListener{onSearchChanged(it)}
+        searchBox!!.setChangedListener{
+            if (it != lastSearch){
+                lastSearch = it
+                onCriteriaChanged()
+            }
+        }
         focused = addDrawableChild(searchBox!!)
         if (!initialized) {
             updateItems()
@@ -51,12 +56,19 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         //setup slots
         slots.clear()
         (0 until (ROWS * COLUMNS)).forEach {
-            val x = windowX + 6 + 24 * (it % COLUMNS)
-            val y = windowY + 44 + 24 * (it / COLUMNS)
-            slots.add(ItemSlotWidget(x + 1, y + 1, 22, null, this))
+            val x = windowX + 6 + SLOT_SIZE * (it % COLUMNS)
+            val y = windowY + 44 + SLOT_SIZE * (it / COLUMNS)
+            slots.add(ItemSlotWidget(x, y, SLOT_SIZE, 0, null, this))
         }
         //update items in slots
         updateSlots()
+        contentSlider = VerticalSliderWidget(windowX + backgroundWidth - 19, windowY + 33,
+            12, 154, 40, SLIDER_TEXTURE) {
+            if (lineSize > 0) {
+                setLineIndex(floor(lineSize * it).toInt())
+            }
+        }
+        updateContentSlider()
     }
 
     private fun updateItems() {
@@ -71,12 +83,14 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
             val item = if(index < items.size) items[index] else null
             slots[it].setItem(item)
         }
-        val barHeight: Float = max(ROWS / (ROWS + lineSize).toFloat(), 0.1f)
-        val barPos: Float = if (barHeight == 1.0f) 0.0f else (1 - barHeight) / lineSize * lineIndex
-        val y1 = windowY + 45
-        val y2 = windowY + 187
-        barTop = y1 + ((y2 - y1) * barPos).roundToInt()
-        barBottom = barTop + ((y2 - y1) * barHeight).roundToInt()
+    }
+
+    private fun updateContentSlider() {
+        contentSlider?.setSlider(if (lineSize > 0) {
+            lineIndex / lineSize.toDouble()
+        }else{
+            0.0
+        })
     }
 
     override fun getTitle(): Text {
@@ -85,12 +99,13 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     override fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackground(matrices, mouseX, mouseY, delta)
-        RenderKit.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
-            0, 0, this.backgroundWidth, this.backgroundHeight)
+/*        RenderKit.renderTexture(matrices, slotsBackground, windowX, windowY + 32,
+            0, 0, this.backgroundWidth, this.backgroundHeight)*/
     }
 
     override fun mouseDragged(mouseX: Double, mouseY: Double, button: Int, deltaX: Double, deltaY: Double): Boolean {
-        //println("$mouseX $mouseY $button $deltaX $deltaY")
+        if (contentSlider?.mouseDragged(mouseX, mouseY, button, deltaX, deltaY) == true)
+            return true
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }
 
@@ -101,14 +116,33 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         return super.keyPressed(keyCode, scanCode, modifiers)
     }
 
+    fun setLineIndex(index: Int) {
+        lineIndex = MathHelper.clamp(index, 0, lineSize)
+        updateSlots()
+    }
+
     override fun mouseScrolled(mouseX: Double, mouseY: Double, amount: Double): Boolean {
         //println("${mouseX}, ${mouseY}, $amount")
-        if(isInPage(mouseX, mouseY)){
-            lineIndex = MathHelper.clamp(lineIndex - amount.toInt(), 0, lineSize)
-            updateSlots()
+        if(contentSlider?.isDragging() != true && isInPage(mouseX, mouseY)){
+            setLineIndex(lineIndex - amount.toInt())
+            updateContentSlider()
             return true
         }
+        //if (contentSlider?.mouseScrolled(mouseX, mouseY, amount) == true)
+        //    return true
         return super.mouseScrolled(mouseX, mouseY, amount)
+    }
+
+    override fun mouseReleased(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (contentSlider?.mouseReleased(mouseX, mouseY, button) == true)
+            return true
+        return super.mouseReleased(mouseX, mouseY, button)
+    }
+
+    override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (contentSlider?.mouseClicked(mouseX, mouseY, button) == true)
+            return true
+        return super.mouseClicked(mouseX, mouseY, button)
     }
 
     override fun tick() {
@@ -121,9 +155,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
                               mouseY: Int,
                               delta: Float){
         //slide bar
-        val x1 = windowX + 227
-        val x2 = windowX + 239
-        DrawableHelper.fill(matrices, x1, barTop, x2, barBottom, Color.DARK_GRAY.solid().code())
+        contentSlider?.visible = lineSize > 0
+        contentSlider?.render(matrices, mouseX, mouseY, delta)
         //ButtonWidget
         slots.forEach{it.render(matrices, mouseX, mouseY, delta)}
     }
@@ -132,15 +165,12 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 240 && mouseY <= windowY + 188
     }
 
-    fun onSearchChanged(text: String) {
-        if (text == lastSearch)
-            return
-        lastSearch = text
+    fun onCriteriaChanged() {
         updateItems()
-        //Reset lines
-        lineIndex = 0
         //Excluding 6 lines (only since 7th line need additional page)
         lineSize = max(0, (items.size + (COLUMNS - 1)) / COLUMNS - ROWS)
-        updateSlots()
+        //Reset lines
+        setLineIndex(0)
+        updateContentSlider()
     }
 }
