@@ -4,6 +4,8 @@ import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
+import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaMemory
+import io.github.nbcss.wynnlib.i18n.Translations.UI_ADVANCE_SEARCH
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
@@ -16,6 +18,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
+import java.util.function.Consumer
 import kotlin.math.floor
 import kotlin.math.max
 
@@ -29,6 +32,11 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         const val ROWS = 6
     }
     protected val items: MutableList<T> = ArrayList()
+    protected val memory: CriteriaMemory<T> = CriteriaMemory({
+        onResultChanged()
+    }, {
+        getSearchPane()?.reload(it)
+    })
     private val slots: MutableList<ItemSlotWidget<T>> = ArrayList()
     private var contentSlider: VerticalSliderWidget? = null
     private var lastSearch: String = ""
@@ -44,6 +52,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         if (filterVisible) {
             windowX = (width - windowWidth - AdvanceSearchPaneWidget.WIDTH) / 2
             exitButton?.x = windowX + 230
+            getSearchPane()?.reload(memory)
         }
         searchBox = ItemSearchWidget(textRenderer, windowX + 25, windowY + 191, 120, 12)
         searchBox!!.text = lastSearch
@@ -51,7 +60,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         searchBox!!.setChangedListener{
             if (it != lastSearch){
                 lastSearch = it
-                onCriteriaChanged()
+                onResultChanged()
             }
         }
         focused = addDrawableChild(searchBox!!)
@@ -100,15 +109,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     private fun updateItems() {
         items.clear()
-        val pane = getSearchPane()
-        items.addAll(fetchItems()
-            .filter { searchBox!!.validate(it) }
-            .filter { pane?.filter(it) ?: true })
-        if (pane != null) {
-            items.sortWith { x, y -> pane.compare(x, y) }
-        }else{
-            items.sortBy { t -> t.getDisplayName() }
-        }
+        items.addAll(memory.handle(fetchItems().filter { searchBox!!.validate(it) }))
     }
 
     private fun updateSlots() {
@@ -140,7 +141,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
                 RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, 182, 32, 28)
                 itemRenderer.renderInGuiWithOverrides(FILTER_ICON, posX + 7, posY + 6)
                 if (inFilterTab(mouseX, mouseY)){
-                    drawTooltip(matrices!!, listOf(LiteralText("Filter")), mouseX, mouseY)
+                    drawTooltip(matrices!!, listOf(UI_ADVANCE_SEARCH.translate()), mouseX, mouseY)
                 }
             }
         }
@@ -231,7 +232,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         return mouseX >= windowX + 6 && mouseY >= windowY + 44 && mouseX <= windowX + 240 && mouseY <= windowY + 188
     }
 
-    fun onCriteriaChanged() {
+    fun onResultChanged() {
         updateItems()
         //Excluding 6 lines (only since 7th line need additional page)
         lineSize = max(0, (items.size + (COLUMNS - 1)) / COLUMNS - ROWS)

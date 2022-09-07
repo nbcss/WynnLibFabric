@@ -4,6 +4,7 @@ import io.github.nbcss.wynnlib.gui.DictionaryScreen
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
+import io.github.nbcss.wynnlib.gui.widgets.criteria.IdentificationCriteriaGroup
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.i18n.Translations.UI_EQUIPMENTS
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
@@ -30,7 +31,8 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
 
     override fun init() {
         super.init()
-        filter = AdvanceSearchPaneWidget(this, windowX + backgroundWidth, windowY + 28)
+        filter = AdvanceSearchPaneWidget(this, IdentificationCriteriaGroup.of(),
+            windowX + backgroundWidth, windowY + 28)
     }
 
     override fun fetchItems(): Collection<Equipment> {

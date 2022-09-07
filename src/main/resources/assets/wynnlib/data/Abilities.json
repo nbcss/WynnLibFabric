@@ -1740,7 +1740,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "FALLEN": 8
+        "FALLEN": 7
       },
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
@@ -6492,7 +6492,7 @@
           },
           "target": "THUNDERDAMAGEBONUS",
           "rate": 1,
-          "max": 100
+          "max": 40
         }
       },
       "metadata": {
@@ -6631,7 +6631,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "LIGHT_BENDER": 12
+        "LIGHT_BENDER": 11
       },
       "predecessors": [
         "HEALTHIER_OPHANIM_2"
@@ -6683,6 +6683,9 @@
       "properties": {
         "upgrade": {
           "ability": "ARCANE_TRANSFER"
+        },
+        "values": {
+          "1": 400
         }
       },
       "metadata": null
@@ -9669,7 +9672,9 @@
       "cost": 2,
       "archetype": "ACOLYTE",
       "dependency": "UPROOT",
-      "blocks": [],
+      "blocks": [
+        "OVERSEER"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "SHOCKING_AURA",
@@ -9702,7 +9707,9 @@
       "cost": 2,
       "archetype": "SUMMONER",
       "dependency": "UPROOT",
-      "blocks": [],
+      "blocks": [
+        "FLAMING_TONGUE"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "NATURES_JOLT"
