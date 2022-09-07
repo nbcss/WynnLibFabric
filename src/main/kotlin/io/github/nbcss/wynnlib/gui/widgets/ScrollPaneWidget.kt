@@ -60,7 +60,8 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
     }
 
     private fun updateSlider() {
-        getSlider()?.setSlider(position / getMaxPosition())
+        val maxPos = getMaxPosition()
+        getSlider()?.setSlider(if (maxPos > 0.0) position / getMaxPosition() else 0.0)
     }
 
     fun getMaxPosition(): Double {
@@ -103,6 +104,7 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
         RenderSystem.disableScissor()
         matrices.push()
         matrices.translate(0.0, 0.0, 200.0)
+        getSlider()?.visible = getMaxPosition() > 0
         getSlider()?.render(matrices, mouseX, mouseY, delta)
         matrices.pop()
     }

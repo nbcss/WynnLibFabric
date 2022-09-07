@@ -22,9 +22,6 @@ import net.minecraft.util.Identifier
 
 abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
     companion object {
-        val SLIDER: TextureData = TextureData(
-            Identifier("wynnlib", "textures/gui/ability_tree_scroll.png"),
-            0, 0, 9, 40)
         val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#83")
         val UPGRADE_TEXTURE = Identifier("wynnlib", "textures/gui/upgrade_frames.png")
@@ -36,9 +33,6 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
     }
     protected var viewerX: Int = 0
     protected var viewerY: Int = 0
-    private var scroll: Int = 0
-    private var renderScrollPos: Int = 0
-    private var scrollTicks: Int = -1
 
     abstract fun getAbilityTree(): AbilityTree
 

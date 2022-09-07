@@ -11,12 +11,12 @@ import java.util.function.Consumer
 import kotlin.math.roundToInt
 
 open class VerticalSliderWidget(x: Int,
-                           y: Int,
-                           width: Int,
-                           height: Int,
-                           private val barHeight: Int,
-                           private val texture: TextureData,
-                           private val onUpdate: Consumer<Double>? = null):
+                                y: Int,
+                                width: Int,
+                                height: Int,
+                                private val barHeight: Int,
+                                private val texture: TextureData,
+                                private val onUpdate: Consumer<Double>? = null):
     ClickableWidget(x, y, width, height, null) {
     private var slider: Double = 0.0
     //last click data when start dragging: (slider Y, mouse Y)
