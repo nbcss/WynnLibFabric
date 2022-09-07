@@ -13,7 +13,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.util.math.MathHelper
 import kotlin.math.*
 
-abstract class ScrollPaneWidget(private val background: TextureData,
+abstract class ScrollPaneWidget(private val background: TextureData?,
                                 private val screen: TooltipScreen,
                                 val x: Int,
                                 val y: Int,
@@ -42,19 +42,21 @@ abstract class ScrollPaneWidget(private val background: TextureData,
     open fun getSlider(): VerticalSliderWidget? = null
 
     open fun renderBackground(matrices: MatrixStack?, position: Double) {
-        val maxPos = getMaxPosition()
-        val factor = if (maxPos == 0.0) 0.0 else MathHelper.clamp(position / maxPos, 0.0, 1.0)
-        val offset = factor * max(0, (background.height - background.v) - height)
-        RenderKit.renderTexture(matrices!!,
-            background.texture,
-            x.toDouble(),
-            y - offset,
-            background.u,
-            background.v,
-            width,
-            background.height - background.v,
-            background.width,
-            background.height)
+        background?.let {
+            val maxPos = getMaxPosition()
+            val factor = if (maxPos == 0.0) 0.0 else MathHelper.clamp(position / maxPos, 0.0, 1.0)
+            val offset = factor * max(0, (it.height - it.v) - height)
+            RenderKit.renderTexture(matrices!!,
+                it.texture,
+                x.toDouble(),
+                y - offset,
+                it.u,
+                it.v,
+                width,
+                it.height - it.v,
+                it.width,
+                it.height)
+        }
     }
 
     private fun updateSlider() {

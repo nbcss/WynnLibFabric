@@ -156,6 +156,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     override fun mouseDragged(mouseX: Double, mouseY: Double, button: Int, deltaX: Double, deltaY: Double): Boolean {
         if (contentSlider?.mouseDragged(mouseX, mouseY, button, deltaX, deltaY) == true)
             return true
+        if (filterVisible && getSearchPane()?.mouseDragged(mouseX, mouseY, button, deltaX, deltaY) == true)
+            return true
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }
 
@@ -178,6 +180,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
             updateContentSlider()
             return true
         }
+        if (filterVisible && getSearchPane()?.mouseScrolled(mouseX, mouseY, amount) == true)
+            return true
         //if (contentSlider?.mouseScrolled(mouseX, mouseY, amount) == true)
         //    return true
         return super.mouseScrolled(mouseX, mouseY, amount)
@@ -185,6 +189,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
 
     override fun mouseReleased(mouseX: Double, mouseY: Double, button: Int): Boolean {
         if (contentSlider?.mouseReleased(mouseX, mouseY, button) == true)
+            return true
+        if (filterVisible && getSearchPane()?.mouseReleased(mouseX, mouseY, button) == true)
             return true
         return super.mouseReleased(mouseX, mouseY, button)
     }
