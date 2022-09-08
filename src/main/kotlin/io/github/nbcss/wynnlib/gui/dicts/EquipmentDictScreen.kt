@@ -38,6 +38,7 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
         groups.addAll(IdentificationCriteriaGroup.of(memory))
         filter = AdvanceSearchPaneWidget(this, groups,
             windowX + backgroundWidth, windowY + 28)
+        //filter?.reload(memory)
     }
 
     override fun fetchItems(): Collection<Equipment> {

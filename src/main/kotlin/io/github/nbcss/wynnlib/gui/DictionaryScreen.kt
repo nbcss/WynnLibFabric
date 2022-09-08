@@ -52,7 +52,6 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         if (filterVisible) {
             windowX = (width - windowWidth - AdvanceSearchPaneWidget.WIDTH) / 2
             exitButton?.x = windowX + 230
-            getSearchPane()?.reload(memory)
         }
         searchBox = ItemSearchWidget(textRenderer, windowX + 25, windowY + 191, 120, 12)
         searchBox!!.text = lastSearch
