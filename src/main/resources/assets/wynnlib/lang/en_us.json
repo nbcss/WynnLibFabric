@@ -16,6 +16,8 @@
   "wynnlib.ui.filter_condition.id": "Identification",
   "wynnlib.ui.check_box.left_click": "Left-Click to toggle",
   "wynnlib.ui.check_box.right_click": "Right-Click to only-select",
+  "wynnlib.setting_option.name.durability": "Render Durability Bar",
+  "wynnlib.setting_option.desc.durability": "Rendering durability bar on crafted items",
   "wynnlib.tier.mythic": "Mythic",
   "wynnlib.tier.fabled": "Fabled",
   "wynnlib.tier.legendary": "Legendary",
