@@ -10,11 +10,14 @@ import net.minecraft.text.LiteralText
 import net.minecraft.util.Formatting
 
 class IdentificationCriteriaGroup<T>(private val group: IdentificationGroup,
-                                     private val ids: List<Identification>) : CriteriaGroup<T>
+                                     private val ids: List<Identification>,
+                                     memory: CriteriaMemory<T>) : CriteriaGroup<T>(memory)
         where T : BaseItem, T: IdentificationHolder {
     companion object {
-        fun <T> of(): List<IdentificationCriteriaGroup<T>> where T : BaseItem, T: IdentificationHolder {
-            return IdentificationGroup.values().map { IdentificationCriteriaGroup(it, Identification.fromGroup(it)) }
+        fun <T> of(memory: CriteriaMemory<T>): List<IdentificationCriteriaGroup<T>>
+        where T : BaseItem, T: IdentificationHolder {
+            return IdentificationGroup.values()
+                .map { IdentificationCriteriaGroup(it, Identification.fromGroup(it), memory) }
         }
     }
     override fun render(matrices: MatrixStack, mouseX: Int, mouseY: Int, posX: Double, posY: Double, delta: Float) {
@@ -32,10 +35,14 @@ class IdentificationCriteriaGroup<T>(private val group: IdentificationGroup,
     }
 
     override fun reload(memory: CriteriaMemory<T>) {
-        println("reload $group")
+        //println("reload $group")
     }
 
     override fun getHeight(): Int {
         return ids.size * 20
+    }
+
+    override fun onClick(mouseX: Int, mouseY: Int, button: Int): Boolean {
+        return false
     }
 }

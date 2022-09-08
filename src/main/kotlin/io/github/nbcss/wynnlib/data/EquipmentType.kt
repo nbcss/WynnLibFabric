@@ -204,6 +204,8 @@ enum class EquipmentType(private val id: String,
         "bracelet_multi_a" to ItemFactory.fromEncoding("minecraft:flint_and_steel#47"),
         "bracelet_multi_b" to ItemFactory.fromEncoding("minecraft:flint_and_steel#48")
     )),
+    //CHARM("Charm", ItemFactory.fromEncoding(""), emptyMap()),
+    //TOME("Charm", ItemFactory.fromEncoding(""), emptyMap()),
     INVALID("???", ERROR_ITEM, emptyMap());
 
     companion object {
@@ -214,6 +216,10 @@ enum class EquipmentType(private val id: String,
 
         fun getEquipmentType(id: String): EquipmentType {
             return VALUE_MAP.getOrDefault(id.lowercase(Locale.getDefault()), INVALID)
+        }
+
+        fun getEquipmentTypes(): List<EquipmentType> {
+            return values().filter { it != INVALID }
         }
     }
 

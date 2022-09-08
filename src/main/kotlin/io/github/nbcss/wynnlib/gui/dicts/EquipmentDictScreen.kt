@@ -4,7 +4,9 @@ import io.github.nbcss.wynnlib.gui.DictionaryScreen
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
+import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaGroup
 import io.github.nbcss.wynnlib.gui.widgets.criteria.IdentificationCriteriaGroup
+import io.github.nbcss.wynnlib.gui.widgets.criteria.ItemTypeGroup
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.i18n.Translations.UI_EQUIPMENTS
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
@@ -31,7 +33,10 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
 
     override fun init() {
         super.init()
-        filter = AdvanceSearchPaneWidget(this, IdentificationCriteriaGroup.of(),
+        val groups: MutableList<CriteriaGroup<Equipment>> = mutableListOf()
+        groups.add(ItemTypeGroup(memory))
+        groups.addAll(IdentificationCriteriaGroup.of(memory))
+        filter = AdvanceSearchPaneWidget(this, groups,
             windowX + backgroundWidth, windowY + 28)
     }
 

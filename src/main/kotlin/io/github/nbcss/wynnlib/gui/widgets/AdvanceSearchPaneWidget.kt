@@ -24,6 +24,7 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         private val client = MinecraftClient.getInstance()
         const val WIDTH = 148
         const val HEIGHT = 184
+        const val SCROLL_WIDTH = WIDTH - 30
     }
     private val close: ExitButtonWidget
     private val slider: VerticalSliderWidget
@@ -96,7 +97,7 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
     }
 
     inner class Scroll: ScrollPaneWidget(null, screen,
-        x + 8, y + 15, width - 30, height - 24, 200L, 20.0) {
+        x + 8, y + 15, SCROLL_WIDTH, height - 24, 200L, 20.0) {
 
         override fun getSlider(): VerticalSliderWidget = slider
 
@@ -108,6 +109,10 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
                 it.render(matrices, mouseX, mouseY, posX, posY, delta)
                 posY += it.getHeight()
             }
+        }
+
+        override fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean {
+            return criteriaList.any { it.onClick(mouseX.toInt(), mouseY.toInt(), button) }
         }
 
         override fun getContentHeight(): Int {
