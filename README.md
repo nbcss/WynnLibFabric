@@ -17,23 +17,15 @@ Put the jar files of all dependency mod and this mod into mods folder, and start
 # TODO LIST
 - [x] Item Dictionary (Equipment, Ingredient, Material, Powder)
 - [x] Dictionary item name filter
-- [x] Ability Tree Viewer/Builder
-- [x] Ability Tree Editor
+- [x] Ability Tree Viewer/Builder/Editor
 - [x] Ability Indicator (Timer)
 - [x] Item Analysis (Partially works)
 - [ ] Custom Indicators
 - [ ] Advance Search Panel
 - [ ] Crafter
+- [ ] Builder
 - [ ] Configuration Page
 
-
-Planned Improvements:
-- Handbook UI rework
-- Data structure rework
-
-Planned New Features:
-- Translatable language support
-- New Wynncraft 2.0 content support (e.g. ability tree)
 # Development Guide
 The current main development branch is 1.18,
 please work on this branch to add new features.
@@ -44,3 +36,22 @@ and say what features you are trying to add before doing it.
 This mod is licensed under the [AGPL-v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) license.
 
 All assets in the mod belong to their contributer and are licensed under the [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) license.
+
+# Contributors
+Code: 
+- nbcss
+- FYWind
+
+Art: 
+- Silentmaxx
+
+Localization: 
+- Moe_block
+- Dexmio
+- Puriora
+- ShoeBox_CX
+- LuCoolUs
+- Fudy
+
+For localization team: 
+Contact nbcss if your name is not shown here. 
