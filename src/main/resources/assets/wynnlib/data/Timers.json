@@ -91,6 +91,15 @@
       "properties": {}
     },
     {
+      "id": "ALLY_WINDY_FEET_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2764",
+      "name": "Windy Feet",
+      "texture": "WINDY_FEET",
+      "text": null,
+      "properties": {}
+    },
+    {
       "id": "WINDY_FEET_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7b\u2764",
