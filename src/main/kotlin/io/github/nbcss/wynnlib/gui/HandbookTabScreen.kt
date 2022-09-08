@@ -25,6 +25,7 @@ abstract class HandbookTabScreen(val parent: Screen?,
     protected val backgroundWidth = 246
     protected val backgroundHeight = 210
     protected val tabs: MutableList<TabFactory> = ArrayList()
+    private var tooltip: TooltipItem? = null
     private var tabPage: Int = 0
     protected var exitButton: ExitButtonWidget? = null
     protected var windowWidth = backgroundWidth
@@ -133,6 +134,11 @@ abstract class HandbookTabScreen(val parent: Screen?,
         drawBackground(matrices, mouseX, mouseY, delta)
         super.render(matrices, mouseX, mouseY, delta)
         drawContents(matrices, mouseX, mouseY, delta)
+        tooltip?.let { item ->
+            renderOrderedTooltip(matrices, item.tooltip.map{ it.asOrderedText()}, item.x, item.y)
+            RenderSystem.enableDepthTest()
+            tooltip = null
+        }
     }
 
     override fun shouldPause(): Boolean = false
@@ -142,9 +148,12 @@ abstract class HandbookTabScreen(val parent: Screen?,
     }
 
     override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
-        matrices.push()
+        this.tooltip = TooltipItem(x, y, tooltip)
+        /*matrices.push()
         renderOrderedTooltip(matrices, tooltip.map{it.asOrderedText()}, x, y)
         RenderSystem.enableDepthTest()
-        matrices.pop()
+        matrices.pop()*/
     }
+
+    private data class TooltipItem(val x: Int, val y: Int, val tooltip: List<Text>)
 }
