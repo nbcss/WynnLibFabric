@@ -2,9 +2,11 @@ package io.github.nbcss.wynnlib.registry
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.google.gson.JsonParser
 import io.github.nbcss.wynnlib.utils.FileUtils
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.Version
+import java.io.InputStreamReader
 
 abstract class Registry<T: Keyed> {
     protected val itemMap: MutableMap<String, T> = LinkedHashMap()
@@ -16,7 +18,8 @@ abstract class Registry<T: Keyed> {
 
     fun load() {
         getFilename()?.let {
-            FileUtils.loadRegistry(this, it)
+            val reader = InputStreamReader(FileUtils.getResource(it)!!, "utf-8")
+            reload(JsonParser.parseReader(reader).asJsonObject)
         }
     }
 

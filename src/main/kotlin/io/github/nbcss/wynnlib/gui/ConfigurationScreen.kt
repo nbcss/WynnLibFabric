@@ -19,6 +19,10 @@ class ConfigurationScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
         }
     }
 
+    override fun close() {
+        super.close()
+    }
+
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         //todo
     }

@@ -23,6 +23,8 @@ object WynnLibEntry: ModInitializer {
     private const val MOD_ID = "wynnlib"
 
     override fun onInitialize() {
+        //Reload Settings
+        Settings.reload()
         //Reload icons
         IconTexture.reload()
         //Load data

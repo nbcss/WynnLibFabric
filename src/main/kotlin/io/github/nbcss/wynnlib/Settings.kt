@@ -1,13 +1,17 @@
 package io.github.nbcss.wynnlib
 
+import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.utils.Color
+import io.github.nbcss.wynnlib.utils.FileUtils
+import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
 import kotlin.collections.LinkedHashMap
 
 object Settings {
+    private const val PATH = "config/WynnLib/Settings.json"
     private val colorMap: MutableMap<String, Color> = LinkedHashMap()
     init {
         colorMap["tier.mythic"] = Color.DARK_PURPLE
@@ -33,6 +37,29 @@ object Settings {
         colorMap["powder_tier.vi"] = Color.DARK_PURPLE
     }
     private var analysisMode: Boolean = true
+    private var drawDurability: Boolean = true
+    private var dirty: Boolean = false
+
+    fun reload() {
+        FileUtils.readFile(PATH)?.let {
+            drawDurability = getOr(it, "durability", true)
+        }
+    }
+
+    fun save() {
+        if (dirty){
+            val data = JsonObject()
+            data.addProperty("durability", drawDurability)
+            FileUtils.writeFile(PATH, data)
+        }
+    }
+
+    fun isRenderDurability(): Boolean = drawDurability
+
+    fun setRenderDurability(value: Boolean) {
+        drawDurability = value
+        dirty = true
+    }
 
     fun isAnalysisModeEnabled(): Boolean = analysisMode
 

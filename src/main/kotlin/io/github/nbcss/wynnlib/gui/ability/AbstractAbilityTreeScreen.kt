@@ -64,7 +64,7 @@ abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(pa
             tooltip[0] = LiteralText("     ").append(tooltip[0])
             tooltip[1] = LiteralText("     ").append(tooltip[1])
         }
-        drawTooltip(matrices, tooltip, mouseX, mouseY + 20)
+        renderTooltip(matrices, tooltip, mouseX, mouseY + 20)
         if (icon != null) {
             var i = 0
             var j = if (tooltip.size == 1) -2 else 0

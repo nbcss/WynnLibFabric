@@ -40,7 +40,7 @@ abstract class HandbookTabScreen(val parent: Screen?,
         tabs.add(AbilityTreeViewerScreen.FACTORY)
         tabs.add(PowderDictScreen.FACTORY)
         tabs.add(MaterialDictScreen.FACTORY)
-        //tabs.add(ConfigurationScreen.FACTORY)
+        tabs.add(ConfigurationScreen.FACTORY)
     }
 
     override fun init() {
