@@ -127,7 +127,7 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
         if (isMouseOver(mouseX, mouseY)) {
             if (onContentClick(mouseX, mouseY, button))
                 return true
-            if (button == 0 && scrolling == null) {
+            if (button == 2 && scrolling == null) {
                 dragging = position to mouseY
                 return true
             }
@@ -152,7 +152,7 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
             if (onContentRelease(mouseX, mouseY))
                 return true
         }
-        if (button == 0 && dragging != null) {
+        if (button == 2 && dragging != null) {
             dragging = null
             return true
         }
