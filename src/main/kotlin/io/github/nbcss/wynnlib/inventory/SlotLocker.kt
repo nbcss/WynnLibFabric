@@ -2,21 +2,18 @@ package io.github.nbcss.wynnlib.inventory
 
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.data.CharacterClass
+import io.github.nbcss.wynnlib.WynnLibKeybindings
 import io.github.nbcss.wynnlib.events.DrawSlotEvent
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.SlotClickEvent
 import io.github.nbcss.wynnlib.events.SlotPressEvent
-import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen
 import net.minecraft.client.gui.screen.ingame.HandledScreen
 import net.minecraft.client.gui.screen.ingame.HorseScreen
 import net.minecraft.client.gui.screen.ingame.InventoryScreen
-import net.minecraft.client.util.InputUtil
 import net.minecraft.util.Identifier
-import java.util.regex.Pattern
 
 object SlotLocker {
     private val texture = Identifier("wynnlib", "textures/legacy/lock.png")
@@ -55,7 +52,7 @@ object SlotLocker {
 
     object PressListener: EventHandler<SlotPressEvent> {
         override fun handle(event: SlotPressEvent) {
-            if (event.keyCode == InputUtil.GLFW_KEY_L) {
+            if (WynnLibKeybindings.getLockSlotKeybinding().matchesKey(event.keyCode, event.scanCode)) {
                 //modifiedSlot = 45 + event.slot.id - event.screen.screenHandler.slots.size
                 val slot = when (event.screen) {
                     is InventoryScreen -> event.slot.id

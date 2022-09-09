@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.render
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent
 import net.minecraft.client.MinecraftClient
@@ -15,7 +16,7 @@ object DurabilityRender: EventHandler<RenderItemOverrideEvent> {
     private val pattern = Pattern.compile("\\[(\\d+)/(\\d+) Durability]")
     private val client = MinecraftClient.getInstance()
     override fun handle(event: RenderItemOverrideEvent) {
-        if (event.item.isEmpty)
+        if (event.item.isEmpty || !Settings.getOption(Settings.SettingOption.DURABILITY))
             return
         val tooltip = event.item.getTooltip(client.player, TooltipContext.Default.NORMAL)
         val durability = tooltip.asSequence().filter { it.asString() == "" && it.siblings.isNotEmpty() }

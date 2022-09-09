@@ -23,8 +23,11 @@ object WynnLibEntry: ModInitializer {
     private const val MOD_ID = "wynnlib"
 
     override fun onInitialize() {
-        //Reload Settings
+        //Reload Settings & auto saving
         Settings.reload()
+        ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
+            Settings.save()
+        })
         //Reload icons
         IconTexture.reload()
         //Load data
@@ -39,22 +42,8 @@ object WynnLibEntry: ModInitializer {
         MaterialRegistry.load()
         RecipeRegistry.load()
         //Register keybindings
-        val openHandbook = registerKey("wynnlib.key.handbook", GLFW.GLFW_KEY_H)
-        ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
-            while (openHandbook.wasPressed()) {
-                it.setScreen(EquipmentDictScreen(it.currentScreen))
-            }
-        })
-        ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
-            Settings.save()
-        })
+        WynnLibKeybindings.init()
         //Register events
         EventRegistry.registerEvents()
-    }
-
-    private fun registerKey(name: String, key: Int): KeyBinding {
-        return KeyBindingHelper.registerKeyBinding(
-            KeyBinding(name, InputUtil.Type.KEYSYM, key, "wynnlib.category.keys")
-        )
     }
 }
