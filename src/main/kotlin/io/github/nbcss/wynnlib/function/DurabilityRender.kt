@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.render
+package io.github.nbcss.wynnlib.function
 
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.Settings
@@ -55,8 +55,8 @@ object DurabilityRender: EventHandler<RenderItemOverrideEvent> {
         val bufferBuilder = tessellator.buffer
         val steps: Int = (durability * 13.0f).roundToInt()
         val color: Int = MathHelper.hsvToRgb(durability.toFloat() / 3.0f, 1.0f, 1.0f)
-        this.renderGuiQuad(bufferBuilder, x + 2, y + 13, 13, 2, 0)
-        this.renderGuiQuad(bufferBuilder, x + 2, y + 13, steps, 1, color)
+        renderGuiQuad(bufferBuilder, x + 2, y + 13, 13, 2, 0)
+        renderGuiQuad(bufferBuilder, x + 2, y + 13, steps, 1, color)
         RenderSystem.enableBlend()
         RenderSystem.enableTexture()
         RenderSystem.enableDepthTest()

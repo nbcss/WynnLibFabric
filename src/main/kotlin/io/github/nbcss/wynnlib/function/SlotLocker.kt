@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.inventory
+package io.github.nbcss.wynnlib.function
 
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.Settings
