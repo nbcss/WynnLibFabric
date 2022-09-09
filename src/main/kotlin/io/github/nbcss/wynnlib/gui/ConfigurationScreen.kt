@@ -1,13 +1,20 @@
 package io.github.nbcss.wynnlib.gui
 
+import io.github.nbcss.wynnlib.Settings
+import io.github.nbcss.wynnlib.gui.widgets.CheckboxWidget
+import io.github.nbcss.wynnlib.gui.widgets.ScrollPaneWidget
+import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.utils.ItemFactory
+import io.github.nbcss.wynnlib.utils.warpLines
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 
-class ConfigurationScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
+class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) {
     companion object {
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:repeater")
         val TITLE: Text = Translations.UI_CONFIGURATION.translate()
@@ -18,13 +25,60 @@ class ConfigurationScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is ConfigurationScreen
         }
     }
+    private var scroll: Scroll? = null
+
+    override fun getScroll(): ScrollPaneWidget? = scroll
 
     override fun init() {
         super.init()
-        //todo
+        scroll = Scroll()
     }
 
-    override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        //todo
+    inner class Scroll: ScrollPaneWidget(null, this@ConfigurationScreen,
+        scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
+        private val options: MutableMap<Settings.SettingOption, CheckboxWidget> = linkedMapOf()
+        private val scrollHeight: Int
+        init {
+            val posX = 2
+            var posY = 2
+            for (option in Settings.SettingOption.values()) {
+                val description = object: TooltipProvider {
+                    override fun getTooltip(): List<Text> {
+                        return warpLines(option.translate("desc").formatted(Formatting.GRAY), 200)
+                    }
+                }
+                val checkbox = CheckboxWidget(posX, posY, option.formatted(Formatting.GOLD),
+                    this@ConfigurationScreen, Settings.getOption(option), description)
+                checkbox.setCallback {
+                    Settings.setOption(option, it.isChecked())
+                }
+                options[option] = checkbox
+                posY += 20
+            }
+            scrollHeight = posY + 2
+        }
+
+        override fun getSlider(): VerticalSliderWidget? = slider
+
+        override fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean {
+            for (widget in options.values) {
+                widget.mouseClicked(mouseX, mouseY, button)
+            }
+            return false
+        }
+
+        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+            val posX = x
+            val posY = (y - position).toInt()
+            for (entry in options.entries) {
+                entry.value.updatePosition(posX, posY)
+                entry.value.render(matrices, mouseX, mouseY, delta)
+                //entry.key.formatted(Formatting.GRAY)
+                client.textRenderer.drawWithShadow(matrices, entry.key.formatted(Formatting.GRAY),
+                    entry.value.x + 22.0F, entry.value.y + 5.0F, 0xFFFFFF)
+            }
+        }
+
+        override fun getContentHeight(): Int = scrollHeight
     }
 }

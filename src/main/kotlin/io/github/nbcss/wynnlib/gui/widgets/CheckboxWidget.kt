@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
+import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder
@@ -10,12 +11,14 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import java.util.function.Consumer
 
 class CheckboxWidget(private val posX: Int,
                      private val posY: Int,
                      private val name: Text,
                      private val screen: TooltipScreen? = null,
-                     private var checked: Boolean = true):
+                     private var checked: Boolean = true,
+                     private val description: TooltipProvider? = null):
     ClickableWidget(-1000, -1000, SIZE, SIZE, fromBoolean(checked)) {
     companion object {
         val LEFT_CLICK = from("wynnlib.ui.check_box.left_click")
@@ -25,9 +28,14 @@ class CheckboxWidget(private val posX: Int,
             return if (checked) Symbol.TICK.asText() else Symbol.CROSS.asText()
         }
     }
+    private var onUpdate: Consumer<CheckboxWidget>? = null
     private var group: Group? = null
     init {
         visible = false
+    }
+
+    fun setCallback(callback: Consumer<CheckboxWidget>?) {
+        this.onUpdate = callback
     }
 
     fun setGroup(group: Group) {
@@ -53,6 +61,9 @@ class CheckboxWidget(private val posX: Int,
             val tooltip: MutableList<Text> = mutableListOf()
             tooltip.add((if (checked) Symbol.TICK.asText() else Symbol.CROSS.asText())
                 .append(" ").append(name))
+            description?.getTooltip()?.let {
+                tooltip.addAll(it)
+            }
             tooltip.add(LiteralText.EMPTY)
             tooltip.add(LEFT_CLICK.formatted(Formatting.AQUA))
             if (group != null) {
@@ -68,6 +79,7 @@ class CheckboxWidget(private val posX: Int,
                 if (button == 0) {
                     playDownSound(MinecraftClient.getInstance().soundManager)
                     setChecked(!isChecked())
+                    onUpdate?.accept(this)
                     return true
                 }else if(button == 1 && group != null) {
                     playDownSound(MinecraftClient.getInstance().soundManager)

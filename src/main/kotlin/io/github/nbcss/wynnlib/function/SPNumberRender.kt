@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.function
 
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.Skill
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.ItemLoadEvent
@@ -38,6 +39,8 @@ object SPNumberRender {
 
     object Render: EventHandler<RenderItemOverrideEvent> {
         override fun handle(event: RenderItemOverrideEvent) {
+            if (!Settings.getOption(Settings.SettingOption.SP_VALUE))
+                return
             ItemModifier.readInt(event.item, key)?.let {
                 val point = "${MathHelper.clamp(it, 0, 999)}"
                 val x = (event.x + 19 - 2 - event.renderer.getWidth(point)).toFloat()

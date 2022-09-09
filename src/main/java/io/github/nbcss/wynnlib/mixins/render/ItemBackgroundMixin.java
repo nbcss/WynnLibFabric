@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.mixins.render;
 
+import io.github.nbcss.wynnlib.Settings;
 import io.github.nbcss.wynnlib.events.DrawSlotEvent;
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent;
 import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
@@ -73,6 +74,8 @@ public class ItemBackgroundMixin extends Screen {
     }
 
     private void drawColorSlot(ItemStack stack, int x, int y) {
+        if (!Settings.INSTANCE.getOption(Settings.SettingOption.ITEM_BACKGROUND_COLOR))
+            return;
         Color color = ColorMatcher.Companion.toRarityColor(stack);
         if(color != null) {
             matrixStack.push();

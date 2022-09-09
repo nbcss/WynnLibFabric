@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.function
 
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.ItemLoadEvent
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent
@@ -21,6 +22,8 @@ object ConsumableChargeRender {
 
     object Render: EventHandler<RenderItemOverrideEvent> {
         override fun handle(event: RenderItemOverrideEvent) {
+            if (!Settings.getOption(Settings.SettingOption.CONSUMABLE_CHARGE))
+                return
             ItemModifier.readInt(event.item, key)?.let {
                 val s = "$it"
                 val x = (event.x + 19 - 2 - event.renderer.getWidth(s)).toFloat()

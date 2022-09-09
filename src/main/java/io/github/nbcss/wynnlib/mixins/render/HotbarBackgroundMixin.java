@@ -72,10 +72,12 @@ public class HotbarBackgroundMixin {
             for(int i = 0; i < 6; i++) {
                 int x = this.scaledWidth / 2 - 90 + i * 20 + 2;
                 ItemStack stack = playerEntity.getInventory().main.get(i);
-                Color color = ColorMatcher.Companion.toRarityColor(stack);
-                if(color != null){
-                    RenderSystem.disableDepthTest();
-                    DrawableHelper.fill(matrices, x, y, x + 16, y + 16, color.withAlpha(0xCC).code());
+                if (Settings.INSTANCE.getOption(Settings.SettingOption.ITEM_BACKGROUND_COLOR)){
+                    Color color = ColorMatcher.Companion.toRarityColor(stack);
+                    if(color != null){
+                        RenderSystem.disableDepthTest();
+                        DrawableHelper.fill(matrices, x, y, x + 16, y + 16, color.withAlpha(0xCC).code());
+                    }
                 }
                 if (playerEntity.experienceLevel > 0 && Settings.INSTANCE.isSlotLocked(36 + i)) {
                     RenderSystem.enableBlend();

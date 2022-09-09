@@ -130,7 +130,11 @@ object Settings {
 
     enum class SettingOption(val id: String,
                              val defaultValue: Boolean): Keyed, Translatable {
-        DURABILITY("DRAW_DURABILITY", true);
+        DURABILITY("durability", true),
+        CONSUMABLE_CHARGE("consumable_charge", true),
+        SP_VALUE("skill_point_override", true),
+        ITEM_BACKGROUND_COLOR("item_color", true),
+        ;
 
         override fun getKey(): String = id
 
