@@ -67,7 +67,7 @@ public class ItemBackgroundMixin extends Screen {
     }
 
     private boolean drawOverrides(TextRenderer renderer, ItemStack stack, int x, int y) {
-        RenderItemOverrideEvent event = new RenderItemOverrideEvent(renderer, stack, x, y);
+        RenderItemOverrideEvent event = new RenderItemOverrideEvent(matrixStack, renderer, stack, x, y);
         RenderItemOverrideEvent.Companion.handleEvent(event);
         return event.getCancelled();
     }

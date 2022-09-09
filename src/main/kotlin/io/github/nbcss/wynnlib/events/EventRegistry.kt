@@ -1,8 +1,6 @@
 package io.github.nbcss.wynnlib.events
 
-import io.github.nbcss.wynnlib.function.AnalyzeMode
-import io.github.nbcss.wynnlib.function.DurabilityRender
-import io.github.nbcss.wynnlib.function.SlotLocker
+import io.github.nbcss.wynnlib.function.*
 import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
 import io.github.nbcss.wynnlib.render.CharacterInfoInventoryRender
 import io.github.nbcss.wynnlib.timer.custom.HoundTimerIndicator
@@ -21,5 +19,9 @@ object EventRegistry {
         DrawSlotEvent.registerListener(SlotLocker.LockRender)
         ItemLoadEvent.registerListener(DurabilityRender.LoadListener)
         ItemLoadEvent.registerListener(AnalyzeMode)
+        ItemLoadEvent.registerListener(SPNumberRender.Reader)
+        RenderItemOverrideEvent.registerListener(SPNumberRender.Render)
+        ItemLoadEvent.registerListener(ConsumableChargeRender.Reader)
+        RenderItemOverrideEvent.registerListener(ConsumableChargeRender.Render)
     }
 }

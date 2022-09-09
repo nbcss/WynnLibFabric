@@ -29,8 +29,8 @@ object AnalyzeMode: EventHandler<ItemLoadEvent> {
     }
 
     fun getAnalyzeResult(item: ItemStack): List<Text>? {
-        return ItemModifier.getElement(item, KEY) { elem ->
-            return@getElement if (elem is NbtList) {
+        return ItemModifier.readElement(item, KEY) { elem ->
+            return@readElement if (elem is NbtList) {
                 elem.map { Text.Serializer.fromJson(it.asString()) as Text }
             }else{
                 null

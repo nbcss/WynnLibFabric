@@ -58,4 +58,13 @@ public class InventoryUpdateMixin {
         ItemLoadEvent.Companion.handleEvent(event);
         return event.getItem();
     }
+
+    @ModifyVariable(method = "setCursorStack", at = @At("HEAD"), index = 1, argsOnly = true)
+    public ItemStack setCursorStack(ItemStack stack) {
+        if (stack.isEmpty())
+            return stack;
+        ItemLoadEvent event = new ItemLoadEvent(stack);
+        ItemLoadEvent.Companion.handleEvent(event);
+        return event.getItem();
+    }
 }

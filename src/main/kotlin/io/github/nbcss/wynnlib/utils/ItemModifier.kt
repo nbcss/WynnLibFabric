@@ -42,7 +42,7 @@ object ItemModifier {
         item.nbt = nbt
     }
 
-    fun <T> getElement(item: ItemStack, key: String, f: Function<NbtElement, T?>): T? {
+    fun <T> readElement(item: ItemStack, key: String, f: Function<NbtElement, T?>): T? {
         val nbt = item.nbt ?: return null
         val compound = nbt.getCompound(KEY) ?: return null
         return if (compound.contains(key)) {
