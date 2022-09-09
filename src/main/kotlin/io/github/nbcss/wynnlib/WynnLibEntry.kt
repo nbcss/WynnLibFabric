@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
 import io.github.nbcss.wynnlib.registry.*
 import io.github.nbcss.wynnlib.timer.status.StatusType
+import io.github.nbcss.wynnlib.utils.Scheduler
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
@@ -26,7 +27,7 @@ object WynnLibEntry: ModInitializer {
         //Reload Settings & auto saving
         Settings.reload()
         ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
-            Settings.save()
+            Scheduler.tick()
         })
         //Reload icons
         IconTexture.reload()

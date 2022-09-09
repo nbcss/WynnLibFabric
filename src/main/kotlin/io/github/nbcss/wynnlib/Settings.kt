@@ -11,6 +11,7 @@ import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.FileUtils
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.Scheduler
 import kotlin.collections.LinkedHashMap
 import kotlin.concurrent.thread
 
@@ -55,9 +56,12 @@ object Settings {
             lockedSlots.clear()
             lockedSlots.addAll(getOr(it, "locked", emptyList()){ i -> i.asInt })
         }
+        Scheduler.registerTask("SAVE_SETTING", 20){
+            save()
+        }
     }
 
-    fun save() {
+    private fun save() {
         if (dirty && !saving){
             saving = true
             thread(isDaemon = true) {
