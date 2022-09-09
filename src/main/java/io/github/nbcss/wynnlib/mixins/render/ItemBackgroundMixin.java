@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.mixins.render;
 
+import io.github.nbcss.wynnlib.events.DrawSlotEvent;
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent;
 import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
 import io.github.nbcss.wynnlib.render.RenderKit;
@@ -11,6 +12,7 @@ import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,6 +38,12 @@ public class ItemBackgroundMixin extends Screen {
     @Inject(method = "drawItem", at = @At("HEAD"))
     public void drawItem(ItemStack stack, int x, int y, String amountText, CallbackInfo ci) {
         drawColorSlot(stack, x, y);
+    }
+
+    @Inject(method = "drawSlot", at = @At("HEAD"))
+    private void drawSlot(MatrixStack matrices, Slot slot, CallbackInfo ci) {
+        DrawSlotEvent event = new DrawSlotEvent((HandledScreen<?>) (Object) this, matrices, slot);
+        DrawSlotEvent.Companion.handleEvent(event);
     }
 
     @Redirect(method = "drawItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;renderGuiItemOverlay(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V"))

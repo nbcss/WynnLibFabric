@@ -45,6 +45,9 @@ object WynnLibEntry: ModInitializer {
                 it.setScreen(EquipmentDictScreen(it.currentScreen))
             }
         })
+        ClientTickEvents.END_CLIENT_TICK.register(ClientTickEvents.EndTick {
+            Settings.save()
+        })
         //Register events
         EventRegistry.registerEvents()
     }

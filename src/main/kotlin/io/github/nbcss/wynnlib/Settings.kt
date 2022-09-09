@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib
 
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.i18n.Translatable
@@ -11,6 +12,7 @@ import io.github.nbcss.wynnlib.utils.FileUtils
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
 import io.github.nbcss.wynnlib.utils.Keyed
 import kotlin.collections.LinkedHashMap
+import kotlin.concurrent.thread
 
 object Settings {
     private const val PATH = "config/WynnLib/Settings.json"
@@ -38,26 +40,52 @@ object Settings {
         colorMap["powder_tier.v"] = Color.RED
         colorMap["powder_tier.vi"] = Color.DARK_PURPLE
     }
+    private val lockedSlots: MutableSet<Int> = mutableSetOf()
     private val options: MutableMap<SettingOption, Boolean> = mutableMapOf()
     private var analysisMode: Boolean = true
     private var dirty: Boolean = false
+    private var saving: Boolean = false
 
     fun reload() {
         FileUtils.readFile(PATH)?.let {
+            options.clear()
             for (option in SettingOption.values()) {
                 options[option] = getOr(it, option.id, option.defaultValue)
             }
+            lockedSlots.clear()
+            lockedSlots.addAll(getOr(it, "locked", emptyList()){ i -> i.asInt })
         }
     }
 
     fun save() {
-        if (dirty){
-            val data = JsonObject()
-            for (option in SettingOption.values()) {
-                data.addProperty(option.id, getOption(option))
+        if (dirty && !saving){
+            saving = true
+            thread(isDaemon = true) {
+                val data = JsonObject()
+                for (option in SettingOption.values()) {
+                    data.addProperty(option.id, getOption(option))
+                }
+                val locked = JsonArray()
+                lockedSlots.forEach { locked.add(it) }
+                data.add("locked", locked)
+                FileUtils.writeFile(PATH, data)
+                dirty = false
+                saving = false
             }
-            FileUtils.writeFile(PATH, data)
         }
+    }
+
+    fun setSlotLocked(id: Int, locked: Boolean) {
+        if (locked) {
+            lockedSlots.add(id)
+        }else{
+            lockedSlots.remove(id)
+        }
+        dirty = true
+    }
+
+    fun isSlotLocked(id: Int): Boolean {
+        return id in lockedSlots
     }
 
     fun setOption(option: SettingOption, value: Boolean) {

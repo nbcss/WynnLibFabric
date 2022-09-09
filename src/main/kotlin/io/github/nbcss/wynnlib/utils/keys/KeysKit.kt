@@ -4,6 +4,10 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.InputUtil
 
 object KeysKit {
+    fun isKeyDown(keyCode: Int): Boolean {
+        return InputUtil.isKeyPressed(MinecraftClient.getInstance().window.handle, keyCode)
+    }
+
     fun isShiftDown(): Boolean {
         return InputUtil.isKeyPressed(MinecraftClient.getInstance().window.handle,
             InputUtil.GLFW_KEY_LEFT_SHIFT) || InputUtil.isKeyPressed(
