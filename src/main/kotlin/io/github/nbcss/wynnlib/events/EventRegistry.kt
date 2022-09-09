@@ -12,12 +12,12 @@ object EventRegistry {
      */
     fun registerEvents() {
         InventoryUpdateEvent.registerListener(AbilityTreeHandler)
-        //InventoryUpdateEvent.registerListener(XX)
         ArmourStandUpdateEvent.registerListener(HoundTimerIndicator)
         RenderItemOverrideEvent.registerListener(DurabilityRender)
         InventoryRenderEvent.registerListener(CharacterInfoInventoryRender)
         SlotClickEvent.registerListener(SlotLocker.ClickListener)
         SlotPressEvent.registerListener(SlotLocker.PressListener)
         DrawSlotEvent.registerListener(SlotLocker.LockRender)
+        ItemLoadEvent.registerListener(DurabilityRender.LoadListener)
     }
 }

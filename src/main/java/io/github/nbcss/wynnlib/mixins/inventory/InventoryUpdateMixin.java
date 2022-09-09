@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.mixins.inventory;
 
 import io.github.nbcss.wynnlib.events.InventoryUpdateEvent;
+import io.github.nbcss.wynnlib.events.ItemLoadEvent;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.item.ItemStack;
@@ -9,6 +10,7 @@ import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
@@ -24,5 +26,36 @@ public class InventoryUpdateMixin {
                 InventoryUpdateEvent.Companion.handleEvent(event);
             }
         }
+    }
+
+    @ModifyVariable(method = "updateSlotStacks", at = @At("HEAD"), index = 3, argsOnly = true)
+    public ItemStack onModifyCursorItem(ItemStack stack) {
+        if (stack.isEmpty())
+            return stack;
+        ItemLoadEvent event = new ItemLoadEvent(stack);
+        ItemLoadEvent.Companion.handleEvent(event);
+        return event.getItem();
+    }
+
+    @ModifyVariable(method = "updateSlotStacks", at = @At("HEAD"), index = 2, argsOnly = true)
+    public List<ItemStack> onModifyItems(List<ItemStack> stacks){
+        for (int i = 0; i < stacks.size(); i++) {
+            ItemStack stack = stacks.get(i);
+            if (stack.isEmpty())
+                continue;
+            ItemLoadEvent event = new ItemLoadEvent(stack);
+            ItemLoadEvent.Companion.handleEvent(event);
+            stacks.set(i, event.getItem());
+        }
+        return stacks;
+    }
+
+    @ModifyVariable(method = "setStackInSlot", at = @At("HEAD"), index = 3, argsOnly = true)
+    public ItemStack onModifyItem(ItemStack stack) {
+        if (stack.isEmpty())
+            return stack;
+        ItemLoadEvent event = new ItemLoadEvent(stack);
+        ItemLoadEvent.Companion.handleEvent(event);
+        return event.getItem();
     }
 }
