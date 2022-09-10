@@ -47,7 +47,7 @@ object SPNumberRender {
                 val x = (event.x + 19 - 2 - event.renderer.getWidth(point)).toFloat()
                 val y = event.y.toFloat() + 9.0f
                 event.matrixStack.push()
-                event.matrixStack.translate(0.0, 0.0, 300.0)
+                event.matrixStack.translate(0.0, 0.0, 375.0)
                 event.renderer.drawWithShadow(event.matrixStack, point, x, y, 0xFFFFFF)
                 event.matrixStack.pop()
                 event.cancelled = true
