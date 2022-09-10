@@ -26,7 +26,8 @@
     "timer.TimerHUDMixin",
     "timer.TimeUpdateMixin",
     "world.ArmourStandEntityMixin",
-    "world.ArmourStandUpdateMixin"
+    "world.ArmourStandUpdateMixin",
+    "world.PlayerSendChatMixin"
   ],
   "client": [
     "render.ItemGuiLightingFixMixin"

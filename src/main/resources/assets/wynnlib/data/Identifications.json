@@ -214,7 +214,7 @@
       "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
-      "id": "bonus_spell_fire_damage",
+      "id": "bonus_spell_fire_damage_raw",
       "apiId": "spellFireDamageBonusRaw",
       "name": "FIRESPELLDAMAGEBONUSRAW",
       "displayName": "Fire Spell Damage",
@@ -222,7 +222,7 @@
       "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
-      "id": "bonus_spell_water_damage",
+      "id": "bonus_spell_water_damage_raw",
       "apiId": "spellWaterDamageBonusRaw",
       "name": "WATERSPELLDAMAGEBONUSRAW",
       "displayName": "Water Spell Damage",
@@ -230,7 +230,7 @@
       "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
-      "id": "bonus_spell_air_damage",
+      "id": "bonus_spell_air_damage_raw",
       "apiId": "spellAirDamageBonusRaw",
       "name": "AIRSPELLDAMAGEBONUSRAW",
       "displayName": "Air Spell Damage",
@@ -238,7 +238,7 @@
       "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
-      "id": "bonus_spell_thunder_damage",
+      "id": "bonus_spell_thunder_damage_raw",
       "apiId": "spellThunderDamageBonusRaw",
       "name": "THUNDERSPELLDAMAGEBONUSRAW",
       "displayName": "Thunder Spell Damage",
@@ -246,7 +246,7 @@
       "group": "ELEMENT_DAMAGE_BONUS"
     },
     {
-      "id": "bonus_spell_earth_damage",
+      "id": "bonus_spell_earth_damage_raw",
       "apiId": "spellEarthDamageBonusRaw",
       "name": "EARTHSPELLDAMAGEBONUSRAW",
       "displayName": "Earth Spell Damage",

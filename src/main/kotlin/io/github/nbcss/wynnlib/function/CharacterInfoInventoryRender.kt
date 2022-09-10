@@ -1,7 +1,8 @@
-package io.github.nbcss.wynnlib.render
+package io.github.nbcss.wynnlib.function
 
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.InventoryRenderEvent
+import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Color
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.item.TooltipContext

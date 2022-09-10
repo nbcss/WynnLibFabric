@@ -12,12 +12,27 @@ import io.github.nbcss.wynnlib.utils.FileUtils
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.Scheduler
-import kotlin.collections.LinkedHashMap
+import net.minecraft.client.MinecraftClient
+import java.security.KeyFactory
+import java.security.interfaces.RSAPrivateKey
+import java.security.spec.PKCS8EncodedKeySpec
+import java.util.*
+import javax.crypto.Cipher
 import kotlin.concurrent.thread
 
 object Settings {
     private const val PATH = "config/WynnLib/Settings.json"
-    private val colorMap: MutableMap<String, Color> = LinkedHashMap()
+    private const val PRIVATE_KEY = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALolzLdb5Uo2I5x0qy" +
+            "LCR7jozU3qwagGsCynYPZe9DEqzB+VRgkS36tWQmctukwH+sZ/uNPOj2F4p7JeggzGAp38vIJTbX+L1vJhy3wJvbWuLlmy/Cw40V" +
+            "qWUH6W8DjRubAWGRDYM43p0uwzZPKMwJ1boawPo0xz6eITsmzCLbCZAgMBAAECgYBus9ImbYlT9BSDlEK+finnRtPp9aXLxoZ5V+" +
+            "VrP5cbsmcIlV68QLQyEi+VavVzB//UktqZZCuS/Q1GH7xZ2lxtEkrVqtLL1RYS/n1qzu2xZT+ke2FwqP9dtv38VqG1jXwrqYpYc7" +
+            "YYswRJVVOZ6FQl9mhBtMfFSvYsJUAYrUXc3QJBAOlS8irh8NKOhZcr4WJSIufgySvdZG5+wJLZLZy9expBoi+/O0glpKLbcGphcg" +
+            "Jma8XCse4nPkn/nefu+cEdAwsCQQDMPR2YmqWuSBbmiTyveDwjkqHUHv81+9RbhdmOBjukogL/kQ3YoW7PbhrfTpU81tu9kYXU/l" +
+            "L+re3XQQQimyFrAkEAwTqrSa5SZd4YbqitgGKre8Nid0xjd0rLqxHnP26Au67tZYOG0eoy3ZjEEaXf6HLwABiMiMHBSUFDgagc+L" +
+            "xRHwJAaDvcqfBrFCo4fcmWjhr33lPMgXycVUnD1D3YjTJDKD+C9jlqbp/c9MJFtqfdZGJnXTUyr0RoyQ+tLclBugOgJwJAaGl6+V" +
+            "Un+CEuE3wLbXVoAabgi8orOwtHxh6T0jNxNm0Ji/ICdPplt6Rx+DLO89tpDnd11/PbLYYFpkLNRXd/Fg=="
+    private val colorMap: MutableMap<String, Color> = linkedMapOf()
+    private val keys: MutableSet<String> = mutableSetOf()
     init {
         colorMap["tier.mythic"] = Color.DARK_PURPLE
         colorMap["tier.fabled"] = Color.RED
@@ -43,6 +58,7 @@ object Settings {
     }
     private val lockedSlots: MutableSet<Int> = mutableSetOf()
     private val options: MutableMap<SettingOption, Boolean> = mutableMapOf()
+    private var isTester: Boolean = false
     private var analysisMode: Boolean = true
     private var dirty: Boolean = false
     private var saving: Boolean = false
@@ -55,6 +71,9 @@ object Settings {
             }
             lockedSlots.clear()
             lockedSlots.addAll(getOr(it, "locked", emptyList()){ i -> i.asInt })
+            keys.clear()
+            keys.addAll(getOr(it, "keys", emptyList()){ i -> i.asString })
+            validateKeys()
         }
         Scheduler.registerTask("SAVE_SETTING", 20){
             save()
@@ -72,12 +91,61 @@ object Settings {
                 val locked = JsonArray()
                 lockedSlots.forEach { locked.add(it) }
                 data.add("locked", locked)
+                val keys = JsonArray()
+                this.keys.forEach { keys.add(it) }
+                data.add("keys", keys)
                 FileUtils.writeFile(PATH, data)
                 dirty = false
                 saving = false
             }
         }
     }
+
+    private fun validateKeys() {
+        isTester = false
+        if (keys.isEmpty()) return
+        val id: String = MinecraftClient.getInstance().session.uuid
+        try {
+            val decoded: ByteArray = Base64.getDecoder().decode(PRIVATE_KEY)
+            val priKey = KeyFactory.getInstance("RSA")
+                .generatePrivate(PKCS8EncodedKeySpec(decoded)) as RSAPrivateKey
+            val cipher = Cipher.getInstance("RSA")
+            cipher.init(Cipher.DECRYPT_MODE, priKey)
+            for (key in keys) {
+                try {
+                    val decrypt = String(cipher.doFinal(Base64.getDecoder().decode(key.toByteArray())))
+                    if (decrypt == id) {
+                        isTester = true
+                        break
+                    }
+                } catch (ignored: Exception) { }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun addKey(key: String): Boolean {
+        val id: String = MinecraftClient.getInstance().session.uuid
+        try {
+            val decoded: ByteArray = Base64.getDecoder().decode(PRIVATE_KEY)
+            val priKey = KeyFactory.getInstance("RSA")
+                .generatePrivate(PKCS8EncodedKeySpec(decoded)) as RSAPrivateKey
+            val cipher = Cipher.getInstance("RSA")
+            cipher.init(Cipher.DECRYPT_MODE, priKey)
+            val decrypt = String(cipher.doFinal(Base64.getDecoder().decode(key.toByteArray())))
+            if (decrypt == id) {
+                isTester = true
+                if (keys.add(key)) {
+                    dirty = true
+                }
+                return true
+            }
+        } catch (e: Exception) { }
+        return false
+    }
+
+    fun isTester(): Boolean = isTester
 
     fun setSlotLocked(id: Int, locked: Boolean) {
         if (locked) {

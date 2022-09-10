@@ -2,7 +2,6 @@ package io.github.nbcss.wynnlib.events
 
 import io.github.nbcss.wynnlib.function.*
 import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
-import io.github.nbcss.wynnlib.render.CharacterInfoInventoryRender
 import io.github.nbcss.wynnlib.timer.custom.HoundTimerIndicator
 
 object EventRegistry {
@@ -23,5 +22,6 @@ object EventRegistry {
         RenderItemOverrideEvent.registerListener(SPNumberRender.Render)
         ItemLoadEvent.registerListener(ConsumableChargeRender.Reader)
         RenderItemOverrideEvent.registerListener(ConsumableChargeRender.Render)
+        PlayerSendChatEvent.registerListener(KeyValidation)
     }
 }
