@@ -2,6 +2,7 @@
   "wynnlib.category.keys": "WynnLib Keybindings",
   "wynnlib.key.handbook": "Open Handbook",
   "wynnlib.key.slot_lock": "Toggle Slot Lock",
+  "wynnlib.key.analyze_mode": "Toggle Analyze Mode",
   "wynnlib.mouse_key.left": "LEFT",
   "wynnlib.mouse_key.right": "RIGHT",
   "wynnlib.ui.equipments": "Equipments",
