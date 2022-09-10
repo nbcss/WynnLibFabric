@@ -28,7 +28,10 @@ object ConsumableChargeRender {
                 val s = "$it"
                 val x = (event.x + 19 - 2 - event.renderer.getWidth(s)).toFloat()
                 val y = event.y.toFloat() + 9.0f
+                event.matrixStack.push()
+                event.matrixStack.translate(0.0, 0.0, 300.0)
                 event.renderer.drawWithShadow(event.matrixStack, s, x, y, 0xFFFFFF)
+                event.matrixStack.pop()
                 event.cancelled = true
             }
         }

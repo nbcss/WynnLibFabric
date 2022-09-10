@@ -34,6 +34,7 @@ public class HotbarBackgroundMixin {
         return null;
     }
     private boolean flag = false;
+    MatrixStack matrixStack = null;
 
     @Inject(method = "renderHotbar", at = @At("HEAD"))
     public void renderHotbarHead(float tickDelta, MatrixStack matrices, CallbackInfo ci){
@@ -44,7 +45,7 @@ public class HotbarBackgroundMixin {
             "drawTexture(Lnet/minecraft/client/util/math/MatrixStack;IIIIII)V",
             shift = At.Shift.AFTER))
     public void renderHotbar(float tickDelta, MatrixStack matrices, CallbackInfo ci){
-        //this.matrices = matrices;
+        this.matrixStack = matrices;
         if(flag){
             flag = false;
             drawSlots(matrices);
@@ -59,7 +60,6 @@ public class HotbarBackgroundMixin {
     }
 
     private boolean drawOverrides(TextRenderer renderer, ItemStack stack, int x, int y) {
-        MatrixStack matrixStack = RenderSystem.getModelViewStack();
         RenderItemOverrideEvent event = new RenderItemOverrideEvent(matrixStack, renderer, stack, x, y);
         RenderItemOverrideEvent.Companion.handleEvent(event);
         return event.getCancelled();
