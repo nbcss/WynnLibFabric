@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.gui.ability.AbilityBuildDictionaryScreen
 import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
@@ -38,6 +39,7 @@ abstract class HandbookTabScreen(val parent: Screen?,
         tabs.add(IngredientDictScreen.FACTORY)
         //tabs.add(CrafterScreen.FACTORY)
         tabs.add(AbilityTreeViewerScreen.FACTORY)
+        //tabs.add(AbilityBuildDictionaryScreen.FACTORY)
         tabs.add(PowderDictScreen.FACTORY)
         tabs.add(MaterialDictScreen.FACTORY)
         tabs.add(ConfigurationScreen.FACTORY)

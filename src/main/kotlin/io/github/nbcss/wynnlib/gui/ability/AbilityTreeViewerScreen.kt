@@ -8,29 +8,44 @@ import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
 
-class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(parent) {
+class AbilityTreeViewerScreen(parent: Screen?,
+                              character: CharacterClass = CharacterClass.values()[0]) : AbstractAbilityTreeScreen(parent) {
     companion object {
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = AbilityTreeViewerScreen(parent)
-            override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeViewerScreen
+            override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityBuildDictionaryScreen
+                    || screen is AbilityTreeViewerScreen
         }
     }
-    private var tree: AbilityTree = AbilityRegistry.fromCharacter(CharacterClass.WARRIOR)
+    private var tree: AbilityTree = AbilityRegistry.fromCharacter(character)
     private var viewer: ViewerWindow? = null
+
+    private fun drawDictionaryTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+        val posX = windowX + 242
+        val posY = windowY + 174
+        val v = 182
+        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, v, 32, 28)
+        itemRenderer.renderInGuiWithOverrides(AbilityBuildDictionaryScreen.ICON, posX + 7, posY + 6)
+        if (isOverCharacterTab(CharacterClass.values().size, mouseX, mouseY)){
+            drawTooltip(matrices, listOf(AbilityBuildDictionaryScreen.TITLE), mouseX, mouseY)
+        }
+    }
 
     private fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
         val posX = windowX + 242
-        val posY = windowY + 44 + index * 28
+        val posY = windowY + 34 + index * 28
         val v = if (tree.character.ordinal == index) 210 else 182
         RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, v, 32, 28)
         val character = CharacterClass.values()[index]
@@ -43,7 +58,7 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
 
     private fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
         val posX = windowX + 245
-        val posY = windowY + 44 + index * 28
+        val posY = windowY + 34 + index * 28
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }
 
@@ -70,9 +85,10 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
 
     override fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPre(matrices, mouseX, mouseY, delta)
+        drawDictionaryTab(matrices!!, mouseX, mouseY)
         (0 until CharacterClass.values().size)
             .filter { CharacterClass.values()[it] != tree.character }
-            .forEach { drawCharacterTab(matrices!!, it, mouseX, mouseY) }
+            .forEach { drawCharacterTab(matrices, it, mouseX, mouseY) }
     }
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
@@ -81,6 +97,12 @@ class AbilityTreeViewerScreen(parent: Screen?) : AbstractAbilityTreeScreen(paren
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (isOverCharacterTab(CharacterClass.values().size, mouseX.toInt(), mouseY.toInt())) {
+            val screen = AbilityBuildDictionaryScreen(parent)
+            client!!.setScreen(screen)
+            playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
+            return true
+        }
         CharacterClass.values()
             .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
                 this.tree = AbilityRegistry.fromCharacter(it)

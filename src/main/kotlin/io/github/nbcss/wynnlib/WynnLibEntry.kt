@@ -6,18 +6,11 @@ import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.events.ClientTickEvent
 import io.github.nbcss.wynnlib.events.EventRegistry
-import io.github.nbcss.wynnlib.events.InventoryUpdateEvent
-import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
-import io.github.nbcss.wynnlib.readers.AbilityTreeHandler
 import io.github.nbcss.wynnlib.registry.*
 import io.github.nbcss.wynnlib.timer.status.StatusType
 import io.github.nbcss.wynnlib.utils.Scheduler
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
-import net.minecraft.client.option.KeyBinding
-import net.minecraft.client.util.InputUtil
-import org.lwjgl.glfw.GLFW
 
 
 @Suppress("UNUSED")
@@ -44,6 +37,8 @@ object WynnLibEntry: ModInitializer {
         IngredientRegistry.load()
         MaterialRegistry.load()
         RecipeRegistry.load()
+        //Load local user info
+        AbilityBuildStorage.load()
         //Register keybindings
         WynnLibKeybindings.init()
         //Register events

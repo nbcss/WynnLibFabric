@@ -312,7 +312,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                     return true
                 }
                 if (build.hasAbility(ability)){
-                    playSound(SoundEvents.BLOCK_LAVA_POP)
+                    playSound(SoundEvents.BLOCK_END_PORTAL_FRAME_FILL, 0.5f)
                     build.removeAbility(ability)
                     update()
                 }else if(build.addAbility(ability)){
