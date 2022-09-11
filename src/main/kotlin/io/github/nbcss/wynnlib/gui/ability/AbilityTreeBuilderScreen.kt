@@ -45,7 +45,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                                     private val fixedAbilities: Set<Ability> =
                                     tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet(),
                                     private val mutableAbilities: Set<Ability> = emptySet()):
-    AbstractAbilityTreeScreen(parent), AbilityBuild {
+    AbstractAbilityTreeScreen(parent) {
     companion object {
         private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
         private val SLIDER_TEXTURE = TextureData(OVERVIEW_PANE, 148, 0)
@@ -53,12 +53,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         const val MAX_AP = 45
         const val MAX_ENTRY_ITEM = 8
     }
-    private val activeNodes: MutableSet<Ability> = HashSet()
-    private val orderList: MutableList<Ability> = mutableListOf()
-    private val paths: MutableMap<Ability, List<Ability>> = HashMap()
-    private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
+    private var build: AbilityBuild = AbilityBuild(tree, maxPoints)
     private var container: EntryContainer = EntryContainer()
-    private var ap: Int = maxPoints
     private var entryIndex = 0
     private var overviewSlider: VerticalSliderWidget? = null
     private val entryNames: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
@@ -72,7 +68,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             override fun createScreen(parent: Screen?): HandbookTabScreen = copy()
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeBuilderScreen
         })
-        reset()
+        build.setAbilities(fixedAbilities.union(mutableAbilities))
+        update()
     }
 
     fun getFixedAbilities(): Set<Ability> = fixedAbilities
@@ -83,109 +80,16 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         return AbilityTreeBuilderScreen(parent, tree)
     }
 
-    fun reset() {
-        activeNodes.clear()
-        activeNodes.addAll(fixedAbilities)
-        activeNodes.addAll(mutableAbilities)
-        ap = maxPoints
-        for (ability in activeNodes) {
-            ap -= ability.getAbilityPointCost()
-            ability.getArchetype()?.let {
-                archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
-            }
-        }
-        update()
-    }
+    fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(build.getActiveAbilities())
 
-    fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(activeNodes)
-
-    fun getActivateOrders(): List<Ability> = orderList
+    fun getActivateOrders(): List<Ability> = build.getActivateOrders()
+        .filter { it !in fixedAbilities && it !in mutableAbilities }
 
     fun getMaxPoints(): Int = maxPoints
 
-    private fun canUnlock(ability: Ability, nodes: Collection<Ability>): Boolean {
-        if (ap < ability.getAbilityPointCost())
-            return false
-        if (tree.getArchetypes().any { ability.getArchetypeRequirement(it) > (archetypePoints[it] ?: 0) })
-            return false
-        if (ability.getBlockAbilities().any { it in nodes })
-            return false
-        val dependency = ability.getAbilityDependency()
-        if (dependency != null && dependency !in nodes)
-            return false
-        return true
-    }
-
-    private fun fixNodes() {
-        //reset current state
-        orderList.clear()
-        archetypePoints.clear()
-        ap = maxPoints
-        //put fixed abilities first
-        //validation
-        val validated: MutableSet<Ability> = HashSet()
-        var queue: MutableList<Ability> = mutableListOf()
-        tree.getRootAbility()?.let { queue.add(it) }
-        var lastSkip: MutableSet<Ability> = HashSet()
-        while (true) {
-            queue.addAll(lastSkip)
-            val skipped: MutableSet<Ability> = HashSet()
-            val nextQueue: Queue<Ability> = LinkedList()
-            for (ability in queue) {
-                if (ability !in activeNodes || ability in validated){
-                    continue    //if not active by user, it must stay inactive
-                }
-                //check whether eligible to activating the node
-                if (canUnlock(ability, validated)){
-                    validated.add(ability)
-                    ap -= ability.getAbilityPointCost()
-                    ability.getArchetype()?.let {
-                        archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
-                    }
-                    if (ability !in fixedAbilities && ability !in mutableAbilities) {
-                        orderList.add(ability)
-                    }
-                    ability.getSuccessors().forEach { nextQueue.add(it) }
-                }else{
-                    skipped.add(ability)
-                }
-            }
-            if (nextQueue.isNotEmpty()) {
-                queue = nextQueue.sortedBy { it.getPage() }.toMutableList()
-                continue
-            }
-            if(skipped == lastSkip)
-                break
-            lastSkip = skipped
-        }
-        //replace active nodes with all validated nodes
-        activeNodes.clear()
-        activeNodes.addAll(validated)
-        activeNodes.addAll(fixedAbilities)
-    }
-
     private fun update() {
-        paths.clear()
-        tree.getAbilities().forEach { paths[it] = ArrayList() }
-        //compute path
-        //todo replace with optimal search
-        for (ability in activeNodes) {
-            for (successor in ability.getSuccessors()) {
-                if (canUnlock(successor, activeNodes)){
-                    paths[successor] = listOf(successor)
-                }
-            }
-        }
-        tree.getRootAbility()?.let {
-            if (it !in activeNodes) paths[it] = listOf(it)
-        }
-        //fixme test it out...
-        //AbilityPath.compute(tree, activeNodes, archetypePoints)
-        /*tree.getAbilities().lastOrNull()?.let {
-            AbilityPath.test(tree, activeNodes, archetypePoints, it)
-        }*/
         //update container
-        container = EntryContainer(activeNodes)
+        container = EntryContainer(build.getActiveAbilities())
         setEntryIndex(entryIndex) //for update entry
         updateEntrySlider()
     }
@@ -221,7 +125,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     override fun getAbilityTree(): AbilityTree = tree
 
     override fun getTitle(): Text {
-        return title.copy().append(" [$ap/$maxPoints]")
+        return title.copy().append(" [${build.getSpareAbilityPoints()}/$maxPoints]")
     }
 
     override fun init() {
@@ -311,17 +215,17 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         //render archetype values
         tree.getArchetypes().forEach {
             renderArchetypeIcon(matrices, it, archetypeX, archetypeY)
-            val points = "${archetypePoints[it]?: 0}/${tree.getArchetypePoint(it)}"
+            val points = "${build.getArchetypePoint(it)}/${tree.getArchetypePoint(it)}"
             textRenderer.draw(matrices, points, archetypeX.toFloat() + 20, archetypeY.toFloat() + 4, 0)
             if (mouseX >= archetypeX && mouseY >= archetypeY && mouseX <= archetypeX + 16 && mouseY <= archetypeY + 16){
-                drawTooltip(matrices, it.getTooltip(this), mouseX, mouseY)
+                drawTooltip(matrices, it.getTooltip(build), mouseX, mouseY)
             }
             archetypeX += 60
         }
         //render ap points
         run {
             itemRenderer.renderInGuiWithOverrides(ICON, archetypeX, archetypeY)
-            textRenderer.draw(matrices, "$ap/$maxPoints",
+            textRenderer.draw(matrices, "${build.getSpareAbilityPoints()}/$maxPoints",
                 archetypeX.toFloat() + 18, archetypeY.toFloat() + 4, 0)
         }
         //Render overview pane
@@ -353,12 +257,6 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         }
     }
 
-    override fun getSpareAbilityPoints(): Int = ap
-
-    override fun getArchetypePoint(archetype: Archetype): Int = archetypePoints[archetype] ?: 0
-
-    override fun hasAbility(ability: Ability): Boolean = ability in activeNodes
-
     inner class BuilderWindow(x: Int, y: Int, sliderX: Int, sliderY: Int) :
         ATreeScrollWidget(this@AbilityTreeBuilderScreen, x, y, sliderX, sliderY) {
         override fun getAbilityTree(): AbilityTree = tree
@@ -374,7 +272,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                     val m = toScreenPosition(predecessor.getHeight(), predecessor.getPosition())
                     val height = min(it.getHeight(), predecessor.getHeight())
                     val reroute = getAbilityTree().getAbilityFromPosition(height, it.getPosition()) != null
-                    if (it in activeNodes && predecessor in activeNodes){
+                    if (build.hasAbility(it) && build.hasAbility(predecessor)){
                         nodes.add((m to n) to reroute)
                     }
                 }
@@ -388,10 +286,9 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             tree.getAbilities().forEach {
                 val node = toScreenPosition(it.getHeight(), it.getPosition())
                 renderArchetypeOutline(matrices, it, node.x, node.y)
-                val path = paths[it]
-                val icon = if (it in activeNodes){
+                val icon = if (build.hasAbility(it)){
                     it.getTier().getActiveTexture()
-                }else if (path == null || path.isEmpty()){
+                }else if (!build.isUnlockable(it)){
                     it.getTier().getLockedTexture()
                 }else if(isMouseOver(mouseX.toDouble(), mouseY.toDouble()) && isOverNode(node, mouseX, mouseY)){
                     it.getTier().getActiveTexture()     //hover over unlockable node
@@ -414,29 +311,15 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                     playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
                     return true
                 }
-                if (ability in activeNodes){
+                if (build.hasAbility(ability)){
                     playSound(SoundEvents.BLOCK_LAVA_POP)
-                    activeNodes.remove(ability)
-                    fixNodes()
+                    build.removeAbility(ability)
+                    update()
+                }else if(build.addAbility(ability)){
+                    playSound(SoundEvents.BLOCK_END_PORTAL_FRAME_FILL)
                     update()
                 }else{
-                    paths[ability]?.let {
-                        if (it.isNotEmpty()){
-                            //Successful Add
-                            playSound(SoundEvents.BLOCK_END_PORTAL_FRAME_FILL)
-                            for (node in it) {
-                                activeNodes.add(node)
-                                ap -= ability.getAbilityPointCost()
-                                ability.getArchetype()?.let { arch ->
-                                    archetypePoints[arch] = 1 + (archetypePoints[arch] ?: 0)
-                                }
-                            }
-                            fixNodes()
-                            update()
-                        }else{
-                            playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
-                        }
-                    }
+                    playSound(SoundEvents.ENTITY_SHULKER_HURT_CLOSED)
                 }
                 return true
             }
@@ -450,7 +333,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             for (ability in tree.getAbilities()) {
                 val node = toScreenPosition(ability.getHeight(), ability.getPosition())
                 if (isOverNode(node, mouseX, mouseY)){
-                    val tooltip = ability.getTooltip(this@AbilityTreeBuilderScreen).toMutableList()
+                    val tooltip = ability.getTooltip(build).toMutableList()
                     val disabled = container.isAbilityDisabled(ability)
                     val locked = ability in fixedAbilities
                     if (disabled || locked) {
