@@ -25,7 +25,7 @@ object ConsumableChargeRender {
             if (!Settings.getOption(Settings.SettingOption.CONSUMABLE_CHARGE))
                 return
             ItemModifier.readInt(event.item, key)?.let {
-                val s = "$it"
+                val s = "${it * event.item.count}"
                 val x = (event.x + 19 - 2 - event.renderer.getWidth(s)).toFloat()
                 val y = event.y.toFloat() + 9.0f
                 event.matrixStack.push()

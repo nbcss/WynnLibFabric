@@ -1,7 +1,10 @@
 package io.github.nbcss.wynnlib.mixins.inventory;
 
+import io.github.nbcss.wynnlib.abilities.Ability;
 import io.github.nbcss.wynnlib.events.InventoryUpdateEvent;
 import io.github.nbcss.wynnlib.events.ItemLoadEvent;
+import io.github.nbcss.wynnlib.events.SpellCastEvent;
+import io.github.nbcss.wynnlib.registry.AbilityRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.item.ItemStack;
@@ -13,10 +16,14 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Mixin(ScreenHandler.class)
 public class InventoryUpdateMixin {
+    private static final Pattern SPELL_PATTERN = Pattern.compile("§7(.+) spell cast! §3\\[§b(-?\\d+) ✺§3]");
     @Inject(method = "updateSlotStacks", at = @At("TAIL"))
     public void onUpdateItems(int revision, List<ItemStack> stacks, ItemStack cursorStack, CallbackInfo ci){
         if (MinecraftClient.getInstance().currentScreen instanceof HandledScreen screen){
@@ -56,6 +63,17 @@ public class InventoryUpdateMixin {
             return stack;
         ItemLoadEvent event = new ItemLoadEvent(stack);
         ItemLoadEvent.Companion.handleEvent(event);
+        String name = stack.getName().asString();
+        Matcher matcher = SPELL_PATTERN.matcher(name);
+        if (matcher.find()) {
+            Collection<Ability> abilities = AbilityRegistry.INSTANCE.fromDisplayName(matcher.group(1));
+            Ability ability = abilities.stream().findFirst().orElse(null);
+            if (ability != null) {
+                int cost = Integer.parseInt(matcher.group(2));
+                SpellCastEvent castEvent = new SpellCastEvent(ability, cost);
+                SpellCastEvent.Companion.handleEvent(castEvent);
+            }
+        }
         return event.getItem();
     }
 
