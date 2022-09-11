@@ -2681,7 +2681,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARROW_STORM",
-        "CHEAPER_ESCAPE_1",
         "ARCHER_FIRE_MASTERY"
       ],
       "properties": {
@@ -2715,7 +2714,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARROW_SHIELD",
-        "CHEAPER_ESCAPE_1",
         "ARCHER_THUNDER_MASTERY"
       ],
       "properties": {
@@ -7237,7 +7235,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SMOKE_BOMB"
+        "SMOKE_BOMB",
+        "CHEAPER_DASH_1"
       ],
       "properties": {
         "element_mastery": {
@@ -9475,7 +9474,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "UPROOT",
-        "CHEAPER_HAUL_1",
         "SHAMAN_THUNDER_MASTERY"
       ],
       "properties": {
@@ -9509,7 +9507,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "AURA",
-        "CHEAPER_HAUL_1",
         "SHAMAN_AIR_MASTERY"
       ],
       "properties": {

@@ -124,14 +124,14 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         //put fixed abilities first
         //validation
         val validated: MutableSet<Ability> = HashSet()
-        val queue: Queue<Ability> = LinkedList()
+        var queue: MutableList<Ability> = mutableListOf()
         tree.getRootAbility()?.let { queue.add(it) }
         var lastSkip: MutableSet<Ability> = HashSet()
         while (true) {
             queue.addAll(lastSkip)
             val skipped: MutableSet<Ability> = HashSet()
-            while (queue.isNotEmpty()){
-                val ability = queue.poll()
+            val nextQueue: Queue<Ability> = LinkedList()
+            for (ability in queue) {
                 if (ability !in activeNodes || ability in validated){
                     continue    //if not active by user, it must stay inactive
                 }
@@ -145,10 +145,14 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                     if (ability !in fixedAbilities && ability !in mutableAbilities) {
                         orderList.add(ability)
                     }
-                    ability.getSuccessors().forEach { queue.add(it) }
+                    ability.getSuccessors().forEach { nextQueue.add(it) }
                 }else{
                     skipped.add(ability)
                 }
+            }
+            if (nextQueue.isNotEmpty()) {
+                queue = nextQueue.sortedBy { it.getPage() }.toMutableList()
+                continue
             }
             if(skipped == lastSkip)
                 break
