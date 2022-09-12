@@ -18,6 +18,7 @@ import java.util.*
 
 class AbilityBuild(private val tree: AbilityTree,
                    private val maxPoints: Int = MAX_AP,
+                   abilities: Set<Ability> = emptySet(),
                    private val id: String = UUID.randomUUID().toString()): BaseItem, Keyed {
     private var icon: ItemStack = ICON.copy()
     private var name: String = ""
@@ -35,9 +36,8 @@ class AbilityBuild(private val tree: AbilityTree,
                 val abilities = data["abilities"].asJsonArray.mapNotNull {
                     AbilityRegistry.get(it.asString)
                 }.filter { it.getCharacter() == character }
-                val build = AbilityBuild(tree, MAX_AP, id)
+                val build = AbilityBuild(tree, MAX_AP, abilities.toSet(), id)
                 build.setName(name)
-                build.setAbilities(abilities.toSet())
                 return build
             }catch (e: Exception) {
                 e.printStackTrace()
@@ -52,12 +52,17 @@ class AbilityBuild(private val tree: AbilityTree,
     private var cost: Int = 0
     private var level: Int = 1
     private var encoding: String = generateEncoding()
+    init {
+        setAbilities(abilities)
+    }
 
     fun setName(name: String) {
         this.name = name
     }
 
     fun getActivateOrders(): List<Ability> = orderList
+
+    fun getTree(): AbilityTree = tree
 
     fun removeAbility(ability: Ability) {
         activeNodes.remove(ability)

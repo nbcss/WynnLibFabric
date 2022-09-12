@@ -18,7 +18,6 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
-import java.util.function.Consumer
 import kotlin.math.floor
 import kotlin.math.max
 
@@ -37,7 +36,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     }, {
         getSearchPane()?.reload(it)
     })
-    private val slots: MutableList<ItemSlotWidget<T>> = ArrayList()
+    private val slots: MutableList<ItemSlotWidget<T>> = mutableListOf()
     private var contentSlider: VerticalSliderWidget? = null
     private var lastSearch: String = ""
     private var searchBox: ItemSearchWidget? = null
@@ -102,6 +101,10 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         val posX = windowX + 245
         val posY = windowY + 44
         return mouseX >= posX && mouseX < posX + 25 && mouseY >= posY && mouseY < posY + 28
+    }
+
+    open fun onClickItem(item: T, button: Int) {
+
     }
 
     open fun getSearchPane(): AdvanceSearchPaneWidget<T>? = null
@@ -204,6 +207,9 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
             playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
             setFilterVisible(true)
             return true
+        }
+        slots.filter { it.isMouseOver(mouseX, mouseY) }.mapNotNull { it.getItem() }.forEach {
+            onClickItem(it, button)
         }
         return super.mouseClicked(mouseX, mouseY, button)
     }

@@ -120,7 +120,7 @@ abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int,
                 val color = Color.fromFormatting(arch.getFormatting())
                 val itemX = x - 15
                 val itemY = y - 15
-                val u = 32 + 30 * (ability.getTier().getLevel() - 1)
+                val u = 64 + 30 * (ability.getTier().getLevel() - 1)
                 RenderKit.renderTextureWithColor(
                     matrices, TEXTURE, color.withAlpha(165), itemX, itemY,
                     u, 182, 30, 30, 256, 256

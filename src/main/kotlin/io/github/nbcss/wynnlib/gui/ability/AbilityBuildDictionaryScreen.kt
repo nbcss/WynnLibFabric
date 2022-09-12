@@ -3,12 +3,8 @@ package io.github.nbcss.wynnlib.gui.ability
 import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.gui.DictionaryScreen
-import io.github.nbcss.wynnlib.gui.HandbookTabScreen
-import io.github.nbcss.wynnlib.gui.TabFactory
-import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
-import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.playSound
@@ -16,7 +12,6 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
-import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
 class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBuild>(parent, TITLE) {
@@ -30,6 +25,12 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityBuildDictionaryScreen
                     || screen is AbilityTreeViewerScreen
         }*/
+    }
+
+    override fun onClickItem(item: AbilityBuild, button: Int) {
+        playSound(SoundEvents.ENTITY_ITEM_PICKUP)
+        val screen = AbilityTreeBuilderScreen(this, item.getTree(), build = item)
+        client!!.setScreen(screen)
     }
 
     override fun fetchItems(): Collection<AbilityBuild> {
@@ -60,31 +61,31 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
     }
 
     private fun drawDictionaryTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
-        val posX = windowX + 242
+        val posX = windowX - 28
         val posY = windowY + 174
         val v = 210
-        RenderKit.renderTexture(matrices, AbstractAbilityTreeScreen.TEXTURE, posX, posY, 0, v, 32, 28)
-        itemRenderer.renderInGuiWithOverrides(ICON, posX + 7, posY + 6)
+        RenderKit.renderTexture(matrices, AbstractAbilityTreeScreen.TEXTURE, posX, posY, 32, v, 32, 28)
+        itemRenderer.renderInGuiWithOverrides(ICON, posX + 9, posY + 6)
         if (isOverCharacterTab(CharacterClass.values().size, mouseX, mouseY)){
             drawTooltip(matrices, listOf(TITLE), mouseX, mouseY)
         }
     }
 
     private fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
-        val posX = windowX + 242
+        val posX = windowX - 28
         val posY = windowY + 34 + index * 28
         RenderKit.renderTexture(matrices, AbstractAbilityTreeScreen.TEXTURE, posX, posY,
-            0, 182, 32, 28)
+            32, 182, 32, 28)
         val character = CharacterClass.values()[index]
         val icon = character.getWeapon().getIcon()
-        itemRenderer.renderInGuiWithOverrides(icon, posX + 7, posY + 6)
+        itemRenderer.renderInGuiWithOverrides(icon, posX + 9, posY + 6)
         if (isOverCharacterTab(index, mouseX, mouseY)){
             drawTooltip(matrices, listOf(character.translate()), mouseX, mouseY)
         }
     }
 
     private fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
-        val posX = windowX + 245
+        val posX = windowX - 28
         val posY = windowY + 34 + index * 28
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }

@@ -46,7 +46,9 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                                     private val maxPoints: Int = MAX_AP,
                                     private val fixedAbilities: Set<Ability> =
                                     tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet(),
-                                    private val mutableAbilities: Set<Ability> = emptySet()):
+                                    private val mutableAbilities: Set<Ability> = emptySet(),
+                                    private var build: AbilityBuild = AbilityBuild(tree, maxPoints,
+                                        fixedAbilities.union(mutableAbilities))):
     AbstractAbilityTreeScreen(parent) {
     companion object {
         private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
@@ -55,7 +57,6 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         const val MAX_AP = 45
         const val MAX_ENTRY_ITEM = 8
     }
-    private var build: AbilityBuild = AbilityBuild(tree, maxPoints)
     private var container: EntryContainer = EntryContainer()
     private var entryIndex = 0
     private var overviewSlider: VerticalSliderWidget? = null
@@ -71,7 +72,6 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             override fun createScreen(parent: Screen?): HandbookTabScreen = copy()
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeBuilderScreen
         })
-        build.setAbilities(fixedAbilities.union(mutableAbilities))
         update()
     }
 
@@ -217,6 +217,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
+        saveButton?.visible = !AbilityBuildStorage.has(build.getKey())
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 144
         //render archetype values

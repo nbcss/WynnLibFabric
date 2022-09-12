@@ -34,31 +34,31 @@ class AbilityTreeViewerScreen(parent: Screen?,
     private var viewer: ViewerWindow? = null
 
     private fun drawDictionaryTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
-        val posX = windowX + 242
+        val posX = windowX - 28
         val posY = windowY + 174
         val v = 182
-        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, v, 32, 28)
-        itemRenderer.renderInGuiWithOverrides(AbilityBuildDictionaryScreen.ICON, posX + 7, posY + 6)
+        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 32, v, 32, 28)
+        itemRenderer.renderInGuiWithOverrides(AbilityBuildDictionaryScreen.ICON, posX + 9, posY + 6)
         if (isOverCharacterTab(CharacterClass.values().size, mouseX, mouseY)){
             drawTooltip(matrices, listOf(AbilityBuildDictionaryScreen.TITLE), mouseX, mouseY)
         }
     }
 
     private fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
-        val posX = windowX + 242
+        val posX = windowX - 28
         val posY = windowY + 34 + index * 28
         val v = if (tree.character.ordinal == index) 210 else 182
-        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, v, 32, 28)
+        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 32, v, 32, 28)
         val character = CharacterClass.values()[index]
         val icon = character.getWeapon().getIcon()
-        itemRenderer.renderInGuiWithOverrides(icon, posX + 7, posY + 6)
+        itemRenderer.renderInGuiWithOverrides(icon, posX + 9, posY + 6)
         if (isOverCharacterTab(index, mouseX, mouseY)){
             drawTooltip(matrices, listOf(character.translate()), mouseX, mouseY)
         }
     }
 
     private fun drawCreateTreeTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
-        val posX = windowX - 32
+        val posX = windowX + 242
         val posY = windowY + 50
         RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, 182, 32, 28)
         itemRenderer.renderInGuiWithOverrides(CREATE_ICON, posX + 7, posY + 6)
@@ -68,13 +68,13 @@ class AbilityTreeViewerScreen(parent: Screen?,
     }
 
     private fun isOverCreateTreeTab(mouseX: Int, mouseY: Int): Boolean {
-        val posX = windowX - 32
+        val posX = windowX + 245
         val posY = windowY + 50
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }
 
     private fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
-        val posX = windowX + 245
+        val posX = windowX - 28
         val posY = windowY + 34 + index * 28
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }
@@ -124,7 +124,8 @@ class AbilityTreeViewerScreen(parent: Screen?,
             }
             if (isOverCreateTreeTab(mouseX.toInt(), mouseY.toInt())) {
                 client!!.setScreen(AbilityTreeBuilderScreen(this, tree))
-                playSound(SoundEvents.ITEM_LODESTONE_COMPASS_LOCK)
+                //playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT)
+                playSound(SoundEvents.ENTITY_ITEM_PICKUP)
                 return true
             }
             CharacterClass.values()

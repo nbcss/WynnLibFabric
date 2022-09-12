@@ -20,6 +20,8 @@ class ItemSlotWidget<T: BaseItem>(x: Int, y: Int,
         appendDefaultNarrations(builder)
     }
 
+    fun getItem(): T? = item
+
     fun setItem(item: T?){
         this.item = item
     }
