@@ -5,13 +5,14 @@ import io.github.nbcss.wynnlib.utils.Keyed
 import java.util.*
 
 enum class CharacterClass(private val displayName: String,
+                          private val prefix: String,
                           private val weaponName: String,
                           private val mainKey: MouseKey): Keyed, Translatable {
-    WARRIOR("Warrior/Knight", "Spear", MouseKey.LEFT),
-    ARCHER("Archer/Hunter", "Bow", MouseKey.RIGHT),
-    MAGE("Mage/Dark Wizard", "Wand", MouseKey.LEFT),
-    ASSASSIN("Assassin/Ninja", "Dagger", MouseKey.LEFT),
-    SHAMAN("Shaman/Skyseer", "Relik", MouseKey.LEFT);
+    WARRIOR("Warrior/Knight", "WA","Spear", MouseKey.LEFT),
+    ARCHER("Archer/Hunter", "AR","Bow", MouseKey.RIGHT),
+    MAGE("Mage/Dark Wizard", "MA","Wand", MouseKey.LEFT),
+    ASSASSIN("Assassin/Ninja", "AS","Dagger", MouseKey.LEFT),
+    SHAMAN("Shaman/Skyseer", "SH","Relik", MouseKey.LEFT);
     companion object {
         private val TYPE_MAP: Map<EquipmentType, CharacterClass> = mapOf(
             pairs = values().map { it.getWeapon() to it }.toTypedArray()
@@ -29,6 +30,8 @@ enum class CharacterClass(private val displayName: String,
 
         fun fromDisplayName(displayName: String): CharacterClass? = NAME_MAP[displayName]
     }
+
+    fun getPrefix(): String = prefix
 
     fun getMainAttackKey(): MouseKey = mainKey
 

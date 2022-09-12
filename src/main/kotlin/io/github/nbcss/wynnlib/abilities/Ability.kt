@@ -33,6 +33,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     private val archetype: Archetype?
     private val height: Int
     private val position: Int
+    private val index: Int
     private val page: Int
     private val slot: Int
     private val cost: Int
@@ -54,6 +55,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         height = json["height"].asInt
         position = json["position"].asInt
         cost = json["cost"].asInt
+        index = JsonGetter.getOr(json, "index", -1)
         if (json.has("location") && !json["location"].isJsonNull) {
             val loc = json["location"].asString.split(",")
             page = loc[0].toInt()
@@ -145,6 +147,8 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
     fun getPropertiesTooltip(): List<Text> {
         return properties.values.map { it.getTooltip() }.flatten()
     }
+
+    fun getIndex(): Int = index
 
     fun getProperties(): List<AbilityProperty> = properties.values.toList()
 

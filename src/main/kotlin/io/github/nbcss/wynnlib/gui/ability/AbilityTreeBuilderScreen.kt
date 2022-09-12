@@ -14,6 +14,7 @@ import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_UNUSABLE
+import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText
 import io.github.nbcss.wynnlib.render.TextureData
@@ -23,6 +24,7 @@ import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
@@ -60,6 +62,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private val entryNames: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private val entryValues: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private var viewer: BuilderWindow? = null
+    private var saveButton: ButtonWidget? = null
     init {
         tabs.clear()
         tabs.add(object : TabFactory {
@@ -76,7 +79,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     fun getMutableAbilities(): Set<Ability> = mutableAbilities
 
-        open fun copy(): AbilityTreeBuilderScreen {
+    open fun copy(): AbilityTreeBuilderScreen {
         return AbilityTreeBuilderScreen(parent, tree)
     }
 
@@ -151,6 +154,10 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             entryNames[i] = RollingTextWidget(posX, posY, 95, name)
             entryValues[i] = RollingTextWidget(posX, posY + 9, 95, info)
         }
+        saveButton = ButtonWidget(windowX - 20, windowY + 5, 20, 20, LiteralText("+")) {
+            AbilityBuildStorage.put(build)
+        }
+        addDrawableChild(saveButton)
     }
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
@@ -228,6 +235,10 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             textRenderer.draw(matrices, "${build.getSpareAbilityPoints()}/$maxPoints",
                 archetypeX.toFloat() + 18, archetypeY.toFloat() + 4, 0)
         }
+        //Render name widgets
+        //println(build.getDisplayText())
+        textRenderer.drawWithShadow(matrices, build.getDisplayText(),
+            windowX - 141.0f, windowY + 10.0f, 0xFFFFFF)
         //Render overview pane
         val entries = container.getEntries()
         overviewSlider?.visible = entries.size > MAX_ENTRY_ITEM

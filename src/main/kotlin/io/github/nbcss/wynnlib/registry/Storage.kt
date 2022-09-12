@@ -30,6 +30,8 @@ abstract class Storage<T: Keyed> {
         itemMap[item.getKey()] = item
     }
 
+    fun has(key: String): Boolean = key in itemMap
+
     fun get(key: String): T? {
         return itemMap[key]
     }

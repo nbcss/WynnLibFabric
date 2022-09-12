@@ -21,6 +21,7 @@ import net.minecraft.text.Text
 class AbilityTreeViewerScreen(parent: Screen?,
                               character: CharacterClass = CharacterClass.values()[0]) : AbstractAbilityTreeScreen(parent) {
     companion object {
+        val CREATE_ICON = ItemFactory.fromEncoding("minecraft:writable_book")
         val FACTORY = object: TabFactory {
             override fun getTabIcon(): ItemStack = ICON
             override fun getTabTitle(): Text = TITLE
@@ -56,6 +57,22 @@ class AbilityTreeViewerScreen(parent: Screen?,
         }
     }
 
+    private fun drawCreateTreeTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+        val posX = windowX - 32
+        val posY = windowY + 50
+        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, 182, 32, 28)
+        itemRenderer.renderInGuiWithOverrides(CREATE_ICON, posX + 7, posY + 6)
+        if (isOverCreateTreeTab(mouseX, mouseY)){
+            drawTooltip(matrices, listOf(LiteralText("Add")), mouseX, mouseY)
+        }
+    }
+
+    private fun isOverCreateTreeTab(mouseX: Int, mouseY: Int): Boolean {
+        val posX = windowX - 32
+        val posY = windowY + 50
+        return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
+    }
+
     private fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
         val posX = windowX + 245
         val posY = windowY + 34 + index * 28
@@ -86,6 +103,7 @@ class AbilityTreeViewerScreen(parent: Screen?,
     override fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPre(matrices, mouseX, mouseY, delta)
         drawDictionaryTab(matrices!!, mouseX, mouseY)
+        drawCreateTreeTab(matrices, mouseX, mouseY)
         (0 until CharacterClass.values().size)
             .filter { CharacterClass.values()[it] != tree.character }
             .forEach { drawCharacterTab(matrices, it, mouseX, mouseY) }
@@ -97,19 +115,26 @@ class AbilityTreeViewerScreen(parent: Screen?,
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        if (isOverCharacterTab(CharacterClass.values().size, mouseX.toInt(), mouseY.toInt())) {
-            val screen = AbilityBuildDictionaryScreen(parent)
-            client!!.setScreen(screen)
-            playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
-            return true
-        }
-        CharacterClass.values()
-            .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
-                this.tree = AbilityRegistry.fromCharacter(it)
+        if (button == 0){
+            if (isOverCharacterTab(CharacterClass.values().size, mouseX.toInt(), mouseY.toInt())) {
+                val screen = AbilityBuildDictionaryScreen(parent)
+                client!!.setScreen(screen)
                 playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
-                getViewer()?.reset()
                 return true
             }
+            if (isOverCreateTreeTab(mouseX.toInt(), mouseY.toInt())) {
+                client!!.setScreen(AbilityTreeBuilderScreen(this, tree))
+                playSound(SoundEvents.ITEM_LODESTONE_COMPASS_LOCK)
+                return true
+            }
+            CharacterClass.values()
+                .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
+                    this.tree = AbilityRegistry.fromCharacter(it)
+                    playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
+                    getViewer()?.reset()
+                    return true
+                }
+        }
         return super.mouseClicked(mouseX, mouseY, button)
     }
 

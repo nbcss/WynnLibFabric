@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.InventoryRenderEvent
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Color
+import io.github.nbcss.wynnlib.utils.WynnValues
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.text.LiteralText
@@ -32,7 +33,8 @@ object CharacterInfoInventoryRender: EventHandler<InventoryRenderEvent> {
                 .filter { it.siblings[1].asString().matches("\\d+".toRegex()) }
                 .map { it.siblings[1].asString().toInt() }
                 .firstOrNull() ?: "-"
-        val maxAp = CharacterProfile.getCurrentProfile()?.getMaxAP() ?: 0
+        val level = client.player?.experienceLevel ?: 0
+        val maxAp = WynnValues.getMaxAP(level)
         val skillPointItem = handler.getSlot(4).stack
         val sp = if (skillPointItem.isEmpty) "-" else
             skillPointItem.getTooltip(client.player, TooltipContext.Default.NORMAL)
@@ -44,7 +46,7 @@ object CharacterInfoInventoryRender: EventHandler<InventoryRenderEvent> {
                 .filter { it.siblings[1].asString().matches("\\d+".toRegex()) }
                 .map { it.siblings[1].asString().toInt() }
                 .firstOrNull() ?: "-"
-        val maxSp = CharacterProfile.getCurrentProfile()?.getMaxSP() ?: 0
+        val maxSp = WynnValues.getMaxSP(level)
         val posX = event.screenX.toFloat()
         val posY = event.screenY.toFloat() + 2
         val apText = LiteralText("✦ $ap/$maxAp").formatted(Formatting.DARK_AQUA)

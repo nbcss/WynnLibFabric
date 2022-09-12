@@ -48,12 +48,14 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        CharacterClass.values()
-            .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
-                playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
-                client!!.setScreen(AbilityTreeViewerScreen(parent, it))
-                return true
-            }
+        if (button == 0) {
+            CharacterClass.values()
+                .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
+                    playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
+                    client!!.setScreen(AbilityTreeViewerScreen(parent, it))
+                    return true
+                }
+        }
         return super.mouseClicked(mouseX, mouseY, button)
     }
 

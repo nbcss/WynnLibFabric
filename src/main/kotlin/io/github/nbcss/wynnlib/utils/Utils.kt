@@ -9,7 +9,6 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.sound.PositionedSoundInstance
 import net.minecraft.item.ItemStack
 import net.minecraft.network.packet.c2s.play.ClickSlotC2SPacket
-import net.minecraft.screen.slot.Slot
 import net.minecraft.screen.slot.SlotActionType
 import net.minecraft.sound.SoundEvent
 import net.minecraft.text.LiteralText
@@ -17,9 +16,16 @@ import net.minecraft.text.StringVisitable
 import net.minecraft.text.Style
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import net.minecraft.util.math.MathHelper
 import java.util.*
 import java.util.function.Function
 import kotlin.math.roundToInt
+
+const val BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+
+fun toBase64(value: Int): Char {
+    return BASE64[MathHelper.clamp(value, 0, 63)]
+}
 
 fun signed(value: Int): String {
     return if(value <= 0) value.toString() else "+$value"
