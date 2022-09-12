@@ -87,7 +87,6 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     fun getMutableAbilities(): Set<Ability> = mutableAbilities
 
     open fun copy(): AbilityTreeBuilderScreen {
-        build.clear()
         return AbilityTreeBuilderScreen(parent, tree, build = build)
     }
 
