@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
 import io.github.nbcss.wynnlib.gui.widgets.RollingTextWidget
+import io.github.nbcss.wynnlib.gui.widgets.SquareButton
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
@@ -25,6 +26,7 @@ import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.widget.ButtonWidget
+import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
@@ -52,6 +54,9 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     AbstractAbilityTreeScreen(parent) {
     companion object {
         private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
+        private val BUILD_NAME_PANE = Identifier("wynnlib", "textures/gui/tree_build_panel.png")
+        private val SAVE_BUTTON = Identifier("wynnlib", "textures/gui/save_button.png")
+        private val DELETE_BUTTON = Identifier("wynnlib", "textures/gui/delete_button.png")
         private val SLIDER_TEXTURE = TextureData(OVERVIEW_PANE, 148, 0)
         private const val SLIDER_LENGTH = 40
         const val MAX_AP = 45
@@ -63,7 +68,9 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private val entryNames: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private val entryValues: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private var viewer: BuilderWindow? = null
-    private var saveButton: ButtonWidget? = null
+    private var saveButton: SquareButton? = null
+    private var deleteButton: SquareButton? = null
+    private var nameField: TextFieldWidget? = null
     init {
         tabs.clear()
         tabs.add(object : TabFactory {
@@ -80,11 +87,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     fun getMutableAbilities(): Set<Ability> = mutableAbilities
 
     open fun copy(): AbilityTreeBuilderScreen {
-        if (AbilityBuildStorage.has(build.getKey())) {
-            build.setAbilities(emptySet())
-            return AbilityTreeBuilderScreen(parent, tree, build = build)
-        }
-        return AbilityTreeBuilderScreen(parent, tree)
+        build.clear()
+        return AbilityTreeBuilderScreen(parent, tree, build = build)
     }
 
     fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(build.getActiveAbilities())
@@ -135,6 +139,11 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         return title.copy().append(" [${build.getSpareAbilityPoints()}/$maxPoints]")
     }
 
+    override fun tick() {
+        super.tick()
+        nameField?.tick()
+    }
+
     override fun init() {
         super.init()
         windowX = 148 + (width - windowWidth - 148) / 2
@@ -158,16 +167,33 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             entryNames[i] = RollingTextWidget(posX, posY, 95, name)
             entryValues[i] = RollingTextWidget(posX, posY + 9, 95, info)
         }
-        saveButton = ButtonWidget(windowX - 20, windowY + 5, 20, 20, LiteralText("+")) {
-            AbilityBuildStorage.put(build)
+        nameField = TextFieldWidget(textRenderer, windowX - 115, windowY + 14, 105, 12, LiteralText.EMPTY)
+        nameField?.text = build.getCustomName()
+        nameField?.setDrawsBackground(false)
+        nameField?.setChangedListener {
+            build.setName(it)
         }
+        addDrawableChild(nameField)
+        saveButton = SquareButton(SAVE_BUTTON, windowX - 15, windowY + 1, 10) {
+            AbilityBuildStorage.put(build)
+            it.visible = false
+        }
+        saveButton?.visible = !AbilityBuildStorage.has(build.getKey())
         addDrawableChild(saveButton)
+        deleteButton = SquareButton(DELETE_BUTTON, windowX - 15, windowY + 1, 10) {
+            AbilityBuildStorage.remove(build.getKey())
+            it.visible = false
+        }
+        deleteButton?.visible = AbilityBuildStorage.has(build.getKey())
+        addDrawableChild(deleteButton)
     }
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
         RenderKit.renderTexture(matrices, OVERVIEW_PANE, windowX - 147,
             windowY + 28, 0, 0, 148, 182)
+        RenderKit.renderTexture(matrices, BUILD_NAME_PANE, windowX - 147,
+            windowY - 2, 0, 0, 148, 30, 148, 30)
         textRenderer.draw(
             matrices, Translations.TOOLTIP_ABILITY_OVERVIEW.translate(),
             (windowX - 147 + 6).toFloat(),
@@ -187,6 +213,13 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             return true
         }
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
+    }
+
+    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        if (nameField?.isFocused == true && this.client!!.options.inventoryKey.matchesKey(keyCode, scanCode)){
+            return true
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers)
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
@@ -221,7 +254,21 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     }
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
-        saveButton?.visible = !AbilityBuildStorage.has(build.getKey())
+        //Render name widgets
+        val hasBuild = AbilityBuildStorage.has(build.getKey())
+        saveButton?.visible = !hasBuild
+        deleteButton?.visible = hasBuild
+        build.getMainArchetype()?.let {
+            renderArchetypeIcon(matrices, it, windowX - 138, windowY + 5)
+        }
+        nameField?.let {
+            if (!it.isFocused && it.text.isEmpty()) {
+                val s = textRenderer.trimToWidth(build.getEncoding(), 106) + ".."
+                textRenderer.draw(matrices, LiteralText(s).formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY),
+                    windowX - 115.0f, windowY + 14.0f, 0xFFFFFF)
+            }
+        }
+        //Archetypes
         var archetypeX = viewerX + 2
         val archetypeY = viewerY + 144
         //render archetype values
@@ -240,10 +287,6 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             textRenderer.draw(matrices, "${build.getSpareAbilityPoints()}/$maxPoints",
                 archetypeX.toFloat() + 18, archetypeY.toFloat() + 4, 0)
         }
-        //Render name widgets
-        //println(build.getDisplayText())
-        textRenderer.drawWithShadow(matrices, build.getDisplayText(),
-            windowX - 141.0f, windowY + 10.0f, 0xFFFFFF)
         //Render overview pane
         val entries = container.getEntries()
         overviewSlider?.visible = entries.size > MAX_ENTRY_ITEM

@@ -8,6 +8,7 @@ import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.BaseItem
+import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
@@ -20,7 +21,6 @@ class AbilityBuild(private val tree: AbilityTree,
                    private val maxPoints: Int = MAX_AP,
                    abilities: Set<Ability> = emptySet(),
                    private val id: String = UUID.randomUUID().toString()): BaseItem, Keyed {
-    private var icon: ItemStack = ICON.copy()
     private var name: String = ""
     companion object {
         val ICON = ItemFactory.fromEncoding("minecraft:stone_axe#83")
@@ -51,13 +51,26 @@ class AbilityBuild(private val tree: AbilityTree,
     private val orderList: MutableList<Ability> = mutableListOf()
     private var cost: Int = 0
     private var level: Int = 1
+    private var archetype: Archetype? = null
     private var encoding: String = generateEncoding()
     init {
-        setAbilities(abilities)
+        activeNodes.clear()
+        activeNodes.addAll(abilities.filter { !it.isMainAttack() })
+        cost = 0
+        for (ability in activeNodes) {
+            cost += ability.getAbilityPointCost()
+            ability.getArchetype()?.let {
+                archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
+            }
+        }
+        validate()
     }
 
     fun setName(name: String) {
         this.name = name
+        if (AbilityBuildStorage.has(getKey())){
+            AbilityBuildStorage.markDirty()
+        }
     }
 
     fun getActivateOrders(): List<Ability> = orderList
@@ -67,6 +80,9 @@ class AbilityBuild(private val tree: AbilityTree,
     fun removeAbility(ability: Ability) {
         activeNodes.remove(ability)
         validate()
+        if (AbilityBuildStorage.has(getKey())){
+            AbilityBuildStorage.markDirty()
+        }
     }
 
     fun addAbility(ability: Ability): Boolean {
@@ -81,6 +97,9 @@ class AbilityBuild(private val tree: AbilityTree,
                 }
             }
             validate()
+            if (AbilityBuildStorage.has(getKey())){
+                AbilityBuildStorage.markDirty()
+            }
             return true
         }
         return false
@@ -91,17 +110,13 @@ class AbilityBuild(private val tree: AbilityTree,
         return path != null && path.isNotEmpty()
     }
 
-    fun setAbilities(abilities: Set<Ability>) {
+    fun clear() {
         activeNodes.clear()
-        activeNodes.addAll(abilities.filter { !it.isMainAttack() })
         cost = 0
-        for (ability in activeNodes) {
-            cost += ability.getAbilityPointCost()
-            ability.getArchetype()?.let {
-                archetypePoints[it] = 1 + (archetypePoints[it] ?: 0)
-            }
-        }
         validate()
+        if (AbilityBuildStorage.has(getKey())){
+            AbilityBuildStorage.markDirty()
+        }
     }
 
     private fun validate() {
@@ -164,6 +179,7 @@ class AbilityBuild(private val tree: AbilityTree,
         }
         encoding = generateEncoding()
         level = if (cost > 0) WynnValues.getAPLevelReq(cost) else 1
+        archetype = archetypePoints.filter { it.value > 0 }.maxByOrNull { it.value }?.key
     }
 
     private fun canUnlock(ability: Ability, nodes: Collection<Ability>): Boolean {
@@ -202,6 +218,8 @@ class AbilityBuild(private val tree: AbilityTree,
 
     fun getTotalCost(): Int = cost
 
+    fun getMainArchetype(): Archetype? = archetype
+
     fun getSpareAbilityPoints(): Int = maxPoints - cost
 
     fun getArchetypePoint(archetype: Archetype): Int = archetypePoints[archetype] ?: 0
@@ -210,19 +228,43 @@ class AbilityBuild(private val tree: AbilityTree,
 
     fun getEncoding(): String = encoding
 
-    override fun getDisplayText(): Text = LiteralText(getDisplayName()).formatted(Formatting.AQUA)
+    fun getCustomName(): String = name
+
+    override fun getDisplayText(): Text = LiteralText(getDisplayName()).formatted(Formatting.DARK_AQUA)
 
     override fun getDisplayName(): String = if (name != "") name else encoding
 
-    override fun getIcon(): ItemStack = icon
+    override fun getIcon(): ItemStack {
+        getMainArchetype()?.let {
+            return it.getTexture()
+        }
+        return ICON
+    }
+
+    override fun getIconText(): String? {
+        getMainArchetype()?.let {
+            return it.getIconText()
+        }
+        return super.getIconText()
+    }
 
     override fun getRarityColor(): Color {
-        return Color.WHITE
+        getMainArchetype()?.let {
+            return Color.fromFormatting(it.getFormatting())
+        }
+        return Color.DARK_GRAY
     }
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = mutableListOf()
         tooltip.add(getDisplayText())
+        val archetypes = LiteralText("").formatted(Formatting.DARK_GRAY)
+        tree.getArchetypes().forEachIndexed { i, archetype ->
+            val point = getArchetypePoint(archetype)
+            if (i > 0) archetypes.append("/")
+            archetypes.append(LiteralText("$point").formatted(archetype.getFormatting()))
+        }
+        tooltip.add(archetypes)
         tooltip.add(LiteralText.EMPTY)
         //tooltip.add(tree.character.formatted(Formatting.GRAY))
         val classReq = tree.character.translate().formatted(Formatting.GRAY)
@@ -232,10 +274,10 @@ class AbilityBuild(private val tree: AbilityTree,
             .append(LiteralText(": $level").formatted(Formatting.GRAY)))
         tooltip.add(Translations.TOOLTIP_ABILITY_POINTS.formatted(Formatting.GRAY)
             .append(LiteralText(": $cost").formatted(Formatting.GRAY)))
-        tooltip.add(LiteralText.EMPTY)
         //abilities
         if (activeNodes.size > 0) {
-            tooltip.add(LiteralText("Abilities: ").formatted(Formatting.GRAY)
+            tooltip.add(LiteralText.EMPTY)
+            tooltip.add(LiteralText("Active Abilities: ").formatted(Formatting.GRAY)
                 .append(LiteralText("${activeNodes.size}").formatted(Formatting.WHITE)))
             activeNodes.sortedWith { x, y ->
                 val tier = y.getTier().compareTo(x.getTier())
@@ -249,13 +291,6 @@ class AbilityBuild(private val tree: AbilityTree,
                 tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
                     .append(LiteralText("...").formatted(Formatting.DARK_GRAY)))
             }
-            tooltip.add(LiteralText.EMPTY)
-        }
-        for (archetype in tree.getArchetypes()) {
-            val point = getArchetypePoint(archetype)
-            tooltip.add(archetype.formatted(Formatting.GRAY).append(": ")
-                .append(LiteralText("$point")
-                    .formatted(if (point > 0) Formatting.WHITE else Formatting.DARK_GRAY)))
         }
         return tooltip
     }

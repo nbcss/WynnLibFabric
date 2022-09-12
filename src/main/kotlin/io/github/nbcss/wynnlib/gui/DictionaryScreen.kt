@@ -62,10 +62,8 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
             }
         }
         focused = addDrawableChild(searchBox!!)
+        updateItems()
         if (!initialized) {
-            updateItems()
-            //Reset lines
-            lineIndex = 0
             //Excluding 6 lines (only since 7th line need additional page)
             lineSize = max(0, (items.size + (COLUMNS - 1)) / COLUMNS - ROWS)
             initialized = true

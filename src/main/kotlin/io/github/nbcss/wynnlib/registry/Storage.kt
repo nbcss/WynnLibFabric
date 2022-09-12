@@ -30,6 +30,10 @@ abstract class Storage<T: Keyed> {
         itemMap[item.getKey()] = item
     }
 
+    open fun remove(key: String): Boolean {
+        return itemMap.remove(key) != null
+    }
+
     fun has(key: String): Boolean = key in itemMap
 
     fun get(key: String): T? {

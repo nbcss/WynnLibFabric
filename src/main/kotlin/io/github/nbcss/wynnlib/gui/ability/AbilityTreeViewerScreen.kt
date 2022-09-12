@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
+import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.ItemFactory
@@ -16,6 +17,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 
 
 class AbilityTreeViewerScreen(parent: Screen?,
@@ -63,7 +65,9 @@ class AbilityTreeViewerScreen(parent: Screen?,
         RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, 182, 32, 28)
         itemRenderer.renderInGuiWithOverrides(CREATE_ICON, posX + 7, posY + 6)
         if (isOverCreateTreeTab(mouseX, mouseY)){
-            drawTooltip(matrices, listOf(LiteralText("Add")), mouseX, mouseY)
+            val name = Translations.UI_TREE_BUILDS.translate().string
+            drawTooltip(matrices, listOf(LiteralText("[+] $name").formatted(Formatting.GREEN),
+                tree.character.formatted(Formatting.GRAY)), mouseX, mouseY)
         }
     }
 

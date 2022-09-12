@@ -25,12 +25,24 @@ abstract class SavingStorage<T: Keyed>: Storage<T>(), Keyed {
 
     override fun put(item: T) {
         super.put(item)
-        dirty = true
+        markDirty()
+    }
+
+    override fun remove(key: String): Boolean {
+        if (super.remove(key)) {
+            markDirty()
+            return true
+        }
+        return false
     }
 
     override fun reload(array: JsonArray) {
         super.reload(array)
         dirty = false
+    }
+
+    fun markDirty() {
+        dirty = true
     }
 
     fun save() {
