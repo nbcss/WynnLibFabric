@@ -7428,7 +7428,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SMOKE_BOMB"
+        "SMOKE_BOMB",
+        "ASSASSIN_THUNDER_MASTERY"
       ],
       "properties": {
         "element_mastery": {
