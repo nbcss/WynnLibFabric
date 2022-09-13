@@ -205,6 +205,7 @@
   "wynnlib.tooltip.ability.damage_label.strike": "per strike",
   "wynnlib.tooltip.ability.damage_label.shuriken": "per shuriken",
   "wynnlib.tooltip.ability.damage_label.winded": "per Winded",
+  "wynnlib.tooltip.ability_build.abilities": "Active Abilities",
   "wynnlib.tooltip.suffix.block": "%s Block",
   "wynnlib.tooltip.suffix.blocks": "%s Bl\u00f6cke",
   "wynnlib.tooltip.suffix.s": "%ss",

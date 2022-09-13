@@ -205,6 +205,7 @@
   "wynnlib.tooltip.ability.damage_label.strike": "\u6bcf\u6b21\u653b\u51fb",
   "wynnlib.tooltip.ability.damage_label.shuriken": "\u6bcf\u53ea\u624b\u91cc\u5251",
   "wynnlib.tooltip.ability.damage_label.winded": "\u6bcf\u5c42\u75be\u98ce\u6548\u679c",
+  "wynnlib.tooltip.ability_build.abilities": "\u5df2\u6fc0\u6d3b\u6280\u80fd",
   "wynnlib.tooltip.suffix.block": "%s\u683c",
   "wynnlib.tooltip.suffix.blocks": "%s\u683c",
   "wynnlib.tooltip.suffix.s": "%s\u79d2",

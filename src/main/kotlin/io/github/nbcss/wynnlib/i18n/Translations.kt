@@ -48,6 +48,7 @@ object Translations {
     val TOOLTIP_POWDER_CRAFTING: Translatable = from("wynnlib.tooltip.powder.in_crafting")
     val TOOLTIP_ARCHETYPE_TITLE: Translatable = from("wynnlib.tooltip.archetype.title")
     val TOOLTIP_ARCHETYPE_ABILITIES: Translatable = from("wynnlib.tooltip.archetype.abilities")
+    val TOOLTIP_ABILITY_LIST: Translatable = from("wynnlib.tooltip.ability_build.abilities")
     val TOOLTIP_ABILITY_CLICK_COMBO: Translatable = from("wynnlib.tooltip.ability.click_combo")
     val TOOLTIP_ABILITY_BLOCKS: Translatable = from("wynnlib.tooltip.ability.blocks")
     val TOOLTIP_ABILITY_POINTS: Translatable = from("wynnlib.tooltip.ability.cost")

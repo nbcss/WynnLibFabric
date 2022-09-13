@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.abilities.Archetype
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LIST
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
@@ -294,7 +295,7 @@ class AbilityBuild(private val tree: AbilityTree,
         //abilities
         if (activeNodes.size > 0) {
             tooltip.add(LiteralText.EMPTY)
-            tooltip.add(LiteralText("Active Abilities: ").formatted(Formatting.GRAY)
+            tooltip.add(TOOLTIP_ABILITY_LIST.formatted(Formatting.GRAY).append(": ")
                 .append(LiteralText("${activeNodes.size}").formatted(Formatting.WHITE)))
             activeNodes.sortedWith { x, y ->
                 val tier = y.getTier().compareTo(x.getTier())
