@@ -2,10 +2,10 @@ package io.github.nbcss.wynnlib.gui.ability
 
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
-import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.AbilityTree
-import io.github.nbcss.wynnlib.abilities.Archetype
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildData
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildContainer
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
@@ -27,7 +27,6 @@ import io.github.nbcss.wynnlib.render.TextureData
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
@@ -37,10 +36,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
-import kotlin.collections.HashSet
 import kotlin.math.floor
 import kotlin.math.max
 import kotlin.math.min
@@ -51,8 +47,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                                     private val fixedAbilities: Set<Ability> =
                                     tree.getMainAttackAbility()?.let { setOf(it) } ?: emptySet(),
                                     private val mutableAbilities: Set<Ability> = emptySet(),
-                                    private var build: AbilityBuild = AbilityBuild(tree, maxPoints,
-                                        fixedAbilities.union(mutableAbilities))):
+                                    private var build: TreeBuildContainer = TreeBuildContainer
+                                        .fromAbilities(tree, fixedAbilities.union(mutableAbilities), maxPoints)):
     AbstractAbilityTreeScreen(parent) {
     companion object {
         private val OVERVIEW_PANE = Identifier("wynnlib", "textures/gui/ability_overview.png")
@@ -71,7 +67,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private val entryNames: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private val entryValues: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private var viewer: BuilderWindow? = null
-    private var saveButton: SquareButton? = null
+    protected var saveButton: SquareButton? = null
     private var deleteButton: SquareButton? = null
     private var shareButton: SquareButton? = null
     private var nameField: TextFieldWidget? = null
@@ -94,16 +90,18 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         return AbilityTreeBuilderScreen(parent, tree, build = build)
     }
 
-    fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(build.getActiveAbilities())
+    open fun getBuild(): TreeBuildData = build.getData()
 
-    fun getActivateOrders(): List<Ability> = build.getActivateOrders()
+    fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(build.getAbilities())
+
+    fun getActivateOrders(): List<Ability> = build.getActiveOrder()
         .filter { it !in fixedAbilities && it !in mutableAbilities }
 
     fun getMaxPoints(): Int = maxPoints
 
     private fun update() {
         //update container
-        container = EntryContainer(build.getActiveAbilities())
+        container = EntryContainer(build.getAbilities())
         setEntryIndex(entryIndex) //for update entry
         updateEntrySlider()
     }
@@ -170,44 +168,44 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             entryNames[i] = RollingTextWidget(posX, posY, 95, name)
             entryValues[i] = RollingTextWidget(posX, posY + 9, 95, info)
         }
-        nameField = TextFieldWidget(textRenderer, windowX - 115, windowY + 14, 105, 12, LiteralText.EMPTY)
-        nameField?.text = build.getCustomName()
+        nameField = TextFieldWidget(textRenderer, windowX - 115, windowY + 16, 105, 12, LiteralText.EMPTY)
+        nameField?.text = build.getData().getCustomName()
         nameField?.setDrawsBackground(false)
         nameField?.setChangedListener {
-            build.setName(it)
+            build.getData().setName(it)
         }
         addDrawableChild(nameField)
-        shareButton = SquareButton(SHARE_BUTTON, windowX - 25, windowY + 1, 10,
+        shareButton = SquareButton(SHARE_BUTTON, windowX - 25, windowY + 3, 10,
             this, object : TooltipProvider {
                 override fun getTooltip(): List<Text> {
                     return listOf(UI_BUTTON_SHARE.formatted(Formatting.GREEN),
                         UI_CLIPBOARD_EXPORT.formatted(Formatting.GRAY))
                 }
             }, SoundEvents.ITEM_LODESTONE_COMPASS_LOCK) {
-            writeClipboard(build.getEncoding())
+            writeClipboard(build.getData().getEncoding())
         }
         addDrawableChild(shareButton)
-        saveButton = SquareButton(SAVE_BUTTON, windowX - 15, windowY + 1, 10,
+        saveButton = SquareButton(SAVE_BUTTON, windowX - 15, windowY + 3, 10,
             this, object : TooltipProvider {
                 override fun getTooltip(): List<Text> {
                     return listOf(UI_BUTTON_SAVE.formatted(Formatting.AQUA))
                 }
             }, SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT) {
-            AbilityBuildStorage.put(build)
+            AbilityBuildStorage.put(getBuild())
             it.visible = false
         }
-        saveButton?.visible = !AbilityBuildStorage.has(build.getKey())
+        saveButton?.visible = !AbilityBuildStorage.has(getBuild().getKey())
         addDrawableChild(saveButton)
-        deleteButton = SquareButton(DELETE_BUTTON, windowX - 15, windowY + 1, 10,
+        deleteButton = SquareButton(DELETE_BUTTON, windowX - 15, windowY + 3, 10,
             this, object : TooltipProvider {
                 override fun getTooltip(): List<Text> {
                     return listOf(UI_BUTTON_DELETE.formatted(Formatting.RED))
                 }
             }, SoundEvents.BLOCK_LAVA_EXTINGUISH) {
-            AbilityBuildStorage.remove(build.getKey())
+            AbilityBuildStorage.remove(getBuild().getKey())
             it.visible = false
         }
-        deleteButton?.visible = AbilityBuildStorage.has(build.getKey())
+        deleteButton?.visible = AbilityBuildStorage.has(getBuild().getKey())
         addDrawableChild(deleteButton)
     }
 
@@ -216,7 +214,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         RenderKit.renderTexture(matrices, OVERVIEW_PANE, windowX - 147,
             windowY + 28, 0, 0, 148, 182)
         RenderKit.renderTexture(matrices, BUILD_NAME_PANE, windowX - 147,
-            windowY - 2, 0, 0, 148, 30, 148, 30)
+            windowY, 0, 0, 148, 29, 148, 29)
         textRenderer.draw(
             matrices, Translations.TOOLTIP_ABILITY_OVERVIEW.translate(),
             (windowX - 147 + 6).toFloat(),
@@ -278,17 +276,17 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     override fun renderExtra(matrices: MatrixStack, mouseX: Int, mouseY: Int, delta: Float) {
         //Render name widgets
-        val hasBuild = AbilityBuildStorage.has(build.getKey())
+        val hasBuild = AbilityBuildStorage.has(getBuild().getKey())
         saveButton?.visible = !hasBuild
         deleteButton?.visible = hasBuild
-        build.getMainArchetype()?.let {
-            renderArchetypeIcon(matrices, it, windowX - 138, windowY + 5)
+        getBuild().getMainArchetype()?.let {
+            renderArchetypeIcon(matrices, it, windowX - 138, windowY + 7)
         }
         nameField?.let {
             if (!it.isFocused && it.text.isEmpty()) {
-                val s = textRenderer.trimToWidth(build.getEncoding(), 106) + ".."
+                val s = textRenderer.trimToWidth(getBuild().getEncoding(), 106) + ".."
                 textRenderer.draw(matrices, LiteralText(s).formatted(Formatting.ITALIC).formatted(Formatting.DARK_GRAY),
-                    windowX - 115.0f, windowY + 14.0f, 0xFFFFFF)
+                    windowX - 115.0f, windowY + 16.0f, 0xFFFFFF)
             }
         }
         //Archetypes
@@ -297,7 +295,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         //render archetype values
         tree.getArchetypes().forEach {
             renderArchetypeIcon(matrices, it, archetypeX, archetypeY)
-            val points = "${build.getArchetypePoint(it)}/${tree.getArchetypePoint(it)}"
+            val points = "${getBuild().getArchetypePoint(it)}/${tree.getArchetypePoint(it)}"
             textRenderer.draw(matrices, points, archetypeX.toFloat() + 20, archetypeY.toFloat() + 4, 0)
             if (mouseX >= archetypeX && mouseY >= archetypeY && mouseX <= archetypeX + 16 && mouseY <= archetypeY + 16){
                 drawTooltip(matrices, it.getTooltip(build), mouseX, mouseY)

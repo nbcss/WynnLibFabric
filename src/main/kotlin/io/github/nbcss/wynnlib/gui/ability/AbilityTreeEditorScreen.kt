@@ -37,6 +37,7 @@ class AbilityTreeEditorScreen(parent: Screen?,
                 return getConfirmTooltip()
             }
         }, this, x, y))
+
     }
 
     private fun getConfirmTooltip(): List<Text> {

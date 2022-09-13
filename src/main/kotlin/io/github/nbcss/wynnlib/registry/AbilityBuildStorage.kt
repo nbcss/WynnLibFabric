@@ -1,18 +1,18 @@
 package io.github.nbcss.wynnlib.registry
 
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildData
 
-object AbilityBuildStorage: SavingStorage<AbilityBuild>() {
+object AbilityBuildStorage: SavingStorage<TreeBuildData>() {
     private const val PATH = "config/WynnLib/AbilityBuilds.json"
 
-    override fun read(data: JsonObject): AbilityBuild? {
-        return AbilityBuild.fromData(data)
+    override fun read(data: JsonObject): TreeBuildData? {
+        return TreeBuildData.fromData(data)
     }
 
     override fun getKey(): String = "ABILITY_BUILD"
 
-    override fun getData(item: AbilityBuild): JsonObject {
+    override fun getData(item: TreeBuildData): JsonObject {
         return item.getData()
     }
 

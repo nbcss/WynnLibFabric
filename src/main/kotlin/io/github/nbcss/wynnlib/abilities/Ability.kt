@@ -1,8 +1,8 @@
 package io.github.nbcss.wynnlib.abilities
 
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.abilities.builder.EntryContainer
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildInfo
 import io.github.nbcss.wynnlib.abilities.builder.entries.MainAttackEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
@@ -173,7 +173,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         return formattingLines(desc, Formatting.GRAY.toString()).toList()
     }
 
-    fun getTooltip(build: AbilityBuild? = null): List<Text> {
+    fun getTooltip(build: TreeBuildInfo? = null): List<Text> {
         val tree = AbilityRegistry.fromCharacter(getCharacter())
         val tooltip: MutableList<Text> = ArrayList()
         tooltip.add(translate().formatted(tier.getFormatting()).formatted(Formatting.BOLD))

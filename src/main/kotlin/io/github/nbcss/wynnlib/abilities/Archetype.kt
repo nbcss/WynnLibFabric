@@ -1,6 +1,6 @@
 package io.github.nbcss.wynnlib.abilities
 
-import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildInfo
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.i18n.Translations
@@ -60,7 +60,7 @@ enum class Archetype(private val displayName: String,
 
     fun getTexture(): ItemStack = texture
 
-    fun getTooltip(build: AbilityBuild? = null): List<Text> {
+    fun getTooltip(build: TreeBuildInfo? = null): List<Text> {
         val tree = AbilityRegistry.fromCharacter(character)
         val tooltip: MutableList<Text> = ArrayList()
         val title = Translations.TOOLTIP_ARCHETYPE_TITLE.translate(null, translate().string)

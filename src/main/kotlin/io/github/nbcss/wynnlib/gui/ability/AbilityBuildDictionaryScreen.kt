@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.gui.ability
 
-import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildData
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildContainer
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.gui.DictionaryScreen
 import io.github.nbcss.wynnlib.i18n.Translations
@@ -10,7 +11,6 @@ import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.playSound
 import io.github.nbcss.wynnlib.utils.readClipboard
-import net.minecraft.client.gui.screen.ChatScreen
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
@@ -19,7 +19,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBuild>(parent, TITLE) {
+class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeBuildData>(parent, TITLE) {
     companion object {
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:book")
         val TITLE: Text = Translations.UI_TREE_BUILDS.translate()
@@ -32,13 +32,14 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
         }*/
     }
 
-    override fun onClickItem(item: AbilityBuild, button: Int) {
+    override fun onClickItem(item: TreeBuildData, button: Int) {
         playSound(SoundEvents.ENTITY_ITEM_PICKUP)
-        val screen = AbilityTreeBuilderScreen(this, item.getTree(), build = item)
+        val screen = AbilityTreeBuilderScreen(this, item.getTree(),
+            build = TreeBuildContainer.fromBuild(item))
         client!!.setScreen(screen)
     }
 
-    override fun fetchItems(): Collection<AbilityBuild> {
+    override fun fetchItems(): Collection<TreeBuildData> {
         return AbilityBuildStorage.getAll()
     }
 
@@ -59,9 +60,10 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
             if (isOverImportTreeTab(mouseX.toInt(), mouseY.toInt())) {
                 val clipboard = readClipboard()
                 if (clipboard != null) {
-                    val build = AbilityBuild.fromEncoding(clipboard)
+                    val build = TreeBuildData.fromEncoding(clipboard)
                     if (build != null) {
-                        client!!.setScreen(AbilityTreeBuilderScreen(this, build.getTree(), build = build))
+                        client!!.setScreen(AbilityTreeBuilderScreen(this, build.getTree(),
+                            build = TreeBuildContainer.fromBuild(build)))
                         playSound(SoundEvents.ENTITY_ITEM_PICKUP)
                         return true
                     }
