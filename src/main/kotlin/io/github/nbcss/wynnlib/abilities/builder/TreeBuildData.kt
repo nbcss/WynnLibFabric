@@ -76,6 +76,12 @@ class TreeBuildData(private val tree: AbilityTree,
     private var archetype: Archetype? = null
     private var encoding: String = generateEncoding()
 
+    fun copy(): TreeBuildData {
+        val copy = TreeBuildData(tree)
+        copy.setAbilities(abilities)
+        return copy
+    }
+
     fun setName(name: String) {
         this.name = name
         if (AbilityBuildStorage.has(getKey())){

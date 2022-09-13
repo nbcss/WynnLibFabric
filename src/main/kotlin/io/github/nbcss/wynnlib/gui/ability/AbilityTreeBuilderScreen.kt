@@ -61,36 +61,51 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         const val MAX_AP = 45
         const val MAX_ENTRY_ITEM = 8
     }
+    private val factory = object : TabFactory {
+        override fun getTabIcon(): ItemStack = ICON
+        override fun getTabTitle(): Text = TITLE
+        override fun createScreen(parent: Screen?): HandbookTabScreen = copy()
+        override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeBuilderScreen
+    }
     private var container: EntryContainer = EntryContainer()
     private var entryIndex = 0
     private var overviewSlider: VerticalSliderWidget? = null
     private val entryNames: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private val entryValues: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private var viewer: BuilderWindow? = null
-    protected var saveButton: SquareButton? = null
+    private var saveButton: SquareButton? = null
     private var deleteButton: SquareButton? = null
     private var shareButton: SquareButton? = null
     private var nameField: TextFieldWidget? = null
     init {
-        tabs.clear()
-        tabs.add(object : TabFactory {
-            override fun getTabIcon(): ItemStack = ICON
-            override fun getTabTitle(): Text = TITLE
-            override fun createScreen(parent: Screen?): HandbookTabScreen = copy()
-            override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeBuilderScreen
-        })
+        setTabs()
         update()
     }
+
+    fun getFactory(): TabFactory = factory
 
     fun getFixedAbilities(): Set<Ability> = fixedAbilities
 
     fun getMutableAbilities(): Set<Ability> = mutableAbilities
 
+    protected fun setTabs() {
+        tabs.clear()
+        tabs.add(factory)
+        tabs.add(TreeBuildSelectScreen.ofFactory(this))
+    }
+
+    fun setBuild(build: TreeBuildContainer) {
+        this.build = build
+        update()
+    }
+
     open fun copy(): AbilityTreeBuilderScreen {
         return AbilityTreeBuilderScreen(parent, tree, build = build)
     }
 
-    open fun getBuild(): TreeBuildData = build.getData()
+    protected fun getBuildContainer(): TreeBuildContainer = build
+
+    fun getBuild(): TreeBuildData = build.getData()
 
     fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(build.getAbilities())
 
@@ -98,6 +113,11 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         .filter { it !in fixedAbilities && it !in mutableAbilities }
 
     fun getMaxPoints(): Int = maxPoints
+
+    fun setAbilities(abilities: Set<Ability>) {
+        this.build.setAbilities(abilities)
+        update()
+    }
 
     private fun update() {
         //update container

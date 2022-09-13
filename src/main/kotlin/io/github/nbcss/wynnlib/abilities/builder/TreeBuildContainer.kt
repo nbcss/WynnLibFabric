@@ -33,6 +33,11 @@ class TreeBuildContainer(private val data: TreeBuildData,
 
     fun getActiveOrder(): List<Ability> = orderList
 
+    fun setAbilities(abilities: Set<Ability>) {
+        data.setAbilities(abilities)
+        validateAbilities()
+    }
+
     fun addAbility(ability: Ability): Boolean {
         if (isUnlockable(ability)) {
             data.addAbility(ability)
