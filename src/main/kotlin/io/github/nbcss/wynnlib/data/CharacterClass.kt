@@ -23,6 +23,11 @@ enum class CharacterClass(private val displayName: String,
         private val NAME_MAP: Map<String, CharacterClass> = mapOf(
             pairs = values().map { it.displayName to it }.toTypedArray()
         )
+        private val PREFIX_MAP: Map<String, CharacterClass> = mapOf(
+            pairs = values().map { it.prefix to it }.toTypedArray()
+        )
+
+        fun fromPrefix(prefix: String): CharacterClass? = PREFIX_MAP[prefix.uppercase()]
 
         fun fromId(id: String): CharacterClass? = ID_MAP[id.uppercase()]
 

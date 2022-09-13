@@ -8,11 +8,15 @@ import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.playSound
+import io.github.nbcss.wynnlib.utils.readClipboard
+import net.minecraft.client.gui.screen.ChatScreen
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 
 class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBuild>(parent, TITLE) {
     companion object {
@@ -39,8 +43,9 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
 
     override fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPre(matrices, mouseX, mouseY, delta)
+        drawImportTreeTab(matrices!!, mouseX, mouseY)
         (0 until CharacterClass.values().size)
-            .forEach { drawCharacterTab(matrices!!, it, mouseX, mouseY) }
+            .forEach { drawCharacterTab(matrices, it, mouseX, mouseY) }
     }
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
@@ -50,6 +55,19 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         if (button == 0) {
+            if (isOverImportTreeTab(mouseX.toInt(), mouseY.toInt())) {
+                val clipboard = readClipboard()
+                if (clipboard != null) {
+                    val build = AbilityBuild.fromEncoding(clipboard)
+                    if (build != null) {
+                        client!!.setScreen(AbilityTreeBuilderScreen(this, build.getTree(), build = build))
+                        playSound(SoundEvents.ENTITY_ITEM_PICKUP)
+                        return true
+                    }
+                }
+                playSound(SoundEvents.ENTITY_VILLAGER_NO)
+                return true
+            }
             CharacterClass.values()
                 .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
                     playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
@@ -87,6 +105,25 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
     private fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
         val posX = windowX - 28
         val posY = windowY + 34 + index * 28
+        return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
+    }
+
+    private fun drawImportTreeTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+        val posX = windowX + 242
+        val posY = windowY + 50
+        RenderKit.renderTexture(matrices, AbstractAbilityTreeScreen.TEXTURE, posX, posY, 0, 182, 32, 28)
+        itemRenderer.renderInGuiWithOverrides(AbilityTreeViewerScreen.CREATE_ICON, posX + 7, posY + 6)
+        if (isOverImportTreeTab(mouseX, mouseY)){
+            val name = Translations.UI_TREE_BUILDS.translate().string
+            drawTooltip(matrices, listOf(
+                LiteralText("[+] $name").formatted(Formatting.GREEN),
+                LiteralText("Import from clipboard").formatted(Formatting.GRAY)), mouseX, mouseY)
+        }
+    }
+
+    private fun isOverImportTreeTab(mouseX: Int, mouseY: Int): Boolean {
+        val posX = windowX + 245
+        val posY = windowY + 50
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }
 }

@@ -25,10 +25,10 @@ class AbilityBuild(private val tree: AbilityTree,
     companion object {
         val ICON = ItemFactory.fromEncoding("minecraft:stone_axe#83")
         const val MAX_AP = 45
-        const val VER = "0"
+        const val VER = '0'
         const val BUFFER = 15
         fun fromData(data: JsonObject): AbilityBuild? {
-            try{
+            return try{
                 val id = data["id"].asString
                 val character = CharacterClass.fromId(data["class"].asString)!!
                 val tree = AbilityRegistry.fromCharacter(character)
@@ -38,10 +38,27 @@ class AbilityBuild(private val tree: AbilityTree,
                 }.filter { it.getCharacter() == character }
                 val build = AbilityBuild(tree, MAX_AP, abilities.toSet(), id)
                 build.setName(name)
-                return build
+                build
             }catch (e: Exception) {
                 e.printStackTrace()
-                return null
+                null
+            }
+        }
+
+        fun fromEncoding(encoding: String): AbilityBuild? {
+            return try{
+                val ver = encoding[3]
+                if (ver == VER) {
+                    val character = CharacterClass.fromPrefix(encoding.substring(0..1))!!
+                    val tree = AbilityRegistry.fromCharacter(character)
+                    val abilities = tree.getAbilities().filter { it.getIndex() >= 0 }.filter {
+                        (fromBase64(encoding[4 + it.getIndex() / 6]) and (1 shl (5 - it.getIndex() % 6))) != 0
+                    }.toSet()
+                    return AbilityBuild(tree, abilities = abilities)
+                }
+                null
+            }catch (e: Exception) {
+                null
             }
         }
     }

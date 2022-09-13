@@ -19,10 +19,7 @@ import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText
 import io.github.nbcss.wynnlib.render.TextureData
-import io.github.nbcss.wynnlib.utils.Color
-import io.github.nbcss.wynnlib.utils.IntPos
-import io.github.nbcss.wynnlib.utils.Symbol
-import io.github.nbcss.wynnlib.utils.playSound
+import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.widget.ButtonWidget
@@ -57,6 +54,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         private val BUILD_NAME_PANE = Identifier("wynnlib", "textures/gui/tree_build_panel.png")
         private val SAVE_BUTTON = Identifier("wynnlib", "textures/gui/save_button.png")
         private val DELETE_BUTTON = Identifier("wynnlib", "textures/gui/delete_button.png")
+        private val SHARE_BUTTON = Identifier("wynnlib", "textures/gui/share_button.png")
         private val SLIDER_TEXTURE = TextureData(OVERVIEW_PANE, 148, 0)
         private const val SLIDER_LENGTH = 40
         const val MAX_AP = 45
@@ -70,6 +68,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private var viewer: BuilderWindow? = null
     private var saveButton: SquareButton? = null
     private var deleteButton: SquareButton? = null
+    private var shareButton: SquareButton? = null
     private var nameField: TextFieldWidget? = null
     init {
         tabs.clear()
@@ -173,13 +172,20 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             build.setName(it)
         }
         addDrawableChild(nameField)
+        shareButton = SquareButton(SHARE_BUTTON, windowX - 25, windowY + 1, 10) {
+            playSound(SoundEvents.ITEM_LODESTONE_COMPASS_LOCK)
+            writeClipboard(build.getEncoding())
+        }
+        addDrawableChild(shareButton)
         saveButton = SquareButton(SAVE_BUTTON, windowX - 15, windowY + 1, 10) {
+            playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT)
             AbilityBuildStorage.put(build)
             it.visible = false
         }
         saveButton?.visible = !AbilityBuildStorage.has(build.getKey())
         addDrawableChild(saveButton)
         deleteButton = SquareButton(DELETE_BUTTON, windowX - 15, windowY + 1, 10) {
+            playSound(SoundEvents.BLOCK_LAVA_EXTINGUISH)
             AbilityBuildStorage.remove(build.getKey())
             it.visible = false
         }
