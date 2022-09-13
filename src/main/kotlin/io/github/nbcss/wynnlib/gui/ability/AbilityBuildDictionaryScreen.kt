@@ -4,6 +4,7 @@ import io.github.nbcss.wynnlib.abilities.builder.AbilityBuild
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.gui.DictionaryScreen
 import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.i18n.Translations.UI_CLIPBOARD_IMPORT
 import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.ItemFactory
@@ -117,7 +118,7 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<AbilityBui
             val name = Translations.UI_TREE_BUILDS.translate().string
             drawTooltip(matrices, listOf(
                 LiteralText("[+] $name").formatted(Formatting.GREEN),
-                LiteralText("Import from clipboard").formatted(Formatting.GRAY)), mouseX, mouseY)
+                UI_CLIPBOARD_IMPORT.formatted(Formatting.GRAY)), mouseX, mouseY)
         }
     }
 

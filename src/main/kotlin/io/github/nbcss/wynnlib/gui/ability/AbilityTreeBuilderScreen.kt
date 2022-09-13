@@ -15,6 +15,11 @@ import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_UNUSABLE
+import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_DELETE
+import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_SAVE
+import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_SHARE
+import io.github.nbcss.wynnlib.i18n.Translations.UI_CLIPBOARD_EXPORT
+import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText
@@ -172,20 +177,33 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
             build.setName(it)
         }
         addDrawableChild(nameField)
-        shareButton = SquareButton(SHARE_BUTTON, windowX - 25, windowY + 1, 10) {
-            playSound(SoundEvents.ITEM_LODESTONE_COMPASS_LOCK)
+        shareButton = SquareButton(SHARE_BUTTON, windowX - 25, windowY + 1, 10,
+            this, object : TooltipProvider {
+                override fun getTooltip(): List<Text> {
+                    return listOf(UI_BUTTON_SHARE.formatted(Formatting.GREEN),
+                        UI_CLIPBOARD_EXPORT.formatted(Formatting.GRAY))
+                }
+            }, SoundEvents.ITEM_LODESTONE_COMPASS_LOCK) {
             writeClipboard(build.getEncoding())
         }
         addDrawableChild(shareButton)
-        saveButton = SquareButton(SAVE_BUTTON, windowX - 15, windowY + 1, 10) {
-            playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT)
+        saveButton = SquareButton(SAVE_BUTTON, windowX - 15, windowY + 1, 10,
+            this, object : TooltipProvider {
+                override fun getTooltip(): List<Text> {
+                    return listOf(UI_BUTTON_SAVE.formatted(Formatting.AQUA))
+                }
+            }, SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT) {
             AbilityBuildStorage.put(build)
             it.visible = false
         }
         saveButton?.visible = !AbilityBuildStorage.has(build.getKey())
         addDrawableChild(saveButton)
-        deleteButton = SquareButton(DELETE_BUTTON, windowX - 15, windowY + 1, 10) {
-            playSound(SoundEvents.BLOCK_LAVA_EXTINGUISH)
+        deleteButton = SquareButton(DELETE_BUTTON, windowX - 15, windowY + 1, 10,
+            this, object : TooltipProvider {
+                override fun getTooltip(): List<Text> {
+                    return listOf(UI_BUTTON_DELETE.formatted(Formatting.RED))
+                }
+            }, SoundEvents.BLOCK_LAVA_EXTINGUISH) {
             AbilityBuildStorage.remove(build.getKey())
             it.visible = false
         }
