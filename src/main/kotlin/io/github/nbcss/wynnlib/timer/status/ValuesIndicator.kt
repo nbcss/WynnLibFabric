@@ -77,7 +77,7 @@ class ValuesIndicator(data: JsonObject): StatusType(data) {
             val color = Color(MathHelper.hsvToRgb((pct / 3.0).toFloat(), 1.0f, 1.0f))
             val uv = pctToUv(pct)
             RenderKit.renderTextureWithColor(
-                matrices, ICON_BACKGROUND, color.toSolidColor(),
+                matrices, ICON_BACKGROUND, color.solid(),
                 posX + 3, posY, uv.first, uv.second, 22, 22, 256, 256
             )
             val formattedValue = formatValue(values[0])

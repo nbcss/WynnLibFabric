@@ -16,7 +16,8 @@ class AbilityTreeReader(private val character: CharacterClass,
             AbilityTreeHandler.setProcessor(processor)
         }
     }
-    private val abilities: MutableSet<Ability> = mutableSetOf()
+    private val fixedAbilities: MutableSet<Ability> = mutableSetOf()
+    private val mutableAbilities: MutableSet<Ability> = mutableSetOf()
     private var maxPoints: Int? = null
     private var reset: Boolean = true
     private var dead: Boolean = false
@@ -38,7 +39,8 @@ class AbilityTreeReader(private val character: CharacterClass,
             }
             reset = false
         }
-        abilities.addAll(AbilityTreeHandler.getActiveAbilities())
+        fixedAbilities.addAll(AbilityTreeHandler.getActiveAbilities())
+        mutableAbilities.addAll(AbilityTreeHandler.getMutableAbilities())
         val slotId = 59
         val nextPage = lastStacks[slotId]
         if (!nextPage.isEmpty) {
@@ -61,7 +63,11 @@ class AbilityTreeReader(private val character: CharacterClass,
     }
 
     fun getActiveAbilities(): Collection<Ability> {
-        return abilities
+        return fixedAbilities
+    }
+
+    fun getMutableAbilities(): Collection<Ability> {
+        return mutableAbilities
     }
 
     fun getMaxPoints(): Int {

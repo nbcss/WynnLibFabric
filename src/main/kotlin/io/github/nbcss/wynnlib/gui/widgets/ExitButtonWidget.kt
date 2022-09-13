@@ -9,7 +9,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.util.Identifier
 
-class ExitButtonWidget(private val handler: ExitHandler, x: Int, y: Int):
+class ExitButtonWidget(x: Int, y: Int, private val handler: ExitHandler):
     PressableWidget(x, y, 10, 10, LiteralText.EMPTY) {
 
     private val texture: Identifier = Identifier("wynnlib", "textures/gui/exit_button.png")

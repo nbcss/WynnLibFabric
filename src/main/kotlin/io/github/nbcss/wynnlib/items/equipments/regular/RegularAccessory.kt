@@ -19,7 +19,8 @@ class RegularAccessory(parent: RegularEquipment, json: JsonObject)
             val material: String = json.get("material").asString
             val materials = material.split(":").toTypedArray()
             val meta = if (materials.size > 1) materials[1].toInt() else 0
-            ItemFactory.fromLegacyId(materials[0].toInt(), meta)
+            val item = ItemFactory.fromLegacyId(materials[0].toInt(), meta)
+            if (item != ItemFactory.ERROR_ITEM) item else type.getIcon()
         } else {
             type.getIcon()
         }

@@ -39,7 +39,7 @@ class CooldownIndicator(data: JsonObject): StatusType(data) {
             val color = Color.AQUA
             val uv = pctToUv(1 - pct)
             RenderKit.renderTextureWithColor(
-                matrices, ICON_BACKGROUND, color.toSolidColor(),
+                matrices, ICON_BACKGROUND, color.solid(),
                 posX + 3, posY, uv.first, uv.second, 22, 22, 256, 256
             )
             var time = duration.roundToInt().toString() + "s"

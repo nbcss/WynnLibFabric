@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.gui.ability.AbilityBuildDictionaryScreen
 import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
 import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
@@ -10,21 +11,22 @@ import io.github.nbcss.wynnlib.gui.widgets.ExitButtonWidget
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
-import net.minecraft.client.gui.widget.TextFieldWidget
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
-abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(title),
+abstract class HandbookTabScreen(val parent: Screen?,
+                                 title: Text?) : Screen(title),
     TooltipScreen, ExitButtonWidget.ExitHandler {
-    private val texture = Identifier("wynnlib", "textures/gui/handbook_tab.png")
+    private val background = Identifier("wynnlib", "textures/gui/handbook_tab.png")
     companion object {
         const val TAB_SIZE: Int = 7
     }
     protected val backgroundWidth = 246
     protected val backgroundHeight = 210
     protected val tabs: MutableList<TabFactory> = ArrayList()
+    private var tooltip: TooltipItem? = null
     private var tabPage: Int = 0
     protected var exitButton: ExitButtonWidget? = null
     protected var windowWidth = backgroundWidth
@@ -37,20 +39,22 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         tabs.add(IngredientDictScreen.FACTORY)
         //tabs.add(CrafterScreen.FACTORY)
         tabs.add(AbilityTreeViewerScreen.FACTORY)
+        //tabs.add(AbilityBuildDictionaryScreen.FACTORY)
         tabs.add(PowderDictScreen.FACTORY)
         tabs.add(MaterialDictScreen.FACTORY)
-        //tabs.add(ConfigurationScreen.FACTORY)
+        tabs.add(ConfigurationScreen.FACTORY)
     }
 
     override fun init() {
         super.init()
+        clearChildren()
         windowWidth = backgroundWidth
         windowHeight = backgroundHeight
         windowX = (width - windowWidth) / 2
         windowY = (height - windowHeight) / 2
         val closeX = windowX + 230
-        val closeY = windowY + 32
-        exitButton = addDrawableChild(ExitButtonWidget(this, closeX, closeY))
+        val closeY = windowY + 31
+        exitButton = addDrawableChild(ExitButtonWidget(closeX, closeY, this))
     }
 
     open fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
@@ -67,27 +71,31 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
             .forEach { drawTab(matrices!!, tabs[tabIndex + it], it, mouseX, mouseY) }
     }
 
+    open fun drawBackgroundTexture(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
+        RenderKit.renderTexture(
+            matrices, background, windowX, windowY + 28, 0, 0,
+            backgroundWidth, 182
+        )
+    }
+
     open fun drawBackground(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         renderBackground(matrices)
         drawBackgroundPre(matrices, mouseX, mouseY, delta)
         //render background
-        RenderKit.renderTexture(
-            matrices, texture, windowX, windowY, 0, 0,
-            backgroundWidth, backgroundHeight
-        )
+        drawBackgroundTexture(matrices, mouseX, mouseY, delta)
         //render selected tab (normally should only have up to one tab)
         drawBackgroundPost(matrices, mouseX, mouseY, delta)
         textRenderer.draw(
             matrices, getTitle().asOrderedText(),
             (windowX + 6).toFloat(),
-            (windowY + 34).toFloat(), 0
+            (windowY + 33).toFloat(), 0
         )
     }
 
     private fun drawTab(matrices: MatrixStack, tab: TabFactory, tabIndex: Int, mouseX: Int, mouseY: Int) {
         val posX = windowX + 25 + tabIndex * 28
         val u = if (tab.isInstance(this)) 0 else 28
-        RenderKit.renderTexture(matrices, texture, posX, windowY, u, 210, 28, 32)
+        RenderKit.renderTexture(matrices, background, posX, windowY, u, 182, 28, 32)
         itemRenderer.renderInGuiWithOverrides(tab.getTabIcon(), posX + 6, windowY + 9)
         itemRenderer.renderGuiItemOverlay(textRenderer, tab.getTabIcon(), posX + 6, windowY + 9)
         if(isOverTab(tabIndex, mouseX, mouseY)){
@@ -128,6 +136,11 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
         drawBackground(matrices, mouseX, mouseY, delta)
         super.render(matrices, mouseX, mouseY, delta)
         drawContents(matrices, mouseX, mouseY, delta)
+        tooltip?.let { item ->
+            renderOrderedTooltip(matrices, item.tooltip.map{ it.asOrderedText()}, item.x, item.y)
+            RenderSystem.enableDepthTest()
+            tooltip = null
+        }
     }
 
     override fun shouldPause(): Boolean = false
@@ -137,9 +150,12 @@ abstract class HandbookTabScreen(val parent: Screen?, title: Text?) : Screen(tit
     }
 
     override fun drawTooltip(matrices: MatrixStack, tooltip: List<Text>, x: Int, y: Int) {
-        matrices.push()
+        this.tooltip = TooltipItem(x, y, tooltip)
+        /*matrices.push()
         renderOrderedTooltip(matrices, tooltip.map{it.asOrderedText()}, x, y)
         RenderSystem.enableDepthTest()
-        matrices.pop()
+        matrices.pop()*/
     }
+
+    private data class TooltipItem(val x: Int, val y: Int, val tooltip: List<Text>)
 }

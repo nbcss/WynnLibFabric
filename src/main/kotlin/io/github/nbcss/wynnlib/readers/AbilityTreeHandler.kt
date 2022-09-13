@@ -18,6 +18,7 @@ object AbilityTreeHandler: EventHandler<InventoryUpdateEvent> {
     private var lastPage: Int? = null
     private var lastStacks: List<ItemStack> = emptyList()
     private var activeAbilities: Set<Ability> = emptySet()
+    private var mutableAbilities: Set<Ability> = emptySet()
     private var character: CharacterClass? = null
     override fun handle(event: InventoryUpdateEvent) {
         val matcher = titlePattern.matcher(event.title.asString())
@@ -29,6 +30,7 @@ object AbilityTreeHandler: EventHandler<InventoryUpdateEvent> {
             character = null
             lastPage = null
             activeAbilities = emptySet()
+            mutableAbilities = emptySet()
             lastStacks = emptyList()
         }
         processor?.next()
@@ -38,6 +40,7 @@ object AbilityTreeHandler: EventHandler<InventoryUpdateEvent> {
         this.character = character
         this.lastStacks = stacks
         this.activeAbilities = emptySet()
+        this.mutableAbilities = emptySet()
         this.lastPage = null
         val values: MutableList<Pair<ItemStack, List<Ability>>> = mutableListOf()
         stacks.take(54).forEachIndexed { index, stack ->
@@ -58,18 +61,24 @@ object AbilityTreeHandler: EventHandler<InventoryUpdateEvent> {
         val page = values.map { it.second }.filter { it.size == 1 }.map { it[0].getPage() }.firstOrNull()
         if (page != null) {
             val player = MinecraftClient.getInstance().player
-            val abilitySet: MutableSet<Ability> = mutableSetOf()
+            val abilityList: MutableList<Pair<Ability, Int>> = mutableListOf()
             for (pair in values) {
                 val ability = pair.second.firstOrNull { it.getPage() == page } ?: continue
                 val tooltip = pair.first.getTooltip(player, TooltipContext.Default.NORMAL)
-                if (tooltip.filter { it.asString() == "" && it.siblings.isNotEmpty() }
-                        .map { it.siblings[0].asString() }
-                        .any { it == "You already unlocked this ability" }) {
-                    abilitySet.add(ability)
+                for (s in tooltip.filter { it.asString() == "" && it.siblings.isNotEmpty() }
+                    .map { it.siblings[0].asString() }) {
+                    if (s == "You already unlocked this ability") {
+                        abilityList.add(ability to 1)
+                        break
+                    }else if(s == "Right Click to undo") {
+                        abilityList.add(ability to 2)
+                        break
+                    }
                 }
             }
             lastPage = page
-            activeAbilities = abilitySet
+            activeAbilities = abilityList.filter { it.second == 1 }.map { it.first }.toSet()
+            mutableAbilities = abilityList.filter { it.second == 2 }.map { it.first }.toSet()
         }
     }
 
@@ -86,6 +95,8 @@ object AbilityTreeHandler: EventHandler<InventoryUpdateEvent> {
     fun getCharacter(): CharacterClass? = character
 
     fun getActiveAbilities(): Set<Ability> = activeAbilities
+
+    fun getMutableAbilities(): Set<Ability> = mutableAbilities
 
     fun setProcessor(processor: Processor) {
         if (this.processor == null){

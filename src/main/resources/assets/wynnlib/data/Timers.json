@@ -91,6 +91,15 @@
       "properties": {}
     },
     {
+      "id": "ALLY_WINDY_FEET_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7a\u2764",
+      "name": "Windy Feet",
+      "texture": "WINDY_FEET",
+      "text": null,
+      "properties": {}
+    },
+    {
       "id": "WINDY_FEET_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7b\u2764",
@@ -187,6 +196,15 @@
       "id": "SUNFLARE_EFFECT",
       "type": "EFFECT",
       "icon": "\u00a7a\u2741",
+      "name": "Sunflare",
+      "texture": "SUNFLARE",
+      "text": null,
+      "properties": {}
+    },
+    {
+      "id": "SUNFLARE_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
       "name": "Sunflare",
       "texture": "SUNFLARE",
       "text": null,

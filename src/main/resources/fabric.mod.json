@@ -5,7 +5,9 @@
   "name": "WynnLibFabric",
   "description": "Item library for Wynncraft",
   "authors": [
-    "nbcss"
+    "nbcss",
+    "Silentmaxx",
+    "FYWind"
   ],
   "contact": {
     "sources": "https://github.com/nbcss/WynnLibFabric"

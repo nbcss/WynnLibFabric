@@ -41,8 +41,11 @@ data class Identification(val id: String,               //id used in translation
         private val SPELL_PLACEHOLDER = Pattern.compile("\\{(sp\\d)}")
         private val NAME_MAP: MutableMap<String, Identification> = linkedMapOf()
         private val SUFFIX_NAME_MAP: MutableMap<String, Identification> = linkedMapOf()
+        private val GROUP_MAP: MutableMap<IdentificationGroup, MutableList<Identification>> = linkedMapOf()
 
         override fun getFilename(): String = RESOURCE
+
+        fun fromGroup(group: IdentificationGroup): List<Identification> = GROUP_MAP[group] ?: emptyList()
 
         fun fromName(name: String): Identification? {
             return NAME_MAP[name.uppercase()]
@@ -55,12 +58,14 @@ data class Identification(val id: String,               //id used in translation
         override fun reload(array: JsonArray) {
             NAME_MAP.clear()
             SUFFIX_NAME_MAP.clear()
+            GROUP_MAP.clear()
             super.reload(array)
         }
 
         override fun put(item: Identification) {
             NAME_MAP[item.name] = item
             SUFFIX_NAME_MAP["${item.displayName}@${item.suffix}"] = item
+            GROUP_MAP.getOrPut(item.group) { mutableListOf() }.add(item)
             val matcher = SPELL_PLACEHOLDER.matcher(item.displayName)
             if (matcher.find()) {
                 SpellSlot.fromKey(matcher.group(1))?.let { spell ->

@@ -12,6 +12,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import kotlin.math.min
 
 object RenderKit {
     private val textRender = MinecraftClient.getInstance().textRenderer
@@ -24,6 +25,25 @@ object RenderKit {
                       width: Int,
                       height: Int) {
         renderTexture(matrices, texture, x, y, u, v, width, height, 256, 256)
+    }
+
+    fun renderTexture(matrices: MatrixStack,
+                      texture: Identifier,
+                      x: Double,
+                      y: Double,
+                      u: Int,
+                      v: Int,
+                      width: Int,
+                      height: Int,
+                      texWidth: Int,
+                      texHeight: Int) {
+        RenderSystem.setShader { GameRenderer.getPositionTexShader() }
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
+        RenderSystem.setShaderTexture(0, texture)
+        matrices.push()
+        matrices.translate(x, y, 0.0)
+        DrawableHelper.drawTexture(matrices, 0, 0, u.toFloat(), v.toFloat(), width, height, texWidth, texHeight)
+        matrices.pop()
     }
 
     fun renderTexture(matrices: MatrixStack?,
@@ -40,6 +60,25 @@ object RenderKit {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
         RenderSystem.setShaderTexture(0, texture)
         DrawableHelper.drawTexture(matrices, x, y, u.toFloat(), v.toFloat(), width, height, texWidth, texHeight)
+    }
+
+    fun renderAnimatedTexture(matrices: MatrixStack,
+                              texture: Identifier,
+                              x: Int,
+                              y: Int,
+                              width: Int,
+                              height: Int,
+                              frames: Int,
+                              intervalTime: Long = 50,
+                              slackTime: Long = 0) {
+        val duration = frames * intervalTime + slackTime
+        val time = System.currentTimeMillis() % duration
+        val index = min((time / intervalTime).toInt(), frames - 1)
+        val v = (index * height).toFloat()
+        RenderSystem.setShader { GameRenderer.getPositionTexShader() }
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f)
+        RenderSystem.setShaderTexture(0, texture)
+        DrawableHelper.drawTexture(matrices, x, y, 0.0f, v, width, height, width, frames * height)
     }
 
     fun renderTextureWithColor(matrices: MatrixStack,
@@ -78,7 +117,7 @@ object RenderKit {
                           outlineColor: Color = Color.BLACK) {
         val immediate = VertexConsumerProvider.immediate(Tessellator.getInstance().buffer)
         textRender.drawWithOutline(text.asOrderedText(), x, y,
-            color.getColorCode(), outlineColor.getColorCode(),
+            color.code(), outlineColor.code(),
             matrices.peek().positionMatrix, immediate, 15728880)
         immediate.draw()
     }

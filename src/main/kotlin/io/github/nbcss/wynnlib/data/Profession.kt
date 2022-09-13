@@ -23,10 +23,9 @@ enum class Profession(private val type: Type,
     FISHING(Type.GATHERING, "\u24C0");
 
     companion object {
-        private val VALUE_MAP: MutableMap<String, Profession> = LinkedHashMap()
-        init {
-            values().forEach { VALUE_MAP[it.name.uppercase()] = it }
-        }
+        private val VALUE_MAP: Map<String, Profession> = mapOf(
+            pairs = values().map { it.name.uppercase() to it }.toTypedArray()
+        )
 
         /**
          * Get Profession instance from case-insensitive name.

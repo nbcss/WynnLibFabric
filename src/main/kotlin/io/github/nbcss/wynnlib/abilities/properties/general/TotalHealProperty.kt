@@ -10,25 +10,26 @@ import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_TOTAL_HEAL_SUFFIX
 import io.github.nbcss.wynnlib.utils.Symbol
+import io.github.nbcss.wynnlib.utils.removeDecimal
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class TotalHealProperty(ability: Ability,
-                        private val heal: Int):
+                        private val heal: Double):
     AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<TotalHealProperty> {
         override fun create(ability: Ability, data: JsonElement): TotalHealProperty {
-            return TotalHealProperty(ability, data.asInt)
+            return TotalHealProperty(ability, data.asDouble)
         }
         override fun getKey(): String = "total_heal"
     }
 
-    fun getTotalHeal(): Int = heal
+    fun getTotalHeal(): Double = heal
 
     override fun getOverviewTip(): Text {
         return Symbol.HEART.asText().append(" ").append(
-            LiteralText("$heal%").formatted(Formatting.WHITE)
+            LiteralText("${removeDecimal(heal)}%").formatted(Formatting.WHITE)
         )
     }
 
@@ -41,6 +42,6 @@ class TotalHealProperty(ability: Ability,
             .append(TOOLTIP_ABILITY_TOTAL_HEAL_SUFFIX.formatted(Formatting.DARK_GRAY)).append(")")
         return listOf(Symbol.HEART.asText().append(" ")
             .append(Translations.TOOLTIP_ABILITY_TOTAL_HEAL.formatted(Formatting.GRAY).append(": "))
-            .append(LiteralText("$heal%").formatted(Formatting.WHITE)).append(suffix))
+            .append(LiteralText("${removeDecimal(heal)}%").formatted(Formatting.WHITE)).append(suffix))
     }
 }

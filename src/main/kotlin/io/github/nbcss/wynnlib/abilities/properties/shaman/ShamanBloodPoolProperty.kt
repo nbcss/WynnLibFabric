@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.abilities.PropertyProvider
 import io.github.nbcss.wynnlib.abilities.builder.entries.PropertyEntry
 import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.ModifiableProperty
+import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
@@ -17,7 +18,8 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class ShamanBloodPoolProperty(ability: Ability,
-                              private val size: Int): AbilityProperty(ability), SetupProperty {
+                              private val size: Int):
+    AbilityProperty(ability), SetupProperty, OverviewProvider {
     companion object: Type<ShamanBloodPoolProperty> {
         override fun create(ability: Ability, data: JsonElement): ShamanBloodPoolProperty {
             return ShamanBloodPoolProperty(ability, data.asInt)
@@ -33,6 +35,12 @@ class ShamanBloodPoolProperty(ability: Ability,
 
     override fun setup(entry: PropertyEntry) {
         entry.setProperty(getKey(), this)
+    }
+
+    override fun getOverviewTip(): Text? {
+        return Symbol.DARK_HEART.asText().append(" ").append(
+            LiteralText("$size%").formatted(Formatting.WHITE)
+        )
     }
 
     override fun getTooltip(provider: PropertyProvider): List<Text> {

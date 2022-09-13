@@ -53,7 +53,7 @@ data class Color(val red: Int,
      *
      * @return color code
      */
-    fun getColorCode(): Int = (red shl 16) + (green shl 8) + blue
+    fun code(): Int = (red shl 16) + (green shl 8) + blue
 
     /**
      * Get the AlphaColor of the color with given alpha.
@@ -62,11 +62,11 @@ data class Color(val red: Int,
      * @param alpha alpha value, should be in [0, 255]. (8 bits)
      * @return alpha color
      */
-    fun toAlphaColor(alpha: Int): AlphaColor {
+    fun withAlpha(alpha: Int): AlphaColor {
         return AlphaColor(this, alpha)
     }
 
-    fun toSolidColor(): AlphaColor {
+    fun solid(): AlphaColor {
         return AlphaColor(this, 0xFF)
     }
 

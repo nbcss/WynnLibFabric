@@ -84,7 +84,6 @@ object ItemFactory {
      * @return item associated to given id & meta value.
      */
     fun fromLegacyId(id: Int, meta: Int): ItemStack {
-        // todo the material Id of "Gert Bangswing Manypointystick" is 16387
         var itemName: String = LegacyItemMap.get(id) ?: ItemIdFix.fromId(id)
         var damage:Int = -1
         var potionType: String? = null

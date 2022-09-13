@@ -3,7 +3,7 @@ package io.github.nbcss.wynnlib.abilities
 import io.github.nbcss.wynnlib.abilities.properties.info.BoundSpellProperty
 import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.SpellSlot
-import io.github.nbcss.wynnlib.utils.Pos
+import io.github.nbcss.wynnlib.utils.IntPos
 import java.util.*
 import kotlin.collections.HashMap
 import kotlin.collections.HashSet
@@ -13,7 +13,7 @@ class AbilityTree(val character: CharacterClass) {
     private val archetypes: List<Archetype> = Archetype.values().filter { it.getCharacter() == character }.toList()
     private val archetypePoints: MutableMap<Archetype, Int> = EnumMap(Archetype::class.java)
     private val costMap: MutableMap<Pair<Ability, Ability>, Int> = mutableMapOf()
-    private val posMap: MutableMap<Pos, Ability> = HashMap()
+    private val posMap: MutableMap<IntPos, Ability> = HashMap()
     private val abilities: MutableSet<Ability> = HashSet()
     private val spellMap: MutableMap<SpellSlot, Ability> = EnumMap(SpellSlot::class.java)
     private var mainAttack: Ability? = null
@@ -27,7 +27,7 @@ class AbilityTree(val character: CharacterClass) {
     fun getArchetypePoint(archetype: Archetype): Int = archetypePoints.getOrDefault(archetype, 0)
 
     fun getAbilityFromPosition(height: Int, position: Int): Ability? {
-        return posMap[Pos(height, position)]
+        return posMap[IntPos(height, position)]
     }
 
     fun getMaxHeight(): Int = height
@@ -67,7 +67,7 @@ class AbilityTree(val character: CharacterClass) {
         this.root = null
         abilities.forEach {
             this.abilities.add(it)
-            this.posMap[Pos(it.getHeight(), it.getPosition())] = it
+            this.posMap[IntPos(it.getHeight(), it.getPosition())] = it
             if (it.isMainAttack()){
                 mainAttack = it
             }

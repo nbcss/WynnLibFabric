@@ -11,6 +11,7 @@ import net.minecraft.client.util.math.MatrixStack
 
 class ItemSlotWidget<T: BaseItem>(x: Int, y: Int,
                                   private val size: Int,
+                                  private val margin: Int,
                                   private var item: T?,
                                   private val screen: TooltipScreen
                                   ): PressableWidget(x, y, size, size, null) {
@@ -18,6 +19,8 @@ class ItemSlotWidget<T: BaseItem>(x: Int, y: Int,
     override fun appendNarrations(builder: NarrationMessageBuilder?) {
         appendDefaultNarrations(builder)
     }
+
+    fun getItem(): T? = item
 
     fun setItem(item: T?){
         this.item = item
@@ -32,8 +35,9 @@ class ItemSlotWidget<T: BaseItem>(x: Int, y: Int,
             return
         matrices!!.push()
         RenderSystem.enableDepthTest()
-        val color = item!!.getRarityColor().toAlphaColor(if (isHovered) 0xDD else 0x75).getColorCode()
-        DrawableHelper.fill(matrices, x, y, x + size, y + size, color)
+        val color = item!!.getRarityColor().withAlpha(if (isHovered) 0xDD else 0x75).code()
+        DrawableHelper.fill(matrices, x + margin, y + margin,
+            x + size - margin, y + size - margin, color)
         val itemX: Int = x + width / 2 - 8
         val itemY: Int = y + height / 2 - 8
         val icon = item!!.getIcon()

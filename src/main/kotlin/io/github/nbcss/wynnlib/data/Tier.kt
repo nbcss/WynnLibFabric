@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.data
 
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.utils.Keyed
+import net.minecraft.text.MutableText
 import net.minecraft.util.Formatting
 import java.util.*
 import kotlin.math.ceil
@@ -42,6 +43,10 @@ enum class Tier(val id: String,
 
     override fun getTranslationKey(label: String?): String {
         return "wynnlib.tier.${getKey().lowercase(Locale.getDefault())}"
+    }
+
+    fun getDisplayText(): MutableText {
+        return formatted(formatting)
     }
 
     fun canIdentify(): Boolean {

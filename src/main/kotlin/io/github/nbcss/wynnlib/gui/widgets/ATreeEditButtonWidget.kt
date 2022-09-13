@@ -21,8 +21,9 @@ class ATreeEditButtonWidget(private val parent: Screen,
                 AbilityTreeReader.readActiveNodes(button.character){
                     val tree = AbilityRegistry.fromCharacter(button.character)
                     val fixed: MutableSet<Ability> = it.getActiveAbilities().toMutableSet()
+                    val mutable: MutableSet<Ability> = it.getMutableAbilities().toMutableSet()
                     tree.getMainAttackAbility()?.let { mainAttack -> fixed.add(mainAttack) }
-                    val screen = AbilityTreeEditorScreen(button.parent, tree, it.getMaxPoints(), fixed)
+                    val screen = AbilityTreeEditorScreen(button.parent, tree, it.getMaxPoints(), fixed, mutable)
                     MinecraftClient.getInstance().setScreen(screen)
                 }
                 button.updateActive()

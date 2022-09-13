@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.utils
 
 data class AlphaColor(val color: Color,
                       val alpha: Int) {
-    fun getColorCode(): Int = color.getColorCode() + (alpha shl 24)
+    fun code(): Int = color.code() + (alpha shl 24)
 
     fun floatRed(): Float = color.floatRed()
 

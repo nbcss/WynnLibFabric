@@ -100,7 +100,7 @@ class MageOphanimProperty(ability: Ability,
                     .append(LiteralText(signed(modifier.health)).formatted(colorOf(modifier.health))))
             }
             if (modifier.healthLose != 0){
-                tooltip.add(Symbol.HEART.asText().append(" ")
+                tooltip.add(Symbol.DARK_HEART.asText().append(" ")
                     .append(TOOLTIP_ABILITY_MAGE_ORBS_OF_LIGHT_LOSS.formatted(Formatting.GRAY).append(": "))
                     .append(LiteralText("${signed(modifier.healthLose)}%")
                         .formatted(colorOf(-modifier.healthLose)))

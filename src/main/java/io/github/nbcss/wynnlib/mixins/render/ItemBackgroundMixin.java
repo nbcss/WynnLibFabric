@@ -1,5 +1,7 @@
 package io.github.nbcss.wynnlib.mixins.render;
 
+import io.github.nbcss.wynnlib.Settings;
+import io.github.nbcss.wynnlib.events.DrawSlotEvent;
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent;
 import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
 import io.github.nbcss.wynnlib.render.RenderKit;
@@ -11,6 +13,7 @@ import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
@@ -38,6 +41,12 @@ public class ItemBackgroundMixin extends Screen {
         drawColorSlot(stack, x, y);
     }
 
+    @Inject(method = "drawSlot", at = @At("HEAD"))
+    private void drawSlot(MatrixStack matrices, Slot slot, CallbackInfo ci) {
+        DrawSlotEvent event = new DrawSlotEvent((HandledScreen<?>) (Object) this, matrices, slot);
+        DrawSlotEvent.Companion.handleEvent(event);
+    }
+
     @Redirect(method = "drawItem", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/item/ItemRenderer;renderGuiItemOverlay(Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/item/ItemStack;IILjava/lang/String;)V"))
     public void drawItemInvoke(ItemRenderer instance, TextRenderer renderer, ItemStack stack, int x, int y, String countLabel) {
         if (drawOverrides(renderer, stack, x, y))
@@ -59,17 +68,19 @@ public class ItemBackgroundMixin extends Screen {
     }
 
     private boolean drawOverrides(TextRenderer renderer, ItemStack stack, int x, int y) {
-        RenderItemOverrideEvent event = new RenderItemOverrideEvent(renderer, stack, x, y);
+        RenderItemOverrideEvent event = new RenderItemOverrideEvent(matrixStack, renderer, stack, x, y);
         RenderItemOverrideEvent.Companion.handleEvent(event);
         return event.getCancelled();
     }
 
     private void drawColorSlot(ItemStack stack, int x, int y) {
+        if (!Settings.INSTANCE.getOption(Settings.SettingOption.ITEM_BACKGROUND_COLOR))
+            return;
         Color color = ColorMatcher.Companion.toRarityColor(stack);
         if(color != null) {
             matrixStack.push();
             matrixStack.translate(0.0, 0.0, 200.0);
-            RenderKit.INSTANCE.renderTextureWithColor(matrixStack, TEXTURE, color.toSolidColor(),
+            RenderKit.INSTANCE.renderTextureWithColor(matrixStack, TEXTURE, color.solid(),
                     x - 2, y - 2, 0, 0, 20, 20, 20, 20);
             matrixStack.pop();
         }

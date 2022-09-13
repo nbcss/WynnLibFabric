@@ -5,6 +5,7 @@
       "name": null,
       "location": null,
       "class": "WARRIOR",
+      "index": -1,
       "height": 2,
       "position": 2,
       "tier": 0,
@@ -15,16 +16,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": 4
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "WARRIOR_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -33,6 +35,7 @@
       "name": "Bash",
       "location": "0,0,4",
       "class": "WARRIOR",
+      "index": 0,
       "height": 0,
       "position": 0,
       "tier": 0,
@@ -69,6 +72,7 @@
       "name": "Spear Proficiency I",
       "location": "0,2,4",
       "class": "WARRIOR",
+      "index": 2,
       "height": 2,
       "position": 0,
       "tier": 1,
@@ -84,7 +88,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 1
       },
       "metadata": null
@@ -94,6 +100,7 @@
       "name": "Cheaper Bash",
       "location": "0,2,2",
       "class": "WARRIOR",
+      "index": 1,
       "height": 2,
       "position": -2,
       "tier": 1,
@@ -118,6 +125,7 @@
       "name": "Double Bash",
       "location": "0,4,4",
       "class": "WARRIOR",
+      "index": 3,
       "height": 4,
       "position": 0,
       "tier": 2,
@@ -147,6 +155,7 @@
       "name": "Charge",
       "location": "1,1,4",
       "class": "WARRIOR",
+      "index": 5,
       "height": 6,
       "position": 0,
       "tier": 0,
@@ -175,6 +184,7 @@
       "name": "Tougher Skin",
       "location": "1,1,6",
       "class": "WARRIOR",
+      "index": 6,
       "height": 6,
       "position": 2,
       "tier": 1,
@@ -203,7 +213,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "TOUGHER_SKIN",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -211,6 +224,7 @@
       "name": "Vehement",
       "location": "1,1,2",
       "class": "WARRIOR",
+      "index": 4,
       "height": 6,
       "position": -2,
       "tier": 1,
@@ -246,6 +260,7 @@
       "name": "Uppercut",
       "location": "1,3,2",
       "class": "WARRIOR",
+      "index": 7,
       "height": 8,
       "position": -2,
       "tier": 0,
@@ -286,6 +301,7 @@
       "name": "Cheaper Charge",
       "location": "1,3,4",
       "class": "WARRIOR",
+      "index": 8,
       "height": 8,
       "position": 0,
       "tier": 1,
@@ -311,6 +327,7 @@
       "name": "War Scream",
       "location": "1,3,6",
       "class": "WARRIOR",
+      "index": 9,
       "height": 8,
       "position": 2,
       "tier": 0,
@@ -353,6 +370,7 @@
       "name": "Heavy Impact",
       "location": "1,4,1",
       "class": "WARRIOR",
+      "index": 10,
       "height": 9,
       "position": -3,
       "tier": 2,
@@ -380,7 +398,8 @@
         "icon": "HEAVY_IMPACT",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -389,6 +408,7 @@
       "name": "Earth Mastery",
       "location": "2,1,0",
       "class": "WARRIOR",
+      "index": 11,
       "height": 10,
       "position": -4,
       "tier": 1,
@@ -421,6 +441,7 @@
       "name": "Thunder Mastery",
       "location": "2,1,2",
       "class": "WARRIOR",
+      "index": 12,
       "height": 10,
       "position": -2,
       "tier": 1,
@@ -455,6 +476,7 @@
       "name": "Air Mastery",
       "location": "2,1,6",
       "class": "WARRIOR",
+      "index": 13,
       "height": 10,
       "position": 2,
       "tier": 1,
@@ -489,6 +511,7 @@
       "name": "Fire Mastery",
       "location": "2,1,8",
       "class": "WARRIOR",
+      "index": 14,
       "height": 10,
       "position": 4,
       "tier": 1,
@@ -521,6 +544,7 @@
       "name": "Water Mastery",
       "location": "2,2,4",
       "class": "WARRIOR",
+      "index": 15,
       "height": 11,
       "position": 0,
       "tier": 1,
@@ -555,6 +579,7 @@
       "name": "Quadruple Bash",
       "location": "2,3,0",
       "class": "WARRIOR",
+      "index": 16,
       "height": 12,
       "position": -4,
       "tier": 2,
@@ -585,6 +610,7 @@
       "name": "Fireworks",
       "location": "2,3,2",
       "class": "WARRIOR",
+      "index": 17,
       "height": 12,
       "position": -2,
       "tier": 2,
@@ -613,6 +639,7 @@
       "name": "Flyby Jab",
       "location": "2,3,6",
       "class": "WARRIOR",
+      "index": 18,
       "height": 12,
       "position": 2,
       "tier": 2,
@@ -642,7 +669,8 @@
         "icon": "FLYBY_JAB",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -651,6 +679,7 @@
       "name": "Flaming Uppercut",
       "location": "2,3,8",
       "class": "WARRIOR",
+      "index": 19,
       "height": 12,
       "position": 4,
       "tier": 2,
@@ -688,6 +717,7 @@
       "name": "Half-Moon Swipe",
       "location": "2,4,4",
       "class": "WARRIOR",
+      "index": 20,
       "height": 13,
       "position": 0,
       "tier": 2,
@@ -720,6 +750,7 @@
       "name": "Iron Lungs",
       "location": "2,4,7",
       "class": "WARRIOR",
+      "index": 21,
       "height": 13,
       "position": 3,
       "tier": 1,
@@ -748,6 +779,7 @@
       "name": "Generalist",
       "location": "3,1,2",
       "class": "WARRIOR",
+      "index": 22,
       "height": 15,
       "position": -2,
       "tier": 4,
@@ -778,6 +810,7 @@
       "name": "Counter",
       "location": "3,1,4",
       "class": "WARRIOR",
+      "index": 23,
       "height": 15,
       "position": 0,
       "tier": 2,
@@ -811,6 +844,7 @@
       "name": "Mantle of the Bovemists",
       "location": "3,1,7",
       "class": "WARRIOR",
+      "index": 24,
       "height": 15,
       "position": 3,
       "tier": 4,
@@ -838,6 +872,7 @@
         "icon": "MANTLE_OF_THE_BOVEMISTS",
         "overview": [
           "charges",
+          "duration",
           "cooldown"
         ]
       }
@@ -847,6 +882,7 @@
       "name": "Bak'al's Grasp",
       "location": "3,2,1",
       "class": "WARRIOR",
+      "index": 25,
       "height": 16,
       "position": -3,
       "tier": 4,
@@ -887,6 +923,7 @@
       "name": "Spear Proficiency II",
       "location": "3,3,0",
       "class": "WARRIOR",
+      "index": 26,
       "height": 17,
       "position": -4,
       "tier": 1,
@@ -903,7 +940,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 1
       },
       "metadata": null
@@ -913,6 +952,7 @@
       "name": "Cheaper Uppercut",
       "location": "3,3,3",
       "class": "WARRIOR",
+      "index": 27,
       "height": 17,
       "position": -1,
       "tier": 1,
@@ -939,6 +979,7 @@
       "name": "Aerodynamics",
       "location": "3,3,5",
       "class": "WARRIOR",
+      "index": 28,
       "height": 17,
       "position": 1,
       "tier": 2,
@@ -963,6 +1004,7 @@
       "name": "Provoke",
       "location": "3,3,7",
       "class": "WARRIOR",
+      "index": 29,
       "height": 17,
       "position": 3,
       "tier": 2,
@@ -992,6 +1034,7 @@
       "name": "Precise Strikes",
       "location": "3,4,2",
       "class": "WARRIOR",
+      "index": 30,
       "height": 18,
       "position": -2,
       "tier": 1,
@@ -1021,6 +1064,7 @@
       "name": "Air Shout",
       "location": "3,4,6",
       "class": "WARRIOR",
+      "index": 31,
       "height": 18,
       "position": 2,
       "tier": 2,
@@ -1057,6 +1101,7 @@
       "name": "Enraged Blow",
       "location": "4,1,0",
       "class": "WARRIOR",
+      "index": 32,
       "height": 19,
       "position": -4,
       "tier": 3,
@@ -1089,6 +1134,7 @@
       "name": "Flying Kick",
       "location": "4,1,3",
       "class": "WARRIOR",
+      "index": 33,
       "height": 19,
       "position": -1,
       "tier": 2,
@@ -1127,6 +1173,7 @@
       "name": "Stronger Mantle",
       "location": "4,1,6",
       "class": "WARRIOR",
+      "index": 34,
       "height": 19,
       "position": 2,
       "tier": 1,
@@ -1152,6 +1199,7 @@
       "name": "Manachism",
       "location": "4,1,8",
       "class": "WARRIOR",
+      "index": 35,
       "height": 19,
       "position": 4,
       "tier": 3,
@@ -1187,6 +1235,7 @@
       "name": "Boiling Blood",
       "location": "4,3,0",
       "class": "WARRIOR",
+      "index": 36,
       "height": 21,
       "position": -4,
       "tier": 2,
@@ -1229,6 +1278,7 @@
       "name": "Ragnarokkr",
       "location": "4,3,2",
       "class": "WARRIOR",
+      "index": 37,
       "height": 21,
       "position": -2,
       "tier": 3,
@@ -1258,6 +1308,7 @@
       "name": "Ambidextrous",
       "location": "4,3,4",
       "class": "WARRIOR",
+      "index": 38,
       "height": 21,
       "position": 0,
       "tier": 1,
@@ -1284,6 +1335,7 @@
       "name": "Burning Heart",
       "location": "4,3,6",
       "class": "WARRIOR",
+      "index": 39,
       "height": 21,
       "position": 2,
       "tier": 1,
@@ -1309,7 +1361,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -1317,6 +1372,7 @@
       "name": "Stronger Bash",
       "location": "4,3,8",
       "class": "WARRIOR",
+      "index": 40,
       "height": 21,
       "position": 4,
       "tier": 1,
@@ -1344,6 +1400,7 @@
       "name": "Intoxicating Blood",
       "location": "4,4,1",
       "class": "WARRIOR",
+      "index": 41,
       "height": 22,
       "position": -3,
       "tier": 2,
@@ -1373,6 +1430,7 @@
       "name": "Collide",
       "location": "4,4,5",
       "class": "WARRIOR",
+      "index": 42,
       "height": 22,
       "position": 1,
       "tier": 2,
@@ -1404,7 +1462,8 @@
         "icon": "COLLIDE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -1413,6 +1472,7 @@
       "name": "Rejuvenating Skin",
       "location": "4,4,7",
       "class": "WARRIOR",
+      "index": 43,
       "height": 22,
       "position": 3,
       "tier": 4,
@@ -1444,6 +1504,7 @@
       "name": "Comet",
       "location": "4,5,2",
       "class": "WARRIOR",
+      "index": 44,
       "height": 23,
       "position": -2,
       "tier": 2,
@@ -1471,7 +1532,8 @@
       "name": "Uncontainable Corruption",
       "location": "5,1,0",
       "class": "WARRIOR",
-      "height": 24,
+      "index": 45,
+      "height": 25,
       "position": -4,
       "tier": 1,
       "cost": 1,
@@ -1502,7 +1564,8 @@
       "name": "Radiant Devotee",
       "location": "5,1,2",
       "class": "WARRIOR",
-      "height": 24,
+      "index": 46,
+      "height": 25,
       "position": -2,
       "tier": 1,
       "cost": 1,
@@ -1529,7 +1592,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -1537,7 +1603,8 @@
       "name": "Whirlwind Strike",
       "location": "5,1,4",
       "class": "WARRIOR",
-      "height": 24,
+      "index": 47,
+      "height": 25,
       "position": 0,
       "tier": 2,
       "cost": 2,
@@ -1570,7 +1637,8 @@
       "name": "Mythril Skin",
       "location": "5,1,7",
       "class": "WARRIOR",
-      "height": 24,
+      "index": 48,
+      "height": 25,
       "position": 3,
       "tier": 2,
       "cost": 2,
@@ -1597,7 +1665,8 @@
       "name": "Armour Breaker",
       "location": "5,2,1",
       "class": "WARRIOR",
-      "height": 25,
+      "index": 49,
+      "height": 26,
       "position": -3,
       "tier": 3,
       "cost": 2,
@@ -1635,7 +1704,8 @@
       "name": "Shield Strike",
       "location": "5,2,6",
       "class": "WARRIOR",
-      "height": 25,
+      "index": 50,
+      "height": 26,
       "position": 2,
       "tier": 2,
       "cost": 2,
@@ -1665,7 +1735,8 @@
         "icon": "SHIELD_STRIKE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -1674,7 +1745,8 @@
       "name": "Sparkling Hope",
       "location": "5,2,8",
       "class": "WARRIOR",
-      "height": 25,
+      "index": 51,
+      "height": 26,
       "position": 4,
       "tier": 3,
       "cost": 2,
@@ -1703,7 +1775,8 @@
         "icon": "SPARKLING_HOPE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -1712,7 +1785,8 @@
       "name": "Massive Bash",
       "location": "5,3,0",
       "class": "WARRIOR",
-      "height": 26,
+      "index": 52,
+      "height": 27,
       "position": -4,
       "tier": 3,
       "cost": 2,
@@ -1720,7 +1794,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "FALLEN": 8
+        "FALLEN": 7
       },
       "predecessors": [
         "UNCONTAINABLE_CORRUPTION",
@@ -1743,7 +1817,8 @@
       "name": "Tempest",
       "location": "5,3,2",
       "class": "WARRIOR",
-      "height": 26,
+      "index": 53,
+      "height": 27,
       "position": -2,
       "tier": 2,
       "cost": 2,
@@ -1775,7 +1850,8 @@
         "icon": "TEMPEST",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -1784,7 +1860,8 @@
       "name": "Spirit of the Rabbit",
       "location": "5,3,4",
       "class": "WARRIOR",
-      "height": 26,
+      "index": 54,
+      "height": 27,
       "position": 0,
       "tier": 1,
       "cost": 1,
@@ -1815,7 +1892,8 @@
       "name": "Massacre",
       "location": "5,4,1",
       "class": "WARRIOR",
-      "height": 27,
+      "index": 55,
+      "height": 28,
       "position": -3,
       "tier": 2,
       "cost": 2,
@@ -1845,7 +1923,8 @@
       "name": "Axe Kick",
       "location": "5,4,3",
       "class": "WARRIOR",
-      "height": 27,
+      "index": 56,
+      "height": 28,
       "position": -1,
       "tier": 1,
       "cost": 1,
@@ -1874,7 +1953,8 @@
       "name": "Radiance",
       "location": "5,4,5",
       "class": "WARRIOR",
-      "height": 27,
+      "index": 57,
+      "height": 28,
       "position": 1,
       "tier": 3,
       "cost": 2,
@@ -1913,7 +1993,8 @@
       "name": "Cheaper Bash",
       "location": "5,4,7",
       "class": "WARRIOR",
-      "height": 27,
+      "index": 58,
+      "height": 28,
       "position": 3,
       "tier": 1,
       "cost": 1,
@@ -1939,7 +2020,8 @@
       "name": "Cheaper War Scream",
       "location": "6,1,0",
       "class": "WARRIOR",
-      "height": 28,
+      "index": 59,
+      "height": 29,
       "position": -4,
       "tier": 1,
       "cost": 1,
@@ -1963,7 +2045,8 @@
       "name": "Discombobulate",
       "location": "6,1,2",
       "class": "WARRIOR",
-      "height": 28,
+      "index": 60,
+      "height": 29,
       "position": -2,
       "tier": 4,
       "cost": 2,
@@ -1994,7 +2077,8 @@
       "name": "Cyclone",
       "location": "6,1,4",
       "class": "WARRIOR",
-      "height": 28,
+      "index": 61,
+      "height": 29,
       "position": 0,
       "tier": 2,
       "cost": 2,
@@ -2036,7 +2120,8 @@
       "name": "Thunderclap",
       "location": "6,2,5",
       "class": "WARRIOR",
-      "height": 29,
+      "index": 62,
+      "height": 30,
       "position": 1,
       "tier": 2,
       "cost": 2,
@@ -2067,7 +2152,8 @@
       "name": "Second Chance",
       "location": "6,2,7",
       "class": "WARRIOR",
-      "height": 29,
+      "index": 63,
+      "height": 30,
       "position": 3,
       "tier": 4,
       "cost": 2,
@@ -2101,7 +2187,8 @@
       "name": "Blood Pact",
       "location": "6,3,0",
       "class": "WARRIOR",
-      "height": 30,
+      "index": 64,
+      "height": 31,
       "position": -4,
       "tier": 4,
       "cost": 2,
@@ -2129,7 +2216,8 @@
       "name": "Haemorrhage",
       "location": "6,4,2",
       "class": "WARRIOR",
-      "height": 31,
+      "index": 65,
+      "height": 32,
       "position": -2,
       "tier": 2,
       "cost": 2,
@@ -2155,7 +2243,8 @@
       "name": "Brink of Madness",
       "location": "6,4,4",
       "class": "WARRIOR",
-      "height": 31,
+      "index": 66,
+      "height": 32,
       "position": 0,
       "tier": 3,
       "cost": 2,
@@ -2184,7 +2273,8 @@
       "name": "Cheaper Uppercut",
       "location": "6,4,6",
       "class": "WARRIOR",
-      "height": 31,
+      "index": 67,
+      "height": 32,
       "position": 2,
       "tier": 1,
       "cost": 1,
@@ -2209,7 +2299,8 @@
       "name": "Martyr",
       "location": "6,4,8",
       "class": "WARRIOR",
-      "height": 31,
+      "index": 68,
+      "height": 32,
       "position": 4,
       "tier": 2,
       "cost": 2,
@@ -2235,7 +2326,8 @@
         "icon": "MARTYR",
         "upgradable": false,
         "overview": [
-          "duration"
+          "duration",
+          "aoe"
         ]
       }
     },
@@ -2244,6 +2336,7 @@
       "name": null,
       "location": null,
       "class": "ARCHER",
+      "index": -1,
       "height": 2,
       "position": -2,
       "tier": 0,
@@ -2254,16 +2347,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": "~16"
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "ARCHER_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -2272,6 +2366,7 @@
       "name": "Arrow Bomb",
       "location": "0,0,4",
       "class": "ARCHER",
+      "index": 0,
       "height": 0,
       "position": 0,
       "tier": 0,
@@ -2309,6 +2404,7 @@
       "name": "Bow Proficiency I",
       "location": "0,2,4",
       "class": "ARCHER",
+      "index": 1,
       "height": 2,
       "position": 0,
       "tier": 1,
@@ -2324,7 +2420,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 6
       },
       "metadata": null
@@ -2334,6 +2432,7 @@
       "name": "Cheaper Arrow Bomb",
       "location": "0,2,6",
       "class": "ARCHER",
+      "index": 2,
       "height": 2,
       "position": 2,
       "tier": 1,
@@ -2358,6 +2457,7 @@
       "name": "Heart Shatter",
       "location": "0,4,4",
       "class": "ARCHER",
+      "index": 3,
       "height": 4,
       "position": 0,
       "tier": 2,
@@ -2390,6 +2490,7 @@
       "name": "Escape",
       "location": "1,1,4",
       "class": "ARCHER",
+      "index": 5,
       "height": 6,
       "position": 0,
       "tier": 0,
@@ -2418,6 +2519,7 @@
       "name": "Double Shots",
       "location": "1,1,2",
       "class": "ARCHER",
+      "index": 4,
       "height": 6,
       "position": -2,
       "tier": 1,
@@ -2435,8 +2537,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": -30,
-        "main_attack_hits_modifier": 1
+        "main_attack_modifier": {
+          "damage": -30,
+          "hits": 1
+        }
       },
       "metadata": null
     },
@@ -2445,6 +2549,7 @@
       "name": "Power Shots",
       "location": "1,1,6",
       "class": "ARCHER",
+      "index": 6,
       "height": 6,
       "position": 2,
       "tier": 1,
@@ -2471,6 +2576,7 @@
       "name": "Arrow Storm",
       "location": "1,3,2",
       "class": "ARCHER",
+      "index": 7,
       "height": 8,
       "position": -2,
       "tier": 0,
@@ -2509,6 +2615,7 @@
       "name": "Cheaper Escape",
       "location": "1,3,4",
       "class": "ARCHER",
+      "index": 8,
       "height": 8,
       "position": 0,
       "tier": 1,
@@ -2534,6 +2641,7 @@
       "name": "Arrow Shield",
       "location": "1,3,6",
       "class": "ARCHER",
+      "index": 9,
       "height": 8,
       "position": 2,
       "tier": 0,
@@ -2574,6 +2682,7 @@
       "name": "Windy Feet",
       "location": "1,4,1",
       "class": "ARCHER",
+      "index": 10,
       "height": 9,
       "position": -3,
       "tier": 2,
@@ -2602,7 +2711,8 @@
         "type": "EXTEND",
         "icon": "WINDY_FEET",
         "overview": [
-          "duration"
+          "duration",
+          "aoe"
         ]
       }
     },
@@ -2611,6 +2721,7 @@
       "name": "Air Mastery",
       "location": "2,1,0",
       "class": "ARCHER",
+      "index": 11,
       "height": 10,
       "position": -4,
       "tier": 1,
@@ -2643,6 +2754,7 @@
       "name": "Thunder Mastery",
       "location": "2,1,2",
       "class": "ARCHER",
+      "index": 12,
       "height": 10,
       "position": -2,
       "tier": 1,
@@ -2653,7 +2765,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARROW_STORM",
-        "CHEAPER_ESCAPE_1",
         "ARCHER_FIRE_MASTERY"
       ],
       "properties": {
@@ -2677,6 +2788,7 @@
       "name": "Fire Mastery",
       "location": "2,1,6",
       "class": "ARCHER",
+      "index": 13,
       "height": 10,
       "position": 2,
       "tier": 1,
@@ -2687,7 +2799,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARROW_SHIELD",
-        "CHEAPER_ESCAPE_1",
         "ARCHER_THUNDER_MASTERY"
       ],
       "properties": {
@@ -2711,6 +2822,7 @@
       "name": "Earth Mastery",
       "location": "2,1,8",
       "class": "ARCHER",
+      "index": 14,
       "height": 10,
       "position": 4,
       "tier": 1,
@@ -2743,6 +2855,7 @@
       "name": "Water Mastery",
       "location": "2,2,4",
       "class": "ARCHER",
+      "index": 15,
       "height": 11,
       "position": 0,
       "tier": 1,
@@ -2777,6 +2890,7 @@
       "name": "Arrow Rain",
       "location": "2,3,0",
       "class": "ARCHER",
+      "index": 16,
       "height": 12,
       "position": -4,
       "tier": 2,
@@ -2794,9 +2908,9 @@
           "spell": "SPELL_4"
         },
         "damage": {
-          "neutral": 80,
-          "air": 60,
-          "hits": 150,
+          "neutral": 100,
+          "air": 50,
+          "hits": 200,
           "label": "ARROW"
         }
       },
@@ -2814,6 +2928,7 @@
       "name": "Nimble String",
       "location": "2,3,2",
       "class": "ARCHER",
+      "index": 17,
       "height": 12,
       "position": -2,
       "tier": 2,
@@ -2845,6 +2960,7 @@
       "name": "Phantom Ray",
       "location": "2,4,4",
       "class": "ARCHER",
+      "index": 18,
       "height": 13,
       "position": 0,
       "tier": 3,
@@ -2894,6 +3010,7 @@
       "name": "Fire Creep",
       "location": "2,4,6",
       "class": "ARCHER",
+      "index": 19,
       "height": 13,
       "position": 2,
       "tier": 2,
@@ -2936,6 +3053,7 @@
       "name": "Bryophyte Roots",
       "location": "2,4,8",
       "class": "ARCHER",
+      "index": 20,
       "height": 13,
       "position": 4,
       "tier": 2,
@@ -2984,6 +3102,7 @@
       "name": "Triple Shots",
       "location": "2,5,0",
       "class": "ARCHER",
+      "index": 21,
       "height": 14,
       "position": -4,
       "tier": 1,
@@ -3000,8 +3119,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": -20,
-        "main_attack_hits_modifier": 1
+        "main_attack_modifier": {
+          "damage": -20,
+          "hits": 1
+        }
       },
       "metadata": null
     },
@@ -3010,6 +3131,7 @@
       "name": "Frenzy",
       "location": "2,5,2",
       "class": "ARCHER",
+      "index": 22,
       "height": 14,
       "position": -2,
       "tier": 2,
@@ -3040,6 +3162,7 @@
       "name": "Guardian Angels",
       "location": "3,1,1",
       "class": "ARCHER",
+      "index": 23,
       "height": 15,
       "position": -3,
       "tier": 4,
@@ -3085,6 +3208,7 @@
       "name": "Focus",
       "location": "3,1,4",
       "class": "ARCHER",
+      "index": 24,
       "height": 15,
       "position": 0,
       "tier": 4,
@@ -3119,6 +3243,7 @@
       "name": "Basaltic Trap",
       "location": "3,1,8",
       "class": "ARCHER",
+      "index": 25,
       "height": 15,
       "position": 4,
       "tier": 4,
@@ -3162,6 +3287,7 @@
       "name": "Windstorm",
       "location": "3,3,1",
       "class": "ARCHER",
+      "index": 26,
       "height": 17,
       "position": -3,
       "tier": 2,
@@ -3196,6 +3322,7 @@
       "name": "Cheaper Arrow Storm",
       "location": "3,3,3",
       "class": "ARCHER",
+      "index": 27,
       "height": 17,
       "position": -1,
       "tier": 1,
@@ -3222,6 +3349,7 @@
       "name": "Grappling Hook",
       "location": "3,3,5",
       "class": "ARCHER",
+      "index": 28,
       "height": 17,
       "position": 1,
       "tier": 3,
@@ -3260,6 +3388,7 @@
       "name": "More Shields",
       "location": "3,3,7",
       "class": "ARCHER",
+      "index": 29,
       "height": 17,
       "position": 3,
       "tier": 1,
@@ -3286,6 +3415,7 @@
       "name": "More Focus",
       "location": "3,4,4",
       "class": "ARCHER",
+      "index": 30,
       "height": 18,
       "position": 0,
       "tier": 1,
@@ -3312,6 +3442,7 @@
       "name": "Implosion",
       "location": "3,4,6",
       "class": "ARCHER",
+      "index": 31,
       "height": 18,
       "position": 2,
       "tier": 2,
@@ -3340,6 +3471,7 @@
       "name": "Patient Hunter",
       "location": "3,4,8",
       "class": "ARCHER",
+      "index": 32,
       "height": 18,
       "position": 4,
       "tier": 2,
@@ -3370,6 +3502,7 @@
       "name": "Stormy Feet",
       "location": "3,5,1",
       "class": "ARCHER",
+      "index": 33,
       "height": 19,
       "position": -3,
       "tier": 1,
@@ -3397,6 +3530,7 @@
       "name": "Refined Gunpowder",
       "location": "4,1,0",
       "class": "ARCHER",
+      "index": 34,
       "height": 20,
       "position": -4,
       "tier": 1,
@@ -3424,6 +3558,7 @@
       "name": "Traveler",
       "location": "4,1,2",
       "class": "ARCHER",
+      "index": 35,
       "height": 20,
       "position": -2,
       "tier": 1,
@@ -3449,7 +3584,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -3457,6 +3595,7 @@
       "name": "Twain's Arc",
       "location": "4,1,4",
       "class": "ARCHER",
+      "index": 36,
       "height": 20,
       "position": 0,
       "tier": 3,
@@ -3495,6 +3634,7 @@
       "name": "Bouncing Bomb",
       "location": "4,1,7",
       "class": "ARCHER",
+      "index": 37,
       "height": 20,
       "position": 3,
       "tier": 3,
@@ -3518,6 +3658,7 @@
       "name": "Fierce Stomp",
       "location": "4,2,1",
       "class": "ARCHER",
+      "index": 38,
       "height": 21,
       "position": -3,
       "tier": 2,
@@ -3546,7 +3687,8 @@
         "type": "EXTEND",
         "icon": "FIERCE_STOMP",
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -3555,6 +3697,7 @@
       "name": "Scorched Earth",
       "location": "4,2,5",
       "class": "ARCHER",
+      "index": 39,
       "height": 21,
       "position": 1,
       "tier": 2,
@@ -3587,6 +3730,7 @@
       "name": "More Traps",
       "location": "4,2,8",
       "class": "ARCHER",
+      "index": 40,
       "height": 21,
       "position": 4,
       "tier": 1,
@@ -3611,6 +3755,7 @@
       "name": "Leap",
       "location": "4,4,0",
       "class": "ARCHER",
+      "index": 41,
       "height": 23,
       "position": -4,
       "tier": 2,
@@ -3641,6 +3786,7 @@
       "name": "Homing Shots",
       "location": "4,4,2",
       "class": "ARCHER",
+      "index": 42,
       "height": 23,
       "position": -2,
       "tier": 3,
@@ -3668,6 +3814,7 @@
       "name": "Shocking Bomb",
       "location": "4,4,4",
       "class": "ARCHER",
+      "index": 43,
       "height": 23,
       "position": 0,
       "tier": 2,
@@ -3697,6 +3844,7 @@
       "name": "Better Arrow Shield",
       "location": "4,4,6",
       "class": "ARCHER",
+      "index": 44,
       "height": 23,
       "position": 2,
       "tier": 1,
@@ -3729,6 +3877,7 @@
       "name": "Mana Trap",
       "location": "4,4,8",
       "class": "ARCHER",
+      "index": 45,
       "height": 23,
       "position": 4,
       "tier": 4,
@@ -3770,6 +3919,7 @@
       "name": "Better Leap",
       "location": "4,5,1",
       "class": "ARCHER",
+      "index": 46,
       "height": 24,
       "position": -3,
       "tier": 1,
@@ -3795,6 +3945,7 @@
       "name": "Escape Artist",
       "location": "5,1,0",
       "class": "ARCHER",
+      "index": 47,
       "height": 25,
       "position": -4,
       "tier": 2,
@@ -3815,8 +3966,8 @@
           "ability": "ESCAPE"
         },
         "damage": {
-          "neutral": 20,
-          "thunder": 10,
+          "neutral": 70,
+          "thunder": 30,
           "hits": 120,
           "label": "ARROW"
         }
@@ -3835,6 +3986,7 @@
       "name": "Better Guardian Angels",
       "location": "5,1,2",
       "class": "ARCHER",
+      "index": 48,
       "height": 25,
       "position": -2,
       "tier": 1,
@@ -3862,6 +4014,7 @@
       "name": "Initiator",
       "location": "5,1,5",
       "class": "ARCHER",
+      "index": 49,
       "height": 25,
       "position": 1,
       "tier": 3,
@@ -3901,6 +4054,7 @@
       "name": "Cheaper Arrow Storm",
       "location": "5,1,8",
       "class": "ARCHER",
+      "index": 50,
       "height": 25,
       "position": 4,
       "tier": 1,
@@ -3926,6 +4080,7 @@
       "name": "Call of the Hound",
       "location": "5,2,7",
       "class": "ARCHER",
+      "index": 51,
       "height": 26,
       "position": 3,
       "tier": 3,
@@ -3945,6 +4100,7 @@
         "damage": {
           "neutral": 40
         },
+        "damage_interval": 0.3,
         "duration": 60
       },
       "metadata": {
@@ -3962,6 +4118,7 @@
       "name": "Arrow Hurricane",
       "location": "5,3,0",
       "class": "ARCHER",
+      "index": 52,
       "height": 27,
       "position": -4,
       "tier": 4,
@@ -3991,6 +4148,7 @@
       "name": "Precise Shot",
       "location": "5,3,2",
       "class": "ARCHER",
+      "index": 53,
       "height": 27,
       "position": -2,
       "tier": 1,
@@ -4021,6 +4179,7 @@
       "name": "Cheaper Arrow Shield",
       "location": "5,3,4",
       "class": "ARCHER",
+      "index": 54,
       "height": 27,
       "position": 0,
       "tier": 1,
@@ -4046,6 +4205,7 @@
       "name": "Rocket Jump",
       "location": "5,3,6",
       "class": "ARCHER",
+      "index": 55,
       "height": 27,
       "position": 2,
       "tier": 1,
@@ -4070,6 +4230,7 @@
       "name": "Shrapnel Bomb",
       "location": "5,4,1",
       "class": "ARCHER",
+      "index": 56,
       "height": 28,
       "position": -3,
       "tier": 2,
@@ -4109,6 +4270,7 @@
       "name": "Decimator",
       "location": "5,4,5",
       "class": "ARCHER",
+      "index": 57,
       "height": 28,
       "position": 1,
       "tier": 2,
@@ -4137,6 +4299,7 @@
       "name": "Cheaper Escape",
       "location": "5,4,7",
       "class": "ARCHER",
+      "index": 58,
       "height": 28,
       "position": 3,
       "tier": 1,
@@ -4162,6 +4325,7 @@
       "name": "Stronger Hook",
       "location": "5,5,8",
       "class": "ARCHER",
+      "index": 59,
       "height": 29,
       "position": 4,
       "tier": 1,
@@ -4188,6 +4352,7 @@
       "name": "Geyser Stomp",
       "location": "6,1,1",
       "class": "ARCHER",
+      "index": 60,
       "height": 30,
       "position": -3,
       "tier": 2,
@@ -4218,6 +4383,7 @@
       "name": "Crepuscular Ray",
       "location": "6,1,4",
       "class": "ARCHER",
+      "index": 61,
       "height": 30,
       "position": 0,
       "tier": 4,
@@ -4236,8 +4402,8 @@
           "spell": "SPELL_1"
         },
         "damage": {
-          "neutral": 20,
-          "water": 5,
+          "neutral": 25,
+          "water": 10,
           "label": "ARROW"
         },
         "damage_interval": 0.05,
@@ -4261,6 +4427,7 @@
       "name": "Grape Bomb",
       "location": "6,1,7",
       "class": "ARCHER",
+      "index": 62,
       "height": 30,
       "position": 3,
       "tier": 3,
@@ -4291,7 +4458,8 @@
         "icon": "GRAPE_BOMB",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -4300,6 +4468,7 @@
       "name": "Elusive",
       "location": "6,2,0",
       "class": "ARCHER",
+      "index": 63,
       "height": 31,
       "position": -4,
       "tier": 2,
@@ -4327,6 +4496,7 @@
       "name": "Tangled Traps",
       "location": "6,2,6",
       "class": "ARCHER",
+      "index": 64,
       "height": 31,
       "position": 2,
       "tier": 2,
@@ -4362,6 +4532,7 @@
       "name": "Stronger Patient Hunter",
       "location": "6,2,8",
       "class": "ARCHER",
+      "index": 65,
       "height": 31,
       "position": 4,
       "tier": 1,
@@ -4388,6 +4559,7 @@
       "name": "Snow Storm",
       "location": "6,3,2",
       "class": "ARCHER",
+      "index": 66,
       "height": 32,
       "position": -2,
       "tier": 3,
@@ -4420,6 +4592,7 @@
       "name": "More Focus",
       "location": "6,3,4",
       "class": "ARCHER",
+      "index": 67,
       "height": 32,
       "position": 0,
       "tier": 1,
@@ -4446,6 +4619,7 @@
       "name": "All-Seeing Panoptes",
       "location": "6,4,1",
       "class": "ARCHER",
+      "index": 68,
       "height": 33,
       "position": -3,
       "tier": 4,
@@ -4477,6 +4651,7 @@
       "name": "Cheaper Arrow Bomb",
       "location": "6,4,5",
       "class": "ARCHER",
+      "index": 69,
       "height": 33,
       "position": 1,
       "tier": 1,
@@ -4502,6 +4677,7 @@
       "name": "Minefield",
       "location": "6,4,7",
       "class": "ARCHER",
+      "index": 70,
       "height": 33,
       "position": 3,
       "tier": 4,
@@ -4536,6 +4712,7 @@
       "name": null,
       "location": null,
       "class": "MAGE",
+      "index": -1,
       "height": 2,
       "position": -2,
       "tier": 0,
@@ -4546,16 +4723,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": 13
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "MAGE_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -4564,6 +4742,7 @@
       "name": "Meteor",
       "location": "0,0,4",
       "class": "MAGE",
+      "index": 0,
       "height": 0,
       "position": 0,
       "tier": 0,
@@ -4600,6 +4779,7 @@
       "name": "Wand Proficiency I",
       "location": "0,2,4",
       "class": "MAGE",
+      "index": 1,
       "height": 2,
       "position": 0,
       "tier": 1,
@@ -4615,7 +4795,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 2
       },
       "metadata": null
@@ -4625,6 +4807,7 @@
       "name": "Cheaper Meteor",
       "location": "0,2,6",
       "class": "MAGE",
+      "index": 2,
       "height": 2,
       "position": 2,
       "tier": 1,
@@ -4649,6 +4832,7 @@
       "name": "Shooting Star",
       "location": "0,4,4",
       "class": "MAGE",
+      "index": 3,
       "height": 4,
       "position": 0,
       "tier": 2,
@@ -4672,6 +4856,7 @@
       "name": "Wand Proficiency II",
       "location": "1,1,2",
       "class": "MAGE",
+      "index": 4,
       "height": 6,
       "position": -2,
       "tier": 1,
@@ -4689,7 +4874,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "main_range_modifier": 2
       },
       "metadata": null
@@ -4699,6 +4886,7 @@
       "name": "Teleport",
       "location": "1,1,4",
       "class": "MAGE",
+      "index": 5,
       "height": 6,
       "position": 0,
       "tier": 0,
@@ -4729,6 +4917,7 @@
       "name": "Wisdom",
       "location": "1,1,6",
       "class": "MAGE",
+      "index": 6,
       "height": 6,
       "position": 2,
       "tier": 1,
@@ -4756,7 +4945,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -4764,6 +4956,7 @@
       "name": "Heal",
       "location": "1,3,2",
       "class": "MAGE",
+      "index": 7,
       "height": 8,
       "position": -2,
       "tier": 0,
@@ -4779,7 +4972,7 @@
       "properties": {
         "spell": "SPELL_1",
         "mana_cost": 35,
-        "total_heal": 10,
+        "total_heal": 15,
         "range": 5,
         "values": {
           "1": 30
@@ -4799,6 +4992,7 @@
       "name": "Cheaper Teleport",
       "location": "1,3,4",
       "class": "MAGE",
+      "index": 8,
       "height": 8,
       "position": 0,
       "tier": 1,
@@ -4824,6 +5018,7 @@
       "name": "Ice Snake",
       "location": "1,3,6",
       "class": "MAGE",
+      "index": 9,
       "height": 8,
       "position": 2,
       "tier": 0,
@@ -4863,6 +5058,7 @@
       "name": "Air Mastery",
       "location": "2,1,0",
       "class": "MAGE",
+      "index": 10,
       "height": 10,
       "position": -4,
       "tier": 1,
@@ -4895,6 +5091,7 @@
       "name": "Thunder Mastery",
       "location": "2,1,2",
       "class": "MAGE",
+      "index": 11,
       "height": 10,
       "position": -2,
       "tier": 1,
@@ -4928,6 +5125,7 @@
       "name": "Fire Mastery",
       "location": "2,1,6",
       "class": "MAGE",
+      "index": 12,
       "height": 10,
       "position": 2,
       "tier": 1,
@@ -4960,6 +5158,7 @@
       "name": "Earth Mastery",
       "location": "2,1,8",
       "class": "MAGE",
+      "index": 13,
       "height": 10,
       "position": 4,
       "tier": 1,
@@ -4992,6 +5191,7 @@
       "name": "Water Mastery",
       "location": "2,2,4",
       "class": "MAGE",
+      "index": 14,
       "height": 11,
       "position": 0,
       "tier": 1,
@@ -5025,6 +5225,7 @@
       "name": "Wind Slash",
       "location": "2,3,0",
       "class": "MAGE",
+      "index": 15,
       "height": 12,
       "position": -4,
       "tier": 2,
@@ -5060,6 +5261,7 @@
       "name": "Thunderstorm",
       "location": "2,3,2",
       "class": "MAGE",
+      "index": 16,
       "height": 12,
       "position": -2,
       "tier": 2,
@@ -5078,10 +5280,11 @@
           "ability": "METEOR"
         },
         "damage": {
-          "neutral": 30,
-          "thunder": 15,
-          "hits": 3
+          "neutral": 25,
+          "thunder": 10,
+          "hits": 4
         },
+        "damage_interval": 0.2,
         "aoe": {
           "range": 2,
           "shape": "CIRCLE"
@@ -5092,7 +5295,8 @@
         "icon": "THUNDERSTORM",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -5101,6 +5305,7 @@
       "name": "Burning Sigil",
       "location": "2,3,7",
       "class": "MAGE",
+      "index": 17,
       "height": 12,
       "position": 3,
       "tier": 2,
@@ -5127,7 +5332,7 @@
           "range": 7,
           "shape": "CIRCLE"
         },
-        "duration": 5,
+        "duration": 8,
         "cooldown": 8
       },
       "metadata": {
@@ -5145,6 +5350,7 @@
       "name": "Sunshower",
       "location": "2,4,4",
       "class": "MAGE",
+      "index": 18,
       "height": 13,
       "position": 0,
       "tier": 2,
@@ -5166,6 +5372,10 @@
         "damage": {
           "neutral": 70,
           "water": 30
+        },
+        "aoe": {
+          "range": 5,
+          "shape": "CIRCLE"
         }
       },
       "metadata": {
@@ -5173,7 +5383,8 @@
         "icon": "SUNSHOWER",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -5182,6 +5393,7 @@
       "name": "Stronger Meteor",
       "location": "2,4,8",
       "class": "MAGE",
+      "index": 19,
       "height": 13,
       "position": 4,
       "tier": 1,
@@ -5211,6 +5423,7 @@
       "name": "Windsweeper",
       "location": "3,1,1",
       "class": "MAGE",
+      "index": 20,
       "height": 15,
       "position": -3,
       "tier": 4,
@@ -5254,6 +5467,7 @@
       "name": "Ophanim",
       "location": "3,1,4",
       "class": "MAGE",
+      "index": 21,
       "height": 15,
       "position": 0,
       "tier": 4,
@@ -5305,6 +5519,7 @@
       "name": "Arcane Transfer",
       "location": "3,1,7",
       "class": "MAGE",
+      "index": 22,
       "height": 15,
       "position": 3,
       "tier": 4,
@@ -5342,6 +5557,7 @@
       "name": "Cheaper Heal",
       "location": "3,3,1",
       "class": "MAGE",
+      "index": 23,
       "height": 17,
       "position": -3,
       "tier": 1,
@@ -5367,6 +5583,7 @@
       "name": "Purification",
       "location": "3,3,4",
       "class": "MAGE",
+      "index": 24,
       "height": 17,
       "position": 0,
       "tier": 3,
@@ -5400,6 +5617,7 @@
       "name": "Sentient Snake",
       "location": "3,3,6",
       "class": "MAGE",
+      "index": 25,
       "height": 17,
       "position": 2,
       "tier": 2,
@@ -5424,6 +5642,7 @@
       "name": "Eye Piercer",
       "location": "3,4,0",
       "class": "MAGE",
+      "index": 26,
       "height": 18,
       "position": -4,
       "tier": 2,
@@ -5458,6 +5677,7 @@
       "name": "Breathless",
       "location": "3,4,2",
       "class": "MAGE",
+      "index": 27,
       "height": 18,
       "position": -2,
       "tier": 2,
@@ -5475,8 +5695,8 @@
           "spell": "SPELL_3"
         },
         "damage": {
-          "neutral": 15,
-          "earth": 10,
+          "neutral": 10,
+          "earth": 8,
           "label": "WINDED"
         },
         "winded_booster": [
@@ -5499,6 +5719,7 @@
       "name": "Larger Heal",
       "location": "3,4,5",
       "class": "MAGE",
+      "index": 28,
       "height": 18,
       "position": 1,
       "tier": 1,
@@ -5525,6 +5746,7 @@
       "name": "Larger Mana Bank",
       "location": "3,4,8",
       "class": "MAGE",
+      "index": 29,
       "height": 18,
       "position": 4,
       "tier": 1,
@@ -5549,6 +5771,7 @@
       "name": "Cheaper Ice Snake",
       "location": "4,1,0",
       "class": "MAGE",
+      "index": 30,
       "height": 20,
       "position": -4,
       "tier": 1,
@@ -5574,6 +5797,7 @@
       "name": "Fortitude",
       "location": "4,1,2",
       "class": "MAGE",
+      "index": 31,
       "height": 20,
       "position": -2,
       "tier": 3,
@@ -5618,6 +5842,7 @@
       "name": "Cheaper Teleport",
       "location": "4,1,4",
       "class": "MAGE",
+      "index": 32,
       "height": 20,
       "position": 0,
       "tier": 1,
@@ -5643,6 +5868,7 @@
       "name": "Pyrokinesis",
       "location": "4,1,7",
       "class": "MAGE",
+      "index": 33,
       "height": 20,
       "position": 3,
       "tier": 3,
@@ -5676,7 +5902,8 @@
         "type": "EXTEND",
         "icon": "PYROKINESIS",
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -5685,6 +5912,7 @@
       "name": "Blink",
       "location": "4,2,1",
       "class": "MAGE",
+      "index": 34,
       "height": 21,
       "position": -3,
       "tier": 2,
@@ -5711,6 +5939,7 @@
       "name": "Healthier Ophanim I",
       "location": "4,3,3",
       "class": "MAGE",
+      "index": 35,
       "height": 22,
       "position": -1,
       "tier": 1,
@@ -5740,6 +5969,7 @@
       "name": "Snake Nest",
       "location": "4,3,5",
       "class": "MAGE",
+      "index": 36,
       "height": 22,
       "position": 1,
       "tier": 2,
@@ -5771,6 +6001,7 @@
       "name": "Seance",
       "location": "4,3,7",
       "class": "MAGE",
+      "index": 37,
       "height": 22,
       "position": 3,
       "tier": 1,
@@ -5796,7 +6027,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -5804,6 +6038,7 @@
       "name": "Transonic Warp",
       "location": "4,4,0",
       "class": "MAGE",
+      "index": 38,
       "height": 23,
       "position": -4,
       "tier": 3,
@@ -5847,6 +6082,7 @@
       "name": "Fluid Healing",
       "location": "4,4,2",
       "class": "MAGE",
+      "index": 39,
       "height": 23,
       "position": -2,
       "tier": 2,
@@ -5872,6 +6108,7 @@
       "name": "Orphion's Pulse",
       "location": "4,4,4",
       "class": "MAGE",
+      "index": 40,
       "height": 23,
       "position": 0,
       "tier": 2,
@@ -5891,7 +6128,7 @@
           "ability": "HEAL"
         },
         "pulse_heal": {
-          "heal": 15,
+          "heal": 20,
           "trigger": 2
         }
       },
@@ -5902,6 +6139,7 @@
       "name": "Arcane Restoration",
       "location": "4,4,6",
       "class": "MAGE",
+      "index": 41,
       "height": 23,
       "position": 2,
       "tier": 2,
@@ -5931,6 +6169,7 @@
       "name": "Diffusion",
       "location": "5,1,1",
       "class": "MAGE",
+      "index": 42,
       "height": 25,
       "position": -3,
       "tier": 4,
@@ -5958,6 +6197,7 @@
       "name": "Lightweaver",
       "location": "5,1,4",
       "class": "MAGE",
+      "index": 43,
       "height": 25,
       "position": 0,
       "tier": 4,
@@ -5977,14 +6217,15 @@
           "ability": "HEAL"
         },
         "damage": {
-          "neutral": 40,
-          "fire": 20
+          "neutral": 70,
+          "fire": 30
         },
         "lightweaver": {
           "heal": 50,
           "time_limit": 10,
           "max": 3
         },
+        "range": 7,
         "duration": 20
       },
       "metadata": {
@@ -6001,6 +6242,7 @@
       "name": "Arcane Speed",
       "location": "5,1,6",
       "class": "MAGE",
+      "index": 44,
       "height": 25,
       "position": 2,
       "tier": 2,
@@ -6038,6 +6280,7 @@
       "name": "Larger Mana Bank",
       "location": "5,1,8",
       "class": "MAGE",
+      "index": 45,
       "height": 25,
       "position": 4,
       "tier": 1,
@@ -6063,6 +6306,7 @@
       "name": "More Winded",
       "location": "5,2,0",
       "class": "MAGE",
+      "index": 46,
       "height": 26,
       "position": -4,
       "tier": 1,
@@ -6087,6 +6331,7 @@
       "name": "Psychokinesis",
       "location": "5,2,7",
       "class": "MAGE",
+      "index": 47,
       "height": 26,
       "position": 3,
       "tier": 2,
@@ -6114,6 +6359,7 @@
       "name": "Cheaper Ice Snake",
       "location": "5,3,1",
       "class": "MAGE",
+      "index": 48,
       "height": 27,
       "position": -3,
       "tier": 1,
@@ -6139,6 +6385,7 @@
       "name": "Explosive Entrance",
       "location": "5,3,3",
       "class": "MAGE",
+      "index": 49,
       "height": 27,
       "position": -1,
       "tier": 2,
@@ -6169,7 +6416,8 @@
         "icon": "EXPLOSIVE_ENTRANCE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -6178,6 +6426,7 @@
       "name": "Cheaper Meteor",
       "location": "5,3,5",
       "class": "MAGE",
+      "index": 50,
       "height": 27,
       "position": 1,
       "tier": 1,
@@ -6204,6 +6453,7 @@
       "name": "Chaos Explosion",
       "location": "5,3,8",
       "class": "MAGE",
+      "index": 51,
       "height": 27,
       "position": 4,
       "tier": 4,
@@ -6237,6 +6487,7 @@
       "name": "Time Dilation",
       "location": "5,4,0",
       "class": "MAGE",
+      "index": 52,
       "height": 28,
       "position": -4,
       "tier": 3,
@@ -6271,6 +6522,7 @@
       "name": "Gust",
       "location": "5,4,2",
       "class": "MAGE",
+      "index": 53,
       "height": 28,
       "position": -2,
       "tier": 2,
@@ -6306,6 +6558,7 @@
       "name": "Better Ophanim",
       "location": "5,4,4",
       "class": "MAGE",
+      "index": 54,
       "height": 28,
       "position": 0,
       "tier": 1,
@@ -6333,6 +6586,7 @@
       "name": "Arctic Snake",
       "location": "5,4,7",
       "class": "MAGE",
+      "index": 55,
       "height": 28,
       "position": 3,
       "tier": 2,
@@ -6367,6 +6621,7 @@
       "name": "Arcane Power",
       "location": "5,5,6",
       "class": "MAGE",
+      "index": 56,
       "height": 29,
       "position": 2,
       "tier": 1,
@@ -6391,6 +6646,7 @@
       "name": "More Winded",
       "location": "6,1,0",
       "class": "MAGE",
+      "index": 57,
       "height": 30,
       "position": -4,
       "tier": 1,
@@ -6416,6 +6672,7 @@
       "name": "Dynamic Faith",
       "location": "6,1,2",
       "class": "MAGE",
+      "index": 58,
       "height": 30,
       "position": -2,
       "tier": 1,
@@ -6435,13 +6692,16 @@
           },
           "target": "THUNDERDAMAGEBONUS",
           "rate": 1,
-          "max": 100
+          "max": 40
         }
       },
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -6449,6 +6709,7 @@
       "name": "Healthier Ophanim II",
       "location": "6,1,4",
       "class": "MAGE",
+      "index": 59,
       "height": 30,
       "position": 0,
       "tier": 1,
@@ -6476,6 +6737,7 @@
       "name": "Larger Mana Bank",
       "location": "6,1,7",
       "class": "MAGE",
+      "index": 60,
       "height": 30,
       "position": 3,
       "tier": 1,
@@ -6500,6 +6762,7 @@
       "name": "Devitalize",
       "location": "6,2,1",
       "class": "MAGE",
+      "index": 61,
       "height": 31,
       "position": -3,
       "tier": 2,
@@ -6529,6 +6792,7 @@
       "name": "Divination",
       "location": "6,2,3",
       "class": "MAGE",
+      "index": 62,
       "height": 31,
       "position": -1,
       "tier": 3,
@@ -6563,6 +6827,7 @@
       "name": "Sunflare",
       "location": "6,2,5",
       "class": "MAGE",
+      "index": 63,
       "height": 31,
       "position": 1,
       "tier": 4,
@@ -6571,7 +6836,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "LIGHT_BENDER": 12
+        "LIGHT_BENDER": 11
       },
       "predecessors": [
         "HEALTHIER_OPHANIM_2"
@@ -6585,8 +6850,9 @@
           "ALLIES_RESISTANCE": 100
         },
         "duration": 5,
+        "cooldown": 20,
         "values": {
-          "1": 400,
+          "1": 300,
           "2": 10
         }
       },
@@ -6595,7 +6861,9 @@
         "icon": "SUNFLARE",
         "upgradable": false,
         "overview": [
-          "duration"
+          "range",
+          "duration",
+          "cooldown"
         ]
       }
     },
@@ -6604,6 +6872,7 @@
       "name": "Arcane Overflow",
       "location": "6,3,7",
       "class": "MAGE",
+      "index": 64,
       "height": 32,
       "position": 3,
       "tier": 4,
@@ -6620,6 +6889,9 @@
       "properties": {
         "upgrade": {
           "ability": "ARCANE_TRANSFER"
+        },
+        "values": {
+          "1": 400
         }
       },
       "metadata": null
@@ -6629,6 +6901,7 @@
       "name": "Timelock",
       "location": "6,4,0",
       "class": "MAGE",
+      "index": 65,
       "height": 33,
       "position": -4,
       "tier": 4,
@@ -6672,6 +6945,7 @@
       "name": "Cheaper Heal",
       "location": "6,4,2",
       "class": "MAGE",
+      "index": 66,
       "height": 33,
       "position": -2,
       "tier": 1,
@@ -6697,6 +6971,7 @@
       "name": "Manastorm",
       "location": "6,4,5",
       "class": "MAGE",
+      "index": 67,
       "height": 33,
       "position": 1,
       "tier": 2,
@@ -6722,7 +6997,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "MANASTORM",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     },
     {
@@ -6730,6 +7008,7 @@
       "name": "Memory Recollection",
       "location": "6,4,8",
       "class": "MAGE",
+      "index": 68,
       "height": 33,
       "position": 4,
       "tier": 1,
@@ -6756,6 +7035,7 @@
       "name": "Better Lightweaver",
       "location": "6,5,4",
       "class": "MAGE",
+      "index": 69,
       "height": 34,
       "position": 0,
       "tier": 1,
@@ -6783,6 +7063,7 @@
       "name": null,
       "location": null,
       "class": "ASSASSIN",
+      "index": -1,
       "height": 2,
       "position": 2,
       "tier": 0,
@@ -6793,16 +7074,17 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 1,
+        "main_attack": {
+          "damage": 100
+        },
         "main_attack_range": 3
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "ASSASSIN_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "main_attack_range"
         ]
       }
     },
@@ -6811,6 +7093,7 @@
       "name": "Spin Attack",
       "location": "0,0,4",
       "class": "ASSASSIN",
+      "index": 0,
       "height": 0,
       "position": 0,
       "tier": 0,
@@ -6846,6 +7129,7 @@
       "name": "Dagger Proficiency I",
       "location": "0,2,4",
       "class": "ASSASSIN",
+      "index": 2,
       "height": 2,
       "position": 0,
       "tier": 1,
@@ -6861,7 +7145,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5,
+        "main_attack_modifier": {
+          "damage": 5
+        },
         "id_modifier": {
           "SPEED": 5
         }
@@ -6873,6 +7159,7 @@
       "name": "Cheaper Spin Attack",
       "location": "0,2,2",
       "class": "ASSASSIN",
+      "index": 1,
       "height": 2,
       "position": -2,
       "tier": 1,
@@ -6897,6 +7184,7 @@
       "name": "Double Spin",
       "location": "0,4,4",
       "class": "ASSASSIN",
+      "index": 3,
       "height": 4,
       "position": 0,
       "tier": 2,
@@ -6927,6 +7215,7 @@
       "name": "Dash",
       "location": "1,1,4",
       "class": "ASSASSIN",
+      "index": 5,
       "height": 6,
       "position": 0,
       "tier": 0,
@@ -6955,6 +7244,7 @@
       "name": "Poisoned Blade",
       "location": "1,1,2",
       "class": "ASSASSIN",
+      "index": 4,
       "height": 6,
       "position": -2,
       "tier": 1,
@@ -6990,6 +7280,7 @@
       "name": "Double Slice",
       "location": "1,1,6",
       "class": "ASSASSIN",
+      "index": 6,
       "height": 6,
       "position": 2,
       "tier": 1,
@@ -7007,8 +7298,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": -40,
-        "main_attack_hits_modifier": 1
+        "main_attack_modifier": {
+          "damage": -40,
+          "hits": 1
+        }
       },
       "metadata": null
     },
@@ -7017,6 +7310,7 @@
       "name": "Smoke Bomb",
       "location": "1,3,2",
       "class": "ASSASSIN",
+      "index": 7,
       "height": 8,
       "position": -2,
       "tier": 0,
@@ -7060,6 +7354,7 @@
       "name": "Cheaper Dash",
       "location": "1,3,4",
       "class": "ASSASSIN",
+      "index": 8,
       "height": 8,
       "position": 0,
       "tier": 1,
@@ -7085,6 +7380,7 @@
       "name": "Multihit",
       "location": "1,3,6",
       "class": "ASSASSIN",
+      "index": 9,
       "height": 8,
       "position": 2,
       "tier": 0,
@@ -7122,6 +7418,7 @@
       "name": "Earth Mastery",
       "location": "2,1,0",
       "class": "ASSASSIN",
+      "index": 10,
       "height": 10,
       "position": -4,
       "tier": 1,
@@ -7131,7 +7428,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SMOKE_BOMB"
+        "SMOKE_BOMB",
+        "ASSASSIN_THUNDER_MASTERY"
       ],
       "properties": {
         "element_mastery": {
@@ -7154,6 +7452,7 @@
       "name": "Thunder Mastery",
       "location": "2,1,2",
       "class": "ASSASSIN",
+      "index": 11,
       "height": 10,
       "position": -2,
       "tier": 1,
@@ -7163,7 +7462,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "SMOKE_BOMB"
+        "SMOKE_BOMB",
+        "CHEAPER_DASH_1"
       ],
       "properties": {
         "element_mastery": {
@@ -7186,6 +7486,7 @@
       "name": "Water Mastery",
       "location": "2,1,6",
       "class": "ASSASSIN",
+      "index": 12,
       "height": 10,
       "position": 2,
       "tier": 1,
@@ -7219,6 +7520,7 @@
       "name": "Air Mastery",
       "location": "2,1,8",
       "class": "ASSASSIN",
+      "index": 13,
       "height": 10,
       "position": 4,
       "tier": 1,
@@ -7252,6 +7554,7 @@
       "name": "Fire Mastery",
       "location": "2,2,4",
       "class": "ASSASSIN",
+      "index": 14,
       "height": 11,
       "position": 0,
       "tier": 1,
@@ -7285,6 +7588,7 @@
       "name": "Backstab",
       "location": "2,3,1",
       "class": "ASSASSIN",
+      "index": 15,
       "height": 12,
       "position": -3,
       "tier": 2,
@@ -7333,6 +7637,7 @@
       "name": "Fatality",
       "location": "2,3,7",
       "class": "ASSASSIN",
+      "index": 16,
       "height": 12,
       "position": 3,
       "tier": 2,
@@ -7371,6 +7676,7 @@
       "name": "Vanish",
       "location": "2,4,2",
       "class": "ASSASSIN",
+      "index": 17,
       "height": 13,
       "position": -2,
       "tier": 3,
@@ -7407,6 +7713,7 @@
       "name": "Sticky Bomb",
       "location": "2,4,4",
       "class": "ASSASSIN",
+      "index": 18,
       "height": 13,
       "position": 0,
       "tier": 2,
@@ -7434,6 +7741,7 @@
       "name": "Righting Reflex",
       "location": "2,4,6",
       "class": "ASSASSIN",
+      "index": 19,
       "height": 13,
       "position": 2,
       "tier": 2,
@@ -7461,6 +7769,7 @@
       "name": "Surprise Strike",
       "location": "3,1,2",
       "class": "ASSASSIN",
+      "index": 20,
       "height": 15,
       "position": -2,
       "tier": 4,
@@ -7496,6 +7805,7 @@
       "name": "Mirror Image",
       "location": "3,1,4",
       "class": "ASSASSIN",
+      "index": 21,
       "height": 15,
       "position": 0,
       "tier": 4,
@@ -7541,6 +7851,7 @@
       "name": "Lacerate",
       "location": "3,1,7",
       "class": "ASSASSIN",
+      "index": 22,
       "height": 15,
       "position": 3,
       "tier": 4,
@@ -7589,6 +7900,7 @@
       "name": "Silent Killer",
       "location": "3,2,1",
       "class": "ASSASSIN",
+      "index": 23,
       "height": 16,
       "position": -3,
       "tier": 3,
@@ -7612,6 +7924,7 @@
       "name": "Shenanigans",
       "location": "3,2,5",
       "class": "ASSASSIN",
+      "index": 24,
       "height": 16,
       "position": 1,
       "tier": 1,
@@ -7636,7 +7949,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -7644,6 +7960,7 @@
       "name": "Wall of Smoke",
       "location": "3,2,8",
       "class": "ASSASSIN",
+      "index": 25,
       "height": 16,
       "position": 4,
       "tier": 2,
@@ -7671,6 +7988,7 @@
       "name": "Better Smoke Bomb",
       "location": "3,4,0",
       "class": "ASSASSIN",
+      "index": 26,
       "height": 18,
       "position": -4,
       "tier": 1,
@@ -7699,6 +8017,7 @@
       "name": "Shadow Travel",
       "location": "3,4,2",
       "class": "ASSASSIN",
+      "index": 27,
       "height": 18,
       "position": -2,
       "tier": 2,
@@ -7726,6 +8045,7 @@
       "name": "Cheaper Multihit",
       "location": "3,4,5",
       "class": "ASSASSIN",
+      "index": 28,
       "height": 18,
       "position": 1,
       "tier": 1,
@@ -7752,6 +8072,7 @@
       "name": "Dagger Proficiency II",
       "location": "3,4,8",
       "class": "ASSASSIN",
+      "index": 29,
       "height": 18,
       "position": 4,
       "tier": 1,
@@ -7778,6 +8099,7 @@
       "name": "Last Laugh",
       "location": "3,5,4",
       "class": "ASSASSIN",
+      "index": 30,
       "height": 19,
       "position": 0,
       "tier": 2,
@@ -7804,6 +8126,7 @@
       "name": "Cheaper Smoke Bomb",
       "location": "4,1,0",
       "class": "ASSASSIN",
+      "index": 31,
       "height": 20,
       "position": -4,
       "tier": 1,
@@ -7829,6 +8152,7 @@
       "name": "Blazing Powder",
       "location": "4,1,3",
       "class": "ASSASSIN",
+      "index": 32,
       "height": 20,
       "position": -1,
       "tier": 2,
@@ -7870,6 +8194,7 @@
       "name": "Weightless",
       "location": "4,1,7",
       "class": "ASSASSIN",
+      "index": 33,
       "height": 20,
       "position": 3,
       "tier": 3,
@@ -7901,6 +8226,7 @@
       "name": "Black Hole",
       "location": "4,2,1",
       "class": "ASSASSIN",
+      "index": 34,
       "height": 21,
       "position": -3,
       "tier": 2,
@@ -7926,6 +8252,7 @@
       "name": "Sandbagging",
       "location": "4,2,4",
       "class": "ASSASSIN",
+      "index": 35,
       "height": 21,
       "position": 0,
       "tier": 2,
@@ -7959,6 +8286,7 @@
       "name": "Hop",
       "location": "4,2,6",
       "class": "ASSASSIN",
+      "index": 36,
       "height": 21,
       "position": 2,
       "tier": 2,
@@ -7987,6 +8315,7 @@
       "name": "Dancing Blade",
       "location": "4,2,8",
       "class": "ASSASSIN",
+      "index": 37,
       "height": 21,
       "position": 4,
       "tier": 2,
@@ -8021,6 +8350,7 @@
       "name": "Violent Vortex",
       "location": "4,3,0",
       "class": "ASSASSIN",
+      "index": 38,
       "height": 22,
       "position": -4,
       "tier": 2,
@@ -8044,7 +8374,10 @@
       },
       "metadata": {
         "type": "NEW",
-        "icon": "VIOLENT_VORTEX"
+        "icon": "VIOLENT_VORTEX",
+        "overview": [
+          "aoe"
+        ]
       }
     },
     {
@@ -8052,6 +8385,7 @@
       "name": "Delirious Gas",
       "location": "4,3,3",
       "class": "ASSASSIN",
+      "index": 39,
       "height": 22,
       "position": -1,
       "tier": 3,
@@ -8089,6 +8423,7 @@
       "name": "Marked",
       "location": "4,4,1",
       "class": "ASSASSIN",
+      "index": 40,
       "height": 23,
       "position": -3,
       "tier": 4,
@@ -8127,6 +8462,7 @@
       "name": "Echo",
       "location": "4,4,4",
       "class": "ASSASSIN",
+      "index": 41,
       "height": 23,
       "position": 0,
       "tier": 4,
@@ -8157,6 +8493,7 @@
       "name": "Shurikens",
       "location": "4,4,6",
       "class": "ASSASSIN",
+      "index": 42,
       "height": 23,
       "position": 2,
       "tier": 3,
@@ -8195,6 +8532,7 @@
       "name": "Far Reach",
       "location": "4,4,8",
       "class": "ASSASSIN",
+      "index": 43,
       "height": 23,
       "position": 4,
       "tier": 1,
@@ -8220,6 +8558,7 @@
       "name": "Stronger Multihit",
       "location": "4,5,5",
       "class": "ASSASSIN",
+      "index": 44,
       "height": 24,
       "position": 1,
       "tier": 1,
@@ -8249,6 +8588,7 @@
       "name": "Psithurism",
       "location": "4,5,7",
       "class": "ASSASSIN",
+      "index": 45,
       "height": 24,
       "position": 3,
       "tier": 1,
@@ -8280,6 +8620,7 @@
       "name": "Ambush",
       "location": "5,1,1",
       "class": "ASSASSIN",
+      "index": 46,
       "height": 25,
       "position": -3,
       "tier": 1,
@@ -8309,6 +8650,7 @@
       "name": "Cheaper Dash",
       "location": "5,1,4",
       "class": "ASSASSIN",
+      "index": 47,
       "height": 25,
       "position": 0,
       "tier": 1,
@@ -8333,6 +8675,7 @@
       "name": "Parry",
       "location": "5,1,6",
       "class": "ASSASSIN",
+      "index": 48,
       "height": 25,
       "position": 2,
       "tier": 3,
@@ -8366,6 +8709,7 @@
       "name": "Cheaper Spin Attack",
       "location": "5,1,8",
       "class": "ASSASSIN",
+      "index": 49,
       "height": 25,
       "position": 4,
       "tier": 1,
@@ -8390,6 +8734,7 @@
       "name": "Death Magnet",
       "location": "5,3,0",
       "class": "ASSASSIN",
+      "index": 50,
       "height": 27,
       "position": -4,
       "tier": 2,
@@ -8417,6 +8762,7 @@
       "name": "Cheaper Multihit",
       "location": "5,3,2",
       "class": "ASSASSIN",
+      "index": 51,
       "height": 27,
       "position": -2,
       "tier": 1,
@@ -8442,6 +8788,7 @@
       "name": "Hoodwink",
       "location": "5,3,4",
       "class": "ASSASSIN",
+      "index": 52,
       "height": 27,
       "position": 0,
       "tier": 2,
@@ -8473,6 +8820,7 @@
       "name": "Choke Bomb",
       "location": "5,3,6",
       "class": "ASSASSIN",
+      "index": 53,
       "height": 27,
       "position": 2,
       "tier": 2,
@@ -8509,6 +8857,7 @@
       "name": "Wall Jump",
       "location": "5,3,8",
       "class": "ASSASSIN",
+      "index": 54,
       "height": 27,
       "position": 4,
       "tier": 2,
@@ -8536,6 +8885,7 @@
       "name": "Fatal Spin",
       "location": "5,4,1",
       "class": "ASSASSIN",
+      "index": 55,
       "height": 28,
       "position": -3,
       "tier": 2,
@@ -8568,6 +8918,7 @@
       "name": "Stronger Lacerate",
       "location": "5,4,7",
       "class": "ASSASSIN",
+      "index": 56,
       "height": 28,
       "position": 3,
       "tier": 1,
@@ -8595,6 +8946,7 @@
       "name": "Stronger Vortex",
       "location": "5,5,0",
       "class": "ASSASSIN",
+      "index": 57,
       "height": 29,
       "position": -4,
       "tier": 1,
@@ -8624,6 +8976,7 @@
       "name": "Harvester",
       "location": "6,1,1",
       "class": "ASSASSIN",
+      "index": 58,
       "height": 30,
       "position": -3,
       "tier": 3,
@@ -8654,6 +9007,7 @@
       "name": "Cheaper Smoke Bomb",
       "location": "6,1,4",
       "class": "ASSASSIN",
+      "index": 59,
       "height": 30,
       "position": 0,
       "tier": 1,
@@ -8680,6 +9034,7 @@
       "name": "Blade Fury",
       "location": "6,1,7",
       "class": "ASSASSIN",
+      "index": 60,
       "height": 30,
       "position": 3,
       "tier": 2,
@@ -8708,6 +9063,7 @@
       "name": "More Marks",
       "location": "6,2,2",
       "class": "ASSASSIN",
+      "index": 61,
       "height": 31,
       "position": -2,
       "tier": 1,
@@ -8733,6 +9089,7 @@
       "name": "Stronger Clones",
       "location": "6,2,5",
       "class": "ASSASSIN",
+      "index": 62,
       "height": 31,
       "position": 1,
       "tier": 1,
@@ -8763,6 +9120,7 @@
       "name": "Ricochets",
       "location": "6,2,8",
       "class": "ASSASSIN",
+      "index": 63,
       "height": 31,
       "position": 4,
       "tier": 2,
@@ -8790,6 +9148,7 @@
       "name": "Satsujin",
       "location": "6,3,1",
       "class": "ASSASSIN",
+      "index": 64,
       "height": 32,
       "position": -3,
       "tier": 4,
@@ -8827,6 +9186,7 @@
       "name": "Forbidden Art",
       "location": "6,3,4",
       "class": "ASSASSIN",
+      "index": 65,
       "height": 32,
       "position": 0,
       "tier": 3,
@@ -8854,6 +9214,7 @@
       "name": "Jasmine Bloom",
       "location": "6,3,7",
       "class": "ASSASSIN",
+      "index": 66,
       "height": 32,
       "position": 3,
       "tier": 4,
@@ -8898,6 +9259,7 @@
       "name": "Diversion",
       "location": "6,4,5",
       "class": "ASSASSIN",
+      "index": 67,
       "height": 33,
       "position": 1,
       "tier": 4,
@@ -8935,6 +9297,7 @@
       "name": "Better Ricochets",
       "location": "6,4,8",
       "class": "ASSASSIN",
+      "index": 68,
       "height": 33,
       "position": 4,
       "tier": 1,
@@ -8959,6 +9322,7 @@
       "name": "Devour",
       "location": "6,5,0",
       "class": "ASSASSIN",
+      "index": 69,
       "height": 34,
       "position": -4,
       "tier": 1,
@@ -8985,6 +9349,7 @@
       "name": "Better Marked",
       "location": "6,5,2",
       "class": "ASSASSIN",
+      "index": 70,
       "height": 34,
       "position": -2,
       "tier": 1,
@@ -9009,6 +9374,7 @@
       "name": null,
       "location": null,
       "class": "SHAMAN",
+      "index": -1,
       "height": 2,
       "position": -2,
       "tier": 0,
@@ -9019,16 +9385,19 @@
       "archetype_requirements": {},
       "predecessors": [],
       "properties": {
-        "main_attack_damage": 100,
-        "main_attack_hits": 3,
+        "main_attack": {
+          "damage": 100
+        },
+        "shaman_beams": 3,
         "main_attack_range": 32
       },
       "metadata": {
         "type": "MAIN_ATTACK",
         "icon": "SHAMAN_MAIN_ATTACK",
         "overview": [
-          "main_attack_range",
-          "main_attack_damage"
+          "main_attack",
+          "shaman_beams",
+          "main_attack_range"
         ]
       }
     },
@@ -9037,6 +9406,7 @@
       "name": "Totem",
       "location": "0,0,4",
       "class": "SHAMAN",
+      "index": 0,
       "height": 0,
       "position": 0,
       "tier": 0,
@@ -9075,6 +9445,7 @@
       "name": "Relik Proficiency I",
       "location": "0,2,4",
       "class": "SHAMAN",
+      "index": 1,
       "height": 2,
       "position": 0,
       "tier": 1,
@@ -9090,7 +9461,9 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 5
+        "main_attack_modifier": {
+          "damage": 5
+        }
       },
       "metadata": null
     },
@@ -9099,12 +9472,13 @@
       "name": "Cheaper Totem",
       "location": "0,2,6",
       "class": "SHAMAN",
+      "index": 2,
       "height": 2,
       "position": 2,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TOTEM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9123,6 +9497,7 @@
       "name": "Totemic Smash",
       "location": "0,4,4",
       "class": "SHAMAN",
+      "index": 3,
       "height": 4,
       "position": 0,
       "tier": 2,
@@ -9152,7 +9527,8 @@
         "icon": "TOTEMIC_SMASH",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -9161,6 +9537,7 @@
       "name": "Haul",
       "location": "1,1,4",
       "class": "SHAMAN",
+      "index": 5,
       "height": 6,
       "position": 0,
       "tier": 0,
@@ -9189,6 +9566,7 @@
       "name": "Distant Grasp",
       "location": "1,1,2",
       "class": "SHAMAN",
+      "index": 4,
       "height": 6,
       "position": -2,
       "tier": 1,
@@ -9217,6 +9595,7 @@
       "name": "Hand of the Shaman",
       "location": "1,1,6",
       "class": "SHAMAN",
+      "index": 6,
       "height": 6,
       "position": 2,
       "tier": 1,
@@ -9234,8 +9613,10 @@
         "upgrade": {
           "spell": "MAIN_ATTACK"
         },
-        "main_damage_modifier": 66,
-        "main_attack_hits_modifier": 2
+        "main_attack_modifier": {
+          "damage": 66
+        },
+        "shaman_beams_modifier": 2
       },
       "metadata": null
     },
@@ -9244,6 +9625,7 @@
       "name": "Uproot",
       "location": "1,3,2",
       "class": "SHAMAN",
+      "index": 7,
       "height": 8,
       "position": -2,
       "tier": 0,
@@ -9284,12 +9666,13 @@
       "name": "Cheaper Haul",
       "location": "1,3,4",
       "class": "SHAMAN",
+      "index": 8,
       "height": 8,
       "position": 0,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "HAUL",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9309,6 +9692,7 @@
       "name": "Aura",
       "location": "1,3,6",
       "class": "SHAMAN",
+      "index": 9,
       "height": 8,
       "position": 2,
       "tier": 0,
@@ -9344,6 +9728,7 @@
       "name": "Earth Mastery",
       "location": "2,1,0",
       "class": "SHAMAN",
+      "index": 10,
       "height": 10,
       "position": -4,
       "tier": 1,
@@ -9377,6 +9762,7 @@
       "name": "Air Mastery",
       "location": "2,1,2",
       "class": "SHAMAN",
+      "index": 11,
       "height": 10,
       "position": -2,
       "tier": 1,
@@ -9387,7 +9773,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "UPROOT",
-        "CHEAPER_HAUL_1",
         "SHAMAN_THUNDER_MASTERY"
       ],
       "properties": {
@@ -9411,6 +9796,7 @@
       "name": "Thunder Mastery",
       "location": "2,1,6",
       "class": "SHAMAN",
+      "index": 12,
       "height": 10,
       "position": 2,
       "tier": 1,
@@ -9421,7 +9807,6 @@
       "archetype_requirements": {},
       "predecessors": [
         "AURA",
-        "CHEAPER_HAUL_1",
         "SHAMAN_AIR_MASTERY"
       ],
       "properties": {
@@ -9445,6 +9830,7 @@
       "name": "Fire Mastery",
       "location": "2,1,8",
       "class": "SHAMAN",
+      "index": 13,
       "height": 10,
       "position": 4,
       "tier": 1,
@@ -9477,6 +9863,7 @@
       "name": "Nature's Jolt",
       "location": "2,2,1",
       "class": "SHAMAN",
+      "index": 14,
       "height": 11,
       "position": -3,
       "tier": 2,
@@ -9507,7 +9894,8 @@
         "icon": "NATURES_JOLT",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -9516,6 +9904,7 @@
       "name": "Water Mastery",
       "location": "2,2,4",
       "class": "SHAMAN",
+      "index": 15,
       "height": 11,
       "position": 0,
       "tier": 1,
@@ -9550,6 +9939,7 @@
       "name": "Shocking Aura",
       "location": "2,3,6",
       "class": "SHAMAN",
+      "index": 16,
       "height": 12,
       "position": 2,
       "tier": 2,
@@ -9577,13 +9967,16 @@
       "name": "Flaming Tongue",
       "location": "2,3,8",
       "class": "SHAMAN",
+      "index": 17,
       "height": 12,
       "position": 4,
       "tier": 2,
       "cost": 2,
       "archetype": "ACOLYTE",
       "dependency": "UPROOT",
-      "blocks": [],
+      "blocks": [
+        "OVERSEER"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "SHOCKING_AURA",
@@ -9610,13 +10003,16 @@
       "name": "Overseer",
       "location": "2,4,1",
       "class": "SHAMAN",
+      "index": 18,
       "height": 13,
       "position": -3,
       "tier": 2,
       "cost": 2,
       "archetype": "SUMMONER",
       "dependency": "UPROOT",
-      "blocks": [],
+      "blocks": [
+        "FLAMING_TONGUE"
+      ],
       "archetype_requirements": {},
       "predecessors": [
         "NATURES_JOLT"
@@ -9634,6 +10030,7 @@
       "name": "Rain Dance",
       "location": "2,4,4",
       "class": "SHAMAN",
+      "index": 19,
       "height": 13,
       "position": 0,
       "tier": 2,
@@ -9675,6 +10072,7 @@
       "name": "Puppet Master",
       "location": "3,1,1",
       "class": "SHAMAN",
+      "index": 20,
       "height": 15,
       "position": -3,
       "tier": 4,
@@ -9693,7 +10091,7 @@
           "ability": "TOTEM"
         },
         "damage": {
-          "neutral": 10,
+          "neutral": 5,
           "air": 10,
           "earth": 10
         },
@@ -9720,6 +10118,7 @@
       "name": "Mask of the Lunatic",
       "location": "3,1,4",
       "class": "SHAMAN",
+      "index": 21,
       "height": 15,
       "position": 0,
       "tier": 4,
@@ -9761,6 +10160,7 @@
       "name": "Sacrificial Shrine",
       "location": "3,1,7",
       "class": "SHAMAN",
+      "index": 22,
       "height": 15,
       "position": 3,
       "tier": 4,
@@ -9778,13 +10178,22 @@
         "FLAMING_TONGUE"
       ],
       "properties": {
+        "sacrificial_shrine": {
+          "cost": 15,
+          "damage_boost": 50
+        },
         "blood_pool": 30,
-        "total_heal": 10
+        "blood_transfer": {
+          "rate": 2,
+          "interval": 0.4
+        },
+        "total_heal": 15
       },
       "metadata": {
         "type": "NEW",
         "icon": "SACRIFICIAL_SHRINE",
         "overview": [
+          "blood_pool",
           "total_heal"
         ]
       }
@@ -9794,6 +10203,7 @@
       "name": "More Puppets",
       "location": "3,2,0",
       "class": "SHAMAN",
+      "index": 23,
       "height": 16,
       "position": -4,
       "tier": 1,
@@ -9821,12 +10231,13 @@
       "name": "Cheaper Uproot",
       "location": "3,3,4",
       "class": "SHAMAN",
+      "index": 24,
       "height": 17,
       "position": 0,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9846,6 +10257,7 @@
       "name": "Rebound",
       "location": "3,3,7",
       "class": "SHAMAN",
+      "index": 25,
       "height": 17,
       "position": 3,
       "tier": 3,
@@ -9873,6 +10285,7 @@
       "name": "Stagnation",
       "location": "3,4,0",
       "class": "SHAMAN",
+      "index": 26,
       "height": 18,
       "position": -4,
       "tier": 2,
@@ -9908,12 +10321,13 @@
       "name": "Cheaper Aura",
       "location": "3,4,2",
       "class": "SHAMAN",
+      "index": 27,
       "height": 18,
       "position": -2,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -9933,6 +10347,7 @@
       "name": "Better Totem",
       "location": "3,4,5",
       "class": "SHAMAN",
+      "index": 28,
       "height": 18,
       "position": 1,
       "tier": 1,
@@ -9960,6 +10375,7 @@
       "name": "Blood Connection",
       "location": "3,4,8",
       "class": "SHAMAN",
+      "index": 29,
       "height": 18,
       "position": 4,
       "tier": 2,
@@ -9984,6 +10400,7 @@
       "name": "Exploding Puppets",
       "location": "4,1,1",
       "class": "SHAMAN",
+      "index": 30,
       "height": 19,
       "position": -3,
       "tier": 2,
@@ -10017,7 +10434,8 @@
         "icon": "EXPLODING_PUPPETS",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -10026,6 +10444,7 @@
       "name": "Hymn of Hate",
       "location": "4,1,4",
       "class": "SHAMAN",
+      "index": 31,
       "height": 19,
       "position": 0,
       "tier": 3,
@@ -10041,7 +10460,8 @@
       "properties": {
         "extend": {
           "ability": "AURA"
-        }
+        },
+        "hymn_of_hate": -50
       },
       "metadata": {
         "type": "EXTEND",
@@ -10054,6 +10474,7 @@
       "name": "More Blood Pool",
       "location": "4,1,7",
       "class": "SHAMAN",
+      "index": 32,
       "height": 19,
       "position": 3,
       "tier": 1,
@@ -10079,6 +10500,7 @@
       "name": "Bullwhip",
       "location": "4,2,0",
       "class": "SHAMAN",
+      "index": 33,
       "height": 20,
       "position": -4,
       "tier": 3,
@@ -10113,6 +10535,7 @@
       "name": "More Puppets",
       "location": "4,2,2",
       "class": "SHAMAN",
+      "index": 34,
       "height": 20,
       "position": -2,
       "tier": 1,
@@ -10140,6 +10563,7 @@
       "name": "Mask of the Fanatic",
       "location": "4,2,5",
       "class": "SHAMAN",
+      "index": 35,
       "height": 20,
       "position": 1,
       "tier": 3,
@@ -10156,7 +10580,7 @@
       ],
       "properties": {
         "spell_cost_modifier": {
-          "SPELL_1": -70
+          "SPELL_1": -65
         },
         "effects": {
           "SELF_RESISTANCE": 50,
@@ -10182,6 +10606,7 @@
       "name": "Vengeful Spirit",
       "location": "4,2,8",
       "class": "SHAMAN",
+      "index": 36,
       "height": 20,
       "position": 4,
       "tier": 2,
@@ -10212,6 +10637,7 @@
       "name": "Masquerade",
       "location": "4,3,4",
       "class": "SHAMAN",
+      "index": 37,
       "height": 21,
       "position": 0,
       "tier": 2,
@@ -10239,6 +10665,7 @@
       "name": "Double Totem",
       "location": "4,4,0",
       "class": "SHAMAN",
+      "index": 38,
       "height": 22,
       "position": -4,
       "tier": 2,
@@ -10274,12 +10701,13 @@
       "name": "Cheaper Totem",
       "location": "4,4,2",
       "class": "SHAMAN",
+      "index": 39,
       "height": 22,
       "position": -2,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "TOTEM",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -10300,6 +10728,7 @@
       "name": "Storm Dance",
       "location": "4,4,5",
       "class": "SHAMAN",
+      "index": 40,
       "height": 22,
       "position": 1,
       "tier": 2,
@@ -10328,6 +10757,7 @@
       "name": "Blood Moon",
       "location": "4,4,8",
       "class": "SHAMAN",
+      "index": 41,
       "height": 22,
       "position": 4,
       "tier": 1,
@@ -10353,7 +10783,10 @@
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -10361,12 +10794,13 @@
       "name": "Cheaper Haul",
       "location": "4,5,6",
       "class": "SHAMAN",
+      "index": 42,
       "height": 23,
       "position": 2,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "HAUL",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -10386,12 +10820,13 @@
       "name": "Cheaper Aura",
       "location": "5,1,1",
       "class": "SHAMAN",
+      "index": 43,
       "height": 24,
       "position": -3,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "AURA",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -10412,6 +10847,7 @@
       "name": "Seeking Totem",
       "location": "5,1,4",
       "class": "SHAMAN",
+      "index": 44,
       "height": 24,
       "position": 0,
       "tier": 2,
@@ -10438,6 +10874,7 @@
       "name": "Twisted Tether",
       "location": "5,1,7",
       "class": "SHAMAN",
+      "index": 45,
       "height": 24,
       "position": 3,
       "tier": 4,
@@ -10483,6 +10920,7 @@
       "name": "Stronger Totem",
       "location": "5,2,2",
       "class": "SHAMAN",
+      "index": 46,
       "height": 25,
       "position": -2,
       "tier": 1,
@@ -10510,6 +10948,7 @@
       "name": "Depersonalization",
       "location": "5,2,5",
       "class": "SHAMAN",
+      "index": 47,
       "height": 25,
       "position": 1,
       "tier": 1,
@@ -10528,7 +10967,7 @@
           "ability": "MASQUERADE"
         },
         "values": {
-          "1": -1,
+          "1": 1,
           "2": 10
         }
       },
@@ -10539,6 +10978,7 @@
       "name": "Crimson Effigy",
       "location": "5,3,1",
       "class": "SHAMAN",
+      "index": 48,
       "height": 26,
       "position": -3,
       "tier": 4,
@@ -10558,9 +10998,10 @@
           "ability": "UPROOT"
         },
         "damage": {
-          "neutral": 50,
-          "water": 50
+          "neutral": 40,
+          "water": 40
         },
+        "damage_interval": 0.25,
         "duration": 60,
         "max_effigy": 1
       },
@@ -10578,6 +11019,7 @@
       "name": "Mask of the Coward",
       "location": "5,3,4",
       "class": "SHAMAN",
+      "index": 49,
       "height": 26,
       "position": 0,
       "tier": 3,
@@ -10598,7 +11040,7 @@
           "SPELL_2": -50
         },
         "effects": {
-          "SELF_WALK_SPEED": 60,
+          "SELF_WALK_SPEED": 80,
           "SELF_RESISTANCE": -20
         },
         "replacing": {
@@ -10621,6 +11063,7 @@
       "name": "Fluid Healing",
       "location": "5,3,6",
       "class": "SHAMAN",
+      "index": 50,
       "height": 26,
       "position": 2,
       "tier": 2,
@@ -10646,6 +11089,7 @@
       "name": "More Blood Pool",
       "location": "5,3,8",
       "class": "SHAMAN",
+      "index": 51,
       "height": 26,
       "position": 4,
       "tier": 1,
@@ -10671,6 +11115,7 @@
       "name": "Maddening Roots",
       "location": "5,4,0",
       "class": "SHAMAN",
+      "index": 52,
       "height": 27,
       "position": -4,
       "tier": 2,
@@ -10705,6 +11150,7 @@
       "name": "Regeneration",
       "location": "5,4,2",
       "class": "SHAMAN",
+      "index": 53,
       "height": 27,
       "position": -2,
       "tier": 2,
@@ -10723,11 +11169,18 @@
         "extend": {
           "ability": "TOTEM"
         },
-        "total_heal": 1
+        "regeneration": {
+          "heal": 0.5,
+          "interval": 0.4
+        }
       },
       "metadata": {
         "type": "EXTEND",
-        "icon": "REGENERATION"
+        "icon": "REGENERATION",
+        "upgradable": false,
+        "overview": [
+          "regeneration"
+        ]
       }
     },
     {
@@ -10735,6 +11188,7 @@
       "name": "Chant of the Coward",
       "location": "5,4,5",
       "class": "SHAMAN",
+      "index": 54,
       "height": 27,
       "position": 1,
       "tier": 2,
@@ -10766,7 +11220,8 @@
         "icon": "CHANT_OF_THE_COWARD",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -10775,6 +11230,7 @@
       "name": "Blood Rite",
       "location": "5,4,7",
       "class": "SHAMAN",
+      "index": 55,
       "height": 27,
       "position": 3,
       "tier": 3,
@@ -10783,7 +11239,7 @@
       "dependency": "SACRIFICIAL_SHRINE",
       "blocks": [],
       "archetype_requirements": {
-        "ACOLYTE": 10
+        "ACOLYTE": 9
       },
       "predecessors": [
         "SHAMAN_FLUID_HEALING",
@@ -10794,7 +11250,7 @@
           "ability": "SACRIFICIAL_SHRINE"
         },
         "values": {
-          "1": 25,
+          "1": 35,
           "2": 10
         }
       },
@@ -10805,6 +11261,7 @@
       "name": "More Effigies",
       "location": "6,1,1",
       "class": "SHAMAN",
+      "index": 56,
       "height": 29,
       "position": -3,
       "tier": 1,
@@ -10822,7 +11279,11 @@
         "upgrade": {
           "ability": "CRIMSON_EFFIGY"
         },
-        "max_effigy_modifier": 1
+        "max_effigy_modifier": 1,
+        "damage_modifier": {
+          "neutral": -10,
+          "water": -10
+        }
       },
       "metadata": null
     },
@@ -10831,6 +11292,7 @@
       "name": "Chant of the Fanatic",
       "location": "6,1,5",
       "class": "SHAMAN",
+      "index": 57,
       "height": 29,
       "position": 1,
       "tier": 3,
@@ -10874,6 +11336,7 @@
       "name": "Stronger Tether",
       "location": "6,1,7",
       "class": "SHAMAN",
+      "index": 58,
       "height": 29,
       "position": 3,
       "tier": 1,
@@ -10901,6 +11364,7 @@
       "name": "Triple Totem",
       "location": "6,2,0",
       "class": "SHAMAN",
+      "index": 59,
       "height": 30,
       "position": -4,
       "tier": 2,
@@ -10934,6 +11398,7 @@
       "name": "Invigorating Wave",
       "location": "6,2,2",
       "class": "SHAMAN",
+      "index": 60,
       "height": 30,
       "position": -2,
       "tier": 3,
@@ -10953,7 +11418,7 @@
           "ability": "AURA"
         },
         "effects": {
-          "SUMMONS_ATTACK_SPEED": 100
+          "SUMMONS_ATTACK_SPEED": 50
         },
         "duration": 3,
         "values": {
@@ -10974,6 +11439,7 @@
       "name": "Mengdu",
       "location": "6,2,4",
       "class": "SHAMAN",
+      "index": 61,
       "height": 30,
       "position": 0,
       "tier": 1,
@@ -10993,13 +11459,16 @@
           },
           "target": "WATERDAMAGEBONUS",
           "rate": 1,
-          "max": 100
+          "max": 40
         }
       },
       "metadata": {
         "type": "NEW",
         "icon": "ID_CONVERTOR",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "id_convertor"
+        ]
       }
     },
     {
@@ -11007,6 +11476,7 @@
       "name": "Frog Dance",
       "location": "6,3,5",
       "class": "SHAMAN",
+      "index": 62,
       "height": 31,
       "position": 1,
       "tier": 2,
@@ -11028,7 +11498,8 @@
           "hits": 3
         },
         "aoe": {
-          "range": "3.aoe.shape"
+          "range": 3,
+          "shape": "CIRCLE"
         }
       },
       "metadata": {
@@ -11036,7 +11507,8 @@
         "icon": "FROG_DANCE",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "aoe"
         ]
       }
     },
@@ -11045,6 +11517,7 @@
       "name": "More Blood Pool",
       "location": "6,3,8",
       "class": "SHAMAN",
+      "index": 63,
       "height": 31,
       "position": 4,
       "tier": 1,
@@ -11069,6 +11542,7 @@
       "name": "Shepherd",
       "location": "6,4,1",
       "class": "SHAMAN",
+      "index": 64,
       "height": 32,
       "position": -3,
       "tier": 4,
@@ -11086,12 +11560,6 @@
       "properties": {
         "extend": {
           "ability": "PUPPET_MASTER"
-        },
-        "modify": {
-          "ability": "PUPPET_MASTER"
-        },
-        "damage_modifier": {
-          "neutral": -5
         },
         "duration": 15,
         "shepherd": {
@@ -11113,6 +11581,7 @@
       "name": "Blood Sorrow",
       "location": "6,4,7",
       "class": "SHAMAN",
+      "index": 65,
       "height": 32,
       "position": 3,
       "tier": 4,
@@ -11136,14 +11605,20 @@
         },
         "damage_interval": 0.2,
         "duration": 4,
-        "range": 24
+        "range": 24,
+        "values": {
+          "1": 70,
+          "2": 3,
+          "3": 10
+        }
       },
       "metadata": {
         "type": "EXTEND",
         "icon": "BLOOD_SORROW",
         "upgradable": false,
         "overview": [
-          "damage"
+          "damage",
+          "duration"
         ]
       }
     },
@@ -11152,12 +11627,13 @@
       "name": "Cheaper Uproot",
       "location": "6,5,3",
       "class": "SHAMAN",
+      "index": 66,
       "height": 33,
       "position": -1,
       "tier": 1,
       "cost": 1,
       "archetype": null,
-      "dependency": null,
+      "dependency": "UPROOT",
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
@@ -11177,6 +11653,7 @@
       "name": "Mask of the Awakened",
       "location": "6,5,5",
       "class": "SHAMAN",
+      "index": 67,
       "height": 33,
       "position": 1,
       "tier": 4,
@@ -11193,14 +11670,14 @@
       ],
       "properties": {
         "spell_cost_modifier": {
-          "SPELL_1": -70,
+          "SPELL_1": -65,
           "SPELL_2": -50,
           "SPELL_3": -30
         },
         "effects": {
           "SELF_DAMAGE": 30,
           "SELF_RESISTANCE": 30,
-          "SELF_WALK_SPEED": 25
+          "SELF_WALK_SPEED": 45
         },
         "duration": 20,
         "values": {
@@ -11210,9 +11687,12 @@
       "metadata": {
         "type": "NEW",
         "icon": "MASK_OF_THE_AWAKENED",
-        "upgradable": false
+        "upgradable": false,
+        "overview": [
+          "duration"
+        ]
       }
     }
   ],
-  "version": "0.1.12"
+  "version": "0.2.1"
 }
