@@ -10,7 +10,9 @@ enum class IdentificationGroup: Translatable {
     ELEMENT_DEFENCE_BONUS,
     MANEUVERABILITY,
     MISC,
-    SPELL_COST;
+    SPELL_COST,
+    TOME_EFFECT,
+    CHARM_EXCLUSIVE;
     companion object {
         private val NAME_MAP: Map<String, IdentificationGroup> = mapOf(
             pairs = values().map { it.name to it }.toTypedArray()

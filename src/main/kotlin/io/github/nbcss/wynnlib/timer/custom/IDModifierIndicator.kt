@@ -16,7 +16,7 @@ class IDModifierIndicator(private val id: Identification,
                           startTime: Long):
     BasicTimer(entry, startTime) {
     companion object {
-        private val numberPattern = Pattern.compile("^([+\\-]\\d+)")
+        private val numberPattern = Pattern.compile("^([+\\-]?\\d+)")
         private val idMap: Map<String, Identification> = mapOf(
             pairs = Identification.getAll().map { "$${it.suffix} ${it.displayName}" to it }.toTypedArray()
         )

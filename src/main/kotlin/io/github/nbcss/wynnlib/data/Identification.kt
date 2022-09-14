@@ -5,6 +5,7 @@ import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.registry.Registry
+import io.github.nbcss.wynnlib.utils.JsonGetter
 import io.github.nbcss.wynnlib.utils.Keyed
 import io.github.nbcss.wynnlib.utils.Version
 import io.github.nbcss.wynnlib.utils.parseStyle
@@ -33,8 +34,8 @@ data class Identification(val id: String,               //id used in translation
         json.get("suffix").asString,
         if(json.has("group")) IdentificationGroup.fromName(json.get("group").asString) else
             IdentificationGroup.MISC,
-        if(json.has("inverted")) json.get("inverted").asBoolean else false,
-        if(json.has("constant")) json.get("constant").asBoolean else false)
+        JsonGetter.getOr(json, "inverted", false),
+        JsonGetter.getOr(json, "constant", false))
 
     companion object: Registry<Identification>() {
         private const val RESOURCE = "assets/wynnlib/data/Identifications.json"
