@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.timer
 
+import io.github.nbcss.wynnlib.timer.custom.IDModifierIndicator
 import io.github.nbcss.wynnlib.timer.status.TypedStatusTimer
 import io.github.nbcss.wynnlib.utils.Keyed
 
@@ -18,7 +19,8 @@ interface ITimer: Keyed {
             //println(StringEscapeUtils.escapeJava(entry.icon) + " ${entry.name}")
             val worldTime = IndicatorManager.getWorldTime()
             TypedStatusTimer.fromStatus(entry, worldTime)?.let { return it }
-            return SimpleTimer(entry, worldTime)
+            IDModifierIndicator.fromStatus(entry, worldTime)?.let { return it }
+            return BasicTimer(entry, worldTime)
         }
     }
 

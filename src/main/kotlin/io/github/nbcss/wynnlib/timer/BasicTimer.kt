@@ -8,12 +8,12 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class SimpleTimer(entry: StatusEntry,
-                  startTime: Long):
+open class BasicTimer(entry: StatusEntry,
+                      startTime: Long):
     AbstractFooterEntryTimer(entry, startTime), SideIndicator {
     private var maxDuration: Double? = entry.duration?.toDouble()
 
-    fun getDisplayText(): Text {
+    open fun getDisplayText(): Text {
         return LiteralText(entry.icon).append(" ")
             .append(LiteralText(entry.name).formatted(Formatting.GRAY))
     }

@@ -216,7 +216,7 @@
     {
       "id": "bonus_spell_fire_damage_raw",
       "apiId": "spellFireDamageBonusRaw",
-      "name": "FIRESPELLDAMAGEBONUSRAW",
+      "name": "SPELL_FIRE_DAMAGE_BONUS_RAW",
       "displayName": "Fire Spell Damage",
       "suffix": "",
       "group": "ELEMENT_DAMAGE_BONUS"
@@ -224,7 +224,7 @@
     {
       "id": "bonus_spell_water_damage_raw",
       "apiId": "spellWaterDamageBonusRaw",
-      "name": "WATERSPELLDAMAGEBONUSRAW",
+      "name": "SPELL_WATER_DAMAGE_BONUS_RAW",
       "displayName": "Water Spell Damage",
       "suffix": "",
       "group": "ELEMENT_DAMAGE_BONUS"
@@ -232,7 +232,7 @@
     {
       "id": "bonus_spell_air_damage_raw",
       "apiId": "spellAirDamageBonusRaw",
-      "name": "AIRSPELLDAMAGEBONUSRAW",
+      "name": "SPELL_AIR_DAMAGE_BONUS_RAW",
       "displayName": "Air Spell Damage",
       "suffix": "",
       "group": "ELEMENT_DAMAGE_BONUS"
@@ -240,7 +240,7 @@
     {
       "id": "bonus_spell_thunder_damage_raw",
       "apiId": "spellThunderDamageBonusRaw",
-      "name": "THUNDERSPELLDAMAGEBONUSRAW",
+      "name": "SPELL_THUNDER_DAMAGE_BONUS_RAW",
       "displayName": "Thunder Spell Damage",
       "suffix": "",
       "group": "ELEMENT_DAMAGE_BONUS"
@@ -248,7 +248,7 @@
     {
       "id": "bonus_spell_earth_damage_raw",
       "apiId": "spellEarthDamageBonusRaw",
-      "name": "EARTHSPELLDAMAGEBONUSRAW",
+      "name": "SPELL_EARTH_DAMAGE_BONUS_RAW",
       "displayName": "Earth Spell Damage",
       "suffix": "",
       "group": "ELEMENT_DAMAGE_BONUS"
@@ -452,7 +452,77 @@
       "suffix": "%",
       "group": "SPELL_COST",
       "inverted": true
+    },
+    {
+      "id": "defence_to_mobs",
+      "apiId": "defenceToMobs",
+      "name": "DEFENCETOMOBS",
+      "displayName": "Mob Damage Resistance",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "damage_to_mobs",
+      "apiId": "damageToMobs",
+      "name": "DAMAGETOMOBS",
+      "displayName": "Damage to Mobs",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "slaying_xp",
+      "apiId": "slayingXp",
+      "name": "SLAYINGXP",
+      "displayName": "Slaying XP",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "dungeon_xp",
+      "apiId": "dungeonXp",
+      "name": "DUNGEONXP",
+      "displayName": "Dungeon XP",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "gathering_xp",
+      "apiId": "gatheringXp",
+      "name": "GATHERINGXP",
+      "displayName": "Gathering XP",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "damage_from_mobs",
+      "apiId": "damageFromMobs",
+      "name": "DAMAGEFROMMOBS",
+      "displayName": "Damage taken from mobs",
+      "suffix": "%",
+      "group": "CHARM_EXCLUSIVE",
+      "inverted": true
+    },
+    {
+      "id": "lvl_xp_bonus",
+      "apiId": "lvlXpBonus",
+      "name": "LVLXPBONUS",
+      "displayName": "XP from Lv. {minLv}-{maxLv} content",
+      "suffix": "%",
+      "group": "CHARM_EXCLUSIVE"
+    },
+    {
+      "id": "lvl_loot_bonus",
+      "apiId": "lvlLootBonus",
+      "name": "LVLLOOTBONUS",
+      "displayName": "Loot from Lv. {minLv}-{maxLv} content",
+      "suffix": "%",
+      "group": "CHARM_EXCLUSIVE"
     }
   ],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

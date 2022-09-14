@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.gui.ability
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
+import io.github.nbcss.wynnlib.abilities.builder.TreeBuildContainer
 import io.github.nbcss.wynnlib.gui.widgets.ConfirmButtonWidget
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_CLICK_TO_MODIFY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_EMPTY_LIST
@@ -24,8 +25,12 @@ class AbilityTreeEditorScreen(parent: Screen?,
     AbilityTreeBuilderScreen(parent, tree, maxPoints, fixedAbilities, mutableAbilities) {
 
     override fun copy(): AbilityTreeBuilderScreen {
-        return AbilityTreeEditorScreen(parent, getAbilityTree(),
-            getMaxPoints(), getFixedAbilities(), getMutableAbilities())
+        val screen = AbilityTreeEditorScreen(
+            parent, getAbilityTree(),
+            getMaxPoints(), getFixedAbilities(), getMutableAbilities()
+        )
+        screen.setBuild(getBuildContainer())
+        return screen
     }
 
     override fun init() {

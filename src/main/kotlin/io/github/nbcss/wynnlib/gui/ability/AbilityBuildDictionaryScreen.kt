@@ -19,7 +19,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeBuildData>(parent, TITLE) {
+open class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeBuildData>(parent, TITLE) {
     companion object {
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:book")
         val TITLE: Text = Translations.UI_TREE_BUILDS.translate()
@@ -81,7 +81,7 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeBuildD
         return super.mouseClicked(mouseX, mouseY, button)
     }
 
-    private fun drawDictionaryTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+    protected open fun drawDictionaryTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
         val posX = windowX - 28
         val posY = windowY + 174
         val v = 210
@@ -92,7 +92,7 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeBuildD
         }
     }
 
-    private fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
+    protected open fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
         val posX = windowX - 28
         val posY = windowY + 34 + index * 28
         RenderKit.renderTexture(matrices, AbstractAbilityTreeScreen.TEXTURE, posX, posY,
@@ -105,13 +105,13 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeBuildD
         }
     }
 
-    private fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
+    protected open fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
         val posX = windowX - 28
         val posY = windowY + 34 + index * 28
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
     }
 
-    private fun drawImportTreeTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+    protected open fun drawImportTreeTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
         val posX = windowX + 242
         val posY = windowY + 50
         RenderKit.renderTexture(matrices, AbstractAbilityTreeScreen.TEXTURE, posX, posY, 0, 182, 32, 28)
@@ -124,7 +124,7 @@ class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeBuildD
         }
     }
 
-    private fun isOverImportTreeTab(mouseX: Int, mouseY: Int): Boolean {
+    protected open fun isOverImportTreeTab(mouseX: Int, mouseY: Int): Boolean {
         val posX = windowX + 245
         val posY = windowY + 50
         return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
