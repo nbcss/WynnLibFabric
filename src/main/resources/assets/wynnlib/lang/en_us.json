@@ -259,6 +259,7 @@
   "wynnlib.gameplay.shaman_blood_pool": "Blood Pool",
   "wynnlib.gameplay.shaman_puppet": "Puppet",
   "wynnlib.gameplay.shaman_effigy": "Effigy",
+  "wynnlib.indicator_suffix.sec": "%ss",
   "wynnlib.indicator.resistance_bonus": "a{+%s%%} 2{\u2741} Resistance",
   "wynnlib.indicator.strength_bonus": "a{+%s%%} 2{\u2694} Strength",
   "wynnlib.indicator.radiance_bonus": "a{+%s%%} 2{\u2748} Radiant",

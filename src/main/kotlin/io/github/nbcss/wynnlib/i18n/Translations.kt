@@ -98,6 +98,7 @@ object Translations {
     val TOOLTIP_SUFFIX_BLOCK: Translatable = from("wynnlib.tooltip.suffix.block")
     val TOOLTIP_SUFFIX_BLOCKS: Translatable = from("wynnlib.tooltip.suffix.blocks")
     val TOOLTIP_SUFFIX_S: Translatable = from("wynnlib.tooltip.suffix.s")
+    val INDICATOR_SUFFIX_S: Translatable = from("wynnlib.indicator_suffix.sec")
     val TOOLTIP_SUFFIX_PER_S: Translatable = from("wynnlib.tooltip.suffix.per_s")
     val TOOLTIP_SHIFT_UPGRADE: Translatable = from("wynnlib.tooltip.shift_for_upgrade_description")
     //powder spec

@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.timer.status
 
 import com.google.gson.JsonObject
+import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText
 import io.github.nbcss.wynnlib.render.RenderKit.renderTexture
 import io.github.nbcss.wynnlib.render.RenderKit.renderTextureWithColor
@@ -43,13 +44,13 @@ class EffectIndicator(data: JsonObject): StatusType(data) {
             renderTextureWithColor(matrices, ICON_BACKGROUND, color.solid(),
                 posX + 3, posY, uv.first, uv.second, 22, 22, 256, 256
             )
-            var time = duration.roundToInt().toString() + "s"
+            var time = duration.roundToInt().toString()
             if (duration < 9.95) {
-                time = String.format("%.1fs", duration)
+                time = String.format("%.1f", duration)
             }
-            val textX: Int = posX + 14 - textRenderer.getWidth(time) / 2
+            val text = Translations.INDICATOR_SUFFIX_S.formatted(Formatting.LIGHT_PURPLE, null, time)
+            val textX = posX + 14 - textRenderer.getWidth(text) / 2
             val textY = posY + 25
-            val text: Text = LiteralText(time).formatted(Formatting.LIGHT_PURPLE)
             renderOutlineText(matrices, text, textX.toFloat(), textY.toFloat())
         }
         renderTexture(
