@@ -74,6 +74,9 @@ abstract class StatusType(data: JsonObject): Keyed {
                 val displayText = text.formatted(Formatting.GRAY, label = null, args = args)
                 renderText(matrices, timer, displayText, posX, posY)
             }
+            override fun getDuration(): Double? {
+                return timer.getDuration()
+            }
         } else null
     }
 
