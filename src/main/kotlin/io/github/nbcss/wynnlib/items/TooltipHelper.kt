@@ -115,7 +115,7 @@ fun addIdentifications(item: IdentificationHolder,
     for (majorId in majorIds) {
         val text = LiteralText("+")
             .append(majorId.formatted(Formatting.AQUA))
-            .append(": ")
+            .append(":ÀÀ")
             .append(majorId.formatted(Formatting.DARK_AQUA, "desc")).string
         tooltip.addAll(warpLines(LiteralText(text).formatted(Formatting.AQUA), 190))
     }
