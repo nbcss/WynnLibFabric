@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
 import java.util.*
 
-enum class EquipmentType(private val id: String,
+enum class EquipmentType(private val displayName: String,
                          private val icon: ItemStack,
                          private val textureMap: Map<String, ItemStack>
                          ): Keyed, Translatable {
@@ -202,15 +202,12 @@ enum class EquipmentType(private val id: String,
         "bracelet_water_b" to ItemFactory.fromEncoding("minecraft:flint_and_steel#46"),
         "bracelet_multi_a" to ItemFactory.fromEncoding("minecraft:flint_and_steel#47"),
         "bracelet_multi_b" to ItemFactory.fromEncoding("minecraft:flint_and_steel#48")
-    )
-    ),
-    TOME(
-        "Tome", ItemFactory.fromEncoding("minecraft:enchanted_book"), mapOf(
+    )),
+    TOME("Mastery Tome", ItemFactory.fromEncoding("minecraft:enchanted_book"), mapOf(
             "tome" to ItemFactory.fromEncoding("minecraft:enchanted_book")
         )
     ),
-    CHARM(
-        "Charm", ItemFactory.fromEncoding(""), mapOf(
+    CHARM("Charm", ItemFactory.fromEncoding(""), mapOf(
             "charm_worm" to ItemFactory.fromLegacyId(350, 1),
             "charm_light" to ItemFactory.fromLegacyId(6, 2),
             "charm_stone" to ItemFactory.fromLegacyId(337, 0),
@@ -220,14 +217,19 @@ enum class EquipmentType(private val id: String,
     INVALID("???", ERROR_ITEM, emptyMap());
 
     companion object {
-        private val VALUE_MAP: MutableMap<String, EquipmentType> = LinkedHashMap()
+        private val VALUE_MAP: Map<String, EquipmentType> = mapOf(
+            pairs = values().map { it.name.lowercase() to it }.toTypedArray()
+        )
+        private val NAME_MAP: Map<String, EquipmentType> = mapOf(
+            pairs = values().map { it.displayName to it }.toTypedArray()
+        )
 
-        init {
-            values().forEach { VALUE_MAP[it.name.lowercase(Locale.getDefault())] = it }
+        fun fromDisplayName(name: String): EquipmentType {
+            return NAME_MAP.getOrDefault(name, INVALID)
         }
 
         fun getEquipmentType(id: String): EquipmentType {
-            return VALUE_MAP.getOrDefault(id.lowercase(Locale.getDefault()), INVALID)
+            return VALUE_MAP.getOrDefault(id.lowercase(), INVALID)
         }
 
         fun getEquipmentTypes(): List<EquipmentType> {

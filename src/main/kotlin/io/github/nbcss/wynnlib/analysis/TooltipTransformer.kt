@@ -1,5 +1,7 @@
 package io.github.nbcss.wynnlib.analysis
 
+import io.github.nbcss.wynnlib.analysis.transformers.EquipmentTransformer
+import io.github.nbcss.wynnlib.analysis.transformers.UnidentifiedBoxTransformer
 import io.github.nbcss.wynnlib.items.TooltipProvider
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
@@ -13,7 +15,8 @@ interface TooltipTransformer: TooltipProvider {
     companion object {
         private val transformerCacheMap: MutableMap<String, TooltipTransformer?> = WeakHashMap()
         private val factoryMap: Map<String, Factory> = mapOf(pairs = listOf(
-            EquipmentTransformer
+            EquipmentTransformer,
+            UnidentifiedBoxTransformer,
         ).map { it.getKey() to it }.toTypedArray())
 
         fun asTransformer(stack: ItemStack, item: TransformableItem): TooltipTransformer? {

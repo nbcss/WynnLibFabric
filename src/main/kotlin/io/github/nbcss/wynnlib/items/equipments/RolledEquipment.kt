@@ -5,7 +5,7 @@ import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.data.Skill
 
-interface RolledEquipment: Equipment {
+interface RolledEquipment: GearEquipment {
     fun meetLevelReq(): Boolean
     fun meetClassReq(): Boolean
     fun meetQuestReq(): Boolean

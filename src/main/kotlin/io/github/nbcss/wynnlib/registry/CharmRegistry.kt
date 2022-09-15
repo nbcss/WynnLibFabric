@@ -2,13 +2,13 @@ package io.github.nbcss.wynnlib.registry
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.items.equipments.regular.RegularCharm
+import io.github.nbcss.wynnlib.items.equipments.misc.Charm
 
-object CharmRegistry : Registry<RegularCharm>() {
+object CharmRegistry : Registry<Charm>() {
     private const val RESOURCE = "assets/wynnlib/data/Charms.json"
-    private val nameMap: MutableMap<String, RegularCharm> = LinkedHashMap()
+    private val nameMap: MutableMap<String, Charm> = LinkedHashMap()
 
-    fun fromName(name: String): RegularCharm? {
+    fun fromName(name: String): Charm? {
         return nameMap[name]
     }
 
@@ -19,13 +19,13 @@ object CharmRegistry : Registry<RegularCharm>() {
         super.reload(array)
     }
 
-    override fun put(item: RegularCharm) {
+    override fun put(item: Charm) {
         nameMap[item.getDisplayName()] = item
         super.put(item)
     }
 
-    override fun read(data: JsonObject): RegularCharm? = try {
-        RegularCharm(data)
+    override fun read(data: JsonObject): Charm? = try {
+        Charm(data)
     } catch (e: Exception) {
         e.printStackTrace()
         null
