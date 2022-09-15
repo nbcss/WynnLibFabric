@@ -2,16 +2,16 @@ package io.github.nbcss.wynnlib.matcher.item
 
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Tier
-import io.github.nbcss.wynnlib.items.Box
+import io.github.nbcss.wynnlib.items.UnidentifiedBox
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 
 object BoxMatcher : ItemMatcher {
-    private final val LV_RANGE_PATTERN = Regex("(\\d{1,3})-(\\d{1,3})")
+    private val LV_RANGE_PATTERN = Regex("(\\d{1,3})-(\\d{1,3})")
 
-    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>): Box? {
+    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>): UnidentifiedBox? {
         if (name.contains("Unidentified")) {
             var levelRange: IRange = SimpleIRange(0, 0)
             var tier: Tier = Tier.NORMAL
@@ -29,7 +29,9 @@ object BoxMatcher : ItemMatcher {
                     type = EquipmentType.valueOf(it.siblings[0].siblings[2].string.uppercase())
                 }
             }
-            return Box(type, tier, levelRange)
+            if (type == EquipmentType.INVALID)
+                return null
+            return UnidentifiedBox(type, tier, levelRange)
         } else {
             return null
         }

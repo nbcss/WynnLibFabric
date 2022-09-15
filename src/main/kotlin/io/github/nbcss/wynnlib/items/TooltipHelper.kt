@@ -13,6 +13,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_QUEST_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.items.equipments.Equipment
+import io.github.nbcss.wynnlib.items.equipments.GearEquipment
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
@@ -174,7 +175,7 @@ fun addRolledPowderSlots(item: RolledEquipment, tooltip: MutableList<Text>) {
     tooltip.add(text)
 }
 
-fun addPowderSlots(item: Equipment, tooltip: MutableList<Text>) {
+fun addPowderSlots(item: GearEquipment, tooltip: MutableList<Text>) {
     val slots = LiteralText(item.getPowderSlot().toString()).formatted(
         if (item.getPowderSlot() >= 2) Formatting.GREEN else if
                 (item.getPowderSlot() > 0) Formatting.YELLOW else Formatting.RED)

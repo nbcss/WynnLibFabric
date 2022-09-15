@@ -5,7 +5,6 @@ import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
 import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaGroup
-import io.github.nbcss.wynnlib.gui.widgets.criteria.IdentificationCriteriaGroup
 import io.github.nbcss.wynnlib.gui.widgets.criteria.ItemTypeGroup
 import io.github.nbcss.wynnlib.gui.widgets.criteria.RarityGroup
 import io.github.nbcss.wynnlib.items.equipments.Equipment

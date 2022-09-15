@@ -53,13 +53,6 @@ interface Equipment : Keyed, BaseItem, IdentificationHolder {
     fun getRequirement(skill: Skill): Int
 
     /**
-     * Get the number of powder slots of the equipment.
-     *
-     * @return powder slot num
-     */
-    fun getPowderSlot(): Int
-
-    /**
      * Get restriction of the equipment.
      *
      * @return restriction
@@ -70,18 +63,4 @@ interface Equipment : Keyed, BaseItem, IdentificationHolder {
      * Check whether the item can be rerolled.
      */
     fun isIdentifiable(): Boolean
-
-    /**
-     * Convert the Equipment to a Weapon instance.
-     *
-     * @return converted Weapon instance, or null if the Equipment is not a weapon.
-     */
-    fun asWeapon(): Weapon?
-
-    /**
-     * Convert the Equipment to a Wearable instance.
-     *
-     * @return converted Wearable instance, or null if the Equipment is not wearable.
-     */
-    fun asWearable(): Wearable?
 }

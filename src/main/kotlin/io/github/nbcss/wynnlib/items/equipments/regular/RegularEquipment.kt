@@ -2,11 +2,11 @@ package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.analysis.EquipmentTransformer
+import io.github.nbcss.wynnlib.analysis.transformers.EquipmentTransformer
 import io.github.nbcss.wynnlib.analysis.TransformableItem
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
+import io.github.nbcss.wynnlib.items.equipments.GearEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.utils.Color
@@ -18,7 +18,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
-class RegularEquipment(json: JsonObject) : Equipment, TransformableItem {
+class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem {
     private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String

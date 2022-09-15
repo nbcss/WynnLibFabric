@@ -2,13 +2,13 @@ package io.github.nbcss.wynnlib.registry
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.items.equipments.regular.RegularTome
+import io.github.nbcss.wynnlib.items.equipments.misc.Tome
 
-object TomeRegistry : Registry<RegularTome>() {
+object TomeRegistry : Registry<Tome>() {
     private const val RESOURCE = "assets/wynnlib/data/Tomes.json"
-    private val nameMap: MutableMap<String, RegularTome> = LinkedHashMap()
+    private val nameMap: MutableMap<String, Tome> = LinkedHashMap()
 
-    fun fromName(name: String): RegularTome? {
+    fun fromName(name: String): Tome? {
         return nameMap[name]
     }
 
@@ -19,13 +19,13 @@ object TomeRegistry : Registry<RegularTome>() {
         super.reload(array)
     }
 
-    override fun put(item: RegularTome) {
+    override fun put(item: Tome) {
         nameMap[item.getDisplayName()] = item
         super.put(item)
     }
 
-    override fun read(data: JsonObject): RegularTome? = try {
-        RegularTome(data)
+    override fun read(data: JsonObject): Tome? = try {
+        Tome(data)
     } catch (e: Exception) {
         e.printStackTrace()
         null
