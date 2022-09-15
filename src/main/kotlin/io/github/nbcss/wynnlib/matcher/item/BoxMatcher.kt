@@ -14,24 +14,31 @@ object BoxMatcher : ItemMatcher {
     override fun toItem(item: ItemStack, name: String, tooltip: List<Text>): UnidentifiedBox? {
         if (name.contains("Unidentified")) {
             var levelRange: IRange = SimpleIRange(0, 0)
-            var tier: Tier = Tier.NORMAL
+            var tier: Tier? = null
             var type: EquipmentType = EquipmentType.INVALID
-            tooltip.forEach {
-                if (it.string.contains("Range:")) {
-                    levelRange = LV_RANGE_PATTERN.find(it.string)?.let { match ->
-                        SimpleIRange(match.groupValues[1].toInt(), match.groupValues[2].toInt())
-                    } ?: return null
+            try{
+                tooltip.forEach {
+                    if (it.string.contains("Range:")) {
+                        levelRange = LV_RANGE_PATTERN.find(it.string)?.let { match ->
+                            SimpleIRange(match.groupValues[1].toInt(), match.groupValues[2].toInt())
+                        } ?: return null
+                    }
+                    if (it.string.contains("Tier:")) {
+                        tier = Tier.fromId(it.siblings[0].siblings[2].string)
+                    }
+                    if (it.string.contains("Type:")) {
+                        type = EquipmentType.fromDisplayName(it.siblings[0].siblings[2].string)
+                    }
                 }
-                if (it.string.contains("Tier:")) {
-                    tier = Tier.valueOf(it.siblings[0].siblings[2].string.uppercase())
-                }
-                if (it.string.contains("Type:")) {
-                    type = EquipmentType.valueOf(it.siblings[0].siblings[2].string.uppercase())
+            }catch (e: Exception) {
+                return null
+            }
+            if (type != EquipmentType.INVALID) {
+                tier?.let {
+                    return UnidentifiedBox(type, it, levelRange)
                 }
             }
-            if (type == EquipmentType.INVALID)
-                return null
-            return UnidentifiedBox(type, tier, levelRange)
+            return null
         } else {
             return null
         }
