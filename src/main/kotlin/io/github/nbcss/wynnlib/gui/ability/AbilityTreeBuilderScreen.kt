@@ -361,7 +361,14 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         ATreeScrollWidget(this@AbilityTreeBuilderScreen, x, y, sliderX, sliderY) {
         override fun getAbilityTree(): AbilityTree = tree
 
-        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+        override fun renderContents(
+            matrices: MatrixStack,
+            mouseX: Int,
+            mouseY: Int,
+            position: Double,
+            delta: Float,
+            mouseOver: Boolean
+        ) {
             val list = tree.getAbilities().toList()
             renderEdges(list, matrices, LOCKED_INNER_COLOR, false)
             renderEdges(list, matrices, LOCKED_OUTER_COLOR, true)

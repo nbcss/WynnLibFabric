@@ -40,10 +40,19 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         }
     }
 
-    override fun renderContent(matrices: MatrixStack, mouseX: Int, mouseY: Int, posX: Double, posY: Double, delta: Float) {
+    override fun renderContent(
+        matrices: MatrixStack,
+        mouseX: Int,
+        mouseY: Int,
+        posX: Double,
+        posY: Double,
+        delta: Float,
+        mouseOver: Boolean
+    ) {
         for (entry in checkboxes.entries) {
             val widget = entry.value
             widget.updatePosition(posX.toInt(), posY.toInt())
+            widget.setIntractable(mouseOver)
             widget.render(matrices, mouseX, mouseY, delta)
             RENDER.renderInGui(entry.key.getIcon(), widget.x + 21, widget.y + 2)
         }

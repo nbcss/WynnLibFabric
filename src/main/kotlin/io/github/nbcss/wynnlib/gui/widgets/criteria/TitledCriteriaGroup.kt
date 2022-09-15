@@ -6,22 +6,33 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 
 abstract class TitledCriteriaGroup<T: BaseItem>(memory: CriteriaMemory<T>): CriteriaGroup<T>(memory) {
-    abstract fun renderContent(matrices: MatrixStack,
-                               mouseX: Int,
-                               mouseY: Int,
-                               posX: Double,
-                               posY: Double,
-                               delta: Float)
+    abstract fun renderContent(
+        matrices: MatrixStack,
+        mouseX: Int,
+        mouseY: Int,
+        posX: Double,
+        posY: Double,
+        delta: Float,
+        mouseOver: Boolean
+    )
 
     abstract fun getContentHeight(): Int
 
     abstract fun getTitle(): Text
 
-    override fun render(matrices: MatrixStack, mouseX: Int, mouseY: Int, posX: Double, posY: Double, delta: Float) {
+    override fun render(
+        matrices: MatrixStack,
+        mouseX: Int,
+        mouseY: Int,
+        posX: Double,
+        posY: Double,
+        delta: Float,
+        mouseOver: Boolean
+    ) {
         val titleX = posX.toInt() + 2
         val titleY = posY.toInt() + 3
         RenderKit.renderOutlineText(matrices, getTitle(), titleX.toFloat(), titleY.toFloat())
-        renderContent(matrices, mouseX, mouseY, posX, posY + 12.0, delta)
+        renderContent(matrices, mouseX, mouseY, posX, posY + 12.0, delta, mouseOver)
     }
 
     override fun getHeight(): Int {

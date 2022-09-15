@@ -67,11 +67,19 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             return false
         }
 
-        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+        override fun renderContents(
+            matrices: MatrixStack,
+            mouseX: Int,
+            mouseY: Int,
+            position: Double,
+            delta: Float,
+            mouseOver: Boolean
+        ) {
             val posX = x
             val posY = (y - position).toInt()
             for (entry in options.entries) {
                 entry.value.updatePosition(posX, posY)
+                entry.value.setIntractable(mouseOver)
                 entry.value.render(matrices, mouseX, mouseY, delta)
                 //entry.key.formatted(Formatting.GRAY)
                 client.textRenderer.drawWithShadow(matrices, entry.key.formatted(Formatting.GRAY),

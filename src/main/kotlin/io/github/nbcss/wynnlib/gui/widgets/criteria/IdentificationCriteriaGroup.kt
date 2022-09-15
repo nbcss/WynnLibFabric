@@ -20,7 +20,15 @@ class IdentificationCriteriaGroup<T>(private val group: IdentificationGroup,
                 .map { IdentificationCriteriaGroup(it, Identification.fromGroup(it), memory) }
         }
     }
-    override fun render(matrices: MatrixStack, mouseX: Int, mouseY: Int, posX: Double, posY: Double, delta: Float) {
+    override fun render(
+        matrices: MatrixStack,
+        mouseX: Int,
+        mouseY: Int,
+        posX: Double,
+        posY: Double,
+        delta: Float,
+        mouseOver: Boolean
+    ) {
         var itemY = posY.toFloat()
         for (identification in ids) {
             val text = identification.getDisplayText(Formatting.GRAY)

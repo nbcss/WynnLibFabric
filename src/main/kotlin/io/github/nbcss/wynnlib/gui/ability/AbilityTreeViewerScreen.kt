@@ -162,7 +162,14 @@ class AbilityTreeViewerScreen(parent: Screen?,
         ATreeScrollWidget(this@AbilityTreeViewerScreen, x, y, sliderX, sliderY) {
         override fun getAbilityTree(): AbilityTree = tree
 
-        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+        override fun renderContents(
+            matrices: MatrixStack,
+            mouseX: Int,
+            mouseY: Int,
+            position: Double,
+            delta: Float,
+            mouseOver: Boolean
+        ) {
             //render node background
             //render inactive edges (basic)
             val inactive = tree.getAbilities().filter {

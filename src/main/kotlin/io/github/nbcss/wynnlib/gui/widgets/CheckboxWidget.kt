@@ -28,6 +28,7 @@ class CheckboxWidget(private val posX: Int,
             return if (checked) Symbol.TICK.asText() else Symbol.CROSS.asText()
         }
     }
+    private var interactable: Boolean = true
     private var onUpdate: Consumer<CheckboxWidget>? = null
     private var group: Group? = null
     init {
@@ -49,15 +50,23 @@ class CheckboxWidget(private val posX: Int,
 
     fun isChecked(): Boolean = checked
 
+    fun setIntractable(intractable: Boolean) {
+        this.interactable = intractable
+    }
+
     fun updatePosition(x: Int, y: Int) {
         this.x = posX + x
         this.y = posY + y
         this.visible = true
     }
 
+    override fun isHovered(): Boolean {
+        return super.isHovered() && interactable
+    }
+
     override fun renderButton(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.renderButton(matrices, mouseX, mouseY, delta)
-        if (hovered && screen != null) {
+        if (isHovered && screen != null) {
             val tooltip: MutableList<Text> = mutableListOf()
             tooltip.add((if (checked) Symbol.TICK.asText() else Symbol.CROSS.asText())
                 .append(" ").append(name))
@@ -74,7 +83,7 @@ class CheckboxWidget(private val posX: Int,
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        if (this.visible) {
+        if (this.visible && interactable) {
             if (clicked(mouseX, mouseY)) {
                 if (button == 0) {
                     playDownSound(MinecraftClient.getInstance().soundManager)

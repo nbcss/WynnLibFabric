@@ -34,10 +34,19 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         contentHeight = 4 + 20 * index
     }
 
-    override fun renderContent(matrices: MatrixStack, mouseX: Int, mouseY: Int, posX: Double, posY: Double, delta: Float) {
+    override fun renderContent(
+        matrices: MatrixStack,
+        mouseX: Int,
+        mouseY: Int,
+        posX: Double,
+        posY: Double,
+        delta: Float,
+        mouseOver: Boolean
+    ) {
         for (entry in checkboxes.entries) {
             val widget = entry.value
             widget.updatePosition(posX.toInt(), posY.toInt())
+            widget.setIntractable(mouseOver)
             widget.render(matrices, mouseX, mouseY, delta)
             val text = entry.key.getDisplayText()
             //RenderKit.renderOutlineText(matrices, text, widget.x + 24.0f, widget.y + 5.0f)
