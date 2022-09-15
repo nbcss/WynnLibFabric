@@ -37,6 +37,8 @@ object WynnLibEntry: ModInitializer {
         IngredientRegistry.load()
         MaterialRegistry.load()
         RecipeRegistry.load()
+        TomeRegistry.load()
+        CharmRegistry.load()
         //Load local user info
         AbilityBuildStorage.load()
         //Register keybindings

@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.text.Text
 import java.util.*
-import java.util.regex.Pattern
 
 interface ItemMatcher {
     fun toItem(item: ItemStack, name: String, tooltip: List<Text>): BaseItem?
@@ -17,6 +16,8 @@ interface ItemMatcher {
         private val itemMatchers: List<ItemMatcher> = listOf(
             EquipmentItemMatcher,
             IngredientMatcher,
+            PowderMatcher,
+            BoxMatcher
         )
 
         fun toItem(item: ItemStack): BaseItem? {
