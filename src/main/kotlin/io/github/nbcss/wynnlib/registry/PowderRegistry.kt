@@ -18,6 +18,7 @@ object PowderRegistry: Registry<Powder>() {
     }
 
     override fun put(item: Powder) {
+        super.put(item)
         nameMap[item.getDisplayName()] = item
     }
 
