@@ -31,7 +31,7 @@ class RegularEquipment(json: JsonObject) : Equipment, TransformableItem {
     private val powderSlots: Int
     private val category: EquipmentCategory?
     private val identified: Boolean
-    private val majorIds: Array<MajorId>
+    private val majorIds: List<MajorId>
     init {
         name = json.get("name").asString
         displayName = if (json.has("displayName")) json.get("displayName").asString else name
@@ -45,9 +45,9 @@ class RegularEquipment(json: JsonObject) : Equipment, TransformableItem {
         powderSlots = if (json.has("sockets")) json.get("sockets").asInt else 0
         identified = json.has("identified") && json.get("identified").asBoolean
         majorIds = if (json.has("majorIds")){
-            json["majorIds"].asJsonArray.mapNotNull { MajorId.get(it.asString) }.toTypedArray()
+            json["majorIds"].asJsonArray.mapNotNull { MajorId.get(it.asString) }
         }else{
-            emptyArray()
+            emptyList()
         }
         Skill.values().forEach{
             val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
@@ -79,6 +79,8 @@ class RegularEquipment(json: JsonObject) : Equipment, TransformableItem {
     override fun getIdentificationRange(id: Identification): BaseIRange {
         return idMap[id] ?: BaseIRange(id, identified, 0)
     }
+
+    override fun getMajorIds(): List<MajorId> = majorIds
 
     override fun getType(): EquipmentType {
         return category?.getType() ?: EquipmentType.INVALID

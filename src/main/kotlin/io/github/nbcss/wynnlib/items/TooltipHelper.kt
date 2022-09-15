@@ -14,10 +14,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
-import io.github.nbcss.wynnlib.utils.Symbol
-import io.github.nbcss.wynnlib.utils.colorOf
-import io.github.nbcss.wynnlib.utils.colorOfDark
-import io.github.nbcss.wynnlib.utils.formatNumbers
+import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -112,6 +109,21 @@ fun addIdentifications(item: IdentificationHolder,
             lastGroup = it.group
             tooltip.add(text.append(" ").append(it.translate(Formatting.GRAY, character)))
         }
+    }
+    val majorIds = item.getMajorIds()
+    if (majorIds.isNotEmpty() && tooltip.size > lastSize)
+        tooltip.add(LiteralText.EMPTY)
+    for (majorId in majorIds) {
+        /*val text = LiteralText("").formatted(Formatting.AQUA)
+            .append(majorId.formatted(Formatting.AQUA)).append(": ")
+            .append(majorId.formatted(Formatting.DARK_AQUA, "desc"))*/
+        val text = LiteralText("+")
+            .append(majorId.formatted(Formatting.AQUA))
+            .append(": ")
+            .append(majorId.formatted(Formatting.DARK_AQUA, "desc")).string
+        //tooltip.add(text)
+        //println(text)
+        tooltip.addAll(warpLines(LiteralText(text).formatted(Formatting.AQUA), 190))
     }
     return tooltip.size > lastSize
 }

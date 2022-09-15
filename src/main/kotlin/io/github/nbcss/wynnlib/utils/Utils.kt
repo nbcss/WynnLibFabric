@@ -172,11 +172,11 @@ fun replaceProperty(text: String, prefix: Char, provider: Function<String, Strin
     return output.toString()
 }
 
-fun warpLines(text: Text, length: Int): List<Text> {
+fun warpLines(text: Text, length: Int = 200): List<Text> {
     val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
         Optional.of(LiteralText(asString).setStyle(style))
     }
-    return MinecraftClient.getInstance().textRenderer.textHandler
+    return client.textRenderer.textHandler
         .wrapLines(text, length, Style.EMPTY)
         .mapNotNull { it.visit(visitor, Style.EMPTY).orElse(null) }
         .toList()
