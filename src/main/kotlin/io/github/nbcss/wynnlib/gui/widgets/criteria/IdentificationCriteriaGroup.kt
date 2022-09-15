@@ -23,7 +23,7 @@ class IdentificationCriteriaGroup<T>(private val group: IdentificationGroup,
     override fun render(matrices: MatrixStack, mouseX: Int, mouseY: Int, posX: Double, posY: Double, delta: Float) {
         var itemY = posY.toFloat()
         for (identification in ids) {
-            val text = identification.translate(Formatting.GRAY, null)
+            val text = identification.getDisplayText(Formatting.GRAY)
             if (identification.suffix == "%") {
                 text.append(LiteralText(" %").formatted(Formatting.GOLD))
             }

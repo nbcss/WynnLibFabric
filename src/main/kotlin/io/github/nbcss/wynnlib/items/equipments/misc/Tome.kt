@@ -3,21 +3,29 @@ package io.github.nbcss.wynnlib.items.equipments.misc
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.data.*
+import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 import io.github.nbcss.wynnlib.items.addIdentifications
 import io.github.nbcss.wynnlib.items.addItemSuffix
+import io.github.nbcss.wynnlib.items.addRequirements
 import io.github.nbcss.wynnlib.items.addRestriction
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.utils.Color
+import io.github.nbcss.wynnlib.utils.formattingLines
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
+import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 
 class Tome(json: JsonObject) : Equipment, EquipmentCategory {
+    companion object {
+        private val EFFECT = from("wynnlib.tooltip.tome.effect")
+    }
     private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String = json["name"].asString
@@ -75,9 +83,19 @@ class Tome(json: JsonObject) : Equipment, EquipmentCategory {
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
-        tooltip.addAll(super.getTooltip())
+        tooltip.add(getDisplayText())
         tooltip.add(LiteralText.EMPTY)
-        addIdentifications(this, tooltip, this.getClassReq())
+        addRequirements(this, tooltip)
+        tooltip.add(LiteralText.EMPTY)
+        val effect = getTomeType().getEffect()
+        if (effect != null && effectBase != 0) {
+            val id = "${signed(effectBase)}${effect.suffix} ${effect.translate().string}"
+            val text = EFFECT.translate(null, id).string
+            tooltip.addAll(formattingLines(text, "${Formatting.GRAY}", 500))
+            tooltip.add(LiteralText.EMPTY)
+        }
+        if (addIdentifications(this, tooltip))
+            tooltip.add(LiteralText.EMPTY)
         addItemSuffix(this, tooltip)
         addRestriction(this, tooltip)
         return tooltip

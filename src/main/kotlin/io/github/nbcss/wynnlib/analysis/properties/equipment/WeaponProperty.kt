@@ -31,7 +31,7 @@ class WeaponProperty(private val equipment: RolledEquipment):
         addRolledRequirements(equipment, tooltip)
         tooltip.add(LiteralText.EMPTY)
         val lastSize = tooltip.size
-        val quality = addRolledIdentifications(equipment, tooltip, equipment.getClassReq())
+        val quality = addRolledIdentifications(equipment, tooltip)
         if (tooltip.size > lastSize)
             tooltip.add(LiteralText.EMPTY)
         if (quality != null)

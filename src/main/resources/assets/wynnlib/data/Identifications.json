@@ -1,6 +1,76 @@
 {
   "data": [
     {
+      "id": "defence_to_mobs",
+      "apiId": "defenceToMobs",
+      "name": "DEFENCETOMOBS",
+      "displayName": "Mob Damage Resistance",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "damage_to_mobs",
+      "apiId": "damageToMobs",
+      "name": "DAMAGETOMOBS",
+      "displayName": "Damage to Mobs",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "slaying_xp",
+      "apiId": "slayingXp",
+      "name": "SLAYINGXP",
+      "displayName": "Slaying XP",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "dungeon_xp",
+      "apiId": "dungeonXp",
+      "name": "DUNGEONXP",
+      "displayName": "Dungeon XP",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "gathering_xp",
+      "apiId": "gatheringXp",
+      "name": "GATHERINGXP",
+      "displayName": "Gathering XP",
+      "suffix": "%",
+      "group": "TOME_EFFECT",
+      "constant": true
+    },
+    {
+      "id": "damage_from_mobs",
+      "apiId": "damageFromMobs",
+      "name": "DAMAGEFROMMOBS",
+      "displayName": "Damage taken from mobs",
+      "suffix": "%",
+      "group": "CHARM_EXCLUSIVE",
+      "inverted": true
+    },
+    {
+      "id": "lvl_xp_bonus",
+      "apiId": "lvlXpBonus",
+      "name": "LVLXPBONUS",
+      "displayName": "XP from Lv. {minLv}-{maxLv} content",
+      "suffix": "%",
+      "group": "CHARM_EXCLUSIVE"
+    },
+    {
+      "id": "lvl_loot_bonus",
+      "apiId": "lvlLootBonus",
+      "name": "LVLLOOTBONUS",
+      "displayName": "Loot from Lv. {minLv}-{maxLv} content",
+      "suffix": "%",
+      "group": "CHARM_EXCLUSIVE"
+    },
+    {
       "id": "strength_point",
       "apiId": "strengthPoints",
       "name": "STRENGTHPOINTS",
@@ -452,76 +522,6 @@
       "suffix": "%",
       "group": "SPELL_COST",
       "inverted": true
-    },
-    {
-      "id": "defence_to_mobs",
-      "apiId": "defenceToMobs",
-      "name": "DEFENCETOMOBS",
-      "displayName": "Mob Damage Resistance",
-      "suffix": "%",
-      "group": "TOME_EFFECT",
-      "constant": true
-    },
-    {
-      "id": "damage_to_mobs",
-      "apiId": "damageToMobs",
-      "name": "DAMAGETOMOBS",
-      "displayName": "Damage to Mobs",
-      "suffix": "%",
-      "group": "TOME_EFFECT",
-      "constant": true
-    },
-    {
-      "id": "slaying_xp",
-      "apiId": "slayingXp",
-      "name": "SLAYINGXP",
-      "displayName": "Slaying XP",
-      "suffix": "%",
-      "group": "TOME_EFFECT",
-      "constant": true
-    },
-    {
-      "id": "dungeon_xp",
-      "apiId": "dungeonXp",
-      "name": "DUNGEONXP",
-      "displayName": "Dungeon XP",
-      "suffix": "%",
-      "group": "TOME_EFFECT",
-      "constant": true
-    },
-    {
-      "id": "gathering_xp",
-      "apiId": "gatheringXp",
-      "name": "GATHERINGXP",
-      "displayName": "Gathering XP",
-      "suffix": "%",
-      "group": "TOME_EFFECT",
-      "constant": true
-    },
-    {
-      "id": "damage_from_mobs",
-      "apiId": "damageFromMobs",
-      "name": "DAMAGEFROMMOBS",
-      "displayName": "Damage taken from mobs",
-      "suffix": "%",
-      "group": "CHARM_EXCLUSIVE",
-      "inverted": true
-    },
-    {
-      "id": "lvl_xp_bonus",
-      "apiId": "lvlXpBonus",
-      "name": "LVLXPBONUS",
-      "displayName": "XP from Lv. {minLv}-{maxLv} content",
-      "suffix": "%",
-      "group": "CHARM_EXCLUSIVE"
-    },
-    {
-      "id": "lvl_loot_bonus",
-      "apiId": "lvlLootBonus",
-      "name": "LVLLOOTBONUS",
-      "displayName": "Loot from Lv. {minLv}-{maxLv} content",
-      "suffix": "%",
-      "group": "CHARM_EXCLUSIVE"
     }
   ],
   "version": "1.0.1"

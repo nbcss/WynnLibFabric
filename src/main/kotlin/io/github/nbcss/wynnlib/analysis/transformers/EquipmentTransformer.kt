@@ -12,6 +12,7 @@ import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import io.github.nbcss.wynnlib.utils.range.IRange
@@ -81,6 +82,19 @@ class EquipmentTransformer(private val parent: RegularEquipment,
             return mutableTooltip
         }
         return tooltip
+    }
+
+    override fun getIdProperty(key: String): String? {
+        SpellSlot.fromKey(key)?.let { spell ->
+            var name = spell.translate().string
+            getClassReq()?.let {
+                AbilityRegistry.fromCharacter(it).getSpellAbility(spell)?.let { ability ->
+                    name = ability.translate().string
+                }
+            }
+            return name
+        }
+        return null
     }
 
     private fun getPriceTooltip(): List<Text>? {

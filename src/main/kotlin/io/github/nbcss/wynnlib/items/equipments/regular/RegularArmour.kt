@@ -62,7 +62,7 @@ class RegularArmour(parent: RegularEquipment, json: JsonObject)
         addRequirements(parent, tooltip)
         tooltip.add(LiteralText.EMPTY)
         //append empty line if success add any id into the tooltip
-        if (addIdentifications(parent , tooltip, parent.getClassReq()))
+        if (addIdentifications(parent , tooltip))
             tooltip.add(LiteralText.EMPTY)
         addPowderSlots(parent, tooltip)
         addItemSuffix(parent, tooltip)

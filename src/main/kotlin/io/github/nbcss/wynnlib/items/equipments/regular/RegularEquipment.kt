@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.GearEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
+import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.range.IRange
@@ -113,6 +114,19 @@ class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem {
     }
 
     override fun getTooltip(): List<Text> = category?.getTooltip() ?: listOf(getDisplayText())
+
+    override fun getIdProperty(key: String): String? {
+        SpellSlot.fromKey(key)?.let { spell ->
+            var name = spell.translate().string
+            getClassReq()?.let {
+                AbilityRegistry.fromCharacter(it).getSpellAbility(spell)?.let { ability ->
+                    name = ability.translate().string
+                }
+            }
+            return name
+        }
+        return null
+    }
 
     override fun getPowderSlot(): Int = powderSlots
 

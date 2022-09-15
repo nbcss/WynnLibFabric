@@ -38,6 +38,6 @@ class IDModifierIndicator(private val id: Identification,
         val color = colorOf(if (id.inverted) -value else value)
         val bonus = SuffixTranslation.withSuffix(value, id.suffix).formatted(color)
         return LiteralText(entry.icon).append(" ").append(bonus).append(" ")
-            .append(id.translate(Formatting.GRAY, null))
+            .append(id.getDisplayText(Formatting.GRAY))
     }
 }
