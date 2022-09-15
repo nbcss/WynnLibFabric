@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.analysis.TransformableItem
+import io.github.nbcss.wynnlib.analysis.transformers.UnidentifiedBoxTransformer
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
@@ -72,7 +73,7 @@ class UnidentifiedBox(private val type: EquipmentType,
     }
 
     override fun getTransformKey(): String {
-        return "UNID_BOX"
+        return UnidentifiedBoxTransformer.KEY
     }
 
     override fun getDisplayText(): Text {
