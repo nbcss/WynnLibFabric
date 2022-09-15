@@ -38,27 +38,33 @@ class Box(type: EquipmentType, tier: Tier, levelRange: IRange) : BaseItem, Trans
                 ).indexOf(tier)
             }"
         )
-        potentialItems = if (type == EquipmentType.TOME) {
-            TomeRegistry.getAll().filter {
-                it.getTier() == tier &&
-                        it.getLevel().lower() > minLevel &&
-                        it.getLevel().upper() <= maxLevel &&
-                        it.getType() == type // Expect it to be constant true
+        potentialItems = when (type) {
+            EquipmentType.TOME -> {
+                TomeRegistry.getAll().filter {
+                    it.getTier() == tier &&
+                            it.getLevel().lower() > minLevel &&
+                            it.getLevel().upper() <= maxLevel &&
+                            it.getType() == type // Expect it to be constant true
+                }
             }
-        } else if (type == EquipmentType.CHARM) {
-            CharmRegistry.getAll().filter {
-                it.getTier() == tier &&
-                        it.getLevel().lower() > minLevel &&
-                        it.getLevel().upper() <= maxLevel &&
-                        it.getType() == type // Expect it to be constant true
 
+            EquipmentType.CHARM -> {
+                CharmRegistry.getAll().filter {
+                    it.getTier() == tier &&
+                            it.getLevel().lower() > minLevel &&
+                            it.getLevel().upper() <= maxLevel &&
+                            it.getType() == type // Expect it to be constant true
+
+                }
             }
-        } else {
-            RegularEquipmentRegistry.getAll().filter {
-                it.getTier() == tier &&
-                        it.getLevel().lower() > minLevel &&
-                        it.getLevel().upper() <= maxLevel &&
-                        it.getType() == type
+
+            else -> {
+                RegularEquipmentRegistry.getAll().filter {
+                    it.getTier() == tier &&
+                            it.getLevel().lower() > minLevel &&
+                            it.getLevel().upper() <= maxLevel &&
+                            it.getType() == type
+                }
             }
         }
     }
