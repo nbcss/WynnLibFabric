@@ -1,0 +1,53 @@
+{
+  "data": [
+    {
+      "name": "Charm of the Worm",
+      "tier": "Fabled",
+      "level": 60,
+      "range": {
+        "minimum": 60,
+        "maximum": 80
+      },
+      "material": "350:1",
+      "damageFromMobs": 20,
+      "lvlXpBonus": 30
+    },
+    {
+      "name": "Charm of the Light",
+      "tier": "Fabled",
+      "level": 80,
+      "range": {
+        "minimum": 80,
+        "maximum": 100
+      },
+      "material": "6:2",
+      "damageFromMobs": 30,
+      "lvlXpBonus": 30
+    },
+    {
+      "name": "Charm of the Stone",
+      "tier": "Fabled",
+      "level": 100,
+      "range": {
+        "minimum": 90,
+        "maximum": 110
+      },
+      "material": "337:0",
+      "damageFromMobs": 70,
+      "lvlLootBonus": 30
+    },
+    {
+      "name": "Charm of the Void",
+      "tier": "Fabled",
+      "level": 105,
+      "range": {
+        "minimum": 100,
+        "maximum": 110
+      },
+      "material": "351:0",
+      "damageFromMobs": 12
+    }
+  ],
+  "version": "1.1.0",
+  "status": "OK"
+}

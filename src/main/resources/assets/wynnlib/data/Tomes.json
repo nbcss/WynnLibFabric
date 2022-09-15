@@ -1,0 +1,531 @@
+{
+  "data": [
+    {
+      "name": "Tome of Slaying Mastery I",
+      "tier": "Legendary",
+      "type": "SLAYING",
+      "level": 60,
+      "effectBase": 15
+    },
+    {
+      "name": "Tome of Slaying Mastery II",
+      "tier": "Legendary",
+      "type": "SLAYING",
+      "level": 80,
+      "effectBase": 30
+    },
+    {
+      "name": "Tome of Gathering Mastery I",
+      "tier": "Legendary",
+      "type": "GATHERING",
+      "level": 60,
+      "effectBase": 5
+    },
+    {
+      "name": "Tome of Gathering Mastery II",
+      "tier": "Legendary",
+      "type": "GATHERING",
+      "level": 80,
+      "effectBase": 10
+    },
+    {
+      "name": "Tome of Dungeoneering Mastery I",
+      "tier": "Legendary",
+      "type": "DUNGEONEERING",
+      "level": 60,
+      "effectBase": 10
+    },
+    {
+      "name": "Tome of Dungeoneering Mastery II",
+      "tier": "Legendary",
+      "type": "DUNGEONEERING",
+      "level": 80,
+      "effectBase": 20
+    },
+    {
+      "name": "Tome of Weapon Mastery I",
+      "tier": "Legendary",
+      "type": "WEAPON",
+      "level": 60,
+      "effectBase": 6
+    },
+    {
+      "name": "Earthbound Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "effectBase": 7,
+      "strengthPoints": 3
+    },
+    {
+      "name": "Earthbound Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 8,
+      "strengthPoints": 3
+    },
+    {
+      "name": "Nimble Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "effectBase": 7,
+      "dexterityPoints": 3
+    },
+    {
+      "name": "Nimble Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 8,
+      "dexterityPoints": 3
+    },
+    {
+      "name": "Mystical Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "effectBase": 7,
+      "intelligencePoints": 3
+    },
+    {
+      "name": "Mystical Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 8,
+      "intelligencePoints": 3
+    },
+    {
+      "name": "Warding Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "effectBase": 7,
+      "defensePoints": 3
+    },
+    {
+      "name": "Warding Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 8,
+      "defensePoints": 3
+    },
+    {
+      "name": "Athletic Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "effectBase": 7,
+      "agilityPoints": 3
+    },
+    {
+      "name": "Athletic Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 8,
+      "agilityPoints": 3
+    },
+    {
+      "name": "Cosmic Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "effectBase": 7,
+      "strengthPoints": 1,
+      "dexterityPoints": 1,
+      "intelligencePoints": 1,
+      "defensePoints": 1,
+      "agilityPoints": 1
+    },
+    {
+      "name": "Cosmic Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 8,
+      "strengthPoints": 1,
+      "dexterityPoints": 1,
+      "intelligencePoints": 1,
+      "defensePoints": 1,
+      "agilityPoints": 1
+    },
+    {
+      "name": "Seismic Tome of Weapon Mastery II",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 12,
+      "bonusEarthDamage": 7
+    },
+    {
+      "name": "Cyclonic Tome of Weapon Mastery II",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 12,
+      "bonusAirDamage": 7
+    },
+    {
+      "name": "Abyssal Tome of Weapon Mastery II",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 12,
+      "bonusWaterDamage": 7
+    },
+    {
+      "name": "Infernal Tome of Weapon Mastery II",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 12,
+      "bonusFireDamage": 7
+    },
+    {
+      "name": "Voltaic Tome of Weapon Mastery II",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 12,
+      "bonusThunderDamage": 7
+    },
+    {
+      "name": "Astral Tome of Weapon Mastery II",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 80,
+      "effectBase": 12,
+      "bonusFireDamage": 5,
+      "bonusEarthDamage": 5,
+      "bonusWaterDamage": 5,
+      "bonusThunderDamage": 5,
+      "bonusAirDamage": 5
+    },
+    {
+      "name": "Tome of Armour Mastery I",
+      "tier": "Legendary",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 2,
+      "healthBonus": 100
+    },
+    {
+      "name": "Vampiric Tome of Armour Mastery I",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 3,
+      "healthBonus": 120,
+      "lifeSteal": 25
+    },
+    {
+      "name": "Vampiric Tome of Armour Mastery II",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 5,
+      "lifeSteal": 85
+    },
+    {
+      "name": "Retaliating Tome of Armour Mastery I",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 3,
+      "thorns": 6,
+      "reflection": 6,
+      "healthBonus": 120
+    },
+    {
+      "name": "Retaliating Tome of Armour Mastery II",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 5,
+      "thorns": 8,
+      "reflection": 8
+    },
+    {
+      "name": "Sorcerer's Tome of Armour Mastery I",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 3,
+      "spellDamage": 5,
+      "healthBonus": 120
+    },
+    {
+      "name": "Sorcerer's Tome of Armour Mastery II",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 5,
+      "spellDamage": 6
+    },
+    {
+      "name": "Greedy Tome of Armour Mastery I",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 3,
+      "lootBonus": 5,
+      "healthBonus": 120
+    },
+    {
+      "name": "Greedy Tome of Armour Mastery II",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 5,
+      "lootBonus": 6
+    },
+    {
+      "name": "Everlasting Tome of Armour Mastery I",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 3,
+      "healthRegenRaw": 15,
+      "healthBonus": 120
+    },
+    {
+      "name": "Everlasting Tome of Armour Mastery II",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 5,
+      "healthRegenRaw": 60
+    },
+    {
+      "name": "Weightless Tome of Armour Mastery I",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 3,
+      "speed": 5,
+      "healthBonus": 120
+    },
+    {
+      "name": "Weightless Tome of Armour Mastery II",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 5,
+      "speed": 6
+    },
+    {
+      "name": "Destructive Tome of Armour Mastery I",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 60,
+      "effectBase": 3,
+      "damageBonus": 5,
+      "exploding": 5,
+      "healthBonus": 120
+    },
+    {
+      "name": "Destructive Tome of Armour Mastery II",
+      "tier": "Fabled",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 5,
+      "damageBonus": 6,
+      "exploding": 6
+    },
+    {
+      "name": "Clouded Tome of Armour Mastery II",
+      "tier": "Mythic",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 8,
+      "healthBonus": 150,
+      "bonusAirDefense": 10
+    },
+    {
+      "name": "Oceanic Tome of Armour Mastery II",
+      "tier": "Mythic",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 8,
+      "healthBonus": 150,
+      "bonusWaterDefense": 10
+    },
+    {
+      "name": "Courageous Tome of Armour Mastery II",
+      "tier": "Mythic",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 8,
+      "healthBonus": 150,
+      "bonusFireDefense": 10
+    },
+    {
+      "name": "Pulsing Tome of Armour Mastery II",
+      "tier": "Mythic",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 8,
+      "healthBonus": 150,
+      "bonusThunderDefense": 10
+    },
+    {
+      "name": "Blooming Tome of Armour Mastery II",
+      "tier": "Mythic",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 8,
+      "healthBonus": 150,
+      "bonusEarthDefense": 10
+    },
+    {
+      "name": "Radiant Tome of Armour Mastery II",
+      "tier": "Mythic",
+      "type": "ARMOUR",
+      "level": 100,
+      "effectBase": 8,
+      "healthBonus": 150,
+      "bonusEarthDefense": 6,
+      "bonusFireDefense": 6,
+      "bonusWaterDefense": 6,
+      "bonusAirDefense": 6,
+      "bonusThunderDefense": 6
+    },
+    {
+      "name": "Psychopath's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "strengthPoints": 2,
+      "dexterityPoints": 2
+    },
+    {
+      "name": "Loner's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "strengthPoints": 2,
+      "intelligencePoints": 2
+    },
+    {
+      "name": "Destroyer's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "strengthPoints": 2,
+      "defensePoints": 2
+    },
+    {
+      "name": "Barbarian's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "strengthPoints": 2,
+      "agilityPoints": 2
+    },
+    {
+      "name": "Warlock's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "dexterityPoints": 2,
+      "intelligencePoints": 2
+    },
+    {
+      "name": "Devil's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "dexterityPoints": 2,
+      "defensePoints": 2
+    },
+    {
+      "name": "Freelancer's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "dexterityPoints": 2,
+      "agilityPoints": 2
+    },
+    {
+      "name": "Alchemist's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "intelligencePoints": 2,
+      "defensePoints": 2
+    },
+    {
+      "name": "Sycophant's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "intelligencePoints": 2,
+      "agilityPoints": 2
+    },
+    {
+      "name": "Fanatic's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "defensePoints": 2,
+      "agilityPoints": 2
+    },
+    {
+      "name": "Brute's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "strengthPoints": 3,
+      "bonusEarthDamage": 5
+    },
+    {
+      "name": "Sadist's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "dexterityPoints": 3,
+      "bonusThunderDamage": 5
+    },
+    {
+      "name": "Mastermind's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "intelligencePoints": 3,
+      "bonusWaterDamage": 5
+    },
+    {
+      "name": "Arsonist's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "defensePoints": 3,
+      "bonusFireDamage": 5
+    },
+    {
+      "name": "Ghost's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "agilityPoints": 3,
+      "bonusAirDamage": 5
+    },
+    {
+      "name": "Assimilator's Tome of Allegiance",
+      "tier": "Legendary",
+      "type": "guild",
+      "level": 100,
+      "strengthPoints": 1,
+      "dexterityPoints": 1,
+      "intelligencePoints": 1,
+      "defensePoints": 1,
+      "agilityPoints": 1
+    }
+  ],
+  "version": "1.0.48",
+  "status": "OK"
+}

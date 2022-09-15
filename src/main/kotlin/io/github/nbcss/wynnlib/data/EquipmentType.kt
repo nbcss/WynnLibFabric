@@ -6,7 +6,6 @@ import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
 import java.util.*
-import kotlin.collections.LinkedHashMap
 
 enum class EquipmentType(private val id: String,
                          private val icon: ItemStack,
@@ -203,13 +202,26 @@ enum class EquipmentType(private val id: String,
         "bracelet_water_b" to ItemFactory.fromEncoding("minecraft:flint_and_steel#46"),
         "bracelet_multi_a" to ItemFactory.fromEncoding("minecraft:flint_and_steel#47"),
         "bracelet_multi_b" to ItemFactory.fromEncoding("minecraft:flint_and_steel#48")
-    )),
-    //CHARM("Charm", ItemFactory.fromEncoding(""), emptyMap()),
-    //TOME("Charm", ItemFactory.fromEncoding(""), emptyMap()),
+    )
+    ),
+    TOME(
+        "Tome", ItemFactory.fromEncoding("minecraft:enchanted_book"), mapOf(
+            "tome" to ItemFactory.fromEncoding("minecraft:enchanted_book")
+        )
+    ),
+    CHARM(
+        "Charm", ItemFactory.fromEncoding(""), mapOf(
+            "charm_worm" to ItemFactory.fromLegacyId(350, 1),
+            "charm_light" to ItemFactory.fromLegacyId(6, 2),
+            "charm_stone" to ItemFactory.fromLegacyId(337, 0),
+            "charm_void" to ItemFactory.fromLegacyId(351, 0),
+        )
+    ),
     INVALID("???", ERROR_ITEM, emptyMap());
 
     companion object {
         private val VALUE_MAP: MutableMap<String, EquipmentType> = LinkedHashMap()
+
         init {
             values().forEach { VALUE_MAP[it.name.lowercase(Locale.getDefault())] = it }
         }
