@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder

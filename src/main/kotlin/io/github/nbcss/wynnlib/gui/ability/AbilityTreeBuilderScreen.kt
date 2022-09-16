@@ -19,7 +19,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_DELETE
 import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_SAVE
 import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_SHARE
 import io.github.nbcss.wynnlib.i18n.Translations.UI_CLIPBOARD_EXPORT
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText

@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items
+package io.github.nbcss.wynnlib.items.identity
 
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId

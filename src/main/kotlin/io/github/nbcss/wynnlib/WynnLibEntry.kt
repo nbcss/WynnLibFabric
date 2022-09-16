@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.events.ClientTickEvent
 import io.github.nbcss.wynnlib.events.EventRegistry
+import io.github.nbcss.wynnlib.items.identity.ItemProtectManager
 import io.github.nbcss.wynnlib.registry.*
 import io.github.nbcss.wynnlib.timer.status.StatusType
 import io.github.nbcss.wynnlib.utils.Scheduler
@@ -41,6 +42,7 @@ object WynnLibEntry: ModInitializer {
         CharmRegistry.load()
         //Load local user info
         AbilityBuildStorage.load()
+        ItemProtectManager.load()
         //Register keybindings
         WynnLibKeybindings.init()
         //Register events

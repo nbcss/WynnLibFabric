@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.gui.widgets
 
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.gui.TooltipScreen
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder
 import net.minecraft.client.gui.widget.PressableWidget

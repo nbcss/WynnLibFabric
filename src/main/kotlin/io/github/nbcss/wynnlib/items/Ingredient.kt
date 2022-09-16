@@ -11,6 +11,8 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_DURATION
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_EFFECTIVENESS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_OR
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_MODIFIER
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.IngredientIRange
@@ -21,7 +23,7 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 
 
-class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
+class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder, ConfigurableItem {
     private val idMap: MutableMap<Identification, IngredientIRange> = LinkedHashMap()
     private val modifierMap: MutableMap<PositionModifier, Int> = LinkedHashMap()
     private val skillMap: MutableMap<Skill, Int> = LinkedHashMap()
@@ -204,6 +206,10 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         if(isUntradable())
             tooltip.add(Restriction.UNTRADABLE.translate().formatted(Formatting.RED))
         return tooltip
+    }
+
+    override fun getConfigDomain(): String {
+        return "INGREDIENT"
     }
 
     override fun getKey(): String = name

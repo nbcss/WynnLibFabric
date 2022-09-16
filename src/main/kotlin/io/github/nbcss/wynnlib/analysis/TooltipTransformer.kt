@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.analysis
 
 import io.github.nbcss.wynnlib.analysis.transformers.EquipmentTransformer
 import io.github.nbcss.wynnlib.analysis.transformers.UnidentifiedBoxTransformer
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.Keyed
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound

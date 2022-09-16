@@ -14,6 +14,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.GearEquipment
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import net.minecraft.text.LiteralText

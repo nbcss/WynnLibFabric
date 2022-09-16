@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.GearEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
@@ -19,7 +20,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
-class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem {
+class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem, ConfigurableItem {
     private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String
@@ -97,6 +98,10 @@ class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem {
 
     override fun getRequirement(skill: Skill): Int {
         return spMap.getOrDefault(skill, 0)
+    }
+
+    override fun getConfigDomain(): String {
+        return "REGULAR_EQUIPMENT"
     }
 
     override fun getKey(): String = name

@@ -7,7 +7,7 @@ import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
 import io.github.nbcss.wynnlib.analysis.properties.PriceProperty
 import io.github.nbcss.wynnlib.analysis.properties.equipment.*
 import io.github.nbcss.wynnlib.data.*
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable

@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.items
+package io.github.nbcss.wynnlib.items.identity
 
 import net.minecraft.text.Text
 

@@ -3,20 +3,15 @@ package io.github.nbcss.wynnlib.data
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.i18n.Translatable
-import io.github.nbcss.wynnlib.items.IdPropertyProvider
-import io.github.nbcss.wynnlib.items.IdentificationHolder
+import io.github.nbcss.wynnlib.items.identity.IdPropertyProvider
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.registry.Registry
 import io.github.nbcss.wynnlib.utils.JsonGetter
 import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.Version
 import io.github.nbcss.wynnlib.utils.parseStyle
 import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
-import net.minecraft.text.Text
-import net.minecraft.text.TranslatableText
 import net.minecraft.util.Formatting
-import java.util.*
 import java.util.regex.Pattern
 
 data class Identification(val id: String,               //id used in translation key

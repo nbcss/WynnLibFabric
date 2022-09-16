@@ -5,7 +5,7 @@ import io.github.nbcss.wynnlib.gui.widgets.CheckboxWidget
 import io.github.nbcss.wynnlib.gui.widgets.ScrollPaneWidget
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.warpLines
 import net.minecraft.client.gui.screen.Screen

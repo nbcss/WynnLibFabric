@@ -3,7 +3,7 @@ package io.github.nbcss.wynnlib.gui.widgets.criteria
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.IdentificationGroup
 import io.github.nbcss.wynnlib.items.BaseItem
-import io.github.nbcss.wynnlib.items.IdentificationHolder
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText

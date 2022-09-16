@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.gui.TooltipScreen
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.gui.widget.ButtonWidget
 import net.minecraft.client.sound.PositionedSoundInstance

@@ -2,14 +2,13 @@ package io.github.nbcss.wynnlib.gui.ability
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
-import io.github.nbcss.wynnlib.abilities.builder.TreeBuildContainer
 import io.github.nbcss.wynnlib.gui.widgets.ConfirmButtonWidget
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_CLICK_TO_MODIFY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_EMPTY_LIST
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_NEW_ABILITIES
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_POINTS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_REMOVED_ABILITIES
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.readers.AbilityTreeModifier
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.client.gui.screen.Screen

@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.SimpleIRange
 import net.minecraft.text.LiteralText
