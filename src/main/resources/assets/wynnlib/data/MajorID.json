@@ -119,6 +119,11 @@
       "id": "GEOCENTRISM",
       "displayName": "Geocentrism",
       "properties": {}
+    },
+    {
+      "id": "GRAVITYWELL",
+      "displayName": "Gravity Well",
+      "properties": {}
     }
   ],
   "version": "1.1.0"

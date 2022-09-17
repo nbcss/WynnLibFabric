@@ -14,7 +14,6 @@ object ItemProtectManager {
     }
 
     fun isProtected(item: ConfigurableItem): Boolean {
-        //todo check item category/tier protection as well
         return storage.has(item.getConfigKey())
     }
 

@@ -458,6 +458,8 @@
   "wynnlib.major_id.desc.explosive_impact": "Your Exploding ID can trigger when hitting mobs with your Main Attack",
   "wynnlib.major_id.name.geocentrism": "Geocentrism",
   "wynnlib.major_id.desc.geocentrism": "Aura radiates from you instead of your Totem and can be cast any time",
+  "wynnlib.major_id.name.gravitywell": "Gravity Well",
+  "wynnlib.major_id.desc.gravitywell": "Meteor has increased blast radius and pulls enemies instead",
   "wynnlib.archetype.name.fallen": "Fallen",
   "wynnlib.archetype.desc.fallen": "Fallens can deal massive damage and become stronger when attacked.//8{(Damage, High Risks)}",
   "wynnlib.archetype.name.battle_monk": "Battle Monk",
