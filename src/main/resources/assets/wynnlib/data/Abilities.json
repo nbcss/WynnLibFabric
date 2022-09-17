@@ -3226,7 +3226,7 @@
         "values": {
           "1": 5
         },
-        "focus_damage_bonus": 40,
+        "focus_damage_bonus": 25,
         "max_focus": 3
       },
       "metadata": {
@@ -3432,7 +3432,6 @@
         "upgrade": {
           "ability": "FOCUS"
         },
-        "focus_damage_bonus": -5,
         "max_focus_modifier": 2
       },
       "metadata": null
@@ -3615,7 +3614,7 @@
           "1": 2
         },
         "damage": {
-          "neutral": 200
+          "neutral": 220
         },
         "range": 64
       },
@@ -3835,7 +3834,9 @@
           "spell": "SPELL_3"
         },
         "range_clear": true,
-        "element_convert": "THUNDER"
+        "damage_modifier": {
+          "thunder": 40
+        }
       },
       "metadata": null
     },
@@ -4036,10 +4037,10 @@
         },
         "ability_damage_bonus": {
           "ability": "INITIATOR",
-          "bonus": 50
+          "bonus": 60
         },
         "values": {
-          "1": 5,
+          "1": 4,
           "2": 1
         }
       },
@@ -4402,7 +4403,7 @@
           "spell": "SPELL_1"
         },
         "damage": {
-          "neutral": 25,
+          "neutral": 30,
           "water": 10,
           "label": "ARROW"
         },
@@ -4609,7 +4610,6 @@
         "upgrade": {
           "ability": "FOCUS"
         },
-        "focus_damage_bonus": -5,
         "max_focus_modifier": 2
       },
       "metadata": null
@@ -4901,7 +4901,7 @@
       "properties": {
         "spell": "SPELL_2",
         "mana_cost": 25,
-        "range": 12
+        "range": 16
       },
       "metadata": {
         "type": "SPELL",
@@ -5443,11 +5443,11 @@
           "spell": "SPELL_4"
         },
         "damage": {
-          "neutral": 20,
-          "water": 10,
+          "neutral": 10,
+          "water": 5,
           "label": "WINDED"
         },
-        "max_winded": 5,
+        "max_winded": 10,
         "cooldown": 0.5,
         "winded_booster": [
           "ICE_SNAKE"
@@ -5695,8 +5695,8 @@
           "spell": "SPELL_3"
         },
         "damage": {
-          "neutral": 10,
-          "earth": 8,
+          "neutral": 5,
+          "earth": 3,
           "label": "WINDED"
         },
         "winded_booster": [
@@ -6058,9 +6058,9 @@
           "spell": "SPELL_2"
         },
         "damage": {
-          "neutral": 20,
-          "thunder": 5,
-          "air": 5,
+          "neutral": 10,
+          "thunder": 3,
+          "air": 3,
           "label": "WINDED"
         },
         "winded_booster": [
@@ -6322,7 +6322,7 @@
         "upgrade": {
           "ability": "WINDSWEEPER"
         },
-        "max_winded_modifier": 5
+        "max_winded_modifier": 10
       },
       "metadata": null
     },
@@ -6663,7 +6663,7 @@
         "upgrade": {
           "ability": "WINDSWEEPER"
         },
-        "max_winded_modifier": 5
+        "max_winded_modifier": 10
       },
       "metadata": null
     },
@@ -6782,7 +6782,7 @@
           "ability": "WINDSWEEPER"
         },
         "values": {
-          "1": -2
+          "1": -1
         }
       },
       "metadata": null
@@ -6925,10 +6925,10 @@
         "timelock": {
           "duration": 1,
           "max": 5,
-          "per_winded": 5
+          "per_winded": 10
         },
         "values": {
-          "1": 30
+          "1": 60
         }
       },
       "metadata": {
@@ -7789,7 +7789,7 @@
         },
         "ability_damage_bonus": {
           "ability": "SURPRISE_STRIKE",
-          "bonus": 60
+          "bonus": 80
         }
       },
       "metadata": {
@@ -8364,12 +8364,13 @@
       ],
       "properties": {
         "aoe": {
-          "range": 8,
+          "range": 10,
           "shape": "CIRCLE"
         },
+        "cooldown": 2,
         "values": {
-          "1": 2,
-          "2": 20
+          "1": 1.5,
+          "2": 30
         }
       },
       "metadata": {
@@ -8965,7 +8966,7 @@
           "ability": "VIOLENT_VORTEX"
         },
         "values": {
-          "1": 3.5,
+          "1": 2.5,
           "2": 40
         }
       },
@@ -10583,7 +10584,7 @@
           "SPELL_1": -65
         },
         "effects": {
-          "SELF_RESISTANCE": 50,
+          "SELF_RESISTANCE": 35,
           "SELF_DAMAGE": -20
         },
         "replacing": {
@@ -11312,7 +11313,7 @@
           "ability": "MASK_OF_THE_FANATIC"
         },
         "effects": {
-          "ALLIES_RESISTANCE": 80
+          "ALLIES_RESISTANCE": 70
         },
         "aoe": {
           "range": 8,
@@ -11676,7 +11677,7 @@
         },
         "effects": {
           "SELF_DAMAGE": 30,
-          "SELF_RESISTANCE": 30,
+          "SELF_RESISTANCE": 15,
           "SELF_WALK_SPEED": 45
         },
         "duration": 20,
