@@ -67,15 +67,20 @@ object ItemProtector {
 
     object ProtectRender: EventHandler<DrawSlotEvent> {
         override fun handle(event: DrawSlotEvent) {
+            if (event.screen !is GenericContainerScreen)
+                return
             if (event.slot.id >= 27)
                 return
-            if (isSlotProtected(event.slot)) {
-                val x = event.slot.x - 2
-                val y = event.slot.y - 2
-                RenderSystem.enableBlend()
-                RenderSystem.disableDepthTest()
-                RenderKit.renderTexture(event.matrices, texture, x, y, 0, 0,
-                    20, 20, 20, 20)
+            val title = event.screen.title.asString()
+            if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){
+                if (isSlotProtected(event.slot)) {
+                    val x = event.slot.x - 2
+                    val y = event.slot.y - 2
+                    RenderSystem.enableBlend()
+                    RenderSystem.disableDepthTest()
+                    RenderKit.renderTexture(event.matrices, texture, x, y, 0, 0,
+                        20, 20, 20, 20)
+                }
             }
         }
     }
