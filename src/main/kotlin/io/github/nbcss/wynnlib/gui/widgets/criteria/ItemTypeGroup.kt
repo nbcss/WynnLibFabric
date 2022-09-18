@@ -14,7 +14,6 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
                     private val screen: TooltipScreen): TitledCriteriaGroup<Equipment>(memory) {
     companion object {
         private val RENDER = MinecraftClient.getInstance().itemRenderer
-        private val TITLE = UI_FILTER_ITEM_TYPE.formatted(Formatting.GOLD)
         private const val FILTER_KEY = "ITEM_TYPE"
     }
     private val checkboxes: MutableMap<EquipmentType, CheckboxWidget> = linkedMapOf()
@@ -68,7 +67,7 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         }
     }
 
-    override fun getTitle(): Text = TITLE
+    override fun getTitle(): Text = UI_FILTER_ITEM_TYPE.formatted(Formatting.GOLD)
 
     override fun getContentHeight(): Int = contentHeight
 

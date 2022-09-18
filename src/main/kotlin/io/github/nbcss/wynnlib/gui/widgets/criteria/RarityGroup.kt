@@ -13,7 +13,6 @@ import net.minecraft.util.Formatting
 class RarityGroup(memory: CriteriaMemory<Equipment>,
                   private val screen: TooltipScreen): TitledCriteriaGroup<Equipment>(memory) {
     companion object {
-        private val TITLE = Translations.UI_FILTER_RARITY.formatted(Formatting.GOLD)
         private const val FILTER_KEY = "ITEM_RARITY"
     }
     private val checkboxes: MutableMap<Tier, CheckboxWidget> = linkedMapOf()
@@ -64,7 +63,7 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         }
     }
 
-    override fun getTitle(): Text = TITLE
+    override fun getTitle(): Text = Translations.UI_FILTER_RARITY.formatted(Formatting.GOLD)
 
     override fun getContentHeight(): Int = contentHeight
 

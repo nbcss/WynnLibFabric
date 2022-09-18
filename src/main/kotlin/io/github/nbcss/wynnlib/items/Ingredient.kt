@@ -117,6 +117,8 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder, Conf
 
     fun getProfessions(): List<Profession> = professions
 
+    fun getTier(): Tier = tier
+
     fun isUntradable(): Boolean = untradable
 
     private fun addPosModifierTooltip(tooltip: MutableList<Text>): Boolean {
@@ -214,10 +216,10 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder, Conf
 
     override fun getKey(): String = name
 
-    enum class Tier(val suffix: String) {
-        STAR_0("§7 [§8✫✫✫§7]"),
-        STAR_1("§6 [§e✫§8✫✫§6]"),
-        STAR_2("§5 [§d✫✫§8✫§5]"),
-        STAR_3("§3 [§b✫✫✫§3]");
+    enum class Tier(val suffix: String, val color: Color) {
+        STAR_0("§7 [§8✫✫✫§7]", Color.DARK_GRAY),
+        STAR_1("§6 [§e✫§8✫✫§6]", Color.YELLOW),
+        STAR_2("§5 [§d✫✫§8✫§5]", Color.PINK),
+        STAR_3("§3 [§b✫✫✫§3]", Color.AQUA);
     }
 }

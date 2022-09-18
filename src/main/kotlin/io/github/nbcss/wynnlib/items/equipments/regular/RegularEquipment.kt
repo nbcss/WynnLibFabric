@@ -1,15 +1,17 @@
 package io.github.nbcss.wynnlib.items.equipments.regular
 
 import com.google.gson.JsonObject
-import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.analysis.transformers.EquipmentTransformer
 import io.github.nbcss.wynnlib.analysis.TransformableItem
 import io.github.nbcss.wynnlib.data.*
+import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
 import io.github.nbcss.wynnlib.items.equipments.GearEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
+import io.github.nbcss.wynnlib.matcher.MatchableItem
+import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory.ERROR_ITEM
@@ -20,7 +22,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
-class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem, ConfigurableItem {
+class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem, ConfigurableItem, MatchableItem {
     private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String
@@ -115,7 +117,7 @@ class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem, Con
     override fun getIcon(): ItemStack = category?.getIcon() ?: ERROR_ITEM
 
     override fun getRarityColor(): Color {
-        return Settings.getTierColor(getTier())
+        return getMatcherType().getColor()
     }
 
     override fun getTooltip(): List<Text> = category?.getTooltip() ?: listOf(getDisplayText())
@@ -149,5 +151,13 @@ class RegularEquipment(json: JsonObject) : GearEquipment, TransformableItem, Con
 
     override fun getTransformKey(): String {
         return EquipmentTransformer.KEY
+    }
+
+    override fun getMatcherType(): MatcherType {
+        return MatcherType.fromItemTier(tier)
+    }
+
+    override fun asBaseItem(): BaseItem {
+        return this
     }
 }

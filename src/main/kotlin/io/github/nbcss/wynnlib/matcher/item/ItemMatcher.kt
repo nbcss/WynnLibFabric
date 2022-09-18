@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.matcher.item
 
 import io.github.nbcss.wynnlib.items.BaseItem
+import io.github.nbcss.wynnlib.matcher.MatchableItem
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.item.ItemStack
@@ -9,10 +10,10 @@ import net.minecraft.text.Text
 import java.util.*
 
 interface ItemMatcher {
-    fun toItem(item: ItemStack, name: String, tooltip: List<Text>): BaseItem?
+    fun toItem(item: ItemStack, name: String, tooltip: List<Text>): MatchableItem?
 
     companion object {
-        private val itemCacheMap: MutableMap<String, BaseItem?> = WeakHashMap()
+        private val itemCacheMap: MutableMap<String, MatchableItem?> = WeakHashMap()
         private val itemMatchers: List<ItemMatcher> = listOf(
             EquipmentItemMatcher,
             IngredientMatcher,
@@ -20,7 +21,7 @@ interface ItemMatcher {
             BoxMatcher
         )
 
-        fun toItem(item: ItemStack): BaseItem? {
+        fun toItem(item: ItemStack): MatchableItem? {
             if (item.isEmpty)
                 return null
             if (!item.hasCustomName())

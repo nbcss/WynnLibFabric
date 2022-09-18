@@ -42,7 +42,7 @@ object SPNumberRender {
             if (!Settings.getOption(Settings.SettingOption.SP_VALUE))
                 return
             ItemModifier.readInt(event.item, key)?.let {
-                val point = "${MathHelper.clamp(it, 0, 999)}"
+                val point = "${MathHelper.clamp(it, -99, 999)}"
                 //println(point)
                 val x = (event.x + 19 - 2 - event.renderer.getWidth(point)).toFloat()
                 val y = event.y.toFloat() + 9.0f

@@ -7,6 +7,8 @@ import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 import io.github.nbcss.wynnlib.items.equipments.Equipment
+import io.github.nbcss.wynnlib.matcher.MatchableItem
+import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.registry.CharmRegistry
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
 import io.github.nbcss.wynnlib.registry.TomeRegistry
@@ -18,8 +20,9 @@ import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class UnidentifiedBox(private val type: EquipmentType,
-                      private val tier: Tier, levelRange: IRange):
-    BaseItem, TransformableItem {
+                      private val tier: Tier,
+                      levelRange: IRange):
+    BaseItem, TransformableItem, MatchableItem {
     companion object {
         private val NAME = from("wynnlib.unidentified_box.name")
         private val DESCRIPTION = from("wynnlib.unidentified_box.desc")
@@ -123,5 +126,13 @@ class UnidentifiedBox(private val type: EquipmentType,
             }
         }
         return tooltip
+    }
+
+    override fun getMatcherType(): MatcherType {
+        return MatcherType.fromItemTier(tier)
+    }
+
+    override fun asBaseItem(): BaseItem {
+        return this
     }
 }
