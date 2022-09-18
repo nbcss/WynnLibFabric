@@ -209,6 +209,7 @@ object Settings {
         CONSUMABLE_CHARGE("consumable_charge", true),
         SP_VALUE("skill_point_override", true),
         ITEM_BACKGROUND_COLOR("item_color", true),
+        LOCK_POUCH_IN_CHEST("pouch_lock", true),
         ;
 
         override fun getKey(): String = id

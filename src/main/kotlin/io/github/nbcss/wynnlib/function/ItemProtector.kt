@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.matcher.item.ItemMatcher
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.MinecraftClient
+import net.minecraft.client.gui.screen.ingame.GenericContainerScreen
 import net.minecraft.screen.slot.Slot
 import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
@@ -19,6 +20,8 @@ object ItemProtector {
     private val client = MinecraftClient.getInstance()
     object PressListener: EventHandler<InventoryPressEvent> {
         override fun handle(event: InventoryPressEvent) {
+            if (event.screen !is GenericContainerScreen)
+                return
             //Loot Chest I
             val title = event.screen.title.asString()
             if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){

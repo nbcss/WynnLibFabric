@@ -50,6 +50,8 @@
   "wynnlib.setting_option.desc.skill_point_override": "Rendering skill points on the skill point icons, which allow it to display more than 64 points.",
   "wynnlib.setting_option.name.item_color": "Render Item Color",
   "wynnlib.setting_option.desc.item_color": "Rendering item background color in inventory & hotbar according to its rarity.",
+  "wynnlib.setting_option.name.pouch_lock": "Pouch Lock",
+  "wynnlib.setting_option.desc.pouch_lock": "Disable the click action of pouch slot in the loot chest screen.",
   "wynnlib.tier.mythic": "Mythic",
   "wynnlib.tier.fabled": "Fabled",
   "wynnlib.tier.legendary": "Legendary",
