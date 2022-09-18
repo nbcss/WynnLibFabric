@@ -207,7 +207,7 @@ enum class EquipmentType(private val displayName: String,
             "tome" to ItemFactory.fromEncoding("minecraft:enchanted_book")
         )
     ),
-    CHARM("Charm", ItemFactory.fromEncoding(""), mapOf(
+    CHARM("Charm", ItemFactory.fromEncoding("minecraft:totem_of_undying"), mapOf(
             "charm_worm" to ItemFactory.fromLegacyId(350, 1),
             "charm_light" to ItemFactory.fromLegacyId(6, 2),
             "charm_stone" to ItemFactory.fromLegacyId(337, 0),

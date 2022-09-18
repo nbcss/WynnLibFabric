@@ -9,7 +9,9 @@ import io.github.nbcss.wynnlib.gui.widgets.criteria.ItemTypeGroup
 import io.github.nbcss.wynnlib.gui.widgets.criteria.RarityGroup
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.i18n.Translations.UI_EQUIPMENTS
+import io.github.nbcss.wynnlib.registry.CharmRegistry
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
+import io.github.nbcss.wynnlib.registry.TomeRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.item.ItemStack
@@ -44,6 +46,8 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
 
     override fun fetchItems(): Collection<Equipment> {
         return RegularEquipmentRegistry.getAll()
+            .plus(TomeRegistry.getAll())
+            .plus(CharmRegistry.getAll())
     }
 
     override fun getSearchPane(): AdvanceSearchPaneWidget<Equipment>? = filter

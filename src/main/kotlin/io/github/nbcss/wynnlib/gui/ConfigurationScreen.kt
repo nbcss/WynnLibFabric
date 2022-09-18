@@ -5,7 +5,7 @@ import io.github.nbcss.wynnlib.gui.widgets.CheckboxWidget
 import io.github.nbcss.wynnlib.gui.widgets.ScrollPaneWidget
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.warpLines
 import net.minecraft.client.gui.screen.Screen
@@ -67,11 +67,19 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             return false
         }
 
-        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+        override fun renderContents(
+            matrices: MatrixStack,
+            mouseX: Int,
+            mouseY: Int,
+            position: Double,
+            delta: Float,
+            mouseOver: Boolean
+        ) {
             val posX = x
             val posY = (y - position).toInt()
             for (entry in options.entries) {
                 entry.value.updatePosition(posX, posY)
+                entry.value.setIntractable(mouseOver)
                 entry.value.render(matrices, mouseX, mouseY, delta)
                 //entry.key.formatted(Formatting.GRAY)
                 client.textRenderer.drawWithShadow(matrices, entry.key.formatted(Formatting.GRAY),

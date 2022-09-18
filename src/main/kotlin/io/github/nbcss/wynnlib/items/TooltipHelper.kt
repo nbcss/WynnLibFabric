@@ -1,7 +1,6 @@
 package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.analysis.calculator.QualityCalculator
-import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.IdentificationGroup
 import io.github.nbcss.wynnlib.data.Skill
@@ -15,6 +14,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_TO
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.GearEquipment
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
 import net.minecraft.text.LiteralText
@@ -84,8 +84,7 @@ fun addRolledRequirements(item: RolledEquipment, tooltip: MutableList<Text>) {
 }
 
 fun addIdentifications(item: IdentificationHolder,
-                       tooltip: MutableList<Text>,
-                       character: CharacterClass? = null): Boolean {
+                       tooltip: MutableList<Text>): Boolean {
     val lastSize = tooltip.size
     var lastGroup: IdentificationGroup? = null
     Identification.getAll().forEach {
@@ -108,7 +107,7 @@ fun addIdentifications(item: IdentificationHolder,
             if (lastGroup != null && lastGroup != it.group)
                 tooltip.add(LiteralText.EMPTY)
             lastGroup = it.group
-            tooltip.add(text.append(" ").append(it.translate(Formatting.GRAY, character)))
+            tooltip.add(text.append(" ").append(it.getDisplayText(Formatting.GRAY, item)))
         }
     }
     val majorIds = item.getMajorIds()
@@ -117,7 +116,7 @@ fun addIdentifications(item: IdentificationHolder,
     for (majorId in majorIds) {
         val text = LiteralText("+")
             .append(majorId.formatted(Formatting.AQUA))
-            .append(": ")
+            .append(":ÀÀ")
             .append(majorId.formatted(Formatting.DARK_AQUA, "desc")).string
         tooltip.addAll(warpLines(LiteralText(text).formatted(Formatting.AQUA), 190))
     }
@@ -131,8 +130,7 @@ fun addPowderSpecial(item: RolledEquipment, tooltip: MutableList<Text>) {
 }
 
 fun addRolledIdentifications(item: RolledEquipment,
-                             tooltip: MutableList<Text>,
-                             character: CharacterClass? = null): Float? {
+                             tooltip: MutableList<Text>): Float? {
     val qualities: MutableList<Float> = mutableListOf()
     var lastGroup: IdentificationGroup? = null
     Identification.getAll().forEach {
@@ -148,7 +146,7 @@ fun addRolledIdentifications(item: RolledEquipment,
             if (lastGroup != null && lastGroup != it.group)
                 tooltip.add(LiteralText.EMPTY)
             lastGroup = it.group
-            text.append(" ").append(it.translate(Formatting.GRAY, character))
+            text.append(" ").append(it.getDisplayText(Formatting.GRAY, item))
             val range = item.getIdentificationRange(it) as BaseIRange
             val quality = QualityCalculator.asQuality(value, stars, range)
             quality.second?.let { q -> qualities.add(q) }

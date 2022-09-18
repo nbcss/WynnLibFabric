@@ -1,9 +1,11 @@
 package io.github.nbcss.wynnlib.mixins.inventory;
 
+import io.github.nbcss.wynnlib.events.InventoryPressEvent;
 import io.github.nbcss.wynnlib.events.SlotClickEvent;
 import io.github.nbcss.wynnlib.events.SlotPressEvent;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.screen.slot.Slot;
+import org.lwjgl.system.CallbackI;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -44,8 +46,17 @@ public abstract class InventoryInteractMixin {
 
     @Inject(method = "keyPressed", at = @At("HEAD"), cancellable = true)
     public void keyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
+        HandledScreen<?> screen = (HandledScreen<?>) (Object) this;
+        {
+            InventoryPressEvent event = new InventoryPressEvent(screen, keyCode, scanCode);
+            InventoryPressEvent.Companion.handleEvent(event);
+            if (event.getCancelled()) {
+                cir.setReturnValue(true);
+                return;
+            }
+        }
         if (focusedSlot != null) {
-            SlotPressEvent event = new SlotPressEvent((HandledScreen<?>) (Object) this, focusedSlot, keyCode, scanCode);
+            SlotPressEvent event = new SlotPressEvent(screen, focusedSlot, keyCode, scanCode);
             SlotPressEvent.Companion.handleEvent(event);
             if (event.getCancelled()) {
                 cir.setReturnValue(true);

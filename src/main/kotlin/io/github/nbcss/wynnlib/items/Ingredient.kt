@@ -11,6 +11,8 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_DURATION
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ING_EFFECTIVENESS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_OR
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_MODIFIER
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.IngredientIRange
@@ -21,7 +23,7 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.math.MathHelper
 
 
-class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
+class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder, ConfigurableItem {
     private val idMap: MutableMap<Identification, IngredientIRange> = LinkedHashMap()
     private val modifierMap: MutableMap<PositionModifier, Int> = LinkedHashMap()
     private val skillMap: MutableMap<Skill, Int> = LinkedHashMap()
@@ -115,6 +117,8 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
 
     fun getProfessions(): List<Profession> = professions
 
+    fun getTier(): Tier = tier
+
     fun isUntradable(): Boolean = untradable
 
     private fun addPosModifierTooltip(tooltip: MutableList<Text>): Boolean {
@@ -206,12 +210,16 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder {
         return tooltip
     }
 
+    override fun getConfigDomain(): String {
+        return "INGREDIENT"
+    }
+
     override fun getKey(): String = name
 
-    enum class Tier(val suffix: String) {
-        STAR_0("§7 [§8✫✫✫§7]"),
-        STAR_1("§6 [§e✫§8✫✫§6]"),
-        STAR_2("§5 [§d✫✫§8✫§5]"),
-        STAR_3("§3 [§b✫✫✫§3]");
+    enum class Tier(val suffix: String, val color: Color) {
+        STAR_0("§7 [§8✫✫✫§7]", Color.DARK_GRAY),
+        STAR_1("§6 [§e✫§8✫✫§6]", Color.YELLOW),
+        STAR_2("§5 [§d✫✫§8✫§5]", Color.PINK),
+        STAR_3("§3 [§b✫✫✫§3]", Color.AQUA);
     }
 }

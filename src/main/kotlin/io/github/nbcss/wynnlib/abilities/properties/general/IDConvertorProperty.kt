@@ -9,8 +9,6 @@ import io.github.nbcss.wynnlib.abilities.properties.AbilityProperty
 import io.github.nbcss.wynnlib.abilities.properties.OverviewProvider
 import io.github.nbcss.wynnlib.abilities.properties.SetupProperty
 import io.github.nbcss.wynnlib.data.Identification
-import io.github.nbcss.wynnlib.registry.AbilityRegistry
-import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
@@ -56,7 +54,7 @@ class IDConvertorProperty(ability: Ability,
         //println(targetId)
         if (targetId != null) {
             Identification.fromName(targetId)?.let {
-                return it.translate(Formatting.GRAY)
+                return it.getDisplayText(Formatting.GRAY)
             }
         }
         return null

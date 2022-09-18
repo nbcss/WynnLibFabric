@@ -148,13 +148,13 @@ class Powder(json: JsonObject) : Keyed, BaseItem, Translatable {
         return tier.name
     }
 
-    enum class Tier {
-        I,
-        II,
-        III,
-        IV,
-        V,
-        VI;
+    enum class Tier(val color: Color) {
+        I(Color.WHITE),
+        II(Color.YELLOW),
+        III(Color.PINK),
+        IV(Color.AQUA),
+        V(Color.RED),
+        VI(Color.DARK_PURPLE);
         fun index(): Int = ordinal + 1
     }
 }

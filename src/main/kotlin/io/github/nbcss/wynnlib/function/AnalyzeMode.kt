@@ -14,7 +14,7 @@ import net.minecraft.text.Text
 object AnalyzeMode: EventHandler<ItemLoadEvent> {
     const val KEY = "analyze_result"
     override fun handle(event: ItemLoadEvent) {
-        val result = toItem(event.item)
+        val result = toItem(event.item)?.asBaseItem() ?: return
         if (result is TransformableItem) {
             val transformer = asTransformer(event.item, result)
             if (transformer != null) {

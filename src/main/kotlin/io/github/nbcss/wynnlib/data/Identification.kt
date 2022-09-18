@@ -3,18 +3,15 @@ package io.github.nbcss.wynnlib.data
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.i18n.Translatable
+import io.github.nbcss.wynnlib.items.identity.IdPropertyProvider
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.registry.Registry
 import io.github.nbcss.wynnlib.utils.JsonGetter
 import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.Version
 import io.github.nbcss.wynnlib.utils.parseStyle
 import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
-import net.minecraft.text.Text
-import net.minecraft.text.TranslatableText
 import net.minecraft.util.Formatting
-import java.util.*
 import java.util.regex.Pattern
 
 data class Identification(val id: String,               //id used in translation key
@@ -39,8 +36,10 @@ data class Identification(val id: String,               //id used in translation
 
     companion object: Registry<Identification>() {
         private const val RESOURCE = "assets/wynnlib/data/Identifications.json"
+        private val PLACEHOLDER = Pattern.compile("\\$\\{(.+?)}")
         private val SPELL_PLACEHOLDER = Pattern.compile("\\{(sp\\d)}")
         private val NAME_MAP: MutableMap<String, Identification> = linkedMapOf()
+        private val API_ID_MAP: MutableMap<String, Identification> = linkedMapOf()
         private val SUFFIX_NAME_MAP: MutableMap<String, Identification> = linkedMapOf()
         private val GROUP_MAP: MutableMap<IdentificationGroup, MutableList<Identification>> = linkedMapOf()
 
@@ -52,6 +51,10 @@ data class Identification(val id: String,               //id used in translation
             return NAME_MAP[name.uppercase()]
         }
 
+        fun fromApiKey(apiId: String): Identification? {
+            return API_ID_MAP[apiId]
+        }
+
         fun fromSuffixName(suffix: String, displayName: String): Identification? {
             return SUFFIX_NAME_MAP["$displayName@$suffix"]
         }
@@ -60,11 +63,13 @@ data class Identification(val id: String,               //id used in translation
             NAME_MAP.clear()
             SUFFIX_NAME_MAP.clear()
             GROUP_MAP.clear()
+            API_ID_MAP.clear()
             super.reload(array)
         }
 
         override fun put(item: Identification) {
             NAME_MAP[item.name] = item
+            API_ID_MAP[item.apiId] = item
             SUFFIX_NAME_MAP["${item.displayName}@${item.suffix}"] = item
             GROUP_MAP.getOrPut(item.group) { mutableListOf() }.add(item)
             val matcher = SPELL_PLACEHOLDER.matcher(item.displayName)
@@ -92,19 +97,13 @@ data class Identification(val id: String,               //id used in translation
         }
     }
 
-    fun translate(style: Formatting, character: CharacterClass? = null): MutableText {
+    fun getDisplayText(style: Formatting, item: IdPropertyProvider = IdPropertyProvider): MutableText {
         var string = translate().string
-        val matcher = SPELL_PLACEHOLDER.matcher(string)
-        if (matcher.find()) {
-            SpellSlot.fromKey(matcher.group(1))?.let { spell ->
-                var name = spell.translate().string
-                if (character != null) {
-                    AbilityRegistry.fromCharacter(character).getSpellAbility(spell)?.let {
-                        name = it.translate().string
-                    }
-                }
-                string = string.replace("{${spell.key}}", name)
-            }
+        val matcher = PLACEHOLDER.matcher(string)
+        while (matcher.find()) {
+            val key = matcher.group(1)
+            val value = item.getIdProperty(key) ?: key
+            string = string.replace("\${$key}", value)
         }
         return LiteralText(parseStyle(string, style.toString())).formatted(style)
     }

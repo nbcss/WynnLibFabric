@@ -4,9 +4,9 @@
       "name": "Charm of the Worm",
       "tier": "Fabled",
       "level": 60,
-      "range": {
-        "minimum": 60,
-        "maximum": 80
+      "properties": {
+        "minLv": 60,
+        "maxLv": 80
       },
       "material": "350:1",
       "damageFromMobs": 20,
@@ -16,9 +16,9 @@
       "name": "Charm of the Light",
       "tier": "Fabled",
       "level": 80,
-      "range": {
-        "minimum": 80,
-        "maximum": 100
+      "properties": {
+        "minLv": 80,
+        "maxLv": 100
       },
       "material": "6:2",
       "damageFromMobs": 30,
@@ -28,9 +28,9 @@
       "name": "Charm of the Stone",
       "tier": "Fabled",
       "level": 100,
-      "range": {
-        "minimum": 90,
-        "maximum": 110
+      "properties": {
+        "minLv": 90,
+        "maxLv": 110
       },
       "material": "337:0",
       "damageFromMobs": 70,
@@ -40,14 +40,12 @@
       "name": "Charm of the Void",
       "tier": "Fabled",
       "level": 105,
-      "range": {
-        "minimum": 100,
-        "maximum": 110
-      },
       "material": "351:0",
-      "damageFromMobs": 12
+      "damageFromMobs": 12,
+      "sprint": 20,
+      "sprintRegen": 20
     }
   ],
-  "version": "1.1.0",
+  "version": "1.1.1",
   "status": "OK"
 }

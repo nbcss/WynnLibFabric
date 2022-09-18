@@ -23,6 +23,10 @@ object EventRegistry {
         ItemLoadEvent.registerListener(ConsumableChargeRender.Reader)
         RenderItemOverrideEvent.registerListener(ConsumableChargeRender.Render)
         PlayerSendChatEvent.registerListener(KeyValidation)
+        DrawSlotEvent.registerListener(ItemProtector.ProtectRender)
+        InventoryPressEvent.registerListener(ItemProtector.PressListener)
+        SlotClickEvent.registerListener(ItemProtector.ClickListener)
+        SlotClickEvent.registerListener(PouchInChest.ClickListener)
         //It does not work
         //SpellCastEvent.registerListener(ShieldIndicator.SpellTrigger)
         //ArmourStandUpdateEvent.registerListener(ShieldIndicator.EntitySpawn)

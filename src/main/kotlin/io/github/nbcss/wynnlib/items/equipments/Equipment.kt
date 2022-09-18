@@ -2,7 +2,7 @@ package io.github.nbcss.wynnlib.items.equipments
 
 import io.github.nbcss.wynnlib.data.*
 import io.github.nbcss.wynnlib.items.BaseItem
-import io.github.nbcss.wynnlib.items.IdentificationHolder
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.Keyed
 

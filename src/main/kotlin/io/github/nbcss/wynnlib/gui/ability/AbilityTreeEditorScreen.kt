@@ -2,14 +2,13 @@ package io.github.nbcss.wynnlib.gui.ability
 
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
-import io.github.nbcss.wynnlib.abilities.builder.TreeBuildContainer
 import io.github.nbcss.wynnlib.gui.widgets.ConfirmButtonWidget
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_CLICK_TO_MODIFY
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_EMPTY_LIST
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_NEW_ABILITIES
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_POINTS
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_REMOVED_ABILITIES
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.readers.AbilityTreeModifier
 import io.github.nbcss.wynnlib.utils.signed
 import net.minecraft.client.gui.screen.Screen
@@ -23,6 +22,7 @@ class AbilityTreeEditorScreen(parent: Screen?,
                               fixedAbilities: Set<Ability>,
                               mutableAbilities: Set<Ability>):
     AbilityTreeBuilderScreen(parent, tree, maxPoints, fixedAbilities, mutableAbilities) {
+    private val initCost = getBuild().getTotalCost()
 
     override fun copy(): AbilityTreeBuilderScreen {
         val screen = AbilityTreeEditorScreen(
@@ -55,7 +55,7 @@ class AbilityTreeEditorScreen(parent: Screen?,
         }
         tooltip.add(TOOLTIP_ABILITY_CLICK_TO_MODIFY.formatted(Formatting.GREEN))
         tooltip.add(LiteralText.EMPTY)
-        val cost = removed.sumOf { it.getAbilityPointCost() } - orders.sumOf { it.getAbilityPointCost() }
+        val cost = initCost - getBuild().getTotalCost()
         tooltip.add(TOOLTIP_ABILITY_POINTS.formatted(Formatting.GRAY)
             .append(LiteralText(": ").formatted(Formatting.GRAY))
             .append(LiteralText(signed(cost)).formatted(Formatting.WHITE)))

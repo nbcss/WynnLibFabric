@@ -3,7 +3,7 @@ package io.github.nbcss.wynnlib.gui.widgets.criteria
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.IdentificationGroup
 import io.github.nbcss.wynnlib.items.BaseItem
-import io.github.nbcss.wynnlib.items.IdentificationHolder
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.render.RenderKit
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
@@ -20,10 +20,18 @@ class IdentificationCriteriaGroup<T>(private val group: IdentificationGroup,
                 .map { IdentificationCriteriaGroup(it, Identification.fromGroup(it), memory) }
         }
     }
-    override fun render(matrices: MatrixStack, mouseX: Int, mouseY: Int, posX: Double, posY: Double, delta: Float) {
+    override fun render(
+        matrices: MatrixStack,
+        mouseX: Int,
+        mouseY: Int,
+        posX: Double,
+        posY: Double,
+        delta: Float,
+        mouseOver: Boolean
+    ) {
         var itemY = posY.toFloat()
         for (identification in ids) {
-            val text = identification.translate(Formatting.GRAY, null)
+            val text = identification.getDisplayText(Formatting.GRAY)
             if (identification.suffix == "%") {
                 text.append(LiteralText(" %").formatted(Formatting.GOLD))
             }

@@ -95,12 +95,19 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
 
         override fun getSlider(): VerticalSliderWidget = slider
 
-        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+        override fun renderContents(
+            matrices: MatrixStack,
+            mouseX: Int,
+            mouseY: Int,
+            position: Double,
+            delta: Float,
+            mouseOver: Boolean
+        ) {
             //fill(matrices, x, y, x + width, y + height, 0x1DA1AAFF)
             val posX = x.toDouble()
             var posY = y - position
             getCriteriaList().forEach {
-                it.render(matrices, mouseX, mouseY, posX, posY, delta)
+                it.render(matrices, mouseX, mouseY, posX, posY, delta, mouseOver)
                 posY += it.getHeight()
             }
         }

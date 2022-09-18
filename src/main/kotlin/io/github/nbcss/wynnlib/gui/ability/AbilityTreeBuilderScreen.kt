@@ -19,7 +19,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_DELETE
 import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_SAVE
 import io.github.nbcss.wynnlib.i18n.Translations.UI_BUTTON_SHARE
 import io.github.nbcss.wynnlib.i18n.Translations.UI_CLIPBOARD_EXPORT
-import io.github.nbcss.wynnlib.items.TooltipProvider
+import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.registry.AbilityBuildStorage
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.RenderKit.renderOutlineText
@@ -72,6 +72,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
     private var overviewSlider: VerticalSliderWidget? = null
     private val entryNames: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
     private val entryValues: Array<RollingTextWidget?> = arrayOfNulls(MAX_ENTRY_ITEM)
+    private var activeOrder: List<Ability> = emptyList()
     private var viewer: BuilderWindow? = null
     private var saveButton: SquareButton? = null
     private var deleteButton: SquareButton? = null
@@ -109,8 +110,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
 
     fun getRemovedAbilities(): Set<Ability> = mutableAbilities.subtract(build.getAbilities())
 
-    fun getActivateOrders(): List<Ability> = build.getActiveOrder()
-        .filter { it !in fixedAbilities && it !in mutableAbilities }
+    fun getActivateOrders(): List<Ability> = activeOrder
 
     fun getMaxPoints(): Int = maxPoints
 
@@ -124,6 +124,15 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         container = EntryContainer(build.getAbilities())
         setEntryIndex(entryIndex) //for update entry
         updateEntrySlider()
+        val removed = getRemovedAbilities()
+        activeOrder = if (removed.isEmpty()) {
+            build.getActiveOrder().filter { it !in fixedAbilities && it !in mutableAbilities }
+        }else{
+            val abilities = fixedAbilities.union(mutableAbilities).subtract(removed)
+            val container = TreeBuildContainer.fromAbilities(tree, abilities, maxPoints)
+            val base = container.getAbilities()
+            build.getActiveOrder().filter { it !in base }
+        }
     }
 
     private fun setEntryIndex(index: Int) {
@@ -361,7 +370,14 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         ATreeScrollWidget(this@AbilityTreeBuilderScreen, x, y, sliderX, sliderY) {
         override fun getAbilityTree(): AbilityTree = tree
 
-        override fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float) {
+        override fun renderContents(
+            matrices: MatrixStack,
+            mouseX: Int,
+            mouseY: Int,
+            position: Double,
+            delta: Float,
+            mouseOver: Boolean
+        ) {
             val list = tree.getAbilities().toList()
             renderEdges(list, matrices, LOCKED_INNER_COLOR, false)
             renderEdges(list, matrices, LOCKED_OUTER_COLOR, true)

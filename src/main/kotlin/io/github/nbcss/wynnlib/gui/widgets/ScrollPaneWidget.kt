@@ -4,7 +4,6 @@ import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
-import io.github.nbcss.wynnlib.timer.status.ValuesIndicator
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.Drawable
 import net.minecraft.client.gui.DrawableHelper
@@ -27,7 +26,14 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
     private var dragging: Pair<Double, Double>? = null
     private var scrolling: ScrollChange? = null
 
-    abstract fun renderContents(matrices: MatrixStack, mouseX: Int, mouseY: Int, position: Double, delta: Float)
+    abstract fun renderContents(
+        matrices: MatrixStack,
+        mouseX: Int,
+        mouseY: Int,
+        position: Double,
+        delta: Float,
+        mouseOver: Boolean
+    )
 
     abstract fun getContentHeight(): Int
 
@@ -100,7 +106,7 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
         RenderSystem.enableScissor((x * scale).toInt(), client.window.height - (bottom * scale).toInt(),
             (width * scale).toInt(), (height * scale).toInt())
         renderBackground(matrices, position)
-        renderContents(matrices!!, mouseX, mouseY, position, delta)
+        renderContents(matrices!!, mouseX, mouseY, position, delta, isMouseOver(mouseX.toDouble(), mouseY.toDouble()))
         RenderSystem.disableScissor()
         matrices.push()
         matrices.translate(0.0, 0.0, 200.0)

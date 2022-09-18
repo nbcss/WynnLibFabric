@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.items.Powder
+import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.FileUtils
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
@@ -69,6 +70,7 @@ object Settings {
             for (option in SettingOption.values()) {
                 options[option] = getOr(it, option.id, option.defaultValue)
             }
+            MatcherType.reload(getOr(it, "matchers", JsonObject()) { x -> x.asJsonObject })
             lockedSlots.clear()
             lockedSlots.addAll(getOr(it, "locked", emptyList()){ i -> i.asInt })
             keys.clear()
@@ -88,6 +90,7 @@ object Settings {
                 for (option in SettingOption.values()) {
                     data.addProperty(option.id, getOption(option))
                 }
+                data.add("matchers", MatcherType.getData())
                 val locked = JsonArray()
                 lockedSlots.forEach { locked.add(it) }
                 data.add("locked", locked)
@@ -137,7 +140,7 @@ object Settings {
             if (decrypt == id) {
                 isTester = true
                 if (keys.add(key)) {
-                    dirty = true
+                    markDirty()
                 }
                 return true
             }
@@ -153,7 +156,7 @@ object Settings {
         }else{
             lockedSlots.remove(id)
         }
-        dirty = true
+        markDirty()
     }
 
     fun isSlotLocked(id: Int): Boolean {
@@ -162,7 +165,7 @@ object Settings {
 
     fun setOption(option: SettingOption, value: Boolean) {
         options[option] = value
-        dirty = true
+        markDirty()
     }
 
     fun getOption(option: SettingOption): Boolean {
@@ -196,12 +199,17 @@ object Settings {
         return colorMap.getOrDefault(key, Color.WHITE)
     }
 
+    fun markDirty() {
+        dirty = true
+    }
+
     enum class SettingOption(val id: String,
                              val defaultValue: Boolean): Keyed, Translatable {
         DURABILITY("durability", true),
         CONSUMABLE_CHARGE("consumable_charge", true),
         SP_VALUE("skill_point_override", true),
         ITEM_BACKGROUND_COLOR("item_color", true),
+        LOCK_POUCH_IN_CHEST("pouch_lock", true),
         ;
 
         override fun getKey(): String = id

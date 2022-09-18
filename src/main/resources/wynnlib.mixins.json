@@ -19,7 +19,7 @@
     "inventory.InventoryUpdateMixin",
     "inventory.PlayerDropItemMixin",
     "keys.BoundKeyAccessor",
-    "keys.KeyBindingMixin",
+    "keys.KeyBindingAccessors",
     "render.HotbarBackgroundMixin",
     "render.InventoryRenderMixin",
     "render.ItemBackgroundMixin",

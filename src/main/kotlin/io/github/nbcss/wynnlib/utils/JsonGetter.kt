@@ -24,4 +24,8 @@ object JsonGetter {
     fun <T> getOr(data: JsonObject, key: String, value: List<T>, f: Function<JsonElement, T>): List<T> {
         return if(data.has(key)) data[key].asJsonArray.map { f.apply(it) } else value
     }
+
+    fun <T> getOr(data: JsonObject, key: String, value: T, f: Function<JsonElement, T>): T {
+        return if(data.has(key)) f.apply(data[key]) else value
+    }
 }

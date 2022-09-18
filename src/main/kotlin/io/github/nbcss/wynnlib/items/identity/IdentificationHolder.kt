@@ -1,10 +1,10 @@
-package io.github.nbcss.wynnlib.items
+package io.github.nbcss.wynnlib.items.identity
 
 import io.github.nbcss.wynnlib.data.Identification
 import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.utils.range.IRange
 
-interface IdentificationHolder {
+interface IdentificationHolder: IdPropertyProvider {
     /**
      * Get the roll range of the given identification.
      *
