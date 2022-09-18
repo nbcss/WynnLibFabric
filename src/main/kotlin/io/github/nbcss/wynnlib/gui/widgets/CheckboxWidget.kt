@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.gui.widgets
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
+import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.Symbol
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder
@@ -11,6 +12,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import net.minecraft.util.Identifier
 import java.util.function.Consumer
 
 class CheckboxWidget(private val posX: Int,
@@ -21,9 +23,10 @@ class CheckboxWidget(private val posX: Int,
                      private val description: TooltipProvider? = null):
     ClickableWidget(-1000, -1000, SIZE, SIZE, fromBoolean(checked)) {
     companion object {
+        private val TEXTURE = Identifier("wynnlib", "textures/gui/checkbox_button.png")
         val LEFT_CLICK = from("wynnlib.ui.check_box.left_click")
         val RIGHT_CLICK = from("wynnlib.ui.check_box.right_click")
-        const val SIZE = 20
+        const val SIZE = 18
         private fun fromBoolean(checked: Boolean): Text {
             return if (checked) Symbol.TICK.asText() else Symbol.CROSS.asText()
         }
@@ -65,7 +68,9 @@ class CheckboxWidget(private val posX: Int,
     }
 
     override fun renderButton(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        super.renderButton(matrices, mouseX, mouseY, delta)
+        var v = if (isChecked()) 0 else 36
+        if (isHovered) v += 18
+        RenderKit.renderTexture(matrices!!, TEXTURE, x, y, 0, v, SIZE, SIZE, SIZE, SIZE * 4)
         if (isHovered && screen != null) {
             val tooltip: MutableList<Text> = mutableListOf()
             tooltip.add((if (checked) Symbol.TICK.asText() else Symbol.CROSS.asText())
@@ -78,7 +83,7 @@ class CheckboxWidget(private val posX: Int,
             if (group != null) {
                 tooltip.add(RIGHT_CLICK.formatted(Formatting.LIGHT_PURPLE))
             }
-            screen.drawTooltip(matrices!!, tooltip, mouseX, mouseY)
+            screen.drawTooltip(matrices, tooltip, mouseX, mouseY)
         }
     }
 

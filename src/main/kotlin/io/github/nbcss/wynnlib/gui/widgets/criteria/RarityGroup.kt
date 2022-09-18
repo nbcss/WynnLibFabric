@@ -9,6 +9,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import kotlin.math.floor
 
 class RarityGroup(memory: CriteriaMemory<Equipment>,
                   private val screen: TooltipScreen): TitledCriteriaGroup<Equipment>(memory) {
@@ -42,14 +43,16 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         delta: Float,
         mouseOver: Boolean
     ) {
+        val x = floor(posX).toInt()
+        val y = floor(posY).toInt()
         for (entry in checkboxes.entries) {
             val widget = entry.value
-            widget.updatePosition(posX.toInt(), posY.toInt())
+            widget.updatePosition(x, y)
             widget.setIntractable(mouseOver)
             widget.render(matrices, mouseX, mouseY, delta)
             val text = entry.key.getDisplayText()
             //RenderKit.renderOutlineText(matrices, text, widget.x + 24.0f, widget.y + 5.0f)
-            MinecraftClient.getInstance().textRenderer.drawWithShadow(matrices, text, widget.x + 24.0f, widget.y + 5.0f, 0xFFFFFF)
+            MinecraftClient.getInstance().textRenderer.drawWithShadow(matrices, text, widget.x + 20.0f, widget.y + 4.0f, 0xFFFFFF)
         }
     }
 

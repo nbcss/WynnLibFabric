@@ -13,6 +13,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_OR
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_MODIFIER
 import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
 import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
+import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.range.IRange
 import io.github.nbcss.wynnlib.utils.range.IngredientIRange
@@ -181,7 +182,7 @@ class Ingredient(json: JsonObject) : Keyed, BaseItem, IdentificationHolder, Conf
     override fun getIcon(): ItemStack = texture
 
     override fun getRarityColor(): Color {
-        return Settings.getIngredientColor(tier)
+        return MatcherType.fromIngredientTier(tier).getColor()
     }
 
     override fun getIdentificationRange(id: Identification): IRange {
