@@ -1,9 +1,11 @@
 package io.github.nbcss.wynnlib.function
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.events.DrawSlotEvent
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.InventoryPressEvent
+import io.github.nbcss.wynnlib.events.SlotClickEvent
 import io.github.nbcss.wynnlib.matcher.ProtectableType
 import io.github.nbcss.wynnlib.matcher.item.ItemMatcher
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -26,6 +28,30 @@ object ItemProtector {
             val title = event.screen.title.asString()
             if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){
                 if (event.keyCode == 256 || client.options.inventoryKey.matchesKey(event.keyCode, event.scanCode)) {
+                    val size = max(0, event.screen.screenHandler.slots.size - 36)
+                    for (i in (0 until size)) {
+                        val slot = event.screen.screenHandler.getSlot(i)
+                        if (isSlotProtected(slot)) {
+                            playSound(SoundEvents.BLOCK_ANVIL_LAND)
+                            event.cancelled = true
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //prevent close via pouch slot click
+    object ClickListener: EventHandler<SlotClickEvent> {
+        override fun handle(event: SlotClickEvent) {
+            // no need to do the check if pouch lock already enabled
+            if (Settings.getOption(Settings.SettingOption.LOCK_POUCH_IN_CHEST))
+                return
+            if (event.screen !is GenericContainerScreen)
+                return
+            val title = event.screen.title.asString()
+            if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){
+                if (45 + event.slot.id - event.screen.screenHandler.slots.size == 13) {
                     val size = max(0, event.screen.screenHandler.slots.size - 36)
                     for (i in (0 until size)) {
                         val slot = event.screen.screenHandler.getSlot(i)
