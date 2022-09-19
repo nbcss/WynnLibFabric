@@ -9,6 +9,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import kotlin.math.floor
 
 class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
                     private val screen: TooltipScreen): TitledCriteriaGroup<Equipment>(memory) {
@@ -32,7 +33,7 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         }
         val group = CheckboxWidget.Group(checkboxes.values.toSet())
         checkboxes.values.forEach { it.setGroup(group) }
-        contentHeight = 4 + if (index % range.size == 0) {
+        contentHeight = if (index % range.size == 0) {
             20 * (index / range.size)
         }else{
             20 * (1 + index / range.size)
@@ -48,12 +49,16 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         delta: Float,
         mouseOver: Boolean
     ) {
+        //println("Top: $posY")
+        //println("Height: ${getHeight()}")
+        val x = floor(posX).toInt()
+        val y = floor(posY).toInt()
         for (entry in checkboxes.entries) {
             val widget = entry.value
-            widget.updatePosition(posX.toInt(), posY.toInt())
+            widget.updatePosition(x, y)
             widget.setIntractable(mouseOver)
             widget.render(matrices, mouseX, mouseY, delta)
-            RENDER.renderInGui(entry.key.getIcon(), widget.x + 21, widget.y + 2)
+            RENDER.renderInGui(entry.key.getIcon(), widget.x + 20, widget.y + 1)
         }
     }
 

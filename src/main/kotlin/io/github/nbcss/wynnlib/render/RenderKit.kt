@@ -5,14 +5,16 @@ import io.github.nbcss.wynnlib.utils.AlphaColor
 import io.github.nbcss.wynnlib.utils.Color
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawableHelper
-import net.minecraft.client.render.GameRenderer
-import net.minecraft.client.render.Tessellator
-import net.minecraft.client.render.VertexConsumerProvider
+import net.minecraft.client.render.*
+import net.minecraft.client.render.VertexConsumerProvider.Immediate
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import kotlin.math.min
+import kotlin.math.round
+import kotlin.math.sqrt
 
 object RenderKit {
     private val textRender = MinecraftClient.getInstance().textRenderer
@@ -120,5 +122,47 @@ object RenderKit {
             color.code(), outlineColor.code(),
             matrices.peek().positionMatrix, immediate, 15728880)
         immediate.draw()
+    }
+
+    fun renderWayPointText(
+        matrices: MatrixStack,
+        texts: List<Text>,
+        worldX: Double,
+        worldY: Double,
+        worldZ: Double,
+        showDistance: Boolean) {
+        val client = MinecraftClient.getInstance()
+        val camera = client.gameRenderer.camera
+        val dx = worldX - camera.pos.x
+        val dy = worldY - camera.pos.y
+        val dz = worldZ - camera.pos.z
+        val distance = sqrt((dx * dx + dy * dy + dz * dz)).toFloat()
+        var zoom = 1.0f
+        val radius = 10
+        if (distance > radius) {
+            zoom = distance / radius
+        }
+        matrices.push()
+        matrices.translate(dx, dy, dz)
+        matrices.multiply(camera.rotation)
+        matrices.scale(-0.025f, -0.025f, 0.025f)
+        matrices.scale(zoom, zoom, 1.0f)
+        RenderSystem.enableDepthTest()
+        val textX = texts.minOf { (-textRender.getWidth(it) / 2).toFloat() }
+        var textY = -(texts.size + if (showDistance) 1 else 0) * 10 / 2.0f
+        val consumerProvider: Immediate = client.bufferBuilders.entityVertexConsumers
+        val matrix4f = matrices.peek().positionMatrix
+        for (text in texts) {
+            textRender.draw(text, textX, textY, 0xFFFFFF, true,
+                matrix4f, consumerProvider, true, 0, 255)
+            textY += 10.0f
+        }
+        if (showDistance) {
+            val distanceText = LiteralText("${round(distance).toInt()}m")
+            val distanceX = (-textRender.getWidth(distanceText) / 2).toFloat()
+            textRender.draw(distanceText, distanceX, textY, 0xFFFFFF, true,
+                matrix4f, consumerProvider, true, 0, 255)
+        }
+        matrices.pop()
     }
 }
