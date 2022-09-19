@@ -6,12 +6,14 @@ import io.github.nbcss.wynnlib.data.MajorId
 import io.github.nbcss.wynnlib.data.PowderSpecial
 import io.github.nbcss.wynnlib.events.ClientTickEvent
 import io.github.nbcss.wynnlib.events.EventRegistry
+import io.github.nbcss.wynnlib.events.RenderWorldEvent
 import io.github.nbcss.wynnlib.items.identity.ItemProtectManager
 import io.github.nbcss.wynnlib.registry.*
 import io.github.nbcss.wynnlib.timer.status.StatusType
 import io.github.nbcss.wynnlib.utils.Scheduler
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents
 
 
 @Suppress("UNUSED")
@@ -47,5 +49,8 @@ object WynnLibEntry: ModInitializer {
         WynnLibKeybindings.init()
         //Register events
         EventRegistry.registerEvents()
+        WorldRenderEvents.BEFORE_DEBUG_RENDER.register {
+            RenderWorldEvent.handleEvent(RenderWorldEvent(it))
+        }
     }
 }

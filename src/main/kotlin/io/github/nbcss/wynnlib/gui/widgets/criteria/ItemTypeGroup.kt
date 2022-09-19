@@ -33,7 +33,7 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         }
         val group = CheckboxWidget.Group(checkboxes.values.toSet())
         checkboxes.values.forEach { it.setGroup(group) }
-        contentHeight = 4 + if (index % range.size == 0) {
+        contentHeight = if (index % range.size == 0) {
             20 * (index / range.size)
         }else{
             20 * (1 + index / range.size)

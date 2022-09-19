@@ -31,7 +31,7 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         }
         val group = CheckboxWidget.Group(checkboxes.values.toSet())
         checkboxes.values.forEach { it.setGroup(group) }
-        contentHeight = 4 + 20 * index
+        contentHeight = 20 * index
     }
 
     override fun renderContent(
