@@ -44,6 +44,8 @@ class RegularAccessory(parent: RegularEquipment, json: JsonObject)
         //append empty line if success add any id into the tooltip
         if (addIdentifications(parent , tooltip))
             tooltip.add(LiteralText.EMPTY)
+        if (addMajorIds(parent, tooltip))
+            tooltip.add(LiteralText.EMPTY)
         //accessory should not have powder slot but let's add it just in case
         if(parent.getPowderSlot() > 0)
             addPowderSlots(parent, tooltip)

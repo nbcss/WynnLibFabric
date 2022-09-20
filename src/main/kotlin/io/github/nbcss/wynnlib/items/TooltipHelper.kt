@@ -110,15 +110,15 @@ fun addIdentifications(item: IdentificationHolder,
             tooltip.add(text.append(" ").append(it.getDisplayText(Formatting.GRAY, item)))
         }
     }
+    return tooltip.size > lastSize
+}
+
+fun addMajorIds(item: IdentificationHolder,
+                tooltip: MutableList<Text>): Boolean {
+    val lastSize = tooltip.size
     val majorIds = item.getMajorIds()
-    if (majorIds.isNotEmpty() && tooltip.size > lastSize)
-        tooltip.add(LiteralText.EMPTY)
     for (majorId in majorIds) {
-        val text = LiteralText("+")
-            .append(majorId.formatted(Formatting.AQUA))
-            .append(":ÀÀ")
-            .append(majorId.formatted(Formatting.DARK_AQUA, "desc")).string
-        tooltip.addAll(warpLines(LiteralText(text).formatted(Formatting.AQUA), 190))
+        tooltip.addAll(majorId.getTooltip())
     }
     return tooltip.size > lastSize
 }
