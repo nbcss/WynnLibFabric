@@ -20,6 +20,7 @@ class MaterialDictScreen(parent: Screen?) : DictionaryScreen<Material>(parent, T
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = MaterialDictScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is MaterialDictScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
 

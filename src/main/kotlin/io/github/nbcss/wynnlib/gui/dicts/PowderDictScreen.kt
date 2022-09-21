@@ -20,6 +20,7 @@ class PowderDictScreen(parent: Screen?) : DictionaryScreen<Powder>(parent, TITLE
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = PowderDictScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is PowderDictScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
 

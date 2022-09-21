@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.gui.ability.AbilityBuildDictionaryScreen
 import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
@@ -35,18 +36,12 @@ abstract class HandbookTabScreen(val parent: Screen?,
     protected var windowY = backgroundHeight
     init {
         //setup default tabs
-        tabs.add(EquipmentDictScreen.FACTORY)
-        tabs.add(IngredientDictScreen.FACTORY)
-        //tabs.add(CrafterScreen.FACTORY)
-        tabs.add(AbilityTreeViewerScreen.FACTORY)
-        //tabs.add(AbilityBuildDictionaryScreen.FACTORY)
-        tabs.add(PowderDictScreen.FACTORY)
-        tabs.add(MaterialDictScreen.FACTORY)
-        tabs.add(ConfigurationScreen.FACTORY)
+        tabs.addAll(Settings.getHandbookTabs())
     }
 
     override fun init() {
         super.init()
+        tabs.removeIf { !it.shouldDisplay() }
         clearChildren()
         windowWidth = backgroundWidth
         windowHeight = backgroundHeight

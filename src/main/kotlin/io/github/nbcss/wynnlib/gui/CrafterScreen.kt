@@ -16,6 +16,7 @@ class CrafterScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = CrafterScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is CrafterScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {

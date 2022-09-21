@@ -29,6 +29,7 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = EquipmentDictScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is EquipmentDictScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
     private var filter: AdvanceSearchPaneWidget<Equipment>? = null

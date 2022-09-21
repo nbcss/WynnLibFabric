@@ -24,6 +24,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = ConfigurationScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is ConfigurationScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
     private var scroll: Scroll? = null

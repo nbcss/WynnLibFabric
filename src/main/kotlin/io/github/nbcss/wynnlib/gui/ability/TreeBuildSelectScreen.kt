@@ -21,6 +21,7 @@ class TreeBuildSelectScreen(parent: Screen?,
                 override fun createScreen(parent: Screen?): HandbookTabScreen =
                     TreeBuildSelectScreen(parent, this, builder)
                 override fun isInstance(screen: HandbookTabScreen): Boolean = screen is TreeBuildSelectScreen
+                override fun shouldDisplay(): Boolean = true
             }
         }
     }
