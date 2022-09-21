@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.ItemFactory
+import io.github.nbcss.wynnlib.utils.formattingLines
 import io.github.nbcss.wynnlib.utils.warpLines
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
@@ -23,6 +24,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = ConfigurationScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is ConfigurationScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
     private var scroll: Scroll? = null
@@ -44,7 +46,8 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             for (option in Settings.SettingOption.values()) {
                 val description = object: TooltipProvider {
                     override fun getTooltip(): List<Text> {
-                        return warpLines(option.translate("desc").formatted(Formatting.GRAY), 200)
+                        return formattingLines(option.translate("desc").string,
+                            Formatting.GRAY.toString(), 200)
                     }
                 }
                 val checkbox = CheckboxWidget(posX, posY, option.formatted(Formatting.GOLD),

@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.render
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.utils.AlphaColor
 import io.github.nbcss.wynnlib.utils.Color
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.render.*
@@ -14,6 +15,7 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import kotlin.math.min
 import kotlin.math.round
+import kotlin.math.roundToInt
 import kotlin.math.sqrt
 
 object RenderKit {
@@ -130,7 +132,8 @@ object RenderKit {
         worldX: Double,
         worldY: Double,
         worldZ: Double,
-        showDistance: Boolean) {
+        showDistance: Boolean,
+        backgroundAlpha: Int = 0x55) {
         val client = MinecraftClient.getInstance()
         val camera = client.gameRenderer.camera
         val dx = worldX - camera.pos.x
@@ -142,27 +145,40 @@ object RenderKit {
         if (distance > radius) {
             zoom = distance / radius
         }
+        RenderSystem.disableDepthTest()
         matrices.push()
+        matrices.loadIdentity()
         matrices.translate(dx, dy, dz)
         matrices.multiply(camera.rotation)
         matrices.scale(-0.025f, -0.025f, 0.025f)
         matrices.scale(zoom, zoom, 1.0f)
-        RenderSystem.enableDepthTest()
-        val textX = texts.minOf { (-textRender.getWidth(it) / 2).toFloat() }
+        val width = texts.maxOf { textRender.getWidth(it) }
+        val textX = -width / 2.0f
         var textY = -(texts.size + if (showDistance) 1 else 0) * 10 / 2.0f
-        val consumerProvider: Immediate = client.bufferBuilders.entityVertexConsumers
+        val consumerProvider = VertexConsumerProvider.immediate(Tessellator.getInstance().buffer)
         val matrix4f = matrices.peek().positionMatrix
+        DrawableHelper.fill(matrices,
+            textX.toInt() - 2,
+            textY.toInt() - 1,
+            textX.toInt() + width + 2,
+            textY.toInt() + (texts.size + if (showDistance) 1 else 0) * 10 + 1,
+            Color.BLACK.withAlpha(backgroundAlpha).code())
         for (text in texts) {
-            textRender.draw(text, textX, textY, 0xFFFFFF, true,
+            textRender.draw(text, textX, textY, 0xFFFFFF, false,
                 matrix4f, consumerProvider, true, 0, 255)
             textY += 10.0f
         }
-        if (showDistance) {
-            val distanceText = LiteralText("${round(distance).toInt()}m")
-            val distanceX = (-textRender.getWidth(distanceText) / 2).toFloat()
-            textRender.draw(distanceText, distanceX, textY, 0xFFFFFF, true,
+        if (showDistance){
+            RenderSystem.disableDepthTest()
+            val distText = LiteralText("${distance.roundToInt()}m")
+            val distX = (-textRender.getWidth(distText) / 2).toFloat()
+            /*textRender.drawWithOutline(distText.asOrderedText(), distX, textY, 0xFFFFFF, 0,
+                    matrix4f, consumerProvider, 255)*/
+            textRender.draw(distText, distX, textY, 0xFFFFFF, false,
                 matrix4f, consumerProvider, true, 0, 255)
         }
+        consumerProvider.draw()
         matrices.pop()
+        RenderSystem.enableDepthTest()
     }
 }

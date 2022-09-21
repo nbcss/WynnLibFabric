@@ -1,10 +1,12 @@
 package io.github.nbcss.wynnlib.analysis.properties.equipment
 
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.analysis.calculator.QualityCalculator
 import io.github.nbcss.wynnlib.data.Element
 import io.github.nbcss.wynnlib.items.*
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
+import io.github.nbcss.wynnlib.items.equipments.MajorIdContainer
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.range.IRange
@@ -37,6 +39,18 @@ class WearableProperty(private val equipment: RolledEquipment):
         val quality = addRolledIdentifications(equipment, tooltip)
         if (tooltip.size > lastSize)
             tooltip.add(LiteralText.EMPTY)
+        if (equipment is MajorIdContainer.Holder && equipment.getMajorIdContainers().isNotEmpty()) {
+            if (Settings.getOption(Settings.SettingOption.MAJOR_ID_ANALYZE)) {
+                for (majorId in equipment.getMajorIdContainers()) {
+                    tooltip.addAll(majorId.majorId.getTooltip())
+                }
+            }else{
+                for (majorId in equipment.getMajorIdContainers()) {
+                    tooltip.addAll(majorId.tooltip)
+                }
+            }
+            tooltip.add(LiteralText.EMPTY)
+        }
         if (quality != null)
             tooltip[0] = LiteralText("")
                 .append(tooltip[0]).append(" ")

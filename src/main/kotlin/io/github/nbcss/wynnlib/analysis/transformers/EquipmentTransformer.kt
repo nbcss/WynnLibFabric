@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.analysis.properties.AnalysisProperty
 import io.github.nbcss.wynnlib.analysis.properties.PriceProperty
 import io.github.nbcss.wynnlib.analysis.properties.equipment.*
 import io.github.nbcss.wynnlib.data.*
+import io.github.nbcss.wynnlib.items.equipments.MajorIdContainer
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
@@ -24,7 +25,8 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
 class EquipmentTransformer(private val parent: RegularEquipment,
-                           private val stack: ItemStack): TooltipTransformer, RolledEquipment {
+                           private val stack: ItemStack):
+    TooltipTransformer, RolledEquipment, MajorIdContainer.Holder {
     companion object: TooltipTransformer.Factory {
         const val KEY = "EQUIPMENT"
 
@@ -40,6 +42,7 @@ class EquipmentTransformer(private val parent: RegularEquipment,
         pairs = listOf(
             RequirementProperty(),
             IdentificationProperty(),
+            MajorIdProperty(),
             PowderSpecialProperty(),
             PowderProperty(),
             SuffixProperty(),
@@ -206,5 +209,13 @@ class EquipmentTransformer(private val parent: RegularEquipment,
 
     override fun getIdentificationRange(id: Identification): BaseIRange {
         return parent.getIdentificationRange(id)
+    }
+
+    override fun getMajorIds(): List<MajorId> {
+        return (propertyMap[MajorIdProperty.KEY] as MajorIdProperty).getMajorIds()
+    }
+
+    override fun getMajorIdContainers(): List<MajorIdContainer> {
+        return (propertyMap[MajorIdProperty.KEY] as MajorIdProperty).getMajorIdContainers()
     }
 }

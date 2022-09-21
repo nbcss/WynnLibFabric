@@ -66,6 +66,7 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
         override fun getTabTitle(): Text = TITLE
         override fun createScreen(parent: Screen?): HandbookTabScreen = copy()
         override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityTreeBuilderScreen
+        override fun shouldDisplay(): Boolean = true
     }
     private var container: EntryContainer = EntryContainer()
     private var entryIndex = 0

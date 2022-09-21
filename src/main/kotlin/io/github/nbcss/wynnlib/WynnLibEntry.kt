@@ -49,7 +49,7 @@ object WynnLibEntry: ModInitializer {
         WynnLibKeybindings.init()
         //Register events
         EventRegistry.registerEvents()
-        WorldRenderEvents.BEFORE_DEBUG_RENDER.register {
+        WorldRenderEvents.LAST.register {
             RenderWorldEvent.handleEvent(RenderWorldEvent(it))
         }
     }

@@ -30,6 +30,7 @@ class AbilityTreeViewerScreen(parent: Screen?,
             override fun createScreen(parent: Screen?): HandbookTabScreen = AbilityTreeViewerScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is AbilityBuildDictionaryScreen
                     || screen is AbilityTreeViewerScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
     private var tree: AbilityTree = AbilityRegistry.fromCharacter(character)

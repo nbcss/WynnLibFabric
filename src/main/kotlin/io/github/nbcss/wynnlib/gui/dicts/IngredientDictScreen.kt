@@ -23,6 +23,7 @@ class IngredientDictScreen(parent: Screen?) : DictionaryScreen<Ingredient>(paren
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = IngredientDictScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is IngredientDictScreen
+            override fun shouldDisplay(): Boolean = true
         }
     }
 

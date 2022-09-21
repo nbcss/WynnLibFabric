@@ -3,6 +3,13 @@ package io.github.nbcss.wynnlib
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Tier
+import io.github.nbcss.wynnlib.gui.ConfigurationScreen
+import io.github.nbcss.wynnlib.gui.TabFactory
+import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
+import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
+import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
+import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen
+import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
@@ -63,6 +70,20 @@ object Settings {
     private var analysisMode: Boolean = true
     private var dirty: Boolean = false
     private var saving: Boolean = false
+    private val defaultTabs: MutableList<TabFactory> = mutableListOf(
+        EquipmentDictScreen.FACTORY,
+        IngredientDictScreen.FACTORY,
+        AbilityTreeViewerScreen.FACTORY,
+        PowderDictScreen.FACTORY,
+        MaterialDictScreen.FACTORY,
+        ConfigurationScreen.FACTORY,
+    )
+
+    fun registerTab(factory: TabFactory) {
+        defaultTabs.add(factory)
+    }
+
+    fun getHandbookTabs(): List<TabFactory> = defaultTabs
 
     fun reload() {
         FileUtils.readFile(PATH)?.let {
@@ -210,6 +231,7 @@ object Settings {
         SP_VALUE("skill_point_override", true),
         ITEM_BACKGROUND_COLOR("item_color", true),
         LOCK_POUCH_IN_CHEST("pouch_lock", true),
+        MAJOR_ID_ANALYZE("major_id_analyze", true),
         ;
 
         override fun getKey(): String = id

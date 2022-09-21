@@ -9,6 +9,7 @@ interface TabFactory {
     fun getTabTitle(): Text
     fun createScreen(parent: Screen?): HandbookTabScreen
     fun isInstance(screen: HandbookTabScreen): Boolean
+    fun shouldDisplay(): Boolean
 
     fun getTabTooltip(): List<Text> {
         return listOf(getTabTitle())
