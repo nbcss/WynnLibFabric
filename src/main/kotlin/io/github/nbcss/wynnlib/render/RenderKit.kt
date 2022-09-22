@@ -161,7 +161,7 @@ object RenderKit {
             textX.toInt() - 2,
             textY.toInt() - 1,
             textX.toInt() + width + 2,
-            textY.toInt() + (texts.size + if (showDistance) 1 else 0) * 10 + 1,
+            textY.toInt() + texts.size * 10 - 1,
             Color.BLACK.withAlpha(backgroundAlpha).code())
         for (text in texts) {
             textRender.draw(text, textX, textY, 0xFFFFFF, false,

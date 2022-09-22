@@ -15,11 +15,8 @@ import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.matcher.MatcherType
-import io.github.nbcss.wynnlib.utils.Color
-import io.github.nbcss.wynnlib.utils.FileUtils
+import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
-import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.Scheduler
 import net.minecraft.client.MinecraftClient
 import java.security.KeyFactory
 import java.security.interfaces.RSAPrivateKey
@@ -125,7 +122,7 @@ object Settings {
         }
     }
 
-    private fun validateKeys() {
+    fun validateKeys() {
         isTester = false
         if (keys.isEmpty()) return
         val id: String = MinecraftClient.getInstance().session.uuid
