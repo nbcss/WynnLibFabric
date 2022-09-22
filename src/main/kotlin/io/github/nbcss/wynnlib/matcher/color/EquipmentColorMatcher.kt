@@ -20,10 +20,8 @@ object EquipmentColorMatcher: ColorMatcher {
                 if (it.siblings.isNotEmpty()){
                     innerIt = it.siblings[0]
                 }
-
                 val tier = tierMap[innerIt.style.color] ?: return@next
                 if ("${tier.name.lowercase()} " in innerIt.asString().lowercase()){
-//                    System.out.println("${innerIt.asString()} -> ${tier.name}")
                     return Supplier { Settings.getTierColor(tier) }
                 }
             }

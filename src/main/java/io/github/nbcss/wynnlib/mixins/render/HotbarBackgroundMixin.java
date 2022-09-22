@@ -4,7 +4,9 @@ package io.github.nbcss.wynnlib.mixins.render;
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.github.nbcss.wynnlib.Settings;
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent;
+import io.github.nbcss.wynnlib.matcher.MatchableItem;
 import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
+import io.github.nbcss.wynnlib.matcher.item.ItemMatcher;
 import io.github.nbcss.wynnlib.render.RenderKit;
 import io.github.nbcss.wynnlib.utils.Color;
 import net.minecraft.client.font.TextRenderer;
@@ -73,9 +75,10 @@ public class HotbarBackgroundMixin {
                 int x = this.scaledWidth / 2 - 90 + i * 20 + 2;
                 ItemStack stack = playerEntity.getInventory().main.get(i);
                 if (Settings.INSTANCE.getOption(Settings.SettingOption.ITEM_BACKGROUND_COLOR)){
-                    Color color = ColorMatcher.Companion.toRarityColor(stack);
-                    if(color != null){
+                    MatchableItem item = ItemMatcher.Companion.toItem(stack);
+                    if(item != null){
                         RenderSystem.disableDepthTest();
+                        Color color = item.getMatcherType().getColor();
                         DrawableHelper.fill(matrices, x, y, x + 16, y + 16, color.withAlpha(0xCC).code());
                     }
                 }

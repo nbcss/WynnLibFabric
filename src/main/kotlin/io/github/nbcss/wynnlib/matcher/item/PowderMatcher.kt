@@ -1,7 +1,6 @@
 package io.github.nbcss.wynnlib.matcher.item
 
 import io.github.nbcss.wynnlib.items.BaseItem
-import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.matcher.MatchableItem
 import io.github.nbcss.wynnlib.matcher.MatcherType
@@ -13,7 +12,7 @@ import net.minecraft.text.Text
 object PowderMatcher : ItemMatcher {
     private val powderNamePattern = Regex.fromLiteral("Powder (?:I|II|III|IV|V|VI){1}$")
 
-    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>): MatchableItem? {
+    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>, inMarket: Boolean): MatchableItem? {
         if (name.contains(powderNamePattern)) {
             val powder = PowderRegistry.fromName(name.substring(2))
             return if (powder != null) SimpleAdaptor(powder) else null
