@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.gui
 
+import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import net.minecraft.client.gui.screen.Screen
@@ -16,7 +17,7 @@ class CrafterScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
             override fun getTabTitle(): Text = TITLE
             override fun createScreen(parent: Screen?): HandbookTabScreen = CrafterScreen(parent)
             override fun isInstance(screen: HandbookTabScreen): Boolean = screen is CrafterScreen
-            override fun shouldDisplay(): Boolean = true
+            override fun shouldDisplay(): Boolean = Settings.isTester()
         }
     }
     override fun drawContents(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {

@@ -4,6 +4,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.gui.ConfigurationScreen
+import io.github.nbcss.wynnlib.gui.CrafterScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
@@ -71,6 +72,7 @@ object Settings {
         EquipmentDictScreen.FACTORY,
         IngredientDictScreen.FACTORY,
         AbilityTreeViewerScreen.FACTORY,
+        CrafterScreen.FACTORY,
         PowderDictScreen.FACTORY,
         MaterialDictScreen.FACTORY,
         ConfigurationScreen.FACTORY,

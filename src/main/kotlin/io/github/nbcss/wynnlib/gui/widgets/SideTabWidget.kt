@@ -44,7 +44,7 @@ class SideTabWidget(private val index: Int,
                 side.u, 182, TAB_WIDTH, TAB_HEIGHT)
             itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
             if (isOverTab(mouseX, mouseY)){
-                handler.drawTooltip(matrices!!, mouseX, mouseY)
+                handler.drawTooltip(matrices!!, mouseX, mouseY, index)
             }
         }
     }
@@ -56,7 +56,7 @@ class SideTabWidget(private val index: Int,
                 side.u, 210, TAB_WIDTH, TAB_HEIGHT)
             itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
             if (isOverTab(mouseX, mouseY)){
-                handler.drawTooltip(matrices!!, mouseX, mouseY)
+                handler.drawTooltip(matrices!!, mouseX, mouseY, index)
             }
         }
     }
@@ -85,6 +85,6 @@ class SideTabWidget(private val index: Int,
         fun onClick(index: Int)
         fun isSelected(index: Int): Boolean
         fun getClickSound(): SoundEvent? = SoundEvents.ITEM_BOOK_PAGE_TURN
-        fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int)
+        fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int, index: Int)
     }
 }

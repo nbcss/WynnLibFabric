@@ -46,7 +46,7 @@ open class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeB
                     client!!.setScreen(AbilityTreeViewerScreen(parent, characterClass))
                 }
                 override fun isSelected(index: Int): Boolean = false
-                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int, index: Int) {
                     drawTooltip(matrices, listOf(characterClass.translate()), mouseX, mouseY)
                 }
             }
@@ -60,7 +60,7 @@ open class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeB
                     client!!.setScreen(screen)
                 }
                 override fun isSelected(index: Int): Boolean = true
-                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int, index: Int) {
                     drawTooltip(matrices, listOf(TITLE), mouseX, mouseY)
                 }
             }))
@@ -82,7 +82,7 @@ open class AbilityBuildDictionaryScreen(parent: Screen?): DictionaryScreen<TreeB
                 }
                 override fun isSelected(index: Int): Boolean = false
                 override fun getClickSound(): SoundEvent? = null
-                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int, index: Int) {
                     val name = Translations.UI_TREE_BUILDS.translate().string
                     drawTooltip(matrices, listOf(LiteralText("[+] $name").formatted(Formatting.GREEN),
                         UI_CLIPBOARD_IMPORT.formatted(Formatting.GRAY)), mouseX, mouseY)

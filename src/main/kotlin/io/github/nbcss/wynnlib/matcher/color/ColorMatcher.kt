@@ -9,6 +9,7 @@ import net.minecraft.text.Text
 import java.util.*
 import java.util.function.Supplier
 
+@Deprecated("Replace by item matcher system")
 interface ColorMatcher {
     /**
      * Match item to rarity color provider.

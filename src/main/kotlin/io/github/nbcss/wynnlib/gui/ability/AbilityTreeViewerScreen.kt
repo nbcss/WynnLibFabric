@@ -53,7 +53,7 @@ class AbilityTreeViewerScreen(parent: Screen?,
                 override fun isSelected(index: Int): Boolean {
                     return tree.character.ordinal == index
                 }
-                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int, index: Int) {
                     drawTooltip(matrices, listOf(characterClass.translate()), mouseX, mouseY)
                 }
             }
@@ -67,7 +67,7 @@ class AbilityTreeViewerScreen(parent: Screen?,
                     client!!.setScreen(screen)
                 }
                 override fun isSelected(index: Int): Boolean = false
-                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int, index: Int) {
                     drawTooltip(matrices, listOf(AbilityBuildDictionaryScreen.TITLE), mouseX, mouseY)
                 }
             }))
@@ -78,7 +78,7 @@ class AbilityTreeViewerScreen(parent: Screen?,
                 }
                 override fun isSelected(index: Int): Boolean = false
                 override fun getClickSound(): SoundEvent? = SoundEvents.ENTITY_ITEM_PICKUP
-                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int, index: Int) {
                     val name = Translations.UI_TREE_BUILDS.translate().string
                     drawTooltip(matrices, listOf(LiteralText("[+] $name").formatted(Formatting.GREEN),
                         tree.character.formatted(Formatting.GRAY)), mouseX, mouseY)

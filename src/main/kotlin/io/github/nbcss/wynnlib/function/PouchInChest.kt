@@ -14,7 +14,7 @@ object PouchInChest {
             if (event.screen !is GenericContainerScreen)
                 return
             val title = event.screen.title.asString()
-            if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){
+            if (ItemProtector.isLootInventory(title)){
                 val size = event.screen.screenHandler.slots.size
                 if (45 + event.slot.id - size == 13) {
                     event.cancelled = true
