@@ -2,7 +2,6 @@ package io.github.nbcss.wynnlib.matcher.types
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.matcher.AbstractMatcherType
 import io.github.nbcss.wynnlib.matcher.ProtectableType

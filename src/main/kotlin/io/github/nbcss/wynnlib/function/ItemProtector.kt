@@ -23,6 +23,7 @@ object ItemProtector {
     private val lootTitles: Set<String> = setOf(
         "Chest",
         "Reward Chest",
+        "Objective Rewards",
         "Loot Chest I",
         "Loot Chest II",
         "Loot Chest III",

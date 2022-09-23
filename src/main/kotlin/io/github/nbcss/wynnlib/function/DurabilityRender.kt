@@ -1,18 +1,15 @@
 package io.github.nbcss.wynnlib.function
 
-import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.ItemLoadEvent
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent
+import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.ItemModifier
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.item.TooltipContext
-import net.minecraft.client.render.*
-import net.minecraft.client.render.VertexFormat.DrawMode
 import net.minecraft.util.math.MathHelper
 import java.util.regex.Pattern
-import kotlin.math.roundToInt
 
 object DurabilityRender: EventHandler<RenderItemOverrideEvent> {
     private val pattern = Pattern.compile("\\[(\\d+)/(\\d+) Durability]")
@@ -39,48 +36,13 @@ object DurabilityRender: EventHandler<RenderItemOverrideEvent> {
             }
         }
     }
+
     override fun handle(event: RenderItemOverrideEvent) {
         if (!Settings.getOption(Settings.SettingOption.DURABILITY))
             return
         ItemModifier.readDouble(event.item, key)?.let {
-            drawDurabilityBar(it, event.x, event.y)
+            val color: Int = MathHelper.hsvToRgb(it.toFloat() / 3.0f, 1.0f, 1.0f)
+            RenderKit.renderItemBar(it, color, event.x, event.y)
         }
-    }
-
-    private fun drawDurabilityBar(durability: Double, x: Int, y: Int) {
-        RenderSystem.disableDepthTest()
-        RenderSystem.disableTexture()
-        RenderSystem.disableBlend()
-        val tessellator = Tessellator.getInstance()
-        val bufferBuilder = tessellator.buffer
-        val steps: Int = (durability * 13.0f).roundToInt()
-        val color: Int = MathHelper.hsvToRgb(durability.toFloat() / 3.0f, 1.0f, 1.0f)
-        renderGuiQuad(bufferBuilder, x + 2, y + 13, 13, 2, 0)
-        renderGuiQuad(bufferBuilder, x + 2, y + 13, steps, 1, color)
-        RenderSystem.enableBlend()
-        RenderSystem.enableTexture()
-        RenderSystem.enableDepthTest()
-    }
-
-    private fun renderGuiQuad(
-        buffer: BufferBuilder,
-        x: Int,
-        y: Int,
-        width: Int,
-        height: Int,
-        color: Int
-    ) {
-        val red = color shr 16 and 255
-        val green = color shr 8 and 255
-        val blue = color and 255
-        val alpha = 255
-        RenderSystem.setShader { GameRenderer.getPositionColorShader() }
-        buffer.begin(DrawMode.QUADS, VertexFormats.POSITION_COLOR)
-        buffer.vertex((x + 0).toDouble(), (y + 0).toDouble(), 0.0).color(red, green, blue, alpha).next()
-        buffer.vertex((x + 0).toDouble(), (y + height).toDouble(), 0.0).color(red, green, blue, alpha).next()
-        buffer.vertex((x + width).toDouble(), (y + height).toDouble(), 0.0).color(red, green, blue, alpha).next()
-        buffer.vertex((x + width).toDouble(), (y + 0).toDouble(), 0.0).color(red, green, blue, alpha).next()
-        buffer.end()
-        BufferRenderer.draw(buffer)
     }
 }

@@ -44,6 +44,8 @@
   "wynnlib.matcher_type.powder_tier_vi": "2{✤}e{✦}b{❉}c{✹}f{❋} Powder VI",
   "wynnlib.setting_option.name.durability": "Render Durability Bar",
   "wynnlib.setting_option.desc.durability": "Rendering durability bar on crafted items.",
+  "wynnlib.setting_option.name.emerald_pouch_bar": "Render Emerald Pouch Bar",
+  "wynnlib.setting_option.desc.emerald_pouch_bar": "Rendering the content % bar on emerald pouch.",
   "wynnlib.setting_option.name.consumable_charge": "Render Consumable Charge",
   "wynnlib.setting_option.desc.consumable_charge": "Rendering remaining charges of consumable on item.",
   "wynnlib.setting_option.name.skill_point_override": "Render Skill Point Value",
