@@ -11,6 +11,7 @@ import io.github.nbcss.wynnlib.matcher.types.PowderTierMatcher
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
 import io.github.nbcss.wynnlib.utils.Keyed
+import net.minecraft.text.Text
 import net.minecraft.util.math.MathHelper
 
 interface MatcherType: Keyed, Translatable {
@@ -19,6 +20,7 @@ interface MatcherType: Keyed, Translatable {
     fun getData(): JsonObject
     fun getColor(): Color
     fun setColor(color: Color)
+    fun getDisplayText(): Text
 
     companion object {
         private val typeMap: MutableMap<String, MatcherType> = linkedMapOf()
@@ -64,6 +66,10 @@ interface MatcherType: Keyed, Translatable {
 
         fun fromPowderTier(tier: Powder.Tier): MatcherType {
             return typeMap[PowderTierMatcher.keyOf(tier)]!!
+        }
+
+        fun getTypes(): List<MatcherType> {
+            return typeMap.values.toList()
         }
     }
 }

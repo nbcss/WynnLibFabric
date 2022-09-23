@@ -8,7 +8,6 @@ import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.formattingLines
-import io.github.nbcss.wynnlib.utils.warpLines
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
@@ -84,7 +83,6 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
                 entry.value.updatePosition(posX, posY)
                 entry.value.setIntractable(mouseOver)
                 entry.value.render(matrices, mouseX, mouseY, delta)
-                //entry.key.formatted(Formatting.GRAY)
                 client.textRenderer.drawWithShadow(matrices, entry.key.formatted(Formatting.GRAY),
                     entry.value.x + 22.0F, entry.value.y + 5.0F, 0xFFFFFF)
             }

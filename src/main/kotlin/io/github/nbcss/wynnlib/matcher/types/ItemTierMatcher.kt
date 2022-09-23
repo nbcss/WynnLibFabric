@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.matcher.AbstractMatcherType
 import io.github.nbcss.wynnlib.matcher.ProtectableType
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.JsonGetter
+import net.minecraft.text.Text
 
 class ItemTierMatcher(val tier: Tier): AbstractMatcherType(Color.fromFormatting(tier.formatting)), ProtectableType {
     companion object {
@@ -27,6 +28,10 @@ class ItemTierMatcher(val tier: Tier): AbstractMatcherType(Color.fromFormatting(
         val data = super.getData()
         data.addProperty("protected", protected)
         return data
+    }
+
+    override fun getDisplayText(): Text {
+        return formatted(tier.formatting)
     }
 
     override fun isProtected(): Boolean = protected
