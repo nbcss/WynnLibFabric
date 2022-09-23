@@ -1,63 +1,90 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.render.RenderKit
+import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawableHelper
 import net.minecraft.client.render.item.ItemRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
+import net.minecraft.sound.SoundEvent
+import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
 
-class SideTabWidget(private val posX: Int,
+class SideTabWidget(private val index: Int,
+                    private val posX: Int,
                     private val posY: Int,
                     private val icon: ItemStack,
                     private val side: Side,
-                    private val index: Int): DrawableHelper() {
+                    private val handler: Handler): DrawableHelper() {
     private val itemRenderer: ItemRenderer = MinecraftClient.getInstance().itemRenderer
     companion object {
-        private val TEXTURE = Identifier("wynnlib", "textures/gui/side_tabs.png")
+        //fixme move it to new texture file
+        private val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
         private const val TAB_HEIGHT = 28
         private const val TAB_WIDTH = 32
 
-        fun fromWindowSide(windowX: Int, windowY: Int, offsetY: Int, side: Side, icon: ItemStack) {
-            //todo
+        fun fromWindowSide(index: Int,
+                           windowX: Int,
+                           windowY: Int,
+                           offsetY: Int,
+                           side: Side,
+                           icon: ItemStack,
+                           handler: Handler): SideTabWidget {
+            val posX = windowX + side.windowX
+            val posY = windowY + offsetY
+            return SideTabWidget(index, posX, posY, icon, side, handler)
         }
     }
 
-    fun isSelected(): Boolean {
+    fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int) {
+        if (!handler.isSelected(index)) {
+            val tabY = posY + index * TAB_HEIGHT
+            RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
+                side.u, 182, TAB_WIDTH, TAB_HEIGHT)
+            itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
+            if (isOverTab(mouseX, mouseY)){
+                handler.drawTooltip(matrices!!, mouseX, mouseY)
+            }
+        }
+    }
+
+    fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int) {
+        if (handler.isSelected(index)) {
+            val tabY = posY + index * TAB_HEIGHT
+            RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
+                side.u, 210, TAB_WIDTH, TAB_HEIGHT)
+            itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
+            if (isOverTab(mouseX, mouseY)){
+                handler.drawTooltip(matrices!!, mouseX, mouseY)
+            }
+        }
+    }
+
+    fun mouseClicked(mouseX: Int, mouseY: Int, button: Int): Boolean {
+        if (button == 0 && isOverTab(mouseX, mouseY)){
+            handler.getClickSound()?.let { playSound(it) }
+            handler.onClick(index)
+            return true
+        }
         return false
     }
 
-    fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        if (!isSelected()) {
-            val tabY = posY + index * TAB_HEIGHT
-            RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
-                32, 182, TAB_WIDTH, TAB_HEIGHT)
-            itemRenderer.renderInGuiWithOverrides(icon, posX + 9, tabY + 6)
-            if (isOverTab(mouseX, mouseY)){
-                //drawTooltip(matrices, listOf(character.translate()), mouseX, mouseY)
-            }
-        }
-    }
-
-    fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
-        if (isSelected()) {
-            val tabY = posY + index * TAB_HEIGHT
-            RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
-                32, 210, TAB_WIDTH, TAB_HEIGHT)
-            itemRenderer.renderInGuiWithOverrides(icon, posX + 9, tabY + 6)
-            if (isOverTab(mouseX, mouseY)){
-                //drawTooltip(matrices, listOf(character.translate()), mouseX, mouseY)
-            }
-        }
-    }
-
     fun isOverTab(mouseX: Int, mouseY: Int): Boolean {
-        return true
+        val tabX = posX + side.interactOffset
+        val tabY = posY + index * TAB_HEIGHT
+        return mouseX >= tabX && mouseX <= tabX + 28 && mouseY >= tabY && mouseY < tabY + TAB_HEIGHT
     }
 
-    enum class Side {
-        LEFT,
-        RIGHT
+    enum class Side(val u: Int, val iconOffset: Int, val interactOffset: Int, val windowX: Int) {
+        LEFT(32, 9, 0, -28),
+        RIGHT(0, 7, 3, 242);
+    }
+
+    interface Handler {
+        fun onClick(index: Int)
+        fun isSelected(index: Int): Boolean
+        fun getClickSound(): SoundEvent? = SoundEvents.ITEM_BOOK_PAGE_TURN
+        fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int)
     }
 }

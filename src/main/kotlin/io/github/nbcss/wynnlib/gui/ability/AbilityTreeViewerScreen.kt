@@ -6,6 +6,7 @@ import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
+import io.github.nbcss.wynnlib.gui.widgets.SideTabWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -14,6 +15,7 @@ import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack
+import net.minecraft.sound.SoundEvent
 import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
@@ -33,60 +35,55 @@ class AbilityTreeViewerScreen(parent: Screen?,
             override fun shouldDisplay(): Boolean = true
         }
     }
+    private val buttons: MutableList<SideTabWidget> = mutableListOf()
     private var tree: AbilityTree = AbilityRegistry.fromCharacter(character)
     private var viewer: ViewerWindow? = null
-
-    private fun drawDictionaryTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
-        val posX = windowX - 28
-        val posY = windowY + 174
-        val v = 182
-        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 32, v, 32, 28)
-        itemRenderer.renderInGuiWithOverrides(AbilityBuildDictionaryScreen.ICON, posX + 9, posY + 6)
-        if (isOverCharacterTab(CharacterClass.values().size, mouseX, mouseY)){
-            drawTooltip(matrices, listOf(AbilityBuildDictionaryScreen.TITLE), mouseX, mouseY)
-        }
-    }
-
-    private fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {
-        val posX = windowX - 28
-        val posY = windowY + 34 + index * 28
-        val v = if (tree.character.ordinal == index) 210 else 182
-        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 32, v, 32, 28)
-        val character = CharacterClass.values()[index]
-        val icon = character.getWeapon().getIcon()
-        itemRenderer.renderInGuiWithOverrides(icon, posX + 9, posY + 6)
-        if (isOverCharacterTab(index, mouseX, mouseY)){
-            drawTooltip(matrices, listOf(character.translate()), mouseX, mouseY)
-        }
-    }
-
-    private fun drawCreateTreeTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
-        val posX = windowX + 242
-        val posY = windowY + 50
-        RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, 182, 32, 28)
-        itemRenderer.renderInGuiWithOverrides(CREATE_ICON, posX + 7, posY + 6)
-        if (isOverCreateTreeTab(mouseX, mouseY)){
-            val name = Translations.UI_TREE_BUILDS.translate().string
-            drawTooltip(matrices, listOf(LiteralText("[+] $name").formatted(Formatting.GREEN),
-                tree.character.formatted(Formatting.GRAY)), mouseX, mouseY)
-        }
-    }
-
-    private fun isOverCreateTreeTab(mouseX: Int, mouseY: Int): Boolean {
-        val posX = windowX + 245
-        val posY = windowY + 50
-        return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
-    }
-
-    private fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
-        val posX = windowX - 28
-        val posY = windowY + 34 + index * 28
-        return mouseX >= posX && mouseX < posX + 29 && mouseY >= posY && mouseY < posY + 28
-    }
 
     override fun init() {
         super.init()
         viewer = ViewerWindow(viewerX, viewerY, viewerX + 223, viewerY)
+        buttons.clear()
+        var index = 0
+        for (characterClass in CharacterClass.values()) {
+            val handler = object : SideTabWidget.Handler {
+                override fun onClick(index: Int) {
+                    tree = AbilityRegistry.fromCharacter(characterClass)
+                    getViewer()?.reset()
+                }
+                override fun isSelected(index: Int): Boolean {
+                    return tree.character.ordinal == index
+                }
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                    drawTooltip(matrices, listOf(characterClass.translate()), mouseX, mouseY)
+                }
+            }
+            buttons.add(SideTabWidget.fromWindowSide(index++, windowX, windowY, 34,
+                SideTabWidget.Side.LEFT, characterClass.getWeapon().getIcon(), handler))
+        }
+        buttons.add(SideTabWidget.fromWindowSide(index, windowX, windowY, 34,
+            SideTabWidget.Side.LEFT, AbilityBuildDictionaryScreen.ICON, object : SideTabWidget.Handler {
+                override fun onClick(index: Int) {
+                    val screen = AbilityBuildDictionaryScreen(parent)
+                    client!!.setScreen(screen)
+                }
+                override fun isSelected(index: Int): Boolean = false
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                    drawTooltip(matrices, listOf(AbilityBuildDictionaryScreen.TITLE), mouseX, mouseY)
+                }
+            }))
+        buttons.add(SideTabWidget.fromWindowSide(0, windowX, windowY, 45,
+            SideTabWidget.Side.RIGHT, CREATE_ICON, object : SideTabWidget.Handler {
+                override fun onClick(index: Int) {
+                    client!!.setScreen(AbilityTreeBuilderScreen(this@AbilityTreeViewerScreen, tree))
+                }
+                override fun isSelected(index: Int): Boolean = false
+                override fun getClickSound(): SoundEvent? = SoundEvents.ENTITY_ITEM_PICKUP
+                override fun drawTooltip(matrices: MatrixStack, mouseX: Int, mouseY: Int) {
+                    val name = Translations.UI_TREE_BUILDS.translate().string
+                    drawTooltip(matrices, listOf(LiteralText("[+] $name").formatted(Formatting.GREEN),
+                        tree.character.formatted(Formatting.GRAY)), mouseX, mouseY)
+                }
+            }))
     }
 
     override fun getViewer(): ATreeScrollWidget? = viewer
@@ -97,50 +94,19 @@ class AbilityTreeViewerScreen(parent: Screen?,
         return title.copy().append(" [").append(tree.character.translate()).append("]")
     }
 
-    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        if (keyCode == 32){
-            client!!.setScreen(AbilityTreeBuilderScreen(this, tree))
-            return true
-        }
-        return super.keyPressed(keyCode, scanCode, modifiers)
-    }
-
     override fun drawBackgroundPre(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPre(matrices, mouseX, mouseY, delta)
-        drawDictionaryTab(matrices!!, mouseX, mouseY)
-        drawCreateTreeTab(matrices, mouseX, mouseY)
-        (0 until CharacterClass.values().size)
-            .filter { CharacterClass.values()[it] != tree.character }
-            .forEach { drawCharacterTab(matrices, it, mouseX, mouseY) }
+        buttons.forEach { it.drawBackgroundPre(matrices, mouseX, mouseY) }
     }
 
     override fun drawBackgroundPost(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         super.drawBackgroundPost(matrices, mouseX, mouseY, delta)
-        drawCharacterTab(matrices!!, tree.character.ordinal, mouseX, mouseY)
+        buttons.forEach { it.drawBackgroundPost(matrices, mouseX, mouseY) }
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        if (button == 0){
-            if (isOverCharacterTab(CharacterClass.values().size, mouseX.toInt(), mouseY.toInt())) {
-                val screen = AbilityBuildDictionaryScreen(parent)
-                client!!.setScreen(screen)
-                playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
-                return true
-            }
-            if (isOverCreateTreeTab(mouseX.toInt(), mouseY.toInt())) {
-                client!!.setScreen(AbilityTreeBuilderScreen(this, tree))
-                //playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT)
-                playSound(SoundEvents.ENTITY_ITEM_PICKUP)
-                return true
-            }
-            CharacterClass.values()
-                .firstOrNull {isOverCharacterTab(it.ordinal, mouseX.toInt(), mouseY.toInt())}?.let {
-                    this.tree = AbilityRegistry.fromCharacter(it)
-                    playSound(SoundEvents.ITEM_BOOK_PAGE_TURN)
-                    getViewer()?.reset()
-                    return true
-                }
-        }
+        if (buttons.any { it.mouseClicked(mouseX.toInt(), mouseY.toInt(), button) })
+            return true
         return super.mouseClicked(mouseX, mouseY, button)
     }
 

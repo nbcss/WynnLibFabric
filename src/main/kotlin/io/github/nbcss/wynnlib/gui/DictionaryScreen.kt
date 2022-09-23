@@ -97,7 +97,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         if (getSearchPane() == null || filterVisible)
             return false
         val posX = windowX + 245
-        val posY = windowY + 44
+        val posY = windowY + 45
         return mouseX >= posX && mouseX < posX + 25 && mouseY >= posY && mouseY < posY + 28
     }
 
@@ -137,7 +137,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         if (!filterVisible){
             getSearchPane()?.let {
                 val posX = windowX + 242
-                val posY = windowY + 44
+                val posY = windowY + 45
                 RenderKit.renderTexture(matrices, TEXTURE, posX, posY, 0, 182, 32, 28)
                 itemRenderer.renderInGuiWithOverrides(FILTER_ICON, posX + 7, posY + 6)
                 if (inFilterTab(mouseX, mouseY)){

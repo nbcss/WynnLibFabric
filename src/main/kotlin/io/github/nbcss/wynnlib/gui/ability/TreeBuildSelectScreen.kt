@@ -31,6 +31,11 @@ class TreeBuildSelectScreen(parent: Screen?,
         tabs.add(factory)
     }
 
+    override fun init() {
+        super.init()
+        buttons.clear()
+    }
+
     override fun fetchItems(): Collection<TreeBuildData> {
         return super.fetchItems()
             .filter { it.getTree().character == builder.getAbilityTree().character }
@@ -45,20 +50,6 @@ class TreeBuildSelectScreen(parent: Screen?,
             builder.setAbilities(item.getActiveAbilities())
             client!!.setScreen(builder)
         }
-    }
-
-    override fun drawImportTreeTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {}
-
-    override fun drawCharacterTab(matrices: MatrixStack, index: Int, mouseX: Int, mouseY: Int) {}
-
-    override fun drawDictionaryTab(matrices: MatrixStack, mouseX: Int, mouseY: Int) {}
-
-    override fun isOverCharacterTab(index: Int, mouseX: Int, mouseY: Int): Boolean {
-        return false
-    }
-
-    override fun isOverImportTreeTab(mouseX: Int, mouseY: Int): Boolean {
-        return false
     }
 
     override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
