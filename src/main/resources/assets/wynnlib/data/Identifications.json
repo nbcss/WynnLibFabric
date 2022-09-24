@@ -190,11 +190,35 @@
       "group": "COMBAT"
     },
     {
+      "id": "rainbow_spell_damage",
+      "apiId": "spellElementalDamageBonus",
+      "name": "SPELL_ELEMENTAL_DAMAGE_BONUS",
+      "displayName": "Elemental Spell Damage",
+      "suffix": "%",
+      "group": "COMBAT"
+    },
+    {
       "id": "rainbow_spell_damage_raw",
       "apiId": "spellElementalDamageBonusRaw",
       "name": "RAINBOWSPELLDAMAGERAW",
       "displayName": "Elemental Spell Damage",
+      "suffix": "",
+      "group": "COMBAT"
+    },
+    {
+      "id": "neutral_spell_damage",
+      "apiId": "spellNeutralDamageBonus",
+      "name": "SPELL_NEUTRAL_DAMAGE_BONUS",
+      "displayName": "Neutral Spell Damage",
       "suffix": "%",
+      "group": "COMBAT"
+    },
+    {
+      "id": "neutral_spell_damage_raw",
+      "apiId": "spellNeutralDamageBonusRaw",
+      "name": "SPELL_NEUTRAL_DAMAGE_BONUS_RAW",
+      "displayName": "Neutral Spell Damage",
+      "suffix": "",
       "group": "COMBAT"
     },
     {
