@@ -7,7 +7,7 @@
       "displayName": "Mob Damage Resistance",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "damage_to_mobs",
@@ -16,7 +16,7 @@
       "displayName": "Damage to Mobs",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "slaying_xp",
@@ -25,7 +25,7 @@
       "displayName": "Slaying XP",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "dungeon_xp",
@@ -34,7 +34,7 @@
       "displayName": "Dungeon XP",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "gathering_xp",
@@ -43,7 +43,7 @@
       "displayName": "Gathering XP",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "damage_from_mobs",
@@ -60,7 +60,8 @@
       "name": "LVLXPBONUS",
       "displayName": "XP from Lv. {minLv}-{maxLv} content",
       "suffix": "%",
-      "group": "CHARM_EXCLUSIVE"
+      "group": "CHARM_EXCLUSIVE",
+      "range": "SHORT"
     },
     {
       "id": "lvl_loot_bonus",
@@ -68,7 +69,8 @@
       "name": "LVLLOOTBONUS",
       "displayName": "Loot from Lv. {minLv}-{maxLv} content",
       "suffix": "%",
-      "group": "CHARM_EXCLUSIVE"
+      "group": "CHARM_EXCLUSIVE",
+      "range": "SHORT"
     },
     {
       "id": "strength_point",
@@ -77,7 +79,7 @@
       "displayName": "Strength",
       "suffix": "",
       "group": "SKILL_POINT_BONUS",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "dexterity_point",
@@ -86,7 +88,7 @@
       "displayName": "Dexterity",
       "suffix": "",
       "group": "SKILL_POINT_BONUS",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "intelligence_point",
@@ -95,7 +97,7 @@
       "displayName": "Intelligence",
       "suffix": "",
       "group": "SKILL_POINT_BONUS",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "defense_point",
@@ -104,7 +106,7 @@
       "displayName": "Defence",
       "suffix": "",
       "group": "SKILL_POINT_BONUS",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "agility_point",
@@ -113,7 +115,7 @@
       "displayName": "Agility",
       "suffix": "",
       "group": "SKILL_POINT_BONUS",
-      "constant": true
+      "range": "CONSTANT"
     },
     {
       "id": "attack_speed",
@@ -191,8 +193,8 @@
       "id": "rainbow_spell_damage_raw",
       "apiId": "spellElementalDamageBonusRaw",
       "name": "RAINBOWSPELLDAMAGERAW",
-      "displayName": "Rainbow Spell Damage",
-      "suffix": "",
+      "displayName": "Elemental Spell Damage",
+      "suffix": "%",
       "group": "COMBAT"
     },
     {

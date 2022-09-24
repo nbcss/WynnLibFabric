@@ -24,10 +24,22 @@ object ItemProtector {
         "Chest",
         "Reward Chest",
         "Objective Rewards",
+        "Guild Objective Rewards",
         "Loot Chest I",
         "Loot Chest II",
         "Loot Chest III",
-        "Loot Chest IV"
+        "Loot Chest IV",
+        "Loot Chest V",     //lol just add an extra tier for fun :d
+        "Forgery Chest I",
+        "Forgery Chest II",
+        "Forgery Chest III",
+        "Forgery Chest IV",
+        "Forgery Chest V",
+        "Forgery Chest VI",
+        "Forgery Chest VII",
+        "Forgery Chest VIII",
+        "Forgery Chest IX",
+        "Forgery Chest X"
     )
 
     fun isLootInventory(title: String): Boolean {
