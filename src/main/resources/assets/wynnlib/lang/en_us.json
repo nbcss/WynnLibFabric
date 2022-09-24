@@ -311,6 +311,7 @@
   "wynnlib.indicator.kill_streak": "a{+%s%%} e{\u2726} Kill Streak",
   "wynnlib.indicator.endurance": "a{+%s%%} c{\u2739} Endurance",
   "wynnlib.indicator.weakness": "c{+%s%%} 4{✃} Weakness",
+  "wynnlib.indicator.major_id": "b{+%s} Major ID",
   "wynnlib.powder.earth_1": "\u2724 Earth Powder I",
   "wynnlib.powder.earth_2": "\u2724 Earth Powder II",
   "wynnlib.powder.earth_3": "\u2724 Earth Powder III",
