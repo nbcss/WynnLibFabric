@@ -2,18 +2,23 @@ package io.github.nbcss.wynnlib.matcher.types
 
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.data.Tier
+import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.matcher.AbstractMatcherType
 import io.github.nbcss.wynnlib.matcher.ProtectableType
-import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.JsonGetter
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 
-class ItemTierMatcher(val tier: Tier): AbstractMatcherType(Color.fromFormatting(tier.formatting)), ProtectableType {
+class MaterialTierType(private val tier: Material.Tier):
+    AbstractMatcherType(tier.color), ProtectableType {
     companion object {
-        fun keyOf(tier: Tier): String = "ITEM_TIER_" + tier.name
+        fun keyOf(tier: Material.Tier): String = "MATERIAL_" + tier.name
     }
-    private var protected: Boolean = tier == Tier.MYTHIC
+    private var protected: Boolean = false
+
+    override fun getDisplayText(): Text {
+        return formatted(Formatting.WHITE)
+    }
 
     override fun getKey(): String {
         return keyOf(tier)
@@ -21,17 +26,7 @@ class ItemTierMatcher(val tier: Tier): AbstractMatcherType(Color.fromFormatting(
 
     override fun reload(data: JsonObject) {
         super.reload(data)
-        this.protected = JsonGetter.getOr(data, "protected", tier == Tier.MYTHIC)
-    }
-
-    override fun getData(): JsonObject {
-        val data = super.getData()
-        data.addProperty("protected", protected)
-        return data
-    }
-
-    override fun getDisplayText(): Text {
-        return formatted(tier.formatting)
+        this.protected = JsonGetter.getOr(data, "protected", false)
     }
 
     override fun isProtected(): Boolean = protected

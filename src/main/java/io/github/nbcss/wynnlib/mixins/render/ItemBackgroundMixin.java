@@ -4,7 +4,6 @@ import io.github.nbcss.wynnlib.Settings;
 import io.github.nbcss.wynnlib.events.DrawSlotEvent;
 import io.github.nbcss.wynnlib.events.RenderItemOverrideEvent;
 import io.github.nbcss.wynnlib.matcher.MatchableItem;
-import io.github.nbcss.wynnlib.matcher.color.ColorMatcher;
 import io.github.nbcss.wynnlib.matcher.item.ItemMatcher;
 import io.github.nbcss.wynnlib.render.RenderKit;
 import io.github.nbcss.wynnlib.utils.Color;

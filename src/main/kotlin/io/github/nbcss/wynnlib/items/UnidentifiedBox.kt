@@ -89,7 +89,7 @@ class UnidentifiedBox(private val type: EquipmentType,
 
     override fun getIcon(): ItemStack = texture
 
-    override fun getRarityColor(): Color = Settings.getTierColor(tier)
+    override fun getRarityColor(): Color = MatcherType.fromItemTier(tier).getColor()
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = mutableListOf()

@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.items.addRequirements
 import io.github.nbcss.wynnlib.items.addRestriction
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
+import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.formattingLines
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
@@ -71,7 +72,7 @@ class Tome(json: JsonObject) : Equipment, EquipmentCategory {
 
     override fun getIcon(): ItemStack = texture
 
-    override fun getRarityColor(): Color = Settings.getTierColor(tier)
+    override fun getRarityColor(): Color = MatcherType.fromItemTier(tier).getColor()
 
     override fun getTooltip(): List<Text> {
         val tooltip: MutableList<Text> = ArrayList()
