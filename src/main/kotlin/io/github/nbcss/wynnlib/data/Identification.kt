@@ -21,7 +21,8 @@ data class Identification(val id: String,               //id used in translation
                           val suffix: String,           //value suffix (e.g. %)
                           val group: IdentificationGroup,
                           val inverted: Boolean,        //whether the id bonus is inverted (e.g. -cost)
-                          val range: IDRange            //the range mode used by the id
+                          val range: IDRange,           //the range mode used by the id
+                          val hidden: Boolean,          //whether this id is not available on item
                           ): Keyed, Translatable {
     constructor(json: JsonObject) : this(
         json.get("id").asString,
@@ -32,7 +33,8 @@ data class Identification(val id: String,               //id used in translation
         if(json.has("group")) IdentificationGroup.fromName(json.get("group").asString) else
             IdentificationGroup.MISC,
         JsonGetter.getOr(json, "inverted", false),
-        JsonGetter.getOr(json, "range", IDRange.BASE) { IDRange.fromName(it.asString) })
+        JsonGetter.getOr(json, "range", IDRange.BASE) { IDRange.fromName(it.asString) },
+        JsonGetter.getOr(json, "hidden", false),)
 
     companion object: Registry<Identification>() {
         private const val RESOURCE = "assets/wynnlib/data/Identifications.json"

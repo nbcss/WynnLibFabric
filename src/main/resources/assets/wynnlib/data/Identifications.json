@@ -159,6 +159,24 @@
     },
     {
       "id": "damage_bonus",
+      "apiId": "damageBonus",
+      "name": "DAMAGEBONUS_TODO",
+      "displayName": "Damage",
+      "suffix": "%",
+      "group": "COMBAT",
+      "hidden": true
+    },
+    {
+      "id": "damage_bonus_raw",
+      "apiId": "damageBonusRaw",
+      "name": "DAMAGEBONUSRAW_TODO",
+      "displayName": "Damage",
+      "suffix": "",
+      "group": "COMBAT",
+      "hidden": true
+    },
+    {
+      "id": "main_attack_damage_bonus",
       "apiId": "mainAttackDamageBonus",
       "name": "DAMAGEBONUS",
       "displayName": "Main Attack Damage",
@@ -166,10 +184,26 @@
       "group": "COMBAT"
     },
     {
-      "id": "damage_bonus_raw",
+      "id": "main_attack_damage_bonus_raw",
       "apiId": "mainAttackDamageBonusRaw",
       "name": "DAMAGEBONUSRAW",
       "displayName": "Main Attack Damage",
+      "suffix": "",
+      "group": "COMBAT"
+    },
+    {
+      "id": "neutral_main_attack_damage",
+      "apiId": "mainAttackNeutralDamageBonus",
+      "name": "MAIN_ATTACK_NEUTRAL_DAMAGE_BONUS",
+      "displayName": "Neutral Main Attack Damage",
+      "suffix": "%",
+      "group": "COMBAT"
+    },
+    {
+      "id": "neutral_main_attack_damage_raw",
+      "apiId": "mainAttackNeutralDamageBonusRaw",
+      "name": "MAIN_ATTACK_NEUTRAL_DAMAGE_BONUS_RAW",
+      "displayName": "Neutral Main Attack Damage",
       "suffix": "",
       "group": "COMBAT"
     },
