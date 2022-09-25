@@ -26,21 +26,15 @@ class Tome(json: JsonObject) : Equipment, EquipmentCategory {
     companion object {
         private val EFFECT = from("wynnlib.tooltip.tome.effect")
     }
-    private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
-    private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
+    private val idMap: MutableMap<Identification, BaseIRange> = linkedMapOf()
     private val name: String = json["name"].asString
     private val tier: Tier = Tier.fromName(json["tier"].asString)
     private val type: TomeType = TomeType.fromId(json["type"].asString)
     private val level: Int = json["level"].asInt
-    private val effectBase: Int = json["effectBase"]?.asInt ?: 0
-    private val texture: ItemStack = Items.ENCHANTED_BOOK.defaultStack;
+    private val texture: ItemStack = Items.ENCHANTED_BOOK.defaultStack
+    private val restriction: Restriction? = if (json.has("restriction"))
+        Restriction.fromId(json["restriction"].asString) else null
     init {
-        Skill.values().forEach {
-            val value = if (json.has(it.getKey())) json.get(it.getKey()).asInt else 0
-            if (value != 0) {
-                spMap[it] = value
-            }
-        }
         Identification.getAll().filter { json.has(it.apiId) }.forEach {
             val value = json.get(it.apiId).asInt
             if (value != 0)
@@ -63,9 +57,7 @@ class Tome(json: JsonObject) : Equipment, EquipmentCategory {
 
     override fun getRequirement(skill: Skill): Int = 0
 
-    override fun getRestriction(): Restriction {
-        return type.restriction
-    }
+    override fun getRestriction(): Restriction? = restriction
 
     override fun isIdentifiable(): Boolean = true
 
@@ -87,13 +79,13 @@ class Tome(json: JsonObject) : Equipment, EquipmentCategory {
         tooltip.add(LiteralText.EMPTY)
         addRequirements(this, tooltip)
         tooltip.add(LiteralText.EMPTY)
-        val effect = getTomeType().getEffect()
+        /*val effect = getTomeType().getEffect()
         if (effect != null && effectBase != 0) {
             val id = "${signed(effectBase)}${effect.suffix} ${effect.translate().string}"
             val text = EFFECT.translate(null, id).string
             tooltip.addAll(formattingLines(text, "${Formatting.GRAY}", 500))
             tooltip.add(LiteralText.EMPTY)
-        }
+        }*/
         if (addIdentifications(this, tooltip))
             tooltip.add(LiteralText.EMPTY)
         addItemSuffix(this, tooltip)

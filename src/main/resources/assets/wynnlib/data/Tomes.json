@@ -5,394 +5,634 @@
       "tier": "Legendary",
       "type": "SLAYING",
       "level": 60,
-      "effectBase": 15
+      "slayingXp": 15,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Tome of Slaying Mastery II",
       "tier": "Legendary",
       "type": "SLAYING",
       "level": 80,
-      "effectBase": 30
+      "slayingXp": 30,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Tome of Slaying Mastery III",
+      "tier": "Legendary",
+      "type": "SLAYING",
+      "level": 105,
+      "slayingXp": 45,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Tome of Gathering Mastery I",
       "tier": "Legendary",
       "type": "GATHERING",
       "level": 60,
-      "effectBase": 5
+      "gatheringXp": 5,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Tome of Gathering Mastery II",
       "tier": "Legendary",
       "type": "GATHERING",
       "level": 80,
-      "effectBase": 10
+      "gatheringXp": 10,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Tome of Gathering Mastery III",
+      "tier": "Legendary",
+      "type": "GATHERING",
+      "level": 105,
+      "gatheringXp": 15,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Tome of Dungeoneering Mastery I",
       "tier": "Legendary",
       "type": "DUNGEONEERING",
       "level": 60,
-      "effectBase": 10
+      "dungeonXp": 10,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Tome of Dungeoneering Mastery II",
       "tier": "Legendary",
       "type": "DUNGEONEERING",
       "level": 80,
-      "effectBase": 20
+      "dungeonXp": 20,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Tome of Dungeoneering Mastery III",
+      "tier": "Legendary",
+      "type": "DUNGEONEERING",
+      "level": 105,
+      "dungeonXp": 30,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Tome of Weapon Mastery I",
       "tier": "Legendary",
       "type": "WEAPON",
       "level": 60,
-      "effectBase": 6
+      "damageToMobs": 6,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Earthbound Tome of Weapon Mastery I",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 60,
-      "effectBase": 7,
-      "strengthPoints": 3
+      "damageToMobs": 7,
+      "strengthPoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Earthbound Tome of Weapon Mastery II",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 8,
-      "strengthPoints": 3
+      "damageToMobs": 8,
+      "strengthPoints": 3,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Earthbound Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "strengthPoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Nimble Tome of Weapon Mastery I",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 60,
-      "effectBase": 7,
-      "dexterityPoints": 3
+      "damageToMobs": 7,
+      "dexterityPoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Nimble Tome of Weapon Mastery II",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 8,
-      "dexterityPoints": 3
+      "damageToMobs": 8,
+      "dexterityPoints": 3,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Nimble Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "dexterityPoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Mystical Tome of Weapon Mastery I",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 60,
-      "effectBase": 7,
-      "intelligencePoints": 3
+      "damageToMobs": 7,
+      "intelligencePoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Mystical Tome of Weapon Mastery II",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 8,
-      "intelligencePoints": 3
+      "damageToMobs": 8,
+      "intelligencePoints": 3,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Mystical Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "intelligencePoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Warding Tome of Weapon Mastery I",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 60,
-      "effectBase": 7,
-      "defensePoints": 3
+      "damageToMobs": 7,
+      "defensePoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Warding Tome of Weapon Mastery II",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 8,
-      "defensePoints": 3
+      "damageToMobs": 8,
+      "defensePoints": 3,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Warding Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "defensePoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Athletic Tome of Weapon Mastery I",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 60,
-      "effectBase": 7,
-      "agilityPoints": 3
+      "damageToMobs": 7,
+      "agilityPoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Athletic Tome of Weapon Mastery II",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 8,
-      "agilityPoints": 3
+      "damageToMobs": 8,
+      "agilityPoints": 3,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Athletic Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "agilityPoints": 3,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Cosmic Tome of Weapon Mastery I",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 60,
-      "effectBase": 7,
+      "damageToMobs": 7,
       "strengthPoints": 1,
       "dexterityPoints": 1,
       "intelligencePoints": 1,
       "defensePoints": 1,
-      "agilityPoints": 1
+      "agilityPoints": 1,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Cosmic Tome of Weapon Mastery II",
       "tier": "Fabled",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 8,
+      "damageToMobs": 8,
       "strengthPoints": 1,
       "dexterityPoints": 1,
       "intelligencePoints": 1,
       "defensePoints": 1,
-      "agilityPoints": 1
+      "agilityPoints": 1,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Cosmic Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "strengthPoints": 1,
+      "dexterityPoints": 1,
+      "intelligencePoints": 1,
+      "defensePoints": 1,
+      "agilityPoints": 1,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Ephemeral Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "damageToMobs": 7,
+      "manaRegen": 1,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Ephemeral Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "damageToMobs": 8,
+      "manaRegen": 1,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Ephemeral Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "manaRegen": 1,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Harvester's Tome of Weapon Mastery I",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 60,
+      "damageToMobs": 7,
+      "manaSteal": 1,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Harvester's Tome of Weapon Mastery II",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 80,
+      "damageToMobs": 8,
+      "manaSteal": 1,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Harvester's Tome of Weapon Mastery III",
+      "tier": "Fabled",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 13,
+      "manaSteal": 1,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Seismic Tome of Weapon Mastery II",
       "tier": "Mythic",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 12,
-      "bonusEarthDamage": 7
+      "damageToMobs": 12,
+      "earthDamageBonus": 7,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Seismic Tome of Weapon Mastery III",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 16,
+      "earthDamageBonus": 8,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Cyclonic Tome of Weapon Mastery II",
       "tier": "Mythic",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 12,
-      "bonusAirDamage": 7
+      "damageToMobs": 12,
+      "airDamageBonus": 7,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Cyclonic Tome of Weapon Mastery III",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 16,
+      "airDamageBonus": 8,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Abyssal Tome of Weapon Mastery II",
       "tier": "Mythic",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 12,
-      "bonusWaterDamage": 7
+      "damageToMobs": 12,
+      "waterDamageBonus": 7,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Abyssal Tome of Weapon Mastery III",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 16,
+      "waterDamageBonus": 8,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Infernal Tome of Weapon Mastery II",
       "tier": "Mythic",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 12,
-      "bonusFireDamage": 7
+      "damageToMobs": 12,
+      "fireDamageBonus": 7,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Infernal Tome of Weapon Mastery III",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 16,
+      "fireDamageBonus": 8,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Voltaic Tome of Weapon Mastery II",
       "tier": "Mythic",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 12,
-      "bonusThunderDamage": 7
+      "damageToMobs": 12,
+      "thunderDamageBonus": 7,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Voltaic Tome of Weapon Mastery III",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 16,
+      "thunderDamageBonus": 8,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Astral Tome of Weapon Mastery II",
       "tier": "Mythic",
       "type": "WEAPON",
       "level": 80,
-      "effectBase": 12,
-      "bonusFireDamage": 5,
-      "bonusEarthDamage": 5,
-      "bonusWaterDamage": 5,
-      "bonusThunderDamage": 5,
-      "bonusAirDamage": 5
+      "damageToMobs": 12,
+      "fireDamageBonus": 5,
+      "earthDamageBonus": 5,
+      "waterDamageBonus": 5,
+      "thunderDamageBonus": 5,
+      "airDamageBonus": 5,
+      "restriction": "SOULBOUND"
+    },
+    {
+      "name": "Astral Tome of Weapon Mastery III",
+      "tier": "Mythic",
+      "type": "WEAPON",
+      "level": 105,
+      "damageToMobs": 16,
+      "fireDamageBonus": 7,
+      "earthDamageBonus": 7,
+      "waterDamageBonus": 7,
+      "thunderDamageBonus": 7,
+      "airDamageBonus": 7,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Tome of Armour Mastery I",
       "tier": "Legendary",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 2,
-      "healthBonus": 100
+      "defenceToMobs": 2,
+      "healthBonus": 100,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Vampiric Tome of Armour Mastery I",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 3,
+      "defenceToMobs": 3,
       "healthBonus": 120,
-      "lifeSteal": 25
+      "lifeSteal": 25,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Vampiric Tome of Armour Mastery II",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 5,
-      "lifeSteal": 85
+      "defenceToMobs": 5,
+      "lifeSteal": 85,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Retaliating Tome of Armour Mastery I",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 3,
+      "defenceToMobs": 3,
       "thorns": 6,
       "reflection": 6,
-      "healthBonus": 120
+      "healthBonus": 120,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Retaliating Tome of Armour Mastery II",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 5,
+      "defenceToMobs": 5,
       "thorns": 8,
-      "reflection": 8
+      "reflection": 8,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Sorcerer's Tome of Armour Mastery I",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 3,
-      "spellDamage": 5,
-      "healthBonus": 120
+      "defenceToMobs": 3,
+      "spellDamageBonus": 5,
+      "healthBonus": 120,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Sorcerer's Tome of Armour Mastery II",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 5,
-      "spellDamage": 6
+      "defenceToMobs": 5,
+      "spellDamageBonus": 6,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Greedy Tome of Armour Mastery I",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 3,
+      "defenceToMobs": 3,
       "lootBonus": 5,
-      "healthBonus": 120
+      "healthBonus": 120,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Greedy Tome of Armour Mastery II",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 5,
-      "lootBonus": 6
+      "defenceToMobs": 5,
+      "lootBonus": 6,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Everlasting Tome of Armour Mastery I",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 3,
+      "defenceToMobs": 3,
       "healthRegenRaw": 15,
-      "healthBonus": 120
+      "healthBonus": 120,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Everlasting Tome of Armour Mastery II",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 5,
-      "healthRegenRaw": 60
+      "defenceToMobs": 5,
+      "healthRegenRaw": 60,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Weightless Tome of Armour Mastery I",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 3,
+      "defenceToMobs": 3,
       "speed": 5,
-      "healthBonus": 120
+      "healthBonus": 120,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Weightless Tome of Armour Mastery II",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 5,
-      "speed": 6
+      "defenceToMobs": 5,
+      "speed": 6,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Destructive Tome of Armour Mastery I",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 60,
-      "effectBase": 3,
-      "damageBonus": 5,
+      "defenceToMobs": 3,
+      "mainAttackDamageBonus": 5,
       "exploding": 5,
-      "healthBonus": 120
+      "healthBonus": 120,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Destructive Tome of Armour Mastery II",
       "tier": "Fabled",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 5,
-      "damageBonus": 6,
-      "exploding": 6
+      "defenceToMobs": 5,
+      "mainAttackDamageBonus": 6,
+      "exploding": 6,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Clouded Tome of Armour Mastery II",
       "tier": "Mythic",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 8,
+      "defenceToMobs": 8,
       "healthBonus": 150,
-      "bonusAirDefense": 10
+      "bonusAirDefense": 10,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Oceanic Tome of Armour Mastery II",
       "tier": "Mythic",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 8,
+      "defenceToMobs": 8,
       "healthBonus": 150,
-      "bonusWaterDefense": 10
+      "bonusWaterDefense": 10,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Courageous Tome of Armour Mastery II",
       "tier": "Mythic",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 8,
+      "defenceToMobs": 8,
       "healthBonus": 150,
-      "bonusFireDefense": 10
+      "bonusFireDefense": 10,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Pulsing Tome of Armour Mastery II",
       "tier": "Mythic",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 8,
+      "defenceToMobs": 8,
       "healthBonus": 150,
-      "bonusThunderDefense": 10
+      "bonusThunderDefense": 10,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Blooming Tome of Armour Mastery II",
       "tier": "Mythic",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 8,
+      "defenceToMobs": 8,
       "healthBonus": 150,
-      "bonusEarthDefense": 10
+      "bonusEarthDefense": 10,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Radiant Tome of Armour Mastery II",
       "tier": "Mythic",
       "type": "ARMOUR",
       "level": 100,
-      "effectBase": 8,
+      "defenceToMobs": 8,
       "healthBonus": 150,
       "bonusEarthDefense": 6,
       "bonusFireDefense": 6,
       "bonusWaterDefense": 6,
       "bonusAirDefense": 6,
-      "bonusThunderDefense": 6
+      "bonusThunderDefense": 6,
+      "restriction": "SOULBOUND"
     },
     {
       "name": "Psychopath's Tome of Allegiance",
@@ -400,7 +640,8 @@
       "type": "guild",
       "level": 100,
       "strengthPoints": 2,
-      "dexterityPoints": 2
+      "dexterityPoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Loner's Tome of Allegiance",
@@ -408,7 +649,8 @@
       "type": "guild",
       "level": 100,
       "strengthPoints": 2,
-      "intelligencePoints": 2
+      "intelligencePoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Destroyer's Tome of Allegiance",
@@ -416,7 +658,8 @@
       "type": "guild",
       "level": 100,
       "strengthPoints": 2,
-      "defensePoints": 2
+      "defensePoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Barbarian's Tome of Allegiance",
@@ -424,7 +667,8 @@
       "type": "guild",
       "level": 100,
       "strengthPoints": 2,
-      "agilityPoints": 2
+      "agilityPoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Warlock's Tome of Allegiance",
@@ -432,7 +676,8 @@
       "type": "guild",
       "level": 100,
       "dexterityPoints": 2,
-      "intelligencePoints": 2
+      "intelligencePoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Devil's Tome of Allegiance",
@@ -440,7 +685,8 @@
       "type": "guild",
       "level": 100,
       "dexterityPoints": 2,
-      "defensePoints": 2
+      "defensePoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Freelancer's Tome of Allegiance",
@@ -448,7 +694,8 @@
       "type": "guild",
       "level": 100,
       "dexterityPoints": 2,
-      "agilityPoints": 2
+      "agilityPoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Alchemist's Tome of Allegiance",
@@ -456,7 +703,8 @@
       "type": "guild",
       "level": 100,
       "intelligencePoints": 2,
-      "defensePoints": 2
+      "defensePoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Sycophant's Tome of Allegiance",
@@ -464,7 +712,8 @@
       "type": "guild",
       "level": 100,
       "intelligencePoints": 2,
-      "agilityPoints": 2
+      "agilityPoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Fanatic's Tome of Allegiance",
@@ -472,7 +721,8 @@
       "type": "guild",
       "level": 100,
       "defensePoints": 2,
-      "agilityPoints": 2
+      "agilityPoints": 2,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Brute's Tome of Allegiance",
@@ -480,7 +730,8 @@
       "type": "guild",
       "level": 100,
       "strengthPoints": 3,
-      "bonusEarthDamage": 5
+      "bonusEarthDamage": 5,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Sadist's Tome of Allegiance",
@@ -488,7 +739,8 @@
       "type": "guild",
       "level": 100,
       "dexterityPoints": 3,
-      "bonusThunderDamage": 5
+      "bonusThunderDamage": 5,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Mastermind's Tome of Allegiance",
@@ -496,7 +748,8 @@
       "type": "guild",
       "level": 100,
       "intelligencePoints": 3,
-      "bonusWaterDamage": 5
+      "bonusWaterDamage": 5,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Arsonist's Tome of Allegiance",
@@ -504,7 +757,8 @@
       "type": "guild",
       "level": 100,
       "defensePoints": 3,
-      "bonusFireDamage": 5
+      "bonusFireDamage": 5,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Ghost's Tome of Allegiance",
@@ -512,7 +766,8 @@
       "type": "guild",
       "level": 100,
       "agilityPoints": 3,
-      "bonusAirDamage": 5
+      "bonusAirDamage": 5,
+      "restriction": "UNTRADABLE"
     },
     {
       "name": "Assimilator's Tome of Allegiance",
@@ -523,9 +778,9 @@
       "dexterityPoints": 1,
       "intelligencePoints": 1,
       "defensePoints": 1,
-      "agilityPoints": 1
+      "agilityPoints": 1,
+      "restriction": "UNTRADABLE"
     }
   ],
-  "version": "1.0.48",
-  "status": "OK"
+  "version": "2.0.0"
 }

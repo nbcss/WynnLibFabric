@@ -7,7 +7,8 @@
       "displayName": "Mob Damage Resistance",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "range": "CONSTANT"
+      "range": "CONSTANT",
+      "formatting": "TOME"
     },
     {
       "id": "damage_to_mobs",
@@ -16,7 +17,8 @@
       "displayName": "Damage to Mobs",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "range": "CONSTANT"
+      "range": "CONSTANT",
+      "formatting": "TOME"
     },
     {
       "id": "slaying_xp",
@@ -25,7 +27,8 @@
       "displayName": "Slaying XP",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "range": "CONSTANT"
+      "range": "CONSTANT",
+      "formatting": "TOME"
     },
     {
       "id": "dungeon_xp",
@@ -34,7 +37,8 @@
       "displayName": "Dungeon XP",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "range": "CONSTANT"
+      "range": "CONSTANT",
+      "formatting": "TOME"
     },
     {
       "id": "gathering_xp",
@@ -43,7 +47,8 @@
       "displayName": "Gathering XP",
       "suffix": "%",
       "group": "TOME_EFFECT",
-      "range": "CONSTANT"
+      "range": "CONSTANT",
+      "formatting": "TOME"
     },
     {
       "id": "damage_from_mobs",

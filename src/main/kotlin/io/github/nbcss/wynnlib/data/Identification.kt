@@ -4,13 +4,18 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.items.identity.IdPropertyProvider
+import io.github.nbcss.wynnlib.items.identity.IdentificationHolder
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.registry.Registry
 import io.github.nbcss.wynnlib.utils.JsonGetter
 import io.github.nbcss.wynnlib.utils.Keyed
+import io.github.nbcss.wynnlib.utils.id.IDFormatting
+import io.github.nbcss.wynnlib.utils.id.IDRange
 import io.github.nbcss.wynnlib.utils.parseStyle
+import io.github.nbcss.wynnlib.utils.range.IRange
 import net.minecraft.text.LiteralText
 import net.minecraft.text.MutableText
+import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import java.util.regex.Pattern
 
@@ -22,6 +27,7 @@ data class Identification(val id: String,               //id used in translation
                           val group: IdentificationGroup,
                           val inverted: Boolean,        //whether the id bonus is inverted (e.g. -cost)
                           val range: IDRange,           //the range mode used by the id
+                          val idFormatting: IDFormatting,
                           val hidden: Boolean,          //whether this id is not available on item
                           ): Keyed, Translatable {
     constructor(json: JsonObject) : this(
@@ -34,6 +40,7 @@ data class Identification(val id: String,               //id used in translation
             IdentificationGroup.MISC,
         JsonGetter.getOr(json, "inverted", false),
         JsonGetter.getOr(json, "range", IDRange.BASE) { IDRange.fromName(it.asString) },
+        JsonGetter.getOr(json, "formatting", IDFormatting.BASE) { IDFormatting.fromName(it.asString) },
         JsonGetter.getOr(json, "hidden", false),)
 
     companion object: Registry<Identification>() {
@@ -108,6 +115,10 @@ data class Identification(val id: String,               //id used in translation
             string = string.replace("\${$key}", value)
         }
         return LiteralText(parseStyle(string, style.toString())).formatted(style)
+    }
+
+    fun formatting(item: IdentificationHolder, range: IRange): List<Text> {
+        return idFormatting.formatting(item, this, range)
     }
 
     override fun getKey(): String = id
