@@ -163,12 +163,28 @@
       "group": "COMBAT"
     },
     {
+      "id": "knockback",
+      "apiId": "knockback",
+      "name": "KNOCKBACK",
+      "displayName": "Knockback",
+      "suffix": "%",
+      "group": "COMBAT"
+    },
+    {
+      "id": "critical_damage_bonus",
+      "apiId": "criticalDamageBonus",
+      "name": "CRITICAL_DAMAGE_BONUS",
+      "displayName": "Critical Damage Bonus",
+      "suffix": "%",
+      "group": "COMBAT"
+    },
+    {
       "id": "damage_bonus",
       "apiId": "damageBonus",
       "name": "DAMAGEBONUS_TODO",
       "displayName": "Damage",
       "suffix": "%",
-      "group": "COMBAT",
+      "group": "OVERALL_DAMAGE_BONUS",
       "hidden": true
     },
     {
@@ -177,8 +193,120 @@
       "name": "DAMAGEBONUSRAW_TODO",
       "displayName": "Damage",
       "suffix": "",
-      "group": "COMBAT",
+      "group": "OVERALL_DAMAGE_BONUS",
       "hidden": true
+    },
+    {
+      "id": "neutral_damage_bonus",
+      "apiId": "neutralDamageBonus",
+      "name": "NEUTRAL_DAMAGE_BONUS",
+      "displayName": "Neutral Damage",
+      "suffix": "%",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "neutral_damage_bonus_raw",
+      "apiId": "neutralDamageBonusRaw",
+      "name": "NEUTRAL_DAMAGE_BONUS_RAW",
+      "displayName": "Neutral Damage",
+      "suffix": "",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_fire_damage",
+      "apiId": "fireDamageBonus",
+      "name": "FIREDAMAGEBONUS",
+      "displayName": "Fire Damage",
+      "suffix": "%",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_fire_damage_raw",
+      "apiId": "fireDamageBonusRaw",
+      "name": "FIREDAMAGEBONUSRAW",
+      "displayName": "Fire Damage",
+      "suffix": "",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_water_damage",
+      "apiId": "waterDamageBonus",
+      "name": "WATERDAMAGEBONUS",
+      "displayName": "Water Damage",
+      "suffix": "%",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_water_damage_raw",
+      "apiId": "waterDamageBonusRaw",
+      "name": "WATERDAMAGEBONUSRAW",
+      "displayName": "Water Damage",
+      "suffix": "",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_air_damage",
+      "apiId": "airDamageBonus",
+      "name": "AIRDAMAGEBONUS",
+      "displayName": "Air Damage",
+      "suffix": "%",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_air_damage_raw",
+      "apiId": "airDamageBonusRaw",
+      "name": "AIRDAMAGEBONUSRAW",
+      "displayName": "Air Damage",
+      "suffix": "",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_thunder_damage",
+      "apiId": "thunderDamageBonus",
+      "name": "THUNDERDAMAGEBONUS",
+      "displayName": "Thunder Damage",
+      "suffix": "%",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_thunder_damage_raw",
+      "apiId": "thunderDamageBonusRaw",
+      "name": "THUNDERDAMAGEBONUSRAW",
+      "displayName": "Thunder Damage",
+      "suffix": "",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_earth_damage",
+      "apiId": "earthDamageBonus",
+      "name": "EARTHDAMAGEBONUS",
+      "displayName": "Earth Damage",
+      "suffix": "%",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_earth_damage_raw",
+      "apiId": "earthDamageBonusRaw",
+      "name": "EARTHDAMAGEBONUSRAW",
+      "displayName": "Earth Damage",
+      "suffix": "",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "rainbow_damage_bonus",
+      "apiId": "elementalDamageBonus",
+      "name": "ELEMENTAL_DAMAGE_BONUS",
+      "displayName": "Elemental Damage",
+      "suffix": "%",
+      "group": "OVERALL_DAMAGE_BONUS"
+    },
+    {
+      "id": "rainbow_damage_bonus_raw",
+      "apiId": "elementalDamageBonusRaw",
+      "name": "ELEMENTAL_DAMAGE_BONUS_RAW",
+      "displayName": "Elemental Damage",
+      "suffix": "",
+      "group": "OVERALL_DAMAGE_BONUS"
     },
     {
       "id": "main_attack_damage_bonus",
@@ -186,7 +314,7 @@
       "name": "DAMAGEBONUS",
       "displayName": "Main Attack Damage",
       "suffix": "%",
-      "group": "COMBAT"
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
     },
     {
       "id": "main_attack_damage_bonus_raw",
@@ -194,7 +322,7 @@
       "name": "DAMAGEBONUSRAW",
       "displayName": "Main Attack Damage",
       "suffix": "",
-      "group": "COMBAT"
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
     },
     {
       "id": "neutral_main_attack_damage",
@@ -202,7 +330,7 @@
       "name": "MAIN_ATTACK_NEUTRAL_DAMAGE_BONUS",
       "displayName": "Neutral Main Attack Damage",
       "suffix": "%",
-      "group": "COMBAT"
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
     },
     {
       "id": "neutral_main_attack_damage_raw",
@@ -210,7 +338,103 @@
       "name": "MAIN_ATTACK_NEUTRAL_DAMAGE_BONUS_RAW",
       "displayName": "Neutral Main Attack Damage",
       "suffix": "",
-      "group": "COMBAT"
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_fire_damage",
+      "apiId": "mainAttackFireDamageBonus",
+      "name": "MAIN_ATTACK_FIRE_DAMAGE_BONUS",
+      "displayName": "Fire Main Attack Damage",
+      "suffix": "%",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_fire_damage_raw",
+      "apiId": "mainAttackFireDamageBonusRaw",
+      "name": "MAIN_ATTACK_FIRE_DAMAGE_BONUS_RAW",
+      "displayName": "Fire Main Attack Damage",
+      "suffix": "",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_water_damage",
+      "apiId": "mainAttackWaterDamageBonus",
+      "name": "MAIN_ATTACK_WATER_DAMAGE_BONUS",
+      "displayName": "Water Main Attack Damage",
+      "suffix": "%",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_water_damage_raw",
+      "apiId": "mainAttackWaterDamageBonusRaw",
+      "name": "MAIN_ATTACK_WATER_DAMAGE_BONUS_RAW",
+      "displayName": "Water Main Attack Damage",
+      "suffix": "",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_air_damage",
+      "apiId": "mainAttackAirDamageBonus",
+      "name": "MAIN_ATTACK_AIR_DAMAGE_BONUS",
+      "displayName": "Air Main Attack Damage",
+      "suffix": "%",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_air_damage_raw",
+      "apiId": "mainAttackAirDamageBonusRaw",
+      "name": "MAIN_ATTACK_AIR_DAMAGE_BONUS_RAW",
+      "displayName": "Air Main Attack Damage",
+      "suffix": "",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_thunder_damage",
+      "apiId": "mainAttackThunderDamageBonus",
+      "name": "MAIN_ATTACK_THUNDER_DAMAGE_BONUS",
+      "displayName": "Thunder Main Attack Damage",
+      "suffix": "%",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_thunder_damage_raw",
+      "apiId": "mainAttackThunderDamageBonusRaw",
+      "name": "MAIN_ATTACK_THUNDER_DAMAGE_BONUS_RAW",
+      "displayName": "Thunder Main Attack Damage",
+      "suffix": "",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_earth_damage",
+      "apiId": "mainAttackEarthDamageBonus",
+      "name": "MAIN_ATTACK_EARTH_DAMAGE_BONUS",
+      "displayName": "Earth Main Attack Damage",
+      "suffix": "%",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_main_attack_earth_damage_raw",
+      "apiId": "mainAttackEarthDamageBonusRaw",
+      "name": "MAIN_ATTACK_EARTH_DAMAGE_BONUS_RAW",
+      "displayName": "Earth Main Attack Damage",
+      "suffix": "",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "rainbow_main_attack_damage",
+      "apiId": "mainAttackElementalDamageBonus",
+      "name": "MAIN_ATTACK_ELEMENTAL_DAMAGE_BONUS",
+      "displayName": "Elemental Main Attack Damage",
+      "suffix": "%",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
+    },
+    {
+      "id": "rainbow_main_attack_damage_raw",
+      "apiId": "mainAttackElementalDamageBonusRaw",
+      "name": "MAIN_ATTACK_ELEMENTAL_DAMAGE_BONUS_RAW",
+      "displayName": "Elemental Main Attack Damage",
+      "suffix": "",
+      "group": "MAIN_ATTACK_DAMAGE_BONUS"
     },
     {
       "id": "spell_damage",
@@ -218,7 +442,7 @@
       "name": "SPELLDAMAGE",
       "displayName": "Spell Damage",
       "suffix": "%",
-      "group": "COMBAT"
+      "group": "SPELL_DAMAGE_BONUS"
     },
     {
       "id": "spell_damage_raw",
@@ -226,23 +450,7 @@
       "name": "SPELLDAMAGERAW",
       "displayName": "Spell Damage",
       "suffix": "",
-      "group": "COMBAT"
-    },
-    {
-      "id": "rainbow_spell_damage",
-      "apiId": "spellElementalDamageBonus",
-      "name": "SPELL_ELEMENTAL_DAMAGE_BONUS",
-      "displayName": "Elemental Spell Damage",
-      "suffix": "%",
-      "group": "COMBAT"
-    },
-    {
-      "id": "rainbow_spell_damage_raw",
-      "apiId": "spellElementalDamageBonusRaw",
-      "name": "RAINBOWSPELLDAMAGERAW",
-      "displayName": "Elemental Spell Damage",
-      "suffix": "",
-      "group": "COMBAT"
+      "group": "SPELL_DAMAGE_BONUS"
     },
     {
       "id": "neutral_spell_damage",
@@ -250,7 +458,7 @@
       "name": "SPELL_NEUTRAL_DAMAGE_BONUS",
       "displayName": "Neutral Spell Damage",
       "suffix": "%",
-      "group": "COMBAT"
+      "group": "SPELL_DAMAGE_BONUS"
     },
     {
       "id": "neutral_spell_damage_raw",
@@ -258,7 +466,103 @@
       "name": "SPELL_NEUTRAL_DAMAGE_BONUS_RAW",
       "displayName": "Neutral Spell Damage",
       "suffix": "",
-      "group": "COMBAT"
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_fire_damage",
+      "apiId": "spellFireDamageBonus",
+      "name": "SPELL_FIRE_DAMAGE_BONUS",
+      "displayName": "Fire Spell Damage",
+      "suffix": "%",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_fire_damage_raw",
+      "apiId": "spellFireDamageBonusRaw",
+      "name": "SPELL_FIRE_DAMAGE_BONUS_RAW",
+      "displayName": "Fire Spell Damage",
+      "suffix": "",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_water_damage",
+      "apiId": "spellWaterDamageBonus",
+      "name": "SPELL_WATER_DAMAGE_BONUS",
+      "displayName": "Water Spell Damage",
+      "suffix": "%",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_water_damage_raw",
+      "apiId": "spellWaterDamageBonusRaw",
+      "name": "SPELL_WATER_DAMAGE_BONUS_RAW",
+      "displayName": "Water Spell Damage",
+      "suffix": "",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_air_damage",
+      "apiId": "spellAirDamageBonus",
+      "name": "SPELL_AIR_DAMAGE_BONUS",
+      "displayName": "Air Spell Damage",
+      "suffix": "%",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_air_damage_raw",
+      "apiId": "spellAirDamageBonusRaw",
+      "name": "SPELL_AIR_DAMAGE_BONUS_RAW",
+      "displayName": "Air Spell Damage",
+      "suffix": "",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_thunder_damage",
+      "apiId": "spellThunderDamageBonus",
+      "name": "SPELL_THUNDER_DAMAGE_BONUS",
+      "displayName": "Thunder Spell Damage",
+      "suffix": "%",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_thunder_damage_raw",
+      "apiId": "spellThunderDamageBonusRaw",
+      "name": "SPELL_THUNDER_DAMAGE_BONUS_RAW",
+      "displayName": "Thunder Spell Damage",
+      "suffix": "",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_earth_damage",
+      "apiId": "spellEarthDamageBonus",
+      "name": "SPELL_EARTH_DAMAGE_BONUS",
+      "displayName": "Earth Spell Damage",
+      "suffix": "%",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "bonus_spell_earth_damage_raw",
+      "apiId": "spellEarthDamageBonusRaw",
+      "name": "SPELL_EARTH_DAMAGE_BONUS_RAW",
+      "displayName": "Earth Spell Damage",
+      "suffix": "",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "rainbow_spell_damage",
+      "apiId": "spellElementalDamageBonus",
+      "name": "SPELL_ELEMENTAL_DAMAGE_BONUS",
+      "displayName": "Elemental Spell Damage",
+      "suffix": "%",
+      "group": "SPELL_DAMAGE_BONUS"
+    },
+    {
+      "id": "rainbow_spell_damage_raw",
+      "apiId": "spellElementalDamageBonusRaw",
+      "name": "RAINBOWSPELLDAMAGERAW",
+      "displayName": "Elemental Spell Damage",
+      "suffix": "",
+      "group": "SPELL_DAMAGE_BONUS"
     },
     {
       "id": "health_bonus",
@@ -309,92 +613,12 @@
       "group": "SURVIVABILITY"
     },
     {
-      "id": "bonus_fire_damage",
-      "apiId": "fireDamageBonus",
-      "name": "FIREDAMAGEBONUS",
-      "displayName": "Fire Damage",
-      "suffix": "%",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_water_damage",
-      "apiId": "waterDamageBonus",
-      "name": "WATERDAMAGEBONUS",
-      "displayName": "Water Damage",
-      "suffix": "%",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_air_damage",
-      "apiId": "airDamageBonus",
-      "name": "AIRDAMAGEBONUS",
-      "displayName": "Air Damage",
-      "suffix": "%",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_thunder_damage",
-      "apiId": "thunderDamageBonus",
-      "name": "THUNDERDAMAGEBONUS",
-      "displayName": "Thunder Damage",
-      "suffix": "%",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_earth_damage",
-      "apiId": "earthDamageBonus",
-      "name": "EARTHDAMAGEBONUS",
-      "displayName": "Earth Damage",
-      "suffix": "%",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_spell_fire_damage_raw",
-      "apiId": "spellFireDamageBonusRaw",
-      "name": "SPELL_FIRE_DAMAGE_BONUS_RAW",
-      "displayName": "Fire Spell Damage",
-      "suffix": "",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_spell_water_damage_raw",
-      "apiId": "spellWaterDamageBonusRaw",
-      "name": "SPELL_WATER_DAMAGE_BONUS_RAW",
-      "displayName": "Water Spell Damage",
-      "suffix": "",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_spell_air_damage_raw",
-      "apiId": "spellAirDamageBonusRaw",
-      "name": "SPELL_AIR_DAMAGE_BONUS_RAW",
-      "displayName": "Air Spell Damage",
-      "suffix": "",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_spell_thunder_damage_raw",
-      "apiId": "spellThunderDamageBonusRaw",
-      "name": "SPELL_THUNDER_DAMAGE_BONUS_RAW",
-      "displayName": "Thunder Spell Damage",
-      "suffix": "",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
-      "id": "bonus_spell_earth_damage_raw",
-      "apiId": "spellEarthDamageBonusRaw",
-      "name": "SPELL_EARTH_DAMAGE_BONUS_RAW",
-      "displayName": "Earth Spell Damage",
-      "suffix": "",
-      "group": "ELEMENT_DAMAGE_BONUS"
-    },
-    {
       "id": "bonus_fire_defense",
       "apiId": "bonusFireDefense",
       "name": "FIREDEFENSE",
       "displayName": "Fire Defence",
       "suffix": "%",
-      "group": "ELEMENT_DEFENCE_BONUS"
+      "group": "SURVIVABILITY"
     },
     {
       "id": "bonus_water_defense",
@@ -402,7 +626,7 @@
       "name": "WATERDEFENSE",
       "displayName": "Water Defence",
       "suffix": "%",
-      "group": "ELEMENT_DEFENCE_BONUS"
+      "group": "SURVIVABILITY"
     },
     {
       "id": "bonus_air_defense",
@@ -410,7 +634,7 @@
       "name": "AIRDEFENSE",
       "displayName": "Air Defence",
       "suffix": "%",
-      "group": "ELEMENT_DEFENCE_BONUS"
+      "group": "SURVIVABILITY"
     },
     {
       "id": "bonus_thunder_defense",
@@ -418,7 +642,7 @@
       "name": "THUNDERDEFENSE",
       "displayName": "Thunder Defence",
       "suffix": "%",
-      "group": "ELEMENT_DEFENCE_BONUS"
+      "group": "SURVIVABILITY"
     },
     {
       "id": "bonus_earth_defense",
@@ -426,7 +650,7 @@
       "name": "EARTHDEFENSE",
       "displayName": "Earth Defence",
       "suffix": "%",
-      "group": "ELEMENT_DEFENCE_BONUS"
+      "group": "SURVIVABILITY"
     },
     {
       "id": "speed",
