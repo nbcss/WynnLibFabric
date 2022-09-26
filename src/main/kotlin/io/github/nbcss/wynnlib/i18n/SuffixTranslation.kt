@@ -28,11 +28,15 @@ enum class SuffixTranslation(val suffix: String): Translatable {
         )
 
         fun withSuffix(value: Int, suffix: String): MutableText {
+            return withSuffix(signed(value), suffix)
+        }
+
+        fun withSuffix(value: String, suffix: String): MutableText {
             val translation = suffixMap[suffix]
             if (translation != null){
-                return translation.translate(label = null, signed(value))
+                return translation.translate(label = null, value)
             }
-            return LiteralText(signed(value) + suffix)
+            return LiteralText(value + suffix)
         }
     }
 }

@@ -7,6 +7,8 @@ import io.github.nbcss.wynnlib.data.Profession
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CRAFTING_MAT
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_GATHERING_LV_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_MATERIAL_RECIPES
+import io.github.nbcss.wynnlib.matcher.MatchableItem
+import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.registry.RecipeRegistry
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
@@ -21,7 +23,7 @@ import net.minecraft.util.Formatting
 import kotlin.math.max
 import kotlin.math.min
 
-class Material(json: JsonObject) : Keyed, BaseItem {
+class Material(json: JsonObject) : Keyed, BaseItem, MatchableItem {
     private val id: String = json["id"].asString
     private val name: String = json["name"].asString
     private val displayName: String = json["displayName"].asString
@@ -40,6 +42,10 @@ class Material(json: JsonObject) : Keyed, BaseItem {
 
     fun getType(): Type = type
 
+    fun getTier(): Tier = tier
+
+    fun getItemName(): String = "${Formatting.WHITE}" + displayName + tier.suffix
+
     override fun getDisplayText(): Text {
         return LiteralText(displayName).formatted(Formatting.WHITE).append(tier.suffix)
     }
@@ -47,7 +53,7 @@ class Material(json: JsonObject) : Keyed, BaseItem {
     override fun getDisplayName(): String = displayName
 
     override fun getRarityColor(): Color {
-        return Settings.getMaterialColor(tier)
+        return getMatcherType().getColor()
     }
 
     override fun getIconText(): String = getType().getProfession().getIconSymbol()
@@ -84,10 +90,18 @@ class Material(json: JsonObject) : Keyed, BaseItem {
         return tooltip
     }
 
-    enum class Tier(val suffix: String, val coefficient: Double) {
-        STAR_1("§6 [§e✫§8✫✫§6]", 1.0),
-        STAR_2("§6 [§e✫✫§8✫§6]", 1.25),
-        STAR_3("§6 [§e✫✫✫§6]", 1.4);
+    override fun getMatcherType(): MatcherType {
+        return MatcherType.fromMaterialTier(tier)
+    }
+
+    override fun asBaseItem(): BaseItem {
+        return this
+    }
+
+    enum class Tier(val suffix: String, val color: Color, val coefficient: Double) {
+        STAR_1("§6 [§e✫§8✫✫§6]", Color.YELLOW, 1.0),
+        STAR_2("§6 [§e✫✫§8✫§6]", Color.PINK, 1.25),
+        STAR_3("§6 [§e✫✫✫§6]", Color.AQUA, 1.4);
 
         fun getStars(): Int = ordinal + 1
 

@@ -12,8 +12,6 @@ import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen
-import net.minecraft.client.render.WorldRenderer
-import net.minecraft.client.render.entity.EntityRenderer
 import net.minecraft.screen.slot.Slot
 import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
@@ -22,13 +20,39 @@ import kotlin.math.max
 object ItemProtector {
     private val texture = Identifier("wynnlib", "textures/legacy/protect.png")
     private val client = MinecraftClient.getInstance()
+    private val lootTitles: Set<String> = setOf(
+        "Chest",
+        "Reward Chest",
+        "Objective Rewards",
+        "Guild Objective Rewards",
+        "Loot Chest I",
+        "Loot Chest II",
+        "Loot Chest III",
+        "Loot Chest IV",
+        "Loot Chest V",     //lol just add an extra tier for fun :d
+        "Forgery Chest I",
+        "Forgery Chest II",
+        "Forgery Chest III",
+        "Forgery Chest IV",
+        "Forgery Chest V",
+        "Forgery Chest VI",
+        "Forgery Chest VII",
+        "Forgery Chest VIII",
+        "Forgery Chest IX",
+        "Forgery Chest X"
+    )
+
+    fun isLootInventory(title: String): Boolean {
+        return title in lootTitles
+    }
+
     object PressListener: EventHandler<InventoryPressEvent> {
         override fun handle(event: InventoryPressEvent) {
             if (event.screen !is GenericContainerScreen)
                 return
             //Loot Chest I
             val title = event.screen.title.asString()
-            if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){
+            if (isLootInventory(title)){
                 if (event.keyCode == 256 || client.options.inventoryKey.matchesKey(event.keyCode, event.scanCode)) {
                     val size = max(0, event.screen.screenHandler.slots.size - 36)
                     for (i in (0 until size)) {
@@ -36,6 +60,7 @@ object ItemProtector {
                         if (isSlotProtected(slot)) {
                             playSound(SoundEvents.BLOCK_ANVIL_LAND)
                             event.cancelled = true
+                            break
                         }
                     }
                 }
@@ -52,7 +77,7 @@ object ItemProtector {
             if (event.screen !is GenericContainerScreen)
                 return
             val title = event.screen.title.asString()
-            if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){
+            if (isLootInventory(title)){
                 if (45 + event.slot.id - event.screen.screenHandler.slots.size == 13) {
                     val size = max(0, event.screen.screenHandler.slots.size - 36)
                     for (i in (0 until size)) {
@@ -60,6 +85,7 @@ object ItemProtector {
                         if (isSlotProtected(slot)) {
                             playSound(SoundEvents.BLOCK_ANVIL_LAND)
                             event.cancelled = true
+                            break
                         }
                     }
                 }
@@ -72,7 +98,7 @@ object ItemProtector {
             if (event.screen !is GenericContainerScreen)
                 return
             val title = event.screen.title.asString()
-            if (title == "Chest" || title.matches("^Loot Chest (I|II|III|IV)$".toRegex())){
+            if (isLootInventory(title)){
                 if (event.slot.id < event.screen.screenHandler.slots.size - 36){
                     if (isSlotProtected(event.slot)) {
                         val x = event.slot.x - 2

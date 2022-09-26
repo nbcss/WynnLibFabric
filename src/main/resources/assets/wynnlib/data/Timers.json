@@ -475,6 +475,24 @@
       "texture": null,
       "text": "SAVIOR_SACRIFICE",
       "properties": {}
+    },
+    {
+      "id": "PROVOKE_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Provoke",
+      "texture": "CRITICAL_DAMAGE",
+      "text": null,
+      "properties": {}
+    },
+    {
+      "id": "WEAKNESS_EFFECT",
+      "type": "EFFECT",
+      "icon": "\u00a7c\u2703",
+      "name": "$% Weakness",
+      "texture": null,
+      "text": "WEAKNESS",
+      "properties": {}
     }
   ],
   "version": "0.1.0"

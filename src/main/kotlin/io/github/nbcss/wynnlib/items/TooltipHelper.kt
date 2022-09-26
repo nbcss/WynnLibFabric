@@ -89,25 +89,12 @@ fun addIdentifications(item: IdentificationHolder,
     var lastGroup: IdentificationGroup? = null
     Identification.getAll().forEach {
         val range = item.getIdentificationRange(it)
-        if (!range.isZero()){
-            val color = colorOf(if (it.inverted) -range.lower() else range.lower())
-            val text = SuffixTranslation.withSuffix(range.lower(), it.suffix).formatted(color)
-            if (!range.isConstant()){
-                val nextColor = colorOf(if (it.inverted) -range.upper() else range.upper())
-                val rangeColor = colorOfDark(
-                    when {
-                        color != nextColor -> 0
-                        it.inverted -> -range.lower()
-                        else -> range.lower()
-                    }
-                )
-                text.append(TOOLTIP_TO.formatted(rangeColor))
-                text.append(SuffixTranslation.withSuffix(range.upper(), it.suffix).formatted(nextColor))
-            }
+        val idTooltip = it.formatting(item, range)
+        if (idTooltip.isNotEmpty()){
             if (lastGroup != null && lastGroup != it.group)
                 tooltip.add(LiteralText.EMPTY)
             lastGroup = it.group
-            tooltip.add(text.append(" ").append(it.getDisplayText(Formatting.GRAY, item)))
+            tooltip.addAll(idTooltip)
         }
     }
     return tooltip.size > lastSize

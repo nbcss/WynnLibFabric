@@ -864,7 +864,7 @@
         },
         "mantle_resistance": 70,
         "duration": 30,
-        "cooldown": 20,
+        "cooldown": 25,
         "charges": 3
       },
       "metadata": {
@@ -1023,6 +1023,7 @@
         },
         "spell": "SPELL_4",
         "mana_modifier": -5,
+        "cooldown": 10,
         "values": {
           "1": 5
         }
@@ -1190,7 +1191,8 @@
         "upgrade": {
           "ability": "MANTLE_OF_THE_BOVEMISTS"
         },
-        "charges_modifier": 2
+        "charges_modifier": 2,
+        "cooldown_modifier": -5
       },
       "metadata": null
     },
@@ -1721,8 +1723,8 @@
           "ability": "MANTLE_OF_THE_BOVEMISTS"
         },
         "damage": {
-          "neutral": 60,
-          "thunder": 20,
+          "neutral": 70,
+          "thunder": 30,
           "label": "MANTLE_LOST"
         },
         "aoe": {
@@ -1762,8 +1764,8 @@
           "1": 5
         },
         "damage": {
-          "neutral": 20,
-          "thunder": 10
+          "neutral": 40,
+          "thunder": 20
         },
         "aoe": {
           "range": 6,
@@ -1962,7 +1964,7 @@
       "dependency": null,
       "blocks": [],
       "archetype_requirements": {
-        "PALADIN": 2
+        "PALADIN": 3
       },
       "predecessors": [
         "SPIRIT_OF_THE_RABBIT",
@@ -11695,5 +11697,5 @@
       }
     }
   ],
-  "version": "0.2.1"
+  "version": "0.2.2"
 }

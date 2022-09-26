@@ -13,6 +13,7 @@ import io.github.nbcss.wynnlib.items.equipments.RolledEquipment
 import io.github.nbcss.wynnlib.items.equipments.Weapon
 import io.github.nbcss.wynnlib.items.equipments.Wearable
 import io.github.nbcss.wynnlib.items.equipments.regular.RegularEquipment
+import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.range.BaseIRange
@@ -204,7 +205,7 @@ class EquipmentTransformer(private val parent: RegularEquipment,
     }
 
     override fun getRarityColor(): Color {
-        return Settings.getTierColor(getTier())
+        return MatcherType.fromItemTier(getTier()).getColor()
     }
 
     override fun getIdentificationRange(id: Identification): BaseIRange {

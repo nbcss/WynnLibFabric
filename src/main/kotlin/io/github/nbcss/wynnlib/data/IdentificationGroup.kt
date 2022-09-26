@@ -5,9 +5,10 @@ import io.github.nbcss.wynnlib.i18n.Translatable
 enum class IdentificationGroup: Translatable {
     SKILL_POINT_BONUS,
     COMBAT,
+    OVERALL_DAMAGE_BONUS,
+    MAIN_ATTACK_DAMAGE_BONUS,
+    SPELL_DAMAGE_BONUS,
     SURVIVABILITY,
-    ELEMENT_DAMAGE_BONUS,
-    ELEMENT_DEFENCE_BONUS,
     MANEUVERABILITY,
     MISC,
     SPELL_COST,

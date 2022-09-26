@@ -10,7 +10,7 @@ import net.minecraft.text.Text
 
 object IngredientMatcher : ItemMatcher {
 
-    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>): MatchableItem? {
+    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>, inMarket: Boolean): MatchableItem? {
         if (name.length > 2 && name.contains("✫")) {
             val ingredient = IngredientRegistry.fromName(name.substring(2).split("§")[0])
             return if (ingredient != null) SimpleAdaptor(ingredient) else null

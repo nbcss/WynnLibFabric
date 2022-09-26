@@ -27,6 +27,8 @@ object EventRegistry {
         InventoryPressEvent.registerListener(ItemProtector.PressListener)
         SlotClickEvent.registerListener(ItemProtector.ClickListener)
         SlotClickEvent.registerListener(PouchInChest.ClickListener)
+        RenderItemOverrideEvent.registerListener(EmeraldPouchBarRender)
+        ItemLoadEvent.registerListener(EmeraldPouchBarRender.LoadListener)
         //It does not work
         //SpellCastEvent.registerListener(ShieldIndicator.SpellTrigger)
         //ArmourStandUpdateEvent.registerListener(ShieldIndicator.EntitySpawn)

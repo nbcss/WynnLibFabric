@@ -4,6 +4,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.gui.ConfigurationScreen
+import io.github.nbcss.wynnlib.gui.CrafterScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
 import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
@@ -15,11 +16,8 @@ import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.items.Powder
 import io.github.nbcss.wynnlib.matcher.MatcherType
-import io.github.nbcss.wynnlib.utils.Color
-import io.github.nbcss.wynnlib.utils.FileUtils
+import io.github.nbcss.wynnlib.utils.*
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
-import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.Scheduler
 import net.minecraft.client.MinecraftClient
 import java.security.KeyFactory
 import java.security.interfaces.RSAPrivateKey
@@ -39,31 +37,7 @@ object Settings {
             "L+re3XQQQimyFrAkEAwTqrSa5SZd4YbqitgGKre8Nid0xjd0rLqxHnP26Au67tZYOG0eoy3ZjEEaXf6HLwABiMiMHBSUFDgagc+L" +
             "xRHwJAaDvcqfBrFCo4fcmWjhr33lPMgXycVUnD1D3YjTJDKD+C9jlqbp/c9MJFtqfdZGJnXTUyr0RoyQ+tLclBugOgJwJAaGl6+V" +
             "Un+CEuE3wLbXVoAabgi8orOwtHxh6T0jNxNm0Ji/ICdPplt6Rx+DLO89tpDnd11/PbLYYFpkLNRXd/Fg=="
-    private val colorMap: MutableMap<String, Color> = linkedMapOf()
     private val keys: MutableSet<String> = mutableSetOf()
-    init {
-        colorMap["tier.mythic"] = Color.DARK_PURPLE
-        colorMap["tier.fabled"] = Color.RED
-        colorMap["tier.legendary"] = Color.AQUA
-        colorMap["tier.rare"] = Color.PINK
-        colorMap["tier.unique"] = Color.YELLOW
-        colorMap["tier.set"] = Color.GREEN
-        colorMap["tier.normal"] = Color.WHITE
-        colorMap["tier.crafted"] = Color.DARK_AQUA
-        colorMap["ingredient_tier.star_0"] = Color.DARK_GRAY
-        colorMap["ingredient_tier.star_1"] = Color.YELLOW
-        colorMap["ingredient_tier.star_2"] = Color.PINK
-        colorMap["ingredient_tier.star_3"] = Color.AQUA
-        colorMap["material_tier.star_1"] = Color.YELLOW
-        colorMap["material_tier.star_2"] = Color.PINK
-        colorMap["material_tier.star_3"] = Color.AQUA
-        colorMap["powder_tier.i"] = Color.WHITE
-        colorMap["powder_tier.ii"] = Color.YELLOW
-        colorMap["powder_tier.iii"] = Color.PINK
-        colorMap["powder_tier.iv"] = Color.AQUA
-        colorMap["powder_tier.v"] = Color.RED
-        colorMap["powder_tier.vi"] = Color.DARK_PURPLE
-    }
     private val lockedSlots: MutableSet<Int> = mutableSetOf()
     private val options: MutableMap<SettingOption, Boolean> = mutableMapOf()
     private var isTester: Boolean = false
@@ -74,6 +48,7 @@ object Settings {
         EquipmentDictScreen.FACTORY,
         IngredientDictScreen.FACTORY,
         AbilityTreeViewerScreen.FACTORY,
+        CrafterScreen.FACTORY,
         PowderDictScreen.FACTORY,
         MaterialDictScreen.FACTORY,
         ConfigurationScreen.FACTORY,
@@ -125,7 +100,7 @@ object Settings {
         }
     }
 
-    private fun validateKeys() {
+    fun validateKeys() {
         isTester = false
         if (keys.isEmpty()) return
         val id: String = MinecraftClient.getInstance().session.uuid
@@ -199,27 +174,6 @@ object Settings {
         analysisMode = !analysisMode
     }
 
-    fun getPowderColor(powder: Powder): Color {
-        return getColor("powder_tier", powder.getTier().name)
-    }
-
-    fun getMaterialColor(tier: Material.Tier): Color {
-        return getColor("material_tier", tier.name)
-    }
-
-    fun getIngredientColor(tier: Ingredient.Tier): Color {
-        return getColor("ingredient_tier", tier.name)
-    }
-
-    fun getTierColor(tier: Tier): Color{
-        return getColor("tier", tier.name)
-    }
-
-    fun getColor(prefix: String, label: String): Color {
-        val key = "${prefix}.$label".lowercase()
-        return colorMap.getOrDefault(key, Color.WHITE)
-    }
-
     fun markDirty() {
         dirty = true
     }
@@ -227,6 +181,7 @@ object Settings {
     enum class SettingOption(val id: String,
                              val defaultValue: Boolean): Keyed, Translatable {
         DURABILITY("durability", true),
+        EMERALD_POUCH_BAR("emerald_pouch_bar", true),
         CONSUMABLE_CHARGE("consumable_charge", true),
         SP_VALUE("skill_point_override", true),
         ITEM_BACKGROUND_COLOR("item_color", true),

@@ -11,7 +11,7 @@ import net.minecraft.text.Text
 object BoxMatcher : ItemMatcher {
     private val LV_RANGE_PATTERN = Regex("(\\d{1,3})-(\\d{1,3})")
 
-    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>): UnidentifiedBox? {
+    override fun toItem(item: ItemStack, name: String, tooltip: List<Text>, inMarket: Boolean): UnidentifiedBox? {
         if (name.contains("Unidentified")) {
             var levelRange: IRange = SimpleIRange(0, 0)
             var tier: Tier? = null

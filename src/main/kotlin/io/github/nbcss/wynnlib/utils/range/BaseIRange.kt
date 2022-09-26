@@ -17,29 +17,19 @@ class BaseIRange(private val id: Identification,
         //todo
     }
 
-    private fun getLower(): Int {
-        return if (base>0)
-            max(1, (base*0.3).roundToInt()) // Fix when base is 1 which should return 1 but returns 0
-        else (base*1.3).roundToInt()
-    }
-
-    private fun getUpper(): Int {
-        return if (base > 0) (base * 1.3).roundToInt()
-        else (base * 0.7).roundToInt()
-    }
-
     override fun lower(): Int {
         return when{
-            id.constant || identified -> base
-            id.inverted -> getUpper()
-            else -> getLower()}
+            identified -> base
+            id.inverted -> id.range.getUpper(base)
+            else -> id.range.getLower(base)
+        }
     }
 
     override fun upper(): Int {
         return when {
-            id.constant || identified -> base
-            id.inverted -> getLower()
-            else -> getUpper()
+            identified -> base
+            id.inverted -> id.range.getLower(base)
+            else -> id.range.getUpper(base)
         }
     }
 }
