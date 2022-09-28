@@ -19,8 +19,7 @@ class SideTabWidget(private val index: Int,
                     private val handler: Handler): DrawableHelper() {
     private val itemRenderer: ItemRenderer = MinecraftClient.getInstance().itemRenderer
     companion object {
-        //fixme move it to new texture file
-        private val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
+        private val TEXTURE = Identifier("wynnlib", "textures/gui/tab_buttons.png")
         private const val TAB_HEIGHT = 28
         private const val TAB_WIDTH = 32
 
@@ -41,7 +40,7 @@ class SideTabWidget(private val index: Int,
         if (!handler.isSelected(index)) {
             val tabY = posY + index * TAB_HEIGHT
             RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
-                side.u, 182, TAB_WIDTH, TAB_HEIGHT)
+                side.u, 0, TAB_WIDTH, TAB_HEIGHT)
             itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
             if (isOverTab(mouseX, mouseY)){
                 handler.drawTooltip(matrices!!, mouseX, mouseY, index)
@@ -53,7 +52,7 @@ class SideTabWidget(private val index: Int,
         if (handler.isSelected(index)) {
             val tabY = posY + index * TAB_HEIGHT
             RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
-                side.u, 210, TAB_WIDTH, TAB_HEIGHT)
+                side.u, 28, TAB_WIDTH, TAB_HEIGHT)
             itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
             if (isOverTab(mouseX, mouseY)){
                 handler.drawTooltip(matrices!!, mouseX, mouseY, index)

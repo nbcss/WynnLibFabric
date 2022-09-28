@@ -25,6 +25,7 @@ object ItemProtector {
         "Reward Chest",
         "Objective Rewards",
         "Guild Objective Rewards",
+        "Daily Rewards",
         "Loot Chest I",
         "Loot Chest II",
         "Loot Chest III",
