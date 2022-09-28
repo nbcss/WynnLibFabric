@@ -8808,12 +8808,15 @@
         "CHOKE_BOMB"
       ],
       "properties": {
+        "extend": {
+          "ability": "SPIN_ATTACK"
+        },
         "values": {
           "1": 30
         }
       },
       "metadata": {
-        "type": "NEW",
+        "type": "EXTEND",
         "icon": "HOODWINK",
         "upgradable": false
       }
