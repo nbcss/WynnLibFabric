@@ -47,7 +47,7 @@
       "predecessors": [],
       "properties": {
         "spell": "SPELL_1",
-        "mana_cost": 45,
+        "mana_cost": 40,
         "damage": {
           "neutral": 130,
           "earth": 20
@@ -275,7 +275,7 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "mana_cost": 45,
+        "mana_cost": 40,
         "damage": {
           "neutral": 200,
           "earth": 40,
@@ -342,7 +342,7 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "mana_cost": 35,
+        "mana_cost": 30,
         "damage": {
           "neutral": 50,
           "fire": 50
@@ -2381,7 +2381,7 @@
       "properties": {
         "self_damage": 25,
         "spell": "SPELL_3",
-        "mana_cost": 50,
+        "mana_cost": 45,
         "damage": {
           "neutral": 160,
           "fire": 20
@@ -2593,7 +2593,7 @@
       ],
       "properties": {
         "spell": "SPELL_1",
-        "mana_cost": 40,
+        "mana_cost": 35,
         "damage": {
           "neutral": 30,
           "thunder": 10,
@@ -4756,7 +4756,7 @@
       "predecessors": [],
       "properties": {
         "spell": "SPELL_3",
-        "mana_cost": 55,
+        "mana_cost": 50,
         "damage": {
           "neutral": 300,
           "earth": 100
@@ -4902,7 +4902,7 @@
       ],
       "properties": {
         "spell": "SPELL_2",
-        "mana_cost": 25,
+        "mana_cost": 20,
         "range": 16
       },
       "metadata": {
@@ -5035,7 +5035,7 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "mana_cost": 35,
+        "mana_cost": 30,
         "damage": {
           "neutral": 70,
           "water": 30
@@ -6920,7 +6920,6 @@
       ],
       "properties": {
         "extend": {
-          "spell": "SPELL_1",
           "ability": "HEAL"
         },
         "range": 12,
@@ -7107,7 +7106,7 @@
       "predecessors": [],
       "properties": {
         "spell": "SPELL_1",
-        "mana_cost": 45,
+        "mana_cost": 40,
         "damage": {
           "neutral": 120,
           "thunder": 30
@@ -7327,7 +7326,7 @@
       ],
       "properties": {
         "spell": "SPELL_4",
-        "mana_cost": 40,
+        "mana_cost": 35,
         "damage": {
           "neutral": 25,
           "air": 5,
@@ -7397,7 +7396,7 @@
       ],
       "properties": {
         "spell": "SPELL_3",
-        "mana_cost": 45,
+        "mana_cost": 40,
         "damage": {
           "neutral": 30,
           "water": 10,
@@ -8808,12 +8807,15 @@
         "CHOKE_BOMB"
       ],
       "properties": {
+        "extend": {
+          "ability": "SPIN_ATTACK"
+        },
         "values": {
           "1": 30
         }
       },
       "metadata": {
-        "type": "NEW",
+        "type": "EXTEND",
         "icon": "HOODWINK",
         "upgradable": false
       }
@@ -9421,7 +9423,7 @@
       "predecessors": [],
       "properties": {
         "spell": "SPELL_1",
-        "mana_cost": 35,
+        "mana_cost": 30,
         "damage": {
           "neutral": 5,
           "air": 5

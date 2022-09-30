@@ -16,6 +16,8 @@ import java.util.regex.Pattern
 
 object EmeraldPouchBarRender: EventHandler<RenderItemOverrideEvent> {
     private val client = MinecraftClient.getInstance()
+    private val contentPattern = Pattern.compile("^(\\d{1,3}( \\d{3})*)² $")
+    private val capacityPattern = Pattern.compile("^\\((\\d+)(stx|²|²½|¼²) Total\\)$")
     private const val key = "pouch_bar"
     object LoadListener: EventHandler<ItemLoadEvent> {
         override fun handle(event: ItemLoadEvent) {
@@ -28,14 +30,12 @@ object EmeraldPouchBarRender: EventHandler<RenderItemOverrideEvent> {
                 if (text.asString() == "" && text.siblings.isNotEmpty() && text.siblings[0].siblings.isNotEmpty()){
                     val head = text.siblings[0].siblings[0]
                     if (head.style.color == TextColor.fromFormatting(Formatting.GOLD) && head.style.isBold){
-                        val pattern = Pattern.compile("^(\\d+)² $")
-                        val matcher = pattern.matcher(head.asString())
+                        val matcher = contentPattern.matcher(head.asString())
                         if (matcher.find()) {
-                            emeralds = matcher.group(1).toInt()
+                            emeralds = matcher.group(1).replace(" ", "").toInt()
                         }
                     }else if(text.siblings[0].siblings.size > 1){
-                        val pattern = Pattern.compile("^\\((\\d+)(stx|²|²½|¼²) Total\\)$")
-                        val matcher = pattern.matcher(text.siblings[0].siblings[1].asString())
+                        val matcher = capacityPattern.matcher(text.siblings[0].siblings[1].asString())
                         if (matcher.find()) {
                             capacity = when (matcher.group(2)) {
                                 "stx" -> matcher.group(1).toInt() * 262144

@@ -7,6 +7,14 @@ As an open-source project, the contribution is welcome.
 Feel free to use the mod as a data library of your own mod. 
 
 # Install Guide
+There are two ways to download the mod Jar file: 
+1. From GitHub action (CI) which will build new jar for every new update. Note that you need a GitHub account in order to download it. 
+   https://github.com/nbcss/WynnLibFabric/actions
+2. From the Modrinth, which will build manually by me for each stable release.
+   https://modrinth.com/mod/wynnlib
+
+Note that WynnLib does not have auto-update implemented, you will need to check new update by yourself and download new Jar each time in order to update.
+
 The mod require Fabric 1.18 to run, and currently will not support Forge. 
 In addition, the following dependency mods have to be installed as well: 
 - Fabric API: https://www.curseforge.com/minecraft/mc-mods/fabric-api
