@@ -735,7 +735,7 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "mana_modifier": -10,
+        "mana_modifier": -5,
         "damage_modifier": {
           "neutral": -70,
           "water": 30
@@ -6120,7 +6120,9 @@
       "blocks": [
         "ARCANE_TRANSFER"
       ],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "LIGHT_BENDER": 5
+      },
       "predecessors": [
         "HEALTHIER_OPHANIM_1",
         "SNAKE_NEST"
