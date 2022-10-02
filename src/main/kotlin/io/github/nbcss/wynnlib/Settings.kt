@@ -187,6 +187,8 @@ object Settings {
         ITEM_BACKGROUND_COLOR("item_color", true),
         LOCK_POUCH_IN_CHEST("pouch_lock", true),
         MAJOR_ID_ANALYZE("major_id_analyze", true),
+        SIDE_INDICATOR("side_indicator", true),
+        ICON_INDICATOR("icon_indicator", true),
         ;
 
         override fun getKey(): String = id

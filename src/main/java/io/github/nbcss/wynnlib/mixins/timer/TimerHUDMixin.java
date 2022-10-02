@@ -1,5 +1,6 @@
 package io.github.nbcss.wynnlib.mixins.timer;
 
+import io.github.nbcss.wynnlib.Settings;
 import io.github.nbcss.wynnlib.timer.IconIndicator;
 import io.github.nbcss.wynnlib.timer.SideIndicator;
 import io.github.nbcss.wynnlib.timer.IndicatorManager;
@@ -37,6 +38,8 @@ public abstract class TimerHUDMixin {
     }
 
     private void renderSideTimers(MatrixStack matrices) {
+        if (!Settings.INSTANCE.getOption(Settings.SettingOption.SIDE_INDICATOR))
+            return;
         List<SideIndicator> timers = IndicatorManager.INSTANCE.getSideTimers();
         Collections.sort(timers);
         int posX = 3;
@@ -48,6 +51,8 @@ public abstract class TimerHUDMixin {
     }
 
     private void renderIconTimers(MatrixStack matrices, float delta) {
+        if (!Settings.INSTANCE.getOption(Settings.SettingOption.ICON_INDICATOR))
+            return;
         List<IconIndicator> timers = IndicatorManager.INSTANCE.getIconTimers();
         //unit = 28 per timer
         int posX = client.getWindow().getScaledWidth() / 2 - timers.size() * 14;
@@ -56,12 +61,5 @@ public abstract class TimerHUDMixin {
             timer.render(matrices, getTextRenderer(), posX, posY, delta);
             posX += 28;
         }
-    }
-
-    private int[] pctToUv(double pct) {
-        int index = (int) Math.round((1 - pct) * 85);
-        int u = (index % 11) * 22;
-        int v = (index / 11) * 22;
-        return new int[]{u, v};
     }
 }
