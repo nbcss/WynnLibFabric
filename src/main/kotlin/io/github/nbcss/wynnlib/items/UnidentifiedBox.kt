@@ -7,6 +7,9 @@ import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
 import io.github.nbcss.wynnlib.items.equipments.Equipment
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
+import io.github.nbcss.wynnlib.items.identity.ItemStarProperty
+import io.github.nbcss.wynnlib.items.identity.ProtectableItem
 import io.github.nbcss.wynnlib.matcher.MatchableItem
 import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.registry.CharmRegistry
@@ -22,7 +25,7 @@ import net.minecraft.util.Formatting
 class UnidentifiedBox(private val type: EquipmentType,
                       private val tier: Tier,
                       levelRange: IRange):
-    BaseItem, TransformableItem, MatchableItem {
+    BaseItem, TransformableItem, MatchableItem, ProtectableItem {
     companion object {
         private val NAME = from("wynnlib.unidentified_box.name")
         private val DESCRIPTION = from("wynnlib.unidentified_box.desc")
@@ -118,9 +121,13 @@ class UnidentifiedBox(private val type: EquipmentType,
             } else {
                 for (item in potentialItems) {
                     val price = formatNumbers(tier.getIdentifyPrice(item.getLevel().lower()))
+                    val name = LiteralText(item.getDisplayName()).formatted(item.getTier().formatting)
+                    if (item is ConfigurableItem && ItemStarProperty.hasStar(item)) {
+                        name.formatted(Formatting.UNDERLINE)
+                    }
                     tooltip.add(LiteralText("- ").formatted(Formatting.GRAY)
                         .append(LiteralText("[$price²] ").formatted(Formatting.GREEN))
-                        .append(item.getDisplayText()) // todo underline
+                        .append(name)
                         .append(LiteralText(" (${item.getLevel().lower()})").formatted(Formatting.GOLD)))
                 }
             }
@@ -134,5 +141,14 @@ class UnidentifiedBox(private val type: EquipmentType,
 
     override fun asBaseItem(): BaseItem {
         return this
+    }
+
+    override fun isProtected(): Boolean {
+        if (!Settings.getOption(Settings.SettingOption.STARRED_ITEM_PROTECT))
+            return false
+        return potentialItems
+            .filter { it is ConfigurableItem }
+            .map { it as ConfigurableItem }
+            .any { ItemStarProperty.hasStar(it) }
     }
 }

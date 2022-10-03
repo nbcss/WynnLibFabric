@@ -189,6 +189,7 @@ object Settings {
         MAJOR_ID_ANALYZE("major_id_analyze", true),
         SIDE_INDICATOR("side_indicator", true),
         ICON_INDICATOR("icon_indicator", true),
+        STARRED_ITEM_PROTECT("starred_item_protect", true),
         ;
 
         override fun getKey(): String = id

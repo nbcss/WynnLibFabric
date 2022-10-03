@@ -63,6 +63,8 @@
   "wynnlib.setting_option.desc.side_indicator": "Turn on stats indicator (text) at the side of the screen",
   "wynnlib.setting_option.name.icon_indicator": "Display Icon Indicator",
   "wynnlib.setting_option.desc.icon_indicator": "Turn on stats indicator (icon) above the hotbar",
+  "wynnlib.setting_option.name.starred_item_protect": "Protect Starred Items",
+  "wynnlib.setting_option.desc.starred_item_protect": "Loot chest will not able to close when have starred items inside",
   "wynnlib.tier.mythic": "Mythic",
   "wynnlib.tier.fabled": "Fabled",
   "wynnlib.tier.legendary": "Legendary",
