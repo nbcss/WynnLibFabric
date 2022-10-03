@@ -7,6 +7,8 @@ import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaMemory
 import io.github.nbcss.wynnlib.i18n.Translations.UI_ADVANCE_SEARCH
 import io.github.nbcss.wynnlib.items.BaseItem
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
+import io.github.nbcss.wynnlib.items.identity.ItemStarProperty
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
 import io.github.nbcss.wynnlib.utils.ItemFactory
@@ -16,6 +18,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
 import kotlin.math.floor
@@ -102,7 +105,15 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
     }
 
     open fun onClickItem(item: T, button: Int) {
-
+        if (button == 1 && item is ConfigurableItem) {
+            if (ItemStarProperty.hasStar(item)) {
+                playSound(SoundEvents.BLOCK_GLASS_BREAK)
+                ItemStarProperty.setStarred(item, false)
+            }else{
+                playSound(SoundEvents.ENTITY_ARROW_HIT_PLAYER)
+                ItemStarProperty.setStarred(item, true)
+            }
+        }
     }
 
     open fun getSearchPane(): AdvanceSearchPaneWidget<T>? = null
@@ -225,7 +236,14 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         contentSlider?.visible = lineSize > 0
         contentSlider?.render(matrices, mouseX, mouseY, delta)
         //ButtonWidget
-        slots.forEach{it.render(matrices, mouseX, mouseY, delta)}
+        slots.forEach{
+            it.render(matrices, mouseX, mouseY, delta)
+            it.getItem()?.takeIf { x -> x is ConfigurableItem && ItemStarProperty.hasStar(x)}?.let { _ ->
+                RenderKit.renderOutlineText(matrices!!,
+                    LiteralText("✫").formatted(Formatting.YELLOW),
+                    it.x.toFloat(), it.y.toFloat())
+            }
+        }
         if (filterVisible) {
             getSearchPane()?.render(matrices, mouseX, mouseY, delta)
         }

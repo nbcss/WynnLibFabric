@@ -49,8 +49,6 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         delta: Float,
         mouseOver: Boolean
     ) {
-        //println("Top: $posY")
-        //println("Height: ${getHeight()}")
         val x = floor(posX).toInt()
         val y = floor(posY).toInt()
         for (entry in checkboxes.entries) {

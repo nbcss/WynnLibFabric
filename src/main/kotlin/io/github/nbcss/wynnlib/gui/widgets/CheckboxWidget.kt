@@ -21,7 +21,7 @@ class CheckboxWidget(private val posX: Int,
                      private val screen: TooltipScreen? = null,
                      private var checked: Boolean = true,
                      private val description: TooltipProvider? = null):
-    ClickableWidget(-1000, -1000, SIZE, SIZE, fromBoolean(checked)) {
+    ClickableWidget(-1000, -1000, SIZE, SIZE, fromBoolean(checked)), ScrollElement {
     companion object {
         private val TEXTURE = Identifier("wynnlib", "textures/gui/checkbox_button.png")
         val LEFT_CLICK = from("wynnlib.ui.check_box.left_click")
@@ -57,7 +57,7 @@ class CheckboxWidget(private val posX: Int,
         this.interactable = intractable
     }
 
-    fun updatePosition(x: Int, y: Int) {
+    override fun updatePosition(x: Int, y: Int) {
         this.x = posX + x
         this.y = posY + y
         this.visible = true

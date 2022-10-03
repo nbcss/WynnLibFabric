@@ -9,12 +9,16 @@ import io.github.nbcss.wynnlib.gui.widgets.criteria.ItemTypeGroup
 import io.github.nbcss.wynnlib.gui.widgets.criteria.RarityGroup
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.i18n.Translations.UI_EQUIPMENTS
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
+import io.github.nbcss.wynnlib.items.identity.ItemStarProperty
 import io.github.nbcss.wynnlib.registry.CharmRegistry
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
 import io.github.nbcss.wynnlib.registry.TomeRegistry
 import io.github.nbcss.wynnlib.utils.ItemFactory
+import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.item.ItemStack
+import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 
 /**

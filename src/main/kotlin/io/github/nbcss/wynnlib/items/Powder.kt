@@ -13,6 +13,7 @@ import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_CRAFTING
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_SPECIAL
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_POWDER_WEAPON
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_SKILL_MODIFIER
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
 import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.utils.*
 import net.minecraft.item.ItemStack
@@ -23,7 +24,7 @@ import net.minecraft.util.math.MathHelper
 import java.util.*
 import kotlin.collections.ArrayList
 
-class Powder(json: JsonObject) : Keyed, BaseItem, Translatable {
+class Powder(json: JsonObject) : Keyed, BaseItem, Translatable, ConfigurableItem {
     private val skillMap: MutableMap<Skill, Int> = EnumMap(Skill::class.java)
     private val id: String
     private val name: String
@@ -79,6 +80,10 @@ class Powder(json: JsonObject) : Keyed, BaseItem, Translatable {
 
     override fun getRarityColor(): Color {
         return MatcherType.fromPowderTier(getTier()).getColor()
+    }
+
+    override fun getConfigDomain(): String {
+        return "POWDER"
     }
 
     override fun getTooltip(): List<Text> {
