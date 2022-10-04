@@ -123,12 +123,13 @@ object ItemProtector {
         val matchItem = ItemMatcher.toItem(slot.stack)
         if (matchItem != null) {
             val type = matchItem.getMatcherType()
+            val baseItem = matchItem.asBaseItem()
             if (type is ProtectableType && type.isProtected()) {
                 return true
-            }else if(matchItem is ProtectableItem && matchItem.isProtected()){
+            }else if(baseItem is ProtectableItem && baseItem.isProtected()){
                 return true
-            }else if(Settings.getOption(Settings.SettingOption.STARRED_ITEM_PROTECT) && matchItem is ConfigurableItem){
-                return ItemStarProperty.hasStar(matchItem)
+            }else if(Settings.getOption(Settings.SettingOption.STARRED_ITEM_PROTECT) && baseItem is ConfigurableItem){
+                return ItemStarProperty.hasStar(baseItem)
             }
         }
         return false
