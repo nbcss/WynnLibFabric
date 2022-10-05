@@ -47,6 +47,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
                     override fun onClick(index: Int) {
                         this@ConfigurationScreen.category = categories[index]
                         scroll = this@ConfigurationScreen.category.createScroll(this@ConfigurationScreen)
+                        slider?.setSlider(0.0)
                     }
 
                     override fun isSelected(index: Int): Boolean {
