@@ -57,6 +57,8 @@
   "wynnlib.setting_option.desc.item_color": "Rendering item background color in inventory & hotbar according to its rarity.",
   "wynnlib.setting_option.name.pouch_lock": "Pouch Lock",
   "wynnlib.setting_option.desc.pouch_lock": "Disable the click action of pouch slot in the loot chest screen",
+  "wynnlib.setting_option.name.analyze_mode": "Enable Analyze Mode",
+  "wynnlib.setting_option.desc.analyze_mode": "Enable item tooltip analyze mode in inventory (can also toggled by keybinding)",
   "wynnlib.setting_option.name.major_id_analyze": "Major Id Analyzing",
   "wynnlib.setting_option.desc.major_id_analyze": "Use local major id description string instead of origin major id description in the analyze mode",
   "wynnlib.setting_option.name.side_indicator": "Display Side Indicator",
