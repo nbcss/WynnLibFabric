@@ -47,8 +47,7 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         val y = floor(posY).toInt()
         for (entry in checkboxes.entries) {
             val widget = entry.value
-            widget.updatePosition(x, y)
-            widget.setIntractable(mouseOver)
+            widget.updateState(x, y, mouseOver)
             widget.render(matrices, mouseX, mouseY, delta)
             val text = entry.key.getDisplayText()
             //RenderKit.renderOutlineText(matrices, text, widget.x + 24.0f, widget.y + 5.0f)

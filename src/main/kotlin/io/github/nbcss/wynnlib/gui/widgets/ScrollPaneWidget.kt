@@ -43,7 +43,9 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
 
     open fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean = false
 
-    open fun onContentRelease(mouseX: Double, mouseY: Double): Boolean = false
+    open fun onContentRelease(mouseX: Double, mouseY: Double, button: Int): Boolean = false
+
+    open fun onContentDrag(mouseX: Double, mouseY: Double, button: Int): Boolean = false
 
     open fun getSlider(): VerticalSliderWidget? = null
 
@@ -147,7 +149,10 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
         dragging?.let {
             setScrollPosition(it.first + (it.second - mouseY))
             updateSlider()
+            return true
         }
+        if (onContentDrag(mouseX, mouseY, button))
+            return true
         if (getSlider()?.mouseDragged(mouseX, mouseY, button, deltaX, deltaY) == true)
             return true
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
@@ -155,7 +160,7 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
 
     override fun mouseReleased(mouseX: Double, mouseY: Double, button: Int): Boolean {
         if (isMouseOver(mouseX, mouseY)) {
-            if (onContentRelease(mouseX, mouseY))
+            if (onContentRelease(mouseX, mouseY, button))
                 return true
         }
         if (button == 2 && dragging != null) {

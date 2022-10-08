@@ -21,6 +21,7 @@ open class SmartSliderWidget(private val posX: Int,
     ButtonWidget(-1000, -1000, width, 20, LiteralText.EMPTY, null), ScrollElement {
     protected var gap = if (minValue == maxValue) 1 else abs(maxValue - minValue)
     private var handler: Consumer<Int>? = null
+    private var interactable: Boolean = true
     private var dragging = false
     protected var pos = minValue
     protected var previous:Int = -1
@@ -41,9 +42,10 @@ open class SmartSliderWidget(private val posX: Int,
         return 0
     }
 
-    override fun updatePosition(x: Int, y: Int) {
+    override fun updateState(x: Int, y: Int, active: Boolean) {
         this.x = posX + x
         this.y = posY + y
+        this.interactable = active
         visible = true
     }
 

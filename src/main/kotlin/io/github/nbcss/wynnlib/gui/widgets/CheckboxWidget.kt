@@ -53,13 +53,10 @@ class CheckboxWidget(private val posX: Int,
 
     fun isChecked(): Boolean = checked
 
-    fun setIntractable(intractable: Boolean) {
-        this.interactable = intractable
-    }
-
-    override fun updatePosition(x: Int, y: Int) {
+    override fun updateState(x: Int, y: Int, active: Boolean) {
         this.x = posX + x
         this.y = posY + y
+        this.interactable = active
         this.visible = true
     }
 

@@ -153,8 +153,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             val posX = x
             val posY = (y - position).toInt()
             for (entry in protects.entries) {
-                entry.value.updatePosition(posX, posY)
-                entry.value.setIntractable(mouseOver)
+                entry.value.updateState(posX, posY, mouseOver)
                 entry.value.render(matrices, mouseX, mouseY, delta)
                 client.textRenderer.drawWithShadow(matrices, entry.key.getDisplayText(),
                     entry.value.x + 22.0F, entry.value.y + 5.0F, 0xFFFFFF)
@@ -220,8 +219,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             val posX = x
             val posY = (y - position).toInt()
             for (entry in options.entries) {
-                entry.value.updatePosition(posX, posY)
-                entry.value.setIntractable(mouseOver)
+                entry.value.updateState(posX, posY, mouseOver)
                 entry.value.render(matrices, mouseX, mouseY, delta)
                 client.textRenderer.drawWithShadow(matrices, entry.key.formatted(Formatting.GRAY),
                     entry.value.x + 22.0F, entry.value.y + 5.0F, 0xFFFFFF)

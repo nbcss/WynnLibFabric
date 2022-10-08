@@ -4,5 +4,5 @@ import net.minecraft.client.gui.Drawable
 import net.minecraft.client.gui.Element
 
 interface ScrollElement: Element, Drawable {
-    fun updatePosition(x: Int, y: Int)
+    fun updateState(x: Int, y: Int, active: Boolean)
 }

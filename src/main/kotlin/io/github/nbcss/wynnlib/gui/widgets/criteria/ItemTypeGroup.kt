@@ -53,8 +53,7 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         val y = floor(posY).toInt()
         for (entry in checkboxes.entries) {
             val widget = entry.value
-            widget.updatePosition(x, y)
-            widget.setIntractable(mouseOver)
+            widget.updateState(x, y, mouseOver)
             widget.render(matrices, mouseX, mouseY, delta)
             RENDER.renderInGui(entry.key.getIcon(), widget.x + 20, widget.y + 1)
         }
