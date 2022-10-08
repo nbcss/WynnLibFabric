@@ -9,6 +9,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 import net.minecraft.util.Formatting
 
+@Deprecated("Ids will be move to sort pane")
 class IdentificationCriteriaGroup<T>(private val group: IdentificationGroup,
                                      private val ids: List<Identification>,
                                      memory: CriteriaMemory<T>) : CriteriaGroup<T>(memory)

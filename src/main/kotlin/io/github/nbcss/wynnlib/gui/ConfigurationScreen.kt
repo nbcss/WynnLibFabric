@@ -112,7 +112,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
         fun getIcon(): ItemStack
     }
 
-    inner class MatcherScroll: ComponentScrollWidget(null, this@ConfigurationScreen,
+    inner class MatcherScroll: BaseElementScroll(null, this@ConfigurationScreen,
         scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
         //private val protects: MutableMap<MatcherType, CheckboxWidget> = linkedMapOf()
         //private val scrollHeight: Int
@@ -144,7 +144,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
         override fun getSlider(): VerticalSliderWidget? = slider
     }
 
-    inner class GeneralScroll: ComponentScrollWidget(null, this@ConfigurationScreen,
+    inner class GeneralScroll: BaseElementScroll(null, this@ConfigurationScreen,
         scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
         init {
             val posX = 2
