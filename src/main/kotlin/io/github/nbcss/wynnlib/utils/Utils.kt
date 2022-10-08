@@ -139,7 +139,7 @@ fun formattingLines(text: String, prefix: String, length: Int = 200): List<Text>
         if(it == "") {
             lines.add(LiteralText.EMPTY)
         }else{
-            warpLines(LiteralText(parseStyle(it, prefix)), length).forEach { line -> lines.add(line) }
+            wrapLines(LiteralText(parseStyle(it, prefix)), length).forEach { line -> lines.add(line) }
         }
     }
     return lines
@@ -172,7 +172,7 @@ fun replaceProperty(text: String, prefix: Char, provider: Function<String, Strin
     return output.toString()
 }
 
-fun warpLines(text: Text, length: Int = 200): List<Text> {
+fun wrapLines(text: Text, length: Int = 200): List<Text> {
     val visitor = StringVisitable.StyledVisitor<Text>{ style, asString ->
         Optional.of(LiteralText(asString).setStyle(style))
     }

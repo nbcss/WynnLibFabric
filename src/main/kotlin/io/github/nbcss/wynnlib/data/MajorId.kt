@@ -6,7 +6,7 @@ import io.github.nbcss.wynnlib.i18n.Translatable
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.registry.Registry
 import io.github.nbcss.wynnlib.utils.Keyed
-import io.github.nbcss.wynnlib.utils.warpLines
+import io.github.nbcss.wynnlib.utils.wrapLines
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -58,6 +58,6 @@ data class MajorId(val id: String,
             .append(formatted(Formatting.AQUA))
             .append(":ÀÀ")
             .append(formatted(Formatting.DARK_AQUA, "desc")).string
-        return warpLines(LiteralText(text).formatted(Formatting.AQUA), 190)
+        return wrapLines(LiteralText(text).formatted(Formatting.AQUA), 190)
     }
 }
