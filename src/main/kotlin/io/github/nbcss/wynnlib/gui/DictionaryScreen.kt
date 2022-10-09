@@ -4,7 +4,7 @@ import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
-import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaMemory
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.CriteriaMemory
 import io.github.nbcss.wynnlib.i18n.Translations.UI_ADVANCE_SEARCH
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.items.identity.ConfigurableItem

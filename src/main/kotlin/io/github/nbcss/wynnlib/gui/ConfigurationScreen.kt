@@ -2,6 +2,8 @@ package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.gui.widgets.*
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.CheckboxWidget
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.LabelWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.matcher.MatcherType
@@ -112,7 +114,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
         fun getIcon(): ItemStack
     }
 
-    inner class MatcherScroll: BaseElementScroll(null, this@ConfigurationScreen,
+    inner class MatcherScroll: ElementsContainerScroll(null, this@ConfigurationScreen,
         scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
         //private val protects: MutableMap<MatcherType, CheckboxWidget> = linkedMapOf()
         //private val scrollHeight: Int
@@ -144,7 +146,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
         override fun getSlider(): VerticalSliderWidget? = slider
     }
 
-    inner class GeneralScroll: BaseElementScroll(null, this@ConfigurationScreen,
+    inner class GeneralScroll: ElementsContainerScroll(null, this@ConfigurationScreen,
         scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
         init {
             val posX = 2

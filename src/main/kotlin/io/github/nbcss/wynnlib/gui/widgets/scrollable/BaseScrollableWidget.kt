@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets
+package io.github.nbcss.wynnlib.gui.widgets.scrollable
 
 abstract class BaseScrollableWidget(private val posX: Int,
                                     private val posY: Int): ScrollElement {

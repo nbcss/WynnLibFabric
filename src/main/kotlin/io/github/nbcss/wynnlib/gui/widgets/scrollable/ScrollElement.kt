@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets
+package io.github.nbcss.wynnlib.gui.widgets.scrollable
 
 import net.minecraft.client.gui.Drawable
 import net.minecraft.client.gui.Element

@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets.criteria
+package io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria
 
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit

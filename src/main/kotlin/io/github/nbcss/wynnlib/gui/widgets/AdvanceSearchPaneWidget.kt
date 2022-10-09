@@ -1,8 +1,8 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.gui.DictionaryScreen
-import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaMemory
-import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaGroup
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.CriteriaMemory
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.CriteriaGroup
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit

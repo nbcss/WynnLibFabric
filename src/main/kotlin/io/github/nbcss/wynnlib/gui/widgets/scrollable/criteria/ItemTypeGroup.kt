@@ -1,8 +1,8 @@
-package io.github.nbcss.wynnlib.gui.widgets.criteria
+package io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria
 
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.gui.TooltipScreen
-import io.github.nbcss.wynnlib.gui.widgets.CheckboxWidget
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.CheckboxWidget
 import io.github.nbcss.wynnlib.i18n.Translations.UI_FILTER_ITEM_TYPE
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import net.minecraft.client.MinecraftClient
