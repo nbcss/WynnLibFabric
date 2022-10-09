@@ -105,7 +105,7 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
         val bottom = y + height
         val scale = client.window.scaleFactor
         val position = getScrollPosition()
-        RenderSystem.enableScissor((x * scale).toInt(), client.window.height - (bottom * scale).toInt(),
+        RenderSystem.enableScissor((x * scale).toInt(), (client.window.scaledHeight - bottom) * scale.toInt(),
             (width * scale).toInt(), (height * scale).toInt())
         renderBackground(matrices, position)
         renderContents(matrices!!, mouseX, mouseY, position, delta, isMouseOver(mouseX.toDouble(), mouseY.toDouble()))

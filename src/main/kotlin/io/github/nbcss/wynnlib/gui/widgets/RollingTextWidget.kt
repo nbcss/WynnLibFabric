@@ -41,7 +41,7 @@ class RollingTextWidget(val x: Int,
                     textX -= min((index - stayTime) * rollingSpeed, (length - width).toFloat())
                 }
             }
-            RenderSystem.enableScissor((x * scale).toInt(), client.window.height - (bottom * scale).toInt(),
+            RenderSystem.enableScissor((x * scale).toInt(), ((client.window.scaledHeight - bottom) * scale).toInt(),
                 (width * scale).toInt(), (client.textRenderer.fontHeight * scale).toInt())
             client.textRenderer.draw(matrices, it, textX, y.toFloat(), color)
             RenderSystem.disableScissor()
