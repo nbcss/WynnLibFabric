@@ -29,6 +29,6 @@ class ShepherdProperty(ability: Ability,
     }
 
     override fun setup(entry: PropertyEntry) {
-        entry.setProperty(MaxTotemProperty.getKey(), this)
+        entry.setProperty(getKey(), this)
     }
 }
