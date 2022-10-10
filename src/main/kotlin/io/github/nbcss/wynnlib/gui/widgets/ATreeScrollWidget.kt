@@ -4,18 +4,18 @@ import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.abilities.Ability
 import io.github.nbcss.wynnlib.abilities.AbilityTree
 import io.github.nbcss.wynnlib.gui.TooltipScreen
-import io.github.nbcss.wynnlib.gui.ability.AbstractAbilityTreeScreen
+import io.github.nbcss.wynnlib.mixins.MouseInvoker
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.render.TextureData
 import io.github.nbcss.wynnlib.utils.AlphaColor
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.IntPos
 import io.github.nbcss.wynnlib.utils.playSound
-import net.minecraft.client.util.InputUtil
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.MathHelper
+import org.lwjgl.glfw.GLFW
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -49,15 +49,25 @@ abstract class ATreeScrollWidget(screen: TooltipScreen, x: Int, y: Int,
     }
 
     fun focusOnAbility(ability: Ability) {
-        val currPos = toScreenPosition(ability.getHeight(), ability.getPosition())
-        val diff = y + (height / 2) - currPos.y
-        val scale = client.window.scaleFactor
-        val cursor = getScrollPosition()
-        val pos = MathHelper.clamp(cursor - diff, 0.0, getMaxPosition())
-        setScrollPosition(pos, scrollDelay)
-        val endPos = toInnerPoint(ability.getHeight(), ability.getPosition(), pos)
-        InputUtil.setCursorParameters(client.window.handle, 212993,
-            endPos.x.toDouble() * scale, endPos.y.toDouble() * scale)
+        val currPos = toInnerPoint(ability.getHeight(), ability.getPosition(), 0.0)
+        // Scroll such ability is in middle of widget if possible
+        val scrollAmount = MathHelper.clamp((currPos.y - y - height / 2).toDouble(), 0.0, getMaxPosition())
+
+        val window = client.window
+
+        setScrollPosition(scrollAmount, scrollDelay)
+        // Convert from Rendering Coordinates to Screen Coordinates
+        val newX = currPos.x.toDouble() * window.width / window.scaledWidth
+        val newY = (currPos.y - scrollAmount) * window.height / window.scaledHeight
+
+        GLFW.glfwSetCursorPos(
+            window.handle,
+            newX,
+            newY
+        )
+
+        // For some reason the cursor hook isn't called
+        (client.mouse as MouseInvoker).callOnCursorPos(window.handle, newX, newY)
     }
 
     open fun onClickNode(ability: Ability, button: Int): Boolean {
