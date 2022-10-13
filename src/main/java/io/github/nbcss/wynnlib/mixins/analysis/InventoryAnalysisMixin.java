@@ -21,7 +21,7 @@ public abstract class InventoryAnalysisMixin {
     @Inject(method = "renderTooltip(Lnet/minecraft/client/util/math/MatrixStack;" +
             "Lnet/minecraft/item/ItemStack;II)V", at = @At("HEAD"), cancellable = true)
     public void renderTooltip(MatrixStack matrices, ItemStack stack, int x, int y, CallbackInfo info){
-        if(Settings.INSTANCE.getOption(Settings.SettingOption.ANALYZE_MODE)){
+        if(stack != null && Settings.INSTANCE.getOption(Settings.SettingOption.ANALYZE_MODE)){
             List<Text> tooltip = AnalyzeMode.INSTANCE.getAnalyzeResult(stack);
             if (tooltip != null) {
                 renderTooltip(matrices, tooltip, stack.getTooltipData(), x, y);
