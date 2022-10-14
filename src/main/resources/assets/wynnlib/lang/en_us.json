@@ -933,7 +933,7 @@
   "wynnlib.ability.name.arcane_restoration": "Arcane Restoration",
   "wynnlib.ability.desc.arcane_restoration": "n{@{.pyrokinesis}} will add f{+${values.1}} Mana every f{${values.2}s} to your b{@{wynnlib.gameplay.mage_mana_bank}} when hitting an aggressive enemy.",
   "wynnlib.ability.name.diffusion": "Diffusion",
-  "wynnlib.ability.desc.diffusion": "If you kill an enemy with b{@{wynnlib.gameplay.mage_winded}} on them, the leftover b{@{wynnlib.gameplay.mage_winded}} will spread to other nearby foes.",
+  "wynnlib.ability.desc.diffusion": "If you kill an enemy with b{@{wynnlib.gameplay.mage_winded}} on them, the leftover b{@{wynnlib.gameplay.mage_winded}} will spread to other nearby foes. (Max ${values.1})",
   "wynnlib.ability.name.lightweaver": "Lightweaver",
   "wynnlib.ability.desc.lightweaver": "Healing f{${lightweaver.heal}%} of your max health within f{${lightweaver.time_limit}s} will summon a rotating orb for f{${duration}s} that damages enemies upon contact. (Max ${lightweaver.max} Orbs)",
   "wynnlib.ability.name.arcane_speed": "Arcane Speed",

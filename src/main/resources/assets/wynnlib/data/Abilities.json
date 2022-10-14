@@ -6200,7 +6200,10 @@
         "upgrade": {
           "ability": "WINDSWEEPER"
         },
-        "range": 6
+        "range": 6,
+        "values": {
+          "1": 10
+        }
       },
       "metadata": null
     },
@@ -9992,9 +9995,7 @@
       "cost": 2,
       "archetype": "ACOLYTE",
       "dependency": "UPROOT",
-      "blocks": [
-        "OVERSEER"
-      ],
+      "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "SHOCKING_AURA",
@@ -10028,9 +10029,7 @@
       "cost": 2,
       "archetype": "SUMMONER",
       "dependency": "UPROOT",
-      "blocks": [
-        "FLAMING_TONGUE"
-      ],
+      "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "NATURES_JOLT"
@@ -10710,6 +10709,16 @@
           "AURA": {
             "neutral": -60
           }
+        },
+        "ability_heal_modifier": {
+          "REGENERATION": {
+            "key": "regeneration",
+            "modifier": -0.3
+          },
+          "SACRIFICIAL_SHRINE": {
+            "key": "total_heal",
+            "modifier": -5
+          }
         }
       },
       "metadata": null
@@ -11188,7 +11197,7 @@
           "ability": "TOTEM"
         },
         "regeneration": {
-          "heal": 0.5,
+          "heal": 1,
           "interval": 0.4
         }
       },
@@ -11406,6 +11415,16 @@
           },
           "AURA": {
             "neutral": -40
+          }
+        },
+        "ability_heal_modifier": {
+          "REGENERATION": {
+            "key": "regeneration",
+            "modifier": -0.2
+          },
+          "SACRIFICIAL_SHRINE": {
+            "key": "total_heal",
+            "modifier": -3
           }
         }
       },
@@ -11712,5 +11731,5 @@
       }
     }
   ],
-  "version": "0.2.3"
+  "version": "0.2.4"
 }

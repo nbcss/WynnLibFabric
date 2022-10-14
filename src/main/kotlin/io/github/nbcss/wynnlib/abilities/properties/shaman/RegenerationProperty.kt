@@ -12,6 +12,7 @@ import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.removeDecimal
 import io.github.nbcss.wynnlib.utils.round
+import io.github.nbcss.wynnlib.abilities.properties.HealProperty
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
@@ -19,7 +20,7 @@ import net.minecraft.util.Formatting
 class RegenerationProperty(ability: Ability,
                            private val heal: Double,
                            private val interval: Double):
-    AbilityProperty(ability), SetupProperty, OverviewProvider {
+    AbilityProperty(ability), SetupProperty, OverviewProvider, HealProperty {
     companion object: Type<RegenerationProperty> {
         private const val HEAL_KEY = "heal"
         private const val INTERVAL_KEY = "interval"
@@ -33,6 +34,10 @@ class RegenerationProperty(ability: Ability,
     }
 
     fun getHealPerSec(): Double = round(if (interval == 0.0) 0.0 else heal / interval)
+
+    override fun modifyHeal(ability: Ability, modifier: Double): AbilityProperty {
+        return RegenerationProperty(ability, round(heal + modifier), interval)
+    }
 
     override fun writePlaceholder(container: PlaceholderContainer) {
         container.putPlaceholder("regeneration.heal", removeDecimal(heal))

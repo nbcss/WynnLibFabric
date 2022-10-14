@@ -11,13 +11,15 @@ import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_TOTAL_HEAL_SUFFIX
 import io.github.nbcss.wynnlib.utils.Symbol
 import io.github.nbcss.wynnlib.utils.removeDecimal
+import io.github.nbcss.wynnlib.abilities.properties.HealProperty
+import io.github.nbcss.wynnlib.utils.round
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
 class TotalHealProperty(ability: Ability,
                         private val heal: Double):
-    AbilityProperty(ability), SetupProperty, OverviewProvider {
+    AbilityProperty(ability), SetupProperty, HealProperty, OverviewProvider {
     companion object: Type<TotalHealProperty> {
         override fun create(ability: Ability, data: JsonElement): TotalHealProperty {
             return TotalHealProperty(ability, data.asDouble)
@@ -26,6 +28,10 @@ class TotalHealProperty(ability: Ability,
     }
 
     fun getTotalHeal(): Double = heal
+
+    override fun modifyHeal(ability: Ability, modifier: Double): AbilityProperty {
+        return TotalHealProperty(ability, round(heal + modifier))
+    }
 
     override fun getOverviewTip(): Text {
         return Symbol.HEART.asText().append(" ").append(
