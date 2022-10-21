@@ -89,7 +89,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             }
 
             override fun getDisplayText(): Text {
-                return LiteralText("General")
+                return Translations.SETTINGS_GENERAL.translate()
             }
 
             override fun getIcon(): ItemStack = icon
@@ -101,7 +101,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             }
 
             override fun getDisplayText(): Text {
-                return LiteralText("Matchers")
+                return Translations.SETTINGS_MATCHERS.translate()
             }
 
             override fun getIcon(): ItemStack = icon
@@ -123,7 +123,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             var posY = 2
             val desc = object: TooltipProvider {
                 override fun getTooltip(): List<Text> {
-                    return listOf(LiteralText("Item Protection").formatted(Formatting.GRAY))
+                    return listOf(Translations.MATCHER_ITEM_PROTECTION.formatted(Formatting.GRAY))
                 }
             }
             for (type in MatcherType.getTypes()) {

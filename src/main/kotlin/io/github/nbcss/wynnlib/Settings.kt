@@ -176,7 +176,7 @@ object Settings {
         ITEM_BACKGROUND_COLOR("item_color", true),
         LOCK_POUCH_IN_CHEST("pouch_lock", true),
         MAJOR_ID_ANALYZE("major_id_analyze", true),
-        ANALYZE_MODE("analyze_mode", true),
+        ANALYZE_MODE("analyze_mode", false),
         SIDE_INDICATOR("side_indicator", true),
         ICON_INDICATOR("icon_indicator", true),
         STARRED_ITEM_PROTECT("starred_item_protect", true),
