@@ -4,9 +4,9 @@ import io.github.nbcss.wynnlib.gui.DictionaryScreen
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
-import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.CriteriaGroup
-import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.ItemTypeGroup
-import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.RarityGroup
+import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroup
+import io.github.nbcss.wynnlib.gui.dicts.filter.ItemTypeGroup
+import io.github.nbcss.wynnlib.gui.dicts.filter.RarityGroup
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.i18n.Translations.UI_EQUIPMENTS
 import io.github.nbcss.wynnlib.registry.CharmRegistry
@@ -36,7 +36,7 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
 
     override fun init() {
         super.init()
-        val groups: MutableList<CriteriaGroup<Equipment>> = mutableListOf()
+        val groups: MutableList<FilterGroup<Equipment>> = mutableListOf()
         groups.add(ItemTypeGroup(memory, this))
         groups.add(RarityGroup(memory, this))
         //groups.addAll(IdentificationCriteriaGroup.of(memory))

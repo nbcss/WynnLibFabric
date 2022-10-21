@@ -1,9 +1,9 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.gui.DictionaryScreen
-import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.CriteriaMemory
-import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.CriteriaGroup
-import io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria.CriteriaGroupContainer
+import io.github.nbcss.wynnlib.gui.dicts.filter.CriteriaMemory
+import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroup
+import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroupContainer
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -16,7 +16,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.util.Identifier
 
 class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<T>,
-                                           private val criteriaList: List<CriteriaGroup<T>>,
+                                           private val criteriaList: List<FilterGroup<T>>,
                                            x: Int,
                                            y: Int): ClickableWidget(x, y, WIDTH, HEIGHT, null) {
     companion object {
@@ -47,7 +47,7 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         criteriaList.forEach { it.reload(memory) }
     }
 
-    fun getCriteriaList(): List<CriteriaGroup<T>> = criteriaList
+    fun getCriteriaList(): List<FilterGroup<T>> = criteriaList
 
     override fun appendNarrations(builder: NarrationMessageBuilder?) {
         appendDefaultNarrations(builder)
@@ -103,7 +103,7 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         init {
             var containerY = 0
             for (group in getCriteriaList()) {
-                val container = CriteriaGroupContainer(group, containerY)
+                val container = FilterGroupContainer(group, containerY)
                 addElement(container)
                 containerY += group.getHeight()
             }

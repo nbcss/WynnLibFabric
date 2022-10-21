@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria
+package io.github.nbcss.wynnlib.gui.dicts.filter
 
 import io.github.nbcss.wynnlib.data.EquipmentType
 import io.github.nbcss.wynnlib.gui.TooltipScreen
@@ -11,7 +11,7 @@ import net.minecraft.util.Formatting
 import java.util.function.Supplier
 
 class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
-                    private val screen: TooltipScreen): CriteriaGroup<Equipment>(memory) {
+                    private val screen: TooltipScreen): FilterGroup<Equipment>(memory) {
     companion object {
         private const val FILTER_KEY = "ITEM_TYPE"
     }

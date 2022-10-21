@@ -1,10 +1,9 @@
-package io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria
+package io.github.nbcss.wynnlib.gui.dicts.filter
 
 import io.github.nbcss.wynnlib.gui.widgets.scrollable.ScrollElement
 import io.github.nbcss.wynnlib.items.BaseItem
-import net.minecraft.client.util.math.MatrixStack
 
-abstract class CriteriaGroup<T: BaseItem>(val memory: CriteriaMemory<T>) {
+abstract class FilterGroup<T: BaseItem>(val memory: CriteriaMemory<T>) {
     private val elements: MutableList<ScrollElement> = mutableListOf()
 
     //abstract fun onClick(mouseX: Int, mouseY: Int, button: Int): Boolean

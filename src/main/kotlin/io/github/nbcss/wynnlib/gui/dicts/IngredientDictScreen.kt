@@ -14,7 +14,7 @@ import net.minecraft.text.Text
 /**
  * The Dictionary UI for display all ingredients.
  */
-class IngredientDictScreen(parent: Screen?) : DictionaryScreen<Ingredient>(parent, EquipmentDictScreen.TITLE) {
+class IngredientDictScreen(parent: Screen?) : DictionaryScreen<Ingredient>(parent, TITLE) {
     companion object {
         val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:diamond_axe#94")
         val TITLE: Text = UI_INGREDIENTS.translate()

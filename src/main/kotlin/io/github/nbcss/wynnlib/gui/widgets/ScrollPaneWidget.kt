@@ -151,9 +151,9 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
             updateSlider()
             return true
         }
-        if (onContentDrag(mouseX, mouseY, button))
-            return true
         if (getSlider()?.mouseDragged(mouseX, mouseY, button, deltaX, deltaY) == true)
+            return true
+        if (onContentDrag(mouseX, mouseY, button))
             return true
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }

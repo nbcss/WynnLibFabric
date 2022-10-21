@@ -1,11 +1,11 @@
-package io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria
+package io.github.nbcss.wynnlib.gui.dicts.filter
 
 import io.github.nbcss.wynnlib.gui.widgets.scrollable.ScrollElement
 import io.github.nbcss.wynnlib.items.BaseItem
 import net.minecraft.client.util.math.MatrixStack
 
-class CriteriaGroupContainer<T: BaseItem> (val group: CriteriaGroup<T>,
-                                           private val containerY: Int): ScrollElement {
+class FilterGroupContainer<T: BaseItem> (val group: FilterGroup<T>,
+                                         private val containerY: Int): ScrollElement {
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         return group.getElements().any { it.mouseClicked(mouseX, mouseY, button) }
