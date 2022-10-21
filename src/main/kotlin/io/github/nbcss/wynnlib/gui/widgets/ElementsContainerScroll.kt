@@ -43,7 +43,17 @@ open class ElementsContainerScroll(background: TextureData?,
         return elements.any { it.mouseClicked(mouseX, mouseY, button) }
     }
 
-    //todo type
+    override fun keyReleased(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        return elements.any { it.keyReleased(keyCode, scanCode, modifiers) }
+    }
+
+    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
+        return elements.any { it.keyPressed(keyCode, scanCode, modifiers) }
+    }
+
+    override fun charTyped(chr: Char, modifiers: Int): Boolean {
+        return elements.any { it.charTyped(chr, modifiers) }
+    }
 
     override fun renderContents(
         matrices: MatrixStack,

@@ -3,16 +3,14 @@ package io.github.nbcss.wynnlib.gui.widgets.scrollable.criteria
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.gui.widgets.scrollable.CheckboxWidget
-import io.github.nbcss.wynnlib.i18n.Translations
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.LabelWidget
 import io.github.nbcss.wynnlib.items.equipments.Equipment
-import net.minecraft.client.MinecraftClient
-import net.minecraft.client.util.math.MatrixStack
-import net.minecraft.text.Text
+import io.github.nbcss.wynnlib.i18n.Translations.UI_FILTER_RARITY
 import net.minecraft.util.Formatting
-import kotlin.math.floor
+import java.util.function.Supplier
 
 class RarityGroup(memory: CriteriaMemory<Equipment>,
-                  private val screen: TooltipScreen): TitledCriteriaGroup<Equipment>(memory) {
+                  private val screen: TooltipScreen): CriteriaGroup<Equipment>(memory) {
     companion object {
         private const val FILTER_KEY = "ITEM_RARITY"
     }
@@ -21,20 +19,41 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
     init {
         var index = 0
         val types = (memory.getFilter(FILTER_KEY) as? TierFilter)?.tiers
+        addElement(LabelWidget(2, 2, Supplier {
+            return@Supplier UI_FILTER_RARITY.formatted(Formatting.GOLD)
+        }, mode = LabelWidget.Mode.OUTLINE))
         Tier.values().forEach { tier ->
             val posX = 2
-            val posY = 2 + 20 * index
+            val posY = 12 + 20 * index
             val name = tier.getDisplayText()
-            checkboxes[tier] = CheckboxWidget(posX, posY, name, screen,
+            val checkbox = CheckboxWidget(posX, posY, name, screen,
                 types?.let { tier in it } ?: true)
+            checkbox.setCallback { updateFilter() }
+            checkboxes[tier] = checkbox
+            addElement(checkbox)
+            addElement(LabelWidget(posX + 20, posY + 4, Supplier {
+                return@Supplier tier.getDisplayText()
+            }))
             index += 1
         }
-        val group = CheckboxWidget.Group(checkboxes.values.toSet())
+        val group = CheckboxWidget.Group(checkboxes.values.toSet()) {
+            updateFilter()
+        }
         checkboxes.values.forEach { it.setGroup(group) }
-        contentHeight = 20 * index
+        contentHeight = 10 + 20 * index
     }
 
-    override fun renderContent(
+    private fun updateFilter() {
+        memory.putFilter(TierFilter(checkboxes.entries
+            .filter { it.value.isChecked() }
+            .map { it.key }.toSet()))
+    }
+
+    override fun getHeight(): Int {
+        return contentHeight
+    }
+
+    /*override fun renderContent(
         matrices: MatrixStack,
         mouseX: Int,
         mouseY: Int,
@@ -53,7 +72,7 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
             //RenderKit.renderOutlineText(matrices, text, widget.x + 24.0f, widget.y + 5.0f)
             MinecraftClient.getInstance().textRenderer.drawWithShadow(matrices, text, widget.x + 20.0f, widget.y + 4.0f, 0xFFFFFF)
         }
-    }
+    }*/
 
     override fun reload(memory: CriteriaMemory<Equipment>) {
         memory.getFilter(FILTER_KEY)?.let {
@@ -65,11 +84,11 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         }
     }
 
-    override fun getTitle(): Text = Translations.UI_FILTER_RARITY.formatted(Formatting.GOLD)
+    //override fun getTitle(): Text = Translations.UI_FILTER_RARITY.formatted(Formatting.GOLD)
 
-    override fun getContentHeight(): Int = contentHeight
+    //override fun getContentHeight(): Int = contentHeight
 
-    override fun onClick(mouseX: Int, mouseY: Int, button: Int): Boolean {
+    /*override fun onClick(mouseX: Int, mouseY: Int, button: Int): Boolean {
         if (checkboxes.values.any { it.mouseClicked(mouseX.toDouble(), mouseY.toDouble(), button) }){
             memory.putFilter(TierFilter(checkboxes.entries
                 .filter { it.value.isChecked() }
@@ -77,7 +96,7 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
             return true
         }
         return false
-    }
+    }*/
 
     class TierFilter(val tiers: Set<Tier>): CriteriaMemory.Filter<Equipment> {
 

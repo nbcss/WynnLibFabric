@@ -106,9 +106,20 @@ class CheckboxWidget(private val posX: Int,
         appendDefaultNarrations(builder)
     }
 
-    class Group(val widgets: Set<CheckboxWidget>) {
+    class Group(val widgets: Set<CheckboxWidget>,
+                private var callback: Consumer<Group>? = null) {
         fun onlySelect(widget: CheckboxWidget) {
             widgets.forEach { it.setChecked(it == widget) }
+            callback?.accept(this)
+        }
+
+        fun allSelect() {
+            widgets.forEach { it.setChecked(true) }
+            callback?.accept(this)
+        }
+
+        fun setCallback(callback: Consumer<Group>?) {
+            this.callback = callback
         }
     }
 }
