@@ -3,13 +3,11 @@ package io.github.nbcss.wynnlib.matcher
 import com.google.gson.JsonObject
 import io.github.nbcss.wynnlib.data.Tier
 import io.github.nbcss.wynnlib.i18n.Translatable
+import io.github.nbcss.wynnlib.items.Emerald
 import io.github.nbcss.wynnlib.items.Ingredient
 import io.github.nbcss.wynnlib.items.Material
 import io.github.nbcss.wynnlib.items.Powder
-import io.github.nbcss.wynnlib.matcher.types.IngredientTierType
-import io.github.nbcss.wynnlib.matcher.types.ItemTierType
-import io.github.nbcss.wynnlib.matcher.types.MaterialTierType
-import io.github.nbcss.wynnlib.matcher.types.PowderTierType
+import io.github.nbcss.wynnlib.matcher.types.*
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.JsonGetter.getOr
 import io.github.nbcss.wynnlib.utils.Keyed
@@ -35,8 +33,11 @@ interface MatcherType: Keyed, Translatable {
             for (tier in Material.Tier.values()) {
                 register(MaterialTierType(tier))
             }
-            for (tier in Powder.Tier.values()){
+            for (tier in Powder.Tier.values()) {
                 register(PowderTierType(tier))
+            }
+            for (tier in Emerald.Tier.values()) {
+                register(EmeraldTierType(tier))
             }
         }
 
@@ -74,6 +75,10 @@ interface MatcherType: Keyed, Translatable {
 
         fun fromPowderTier(tier: Powder.Tier): MatcherType {
             return typeMap[PowderTierType.keyOf(tier)]!!
+        }
+
+        fun fromEmeraldTier(tier: Emerald.Tier): MatcherType {
+            return typeMap[EmeraldTierType.keyOf(tier)]!!
         }
 
         fun getTypes(): List<MatcherType> {
