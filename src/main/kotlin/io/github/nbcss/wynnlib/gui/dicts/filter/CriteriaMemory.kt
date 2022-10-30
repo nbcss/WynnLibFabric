@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets.criteria
+package io.github.nbcss.wynnlib.gui.dicts.filter
 
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.utils.Keyed

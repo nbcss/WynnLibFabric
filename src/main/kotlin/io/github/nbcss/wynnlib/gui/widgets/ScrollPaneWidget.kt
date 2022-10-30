@@ -43,7 +43,9 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
 
     open fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean = false
 
-    open fun onContentRelease(mouseX: Double, mouseY: Double): Boolean = false
+    open fun onContentRelease(mouseX: Double, mouseY: Double, button: Int): Boolean = false
+
+    open fun onContentDrag(mouseX: Double, mouseY: Double, button: Int): Boolean = false
 
     open fun getSlider(): VerticalSliderWidget? = null
 
@@ -103,7 +105,7 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
         val bottom = y + height
         val scale = client.window.scaleFactor
         val position = getScrollPosition()
-        RenderSystem.enableScissor((x * scale).toInt(), client.window.height - (bottom * scale).toInt(),
+        RenderSystem.enableScissor((x * scale).toInt(), (client.window.scaledHeight - bottom) * scale.toInt(),
             (width * scale).toInt(), (height * scale).toInt())
         renderBackground(matrices, position)
         renderContents(matrices!!, mouseX, mouseY, position, delta, isMouseOver(mouseX.toDouble(), mouseY.toDouble()))
@@ -147,15 +149,18 @@ abstract class ScrollPaneWidget(private val background: TextureData?,
         dragging?.let {
             setScrollPosition(it.first + (it.second - mouseY))
             updateSlider()
+            return true
         }
         if (getSlider()?.mouseDragged(mouseX, mouseY, button, deltaX, deltaY) == true)
+            return true
+        if (onContentDrag(mouseX, mouseY, button))
             return true
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }
 
     override fun mouseReleased(mouseX: Double, mouseY: Double, button: Int): Boolean {
         if (isMouseOver(mouseX, mouseY)) {
-            if (onContentRelease(mouseX, mouseY))
+            if (onContentRelease(mouseX, mouseY, button))
                 return true
         }
         if (button == 2 && dragging != null) {

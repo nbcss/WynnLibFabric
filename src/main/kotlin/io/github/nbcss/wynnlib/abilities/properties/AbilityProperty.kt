@@ -41,6 +41,7 @@ abstract class AbilityProperty(private val ability: Ability) {
                 AbilityDamageBonusProperty,
                 DamageIntervalProperty,
                 DamageIntervalProperty.Modifier,
+                AbilityHealModifier,
                 BonusEffectProperty,
                 IDModifierProperty,
                 IDConvertorProperty,

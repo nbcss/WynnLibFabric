@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets
+package io.github.nbcss.wynnlib.gui.widgets.scrollable
 
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.i18n.Translatable.Companion.from
@@ -21,7 +21,7 @@ class CheckboxWidget(private val posX: Int,
                      private val screen: TooltipScreen? = null,
                      private var checked: Boolean = true,
                      private val description: TooltipProvider? = null):
-    ClickableWidget(-1000, -1000, SIZE, SIZE, fromBoolean(checked)) {
+    ClickableWidget(-1000, -1000, SIZE, SIZE, fromBoolean(checked)), ScrollElement {
     companion object {
         private val TEXTURE = Identifier("wynnlib", "textures/gui/checkbox_button.png")
         val LEFT_CLICK = from("wynnlib.ui.check_box.left_click")
@@ -53,13 +53,10 @@ class CheckboxWidget(private val posX: Int,
 
     fun isChecked(): Boolean = checked
 
-    fun setIntractable(intractable: Boolean) {
-        this.interactable = intractable
-    }
-
-    fun updatePosition(x: Int, y: Int) {
+    override fun updateState(x: Int, y: Int, active: Boolean) {
         this.x = posX + x
         this.y = posY + y
+        this.interactable = active
         this.visible = true
     }
 
@@ -109,9 +106,20 @@ class CheckboxWidget(private val posX: Int,
         appendDefaultNarrations(builder)
     }
 
-    class Group(val widgets: Set<CheckboxWidget>) {
+    class Group(val widgets: Set<CheckboxWidget>,
+                private var callback: Consumer<Group>? = null) {
         fun onlySelect(widget: CheckboxWidget) {
             widgets.forEach { it.setChecked(it == widget) }
+            callback?.accept(this)
+        }
+
+        fun allSelect() {
+            widgets.forEach { it.setChecked(true) }
+            callback?.accept(this)
+        }
+
+        fun setCallback(callback: Consumer<Group>?) {
+            this.callback = callback
         }
     }
 }

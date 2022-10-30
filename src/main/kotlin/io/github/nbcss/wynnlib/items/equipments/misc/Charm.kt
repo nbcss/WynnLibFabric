@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.items.addRequirements
 import io.github.nbcss.wynnlib.items.addRestriction
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
 import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.ItemFactory
@@ -20,7 +21,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 
-class Charm(json: JsonObject) : Equipment, EquipmentCategory {
+class Charm(json: JsonObject) : Equipment, EquipmentCategory, ConfigurableItem {
     private val idMap: MutableMap<Identification, BaseIRange> = LinkedHashMap()
     private val spMap: MutableMap<Skill, Int> = LinkedHashMap()
     private val name: String = json["name"].asString
@@ -99,5 +100,9 @@ class Charm(json: JsonObject) : Equipment, EquipmentCategory {
 
     override fun getIdentificationRange(id: Identification): IRange {
         return idMap[id] ?: BaseIRange(id, false, 0)
+    }
+
+    override fun getConfigDomain(): String {
+        return "CHARM"
     }
 }

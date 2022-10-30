@@ -3234,6 +3234,49 @@
       }
     },
     {
+      "tier": 1,
+      "level": 14,
+      "skills": [
+        "WEAPONSMITHING",
+        "WOODWORKING"
+      ],
+      "identifications": {
+        "DAMAGEBONUSRAW": {
+          "minimum": 5,
+          "maximum": 9
+        },
+        "STAMINA_REGEN": {
+          "minimum": 6,
+          "maximum": 8
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -34,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 0
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Pigman Ivory",
+      "sprite": {
+        "id": 406,
+        "damage": 0
+      }
+    },
+    {
       "name": "Yeti Fur",
       "tier": 2,
       "level": 48,
@@ -4869,6 +4912,45 @@
       }
     },
     {
+      "tier": 0,
+      "level": 56,
+      "skills": [
+        "WEAPONSMITHING",
+        "WOODWORKING"
+      ],
+      "identifications": {
+        "STAMINA": {
+          "minimum": 4,
+          "maximum": 7
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -33,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 8
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Broken Ram Horn",
+      "sprite": {
+        "id": 154,
+        "damage": 0
+      }
+    },
+    {
       "name": "Spellbound Ash",
       "tier": 0,
       "level": 18,
@@ -5028,6 +5110,52 @@
         "under": 0,
         "touching": 0,
         "notTouching": 0
+      }
+    },
+    {
+      "tier": 3,
+      "level": 62,
+      "skills": [
+        "JEWELING"
+      ],
+      "identifications": {
+        "STAMINA": {
+          "minimum": 4,
+          "maximum": 6
+        },
+        "FIREDAMAGEBONUS": {
+          "minimum": 5,
+          "maximum": 6
+        },
+        "AGILITYPOINTS": {
+          "minimum": 2,
+          "maximum": 3
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -117,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 12,
+        "agilityRequirement": 9
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Solcrystal Horn",
+      "sprite": {
+        "id": 396,
+        "damage": 0
       }
     },
     {
@@ -7445,6 +7573,56 @@
       }
     },
     {
+      "tier": 3,
+      "level": 65,
+      "skills": [
+        "SCRIBING"
+      ],
+      "identifications": {
+        "WATERDEFENSE": {
+          "minimum": 12,
+          "maximum": 14
+        },
+        "STAMINA_REGEN": {
+          "minimum": 8,
+          "maximum": 10
+        },
+        "STAMINA": {
+          "minimum": 14,
+          "maximum": 16
+        },
+        "FIREDEFENSE": {
+          "minimum": 10,
+          "maximum": 12
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": 0,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 0
+      },
+      "consumableOnlyIDs": {
+        "duration": -225,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Sanctified Sheep Soul",
+      "sprite": {
+        "id": 419,
+        "damage": 0
+      }
+    },
+    {
       "name": "Toxxulous Ripper’s Legs",
       "tier": 2,
       "level": 103,
@@ -8496,6 +8674,48 @@
         "under": 0,
         "touching": 0,
         "notTouching": 0
+      }
+    },
+    {
+      "tier": 0,
+      "level": 36,
+      "skills": [
+        "JEWELING"
+      ],
+      "identifications": {
+        "STAMINA_REGEN": {
+          "minimum": 0,
+          "maximum": -2
+        },
+        "STAMINA": {
+          "minimum": 1,
+          "maximum": 3
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -26,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 0
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Rusty Spurs",
+      "sprite": {
+        "id": 101,
+        "damage": 0
       }
     },
     {
@@ -10183,6 +10403,52 @@
       }
     },
     {
+      "tier": 2,
+      "level": 58,
+      "skills": [
+        "ALCHEMISM"
+      ],
+      "identifications": {
+        "HEALTHREGENRAW": {
+          "minimum": -24,
+          "maximum": -32
+        },
+        "STAMINA_REGEN": {
+          "minimum": 16,
+          "maximum": 19
+        },
+        "SPEED": {
+          "minimum": 8,
+          "maximum": 9
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": 0,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 0
+      },
+      "consumableOnlyIDs": {
+        "duration": -130,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Blazing Stimulants",
+      "sprite": {
+        "id": 374,
+        "damage": 0
+      }
+    },
+    {
       "name": "Leafy Stalk",
       "tier": 0,
       "level": 68,
@@ -11844,6 +12110,49 @@
       }
     },
     {
+      "tier": 1,
+      "level": 60,
+      "skills": [
+        "ARMOURING",
+        "TAILORING"
+      ],
+      "identifications": {
+        "SOULPOINTS": {
+          "minimum": 10,
+          "maximum": 10
+        },
+        "STAMINA": {
+          "minimum": 8,
+          "maximum": 12
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -47,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 8
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Consecrated Ivory",
+      "sprite": {
+        "id": 198,
+        "damage": 0
+      }
+    },
+    {
       "name": "Holy Powder",
       "tier": 0,
       "level": 98,
@@ -13399,6 +13708,45 @@
         "under": 0,
         "touching": 0,
         "notTouching": 0
+      }
+    },
+    {
+      "tier": 1,
+      "level": 43,
+      "skills": [
+        "ARMOURING",
+        "TAILORING"
+      ],
+      "identifications": {
+        "STAMINA_REGEN": {
+          "minimum": 8,
+          "maximum": 11
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -35,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 0
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Runner\u0027s Bandages",
+      "sprite": {
+        "id": 287,
+        "damage": 0
       }
     },
     {
@@ -15095,6 +15443,50 @@
         "under": 0,
         "touching": 0,
         "notTouching": 0
+      }
+    },
+    {
+      "tier": 1,
+      "level": 27,
+      "skills": [
+        "WEAPONSMITHING",
+        "WOODWORKING",
+        "TAILORING"
+      ],
+      "identifications": {
+        "STAMINA_REGEN": {
+          "minimum": 5,
+          "maximum": 7
+        },
+        "STAMINA": {
+          "minimum": 4,
+          "maximum": 6
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -34,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 3
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Intermittenstirrups",
+      "sprite": {
+        "id": 318,
+        "damage": 0
       }
     },
     {
@@ -17894,6 +18286,45 @@
         "under": 0,
         "touching": 0,
         "notTouching": 0
+      }
+    },
+    {
+      "tier": 0,
+      "level": 8,
+      "skills": [
+        "ARMOURING",
+        "TAILORING"
+      ],
+      "identifications": {
+        "STAMINA": {
+          "minimum": 3,
+          "maximum": 5
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -19,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 0
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Sheep Hoof",
+      "sprite": {
+        "id": 145,
+        "damage": 0
       }
     },
     {
@@ -21860,6 +22291,49 @@
       }
     },
     {
+      "tier": 0,
+      "level": 60,
+      "skills": [
+        "ARMOURING",
+        "TAILORING"
+      ],
+      "identifications": {
+        "HEALTHBONUS": {
+          "minimum": 40,
+          "maximum": 65
+        },
+        "STAMINA_REGEN": {
+          "minimum": 6,
+          "maximum": 7
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -35,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 6
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Climber\u0027s Padding",
+      "sprite": {
+        "id": 171,
+        "damage": 0
+      }
+    },
+    {
       "name": "Flow of Fate",
       "tier": 2,
       "level": 100,
@@ -22025,6 +22499,44 @@
         "under": 0,
         "touching": 0,
         "notTouching": 0
+      }
+    },
+    {
+      "tier": 1,
+      "level": 42,
+      "skills": [
+        "ALCHEMISM"
+      ],
+      "identifications": {
+        "STAMINA_REGEN": {
+          "minimum": 12,
+          "maximum": 12
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": 0,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": 0
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Natural Nitrates",
+      "sprite": {
+        "id": 6,
+        "damage": 4
       }
     },
     {
@@ -27959,6 +28471,50 @@
       }
     },
     {
+      "tier": 3,
+      "level": 48,
+      "skills": [
+        "ARMOURING",
+        "TAILORING",
+        "WEAPONSMITHING"
+      ],
+      "identifications": {
+        "THORNS": {
+          "minimum": 8,
+          "maximum": 12
+        },
+        "STAMINA": {
+          "minimum": 10,
+          "maximum": 15
+        }
+      },
+      "itemOnlyIDs": {
+        "durabilityModifier": -92,
+        "strengthRequirement": 0,
+        "dexterityRequirement": 0,
+        "intelligenceRequirement": 0,
+        "defenceRequirement": 0,
+        "agilityRequirement": -5
+      },
+      "consumableOnlyIDs": {
+        "duration": 0,
+        "charges": 0
+      },
+      "ingredientPositionModifiers": {
+        "left": 0,
+        "right": 0,
+        "above": 0,
+        "under": 0,
+        "touching": 0,
+        "notTouching": 0
+      },
+      "name": "Icy Crampons",
+      "sprite": {
+        "id": 379,
+        "damage": 0
+      }
+    },
+    {
       "name": "Magicule Sample",
       "tier": 1,
       "level": 75,
@@ -30757,5 +31313,5 @@
       }
     }
   ],
-  "version": "2.0.0.0"
+  "version": "2.0.0.1"
 }

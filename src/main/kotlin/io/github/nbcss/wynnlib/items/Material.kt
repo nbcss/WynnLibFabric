@@ -7,6 +7,7 @@ import io.github.nbcss.wynnlib.data.Profession
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_CRAFTING_MAT
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_GATHERING_LV_REQ
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_MATERIAL_RECIPES
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
 import io.github.nbcss.wynnlib.matcher.MatchableItem
 import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.registry.RecipeRegistry
@@ -23,7 +24,7 @@ import net.minecraft.util.Formatting
 import kotlin.math.max
 import kotlin.math.min
 
-class Material(json: JsonObject) : Keyed, BaseItem, MatchableItem {
+class Material(json: JsonObject) : Keyed, BaseItem, MatchableItem, ConfigurableItem {
     private val id: String = json["id"].asString
     private val name: String = json["name"].asString
     private val displayName: String = json["displayName"].asString
@@ -96,6 +97,10 @@ class Material(json: JsonObject) : Keyed, BaseItem, MatchableItem {
 
     override fun asBaseItem(): BaseItem {
         return this
+    }
+
+    override fun getConfigDomain(): String {
+        return "MATERIAL"
     }
 
     enum class Tier(val suffix: String, val color: Color, val coefficient: Double) {

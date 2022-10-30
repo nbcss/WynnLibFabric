@@ -6,6 +6,9 @@ import io.github.nbcss.wynnlib.events.DrawSlotEvent
 import io.github.nbcss.wynnlib.events.EventHandler
 import io.github.nbcss.wynnlib.events.InventoryPressEvent
 import io.github.nbcss.wynnlib.events.SlotClickEvent
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
+import io.github.nbcss.wynnlib.items.identity.ItemStarProperty
+import io.github.nbcss.wynnlib.items.identity.ProtectableItem
 import io.github.nbcss.wynnlib.matcher.ProtectableType
 import io.github.nbcss.wynnlib.matcher.item.ItemMatcher
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -51,7 +54,6 @@ object ItemProtector {
         override fun handle(event: InventoryPressEvent) {
             if (event.screen !is GenericContainerScreen)
                 return
-            //Loot Chest I
             val title = event.screen.title.asString()
             if (isLootInventory(title)){
                 if (event.keyCode == 256 || client.options.inventoryKey.matchesKey(event.keyCode, event.scanCode)) {
@@ -118,11 +120,16 @@ object ItemProtector {
     private fun isSlotProtected(slot: Slot): Boolean {
         if (!slot.hasStack())
             return false
-        val matcher = ItemMatcher.toItem(slot.stack)
-        if (matcher != null) {
-            val type = matcher.getMatcherType()
+        val matchItem = ItemMatcher.toItem(slot.stack)
+        if (matchItem != null) {
+            val type = matchItem.getMatcherType()
+            val baseItem = matchItem.asBaseItem()
             if (type is ProtectableType && type.isProtected()) {
                 return true
+            }else if(baseItem is ProtectableItem && baseItem.isProtected()){
+                return true
+            }else if(Settings.getOption(Settings.SettingOption.STARRED_ITEM_PROTECT) && baseItem is ConfigurableItem){
+                return ItemStarProperty.hasStar(baseItem)
             }
         }
         return false

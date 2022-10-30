@@ -10,6 +10,7 @@ import io.github.nbcss.wynnlib.items.addRequirements
 import io.github.nbcss.wynnlib.items.addRestriction
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.items.equipments.EquipmentCategory
+import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
 import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.utils.Color
 import io.github.nbcss.wynnlib.utils.formattingLines
@@ -23,7 +24,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 
-class Tome(json: JsonObject) : Equipment, EquipmentCategory {
+class Tome(json: JsonObject) : Equipment, EquipmentCategory, ConfigurableItem {
     companion object {
         private val EFFECT = from("wynnlib.tooltip.tome.effect")
     }
@@ -61,6 +62,10 @@ class Tome(json: JsonObject) : Equipment, EquipmentCategory {
     override fun getRestriction(): Restriction? = restriction
 
     override fun isIdentifiable(): Boolean = true
+
+    override fun getConfigDomain(): String {
+        return "TOME"
+    }
 
     override fun getKey(): String = name
 

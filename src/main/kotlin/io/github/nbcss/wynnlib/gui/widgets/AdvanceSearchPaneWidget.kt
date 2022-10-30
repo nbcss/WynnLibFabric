@@ -1,8 +1,9 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.gui.DictionaryScreen
-import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaMemory
-import io.github.nbcss.wynnlib.gui.widgets.criteria.CriteriaGroup
+import io.github.nbcss.wynnlib.gui.dicts.filter.CriteriaMemory
+import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroup
+import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroupContainer
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -15,7 +16,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.util.Identifier
 
 class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<T>,
-                                           private val criteriaList: List<CriteriaGroup<T>>,
+                                           private val criteriaList: List<FilterGroup<T>>,
                                            x: Int,
                                            y: Int): ClickableWidget(x, y, WIDTH, HEIGHT, null) {
     companion object {
@@ -46,7 +47,7 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         criteriaList.forEach { it.reload(memory) }
     }
 
-    fun getCriteriaList(): List<CriteriaGroup<T>> = criteriaList
+    fun getCriteriaList(): List<FilterGroup<T>> = criteriaList
 
     override fun appendNarrations(builder: NarrationMessageBuilder?) {
         appendDefaultNarrations(builder)
@@ -78,6 +79,12 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         return super.mouseScrolled(mouseX, mouseY, amount)
     }
 
+    override fun charTyped(chr: Char, modifiers: Int): Boolean {
+        if (scroll.charTyped(chr, modifiers))
+            return true
+        return super.charTyped(chr, modifiers)
+    }
+
     override fun render(matrices: MatrixStack?, mouseX: Int, mouseY: Int, delta: Float) {
         //screen.setFilterVisible(false)
         RenderKit.renderTexture(
@@ -90,34 +97,19 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         scroll.render(matrices, mouseX, mouseY, delta)
     }
 
-    inner class Scroll: ScrollPaneWidget(null, screen,
-        x + 5, y + 15, SCROLL_WIDTH, height - 24, 200L, 20.0) {
+    inner class Scroll: ElementsContainerScroll(null, screen,
+        x + 5, y + 15, SCROLL_WIDTH, height - 24) {
+
+        init {
+            var containerY = 0
+            for (group in getCriteriaList()) {
+                val container = FilterGroupContainer(group, containerY)
+                addElement(container)
+                containerY += group.getHeight()
+            }
+            setContentHeight(containerY)
+        }
 
         override fun getSlider(): VerticalSliderWidget = slider
-
-        override fun renderContents(
-            matrices: MatrixStack,
-            mouseX: Int,
-            mouseY: Int,
-            position: Double,
-            delta: Float,
-            mouseOver: Boolean
-        ) {
-            //fill(matrices, x, y, x + width, y + height, 0x1DA1AAFF)
-            val posX = x.toDouble()
-            var posY = y - position
-            getCriteriaList().forEach {
-                it.render(matrices, mouseX, mouseY, posX, posY, delta, mouseOver)
-                posY += it.getHeight()
-            }
-        }
-
-        override fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean {
-            return criteriaList.any { it.onClick(mouseX.toInt(), mouseY.toInt(), button) }
-        }
-
-        override fun getContentHeight(): Int {
-            return getCriteriaList().sumOf { it.getHeight() }
-        }
     }
 }

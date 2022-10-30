@@ -735,7 +735,7 @@
         "upgrade": {
           "spell": "SPELL_3"
         },
-        "mana_modifier": -10,
+        "mana_modifier": -5,
         "damage_modifier": {
           "neutral": -70,
           "water": 30
@@ -3609,7 +3609,8 @@
       },
       "predecessors": [
         "TRAVELER",
-        "MORE_FOCUS_1"
+        "MORE_FOCUS_1",
+        "BOUNCING_BOMB"
       ],
       "properties": {
         "values": {
@@ -3643,9 +3644,12 @@
       "archetype": null,
       "dependency": null,
       "blocks": [],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "TRAPPER": 3
+      },
       "predecessors": [
-        "MORE_SHIELDS"
+        "MORE_SHIELDS",
+        "TWAINS_ARC"
       ],
       "properties": {
         "upgrade": {
@@ -3708,7 +3712,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "TWAINS_ARC"
+        "TWAINS_ARC",
+        "BOUNCING_BOMB"
       ],
       "properties": {
         "upgrade": {
@@ -3859,7 +3864,8 @@
       "predecessors": [
         "SHOCKING_BOMB",
         "TWAINS_ARC",
-        "MANA_TRAP"
+        "MANA_TRAP",
+        "BOUNCING_BOMB"
       ],
       "properties": {
         "upgrade": {
@@ -3905,7 +3911,8 @@
         "mana_modifier": 10,
         "range": 16,
         "values": {
-          "1": 2.85
+          "1": 0.5,
+          "2": 20
         }
       },
       "metadata": {
@@ -4552,7 +4559,8 @@
           "ability": "PATIENT_HUNTER"
         },
         "patient_hunter_modifier": {
-          "max_boost": 80
+          "sec_boost": 10,
+          "max_boost": 100
         }
       },
       "metadata": null
@@ -4699,10 +4707,10 @@
           "ability": "BASALTIC_TRAP"
         },
         "damage_modifier": {
-          "neutral": -80
+          "neutral": -50
         },
         "aoe_modifier": {
-          "range": -2,
+          "range": -1,
           "shape": "CIRCLE"
         },
         "max_trap_modifier": 6
@@ -6120,7 +6128,9 @@
       "blocks": [
         "ARCANE_TRANSFER"
       ],
-      "archetype_requirements": {},
+      "archetype_requirements": {
+        "LIGHT_BENDER": 5
+      },
       "predecessors": [
         "HEALTHIER_OPHANIM_1",
         "SNAKE_NEST"
@@ -6190,7 +6200,10 @@
         "upgrade": {
           "ability": "WINDSWEEPER"
         },
-        "range": 6
+        "range": 6,
+        "values": {
+          "1": 10
+        }
       },
       "metadata": null
     },
@@ -6607,7 +6620,7 @@
         "effects": {
           "ENEMIES_SLOWNESS": 100
         },
-        "duration": 1
+        "duration": 2
       },
       "metadata": {
         "type": "EXTEND",
@@ -8036,7 +8049,7 @@
           "ability": "VANISH"
         },
         "values": {
-          "1": 100
+          "1": 120
         }
       },
       "metadata": null
@@ -8269,7 +8282,7 @@
       "properties": {
         "values": {
           "1": 5,
-          "2": 2
+          "2": 3
         },
         "cooldown": 1
       },
@@ -8513,8 +8526,8 @@
           "ability": "DASH"
         },
         "damage": {
-          "neutral": 90,
-          "fire": 10,
+          "neutral": 100,
+          "fire": 20,
           "hits": 3,
           "label": "SHURIKEN"
         },
@@ -8909,6 +8922,9 @@
         "upgrade": {
           "ability": "SPIN_ATTACK"
         },
+        "damage_modifier": {
+          "neutral": 20
+        },
         "aoe_modifier": {
           "range": 1
         },
@@ -9057,7 +9073,7 @@
           "ability": "MULTIHIT"
         },
         "damage_modifier": {
-          "thunder": 10,
+          "thunder": 15,
           "label": "HIT"
         }
       },
@@ -9171,7 +9187,7 @@
         "satsujin": {
           "damage_bonus": 150
         },
-        "cooldown": 30,
+        "cooldown": 20,
         "values": {
           "1": 3,
           "2": 70
@@ -9979,9 +9995,7 @@
       "cost": 2,
       "archetype": "ACOLYTE",
       "dependency": "UPROOT",
-      "blocks": [
-        "OVERSEER"
-      ],
+      "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "SHOCKING_AURA",
@@ -10015,9 +10029,7 @@
       "cost": 2,
       "archetype": "SUMMONER",
       "dependency": "UPROOT",
-      "blocks": [
-        "FLAMING_TONGUE"
-      ],
+      "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
         "NATURES_JOLT"
@@ -10697,6 +10709,16 @@
           "AURA": {
             "neutral": -60
           }
+        },
+        "ability_heal_modifier": {
+          "REGENERATION": {
+            "key": "regeneration",
+            "modifier": -0.3
+          },
+          "SACRIFICIAL_SHRINE": {
+            "key": "total_heal",
+            "modifier": -5
+          }
         }
       },
       "metadata": null
@@ -11175,7 +11197,7 @@
           "ability": "TOTEM"
         },
         "regeneration": {
-          "heal": 0.5,
+          "heal": 1,
           "interval": 0.4
         }
       },
@@ -11393,6 +11415,16 @@
           },
           "AURA": {
             "neutral": -40
+          }
+        },
+        "ability_heal_modifier": {
+          "REGENERATION": {
+            "key": "regeneration",
+            "modifier": -0.2
+          },
+          "SACRIFICIAL_SHRINE": {
+            "key": "total_heal",
+            "modifier": -3
           }
         }
       },
@@ -11699,5 +11731,5 @@
       }
     }
   ],
-  "version": "0.2.2"
+  "version": "0.2.4"
 }

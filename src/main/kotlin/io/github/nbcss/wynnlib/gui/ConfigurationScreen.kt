@@ -1,10 +1,9 @@
 package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.gui.widgets.CheckboxWidget
-import io.github.nbcss.wynnlib.gui.widgets.ScrollPaneWidget
-import io.github.nbcss.wynnlib.gui.widgets.SideTabWidget
-import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
+import io.github.nbcss.wynnlib.gui.widgets.*
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.CheckboxWidget
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.LabelWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.matcher.MatcherType
@@ -17,6 +16,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
+import java.util.function.Supplier
 
 class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) {
     companion object {
@@ -47,6 +47,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
                     override fun onClick(index: Int) {
                         this@ConfigurationScreen.category = categories[index]
                         scroll = this@ConfigurationScreen.category.createScroll(this@ConfigurationScreen)
+                        slider?.setSlider(0.0)
                     }
 
                     override fun isSelected(index: Int): Boolean {
@@ -88,7 +89,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             }
 
             override fun getDisplayText(): Text {
-                return LiteralText("General")
+                return Translations.SETTINGS_GENERAL.translate()
             }
 
             override fun getIcon(): ItemStack = icon
@@ -100,7 +101,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             }
 
             override fun getDisplayText(): Text {
-                return LiteralText("Matchers")
+                return Translations.SETTINGS_MATCHERS.translate()
             }
 
             override fun getIcon(): ItemStack = icon
@@ -113,17 +114,16 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
         fun getIcon(): ItemStack
     }
 
-
-    inner class MatcherScroll: ScrollPaneWidget(null, this@ConfigurationScreen,
+    inner class MatcherScroll: ElementsContainerScroll(null, this@ConfigurationScreen,
         scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
-        private val protects: MutableMap<MatcherType, CheckboxWidget> = linkedMapOf()
-        private val scrollHeight: Int
+        //private val protects: MutableMap<MatcherType, CheckboxWidget> = linkedMapOf()
+        //private val scrollHeight: Int
         init {
             val posX = 2
             var posY = 2
             val desc = object: TooltipProvider {
                 override fun getTooltip(): List<Text> {
-                    return listOf(LiteralText("Item Protection").formatted(Formatting.GRAY))
+                    return listOf(Translations.MATCHER_ITEM_PROTECTION.formatted(Formatting.GRAY))
                 }
             }
             for (type in MatcherType.getTypes()) {
@@ -135,49 +135,19 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
                 checkbox.setCallback {
                     type.setProtected(it.isChecked())
                 }
-                protects[type] = checkbox
+                addElement(checkbox)
+                addElement(LabelWidget(posX + 22, posY + 5, Supplier {
+                    return@Supplier type.getDisplayText()
+                }))
                 posY += 20
             }
-            scrollHeight = posY + 2
+            setContentHeight(posY + 2)
         }
-
-        override fun renderContents(
-            matrices: MatrixStack,
-            mouseX: Int,
-            mouseY: Int,
-            position: Double,
-            delta: Float,
-            mouseOver: Boolean
-        ) {
-            val posX = x
-            val posY = (y - position).toInt()
-            for (entry in protects.entries) {
-                entry.value.updatePosition(posX, posY)
-                entry.value.setIntractable(mouseOver)
-                entry.value.render(matrices, mouseX, mouseY, delta)
-                client.textRenderer.drawWithShadow(matrices, entry.key.getDisplayText(),
-                    entry.value.x + 22.0F, entry.value.y + 5.0F, 0xFFFFFF)
-            }
-        }
-
         override fun getSlider(): VerticalSliderWidget? = slider
-
-        override fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean {
-            for (widget in protects.values) {
-                widget.mouseClicked(mouseX, mouseY, button)
-            }
-            return false
-        }
-
-        override fun getContentHeight(): Int {
-            return scrollHeight
-        }
     }
 
-    inner class GeneralScroll: ScrollPaneWidget(null, this@ConfigurationScreen,
+    inner class GeneralScroll: ElementsContainerScroll(null, this@ConfigurationScreen,
         scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
-        private val options: MutableMap<Settings.SettingOption, CheckboxWidget> = linkedMapOf()
-        private val scrollHeight: Int
         init {
             val posX = 2
             var posY = 2
@@ -193,40 +163,14 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
                 checkbox.setCallback {
                     Settings.setOption(option, it.isChecked())
                 }
-                options[option] = checkbox
+                addElement(checkbox)
+                addElement(LabelWidget(posX + 22, posY + 5, Supplier {
+                    return@Supplier option.formatted(Formatting.GRAY)
+                }))
                 posY += 20
             }
-            scrollHeight = posY + 2
+            setContentHeight(posY + 2)
         }
-
         override fun getSlider(): VerticalSliderWidget? = slider
-
-        override fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean {
-            for (widget in options.values) {
-                widget.mouseClicked(mouseX, mouseY, button)
-            }
-            return false
-        }
-
-        override fun renderContents(
-            matrices: MatrixStack,
-            mouseX: Int,
-            mouseY: Int,
-            position: Double,
-            delta: Float,
-            mouseOver: Boolean
-        ) {
-            val posX = x
-            val posY = (y - position).toInt()
-            for (entry in options.entries) {
-                entry.value.updatePosition(posX, posY)
-                entry.value.setIntractable(mouseOver)
-                entry.value.render(matrices, mouseX, mouseY, delta)
-                client.textRenderer.drawWithShadow(matrices, entry.key.formatted(Formatting.GRAY),
-                    entry.value.x + 22.0F, entry.value.y + 5.0F, 0xFFFFFF)
-            }
-        }
-
-        override fun getContentHeight(): Int = scrollHeight
     }
 }

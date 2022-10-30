@@ -51,18 +51,24 @@ abstract class GenericScrollScreen(parent: Screen?, title: Text) : HandbookTabSc
     }
 
     override fun mouseDragged(mouseX: Double, mouseY: Double, button: Int, deltaX: Double, deltaY: Double): Boolean {
+        if (slider?.mouseDragged(mouseX, mouseY, button, 0.0, 0.0) == true)
+            return true
         if (getScroll()?.mouseDragged(mouseX, mouseY, button, 0.0, 0.0) == true)
             return true
         return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY)
     }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (slider?.mouseClicked(mouseX, mouseY, button) == true)
+            return true
         if (getScroll()?.mouseClicked(mouseX, mouseY, button) == true)
             return true
         return super.mouseClicked(mouseX, mouseY, button)
     }
 
     override fun mouseReleased(mouseX: Double, mouseY: Double, button: Int): Boolean {
+        if (slider?.mouseReleased(mouseX, mouseY, button) == true)
+            return true
         if (getScroll()?.mouseReleased(mouseX, mouseY, button) == true)
             return true
         return super.mouseReleased(mouseX, mouseY, button)

@@ -9,7 +9,8 @@ object AnalysisToggle {
         KeysKit.isKeyDown((getToggleAnalyzeKeybinding() as BoundKeyAccessor).getboundKey().code)
     }){
         if (it) {
-            Settings.toggleAnalysisMode()
+            Settings.setOption(Settings.SettingOption.ANALYZE_MODE,
+                !Settings.getOption(Settings.SettingOption.ANALYZE_MODE))
         }
     }
 
