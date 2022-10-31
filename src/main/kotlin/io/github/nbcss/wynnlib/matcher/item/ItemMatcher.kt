@@ -19,7 +19,8 @@ interface ItemMatcher {
             BoxMatcher,
             IngredientMatcher,
             MaterialMatcher,
-            PowderMatcher
+            PowderMatcher,
+            EmeraldMatcher
         )
 
         fun toItem(item: ItemStack): MatchableItem? {
