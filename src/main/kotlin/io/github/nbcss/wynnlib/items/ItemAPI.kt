@@ -1,6 +1,7 @@
 package io.github.nbcss.wynnlib.items
 
 import io.github.nbcss.wynnlib.registry.IngredientRegistry
+import io.github.nbcss.wynnlib.registry.MaterialRegistry
 import io.github.nbcss.wynnlib.registry.PowderRegistry
 import io.github.nbcss.wynnlib.registry.RegularEquipmentRegistry
 
@@ -10,6 +11,8 @@ object ItemAPI {
         item = RegularEquipmentRegistry.get(id)
         if (item != null) return item
         item = IngredientRegistry.get(id)
+        if (item != null) return item
+        item = MaterialRegistry.get(id)
         if (item != null) return item
         item = PowderRegistry.get(id)
         if (item != null) return item
