@@ -34,7 +34,7 @@
   "wynnlib.matcher_type.item_tier_crafted": "\u81ea\u5236\u7269\u54c1",
   "wynnlib.matcher_type.ingredient_star_0": "\u7d20\u6750 7{[8{\u272b\u272b\u272b}]}",
   "wynnlib.matcher_type.ingredient_star_1": "\u7d20\u6750 6{[e{\u272b}8{\u272b\u272b}]}",
-  "wynnlib.matcher_type.ingredient_star_2": "\u7d20\u6750 5{[d{\u272b\u272b}8{\u272b}]}\n",
+  "wynnlib.matcher_type.ingredient_star_2": "\u7d20\u6750 5{[d{\u272b\u272b}8{\u272b}]}",
   "wynnlib.matcher_type.ingredient_star_3": "\u7d20\u6750 3{[b{\u272b\u272b\u272b}]}",
   "wynnlib.matcher_type.material_star_1": "\u539f\u6750\u6599 6{[e{\u272b}8{\u272b\u272b}]}",
   "wynnlib.matcher_type.material_star_2": "\u539f\u6750\u6599 6{[e{\u272b\u272b}8{\u272b}]}",
