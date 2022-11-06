@@ -10,8 +10,8 @@ import io.github.nbcss.wynnlib.i18n.Translations.UI_FILTER_ITEM_TYPE
 import net.minecraft.util.Formatting
 import java.util.function.Supplier
 
-class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
-                    private val screen: TooltipScreen): FilterGroup<Equipment>(memory) {
+class ItemTypeFilter(memory: CriteriaState<Equipment>,
+                     private val screen: TooltipScreen): FilterGroup<Equipment>(memory) {
     companion object {
         private const val FILTER_KEY = "ITEM_TYPE"
     }
@@ -76,7 +76,7 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
         }
     }*/
 
-    override fun reload(memory: CriteriaMemory<Equipment>) {
+    override fun reload(memory: CriteriaState<Equipment>) {
         memory.getFilter(FILTER_KEY)?.let {
             if (it is TypeFilter) {
                 for (entry in checkboxes.entries) {
@@ -90,7 +90,7 @@ class ItemTypeGroup(memory: CriteriaMemory<Equipment>,
 
     //override fun getContentHeight(): Int = contentHeight
 
-    class TypeFilter(val types: Set<EquipmentType>): CriteriaMemory.Filter<Equipment> {
+    class TypeFilter(val types: Set<EquipmentType>): CriteriaState.Filter<Equipment> {
 
         override fun accept(item: Equipment): Boolean {
             return item.getType() in types

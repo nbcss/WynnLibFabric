@@ -21,25 +21,25 @@ enum class Archetype(private val displayName: String,
                      private val character: CharacterClass,
                      meta: Int): Keyed, Translatable {
     //Warrior Archetypes
-    FALLEN("Fallen", Formatting.RED, CharacterClass.WARRIOR, 75),
-    BATTLE_MONK("Battle Monk", Formatting.YELLOW, CharacterClass.WARRIOR, 74),
-    PALADIN("Paladin", Formatting.AQUA, CharacterClass.WARRIOR, 72),
+    FALLEN("Fallen", Formatting.RED, CharacterClass.WARRIOR, 79),
+    BATTLE_MONK("Battle Monk", Formatting.YELLOW, CharacterClass.WARRIOR, 78),
+    PALADIN("Paladin", Formatting.AQUA, CharacterClass.WARRIOR, 76),
     //Archer Archetypes
-    BOLTSLINGER("Boltslinger", Formatting.YELLOW, CharacterClass.ARCHER, 74),
-    SHARPSHOOTER("Sharpshooter", Formatting.LIGHT_PURPLE, CharacterClass.ARCHER, 78),
-    TRAPPER("Trapper", Formatting.DARK_GREEN, CharacterClass.ARCHER, 77),
+    BOLTSLINGER("Boltslinger", Formatting.YELLOW, CharacterClass.ARCHER, 78),
+    SHARPSHOOTER("Sharpshooter", Formatting.LIGHT_PURPLE, CharacterClass.ARCHER, 82),
+    TRAPPER("Trapper", Formatting.DARK_GREEN, CharacterClass.ARCHER, 81),
     //Mage Archetypes
-    RIFTWALKER("Riftwalker", Formatting.AQUA, CharacterClass.MAGE, 72),
-    LIGHT_BENDER("Light Bender", Formatting.WHITE, CharacterClass.MAGE, 73),
-    ARCANIST("Arcanist", Formatting.DARK_PURPLE, CharacterClass.MAGE, 78),
+    RIFTWALKER("Riftwalker", Formatting.AQUA, CharacterClass.MAGE, 76),
+    LIGHT_BENDER("Light Bender", Formatting.WHITE, CharacterClass.MAGE, 77),
+    ARCANIST("Arcanist", Formatting.DARK_PURPLE, CharacterClass.MAGE, 82),
     //Assassin Archetypes
-    SHADESTEPPER("Shadestepper", Formatting.DARK_RED, CharacterClass.ASSASSIN, 75),
-    TRICKSTER("Trickster", Formatting.LIGHT_PURPLE, CharacterClass.ASSASSIN, 78),
-    ACROBAT("Acrobat", Formatting.WHITE, CharacterClass.ASSASSIN, 73),
+    SHADESTEPPER("Shadestepper", Formatting.DARK_RED, CharacterClass.ASSASSIN, 79),
+    TRICKSTER("Trickster", Formatting.LIGHT_PURPLE, CharacterClass.ASSASSIN, 82),
+    ACROBAT("Acrobat", Formatting.WHITE, CharacterClass.ASSASSIN, 77),
     //Shaman Archetypes
-    SUMMONER("Summoner", Formatting.GOLD, CharacterClass.SHAMAN, 76),
-    RITUALIST("Ritualist", Formatting.GREEN, CharacterClass.SHAMAN, 77),
-    ACOLYTE("Acolyte", Formatting.RED, CharacterClass.SHAMAN, 75);
+    SUMMONER("Summoner", Formatting.GOLD, CharacterClass.SHAMAN, 80),
+    RITUALIST("Ritualist", Formatting.GREEN, CharacterClass.SHAMAN, 81),
+    ACOLYTE("Acolyte", Formatting.RED, CharacterClass.SHAMAN, 79);
     private val texture: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#$meta")
     companion object {
         private val VALUE_MAP: MutableMap<String, Archetype> = LinkedHashMap()

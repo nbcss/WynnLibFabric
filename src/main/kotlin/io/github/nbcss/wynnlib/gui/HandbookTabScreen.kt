@@ -2,13 +2,7 @@ package io.github.nbcss.wynnlib.gui
 
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.Settings
-import io.github.nbcss.wynnlib.gui.ability.AbilityBuildDictionaryScreen
-import io.github.nbcss.wynnlib.gui.ability.AbilityTreeViewerScreen
-import io.github.nbcss.wynnlib.gui.dicts.EquipmentDictScreen
-import io.github.nbcss.wynnlib.gui.dicts.IngredientDictScreen
-import io.github.nbcss.wynnlib.gui.dicts.MaterialDictScreen
-import io.github.nbcss.wynnlib.gui.dicts.PowderDictScreen
-import io.github.nbcss.wynnlib.gui.widgets.ExitButtonWidget
+import io.github.nbcss.wynnlib.gui.widgets.buttons.ExitButtonWidget
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen

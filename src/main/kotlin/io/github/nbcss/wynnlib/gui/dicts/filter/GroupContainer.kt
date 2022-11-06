@@ -1,11 +1,19 @@
 package io.github.nbcss.wynnlib.gui.dicts.filter
 
-import io.github.nbcss.wynnlib.gui.widgets.scrollable.ScrollElement
+import io.github.nbcss.wynnlib.gui.widgets.scrollable.ScrollListEntry
 import io.github.nbcss.wynnlib.items.BaseItem
 import net.minecraft.client.util.math.MatrixStack
 
-class FilterGroupContainer<T: BaseItem> (val group: FilterGroup<T>,
-                                         private val containerY: Int): ScrollElement {
+class GroupContainer<T: BaseItem> (val group: CriteriaGroup<T>): ScrollListEntry {
+    private var top: Int = 0
+
+    override fun updateTop(entryTop: Int) {
+        this.top = entryTop
+    }
+
+    override fun getEntryHeight(): Int {
+        return group.getHeight()
+    }
 
     override fun mouseClicked(mouseX: Double, mouseY: Double, button: Int): Boolean {
         return group.getElements().any { it.mouseClicked(mouseX, mouseY, button) }
@@ -39,7 +47,7 @@ class FilterGroupContainer<T: BaseItem> (val group: FilterGroup<T>,
 
     override fun updateState(x: Int, y: Int, active: Boolean) {
         for (element in group.getElements()) {
-            element.updateState(x, y + containerY, active)
+            element.updateState(x, y + top, active)
         }
     }
 }

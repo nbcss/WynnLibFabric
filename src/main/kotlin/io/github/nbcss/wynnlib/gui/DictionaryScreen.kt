@@ -2,9 +2,9 @@ package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
 import io.github.nbcss.wynnlib.gui.widgets.ItemSearchWidget
-import io.github.nbcss.wynnlib.gui.widgets.ItemSlotWidget
+import io.github.nbcss.wynnlib.gui.widgets.buttons.ItemSlotWidget
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
-import io.github.nbcss.wynnlib.gui.dicts.filter.CriteriaMemory
+import io.github.nbcss.wynnlib.gui.dicts.filter.CriteriaState
 import io.github.nbcss.wynnlib.i18n.Translations.UI_ADVANCE_SEARCH
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.items.identity.ConfigurableItem
@@ -34,7 +34,7 @@ abstract class DictionaryScreen<T: BaseItem>(parent: Screen?, title: Text) : Han
         const val ROWS = 6
     }
     protected val items: MutableList<T> = ArrayList()
-    protected val memory: CriteriaMemory<T> = CriteriaMemory({
+    protected val memory: CriteriaState<T> = CriteriaState({
         onResultChanged()
     }, {
         getSearchPane()?.reload(it)

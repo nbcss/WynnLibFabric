@@ -1,7 +1,7 @@
 package io.github.nbcss.wynnlib.mixins.inventory;
 
 import io.github.nbcss.wynnlib.data.CharacterClass;
-import io.github.nbcss.wynnlib.gui.widgets.ATreeEditButtonWidget;
+import io.github.nbcss.wynnlib.gui.widgets.buttons.ATreeEditButtonWidget;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.text.Text;

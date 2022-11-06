@@ -1,8 +1,7 @@
-package io.github.nbcss.wynnlib.gui.widgets
+package io.github.nbcss.wynnlib.gui.widgets.buttons
 
 import com.mojang.blaze3d.systems.RenderSystem
 import io.github.nbcss.wynnlib.render.RenderKit
-import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder
 import net.minecraft.client.gui.widget.PressableWidget
 import net.minecraft.client.util.math.MatrixStack

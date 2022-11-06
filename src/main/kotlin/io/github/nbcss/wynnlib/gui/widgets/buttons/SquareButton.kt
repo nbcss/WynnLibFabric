@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets
+package io.github.nbcss.wynnlib.gui.widgets.buttons
 
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider

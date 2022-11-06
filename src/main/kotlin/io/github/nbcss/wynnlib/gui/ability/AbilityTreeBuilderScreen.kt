@@ -10,7 +10,7 @@ import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
 import io.github.nbcss.wynnlib.gui.widgets.RollingTextWidget
-import io.github.nbcss.wynnlib.gui.widgets.SquareButton
+import io.github.nbcss.wynnlib.gui.widgets.buttons.SquareButton
 import io.github.nbcss.wynnlib.gui.widgets.VerticalSliderWidget
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.i18n.Translations.TOOLTIP_ABILITY_LOCKED
@@ -405,6 +405,8 @@ open class AbilityTreeBuilderScreen(parent: Screen?,
                 renderArchetypeOutline(matrices, it, node.x, node.y)
                 val icon = if (build.hasAbility(it)){
                     it.getTier().getActiveTexture()
+                }else if(build.isBlocked(it)){
+                    it.getTier().getBlockedTexture()
                 }else if (!build.isUnlockable(it)){
                     it.getTier().getLockedTexture()
                 }else if(isMouseOver(mouseX.toDouble(), mouseY.toDouble()) && isOverNode(node, mouseX, mouseY)){

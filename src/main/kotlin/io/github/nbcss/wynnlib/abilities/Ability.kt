@@ -310,43 +310,48 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
                     private val formatting: Formatting,
                     private val locked: ItemStack,
                     private val unlocked: ItemStack,
-                    private val active: ItemStack) {
+                    private val active: ItemStack,
+                    private val blocked: ItemStack? = null) {
         WARRIOR_SPELL(0, Formatting.GREEN,
-            ItemFactory.fromEncoding("minecraft:stone_axe#57"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#58"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#59")),
-        ARCHER_SPELL(0, Formatting.GREEN,
-            ItemFactory.fromEncoding("minecraft:stone_axe#60"),
             ItemFactory.fromEncoding("minecraft:stone_axe#61"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#62")),
-        MAGE_SPELL(0, Formatting.GREEN,
-            ItemFactory.fromEncoding("minecraft:stone_axe#66"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#67"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#68")),
-        ASSASSIN_SPELL(0, Formatting.GREEN,
-            ItemFactory.fromEncoding("minecraft:stone_axe#63"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#62"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#63")),
+        ARCHER_SPELL(0, Formatting.GREEN,
             ItemFactory.fromEncoding("minecraft:stone_axe#64"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#65")),
-        SHAMAN_SPELL(0, Formatting.GREEN,
-            ItemFactory.fromEncoding("minecraft:stone_axe#69"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#65"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#66")),
+        MAGE_SPELL(0, Formatting.GREEN,
             ItemFactory.fromEncoding("minecraft:stone_axe#70"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#71")),
+            ItemFactory.fromEncoding("minecraft:stone_axe#71"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#72")),
+        ASSASSIN_SPELL(0, Formatting.GREEN,
+            ItemFactory.fromEncoding("minecraft:stone_axe#67"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#68"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#69")),
+        SHAMAN_SPELL(0, Formatting.GREEN,
+            ItemFactory.fromEncoding("minecraft:stone_axe#73"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#74"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#75")),
         TIER_1(1, Formatting.WHITE,
             ItemFactory.fromEncoding("minecraft:stone_axe#45"),
             ItemFactory.fromEncoding("minecraft:stone_axe#46"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#47")),
+            ItemFactory.fromEncoding("minecraft:stone_axe#47"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#48")),
         TIER_2(2, Formatting.GOLD,
-            ItemFactory.fromEncoding("minecraft:stone_axe#48"),
             ItemFactory.fromEncoding("minecraft:stone_axe#49"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#50")),
-        TIER_3(3, Formatting.LIGHT_PURPLE,
+            ItemFactory.fromEncoding("minecraft:stone_axe#50"),
             ItemFactory.fromEncoding("minecraft:stone_axe#51"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#52"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#53")),
-        TIER_4(4, Formatting.RED,
+            ItemFactory.fromEncoding("minecraft:stone_axe#52")),
+        TIER_3(3, Formatting.LIGHT_PURPLE,
+            ItemFactory.fromEncoding("minecraft:stone_axe#53"),
             ItemFactory.fromEncoding("minecraft:stone_axe#54"),
             ItemFactory.fromEncoding("minecraft:stone_axe#55"),
-            ItemFactory.fromEncoding("minecraft:stone_axe#56"));
+            ItemFactory.fromEncoding("minecraft:stone_axe#56")),
+        TIER_4(4, Formatting.RED,
+            ItemFactory.fromEncoding("minecraft:stone_axe#57"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#58"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#59"),
+            ItemFactory.fromEncoding("minecraft:stone_axe#60"));
         companion object {
             fun ofCharacter(character: CharacterClass): Tier {
                 return when (character) {
@@ -368,5 +373,7 @@ class Ability(json: JsonObject): Keyed, Translatable, PlaceholderContainer, Prop
         fun getUnlockedTexture(): ItemStack = unlocked
 
         fun getActiveTexture(): ItemStack = active
+
+        fun getBlockedTexture(): ItemStack = blocked ?: locked
     }
 }

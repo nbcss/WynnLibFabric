@@ -3,6 +3,7 @@ package io.github.nbcss.wynnlib.gui.widgets
 import io.github.nbcss.wynnlib.gui.TooltipScreen
 import io.github.nbcss.wynnlib.gui.widgets.scrollable.ScrollElement
 import io.github.nbcss.wynnlib.render.TextureData
+import net.minecraft.client.gui.Element
 import net.minecraft.client.util.math.MatrixStack
 
 open class ElementsContainerScroll(background: TextureData?,
@@ -15,7 +16,7 @@ open class ElementsContainerScroll(background: TextureData?,
                                    private var contentHeight: Int = 0,
                                    scrollDelay: Long = 200L,
                                    scrollUnit: Double = 32.0):
-    ScrollPaneWidget(background, screen, x, y, width, height, scrollDelay, scrollUnit) {
+    AbstractElementScroll(background, screen, x, y, width, height, scrollDelay, scrollUnit) {
 
     fun setElements(elements: MutableList<ScrollElement>) {
         this.elements = elements
@@ -29,31 +30,9 @@ open class ElementsContainerScroll(background: TextureData?,
         contentHeight = h
     }
 
+    override fun getElements(): List<Element> = elements
+
     override fun getContentHeight(): Int = contentHeight
-
-    override fun onContentDrag(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        return elements.any { it.mouseDragged(mouseX, mouseY, button, 0.0, 0.0) }
-    }
-
-    override fun onContentRelease(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        return elements.any { it.mouseReleased(mouseX, mouseY, button) }
-    }
-
-    override fun onContentClick(mouseX: Double, mouseY: Double, button: Int): Boolean {
-        return elements.any { it.mouseClicked(mouseX, mouseY, button) }
-    }
-
-    override fun keyReleased(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        return elements.any { it.keyReleased(keyCode, scanCode, modifiers) }
-    }
-
-    override fun keyPressed(keyCode: Int, scanCode: Int, modifiers: Int): Boolean {
-        return elements.any { it.keyPressed(keyCode, scanCode, modifiers) }
-    }
-
-    override fun charTyped(chr: Char, modifiers: Int): Boolean {
-        return elements.any { it.charTyped(chr, modifiers) }
-    }
 
     override fun renderContents(
         matrices: MatrixStack,

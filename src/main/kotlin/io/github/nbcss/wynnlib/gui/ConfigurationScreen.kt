@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib.gui
 
 import io.github.nbcss.wynnlib.Settings
 import io.github.nbcss.wynnlib.gui.widgets.*
+import io.github.nbcss.wynnlib.gui.widgets.buttons.*
 import io.github.nbcss.wynnlib.gui.widgets.scrollable.CheckboxWidget
 import io.github.nbcss.wynnlib.gui.widgets.scrollable.LabelWidget
 import io.github.nbcss.wynnlib.i18n.Translations

@@ -4,9 +4,9 @@ import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.utils.Keyed
 import java.util.function.Consumer
 
-class CriteriaMemory<T: BaseItem>(private val onContentUpdate: Consumer<CriteriaMemory<T>>,
-                                  private val onCriteriaUpdate: Consumer<CriteriaMemory<T>>,
-                                  private val maxSorters: Int = 8) {
+class CriteriaState<T: BaseItem>(private val onContentUpdate: Consumer<CriteriaState<T>>,
+                                 private val onCriteriaUpdate: Consumer<CriteriaState<T>>,
+                                 private val maxSorters: Int = 8) {
     private val filters: MutableMap<String, Filter<T>> = mutableMapOf()
     private val sorterIndexes: MutableMap<String, Int> = mutableMapOf()
     private val sorters: MutableList<Sorter<T>> = mutableListOf()

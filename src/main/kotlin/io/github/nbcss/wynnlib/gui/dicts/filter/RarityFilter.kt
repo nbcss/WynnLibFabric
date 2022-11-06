@@ -9,8 +9,8 @@ import io.github.nbcss.wynnlib.i18n.Translations.UI_FILTER_RARITY
 import net.minecraft.util.Formatting
 import java.util.function.Supplier
 
-class RarityGroup(memory: CriteriaMemory<Equipment>,
-                  private val screen: TooltipScreen): FilterGroup<Equipment>(memory) {
+class RarityFilter(memory: CriteriaState<Equipment>,
+                   private val screen: TooltipScreen): FilterGroup<Equipment>(memory) {
     companion object {
         private const val FILTER_KEY = "ITEM_RARITY"
     }
@@ -74,7 +74,7 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         }
     }*/
 
-    override fun reload(memory: CriteriaMemory<Equipment>) {
+    override fun reload(memory: CriteriaState<Equipment>) {
         memory.getFilter(FILTER_KEY)?.let {
             if (it is TierFilter) {
                 for (entry in checkboxes.entries) {
@@ -98,7 +98,7 @@ class RarityGroup(memory: CriteriaMemory<Equipment>,
         return false
     }*/
 
-    class TierFilter(val tiers: Set<Tier>): CriteriaMemory.Filter<Equipment> {
+    class TierFilter(val tiers: Set<Tier>): CriteriaState.Filter<Equipment> {
 
         override fun accept(item: Equipment): Boolean {
             return item.getTier() in tiers

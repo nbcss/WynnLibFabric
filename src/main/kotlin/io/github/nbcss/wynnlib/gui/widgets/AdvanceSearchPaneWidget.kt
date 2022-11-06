@@ -1,9 +1,12 @@
 package io.github.nbcss.wynnlib.gui.widgets
 
 import io.github.nbcss.wynnlib.gui.DictionaryScreen
-import io.github.nbcss.wynnlib.gui.dicts.filter.CriteriaMemory
+import io.github.nbcss.wynnlib.gui.dicts.filter.CriteriaState
+import io.github.nbcss.wynnlib.gui.dicts.filter.CriteriaGroup
 import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroup
-import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroupContainer
+import io.github.nbcss.wynnlib.gui.dicts.filter.GroupContainer
+import io.github.nbcss.wynnlib.gui.widgets.buttons.ExitButtonWidget
+import io.github.nbcss.wynnlib.gui.widgets.ListContainerScroll
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.BaseItem
 import io.github.nbcss.wynnlib.render.RenderKit
@@ -16,7 +19,7 @@ import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.util.Identifier
 
 class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<T>,
-                                           private val criteriaList: List<FilterGroup<T>>,
+                                           private val criteriaList: List<CriteriaGroup<T>>,
                                            x: Int,
                                            y: Int): ClickableWidget(x, y, WIDTH, HEIGHT, null) {
     companion object {
@@ -43,11 +46,11 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         }
     }
 
-    fun reload(memory: CriteriaMemory<T>) {
+    fun reload(memory: CriteriaState<T>) {
         criteriaList.forEach { it.reload(memory) }
     }
 
-    fun getCriteriaList(): List<FilterGroup<T>> = criteriaList
+    fun getCriteriaList(): List<CriteriaGroup<T>> = criteriaList
 
     override fun appendNarrations(builder: NarrationMessageBuilder?) {
         appendDefaultNarrations(builder)
@@ -97,19 +100,30 @@ class AdvanceSearchPaneWidget<T: BaseItem>(private val screen: DictionaryScreen<
         scroll.render(matrices, mouseX, mouseY, delta)
     }
 
-    inner class Scroll: ElementsContainerScroll(null, screen,
-        x + 5, y + 15, SCROLL_WIDTH, height - 24) {
+    inner class Scroll: ListContainerScroll(null, screen,
+        x + 5, y + 15, SCROLL_WIDTH, height - 24,
+        elements = getCriteriaList().map { GroupContainer(it) }.toMutableList()) {
+        override fun getSlider(): VerticalSliderWidget = slider
+    }
 
-        init {
-            var containerY = 0
-            for (group in getCriteriaList()) {
-                val container = FilterGroupContainer(group, containerY)
-                addElement(container)
-                containerY += group.getHeight()
-            }
-            setContentHeight(containerY)
+    class Builder<T: BaseItem>(private val screen: DictionaryScreen<T>,
+                               private val x: Int,
+                               private val y: Int) {
+        private val filters: MutableList<CriteriaGroup<T>> = mutableListOf()
+
+        fun filter(filter: FilterGroup<T>): Builder<T> {
+            filters.add(filter)
+            return this
         }
 
-        override fun getSlider(): VerticalSliderWidget = slider
+        fun sorter(): Builder<T> {
+            //todo
+            return this
+        }
+
+        fun build(): AdvanceSearchPaneWidget<T> {
+            //todo
+            return AdvanceSearchPaneWidget(screen, filters, x, y)
+        }
     }
 }

@@ -23,7 +23,7 @@ import net.minecraft.util.Identifier
 abstract class AbstractAbilityTreeScreen(parent: Screen?) : HandbookTabScreen(parent, TITLE) {
     companion object {
         val TEXTURE = Identifier("wynnlib", "textures/gui/ability_ui.png")
-        val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#83")
+        val ICON: ItemStack = ItemFactory.fromEncoding("minecraft:stone_axe#87")
         val UPGRADE_TEXTURE = Identifier("wynnlib", "textures/gui/upgrade_frames.png")
         val TITLE: Text = Translations.UI_ABILITY_TREE.translate()
         val ACTIVE_OUTER_COLOR: AlphaColor = Color(0x37ACB5).solid()

@@ -1025,7 +1025,7 @@
         "mana_modifier": -5,
         "cooldown": 10,
         "values": {
-          "1": 5
+          "1": 8
         }
       },
       "metadata": null
@@ -1120,8 +1120,8 @@
         },
         "enraged_blow": {
           "rate": 1,
-          "damage_boost": 2.2,
-          "max_boost": 220
+          "damage_boost": 2,
+          "max_boost": 160
         }
       },
       "metadata": {
@@ -3228,7 +3228,7 @@
         "values": {
           "1": 5
         },
-        "focus_damage_bonus": 25,
+        "focus_damage_bonus": 20,
         "max_focus": 3
       },
       "metadata": {
@@ -3912,7 +3912,7 @@
         "range": 16,
         "values": {
           "1": 0.5,
-          "2": 20
+          "2": 10
         }
       },
       "metadata": {
@@ -4435,10 +4435,10 @@
     {
       "id": "GRAPE_BOMB",
       "name": "Grape Bomb",
-      "location": "6,1,7",
+      "location": "6,5,7",
       "class": "ARCHER",
       "index": 62,
-      "height": 30,
+      "height": 34,
       "position": 3,
       "tier": 3,
       "cost": 2,
@@ -4447,7 +4447,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "CHEAPER_ESCAPE_2"
+        "MINEFIELD",
+        "CHEAPER_ARROW_BOMB_2"
       ],
       "properties": {
         "extend": {
@@ -4456,7 +4457,7 @@
         "damage": {
           "neutral": 30,
           "fire": 10,
-          "hits": 3
+          "hits": 2
         },
         "aoe": {
           "range": 2,
@@ -4504,11 +4505,11 @@
     {
       "id": "TANGLED_TRAPS",
       "name": "Tangled Traps",
-      "location": "6,2,6",
+      "location": "6,1,7",
       "class": "ARCHER",
       "index": 64,
-      "height": 31,
-      "position": 2,
+      "height": 30,
+      "position": 3,
       "tier": 2,
       "cost": 2,
       "archetype": "TRAPPER",
@@ -4516,7 +4517,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "GRAPE_BOMB"
+        "CHEAPER_ESCAPE_2"
       ],
       "properties": {
         "extend": {
@@ -4540,11 +4541,11 @@
     {
       "id": "STRONGER_PATIENT_HUNTER",
       "name": "Stronger Patient Hunter",
-      "location": "6,2,8",
+      "location": "6,2,6",
       "class": "ARCHER",
       "index": 65,
       "height": 31,
-      "position": 4,
+      "position": 2,
       "tier": 1,
       "cost": 1,
       "archetype": "TRAPPER",
@@ -4552,7 +4553,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "GRAPE_BOMB"
+        "TANGLED_TRAPS"
       ],
       "properties": {
         "upgrade": {
@@ -4648,21 +4649,21 @@
           "ability": "GUARDIAN_ANGELS"
         },
         "damage_modifier": {
-          "fire": 10,
-          "hits": 5,
+          "fire": 5,
+          "hits": 4,
           "label": "ARROW"
         },
-        "range_modifier": 8
+        "range_modifier": 7
       },
       "metadata": null
     },
     {
       "id": "CHEAPER_ARROW_BOMB_2",
       "name": "Cheaper Arrow Bomb",
-      "location": "6,4,5",
+      "location": "6,5,5",
       "class": "ARCHER",
       "index": 69,
-      "height": 33,
+      "height": 34,
       "position": 1,
       "tier": 1,
       "cost": 1,
@@ -4672,7 +4673,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "MORE_FOCUS_2",
-        "MINEFIELD"
+        "GRAPE_BOMB"
       ],
       "properties": {
         "upgrade": {
@@ -4685,10 +4686,10 @@
     {
       "id": "MINEFIELD",
       "name": "Minefield",
-      "location": "6,4,7",
+      "location": "6,3,7",
       "class": "ARCHER",
       "index": 70,
-      "height": 33,
+      "height": 32,
       "position": 3,
       "tier": 4,
       "cost": 2,
@@ -4699,8 +4700,7 @@
         "TRAPPER": 10
       },
       "predecessors": [
-        "CHEAPER_ARROW_BOMB_2",
-        "GRAPE_BOMB"
+        "TANGLED_TRAPS"
       ],
       "properties": {
         "upgrade": {
@@ -10154,7 +10154,7 @@
           "SPELL_3": -30
         },
         "effects": {
-          "SELF_DAMAGE": 50,
+          "SELF_DAMAGE": 35,
           "SELF_WALK_SPEED": -35
         },
         "replacing": {
@@ -11637,7 +11637,7 @@
           "ability": "UPROOT"
         },
         "damage": {
-          "neutral": 70,
+          "neutral": 100,
           "water": 20
         },
         "damage_interval": 0.2,
@@ -11712,7 +11712,7 @@
           "SPELL_3": -30
         },
         "effects": {
-          "SELF_DAMAGE": 30,
+          "SELF_DAMAGE": 15,
           "SELF_RESISTANCE": 15,
           "SELF_WALK_SPEED": 45
         },
@@ -11731,5 +11731,5 @@
       }
     }
   ],
-  "version": "0.2.4"
+  "version": "0.2.5"
 }

@@ -6,12 +6,10 @@ import io.github.nbcss.wynnlib.data.CharacterClass
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.ATreeScrollWidget
-import io.github.nbcss.wynnlib.gui.widgets.SideTabWidget
+import io.github.nbcss.wynnlib.gui.widgets.buttons.*
 import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.registry.AbilityRegistry
-import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.ItemFactory
-import io.github.nbcss.wynnlib.utils.playSound
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.item.ItemStack

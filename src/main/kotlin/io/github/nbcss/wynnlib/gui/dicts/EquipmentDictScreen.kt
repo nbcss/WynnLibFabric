@@ -4,9 +4,8 @@ import io.github.nbcss.wynnlib.gui.DictionaryScreen
 import io.github.nbcss.wynnlib.gui.HandbookTabScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
 import io.github.nbcss.wynnlib.gui.widgets.AdvanceSearchPaneWidget
-import io.github.nbcss.wynnlib.gui.dicts.filter.FilterGroup
-import io.github.nbcss.wynnlib.gui.dicts.filter.ItemTypeGroup
-import io.github.nbcss.wynnlib.gui.dicts.filter.RarityGroup
+import io.github.nbcss.wynnlib.gui.dicts.filter.ItemTypeFilter
+import io.github.nbcss.wynnlib.gui.dicts.filter.RarityFilter
 import io.github.nbcss.wynnlib.items.equipments.Equipment
 import io.github.nbcss.wynnlib.i18n.Translations.UI_EQUIPMENTS
 import io.github.nbcss.wynnlib.registry.CharmRegistry
@@ -32,16 +31,14 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
             override fun shouldDisplay(): Boolean = true
         }
     }
-    private var filter: AdvanceSearchPaneWidget<Equipment>? = null
+    private var advSearch: AdvanceSearchPaneWidget<Equipment>? = null
 
     override fun init() {
         super.init()
-        val groups: MutableList<FilterGroup<Equipment>> = mutableListOf()
-        groups.add(ItemTypeGroup(memory, this))
-        groups.add(RarityGroup(memory, this))
-        //groups.addAll(IdentificationCriteriaGroup.of(memory))
-        filter = AdvanceSearchPaneWidget(this, groups,
-            windowX + backgroundWidth, windowY + 28)
+        advSearch = AdvanceSearchPaneWidget.Builder(this, windowX + backgroundWidth, windowY + 28)
+            .filter(ItemTypeFilter(memory, this))
+            .filter(RarityFilter(memory, this))
+            .build()
         //filter?.reload(memory)
     }
 
@@ -51,5 +48,5 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
             .plus(CharmRegistry.getAll())
     }
 
-    override fun getSearchPane(): AdvanceSearchPaneWidget<Equipment>? = filter
+    override fun getSearchPane(): AdvanceSearchPaneWidget<Equipment>? = advSearch
 }

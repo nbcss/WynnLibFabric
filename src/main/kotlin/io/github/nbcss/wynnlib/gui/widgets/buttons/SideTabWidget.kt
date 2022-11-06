@@ -1,4 +1,4 @@
-package io.github.nbcss.wynnlib.gui.widgets
+package io.github.nbcss.wynnlib.gui.widgets.buttons
 
 import io.github.nbcss.wynnlib.render.RenderKit
 import io.github.nbcss.wynnlib.utils.playSound
@@ -16,7 +16,8 @@ class SideTabWidget(private val index: Int,
                     private val posY: Int,
                     private val icon: ItemStack,
                     private val side: Side,
-                    private val handler: Handler): DrawableHelper() {
+                    private val handler: Handler
+): DrawableHelper() {
     private val itemRenderer: ItemRenderer = MinecraftClient.getInstance().itemRenderer
     companion object {
         private val TEXTURE = Identifier("wynnlib", "textures/gui/tab_buttons.png")
@@ -29,7 +30,8 @@ class SideTabWidget(private val index: Int,
                            offsetY: Int,
                            side: Side,
                            icon: ItemStack,
-                           handler: Handler): SideTabWidget {
+                           handler: Handler
+        ): SideTabWidget {
             val posX = windowX + side.windowX
             val posY = windowY + offsetY
             return SideTabWidget(index, posX, posY, icon, side, handler)
@@ -40,7 +42,8 @@ class SideTabWidget(private val index: Int,
         if (!handler.isSelected(index)) {
             val tabY = posY + index * TAB_HEIGHT
             RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
-                side.u, 0, TAB_WIDTH, TAB_HEIGHT)
+                side.u, 0, TAB_WIDTH, TAB_HEIGHT
+            )
             itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
             if (isOverTab(mouseX, mouseY)){
                 handler.drawTooltip(matrices!!, mouseX, mouseY, index)
@@ -52,7 +55,8 @@ class SideTabWidget(private val index: Int,
         if (handler.isSelected(index)) {
             val tabY = posY + index * TAB_HEIGHT
             RenderKit.renderTexture(matrices, TEXTURE, posX, tabY,
-                side.u, 28, TAB_WIDTH, TAB_HEIGHT)
+                side.u, 28, TAB_WIDTH, TAB_HEIGHT
+            )
             itemRenderer.renderInGuiWithOverrides(icon, posX + side.iconOffset, tabY + 6)
             if (isOverTab(mouseX, mouseY)){
                 handler.drawTooltip(matrices!!, mouseX, mouseY, index)

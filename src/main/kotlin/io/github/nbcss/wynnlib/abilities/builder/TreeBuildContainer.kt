@@ -57,6 +57,10 @@ class TreeBuildContainer(private val data: TreeBuildData,
 
     fun isUnlockable(ability: Ability): Boolean = ability in unlockable
 
+    fun isBlocked(ability: Ability): Boolean {
+        return ability.getBlockAbilities().any { data.hasAbility(it) }
+    }
+
     private fun validateAbilities() {
         val state = stateOf(data.getActiveAbilities())
         data.setAbilities(state.abilities)
