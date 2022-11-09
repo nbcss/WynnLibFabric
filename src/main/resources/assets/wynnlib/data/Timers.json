@@ -118,6 +118,15 @@
       "properties": {}
     },
     {
+      "id": "FIRE_CREEP_COOLDOWN",
+      "type": "COOLDOWN",
+      "icon": "\u00a78\u2b24",
+      "name": "Fire Creep",
+      "texture": "FIRE_CREEP",
+      "text": null,
+      "properties": {}
+    },
+    {
       "id": "TWAINS_ARC_EFFECT",
       "type": "TEMP_EFFECT",
       "icon": "\u00a7b\u2764",

@@ -3036,6 +3036,7 @@
         },
         "damage_interval": 0.4,
         "duration": 6,
+        "cooldown": 3,
         "aoe": {
           "range": 0.8,
           "shape": "LINE"
@@ -3953,11 +3954,11 @@
     {
       "id": "ESCAPE_ARTIST",
       "name": "Escape Artist",
-      "location": "5,1,0",
+      "location": "5,1,2",
       "class": "ARCHER",
       "index": 47,
       "height": 25,
-      "position": -4,
+      "position": -2,
       "tier": 2,
       "cost": 2,
       "archetype": null,
@@ -3967,8 +3968,8 @@
       ],
       "archetype_requirements": {},
       "predecessors": [
-        "LEAP",
-        "BETTER_GUARDIAN_ANGELS"
+        "BETTER_GUARDIAN_ANGELS",
+        "HOMING_SHOTS"
       ],
       "properties": {
         "extend": {
@@ -3994,11 +3995,11 @@
     {
       "id": "BETTER_GUARDIAN_ANGELS",
       "name": "Better Guardian Angels",
-      "location": "5,1,2",
+      "location": "5,1,0",
       "class": "ARCHER",
       "index": 48,
       "height": 25,
-      "position": -2,
+      "position": -4,
       "tier": 1,
       "cost": 1,
       "archetype": "BOLTSLINGER",
@@ -4006,8 +4007,8 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "ESCAPE_ARTIST",
-        "HOMING_SHOTS"
+        "LEAP",
+        "ESCAPE_ARTIST"
       ],
       "properties": {
         "upgrade": {
@@ -4142,7 +4143,7 @@
         "BOLTSLINGER": 8
       },
       "predecessors": [
-        "ESCAPE_ARTIST",
+        "BETTER_GUARDIAN_ANGELS",
         "PRECISE_SHOT"
       ],
       "properties": {
@@ -4169,7 +4170,7 @@
       "archetype_requirements": {},
       "predecessors": [
         "ARROW_HURRICANE",
-        "BETTER_GUARDIAN_ANGELS",
+        "ESCAPE_ARTIST",
         "CHEAPER_ARROW_SHIELD_1"
       ],
       "properties": {
@@ -4455,8 +4456,8 @@
           "spell": "SPELL_3"
         },
         "damage": {
-          "neutral": 30,
-          "fire": 10,
+          "neutral": 60,
+          "fire": 20,
           "hits": 2
         },
         "aoe": {
