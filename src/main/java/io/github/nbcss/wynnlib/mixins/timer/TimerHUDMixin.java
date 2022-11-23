@@ -5,6 +5,7 @@ import io.github.nbcss.wynnlib.Settings;
 import io.github.nbcss.wynnlib.timer.IconIndicator;
 import io.github.nbcss.wynnlib.timer.SideIndicator;
 import io.github.nbcss.wynnlib.timer.IndicatorManager;
+import io.github.nbcss.wynnlib.utils.Keyed;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -62,6 +63,8 @@ public abstract class TimerHUDMixin {
         RenderSystem.texParameter(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
         RenderSystem.texParameter(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
         for (IconIndicator timer : timers) {
+            String key = ((Keyed) timer).getKey();
+            if (!Settings.INSTANCE.getIndicatorEnabled(key)) continue;
             timer.render(matrices, getTextRenderer(), posX, posY, delta);
             posX += 28;
         }

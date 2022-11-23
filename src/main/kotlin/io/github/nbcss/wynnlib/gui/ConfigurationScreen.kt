@@ -9,6 +9,7 @@ import io.github.nbcss.wynnlib.i18n.Translations
 import io.github.nbcss.wynnlib.items.identity.TooltipProvider
 import io.github.nbcss.wynnlib.matcher.MatcherType
 import io.github.nbcss.wynnlib.matcher.ProtectableType
+import io.github.nbcss.wynnlib.timer.status.StatusType
 import io.github.nbcss.wynnlib.utils.ItemFactory
 import io.github.nbcss.wynnlib.utils.formattingLines
 import net.minecraft.client.gui.screen.Screen
@@ -18,6 +19,7 @@ import net.minecraft.text.LiteralText
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import java.util.function.Supplier
+import javax.swing.text.Element
 
 class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) {
     companion object {
@@ -106,7 +108,19 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             }
 
             override fun getIcon(): ItemStack = icon
-        };
+        },
+        INDICATORS{
+            private val icon: ItemStack = ItemFactory.fromEncoding("minecraft:apple")
+            override fun createScroll(screen: ConfigurationScreen): ScrollPaneWidget {
+                return screen.IndicatorScroll()
+            }
+
+            override fun getDisplayText(): Text {
+                return Translations.SETTINGS_INDICATORS.translate()
+            }
+
+            override fun getIcon(): ItemStack = icon
+        }
     }
 
     interface SettingCategory {
@@ -167,6 +181,30 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
                 addElement(checkbox)
                 addElement(LabelWidget(posX + 22, posY + 5, Supplier {
                     return@Supplier option.formatted(Formatting.GRAY)
+                }))
+                posY += 20
+            }
+            setContentHeight(posY + 2)
+        }
+        override fun getSlider(): VerticalSliderWidget? = slider
+    }
+
+    inner class IndicatorScroll: ElementsContainerScroll(null, this@ConfigurationScreen,
+        scrollX, scrollY, SCROLL_WIDTH, SCROLL_HEIGHT) {
+        init {
+            val posX = 2
+            var posY = 2
+            for (indicator in StatusType.getAll()) {
+                if (!indicator.isIconIndicator()) continue;
+                val key = indicator.getKey()
+                val checkbox = CheckboxWidget(posX, posY, indicator.translate(),
+                    this@ConfigurationScreen, Settings.getIndicatorEnabled(key))
+                checkbox.setCallback {
+                    Settings.setIndicatorEnabled(key, it.isChecked())
+                }
+                addElement(checkbox)
+                addElement(LabelWidget(posX + 22, posY + 5, Supplier {
+                    return@Supplier indicator.translate()
                 }))
                 posY += 20
             }
