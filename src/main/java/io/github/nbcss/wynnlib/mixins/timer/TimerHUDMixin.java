@@ -63,7 +63,7 @@ public abstract class TimerHUDMixin {
         RenderSystem.texParameter(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_NEAREST);
         RenderSystem.texParameter(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_NEAREST);
         for (IconIndicator timer : timers) {
-            String key = ((Keyed) timer).getKey();
+            String key = timer.getKey();
             if (!Settings.INSTANCE.getIndicatorEnabled(key)) continue;
             timer.render(matrices, getTextRenderer(), posX, posY, delta);
             posX += 28;

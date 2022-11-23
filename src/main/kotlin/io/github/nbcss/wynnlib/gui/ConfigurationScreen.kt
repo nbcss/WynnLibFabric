@@ -110,7 +110,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
             override fun getIcon(): ItemStack = icon
         },
         INDICATORS{
-            private val icon: ItemStack = ItemFactory.fromEncoding("minecraft:apple")
+            private val icon: ItemStack = ItemFactory.fromEncoding("minecraft:clock")
             override fun createScroll(screen: ConfigurationScreen): ScrollPaneWidget {
                 return screen.IndicatorScroll()
             }
@@ -204,7 +204,7 @@ class ConfigurationScreen(parent: Screen?) : GenericScrollScreen(parent, TITLE) 
                 }
                 addElement(checkbox)
                 addElement(LabelWidget(posX + 22, posY + 5, Supplier {
-                    return@Supplier indicator.translate()
+                    return@Supplier indicator.formatted(Formatting.GRAY)
                 }))
                 posY += 20
             }

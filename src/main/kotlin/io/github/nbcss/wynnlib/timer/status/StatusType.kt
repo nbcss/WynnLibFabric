@@ -82,6 +82,9 @@ abstract class StatusType(data: JsonObject): Keyed, Translatable {
 
     fun asIconIndicator(timer: TypedStatusTimer): IconIndicator? {
         return if (texture != null) object : IconIndicator {
+            override fun getKey(): String {
+                return id
+            }
             override fun render(matrices: MatrixStack, textRenderer: TextRenderer, posX: Int, posY: Int, delta: Float) {
                 renderIcon(matrices, textRenderer, timer, texture, posX, posY, delta)
             }
