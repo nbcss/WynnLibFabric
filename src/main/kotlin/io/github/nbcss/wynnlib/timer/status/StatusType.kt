@@ -20,7 +20,7 @@ import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
 import kotlin.math.roundToInt
 
-abstract class StatusType(data: JsonObject): Keyed {
+abstract class StatusType(data: JsonObject): Keyed, Translatable {
     private val id: String = data["id"].asString
     private val icon: String = data["icon"].asString
     private val name: String = data["name"].asString
@@ -88,7 +88,20 @@ abstract class StatusType(data: JsonObject): Keyed {
         } else null
     }
 
+
+    fun isSideIndicator(): Boolean {
+        return text != null
+    }
+
+    fun isIconIndicator(): Boolean {
+        return texture != null
+    }
+
     override fun getKey(): String = id
+
+    override fun getTranslationKey(label: String?): String {
+        return "wynnlib.indicator.name.${id.lowercase()}"
+    }
 
     companion object: Registry<StatusType>() {
         val ICON_BACKGROUND: Identifier = Identifier("wynnlib", "textures/hud/timer_background.png")

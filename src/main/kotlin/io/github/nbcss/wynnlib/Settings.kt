@@ -2,6 +2,7 @@ package io.github.nbcss.wynnlib
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.google.gson.JsonPrimitive
 import io.github.nbcss.wynnlib.gui.ConfigurationScreen
 import io.github.nbcss.wynnlib.gui.CrafterScreen
 import io.github.nbcss.wynnlib.gui.TabFactory
@@ -35,6 +36,7 @@ object Settings {
             "Un+CEuE3wLbXVoAabgi8orOwtHxh6T0jNxNm0Ji/ICdPplt6Rx+DLO89tpDnd11/PbLYYFpkLNRXd/Fg=="
     private val keys: MutableSet<String> = mutableSetOf()
     private val lockedSlots: MutableSet<Int> = mutableSetOf()
+    private val indicators: MutableMap<String, Boolean> = mutableMapOf()
     private val options: MutableMap<SettingOption, Boolean> = mutableMapOf()
     private var isTester: Boolean = false
     private var dirty: Boolean = false
@@ -62,6 +64,10 @@ object Settings {
                 options[option] = getOr(it, option.id, option.defaultValue)
             }
             MatcherType.reload(getOr(it, "matchers", JsonObject()) { x -> x.asJsonObject })
+            indicators.clear()
+            for (entry in (getOr(it, "indicators", JsonObject()) { x -> x.asJsonObject }).entrySet()) {
+                indicators[entry.key] = entry.value.asBoolean
+            }
             lockedSlots.clear()
             lockedSlots.addAll(getOr(it, "locked", emptyList()){ i -> i.asInt })
             keys.clear()
@@ -82,6 +88,9 @@ object Settings {
                     data.addProperty(option.id, getOption(option))
                 }
                 data.add("matchers", MatcherType.getData())
+                val indicatorsJson = JsonObject()
+                indicators.forEach { (k, v) -> indicatorsJson.add(k, JsonPrimitive(v)) }
+                data.add("indicators", indicatorsJson)
                 val locked = JsonArray()
                 lockedSlots.forEach { locked.add(it) }
                 data.add("locked", locked)
@@ -161,6 +170,15 @@ object Settings {
 
     fun getOption(option: SettingOption): Boolean {
         return options.getOrDefault(option, option.defaultValue)
+    }
+
+    fun setIndicatorEnabled(key: String, enabled: Boolean) {
+        indicators[key] = enabled
+        markDirty()
+    }
+
+    fun getIndicatorEnabled(key: String): Boolean {
+        return indicators.getOrDefault(key, true)
     }
 
     fun markDirty() {
