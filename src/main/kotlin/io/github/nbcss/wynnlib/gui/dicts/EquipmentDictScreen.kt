@@ -35,7 +35,8 @@ class EquipmentDictScreen(parent: Screen?) : DictionaryScreen<Equipment>(parent,
 
     override fun init() {
         super.init()
-        advSearch = AdvanceSearchPaneWidget.Builder(this, windowX + backgroundWidth, windowY + 28)
+        advSearch = AdvanceSearchPaneWidget.Builder(this,
+            windowX + backgroundWidth, windowY + 28)
             .filter(ItemTypeFilter(memory, this))
             .filter(RarityFilter(memory, this))
             .build()
