@@ -8063,7 +8063,7 @@
       "blocks": [],
       "archetype_requirements": {},
       "predecessors": [
-        "DANCING_BLADE",
+        "FLOW_STATE",
         "SHURIKENS"
       ],
       "properties": {
@@ -8108,7 +8108,7 @@
       "name": "Psithurism",
       "location": "3,3,7",
       "class": "ASSASSIN",
-      "height": 16,
+      "height": 17,
       "position": 3,
       "tier": 1,
       "cost": 1,
@@ -9022,6 +9022,33 @@
         "ability_damage_bonus": {
           "ability": "MIRROR_IMAGE",
           "bonus": 10
+        }
+      },
+      "metadata": null
+    },
+    {
+      "id": "PIROUETTE",
+      "name": "Pirouette",
+      "location": "5,4,5",
+      "class": "ASSASSIN",
+      "height": 28,
+      "position": 1,
+      "tier": 2,
+      "cost": 0,
+      "archetype": null,
+      "dependency": "DANCING_BLADE",
+      "blocks": [],
+      "archetype_requirements": {},
+      "predecessors": [
+        "STRONGER_LACERATE"
+      ],
+      "properties": {
+        "upgrade": {
+          "ability": "DANCING_BLADE"
+        },
+        "damage_modifier": {
+          "neutral": 30,
+          "air": 10
         }
       },
       "metadata": null
